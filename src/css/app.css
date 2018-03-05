@@ -90,7 +90,7 @@ a:hover {
 /* Common */
 
 .navbar {
-  height: 80px;
+  height: 180px;
   background-color: var(--dusk);
   padding: 10px;
   color: var(--light);
@@ -515,8 +515,8 @@ label[for=root_pictures]:hover {
 
 .dark-footer {
   background-color: var(--dark-grey-blue);
-  padding: 80px 0px;
-  min-height: 522px;
+  padding: 20px 0px;
+  min-height: 222px;
 }
 
 footer .logo-container {
@@ -530,7 +530,7 @@ footer .company-mission {
 
 footer p {
   color: white;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 }
 
 footer .footer-header {

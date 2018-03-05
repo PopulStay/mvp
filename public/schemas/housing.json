@@ -2,7 +2,7 @@
   "$schema":"http://json-schema.org/draft-06/schema#",
   "description": "Peer-to-Peer Home Sharing",
   "type": "object",
-  "required": ["type","location","price", "pictures"],
+  "required": ["type", "beds", "location","price", "pictures"],
   "properties": {
     "type": {
       "type": "string",
@@ -14,13 +14,26 @@
       ],
       "default":"Entire place"
     },
+    "beds": {
+      "type": "integer",
+      "title": "Beds",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
     "location": {
       "type": "string",
       "title": "Location"
     },
     "price": {
       "type": "number",
-      "title": "Price in ETH"
+      "title": "Price in PPS"
     },
     "pictures": {
       "type": "array",

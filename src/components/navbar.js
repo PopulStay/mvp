@@ -40,9 +40,7 @@ const NavBar = (props) => {
       <div className="container">
         <Link to="/">
           <div className="logo-container">
-            <img src="/images/origin-logo.png"
-              srcSet="/images/origin-logo@2x.png 2x, /images/origin-logo@3x.png 3x"
-              className="origin-logo" alt="Origin Protocol" />
+            <img src="/images/logo.svg" height="130" alt="PopulStay" />
           </div>
         </Link>
         <NetworkCheck />
