@@ -12,8 +12,7 @@ class ListingCard extends Component {
       name: "Loading...",
       price: "Loading...",
       ipfsHash: null,
-      lister: null,
-      unitsAvailable: null
+      lister: null
     }
   }
 
@@ -46,10 +45,7 @@ class ListingCard extends Component {
           <div className="category">{this.state.category}</div>
           <div className="title">{this.state.name}</div>
           <div className="price">
-              {Number(this.state.price).toLocaleString(undefined, {minimumFractionDigits: 3})} ETH
-              {this.state.unitsAvailable===0 &&
-                <span className="sold-banner">Sold</span>
-              }
+              {Number(this.state.price).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
           </div>
         </Link>
       </div>

@@ -102,8 +102,7 @@ class ContractService {
           index: listing[0].toNumber(),
           lister: listing[1],
           ipfsHash: this.getIpfsHashFromBytes32(listing[2]),
-          price: window.web3.fromWei(listing[3], 'ether').toNumber(),
-          unitsAvailable: listing[4].toNumber()
+          price: window.web3.fromWei(listing[3], 'ether').toNumber()
         }
         resolve(listingObject)
       })

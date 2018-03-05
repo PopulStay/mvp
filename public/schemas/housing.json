@@ -1,39 +1,18 @@
 {
   "$schema":"http://json-schema.org/draft-06/schema#",
-  "description": "Distributed Airbnb",
+  "description": "Peer-to-Peer Home Sharing",
   "type": "object",
-  "required": ["name","category","description","price"],
+  "required": ["type","location","price", "pictures"],
   "properties": {
-    "name": {
+    "type": {
       "type": "string",
-      "title": "Title",
-      "minLength": 3,
-      "maxLength": 100
-    },
-    "category": {
-      "type": "string",
-      "title": "Category",
+      "title": "Type",
       "enum": [
-        "Apts Wanted",
-        "Apts/Housing for Rent",
-        "Housing Swap",
-        "Office & Commercial",
-        "Parking & Storage",
-        "Real Estate",
-        "Real Estate Wanted",
-        "Room/Share Wanted",
-        "Rooms & Shares",
-        "Sublet/Temp Wanted",
-        "Sublets & Temporary",
-        "Vacation Rentals"
+        "Entire place",
+        "Private room",
+        "Shared room"
       ],
-      "default":"Vacation Rentals"
-    },
-    "description": {
-      "type": "string",
-      "title": "Description",
-      "minLength": 10,
-      "maxLength": 1024
+      "default":"Entire place"
     },
     "location": {
       "type": "string",

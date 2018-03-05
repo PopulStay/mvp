@@ -24,7 +24,6 @@ class ListingsDetail extends Component {
       price: "Loading...",
       ipfsHash: null,
       lister: null,
-      unitsAvailable: null,
       pictures: [],
       step: this.STEP.VIEW,
     }
@@ -129,7 +128,6 @@ class ListingsDetail extends Component {
               <div className="debug">
                 <li>IPFS: {this.state.ipfsHash}</li>
                 <li>Lister: {this.state.lister}</li>
-                <li>Units: {this.state.unitsAvailable}</li>
               </div>
             </div>
             <div className="col-12 col-md-4">
@@ -140,29 +138,16 @@ class ListingsDetail extends Component {
                     {Number(price).toLocaleString(undefined, {minimumFractionDigits: 3})} ETH
                   </span>
                 </div>
-                {(this.state.unitsAvailable > 1) &&
-                  <div>
-                    <span>Units Available</span>
-                    <span className="price">{this.state.unitsAvailable.toLocaleString()}</span>
-                  </div>
-                }
                 <div>
-                  {(this.props.listingId) && (
-                    (this.state.unitsAvailable > 0) ?
-                      <button
-                        className="button"
-                        onClick={this.handleBuyClicked}
-                        disabled={!this.props.listingId}
-                        onMouseDown={e => e.preventDefault()}
+                  {this.props.listingId &&
+                    <button
+                      className="button"
+                      onClick={this.handleBuyClicked}
+                      disabled={!this.props.listingId}
+                      onMouseDown={e => e.preventDefault()}
                       >
-                        Buy Now
-                      </button>
-                      :
-                      <div className="sold-banner">
-                        <img src="/images/sold-tag.svg" role="presentation" />
-                        Sold
-                      </div>
-                    )
+                        Book Now
+                    </button>
                   }
                 </div>
               </div>
