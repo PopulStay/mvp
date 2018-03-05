@@ -6,6 +6,7 @@ import contractService from '../services/contract-service'
 import ListingDetail from './listing-detail'
 import Form from 'react-jsonschema-form'
 import Overlay from './overlay'
+import schema from '../../public/schemas/housing.json'
 
 const alertify = require('../../node_modules/alertify/src/alertify.js')
 
@@ -20,46 +21,21 @@ class ListingCreate extends Component {
 
     // Enum of our states
     this.STEP = {
-      PICK_SCHEMA: 1,
-      DETAILS: 2,
-      PREVIEW: 3,
-      METAMASK: 4,
-      PROCESSING: 5,
-      SUCCESS: 6
+      DETAILS: 1,
+      PREVIEW: 2,
+      METAMASK: 3,
+      PROCESSING: 4,
+      SUCCESS: 5
     }
 
-    this.schemaList = [
-      {type: 'for-sale', name: 'For Sale', 'img': 'for-sale.jpg'},
-      {type: 'housing', name: 'Housing', 'img': 'housing.jpg'},
-      {type: 'transportation', name: 'Transportation', 'img': 'transportation.jpg'},
-      {type: 'tickets', name: 'Tickets', 'img': 'tickets.jpg'},
-      {type: 'services', name: 'Services', 'img': 'services.jpg'},
-      {type: 'announcements', name: 'Announcements', 'img': 'announcements.jpg'},
-    ]
-
     this.state = {
-      step: this.STEP.PICK_SCHEMA,
-      selectedSchemaType: this.schemaList[0],
-      selectedSchema: null,
-      schemaFetched: false,
+      step: this.STEP.DETAILS,
+      selectedSchema: schema,
+      schemaFetched: true,
       formListing: {formData: null}
     }
 
-    this.handleSchemaSelection = this.handleSchemaSelection.bind(this)
     this.onDetailsEntered = this.onDetailsEntered.bind(this)
-  }
-
-  handleSchemaSelection() {
-    fetch(`/schemas/${this.state.selectedSchemaType}.json`)
-    .then((response) => response.json())
-    .then((schemaJson) => {
-      this.setState({
-        selectedSchema: schemaJson,
-        schemaFetched: true,
-        step: this.STEP.DETAILS
-      })
-      window.scrollTo(0, 0)
-    })
   }
 
   onDetailsEntered(formListing) {
@@ -101,9 +77,10 @@ class ListingCreate extends Component {
     }
   }
 
-  onSubmitListing(formListing, selectedSchemaType) {
+  onSubmitListing(formListing) {
+    console.log("form data",formListing.formData)
     this.setState({ step: this.STEP.METAMASK })
-    originService.submitListing(formListing, selectedSchemaType)
+    originService.submitListing(formListing)
     .then((tx) => {
       this.setState({ step: this.STEP.PROCESSING })
       // Submitted to blockchain, now wait for confirmation
@@ -123,43 +100,6 @@ class ListingCreate extends Component {
   render() {
     return (
       <div className="container listing-form">
-        { this.state.step === this.STEP.PICK_SCHEMA &&
-          <div className="step-container pick-schema">
-            <div className="row flex-sm-row-reverse">
-             <div className="col-md-5 offset-md-2">
-                <div className="info-box">
-                  <h2>Choose a schema for your product or service</h2>
-                  <p>Your product or service will use a schema to describe its attributes like name, description, and price. Origin already has multiple schemas that map to well-known categories of listings like housing, auto, and services.</p>
-                  <div className="info-box-image"><img className="d-none d-md-block" src="/images/features-graphic.svg" role="presentation" /></div>
-                </div>
-              </div>
-
-              <div className="col-md-5">
-                <label>STEP {Number(this.state.step)}</label>
-                <h2>What type of listing do you want to create?</h2>
-                <div className="schema-options">
-                  {this.schemaList.map(schema => (
-                    <div
-                      className={
-                        this.state.selectedSchemaType === schema.type ?
-                        'schema-selection selected' : 'schema-selection'
-                      }
-                      key={schema.type}
-                      onClick={() => this.setState({selectedSchemaType:schema.type})}
-                    >
-                      {schema.name}
-                    </div>
-                  ))}
-                </div>
-                <div className="btn-container">
-                  <button className="float-right btn btn-primary" onClick={() => this.handleSchemaSelection()}>
-                    Next
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        }
         { this.state.step === this.STEP.DETAILS &&
           <div className="step-container schema-details">
             <div className="row flex-sm-row-reverse">
@@ -179,9 +119,6 @@ class ListingCreate extends Component {
                   onError={(errors) => console.log(`react-jsonschema-form errors: ${errors.length}`)}
                 >
                   <div className="btn-container">
-                    <button type="button" className="btn btn-other" onClick={() => this.setState({step: this.STEP.PICK_SCHEMA})}>
-                      Back
-                    </button>
                     <button type="submit" className="float-right btn btn-primary">Continue</button>
                   </div>
                 </Form>
@@ -233,7 +170,7 @@ class ListingCreate extends Component {
                     Back
                   </button>
                   <button className="btn btn-primary float-right"
-                    onClick={() => this.onSubmitListing(this.state.formListing, this.state.selectedSchemaType)}>
+                    onClick={() => this.onSubmitListing(this.state.formListing)}>
                     Done
                   </button>
                 </div>

@@ -4,12 +4,12 @@ import ipfsService from '../services/ipfs-service'
 class OriginService {
   static instance
 
-  submitListing(formListing, selectedSchemaType) {
+  submitListing(formListing) {
 
     return new Promise((resolve, reject) => {
 
       const jsonBlob = {
-        'schema': `http://localhost:3000/schemas/${selectedSchemaType.type}.json`,
+        'schema': `http://localhost:3000/schemas/housing.json`,
         'data': formListing.formData,
       }
 
