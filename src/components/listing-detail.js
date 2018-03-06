@@ -1,3 +1,7 @@
+import 'react-dates/initialize';
+import '../css/react_dates.css';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+
 import React, { Component } from 'react'
 import contractService from '../services/contract-service'
 import ipfsService from '../services/ipfs-service'
@@ -26,6 +30,7 @@ class ListingsDetail extends Component {
       lister: null,
       pictures: [],
       step: this.STEP.VIEW,
+      totalPrice: 0
     }
 
     this.handleBuyClicked = this.handleBuyClicked.bind(this)
@@ -78,6 +83,10 @@ class ListingsDetail extends Component {
     })
   }
 
+
+  calcTotalPrice(days) {
+    this.setState({totalPrice: days * this.state.price})
+  }
 
   render() {
     const price = typeof this.state.price === 'string' ? 0 : this.state.price
@@ -132,17 +141,32 @@ class ListingsDetail extends Component {
             <div className="col-12 col-md-4">
               <div className="buy-box">
                 <div>
-                  <span>Price</span>
+                  <span>Daily Price</span>
                   <span className="price">
                     {Number(price).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
                   </span>
                 </div>
                 <div>
+                  <span>Total Price</span>
+                  <span className="price">
+                    {Number(this.state.totalPrice).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
+                  </span>
+                </div>
+                <DateRangePicker
+                  startDate={this.state.startDate}
+                  startDateId="start_date"
+                  endDate={this.state.endDate}
+                  endDateId="end_date"
+                  onDatesChange={({ startDate, endDate }) => {this.setState({ startDate, endDate }); if(startDate && endDate) this.calcTotalPrice(endDate.diff(startDate, 'days'))}}
+                  focusedInput={this.state.focusedInput}
+                  onFocusChange={focusedInput => this.setState({ focusedInput })}
+                />
+                <div>
                   {this.props.listingId &&
                     <button
                       className="button"
                       onClick={this.handleBuyClicked}
-                      disabled={!this.props.listingId}
+                      disabled={!this.props.listingId || !this.state.startDate || !this.state.endDate}
                       onMouseDown={e => e.preventDefault()}
                       >
                         Book Now
