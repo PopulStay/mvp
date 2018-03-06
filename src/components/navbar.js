@@ -40,7 +40,7 @@ const NavBar = (props) => {
       <div className="container">
         <Link to="/">
           <div className="logo-container">
-            <img src="/images/logo.svg" height="130" alt="PopulStay" />
+            <img src="/images/logo_white.svg" height="130" alt="PopulStay" />
           </div>
         </Link>
         <NetworkCheck />
