@@ -73,7 +73,7 @@ class ListingsDetail extends Component {
     })
     .catch((error) => {
       console.log(error)
-      alertify.log("There was a problem purchasing this listing.\nSee the console for more details.")
+      alertify.log("There was a problem booking this listing.\nSee the console for more details.")
       this.setState({step: this.STEP.VIEW})
     })
   }
@@ -97,7 +97,7 @@ class ListingsDetail extends Component {
         }
         {this.state.step===this.STEP.PURCHASED &&
           <Overlay imageUrl="/images/circular-check-button.svg">
-            Purchase was successful.<br />
+            Booking was successful.<br />
             <a href="#" onClick={()=>window.location.reload()}>
               Reload page
             </a>
@@ -117,9 +117,8 @@ class ListingsDetail extends Component {
         <div className="container listing-container">
           <div className="row">
             <div className="col-12 col-md-8 detail-info-box">
-              <div className="category">{this.state.category}</div>
-              <div className="title">{this.state.name}</div>
-              <div className="description">{this.state.description}</div>
+              <div className="category">{this.state.category} ({this.state.beds} beds)</div>
+              <div className="title">{this.state.location}</div>
               <div className="category">Creator</div>
               <div className="description">{this.state.lister}</div>
               <a href={ipfsService.gatewayUrlForHash(this.state.ipfsHash)} target="_blank">
@@ -135,7 +134,7 @@ class ListingsDetail extends Component {
                 <div>
                   <span>Price</span>
                   <span className="price">
-                    {Number(price).toLocaleString(undefined, {minimumFractionDigits: 3})} ETH
+                    {Number(price).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
                   </span>
                 </div>
                 <div>
