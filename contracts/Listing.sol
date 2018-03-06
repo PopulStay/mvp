@@ -82,16 +82,16 @@ contract Listing {
     // We get stripped hex value from IPFS hash using getBytes32FromIpfsHash()
     // in contract-service.js
 
-    // Zinc house - Hash: QmTfozaMrUBZdYBzPgxuSC15zBRgLCEfQmWFZwmDHYGY1e
+    // Zinc house - Hash: QmXLbEoZjiVuBKktdo4LoYbM5bt2uygyt5xKBVZNzAwDVA
     create(
-      0x4f32f7a7d40b4d65a917926cbfd8fd521483e7472bcc4d024179735622447dc9,
-      3.999 ether
+      0x85b54209824fdf81de18438bc09e33ea5e22aaf84dc67fb81eb9579a66b101f1,
+      850
     );
 
-    // Mamalahoa Estate - Hash: QmZtQDL4UjQWryQLjsS5JUsbdbn2B27Tmvz2gvLkw7wmmb
+    // Mamalahoa Estate - Hash: QmRM1hX7S2TjogwXWQn5k25ucFB25HfPMmH42JVz73yvVg
     create(
-      0xab92c0500ba26fa6f5244f8ba54746e15dd455a7c99a67f0e8f8868c8fab4a1a,
-      8.500 ether
+      0x2caacb4b4bca5ee5b8bc997fba5e342df4c7f1f04622b27e124017a9047594d3,
+      1000
     );
   }
 

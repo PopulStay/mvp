@@ -42,10 +42,10 @@ class ListingCard extends Component {
                 '/images/default-image.jpg'}")`
           }}>
           </div>
-          <div className="category">{this.state.category}</div>
-          <div className="title">{this.state.name}</div>
+          <div className="category">{this.state.category} ({this.state.beds} beds)</div>
+          <div className="title">{this.state.location}</div>
           <div className="price">
-              {Number(this.state.price).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
+              {Number(this.state.price).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS / day
           </div>
         </Link>
       </div>

@@ -2,9 +2,9 @@
   "$schema":"http://json-schema.org/draft-06/schema#",
   "description": "Peer-to-Peer Home Sharing",
   "type": "object",
-  "required": ["type", "beds", "location","price", "pictures"],
+  "required": ["category", "beds", "location","price", "pictures"],
   "properties": {
-    "type": {
+    "category": {
       "type": "string",
       "title": "Type",
       "enum": [

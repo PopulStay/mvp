@@ -46,6 +46,7 @@ class ContractService {
           let weiToGive = window.web3.toWei(ethPrice, 'ether')
           // Note we cannot get the listingId returned by our contract.
           // See: https://forum.ethereum.org/discussion/comment/31529/#Comment_31529
+          console.log("IPFS Hash", this.getBytes32FromIpfsHash(ipfsListing))
           return instance.create(
             this.getBytes32FromIpfsHash(ipfsListing),
             weiToGive,
