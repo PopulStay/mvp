@@ -34,7 +34,7 @@ truffle develop
 ```
  This will begin a new Ethereum blockchain. It will output 10 accounts that it has put 100 ETH into, and the mnemonic to generate them.
 
-5. In the truffle console, type `migrate`. This will compile our contracts and add them to the blockchain.
+5. In the truffle console, type `migrate --reset`. This will compile our contracts and add them to the blockchain.
 
 6. Install [Metamask Chrome Browser Extension](https://metamask.io/).
 
