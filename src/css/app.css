@@ -6,6 +6,7 @@
   --dark: #111d28;
   --light: #c2cbd3;
   --clear-blue: #1a82ff;
+  --popul-pink: #ef436d;
   --dark-grey-blue: #2e3f53;
   --dark-clear-blue: #0169e6;
   --dark-grey: #282727;
@@ -219,7 +220,7 @@ a:hover {
 }
 
 .listing-card .category {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--dusk);
   text-transform: uppercase;
   margin: 15px 0px 5px 0px;
@@ -227,7 +228,7 @@ a:hover {
 
 .listing-card .title {
   font-family: var(--heading-font);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--dusk);
   margin: 5px 0px;
   overflow: hidden;
@@ -349,6 +350,17 @@ a:hover {
   border: solid 1px var(--clear-blue);
   color: white;
   font-weight: 700;
+}
+
+.navbar-create button {
+  height: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 35px;
+  border-radius: 30px;
+  background-color: var(--popul-pink);
+  border: solid 1px var(--popul-pink);
+  color: white;
 }
 
 .listing-container .buy-box .sold-banner {
@@ -516,7 +528,7 @@ label[for=root_pictures]:hover {
 .dark-footer {
   background-color: var(--dark-grey-blue);
   padding: 20px 0px;
-  min-height: 222px;
+  min-height: 122px;
 }
 
 footer .logo-container {
@@ -524,8 +536,8 @@ footer .logo-container {
 }
 
 footer .company-mission {
-  max-width: 360px;
-  margin-left: 0px;
+  max-width: 430px;
+  margin: autopx;
 }
 
 footer p {

@@ -47,7 +47,9 @@ const NavBar = (props) => {
         {!props.hideCreateButton &&
           <div className="navbar-create">
             <Link to="/create">
-              Create Listing
+              <button className="button">
+                Create Listing
+              </button>
             </Link>
           </div>
         }

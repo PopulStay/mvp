@@ -4,7 +4,7 @@ const Footer = (props) => {
   return (
     <footer className="dark-footer">
       <div className="container">
-        <div className="col-12 col-md-6 ">
+        <div className="text-center">
           <p className="company-mission">
             PopulStay is building the peer-to-peer home sharing network. Tenants and landlords will be able to transact without rent-seeking middlemen.
           </p>
