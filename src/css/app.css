@@ -1,7 +1,7 @@
 @import 'alertify.css';
 
 :root {
-  --default-font: 'Lato', 'Helvetica Neue', 'Arial', sans-serif;
+  --default-font: 'Helvetica Neue', 'Arial', sans-serif;
   --heading-font: 'Poppins', 'Helvetica Neue', 'Arial', sans-serif;
   --dark: #111d28;
   --light: #c2cbd3;
@@ -212,7 +212,10 @@ a:hover {
 }
 
 .listings-grid h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
   margin-bottom: 40px;
+  color: var(--dark-grey-blue)
 }
 
 .listing-card {
