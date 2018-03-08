@@ -1,6 +1,6 @@
 import 'react-dates/initialize';
 import '../css/react_dates.css';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
 
 import React, { Component } from 'react'
 import contractService from '../services/contract-service'
