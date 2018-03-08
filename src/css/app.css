@@ -525,24 +525,29 @@ label[for=root_pictures]:hover {
 
 /* footer */
 
-.dark-footer {
-  background-color: var(--dark-grey-blue);
-  padding: 20px 0px;
-  min-height: 122px;
+footer .footer-top {
+  padding: 20px 0;
+  border-top: var(--popul-pink) 1px solid
 }
 
-footer .logo-container {
-  margin: 40px auto;
-}
-
-footer .company-mission {
-  max-width: 430px;
-  margin: autopx;
-}
-
-footer p {
+footer .footer-bottom {
+  padding: 30px 0;
+  min-height: 80px;
+  background-color: var(--dark-blue);
   color: white;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+footer .footer-bottom img {
+  margin-left: 10px;
+}
+
+footer select {
+  width: 10rem;
+  margin: 8px 0;
+  height: 2rem;
+  color: var(--dark-blue)
 }
 
 footer .footer-header {
