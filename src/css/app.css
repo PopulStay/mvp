@@ -491,7 +491,7 @@ label[for=root_pictures]:hover {
 .listing-form .info-box {
   background-color: var(--pale-grey);
   border-radius: var(--default-radius);
-  padding: 30px;
+  padding: 25px;
   margin-bottom: 30px;
   box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.2);
 }

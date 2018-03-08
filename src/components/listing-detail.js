@@ -100,7 +100,7 @@ class ListingsDetail extends Component {
         }
         {this.state.step===this.STEP.PROCESSING &&
           <Overlay imageUrl="/images/spinner-animation.svg">
-            Processing your purchase<br />
+            Processing your booking<br />
             Please stand by...
           </Overlay>
         }
@@ -146,21 +146,25 @@ class ListingsDetail extends Component {
                     {Number(price).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
                   </span>
                 </div>
-                <div>
-                  <span>Total Price</span>
-                  <span className="price">
-                    {Number(this.state.totalPrice).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
-                  </span>
-                </div>
-                <DateRangePicker
-                  startDate={this.state.startDate}
-                  startDateId="start_date"
-                  endDate={this.state.endDate}
-                  endDateId="end_date"
-                  onDatesChange={({ startDate, endDate }) => {this.setState({ startDate, endDate }); if(startDate && endDate) this.calcTotalPrice(endDate.diff(startDate, 'days'))}}
-                  focusedInput={this.state.focusedInput}
-                  onFocusChange={focusedInput => this.setState({ focusedInput })}
-                />
+                {this.props.listingId &&
+                  <div>
+                    <span>Total Price</span>
+                    <span className="price">
+                      {Number(this.state.totalPrice).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
+                    </span>
+                  </div>
+                }
+                {this.props.listingId &&
+                  <DateRangePicker
+                    startDate={this.state.startDate}
+                    startDateId="start_date"
+                    endDate={this.state.endDate}
+                    endDateId="end_date"
+                    onDatesChange={({ startDate, endDate }) => {this.setState({ startDate, endDate }); if(startDate && endDate) this.calcTotalPrice(endDate.diff(startDate, 'days'))}}
+                    focusedInput={this.state.focusedInput}
+                    onFocusChange={focusedInput => this.setState({ focusedInput })}
+                  />
+                }
                 <div>
                   {this.props.listingId &&
                     <button
