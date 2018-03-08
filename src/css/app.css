@@ -334,7 +334,7 @@ a:hover {
 
 .listing-container .buy-box {
   border-radius: var(--default-radius);
-  background-color: var(--dark-grey-blue);
+  background-color: var(--dark-blue);
   padding: 40px;
   font-size: 18px;
   color: white;
