@@ -501,6 +501,10 @@ label[for=root_pictures]:hover {
   font-weight: 400;
 }
 
+.listing-form .info-box li {
+  margin: 20px 0
+}
+
 .listing-form .info-box p {
   font-size: 1.05rem;
 }
