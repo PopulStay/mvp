@@ -1,4 +1,5 @@
 pragma solidity ^0.4.4;
+
 contract RentHouse{
     
     struct RentContract{
@@ -11,10 +12,8 @@ contract RentHouse{
         address owner;
        
     }
-    
-    mapping ( uint  => RentContract ) rentContracts;
-    
-    uint[] public uuids;
+    mapping ( uint    => RentContract ) rentContracts;
+    mapping ( address => uint[] )  uuids;
    
     function setRentContracts(uint _uuid, string _doorkey,uint _price,uint _start,uint _end) returns  (bool success)
     {
@@ -31,14 +30,14 @@ contract RentHouse{
                                 }
 
               );
+              
+        uuids[msg.sender].push(_uuid);
         
-        uuids.push(_uuid);
-         
         return true;
     }
     
-    function getUUIDS() view public returns(uint[]) {
-        return uuids;
+    function getUUIDS(address houseowner) view public returns(uint[] _uuid) {
+       return uuids[houseowner];
     }
     
     function getRentContract(uint _uuid)  view  returns (uint _price,uint _start, uint _end, uint _contractdatetime,address _owner,uint _state)  
