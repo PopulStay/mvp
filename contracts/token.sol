@@ -27,7 +27,6 @@ library SafeMath {
 
 // ----------------------------------------------------------------------------
 // ERC Token Standard #20 Interface
-// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
 // ----------------------------------------------------------------------------
 contract ERC20Interface {
     function totalSupply() public constant returns (uint);
@@ -86,7 +85,7 @@ contract Owned {
 // ERC20 Token, with the addition of symbol, name and decimals and an
 // initial fixed supply
 // ----------------------------------------------------------------------------
-contract FixedSupplyToken is ERC20Interface, Owned {
+contract DCash is ERC20Interface, Owned {
     using SafeMath for uint;
 
     string public symbol;
@@ -101,7 +100,7 @@ contract FixedSupplyToken is ERC20Interface, Owned {
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
-    function FixedSupplyToken() public {
+    function DCash() public {
         symbol = "DCash";
         name = "DCash";
         decimals = 18;
