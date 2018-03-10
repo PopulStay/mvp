@@ -100,10 +100,20 @@ a:hover {
   box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
+.navbar .userInfo {
+  color: white;
+  font-weight: normal;
+  margin-bottom: 35px;
+}
+
+.navbar .logoutButton {
+  color: var(--popul-pink);
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
 .navbar-create {
   font-size: 1.1rem;
-  float: right;
-  clear: right;
   color: var(--light);
 }
 
@@ -359,7 +369,6 @@ a:hover {
   height: 50px;
   padding-left: 50px;
   padding-right: 50px;
-  margin-top: 35px;
   border-radius: 30px;
   background-color: var(--popul-pink);
   border: solid 1px var(--popul-pink);

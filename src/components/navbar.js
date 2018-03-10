@@ -44,15 +44,21 @@ const NavBar = (props) => {
           </div>
         </Link>
         <NetworkCheck />
-        {!props.hideCreateButton &&
-          <div className="navbar-create">
-            <Link to="/create">
-              <button className="button">
-                Create Listing
-              </button>
-            </Link>
+        <div className="float-right">
+          <div className="userInfo">
+            Welcome Walter
+            <button className="logoutButton float-right">Logout</button>
           </div>
-        }
+          {!props.hideCreateButton &&
+            <div className="navbar-create">
+              <Link to="/create">
+                <button>
+                  Create Listing
+                </button>
+              </Link>
+            </div>
+          }
+        </div>
       </div>
     </nav>
   )
