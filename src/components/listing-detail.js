@@ -159,6 +159,8 @@ class ListingsDetail extends Component {
                     startDate={this.state.startDate}
                     startDateId="start_date"
                     endDate={this.state.endDate}
+                    startDatePlaceholderText="Check In"
+                    endDatePlaceholderText="Check Out"
                     endDateId="end_date"
                     onDatesChange={({ startDate, endDate }) => {this.setState({ startDate, endDate }); if(startDate && endDate) this.calcTotalPrice(endDate.diff(startDate, 'days'))}}
                     focusedInput={this.state.focusedInput}
