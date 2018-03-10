@@ -1,5 +1,19 @@
 pragma solidity ^0.4.4;
 
+contract Token {
+
+    function totalSupply() public constant returns (uint);
+    function balanceOf(address tokenOwner) public constant returns (uint balance);
+    function allowance(address tokenOwner, address spender) public constant returns (uint remaining);
+    function transfer(address to, uint tokens) public returns (bool success);
+    function approve(address spender, uint tokens) public returns (bool success);
+    function transferFrom(address from, address to, uint tokens) public returns (bool success);
+
+    event Transfer(address indexed from, address indexed to, uint tokens);
+    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+
+}
+
 contract RentHouse{
     
     struct RentContract{
@@ -12,10 +26,11 @@ contract RentHouse{
         address owner;
        
     }
-    mapping ( uint    => RentContract ) rentContracts;
-    mapping ( address => uint[] )  uuids;
+    
+    mapping ( uint    => RentContract ) private rentContracts;
+    mapping ( address => uint[] ) private uuids;
    
-    function setRentContracts(uint _uuid, string _doorkey,uint _price,uint _start,uint _end) returns  (bool success)
+    function setRentContracts(uint _uuid, string _doorkey,uint _price,uint _start,uint _end) public returns  (bool success)
     {
         rentContracts[_uuid]
         = RentContract(
@@ -40,7 +55,7 @@ contract RentHouse{
        return uuids[houseowner];
     }
     
-    function getRentContract(uint _uuid)  view  returns (uint _price,uint _start, uint _end, uint _contractdatetime,address _owner,uint _state)  
+    function getRentContract(uint _uuid)  view public returns (uint _price,uint _start, uint _end, uint _contractdatetime,address _owner,uint _state)  
     {
         
         //check the contract list, the most important thing is that if state is 0, that means this house had been rented.       
@@ -56,7 +71,7 @@ contract RentHouse{
       
     event RentResult(string _doorkey, uint _price, uint _start, uint _end, uint _contractdatetime);
     
-    function Rent(uint _uuid,address token) returns (bool success)  {
+    function Rent(uint _uuid,address token) public returns (bool success)  {
         
          //remember to call Token.approve(this_contract_address,mount)
          //tranfer token to houseowner
