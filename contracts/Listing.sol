@@ -1,4 +1,4 @@
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.18;
 
 /// @title Listing
 /// @dev Used to keep marketplace of listings for landlords and tenants
