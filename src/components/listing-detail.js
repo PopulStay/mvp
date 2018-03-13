@@ -33,7 +33,7 @@ class ListingsDetail extends Component {
       totalPrice: 0
     }
 
-    this.handleBuyClicked = this.handleBuyClicked.bind(this)
+    this.handleBooking = this.handleBooking.bind(this)
   }
 
   loadListing() {
@@ -63,11 +63,13 @@ class ListingsDetail extends Component {
     }
   }
 
-  handleBuyClicked() {
-    const unitsToBuy = 1
-    const totalPrice = (unitsToBuy * this.state.price)
+  handleBooking() {
+    let unitsToBuy = 0
+    if (this.state.checkInDate && this.state.checkOutDate) {
+      unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days')
+    }
     this.setState({step: this.STEP.METAMASK})
-    contractService.buyListing(this.props.listingId, unitsToBuy, totalPrice)
+    contractService.buyListing(this.props.listingId, unitsToBuy, this.state.price)
     .then((transactionReceipt) => {
       console.log("Purchase request sent.")
       this.setState({step: this.STEP.PROCESSING})
@@ -83,9 +85,12 @@ class ListingsDetail extends Component {
     })
   }
 
-
-  calcTotalPrice(days) {
-    this.setState({totalPrice: days * this.state.price})
+  calcTotalPrice() {
+    if (this.state.checkInDate && this.state.checkOutDate) {
+      let days = this.state.checkOutDate.diff(this.state.checkInDate, 'days')
+      return this.state.price * days
+    }
+    return 0
   }
 
   render() {
@@ -150,19 +155,19 @@ class ListingsDetail extends Component {
                   <div>
                     <span>Total Price</span>
                     <span className="price">
-                      {Number(this.state.totalPrice).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
+                      {Number(this.calcTotalPrice()).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
                     </span>
                   </div>
                 }
                 {this.props.listingId &&
                   <DateRangePicker
-                    startDate={this.state.startDate}
+                    startDate={this.state.checkInDate}
                     startDateId="start_date"
-                    endDate={this.state.endDate}
+                    endDate={this.state.checkOutDate}
                     startDatePlaceholderText="Check In"
                     endDatePlaceholderText="Check Out"
                     endDateId="end_date"
-                    onDatesChange={({ startDate, endDate }) => {this.setState({ startDate, endDate }); if(startDate && endDate) this.calcTotalPrice(endDate.diff(startDate, 'days'))}}
+                    onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
                     focusedInput={this.state.focusedInput}
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                   />
@@ -171,7 +176,7 @@ class ListingsDetail extends Component {
                   {this.props.listingId &&
                     <button
                       className="button"
-                      onClick={this.handleBuyClicked}
+                      onClick={this.handleBooking}
                       disabled={!this.props.listingId || !this.state.startDate || !this.state.endDate}
                       onMouseDown={e => e.preventDefault()}
                       >
