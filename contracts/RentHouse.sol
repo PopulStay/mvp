@@ -3,7 +3,12 @@ pragma solidity ^0.4.18;
 
 
 contract HouseInfoListing{
-   address private tokenAddress;//tokenAddress used to pay 
+   address public tokenAddress;//tokenAddress used to pay 
+   
+   address public preOrderaddressfortest;
+   
+   uint public transferPriceForTest;
+   
    
    function HouseInfoListing(address _tokenAddress) public{
        tokenAddress = _tokenAddress;
@@ -36,6 +41,7 @@ contract HouseInfoListing{
   mapping (address => address[]) private HouseOwnerOrders;//find house owner orders by house owner address
   
   function preOrder( address _owneraddress, bytes32 _houseinfo, uint _from, uint _to)
+  payable
   public
   returns (bool success)
   {
@@ -43,9 +49,9 @@ contract HouseInfoListing{
       //2:transfer token to contract address
       //3:if step 2 successfully finished, add preOrder contract address to PreOrders lists
       uint transferPrice = (_to - _from) * houseInfo[_houseinfo].price;
-     
+      transferPriceForTest = transferPrice;
       PreOrder preorder = new PreOrder( tokenAddress, _owneraddress,msg.sender,_houseinfo,_from,_to,0,transferPrice);
-      
+      preOrderaddressfortest =preorder;
        if(Token(tokenAddress).transferFrom(msg.sender,preorder,transferPrice))//transfer token to contract address
          {
              
@@ -115,17 +121,17 @@ contract HouseInfoListing{
 
 
 contract PreOrder{
-    address private tokenAddress;
-    address private owneraddress;
-    address private guestaddress;
-    bytes32 private houseinfo;
-    uint private from;
-    uint private to;
-    uint private status;//0:preorder 1: success  -1: cancel
-    uint private price;
+    address public tokenAddress;
+    address public owneraddress;
+    address public guestaddress;
+    bytes32 public houseinfo;
+    uint public from;
+    uint public to;
+    uint public status;//0:preorder 1: success  -1: cancel
+    uint public price;
     
     
-    function PreOrder(
+    function PreOrder (
                         address _tokenAddress, 
                         address _owneraddress,
                         address _guestaddress,
@@ -135,7 +141,7 @@ contract PreOrder{
                         uint _status,
                         uint _price
                     ) 
-    public{
+    payable public{
         tokenAddress = _tokenAddress;
         owneraddress = _owneraddress;
         guestaddress = _guestaddress;
@@ -148,12 +154,13 @@ contract PreOrder{
     }
     
     function confirmOrder()
+    payable
     public
     returns(bool success)
     {
        if( msg.sender == guestaddress && status == 0)   
        {
-            if(Token(tokenAddress).transferFrom(msg.sender,owneraddress,price))//transfer token to contract address
+            if(Token(tokenAddress).transferFrom(this,owneraddress,price))//transfer token to contract address
          {
              
             status = 1;
@@ -185,7 +192,8 @@ contract PreOrder{
       //2 if step 1 successfully finished, update info of preOrder contract
       return true;
    }
-
+    
+    
 }
 
 contract Token {
