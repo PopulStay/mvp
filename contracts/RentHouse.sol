@@ -4,9 +4,7 @@ pragma solidity ^0.4.18;
 
 contract HouseInfoListing{
    address public tokenAddress;//tokenAddress used to pay 
-   
    address public preOrderaddressfortest;
-   
    uint public transferPriceForTest;
    
    
@@ -120,6 +118,7 @@ contract HouseInfoListing{
 
 
 
+
 contract PreOrder{
     address public tokenAddress;
     address public owneraddress;
@@ -160,7 +159,7 @@ contract PreOrder{
     {
        if( msg.sender == guestaddress && status == 0)   
        {
-            if(Token(tokenAddress).transferFrom(this,owneraddress,price))//transfer token to contract address
+            if(Token(tokenAddress).transfer(owneraddress,price))//transfer token to contract address
          {
              
             status = 1;
