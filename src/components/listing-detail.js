@@ -3,7 +3,7 @@ import '../css/react_dates.css';
 import { DateRangePicker } from 'react-dates';
 
 import React, { Component } from 'react'
-import contractService from '../services/contract-service'
+import houselistingService from '../services/houseinfolist-service'
 import ipfsService from '../services/ipfs-service'
 
 import Overlay from './overlay'
@@ -37,19 +37,43 @@ class ListingsDetail extends Component {
   }
 
   loadListing() {
-    contractService.getListing(this.props.listingId)
-    .then((listingContractObject) => {
-      this.setState(listingContractObject)
-      return ipfsService.getListing(this.state.ipfsHash)
-    })
-    .then((listingJson) => {
-      const jsonData = JSON.parse(listingJson).data
-      this.setState(jsonData)
-    })
-    .catch((error) => {
-      alertify.log('There was an error loading this listing.')
-      console.error(`Error fetching contract or IPFS info for listingId: ${this.props.listingId}`)
-    })
+
+    console.log(this.props.listingId);
+    houselistingService.getHouseInfoDetail(this.props.listingId)
+    .then((result) => {
+        console.log(result[0].toNumber());
+        console.log(result[1].toNumber());
+        console.log(result[2]);
+        console.log(result[3].toNumber());
+        console.log(result[4]);
+        console.log(result[5]);
+        var roominfo = JSON.parse(result[5]);
+        this.setState({price:result[0].toNumber()});
+        this.setState({category:roominfo.category});
+        this.setState({location:roominfo.location});
+        this.setState({beds:roominfo.beds});
+        this.setState({lister:result[2]});
+
+    }).catch((error) => {
+      console.error(error);
+    });
+
+
+
+
+    // contractService.getListing(this.props.listingId)
+    // .then((listingContractObject) => {
+    //   this.setState(listingContractObject)
+    //   return ipfsService.getListing(this.state.ipfsHash)
+    // })
+    // .then((listingJson) => {
+    //   const jsonData = JSON.parse(listingJson).data
+    //   this.setState(jsonData)
+    // })
+    // .catch((error) => {
+    //   alertify.log('There was an error loading this listing.')
+    //   console.error(`Error fetching contract or IPFS info for listingId: ${this.props.listingId}`)
+    // })
   }
 
   componentWillMount() {
@@ -64,25 +88,25 @@ class ListingsDetail extends Component {
   }
 
   handleBooking() {
-    let unitsToBuy = 0
-    if (this.state.checkInDate && this.state.checkOutDate) {
-      unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days')
-    }
-    this.setState({step: this.STEP.METAMASK})
-    contractService.buyListing(this.props.listingId, unitsToBuy, this.state.price)
-    .then((transactionReceipt) => {
-      console.log("Purchase request sent.")
-      this.setState({step: this.STEP.PROCESSING})
-      return contractService.waitTransactionFinished(transactionReceipt.tx)
-    })
-    .then((blockNumber) => {
-      this.setState({step: this.STEP.PURCHASED})
-    })
-    .catch((error) => {
-      console.log(error)
-      alertify.log("There was a problem booking this listing.\nSee the console for more details.")
-      this.setState({step: this.STEP.VIEW})
-    })
+    // let unitsToBuy = 0
+    // if (this.state.checkInDate && this.state.checkOutDate) {
+    //   unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days')
+    // }
+    // this.setState({step: this.STEP.METAMASK})
+    // contractService.buyListing(this.props.listingId, unitsToBuy, this.state.price)
+    // .then((transactionReceipt) => {
+    //   console.log("Purchase request sent.")
+    //   this.setState({step: this.STEP.PROCESSING})
+    //   return contractService.waitTransactionFinished(transactionReceipt.tx)
+    // })
+    // .then((blockNumber) => {
+    //   this.setState({step: this.STEP.PURCHASED})
+    // })
+    // .catch((error) => {
+    //   console.log(error)
+    //   alertify.log("There was a problem booking this listing.\nSee the console for more details.")
+    //   this.setState({step: this.STEP.VIEW})
+    // })
   }
 
   calcTotalPrice() {
