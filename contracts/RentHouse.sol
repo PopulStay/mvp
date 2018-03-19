@@ -1,21 +1,44 @@
 pragma solidity ^0.4.18;
 
 
-
 contract HouseInfoListing{
    address public tokenAddress;//tokenAddress used to pay 
+   
+   bytes32[] private districtcode;//district code
+   address private contractowner;
+   
    address public preOrderaddressfortest;
    uint public transferPriceForTest;
    
    
    function HouseInfoListing(address _tokenAddress) public{
-       tokenAddress = _tokenAddress;
+       tokenAddress   = _tokenAddress;
+       contractowner  = msg.sender; 
    }
+   
+   
+ function setDistrictCode(bytes32 _districtcode) 
+   public 
+   returns(bool success)
+  {
+    if(msg.sender!= contractowner)
+    return false;
+    districtcode.push(_districtcode);
+    return true;
+  }
+   
+   function getDistrictCode() 
+   public 
+   view
+   returns(bytes32[] _districtcode)
+  {
+    return districtcode;
+  }
+   
     
     
   struct HouseInfo {
-    string  doorkey;
-    string  houseaddress;
+    string  roominfo;
     uint    price;
     uint    contractdatetime;
     uint    state;//0 close , 1 open
@@ -24,7 +47,7 @@ contract HouseInfoListing{
   }
   //通过房东的address确定房屋信息uuid
   mapping ( bytes32 => HouseInfo ) private houseInfo;   //describ the house information
-  mapping ( address => bytes32[] ) private uuids;       //every house info has one uuid,find house info by house owner address
+  mapping ( bytes32 => bytes32[] ) private uuids;       //every house info has one uuid,find house info by districtcode
                                                         //should add find house info by city street 
                                                         
                                                         
@@ -70,14 +93,13 @@ contract HouseInfoListing{
       
   }
   
-   function setHouseInfo(bytes32 _uuid, string _doorkey,string _houseaddress,uint _price,bytes32 _ipfsHash) 
+   function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _ipfsHash,bytes32 _districtcode) 
    public 
    returns(bool success)
   {
     houseInfo[_uuid] = HouseInfo(
       {
-        doorkey : _doorkey,
-        houseaddress : _houseaddress,
+        roominfo: _roominfo,
         price   : _price,
         contractdatetime:block.timestamp,
         owner   : msg.sender,
@@ -85,36 +107,37 @@ contract HouseInfoListing{
         ipfsHash: _ipfsHash
       });
               
-    uuids[msg.sender].push(_uuid);
+    uuids[_districtcode].push(_uuid);
     return true;
   }
     
     
-  function getUUIDS(address houseowner)
+  function getUUIDS(bytes32 _districtcode)
     view
     public
     returns(bytes32[] _uuid)
   {
-    return uuids[houseowner];
+    return uuids[_districtcode];
   }
     
   function getHouseInfo(bytes32 _uuid)
     view
     public
-    returns (string _houseaddress,uint _price, uint _contractdatetime, address _owner,uint _state,bytes32 _ipfsHash)
+    returns (uint _price, uint _contractdatetime, address _owner,uint _state,bytes32 _ipfsHash,string _roominfo)
   {
     //check the contract list, the most important thing is that if state is 0, that means this house had been rented.
     return (
-      houseInfo[_uuid].houseaddress,
       houseInfo[_uuid].price,
       houseInfo[_uuid].contractdatetime,
       houseInfo[_uuid].owner,
       houseInfo[_uuid].state,
-      houseInfo[_uuid].ipfsHash
+      houseInfo[_uuid].ipfsHash,
+      houseInfo[_uuid].roominfo
     );
   }
  
 }
+
 
 
 
