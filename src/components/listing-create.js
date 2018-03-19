@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import originService from '../services/origin-service'
-import contractService from '../services/contract-service'
-
+import houselistingService from '../services/houseinfolist-service'
 import ListingDetail from './listing-detail'
 import Form from 'react-jsonschema-form'
 import Overlay from './overlay'
@@ -80,11 +78,11 @@ class ListingCreate extends Component {
   onSubmitListing(formListing) {
     console.log("form data",formListing.formData)
     this.setState({ step: this.STEP.METAMASK })
-    originService.submitListing(formListing)
+    houselistingService.submitListing(formListing)
     .then((tx) => {
       this.setState({ step: this.STEP.PROCESSING })
       // Submitted to blockchain, now wait for confirmation
-      return contractService.waitTransactionFinished(tx)
+      return houselistingService.waitTransactionFinished(tx)
     })
     .then((blockNumber) => {
       this.setState({ step: this.STEP.SUCCESS })

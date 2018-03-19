@@ -1,5 +1,7 @@
 pragma solidity ^0.4.18;
 
+import "./RentHouse.sol";
+
 library SafeMath {
 
   function add(uint a, uint b)
@@ -55,15 +57,6 @@ contract ERC20Interface {
 
 }
 
-
-// ----------------------------------------------------------------------------
-// Contract function to receive approval and execute function in one call
-//
-// Borrowed from MiniMeToken
-// ----------------------------------------------------------------------------
-contract ApproveAndCallFallBack {
-  function receiveApproval(address from, uint256 tokens, address token, bytes data) public;
-}
 
 contract Owned {
 
@@ -209,13 +202,13 @@ contract PopulStayToken is ERC20Interface, Owned {
   // from the token owner's account. The `spender` contract function
   // `receiveApproval(...)` is then executed
   // ------------------------------------------------------------------------
-  function approveAndCall(address spender, uint tokens, bytes data)
+  function approveAndCall(address spender, uint tokens, address _owneraddress, bytes32 _houseinfo, uint _from, uint _to)
     public
     returns (bool success)
   {
     allowed[msg.sender][spender] = tokens;
     Approval(msg.sender, spender, tokens);
-    ApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, this, data);
+    HouseInfoListing(spender).preOrder(_owneraddress, _houseinfo, _from, _to);
     return true;
   }
 
