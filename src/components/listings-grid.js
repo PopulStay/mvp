@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import contractService from '../services/contract-service'
+import houselistingService from '../services/houseinfolist-service'
 import Pagination from 'react-js-pagination'
 import { withRouter } from 'react-router'
 
@@ -34,6 +35,22 @@ class ListingsGrid extends Component {
         return response.json()
       }
     })
+
+    houselistingService.getHostAddresses().then((result)=>{
+      if(result && result.length>0)
+      {
+           for(var i=0;i< result.length;i++)
+         {
+            houselistingService.getHouseId(result[i]).then((result)=>{
+
+              console.log(result);
+            });
+
+         }
+
+      }
+
+    });
 
     // Get all listings from contract
     const allListingsPromise = contractService.getAllListingIds()

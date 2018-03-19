@@ -1,21 +1,44 @@
 pragma solidity ^0.4.18;
 
 
-
 contract HouseInfoListing{
    address public tokenAddress;//tokenAddress used to pay 
+   
+   address[] private houseOwnerAddress;
+   address private contractowner;
+   
    address public preOrderaddressfortest;
    uint public transferPriceForTest;
    
    
    function HouseInfoListing(address _tokenAddress) public{
-       tokenAddress = _tokenAddress;
+       tokenAddress   = _tokenAddress;
+       contractowner  = msg.sender; 
    }
+   
+   
+   function setHouseOwnerAddresses(address _owneraddress) 
+   public 
+   returns(bool success)
+  {
+    if(msg.sender!= contractowner)
+    return false;
+    houseOwnerAddress.push(_owneraddress);
+    return true;
+  }
+   
+   function getHouseOwnerAddresses() 
+   public 
+   view
+   returns(address[] _owneraddress)
+  {
+    return houseOwnerAddress;
+  }
+   
     
     
   struct HouseInfo {
-    string  doorkey;
-    string  houseaddress;
+    string  roominfo;
     uint    price;
     uint    contractdatetime;
     uint    state;//0 close , 1 open
@@ -70,14 +93,13 @@ contract HouseInfoListing{
       
   }
   
-   function setHouseInfo(bytes32 _uuid, string _doorkey,string _houseaddress,uint _price,bytes32 _ipfsHash) 
+   function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _ipfsHash) 
    public 
    returns(bool success)
   {
     houseInfo[_uuid] = HouseInfo(
       {
-        doorkey : _doorkey,
-        houseaddress : _houseaddress,
+        roominfo: _roominfo,
         price   : _price,
         contractdatetime:block.timestamp,
         owner   : msg.sender,
@@ -101,20 +123,21 @@ contract HouseInfoListing{
   function getHouseInfo(bytes32 _uuid)
     view
     public
-    returns (string _houseaddress,uint _price, uint _contractdatetime, address _owner,uint _state,bytes32 _ipfsHash)
+    returns (uint _price, uint _contractdatetime, address _owner,uint _state,bytes32 _ipfsHash,string _roominfo)
   {
     //check the contract list, the most important thing is that if state is 0, that means this house had been rented.
     return (
-      houseInfo[_uuid].houseaddress,
       houseInfo[_uuid].price,
       houseInfo[_uuid].contractdatetime,
       houseInfo[_uuid].owner,
       houseInfo[_uuid].state,
-      houseInfo[_uuid].ipfsHash
+      houseInfo[_uuid].ipfsHash,
+      houseInfo[_uuid].roominfo
     );
   }
  
 }
+
 
 
 
