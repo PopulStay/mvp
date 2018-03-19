@@ -4,7 +4,7 @@ pragma solidity ^0.4.18;
 contract HouseInfoListing{
    address public tokenAddress;//tokenAddress used to pay 
    
-   address[] private houseOwnerAddress;
+   bytes32[] private districtcode;//district code
    address private contractowner;
    
    address public preOrderaddressfortest;
@@ -17,22 +17,22 @@ contract HouseInfoListing{
    }
    
    
-   function setHouseOwnerAddresses(address _owneraddress) 
+ function setDistrictCode(bytes32 _districtcode) 
    public 
    returns(bool success)
   {
     if(msg.sender!= contractowner)
     return false;
-    houseOwnerAddress.push(_owneraddress);
+    districtcode.push(_districtcode);
     return true;
   }
    
-   function getHouseOwnerAddresses() 
+   function getDistrictCode() 
    public 
    view
-   returns(address[] _owneraddress)
+   returns(bytes32[] _districtcode)
   {
-    return houseOwnerAddress;
+    return districtcode;
   }
    
     
@@ -47,7 +47,7 @@ contract HouseInfoListing{
   }
   //通过房东的address确定房屋信息uuid
   mapping ( bytes32 => HouseInfo ) private houseInfo;   //describ the house information
-  mapping ( address => bytes32[] ) private uuids;       //every house info has one uuid,find house info by house owner address
+  mapping ( bytes32 => bytes32[] ) private uuids;       //every house info has one uuid,find house info by districtcode
                                                         //should add find house info by city street 
                                                         
                                                         
@@ -93,7 +93,7 @@ contract HouseInfoListing{
       
   }
   
-   function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _ipfsHash) 
+   function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _ipfsHash,bytes32 _districtcode) 
    public 
    returns(bool success)
   {
@@ -107,17 +107,17 @@ contract HouseInfoListing{
         ipfsHash: _ipfsHash
       });
               
-    uuids[msg.sender].push(_uuid);
+    uuids[_districtcode].push(_uuid);
     return true;
   }
     
     
-  function getUUIDS(address houseowner)
+  function getUUIDS(bytes32 _districtcode)
     view
     public
     returns(bytes32[] _uuid)
   {
-    return uuids[houseowner];
+    return uuids[_districtcode];
   }
     
   function getHouseInfo(bytes32 _uuid)

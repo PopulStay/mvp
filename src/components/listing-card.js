@@ -17,17 +17,19 @@ class ListingCard extends Component {
   }
 
   componentDidMount() {
-    contractService.getListing(this.props.listingId)
-    .then((listingContractObject) => {
-      this.setState(listingContractObject)
-      return ipfsService.getListing(this.state.ipfsHash)
-    })
-    .then((listingJson) => {
-      this.setState(JSON.parse(listingJson).data)
-    })
-    .catch((error) => {
-      console.error(`Error fetching conract or IPFS info for listingId: ${this.props.listingId}`)
-    })
+
+      console.log(this.props.listingId);
+    // contractService.getListing(this.props.listingId)
+    // .then((listingContractObject) => {
+    //   this.setState(listingContractObject)
+    //   return ipfsService.getListing(this.state.ipfsHash)
+    // })
+    // .then((listingJson) => {
+    //   this.setState(JSON.parse(listingJson).data)
+    // })
+    // .catch((error) => {
+    //   console.error(`Error fetching conract or IPFS info for listingId: ${this.props.listingId}`)
+    // })
   }
 
   render() {

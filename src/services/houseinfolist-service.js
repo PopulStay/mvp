@@ -1,7 +1,7 @@
 import HouseInfoListing from '../../build/contracts/HouseInfoListing.json'
 
 var md5 = require('md5');//最后改IPFS
-var address="0xfb88de099e13c3ed21f80a7a1e49f8caecf10df6";
+var address="0x9fbda871d559710256a2502a2517b794b482db40";
 
 class HouseInfoListingService {
   static instance
@@ -28,7 +28,7 @@ class HouseInfoListingService {
        window.web3.eth.getAccounts((error, accounts) => {
         this.houseInfoListingContract.at(address).then(function(instance){
         	//最后改IPFS
-      	return instance.setHouseInfo(md5(roominfo),formListing.formData.price,roominfo,md5(roominfo),{from: accounts[0]});
+      	return instance.setHouseInfo(md5(roominfo),formListing.formData.price,roominfo,md5(roominfo),"332-0032",{from: accounts[0]});
       })
       .then((transactionReceipt) => {
           resolve(transactionReceipt.tx);
@@ -40,15 +40,15 @@ class HouseInfoListingService {
     })
   }
 
-    getHostAddresses() {
+    getDistrictCodes() {
     return new Promise((resolve, reject) => {
       this.houseInfoListingContract.setProvider(window.web3.currentProvider)
       this.houseInfoListingContract.at(address)
       .then((instance) => {
-        return instance.getHouseOwnerAddresses.call();
+        return instance.getDistrictCode.call();
       })
-      .then((addresses) => {
-        resolve(addresses);
+      .then((districtCodes) => {
+        resolve(districtCodes);
       })
       .catch((error) => {
         console.error(error)
@@ -57,13 +57,13 @@ class HouseInfoListingService {
     })
   }
 
-  getHouseId(hostAddress){
+  getHouseId(districtCode){
 
   	 return new Promise((resolve, reject) => {
       this.houseInfoListingContract.setProvider(window.web3.currentProvider)
       this.houseInfoListingContract.at(address)
       .then((instance) => {
-        return instance.getUUIDS.call(hostAddress);
+        return instance.getUUIDS.call(districtCode);
       })
       .then((uuids) => {
         resolve(uuids);
