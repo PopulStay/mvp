@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import contractService from '../services/contract-service'
+import houselistingService from '../services/houseinfolist-service'
 import ipfsService from '../services/ipfs-service'
 import { Link } from 'react-router-dom'
 
@@ -18,18 +18,24 @@ class ListingCard extends Component {
 
   componentDidMount() {
 
-      console.log(this.props.listingId);
-    // contractService.getListing(this.props.listingId)
-    // .then((listingContractObject) => {
-    //   this.setState(listingContractObject)
-    //   return ipfsService.getListing(this.state.ipfsHash)
-    // })
-    // .then((listingJson) => {
-    //   this.setState(JSON.parse(listingJson).data)
-    // })
-    // .catch((error) => {
-    //   console.error(`Error fetching conract or IPFS info for listingId: ${this.props.listingId}`)
-    // })
+    console.log(this.props.listingId);
+    houselistingService.getHouseInfoDetail(this.props.listingId)
+    .then((result) => {
+        console.log(result[0].toNumber());
+        console.log(result[1].toNumber());
+        console.log(result[2]);
+        console.log(result[3].toNumber());
+        console.log(result[4]);
+        console.log(result[5]);
+        var roominfo = JSON.parse(result[5]);
+        this.setState({price:result[0].toNumber()});
+        this.setState({category:roominfo.category});
+        this.setState({location:roominfo.location});
+        this.setState({beds:roominfo.beds});
+
+    }).catch((error) => {
+      console.error(error);
+    })
   }
 
   render() {
