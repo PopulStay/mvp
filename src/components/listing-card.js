@@ -35,7 +35,7 @@ class ListingCard extends Component {
 
     }).catch((error) => {
       console.error(error);
-    })
+    });
   }
 
   render() {

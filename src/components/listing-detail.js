@@ -2,11 +2,11 @@ import 'react-dates/initialize';
 import '../css/react_dates.css';
 import { DateRangePicker } from 'react-dates';
 
-import React, { Component } from 'react'
-import houselistingService from '../services/houseinfolist-service'
-import ipfsService from '../services/ipfs-service'
-
-import Overlay from './overlay'
+import React, { Component } from 'react';
+import houselistingService from '../services/houseinfolist-service';
+import ppsService from '../services/pps-service';
+import ipfsService from '../services/ipfs-service';
+import Overlay from './overlay';
 
 const alertify = require('../../node_modules/alertify/src/alertify.js')
 
@@ -57,23 +57,6 @@ class ListingsDetail extends Component {
     }).catch((error) => {
       console.error(error);
     });
-
-
-
-
-    // contractService.getListing(this.props.listingId)
-    // .then((listingContractObject) => {
-    //   this.setState(listingContractObject)
-    //   return ipfsService.getListing(this.state.ipfsHash)
-    // })
-    // .then((listingJson) => {
-    //   const jsonData = JSON.parse(listingJson).data
-    //   this.setState(jsonData)
-    // })
-    // .catch((error) => {
-    //   alertify.log('There was an error loading this listing.')
-    //   console.error(`Error fetching contract or IPFS info for listingId: ${this.props.listingId}`)
-    // })
   }
 
   componentWillMount() {
@@ -88,31 +71,39 @@ class ListingsDetail extends Component {
   }
 
   handleBooking() {
-    // let unitsToBuy = 0
-    // if (this.state.checkInDate && this.state.checkOutDate) {
-    //   unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days')
-    // }
-    // this.setState({step: this.STEP.METAMASK})
-    // contractService.buyListing(this.props.listingId, unitsToBuy, this.state.price)
-    // .then((transactionReceipt) => {
-    //   console.log("Purchase request sent.")
-    //   this.setState({step: this.STEP.PROCESSING})
-    //   return contractService.waitTransactionFinished(transactionReceipt.tx)
-    // })
-    // .then((blockNumber) => {
-    //   this.setState({step: this.STEP.PURCHASED})
-    // })
-    // .catch((error) => {
-    //   console.log(error)
-    //   alertify.log("There was a problem booking this listing.\nSee the console for more details.")
-    //   this.setState({step: this.STEP.VIEW})
-    // })
+    let unitsToBuy = 0;
+
+    if (this.state.checkInDate && this.state.checkOutDate) {
+      unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
+    }
+    this.setState({step: this.STEP.METAMASK});
+    // hostaddress, totalTokens, uuid, from, to, days
+    ppsService.setPreOrder( this.state.lister,
+                                     this.state.price * unitsToBuy,
+                                     this.props.listingId, 
+                                     this.state.checkInDate.toDate().getDate(), 
+                                     this.state.checkOutDate.toDate().getDate(),
+                                     unitsToBuy
+                                   )
+    .then((transactionReceipt) => {
+      console.log("Purchase request sent.")
+      this.setState({step: this.STEP.PROCESSING})
+      return ppsService.waitTransactionFinished(transactionReceipt.tx)
+    })
+    .then((blockNumber) => {
+      this.setState({step: this.STEP.PURCHASED})
+    })
+    .catch((error) => {
+      console.log(error)
+      alertify.log("There was a problem booking this listing.\nSee the console for more details.")
+      this.setState({step: this.STEP.VIEW})
+    })
   }
 
   calcTotalPrice() {
     if (this.state.checkInDate && this.state.checkOutDate) {
-      let days = this.state.checkOutDate.diff(this.state.checkInDate, 'days')
-      return this.state.price * days
+      let days = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
+      return this.state.price * days;
     }
     return 0
   }
@@ -127,12 +118,16 @@ class ListingsDetail extends Component {
             Press &ldquo;Submit&rdquo; in MetaMask window
           </Overlay>
         }
+
+
         {this.state.step===this.STEP.PROCESSING &&
           <Overlay imageUrl="/images/spinner-animation.svg">
             Processing your booking<br />
             Please stand by...
           </Overlay>
         }
+
+
         {this.state.step===this.STEP.PURCHASED &&
           <Overlay imageUrl="/images/circular-check-button.svg">
             Booking was successful.<br />
@@ -141,6 +136,7 @@ class ListingsDetail extends Component {
             </a>
           </Overlay>
         }
+
         {this.state.pictures &&
           <div className="carousel">
             {this.state.pictures.map(pictureUrl => (
@@ -152,6 +148,7 @@ class ListingsDetail extends Component {
             ))}
           </div>
         }
+
         <div className="container listing-container">
           <div className="row">
             <div className="col-12 col-md-8 detail-info-box">
@@ -183,7 +180,8 @@ class ListingsDetail extends Component {
                     </span>
                   </div>
                 }
-                {this.props.listingId &&
+                {
+                  this.props.listingId &&
                   <DateRangePicker
                     startDate={this.state.checkInDate}
                     startDateId="start_date"
@@ -194,18 +192,23 @@ class ListingsDetail extends Component {
                     onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
                     focusedInput={this.state.focusedInput}
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
+                  
                   />
                 }
+
                 <div>
-                  {this.props.listingId &&
+                  
+                  {
+                    this.props.listingId &&
                     <button
                       className="button"
                       onClick={this.handleBooking}
-                      disabled={!this.props.listingId || !this.state.startDate || !this.state.endDate}
+                      disabled={!this.props.listingId || !this.state.checkInDate || !this.state.checkOutDate}
                       onMouseDown={e => e.preventDefault()}
                       >
                         Book Now
                     </button>
+                  
                   }
                 </div>
               </div>

@@ -1,6 +1,5 @@
 pragma solidity ^0.4.18;
 
-
 contract HouseInfoListing{
    address public tokenAddress;//tokenAddress used to pay 
    
@@ -61,35 +60,32 @@ contract HouseInfoListing{
   //通过房东address找到合约信息
   mapping (address => address[]) private HouseOwnerOrders;//find house owner orders by house owner address
   
-  function preOrder( address _owneraddress, bytes32 _houseinfo, uint _from, uint _to)
+  function preOrder( address _guestaddress,address _owneraddress, bytes32 _houseinfo, uint _from, uint _to, uint _days)
   payable
   public
-  returns (bool success)
+  returns (address _contractaddress)
   {
-      //1:new preOrder contract ,add house info , guest address, date from , date to etc info to preorder contract
-      //2:transfer token to contract address
-      //3:if step 2 successfully finished, add preOrder contract address to PreOrders lists
-      uint transferPrice = (_to - _from) * houseInfo[_houseinfo].price;
+      uint transferPrice = _days * houseInfo[_houseinfo].price;
       transferPriceForTest = transferPrice;
-      PreOrder preorder = new PreOrder( tokenAddress, _owneraddress,msg.sender,_houseinfo,_from,_to,0,transferPrice);
+      PreOrder preorder = new PreOrder(tokenAddress, _owneraddress,msg.sender,_houseinfo,_from,_to,_days,0,transferPrice);
       preOrderaddressfortest =preorder;
-       if(Token(tokenAddress).transferFrom(msg.sender,preorder,transferPrice))//transfer token to contract address
+         if(Token(tokenAddress).transferFrom(_guestaddress,preorder,transferPrice))//transfer token to contract address
          {
              
             PreOrders[_houseinfo].push(preorder); 
-            GuestOrders[msg.sender].push(preorder);
+            GuestOrders[_guestaddress].push(preorder);
             HouseOwnerOrders[_owneraddress].push(preorder);
-            return true;
+            return address(preorder);
              
          }
          else
          {
              //transfer token failure
-             return false;
+             return ;
          }
       
       
-      return false;
+      return ;
       
   }
   
@@ -149,6 +145,7 @@ contract PreOrder{
     bytes32 public houseinfo;
     uint public from;
     uint public to;
+    uint public rentDays;
     uint public status;//0:preorder 1: success  -1: cancel
     uint public price;
     
@@ -158,8 +155,9 @@ contract PreOrder{
                         address _owneraddress,
                         address _guestaddress,
                         bytes32 _houseinfo,
-                        uint _from, 
+                        uint _from,
                         uint _to,
+                        uint _days,
                         uint _status,
                         uint _price
                     ) 
@@ -170,6 +168,7 @@ contract PreOrder{
         houseinfo    = _houseinfo;
         from         = _from;
         to           = _to;
+        rentDays     = _days;
         status       = _status;
         price        = _price;
         
@@ -204,16 +203,16 @@ contract PreOrder{
     
     bool private houseOwnerAgreeToCancel = false;
     bool private guestAgreeToCancel      = false;
-    function cancelOrder()
-    public
-    returns(bool success)
-    {
-       //both of house owner and guest should be agreed to cancel this contract then the Token in this contract can send back
+//     function cancelOrder()
+//     public
+//     returns(bool success)
+//     {
+//       //both of house owner and guest should be agreed to cancel this contract then the Token in this contract can send back
 
-      //1 transfer token from contract address to guest address
-      //2 if step 1 successfully finished, update info of preOrder contract
-      return true;
-   }
+//       //1 transfer token from contract address to guest address
+//       //2 if step 1 successfully finished, update info of preOrder contract
+//       return true;
+//   }
     
     
 }

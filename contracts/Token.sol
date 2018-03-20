@@ -202,14 +202,13 @@ contract PopulStayToken is ERC20Interface, Owned {
   // from the token owner's account. The `spender` contract function
   // `receiveApproval(...)` is then executed
   // ------------------------------------------------------------------------
-  function approveAndCall(address spender, uint tokens, address _owneraddress, bytes32 _houseinfo, uint _from, uint _to)
-    public
-    returns (bool success)
+    function approveAndCall(address spender, uint tokens, address _owneraddress, bytes32 _houseinfo, uint _from, uint _to ,uint _days)
+     public
+    returns (address _preorder)
   {
     allowed[msg.sender][spender] = tokens;
     Approval(msg.sender, spender, tokens);
-    HouseInfoListing(spender).preOrder(_owneraddress, _houseinfo, _from, _to);
-    return true;
+    return HouseInfoListing(spender).preOrder(msg.sender,_owneraddress, _houseinfo, _from, _to,_days);
   }
 
 
