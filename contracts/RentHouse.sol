@@ -10,7 +10,9 @@ contract HouseInfoListing{
    uint public transferPriceForTest;
    
    
-   function HouseInfoListing(address _tokenAddress) public{
+   function HouseInfoListing(address _tokenAddress)
+   payable
+   public{
        tokenAddress   = _tokenAddress;
        contractowner  = msg.sender; 
    }
@@ -60,21 +62,23 @@ contract HouseInfoListing{
   //通过房东address找到合约信息
   mapping (address => address[]) private HouseOwnerOrders;//find house owner orders by house owner address
   
-  function preOrder( address _guestaddress,address _owneraddress, bytes32 _houseinfo, uint _from, uint _to, uint _days)
+  
+  
+  function preOrder( address _guestaddress,address _hostaddress, bytes32 _houseinfo, uint _from, uint _to, uint _days)
   payable
   public
   returns (address _contractaddress)
   {
       uint transferPrice = _days * houseInfo[_houseinfo].price;
       transferPriceForTest = transferPrice;
-      PreOrder preorder = new PreOrder(tokenAddress, _owneraddress,msg.sender,_houseinfo,_from,_to,_days,0,transferPrice);
+      PreOrder preorder = new PreOrder( tokenAddress , _hostaddress , _guestaddress , _houseinfo , _from , _to , _days , 0 ,transferPrice );
       preOrderaddressfortest =preorder;
          if(Token(tokenAddress).transferFrom(_guestaddress,preorder,transferPrice))//transfer token to contract address
          {
              
             PreOrders[_houseinfo].push(preorder); 
             GuestOrders[_guestaddress].push(preorder);
-            HouseOwnerOrders[_owneraddress].push(preorder);
+            HouseOwnerOrders[_hostaddress].push(preorder);
             return address(preorder);
              
          }
@@ -88,7 +92,7 @@ contract HouseInfoListing{
       return ;
       
   }
-  
+  //"test",9,"roominfo","test","0x3333322d30303332000000000000000000000000000000000000000000000000"
    function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _ipfsHash,bytes32 _districtcode) 
    public 
    returns(bool success)
@@ -108,6 +112,32 @@ contract HouseInfoListing{
   }
     
     
+  function getGuestOrders(address _guestaddress)
+  view
+  public
+  returns (address[] _guestOrders)
+  {
+      return GuestOrders[_guestaddress];
+  }
+  
+  function getHostOrders(address _hostaddress)
+  view
+  public
+  returns (address[] _hostOrders)
+  {
+      return HouseOwnerOrders[_hostaddress];
+  }
+  
+  function getPreorders(bytes32 _houseinfo)
+  view
+  public
+  returns (address[] _preorders)
+  {
+      return PreOrders[_houseinfo];
+  }
+  
+  
+  
   function getUUIDS(bytes32 _districtcode)
     view
     public

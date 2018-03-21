@@ -46,8 +46,13 @@ const NavBar = (props) => {
         <NetworkCheck />
         <div className="float-right">
           <div className="userInfo">
-            Welcome Walter
-            <button className="logoutButton float-right">Logout</button>
+           <Link to="/">
+            <button className="logoutButton float-right">Register</button>
+            </Link>
+
+            <Link to="/">
+            <button className="logoutButton float-right">Login</button>
+            </Link>
           </div>
           {!props.hideCreateButton &&
             <div className="navbar-create">
