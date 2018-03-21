@@ -19,13 +19,25 @@ class GuestRegister extends React.Component {
     super();
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      account:""
     };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
+
+
+  componentDidMount() {
+
+     window.web3.eth.getAccounts((error, accounts) => {
+      this.setState({account: accounts[0]});
+     });
+
+
+  }
+
 
   openModal() {
     this.setState({modalIsOpen: true});
@@ -59,7 +71,7 @@ class GuestRegister extends React.Component {
 
   <div className="form-group">
     <label>Wallet Account</label>
-    <input type="text" className="form-control" placeholder="Wallet Account"/>
+    <input type="text" className="form-control" placeholder="Wallet Account" value={this.state.account}/>
   </div>
 
   <div className="form-group">
