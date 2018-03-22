@@ -1,7 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Overlay from './overlay'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Overlay from './overlay';
+import PropTypes from 'prop-types';
+import GuestRegister from './guest-register';
 
 
 function NetworkCheck(props, context) {
@@ -46,13 +47,7 @@ const NavBar = (props) => {
         <NetworkCheck />
         <div className="float-right">
           <div className="userInfo">
-           <Link to="/">
-            <button className="logoutButton float-right">Register</button>
-            </Link>
-
-            <Link to="/">
-            <button className="logoutButton float-right">Login</button>
-            </Link>
+            <GuestRegister/>
           </div>
           {!props.hideCreateButton &&
             <div className="navbar-create">
