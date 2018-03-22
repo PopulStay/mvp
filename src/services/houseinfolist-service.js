@@ -2,7 +2,7 @@ import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
 
 
 var md5 = require('md5');//最后改IPFS
-var RentHouseListingAddress = "0x9fbda871d559710256a2502a2517b794b482db40";
+var RentHouseListingAddress = process.env.RentHouseListingAddress;
 
 class HouseInfoListingService {
   static instance

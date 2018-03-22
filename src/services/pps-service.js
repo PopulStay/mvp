@@ -1,7 +1,7 @@
 import PopulStayToken   from '../../build/contracts/PopulStayToken.json';
 
-var RentHouseListingAddress = "0x9fbda871d559710256a2502a2517b794b482db40";
-var PPSAddress              = "0x8f0483125fcb9aaaefa9209d8e9d7b9c8b9fb90f";
+var RentHouseListingAddress = process.env.RentHouseListingAddress;
+var PPSAddress              = process.env.PPSAddress;
 
 class PPSService {
   static instance

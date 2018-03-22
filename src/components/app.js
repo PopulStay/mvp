@@ -10,6 +10,7 @@ import ScrollToTop from './scroll-to-top.js'
 import Listings from './listings-grid.js'
 import ListingDetail from './listing-detail.js'
 import ListingCreate from './listing-create.js'
+import GuestInfo from './guest-info.js'
 import Footer from './footer'
 import NavBar from './navbar'
 import Overlay from './overlay'
@@ -39,6 +40,14 @@ const CreateListingPage = (props) => (
   <Layout {...props} hideCreateButton={true}>
     <div className="container">
       <ListingCreate />
+    </div>
+  </Layout>
+)
+
+const GuestInfoPage = (props) => (
+  <Layout {...props} hideCreateButton={true}>
+    <div className="container">
+      <GuestInfo />
     </div>
   </Layout>
 )
@@ -88,6 +97,7 @@ const App = () => (
           <Route path="/page/:activePage" component={HomePage}/>
           <Route path="/listing/:listingId" component={ListingDetailPage}/>
           <Route path="/create" component={CreateListingPage}/>
+          <Route path="/guestinfo" component={GuestInfoPage}/>
         </div>
       </Web3Provider>
     </ScrollToTop>

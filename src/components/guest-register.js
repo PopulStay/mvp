@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import axios from 'axios';
 
@@ -8,9 +9,7 @@ const customStyles = {
     top                   : '8%',
     left                  : '20%',
     right                 : '20%',
-    bottom                : '8%',
-    //marginRight           : '-30%',
-    //transform             : 'translate(-50%, -50%)'
+    bottom                : '8%'
   }
 };
 
@@ -53,10 +52,6 @@ class GuestRegister extends React.Component {
 
      });
   }
-
-  setRegisted(){
-
-  }
    
   register(){
    console.log(this.state);
@@ -95,7 +90,12 @@ class GuestRegister extends React.Component {
 
     <div>
 
-         {this.state.registered === true  && <button className="logoutButton float-right">My Account</button>}
+         {this.state.registered === true  && 
+           <Link to="/guestinfo">
+          <button className="logoutButton float-right">My Account</button>
+            </Link>
+
+        }
          {this.state.registered === false &&<button className="logoutButton float-right" onClick={this.openModal}>Register</button>}
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Example Modal">
