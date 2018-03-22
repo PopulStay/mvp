@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import axios from 'axios';
+import guestService from '../services/guest-service'
 
 const customStyles = {
   content : {
@@ -34,23 +34,13 @@ class GuestRegister extends React.Component {
     this.register   = this.register.bind(this);
   }
 
-
-
-
   componentDidMount() {
     window.web3.eth.getAccounts((error, accounts) => {
     this.setState( { account: accounts[0], id: accounts[0] });
-
-    axios.get('http://localhost:1337/GuestRegister/'+accounts[0])
-    .then((response)=> {
+    guestService.getGuesterInfo(accounts[0]).then((data)=>{
       this.setState({ registered:true });
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
      });
+    });
   }
    
   register(){
@@ -61,16 +51,10 @@ class GuestRegister extends React.Component {
     register.account = this.state.account;
     register.phone   = this.state.phone;
     register.email   = this.state.email;
-    axios.post('http://localhost:1337/GuestRegister', register)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
+    guestService.guestRegister(register).then((data)=>{
+      this.setState({ registered:true });
+     });
   }
-
 
   openModal() {
     this.setState({modalIsOpen: true});
@@ -103,27 +87,27 @@ class GuestRegister extends React.Component {
           <br/>
           <div>
 
-  <div className="form-group">
-    <label>User</label>
-    <input type="text" className="form-control" placeholder="User name" onChange={(e) => this.setState({user: e.target.value})}/>
-  </div>
+          <div className="form-group">
+            <label>User</label>
+            <input type="text" className="form-control" placeholder="User name" onChange={(e) => this.setState({user: e.target.value})}/>
+          </div>
 
-  <div className="form-group">
-    <label>Wallet Account</label>
-    <input type="text"  className="form-control" placeholder="Wallet Account" value={this.state.account} disabled/>
-  </div>
+          <div className="form-group">
+            <label>Wallet Account</label>
+            <input type="text"  className="form-control" placeholder="Wallet Account" value={this.state.account} disabled/>
+          </div>
 
-  <div className="form-group">
-    <label>Phone</label>
-    <input type="number" className="form-control" placeholder="Phone" onChange={(e) => this.setState({phone: e.target.value})}/>
-  </div>
+          <div className="form-group">
+            <label>Phone</label>
+            <input type="number" className="form-control" placeholder="Phone" onChange={(e) => this.setState({phone: e.target.value})}/>
+          </div>
 
-  <div className="form-group">
-    <label >Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  onChange={(e) => this.setState({email: e.target.value})}/>
-    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-</div>
+          <div className="form-group">
+            <label >Email address</label>
+            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  onChange={(e) => this.setState({email: e.target.value})}/>
+            <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          </div>
 
           <br/>
           <button className="btn btn-danger" onClick={this.register}>Confirm</button>

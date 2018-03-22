@@ -1,7 +1,6 @@
 import PopulStayToken   from '../../build/contracts/PopulStayToken.json';
 
-var RentHouseListingAddress = process.env.RentHouseListingAddress;
-var PPSAddress              = process.env.PPSAddress;
+
 
 class PPSService {
   static instance
@@ -23,12 +22,10 @@ class PPSService {
       return new Promise((resolve, reject) => {
       this.PPSContract.setProvider(window.web3.currentProvider)
       window.web3.eth.getAccounts((error, accounts) => {
-      this.PPSContract.at(PPSAddress)
+      this.PPSContract.at(process.env.PPSAddress)
       .then((instance) => {
-
-      	console.log(RentHouseListingAddress+","+totalTokens+","+hostaddress+","+uuid+","+from+","+to+","+days);
           return instance.approveAndCall(
-            RentHouseListingAddress,
+            process.env.RentHouseListingAddress,
             totalTokens,
             hostaddress,
             uuid,

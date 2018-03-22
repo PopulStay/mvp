@@ -2,7 +2,7 @@ import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
 
 
 var md5 = require('md5');//最后改IPFS
-var RentHouseListingAddress = process.env.RentHouseListingAddress;
+
 
 class HouseInfoListingService {
   static instance
@@ -28,7 +28,7 @@ class HouseInfoListingService {
     return new Promise((resolve, reject) => {
       this.houseInfoListingContract.setProvider(window.web3.currentProvider);
        window.web3.eth.getAccounts((error, accounts) => {
-        this.houseInfoListingContract.at(RentHouseListingAddress).then(function(instance){
+        this.houseInfoListingContract.at(process.env.RentHouseListingAddress).then(function(instance){
         	//最后改IPFS
       	return instance.setHouseInfo(
                                       md5(JSON.stringify(roominfo)),
@@ -51,7 +51,7 @@ class HouseInfoListingService {
     getDistrictCodes() {
     return new Promise((resolve, reject) => {
       this.houseInfoListingContract.setProvider(window.web3.currentProvider)
-      this.houseInfoListingContract.at(RentHouseListingAddress)
+      this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
       .then((instance) => {
         return instance.getDistrictCode.call();
       })
@@ -65,11 +65,29 @@ class HouseInfoListingService {
     })
   }
 
+
+  getGuestPreorderList(account) {
+    return new Promise((resolve, reject) => {
+      this.houseInfoListingContract.setProvider(window.web3.currentProvider)
+      this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
+      .then((instance) => {
+        return instance.getGuestOrders.call(account);
+      })
+      .then((preorderlists) => {
+        resolve(preorderlists);
+      })
+      .catch((error) => {
+        console.error(error)
+        reject(error)
+      })
+    })
+  }
+
   getHouseId(districtCode){
 
   	 return new Promise((resolve, reject) => {
       this.houseInfoListingContract.setProvider(window.web3.currentProvider)
-      this.houseInfoListingContract.at(RentHouseListingAddress)
+      this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
       .then((instance) => {
         return instance.getUUIDS.call(districtCode);
       })
@@ -87,7 +105,7 @@ class HouseInfoListingService {
   getHouseInfoDetail(uuid){
     return new Promise((resolve, reject) => {
       this.houseInfoListingContract.setProvider(window.web3.currentProvider);
-      this.houseInfoListingContract.at(RentHouseListingAddress)
+      this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
       .then((instance) => {
         return instance.getHouseInfo.call(uuid);
       })

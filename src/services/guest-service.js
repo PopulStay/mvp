@@ -1,7 +1,6 @@
 import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
-
-var RentHouseListingAddress = process.env.RentHouseListingAddress;
-var PPSAddress              = process.env.PPSAddress;
+import houselistingService from './houseinfolist-service';
+import axios from 'axios';
 
 class GuestService {
   static instance
@@ -17,26 +16,36 @@ class GuestService {
     this.contract = require('truffle-contract');
     this.houseInfoListingContract = this.contract(HouseInfoListing);
   }
-
-
-
-
-      waitTransactionFinished(transactionReceipt, pollIntervalMilliseconds=1000) {
+    
+  guestRegister(registerData) {
     return new Promise((resolve, reject) => {
-      let txCheckTimer = setInterval(txCheckTimerCallback, pollIntervalMilliseconds);
-      function txCheckTimerCallback() {
-        window.web3.eth.getTransaction(transactionReceipt, (error, transaction) => {
-          if (transaction.blockNumber != null) {
-            console.log(`Transaction mined at block ${transaction.blockNumber}`)
-            console.log(transaction)
-            clearInterval(txCheckTimer)
-            setTimeout(()=>resolve(transaction.blockNumber), 2000)
-          }
-        })
-      }
+    axios.post(process.env.Server_Address+'GuestRegister', registerData)
+    .then(function (response) {
+      resolve(response);
+    })
+    .catch(function (error) {
+      console.error(error)
+      reject(error)
+    });
     })
   }
 
+  getGuesterInfo(id) {
+    return new Promise((resolve, reject) => {
+    axios.get(process.env.Server_Address+'GuestRegister/'+id)
+    .then((response)=> {
+      resolve(response.data);
+    })
+    .catch(function (error) {
+      reject(error);
+    });
+    })
+  }
+  
+  getPreorderList(account){
+    return houselistingService.getGuestPreorderList(account);
+
+  }
 
 
  }
