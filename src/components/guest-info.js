@@ -78,9 +78,7 @@ class GuestInfo extends React.Component {
         <th>From</th>
         <th>To</th>
         <th>Price</th>
-    
         <th>Check In</th>
-        <th>Check Out</th>
       </tr>
     </thead>
     <tbody>

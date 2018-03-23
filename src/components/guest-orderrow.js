@@ -32,9 +32,16 @@ class GuestOrderRow extends Component {
 
 
    checkIn(){
-     orderService.confirm(this.props.account).then((data)=>{
-       console.log(data);
-     });
+     orderService.confirm(this.props.account).then((tx)=>{
+       return orderService.waitTransactionFinished(tx)
+     }).then((blockNumber) => {
+      this.setState({ status: 1 })
+    }).catch((error) => {
+      console.error(error);
+    });
+
+
+     ;
   }
   componentDidMount() {
 
@@ -56,8 +63,8 @@ class GuestOrderRow extends Component {
         <td>{this.state.from}</td>
         <td>{this.state.to}</td>
         <td>{this.state.price}/PPS</td>
-        <td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>
-        <td></td>
+        {this.state.status === 0 &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
+        {this.state.status === 1 &&<td>Checked In</td>}
       </tr>
     
     )

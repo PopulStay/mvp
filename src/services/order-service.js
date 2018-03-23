@@ -17,10 +17,10 @@ class PreOrderService {
       window.web3.eth.getAccounts((error, accounts) => {
       this.PreOrderContract.at(address)
       .then((instance) => {
-        return instance.confirmOrder.call({from: accounts[0], gas: 876790});
+        return instance.confirmOrder({from: accounts[0], gas: 876790});
       })
       .then((transactionReceipt) => {
-        resolve(transactionReceipt);
+        resolve(transactionReceipt.tx);
       })
       .catch((error) => {
         console.error(error)
