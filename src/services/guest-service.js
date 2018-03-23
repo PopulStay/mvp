@@ -44,7 +44,6 @@ class GuestService {
   
   getPreorderList(account){
     return houselistingService.getGuestPreorderList(account);
-
   }
 
 

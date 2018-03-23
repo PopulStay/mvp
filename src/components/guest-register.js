@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import guestService from '../services/guest-service'
+import guestService from '../services/guest-service';
 
 const customStyles = {
   content : {
@@ -34,7 +34,7 @@ class GuestRegister extends React.Component {
     this.register   = this.register.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     window.web3.eth.getAccounts((error, accounts) => {
     this.setState( { account: accounts[0], id: accounts[0] });
     guestService.getGuesterInfo(accounts[0]).then((data)=>{

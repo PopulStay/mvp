@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import axios from 'axios';
 import guestService from '../services/guest-service';
+import GuestOrderRow from './guest-orderrow'
 
 class GuestInfo extends React.Component {
   constructor() {
@@ -40,11 +41,54 @@ class GuestInfo extends React.Component {
 
   render() {
     return (
+
       <div>
-      <h5>username:{this.state.user}</h5>
-      <h5>account:{this.state.account}</h5>
-      <h5>phone:{this.state.phone}</h5>
-      <h5>email:{this.state.email}</h5>
+      <br/>
+      <div className="row">
+       <div className="col-lg-6">
+          username:{this.state.user}
+       </div>
+       <div className="col-lg-6">
+        account:{this.state.account}
+       </div>
+      </div>
+
+      <br/>
+       <div className="row">
+       <div className="col-lg-6">
+          phone:{this.state.phone}
+       </div>
+       <div className="col-lg-6">
+        email:{this.state.email}
+       </div>
+      </div>
+      <br/>
+      
+      
+     
+
+
+    <table className="table">
+    <thead>
+      <tr>
+        <th>Order Contract</th>
+        <th>Status</th>
+        <th>House Information</th>
+    
+        <th>Check In</th>
+        <th>Check Out</th>
+      </tr>
+    </thead>
+    <tbody>
+       {this.state.orderlist.map(account => (
+            <GuestOrderRow account={account} key={account}/>
+      ))}
+    </tbody>
+  </table>
+
+
+
+
       </div>
     );
   }
