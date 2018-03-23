@@ -203,6 +203,35 @@ contract PreOrder{
         price        = _price;
         
     }
+
+    function getPreorderInfo()
+    view
+    public
+    returns (
+                address _tokenAddress, 
+                address _owneraddress,
+                address _guestaddress,
+                bytes32 _houseinfo,
+                uint _from,
+                uint _to,
+                uint _days,
+                uint _status,
+                uint _price
+            ) 
+    {
+    //check the contract list, the most important thing is that if state is 0, that means this house had been rented.
+    return (
+        tokenAddress ,
+        owneraddress ,
+        guestaddress ,
+        houseinfo    ,
+        from         ,
+        to           ,
+        rentDays     ,
+        status       ,
+        price        
+    );
+    }
     
     function confirmOrder()
     payable

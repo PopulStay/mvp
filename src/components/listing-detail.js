@@ -1,7 +1,6 @@
 import 'react-dates/initialize';
 import '../css/react_dates.css';
 import { DateRangePicker } from 'react-dates';
-
 import React, { Component } from 'react';
 import houselistingService from '../services/houseinfolist-service';
 import ppsService from '../services/pps-service';
