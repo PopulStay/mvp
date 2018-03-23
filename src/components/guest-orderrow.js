@@ -13,6 +13,8 @@ class GuestOrderRow extends Component {
       to:"Loading",
       price:"Loading"
     }
+
+    this.checkIn   = this.checkIn.bind(this);
   }
 
 
@@ -28,6 +30,12 @@ class GuestOrderRow extends Component {
 
   }
 
+
+   checkIn(){
+     orderService.confirm(this.props.account).then((data)=>{
+       console.log(data);
+     });
+  }
   componentDidMount() {
 
      if(this.props.account)
@@ -48,7 +56,7 @@ class GuestOrderRow extends Component {
         <td>{this.state.from}</td>
         <td>{this.state.to}</td>
         <td>{this.state.price}/PPS</td>
-        <td></td>
+        <td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>
         <td></td>
       </tr>
     

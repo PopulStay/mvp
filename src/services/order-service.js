@@ -9,6 +9,29 @@ class PreOrderService {
     this.PreOrderContract = this.contract(PreOrder);
   }
 
+    confirm(address){
+
+    return new Promise((resolve, reject) => {
+
+      this.PreOrderContract.setProvider(window.web3.currentProvider);
+      window.web3.eth.getAccounts((error, accounts) => {
+      this.PreOrderContract.at(address)
+      .then((instance) => {
+        return instance.confirmOrder.call({from: accounts[0], gas: 876790});
+      })
+      .then((transactionReceipt) => {
+        resolve(transactionReceipt);
+      })
+      .catch((error) => {
+        console.error(error)
+        reject(error)
+      })
+
+      })
+    })
+  }
+
+
 
     getPreOrderInfo(address) {
       return new Promise((resolve, reject) => {
