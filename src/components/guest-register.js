@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import guestService from '../services/guest-service';
+const alertify = require('../../node_modules/alertify/src/alertify.js')
 
 const customStyles = {
   content : {
@@ -53,6 +54,8 @@ class GuestRegister extends React.Component {
     register.email   = this.state.email;
     guestService.guestRegister(register).then((data)=>{
       this.setState({ registered:true });
+      alertify.log("register successfully");
+      this.closeModal();
      });
   }
 
