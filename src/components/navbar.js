@@ -50,11 +50,10 @@ const NavBar = (props) => {
            <div className="row">
             
             <div className="col-lg-6">
-           <HostRegister/>
+             <HostRegister/>
             </div>
 
             <div className="col-lg-6">
-            
              <GuestRegister/>
             </div>
             

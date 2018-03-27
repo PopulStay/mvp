@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import axios from 'axios';
-import guestService from '../services/guest-service';
-import GuestOrderRow from './guest-orderrow'
+import hostService from '../services/host-service';
 
-class GuestInfo extends React.Component {
+
+class HostInfo extends React.Component {
   constructor() {
     super();
 
@@ -15,6 +15,7 @@ class GuestInfo extends React.Component {
       account:"",
       phone:"",
       email:"",
+      address:"",
       orderlist:[]
     };
   }
@@ -23,14 +24,19 @@ class GuestInfo extends React.Component {
     window.web3.eth.getAccounts((error, accounts) => {
     this.setState( { account: accounts[0], id: accounts[0] });
 
-    guestService.getPreorderList(accounts[0]).then((data)=>{
-      console.log(data);
-      this.setState({ orderlist:data});
-     });
+    // guestService.getPreorderList(accounts[0]).then((data)=>{
+    //   console.log(data);
+    //   this.setState({ orderlist:data});
+    //  });
 
 
-    guestService.getGuesterInfo(accounts[0]).then((data)=>{
-      this.setState({ user:data.user,phone:data.phone,email:data.email});
+    hostService.getHostInfo(accounts[0]).then((data)=>{
+      this.setState({ 
+                      user  : data.user, 
+                      phone : data.phone, 
+                      email : data.email, 
+                    address : data.address
+                    });
      });
     });
   }
@@ -38,7 +44,7 @@ class GuestInfo extends React.Component {
 
   render() {
     return (
-
+      
       <div>
       <br/>
       <div className="row">
@@ -60,31 +66,15 @@ class GuestInfo extends React.Component {
        </div>
       </div>
       <br/>
+       <div className="row">
+         <div className="col-lg-6">
+          address:{this.state.address}
+          </div>
+      </div>
       
-    <table className="table">
-    <thead>
-      <tr>
-        <th>Order Contract</th>
-        <th>Status</th>
-        <th>House Information</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Price</th>
-        <th>Check In</th>
-      </tr>
-    </thead>
-    <tbody>
-       {this.state.orderlist.map(account => (
-            <GuestOrderRow account={account} key={account}/>
-      ))}
-    </tbody>
-  </table>
-
-
-
 
       </div>
     );
   }
 }
-export default GuestInfo
+export default HostInfo

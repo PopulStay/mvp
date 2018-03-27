@@ -11,6 +11,7 @@ import Listings from './listings-grid.js'
 import ListingDetail from './listing-detail.js'
 import ListingCreate from './listing-create.js'
 import GuestInfo from './guest-info.js'
+import HostInfo from './host-info.js'
 import Footer from './footer'
 import NavBar from './navbar'
 import Overlay from './overlay'
@@ -23,7 +24,7 @@ import '../css/app.css'
 
 
 const HomePage = (props) => (
-  <Layout {...props}>
+  <Layout {...props} hideCreateButton={false}>
     <div className="container">
       <Listings />
     </div>
@@ -37,7 +38,7 @@ const ListingDetailPage = (props) => (
 )
 
 const CreateListingPage = (props) => (
-  <Layout {...props}>
+    <Layout {...props} hideCreateButton={false}>
     <div className="container">
       <ListingCreate />
     </div>
@@ -48,6 +49,14 @@ const GuestInfoPage = (props) => (
   <Layout {...props}>
     <div className="container">
       <GuestInfo />
+    </div>
+  </Layout>
+)
+
+const HostInfoPage = (props) => (
+  <Layout {...props}>
+    <div className="container">
+      <HostInfo />
     </div>
   </Layout>
 )
@@ -74,10 +83,10 @@ const Web3UnavailableScreen = (props) => (
   </Layout>
 )
 
-const Layout = ({ children }) => (
+const Layout = ({ children, hideCreateButton }) => (
   <div>
     <main>
-      <NavBar/>
+      <NavBar hideCreateButton={hideCreateButton} />
       {children}
     </main>
     <Footer />
@@ -98,6 +107,8 @@ const App = () => (
           <Route path="/listing/:listingId" component={ListingDetailPage}/>
           <Route path="/create" component={CreateListingPage}/>
           <Route path="/guestinfo" component={GuestInfoPage}/>
+          <Route path="/hostinfo" component={HostInfoPage}/>
+          
         </div>
       </Web3Provider>
     </ScrollToTop>
