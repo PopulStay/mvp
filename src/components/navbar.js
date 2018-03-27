@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Overlay from './overlay';
 import PropTypes from 'prop-types';
 import GuestRegister from './guest-register';
-
+import HostRegister from './host-register';
 
 function NetworkCheck(props, context) {
   const web3Context = context.web3
@@ -46,9 +46,23 @@ const NavBar = (props) => {
         </Link>
         <NetworkCheck />
         <div className="float-right">
-          <div className="userInfo">
-            <GuestRegister/>
-          </div>
+          
+           <div className="row">
+            
+            <div className="col-lg-6">
+           <HostRegister/>
+            </div>
+
+            <div className="col-lg-6">
+            
+             <GuestRegister/>
+            </div>
+            
+            </div>
+          <br/><br/>
+             
+
+
           {!props.hideCreateButton &&
             <div className="navbar-create">
               <Link to="/create">

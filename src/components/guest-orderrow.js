@@ -43,7 +43,7 @@ class GuestOrderRow extends Component {
 
      ;
   }
-  componentDidMount() {
+  componentWillMount() {
 
      if(this.props.account)
      {

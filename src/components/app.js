@@ -37,7 +37,7 @@ const ListingDetailPage = (props) => (
 )
 
 const CreateListingPage = (props) => (
-  <Layout {...props} hideCreateButton={true}>
+  <Layout {...props}>
     <div className="container">
       <ListingCreate />
     </div>
@@ -45,7 +45,7 @@ const CreateListingPage = (props) => (
 )
 
 const GuestInfoPage = (props) => (
-  <Layout {...props} hideCreateButton={true}>
+  <Layout {...props}>
     <div className="container">
       <GuestInfo />
     </div>
@@ -74,10 +74,10 @@ const Web3UnavailableScreen = (props) => (
   </Layout>
 )
 
-const Layout = ({ children, hideCreateButton }) => (
+const Layout = ({ children }) => (
   <div>
     <main>
-      <NavBar hideCreateButton={hideCreateButton} />
+      <NavBar/>
       {children}
     </main>
     <Footer />

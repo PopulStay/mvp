@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import guestService from '../services/guest-service';
+import hostService from '../services/host-service';
 const alertify = require('../../node_modules/alertify/src/alertify.js')
 
 const customStyles = {
@@ -15,7 +15,7 @@ const customStyles = {
 };
 
 
-class GuestRegister extends React.Component {
+class HostRegister extends React.Component {
   constructor() {
     super();
 
@@ -26,6 +26,7 @@ class GuestRegister extends React.Component {
       account:"",
       phone:"",
       email:"",
+      address:"",
       registered:false
     };
 
@@ -38,7 +39,7 @@ class GuestRegister extends React.Component {
   componentWillMount() {
     window.web3.eth.getAccounts((error, accounts) => {
     this.setState( { account: accounts[0], id: accounts[0] });
-    guestService.getGuesterInfo(accounts[0]).then((data)=>{
+    hostService.getHostInfo(accounts[0]).then((data)=>{
       this.setState({ registered:true });
      });
     });
@@ -52,7 +53,9 @@ class GuestRegister extends React.Component {
     register.account = this.state.account;
     register.phone   = this.state.phone;
     register.email   = this.state.email;
-    guestService.guestRegister(register).then((data)=>{
+    register.address = this.state.address;
+
+    hostService.hostRegister(register).then((data)=>{
       this.setState({ registered:true });
       alertify.log("register successfully");
       this.closeModal();
@@ -78,16 +81,15 @@ class GuestRegister extends React.Component {
     <div>
 
          {this.state.registered === true  && 
-           <Link to="/guestinfo">
-          <button className="logoutButton float-right">My Guest Account</button>
+           <Link to="/hostinfo">
+          <button className="logoutButton float-right">Host Account</button>
             </Link>
 
         }
-
-         {this.state.registered === false &&<button className="logoutButton float-right" onClick={this.openModal}>GuestRegister</button>}
+         {this.state.registered === false &&<button className="logoutButton float-right" onClick={this.openModal}>Host Register</button>}
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Example Modal">
-          <h2 ref={subtitle => this.subtitle = subtitle}>Guest Register</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}>Host Register</h2>
           <br/>
           <div>
 
@@ -107,6 +109,11 @@ class GuestRegister extends React.Component {
           </div>
 
           <div className="form-group">
+            <label>Host Address</label>
+            <input type="text"  className="form-control" placeholder="Host Address" onChange={(e) => this.setState({address: e.target.value})}/>
+          </div>
+
+          <div className="form-group">
             <label >Email address</label>
             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  onChange={(e) => this.setState({email: e.target.value})}/>
             <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -123,4 +130,4 @@ class GuestRegister extends React.Component {
     );
   }
 }
-export default GuestRegister
+export default HostRegister
