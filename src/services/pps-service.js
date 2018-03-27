@@ -18,6 +18,27 @@ class PPSService {
   }
 
 
+  getBalance(address) {
+      return new Promise((resolve, reject) => {
+      this.PPSContract.setProvider(window.web3.currentProvider)
+      window.web3.eth.getAccounts((error, accounts) => {
+      this.PPSContract.at(process.env.PPSAddress)
+      .then((instance) => {
+            return instance.balanceOf.call(address);
+        })
+        .then((result) => {
+          // Success
+          resolve(result)
+        })
+        .catch((error) => {
+          console.error(error)
+          reject(error)
+        })
+      })
+    })
+  }
+
+
     setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
       return new Promise((resolve, reject) => {
       this.PPSContract.setProvider(window.web3.currentProvider)

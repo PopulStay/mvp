@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import hostService from '../services/host-service';
+import ppsService from '../services/pps-service';
 import HostRoomList from './host-roomlist';
 
 
@@ -15,6 +16,7 @@ class HostInfo extends React.Component {
       phone:"",
       email:"",
       address:"",
+      ppsBalance:"",
       roomInfoList:[]
     };
   }
@@ -24,8 +26,13 @@ class HostInfo extends React.Component {
     this.setState( { account: accounts[0], id: accounts[0] });
 
     hostService.getHouseListing(accounts[0]).then((data)=>{
-      console.log(data);
+
       this.setState({ roomInfoList:data});
+     });
+
+    ppsService.getBalance(accounts[0]).then((data)=>{
+      console.log(data);
+      this.setState({ ppsBalance:data.toNumber()});
      });
 
 
@@ -37,6 +44,9 @@ class HostInfo extends React.Component {
                     address : data.address
                     });
      });
+
+
+
     });
   }
    
@@ -69,6 +79,10 @@ class HostInfo extends React.Component {
          <div className="col-lg-6">
           address:{this.state.address}
         </div>
+         <div className="col-lg-6">
+          PPS balance:{this.state.ppsBalance}
+        </div>
+
       </div>
 
           <table className="table">

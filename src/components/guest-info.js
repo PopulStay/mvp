@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import guestService from '../services/guest-service';
-import GuestOrderRow from './guest-orderrow'
+import ppsService from '../services/pps-service';
+import GuestOrderRow from './guest-orderrow';
 
 class GuestInfo extends React.Component {
   constructor() {
@@ -13,6 +14,7 @@ class GuestInfo extends React.Component {
       account:"",
       phone:"",
       email:"",
+      ppsBalance:"",
       orderlist:[]
     };
   }
@@ -24,6 +26,11 @@ class GuestInfo extends React.Component {
     guestService.getPreorderList(accounts[0]).then((data)=>{
       console.log(data);
       this.setState({ orderlist:data});
+     });
+
+    ppsService.getBalance(accounts[0]).then((data)=>{
+      console.log(data);
+      this.setState({ ppsBalance:data.toNumber()});
      });
 
 
@@ -58,6 +65,12 @@ class GuestInfo extends React.Component {
        </div>
       </div>
       <br/>
+
+      <div className="row">
+         <div className="col-lg-6">
+          PPS balance:{this.state.ppsBalance}
+        </div>
+      </div>
       
     <table className="table">
     <thead>
