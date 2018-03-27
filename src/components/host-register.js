@@ -82,7 +82,7 @@ class HostRegister extends React.Component {
 
          {this.state.registered === true  && 
            <Link to="/hostinfo">
-          <button className="logoutButton float-right">Host Account</button>
+          <button className="logoutButton float-right">HostAccount</button>
             </Link>
 
         }

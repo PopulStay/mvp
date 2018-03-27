@@ -24,7 +24,7 @@ import '../css/app.css'
 
 
 const HomePage = (props) => (
-  <Layout {...props} hideCreateButton={false}>
+  <Layout {...props} hideCreateButton={true}>
     <div className="container">
       <Listings />
     </div>
@@ -32,13 +32,13 @@ const HomePage = (props) => (
 )
 
 const ListingDetailPage = (props) => (
-  <Layout {...props}>
+  <Layout {...props}  hideCreateButton={true}>
     <ListingDetail listingId={props.match.params.listingId} />
   </Layout>
 )
 
 const CreateListingPage = (props) => (
-    <Layout {...props} hideCreateButton={false}>
+    <Layout {...props} hideCreateButton={true}>
     <div className="container">
       <ListingCreate />
     </div>
@@ -46,7 +46,7 @@ const CreateListingPage = (props) => (
 )
 
 const GuestInfoPage = (props) => (
-  <Layout {...props}>
+  <Layout {...props}  hideCreateButton={true}>
     <div className="container">
       <GuestInfo />
     </div>

@@ -79,7 +79,7 @@ class GuestRegister extends React.Component {
 
          {this.state.registered === true  && 
            <Link to="/guestinfo">
-          <button className="logoutButton float-right">My Guest Account</button>
+          <button className="logoutButton float-right">GuestAccount</button>
             </Link>
 
         }
