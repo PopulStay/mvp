@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
-import axios from 'axios';
 import hostService from '../services/host-service';
+import HostRoomList from './host-roomlist';
 
 
 class HostInfo extends React.Component {
@@ -16,7 +15,7 @@ class HostInfo extends React.Component {
       phone:"",
       email:"",
       address:"",
-      orderlist:[]
+      roomInfoList:[]
     };
   }
   
@@ -24,10 +23,10 @@ class HostInfo extends React.Component {
     window.web3.eth.getAccounts((error, accounts) => {
     this.setState( { account: accounts[0], id: accounts[0] });
 
-    // guestService.getPreorderList(accounts[0]).then((data)=>{
-    //   console.log(data);
-    //   this.setState({ orderlist:data});
-    //  });
+    hostService.getHouseListing(accounts[0]).then((data)=>{
+      console.log(data);
+      this.setState({ roomInfoList:data});
+     });
 
 
     hostService.getHostInfo(accounts[0]).then((data)=>{
@@ -69,8 +68,26 @@ class HostInfo extends React.Component {
        <div className="row">
          <div className="col-lg-6">
           address:{this.state.address}
-          </div>
+        </div>
       </div>
+
+          <table className="table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Beds</th>
+        <th>Location</th>
+        <th>Price</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+     {this.state.roomInfoList.map(uuid => (
+            <HostRoomList uuid={uuid} key={uuid}/>
+      ))}
+     
+    </tbody>
+  </table>
       
 
       </div>

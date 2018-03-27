@@ -65,6 +65,23 @@ class HouseInfoListingService {
     })
   }
 
+  getHomeRoomList(account) {
+    return new Promise((resolve, reject) => {
+      this.houseInfoListingContract.setProvider(window.web3.currentProvider)
+      this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
+      .then((instance) => {
+        return instance.getHostRoomLists.call(account);
+      })
+      .then((uuids) => {
+        resolve(uuids);
+      })
+      .catch((error) => {
+        console.error(error)
+        reject(error)
+      })
+    })
+  }
+
 
   getGuestPreorderList(account) {
     return new Promise((resolve, reject) => {

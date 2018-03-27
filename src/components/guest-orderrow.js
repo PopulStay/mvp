@@ -23,7 +23,12 @@ class GuestOrderRow extends Component {
     orderService.getPreOrderInfo(this.props.account)
     .then((result) => {
         console.log(result);
-        this.setState({houseInformation:result[3],status:result[7].toNumber(),from:result[4].toNumber(),to:result[5].toNumber(),price:result[8].toNumber()});
+        this.setState({houseInformation : result[3]});
+        this.setState({status           : result[7].toNumber()});
+        this.setState({from             : result[4].toNumber()});
+        this.setState({to               : result[5].toNumber()});
+        this.setState({price            : result[8].toNumber()});
+
     }).catch((error) => {
       console.error(error);
     });
@@ -43,7 +48,7 @@ class GuestOrderRow extends Component {
 
      ;
   }
-  componentWillMount() {
+  componentDidMount() {
 
      if(this.props.account)
      {

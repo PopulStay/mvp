@@ -24,7 +24,7 @@ function getClientEnvironment(publicUrl) {
       // and IPFS_API_PORT env var to 5001
       'IPFS_API_PORT': JSON.stringify(process.env.IPFS_API_PORT || "5002"),
       'IPFS_DOMAIN': JSON.stringify(process.env.IPFS_DOMAIN || "gateway.originprotocol.com"),
-      'RentHouseListingAddress':JSON.stringify("0x73cc62d9da7726a9d21fa03d00fb93e699c79e09"),
+      'RentHouseListingAddress':JSON.stringify("0x370fcc6e09a803634b60d52de9fb969face46a05"),
       'PPSAddress':JSON.stringify("0x7184589d0e38ebdcee9a8e046845d665bf33c782"),
       'Server_Address':JSON.stringify("http://localhost:1337/")
 

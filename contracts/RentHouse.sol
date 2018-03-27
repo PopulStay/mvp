@@ -46,20 +46,22 @@ contract HouseInfoListing{
     address owner;
     bytes32 ipfsHash;
   }
-  //通过房东的address确定房屋信息uuid
+  mapping ( address => bytes32[] ) private hostRoomList;//every house info has one uuid,find house info by host address
+                                                      
+  
+  
   mapping ( bytes32 => HouseInfo ) private houseInfo;   //describ the house information
   mapping ( bytes32 => bytes32[] ) private uuids;       //every house info has one uuid,find house info by districtcode
                                                         //should add find house info by city street 
                                                         
-                                                        
-  //通过房屋信息uuid确定预定合约信息                                                        
+                                                     
   mapping ( bytes32 => address[] ) private PreOrders;   
                                                         //find preorders lists by house info uuid 
                                                         //find preOrder or order infomation from this connection 
-  //通过房客address找到合约信息
+
   mapping (address => address[]) private GuestOrders;   //find guest orders by guest address
   
-  //通过房东address找到合约信息
+  
   mapping (address => address[]) private HouseOwnerOrders;//find house owner orders by house owner address
   
   
@@ -108,7 +110,16 @@ contract HouseInfoListing{
       });
               
     uuids[_districtcode].push(_uuid);
+    hostRoomList[msg.sender].push(_uuid);
     return true;
+  }
+
+    function getHostRoomLists(address _hostaddress)
+    view
+    public
+    returns(bytes32[] _hostRoomList)
+  {
+    return hostRoomList[_hostaddress];
   }
     
     

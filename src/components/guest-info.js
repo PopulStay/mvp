@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
-import axios from 'axios';
 import guestService from '../services/guest-service';
 import GuestOrderRow from './guest-orderrow'
 

@@ -42,8 +42,8 @@ class HostService {
     })
   }
   
-  getPreorderList(account){
-    return houselistingService.getGuestPreorderList(account);
+  getHouseListing(account){
+    return houselistingService.getHomeRoomList(account);
   }
 
 
