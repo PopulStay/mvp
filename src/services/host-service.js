@@ -46,6 +46,10 @@ class HostService {
     return houselistingService.getHomeRoomList(account);
   }
 
+  getHostOrderAddress(account){
+    return houselistingService.getHostOrderList(account);
+  }
+
 
  }
 

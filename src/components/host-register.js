@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import hostService from '../services/host-service';
-const alertify = require('../../node_modules/alertify/src/alertify.js')
+const alertify = require('../../node_modules/alertify/src/alertify.js');
 
 const customStyles = {
   content : {

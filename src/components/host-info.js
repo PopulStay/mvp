@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import hostService from '../services/host-service';
 import ppsService from '../services/pps-service';
 import HostRoomList from './host-roomlist';
+import { Link } from 'react-router-dom'
 
 
 class HostInfo extends React.Component {
@@ -57,35 +58,41 @@ class HostInfo extends React.Component {
       <div>
       <br/>
       <div className="row">
-       <div className="col-lg-6">
+       <div className="col-lg-4">
           username:{this.state.user}
        </div>
-       <div className="col-lg-6">
+       <div className="col-lg-4">
         account:{this.state.account}
        </div>
       </div>
 
       <br/>
        <div className="row">
-       <div className="col-lg-6">
+       <div className="col-lg-4">
           phone:{this.state.phone}
        </div>
-       <div className="col-lg-6">
+       <div className="col-lg-4">
         email:{this.state.email}
        </div>
       </div>
       <br/>
        <div className="row">
-         <div className="col-lg-6">
+         <div className="col-lg-4">
           address:{this.state.address}
         </div>
-         <div className="col-lg-6">
+         <div className="col-lg-4">
           PPS balance:{this.state.ppsBalance}
         </div>
 
       </div>
 
-          <table className="table">
+  <br/><br/>
+  <Link to="/hostorder">
+  <button className="btn btn-danger">Order List</button>
+  </Link>
+
+  <br/><br/>
+  <table className="table">
     <thead>
       <tr>
         <th>Category</th>

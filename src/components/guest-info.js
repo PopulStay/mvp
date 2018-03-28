@@ -75,7 +75,7 @@ class GuestInfo extends React.Component {
     <table className="table">
     <thead>
       <tr>
-        <th>Order Contract</th>
+        <th>Contract Address</th>
         <th>Status</th>
         <th>House Information</th>
         <th>From</th>

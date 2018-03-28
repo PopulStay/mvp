@@ -100,6 +100,23 @@ class HouseInfoListingService {
     })
   }
 
+  getHostOrderList(account) {
+    return new Promise((resolve, reject) => {
+      this.houseInfoListingContract.setProvider(window.web3.currentProvider)
+      this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
+      .then((instance) => {
+        return instance.getHostOrders.call(account);
+      })
+      .then((orderLists) => {
+        resolve(orderLists);
+      })
+      .catch((error) => {
+        console.error(error)
+        reject(error)
+      })
+    })
+  }
+
   getHouseId(districtCode){
 
   	 return new Promise((resolve, reject) => {

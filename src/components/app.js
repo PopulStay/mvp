@@ -12,6 +12,7 @@ import ListingDetail from './listing-detail.js'
 import ListingCreate from './listing-create.js'
 import GuestInfo from './guest-info.js'
 import HostInfo from './host-info.js'
+import HostOrder from './host-orderlist.js'
 import Footer from './footer'
 import NavBar from './navbar'
 import Overlay from './overlay'
@@ -57,6 +58,14 @@ const HostInfoPage = (props) => (
   <Layout {...props}>
     <div className="container">
       <HostInfo />
+    </div>
+  </Layout>
+)
+
+const HostOrderPage = (props) => (
+  <Layout {...props}>
+    <div className="container">
+      <HostOrder />
     </div>
   </Layout>
 )
@@ -108,7 +117,7 @@ const App = () => (
           <Route path="/create" component={CreateListingPage}/>
           <Route path="/guestinfo" component={GuestInfoPage}/>
           <Route path="/hostinfo" component={HostInfoPage}/>
-          
+          <Route path="/hostorder" component={HostOrderPage}/>
         </div>
       </Web3Provider>
     </ScrollToTop>
