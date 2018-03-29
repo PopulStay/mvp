@@ -86,7 +86,9 @@ class HostRegister extends React.Component {
             </Link>
 
         }
-         {this.state.registered === false &&<button className="logoutButton float-right" onClick={this.openModal}>Host Register</button>}
+
+
+         {this.state.registered === false &&<a onClick={this.openModal} className="btn button__fill">Become a Host</a>}
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Example Modal">
           <h2 ref={subtitle => this.subtitle = subtitle}>Host Register</h2>

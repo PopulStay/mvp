@@ -84,7 +84,7 @@ class GuestRegister extends React.Component {
 
         }
 
-         {this.state.registered === false &&<button className="logoutButton float-right" onClick={this.openModal}>GuestRegister</button>}
+         {this.state.registered === false &&<button className="button__outline" onClick={this.openModal}>Sign up</button>}
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Example Modal">
           <h2 ref={subtitle => this.subtitle = subtitle}>Guest Register</h2>

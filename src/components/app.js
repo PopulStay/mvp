@@ -18,10 +18,14 @@ import NavBar from './navbar'
 import Overlay from './overlay'
 
 // CSS
-import '../css/pure-min.css' // TODO (stan): Is this even used?
-import '../css/lato-web.css'
-import '../css/poppins.css'
-import '../css/app.css'
+
+import '../css/becomehost.css'
+import '../css/detail.css'
+import '../css/homepage.css'
+import '../css/main.css'
+import '../css/search.css'
+
+
 
 
 const HomePage = (props) => (
@@ -94,10 +98,10 @@ const Web3UnavailableScreen = (props) => (
 
 const Layout = ({ children, hideCreateButton }) => (
   <div>
-    <main>
+    
       <NavBar hideCreateButton={hideCreateButton} />
       {children}
-    </main>
+    
     <Footer />
   </div>
 )
