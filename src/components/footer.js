@@ -2,64 +2,52 @@ import React from 'react'
 
 const Footer = (props) => {
   return (
-    <footer>
-      <div className="footer-top">
-        <div className="container">
-          <div className="row align-items-center h-100">
-            <div className="col-2">
-              <img src="/images/logo.svg" height="130" alt="PopulStay" />
+    <footer className="footer">
+    <div className="footer__brand-info container">
+        <img className="footer__logo" src="./images/logo-2.png" alt="" />
+        <div className="footer__dropdown pull-right">
+            <div className="dropdown">
+
+                <button type="button" className="text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div>English</div>
+    <span className="caret"></span>
+    </button>
+
+                <ul className="dropdown-menu" aria-labelledby="dLabel">
+                    <li></li>
+                </ul>
             </div>
-            <div className="col-2">
-              <p>Become a Host</p>
-              <p>About PopulStay</p>
-              <p>Help Center</p>
+
+
+
+            <div className="dropdown"><button type="button" className="text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div>JPY</div><span className="caret"></span></button>
+                <ul className="dropdown-menu" aria-labelledby="dLabel">
+                    <li></li>
+                </ul>
             </div>
-            <div className="col-8">
-              <div className="float-right">
-                <div>
-                  <select>
-                    <option value="English" selected>English</option>
-                    <option value="Chinese">Chinese</option>
-                    <option value="Japanese">Japanese</option>
-                  </select>
-                </div>
-                <div>
-                  <select>
-                    <option value="PPS" selected>PPS</option>
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="JPY">JPY</option>
-                    <option value="SGD">SGD</option>
-                    <option value="AUD">AUD</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <div className="footer-bottom">
-        <div className="container">
-          <div className="row align-items-center h-100">
-            <div className="col-4">
-              &copy; 2018 PopulStay, Inc.
-            </div>
-            <div className="col-8">
-              <div className="float-right">
-                <img src="/images/facebook.svg" height="40" alt="Facebook" />
-                <img src="/images/youtube.svg" height="40" alt="Youtube" />
-                <img src="/images/instagram.svg" height="40" alt="Instagram" />
-                <img src="/images/telegram.svg" height="40" alt="Telegram" />
-                <img src="/images/twitter.svg" height="40" alt="Twitter" />
-                <img src="/images/reddit.svg" height="40" alt="Reddit" />
-                <img src="/images/wechat.svg" height="40" alt="Wechat" />
-                <img src="/images/weibo.svg" height="40" alt="Weibo" />
-              </div>
-            </div>
-          </div>
+    </div>
+    <div className="footer__social-info bg-blue">
+        <div className="container text-right"><span className="footer__copyright color-white pull-left">2018@copyright</span>
+            <ul className="social">
+                <li><a className="social__facebook social__icon" target="__blank" href="https://fb.me/populstay"></a></li>
+                <li><a className="social__youtube social__icon" target="_blank" href="https://youtu.be/lrWl11R2ar8"></a></li>
+                <li><a className="social__telegram social__icon" target="_blank" href="https://t.me/PopulStay01"></a></li>
+                <li><a className="social__twitter social__icon" target="_blank" href="https://twitter.com/populstay"></a></li>
+                <li><a className="social__reddit social__icon" target="_blank" href="https://www.reddit.com/user/PopulStay/"></a></li>
+                <li><a className="social__wechat social__icon" href="#wechatmodal" data-toggle="modal" data-target="#wechatModal"></a></li>
+            </ul>
         </div>
-      </div>
-    </footer>
+    </div>
+    <div className="modal fade qrcod-modal" id="wechatModal" tabindex="-1" role="dialog" aria-labelledby="wechatModalLabel">
+        <div className="modal-dialog" role="document">
+            <div className="modal-content">
+                <div className="modal-header"><button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div className="modal-body"><img src="./images/qrcode.jpg" alt=""/></div>
+            </div>
+        </div>
+    </div>
+</footer>
   )
 }
 
