@@ -1,5 +1,5 @@
 {
-  "name": "origin-demo-dapp",
+  "name": "populstay-dapp",
   "version": "0.2.0",
   "private": true,
   "devDependencies": {
@@ -64,6 +64,8 @@
     "react": "^15.6.2",
     "react-dates": "^16.3.6",
     "react-dom": "^15.6.2",
+    "react-flip-move": "^3.0.1",
+    "react-image-upload": "0.0.1",
     "react-js-pagination": "^3.0.1",
     "react-jsonschema-form": "^1.00.0",
     "react-modal": "^3.3.2",

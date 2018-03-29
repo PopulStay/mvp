@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import houselistingService from '../services/houseinfolist-service';
 import ListingDetail from './listing-detail';
 import Overlay from './overlay';
+
+
+
+
 const alertify = require('../../node_modules/alertify/src/alertify.js');
 
 class ListingCreate extends Component {
@@ -59,9 +63,42 @@ class ListingCreate extends Component {
 
             <div className="row">
               <div className="col-md-5">
-                <label>STEP {Number(this.state.step)}</label>
-                <h2>Create your listing</h2>
-            </div>
+                  <label>STEP {Number(this.state.step)}</label>
+                  <h2>Create your listing</h2>
+
+                  <div className="form-group">
+                      <label>Type*</label>
+                      <select className="form-control">
+                        <option>Entire Place</option>
+                        <option>Private Room</option>
+                        <option>Share Room</option>
+                      </select>
+                  </div>
+
+
+                  <div className="form-group">
+                      <label>Beds*</label>
+                      <select className="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label>Location*</label>
+                    <input type="text" className="form-control"/>
+                  </div>
+
+                  <div className="form-group">
+                    <label>Price in PPS*</label>
+                    <input type="number" className="form-control"/>
+                  </div>
+
+
+              </div>
 
 
                <div className="col-md-5 offset-md-2">
