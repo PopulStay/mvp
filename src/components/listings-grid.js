@@ -45,6 +45,11 @@ class ListingsGrid extends Component {
       this.state.listingsPerPage * (activePage-1),
       this.state.listingsPerPage * (activePage))
     return (
+
+
+
+
+      
       <div className="listings-grid">
         <h1>Homes around the world</h1>
         <div className="row">
