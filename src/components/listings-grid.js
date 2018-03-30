@@ -49,13 +49,20 @@ class ListingsGrid extends Component {
 
 
 
-      
+
       <div className="listings-grid">
         <h1>Homes around the world</h1>
         <div className="row">
-          {showListingsIds.map(listingId => (
-            <ListingCard listingId={listingId} key={listingId}/>
-          ))}
+          <div className="col-lg-8">
+            <div className="row">          
+              {showListingsIds.map(listingId => (
+                <ListingCard listingId={listingId} key={listingId}/>
+              ))}
+             </div>
+          </div>
+          <div className="col-lg-4">
+           <img className="img-thumbnail" src="./images/search-map.jpg" role="presentation" />
+          </div>
         </div>
         <Pagination
           activePage={activePage}
