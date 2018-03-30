@@ -36,10 +36,6 @@ class ListingsDetail extends Component {
     }
 
     this.handleBooking = this.handleBooking.bind(this);
-    this.SlideNext = this.SlideNext.bind(this);
-    this.SlidePre = this.SlidePre.bind(this);
-   
-
   }
 
   loadListing() {
@@ -59,41 +55,6 @@ class ListingsDetail extends Component {
     });
   }
 
-  SlideNext(){
-
-
-    var slideArray = this.state.slides;
-    if(this.state.currentActive < slideArray.length)
-    {
-      slideArray[this.state.currentActive].active ="";
-      slideArray[this.state.currentActive].itemactive ="item";
-
-      slideArray[this.state.currentActive+1].active ="active";
-      slideArray[this.state.currentActive+1].itemactive ="item active";
-
-      this.setState({slides:slideArray,currentActive:this.state.currentActive+1});
-    }
-
-  }
-
-   SlidePre(){
-
-
-    var slideArray = this.state.slides;
-    if(this.state.currentActive > 1)
-    {
-      slideArray[this.state.currentActive].active ="";
-      slideArray[this.state.currentActive].itemactive ="item";
-
-      slideArray[this.state.currentActive-1].active ="active";
-      slideArray[this.state.currentActive-1].itemactive ="item active";
-
-      this.setState({slides:slideArray,currentActive:this.state.currentActive+1});
-    }
-
-  }
-
- 
 
 
   componentWillMount() {
@@ -163,152 +124,12 @@ class ListingsDetail extends Component {
     const price = typeof this.state.price === 'string' ? 0 : this.state.price
     return (
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div>
-
-
       <Carousel>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1" />
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2" />
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3" />
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4" />
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5" />
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6" />
+       {this.state.slides.map(slide => (
+        <img src={slide.imgageUrl} />
+         ))}
       </Carousel>
-
-
-
-
-
-
-    
-
-<div className="detail-carousel">
-    <div id="carousel-detail" className="carousel slide" data-ride="carousel">
-
-  <ol className="carousel-indicators">
-   {this.state.slides.map(slide => (
-         <li data-target="#myCarousel" data-slide-to="0" className={slide.active}></li>
-              
-    ))}
-  </ol>
-
-  <div className="carousel-inner">
-    {this.state.slides.map(slide => (
-      <div className={slide.itemactive}>
-        <img src={slide.imgageUrl} alt="Los Angeles"/>
-      </div>
-     ))}
-  </div>
-
-  
-  <a className="left carousel-control" href="#myCarousel" data-slide="prev" onClick={this.SlidePre} >
-    <span className="glyphicon glyphicon-chevron-left"></span>
-    <span className="sr-only">Previous</span>
-  </a>
-  <a className="right carousel-control" href="#myCarousel" data-slide="next" onClick={this.SlideNext}>
-    <span className="glyphicon glyphicon-chevron-right"></span>
-    <span className="sr-only">Next</span>
-  </a>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       <div className="listing-detail">
