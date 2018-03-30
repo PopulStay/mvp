@@ -29,7 +29,7 @@ import '../css/search.css'
 
 
 const HomePage = (props) => (
-  <Layout {...props} hideCreateButton={true}>
+  <Layout {...props}>
     <div className="container">
       <Listings />
     </div>
@@ -37,13 +37,13 @@ const HomePage = (props) => (
 )
 
 const ListingDetailPage = (props) => (
-  <Layout {...props}  hideCreateButton={true}>
+  <Layout {...props}  hideTagHeader={true}>
     <ListingDetail listingId={props.match.params.listingId} />
   </Layout>
 )
 
 const CreateListingPage = (props) => (
-    <Layout {...props} hideCreateButton={true}>
+    <Layout {...props} hideTagHeader={true}>
     <div className="container">
       <ListingCreate />
     </div>
@@ -51,7 +51,7 @@ const CreateListingPage = (props) => (
 )
 
 const GuestInfoPage = (props) => (
-  <Layout {...props}  hideCreateButton={true}>
+  <Layout {...props}  hideTagHeader={true}>
     <div className="container">
       <GuestInfo />
     </div>
@@ -59,7 +59,7 @@ const GuestInfoPage = (props) => (
 )
 
 const HostInfoPage = (props) => (
-  <Layout {...props}>
+  <Layout {...props}  hideTagHeader={true}>
     <div className="container">
       <HostInfo />
     </div>
@@ -67,7 +67,7 @@ const HostInfoPage = (props) => (
 )
 
 const HostOrderPage = (props) => (
-  <Layout {...props}>
+  <Layout {...props}  hideTagHeader={true}>
     <div className="container">
       <HostOrder />
     </div>
@@ -96,10 +96,10 @@ const Web3UnavailableScreen = (props) => (
   </Layout>
 )
 
-const Layout = ({ children, hideCreateButton }) => (
+const Layout = ({ children, hideTagHeader }) => (
   <div>
     
-      <NavBar hideCreateButton={hideCreateButton} />
+      <NavBar hideTagHeader={hideTagHeader} />
       {children}
     
     <Footer />

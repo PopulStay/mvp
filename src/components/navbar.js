@@ -44,8 +44,8 @@ const NavBar = (props) => {
   <div>
   <header className="header header__white">
   
-  <a href="./">
-  <img className="header__logo" src="./images/logo.png" alt=""/>
+  <a href="../">
+  <img className="header__logo" src="../images/logo.png" alt=""/>
   </a>
   
   <nav className="nav navbar-nav navbar-right">
@@ -57,7 +57,7 @@ const NavBar = (props) => {
   </ul>
   </nav>
   </header>
-
+{!props.hideTagHeader &&
   <div className="tag-header">
     <ul className="tag container">
     <li className="tag__item active"><span className="location-tag">New York</span></li>
@@ -69,6 +69,7 @@ const NavBar = (props) => {
     <li className="tag__item"><span>More Fiters</span></li>
     </ul>
   </div>
+}
   </div>
 
 
