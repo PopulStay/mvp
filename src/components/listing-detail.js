@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import houselistingService from '../services/houseinfolist-service';
 import ppsService from '../services/pps-service';
 import ipfsService from '../services/ipfs-service';
+import Carousel from 'nuka-carousel';
 import Overlay from './overlay';
 
 const alertify = require('../../node_modules/alertify/src/alertify.js')
@@ -29,10 +30,16 @@ class ListingsDetail extends Component {
       lister: null,
       pictures: [],
       step: this.STEP.VIEW,
-      totalPrice: 0
+      totalPrice: 0,
+      slides:[],
+      currentActive:0
     }
 
-    this.handleBooking = this.handleBooking.bind(this)
+    this.handleBooking = this.handleBooking.bind(this);
+    this.SlideNext = this.SlideNext.bind(this);
+    this.SlidePre = this.SlidePre.bind(this);
+   
+
   }
 
   loadListing() {
@@ -40,12 +47,6 @@ class ListingsDetail extends Component {
     console.log(this.props.listingId);
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
-        console.log(result[0].toNumber());
-        console.log(result[1].toNumber());
-        console.log(result[2]);
-        console.log(result[3].toNumber());
-        console.log(result[4]);
-        console.log(result[5]);
         var roominfo = JSON.parse(result[5]);
         this.setState({price:result[0].toNumber()});
         this.setState({category:roominfo.category});
@@ -58,15 +59,66 @@ class ListingsDetail extends Component {
     });
   }
 
+  SlideNext(){
+
+
+    var slideArray = this.state.slides;
+    if(this.state.currentActive < slideArray.length)
+    {
+      slideArray[this.state.currentActive].active ="";
+      slideArray[this.state.currentActive].itemactive ="item";
+
+      slideArray[this.state.currentActive+1].active ="active";
+      slideArray[this.state.currentActive+1].itemactive ="item active";
+
+      this.setState({slides:slideArray,currentActive:this.state.currentActive+1});
+    }
+
+  }
+
+   SlidePre(){
+
+
+    var slideArray = this.state.slides;
+    if(this.state.currentActive > 1)
+    {
+      slideArray[this.state.currentActive].active ="";
+      slideArray[this.state.currentActive].itemactive ="item";
+
+      slideArray[this.state.currentActive-1].active ="active";
+      slideArray[this.state.currentActive-1].itemactive ="item active";
+
+      this.setState({slides:slideArray,currentActive:this.state.currentActive+1});
+    }
+
+  }
+
+ 
+
+
   componentWillMount() {
     if (this.props.listingId) {
       // Load from IPFS
-      this.loadListing()
+      this.loadListing();
     }
-    else if (this.props.listingJson) {
-      // Listing json passed in directly
-      this.setState(this.props.listingJson)
-    }
+  
+    var slideArray = this.state.slides;
+    var slide1 ={};
+    slide1.active = "active";
+    slide1.itemactive = "item active";
+    slide1.imgageUrl ="../images/detail-carousel.jpg";
+    slide1.index =0;
+
+    var slide2 ={};
+    slide2.active = "";
+    slide2.itemactive = "item";
+    slide2.imgageUrl ="../images/img_mountains_wide.jpg";
+    slide2.index =1;
+
+    slideArray.push(slide1);
+    slideArray.push(slide2);
+
+    this.setState({slides:slideArray});
   }
 
   handleBooking() {
@@ -110,6 +162,155 @@ class ListingsDetail extends Component {
   render() {
     const price = typeof this.state.price === 'string' ? 0 : this.state.price
     return (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+
+
+      <Carousel>
+        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1" />
+        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2" />
+        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3" />
+        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4" />
+        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5" />
+        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6" />
+      </Carousel>
+
+
+
+
+
+
+    
+
+<div className="detail-carousel">
+    <div id="carousel-detail" className="carousel slide" data-ride="carousel">
+
+  <ol className="carousel-indicators">
+   {this.state.slides.map(slide => (
+         <li data-target="#myCarousel" data-slide-to="0" className={slide.active}></li>
+              
+    ))}
+  </ol>
+
+  <div className="carousel-inner">
+    {this.state.slides.map(slide => (
+      <div className={slide.itemactive}>
+        <img src={slide.imgageUrl} alt="Los Angeles"/>
+      </div>
+     ))}
+  </div>
+
+  
+  <a className="left carousel-control" href="#myCarousel" data-slide="prev" onClick={this.SlidePre} >
+    <span className="glyphicon glyphicon-chevron-left"></span>
+    <span className="sr-only">Previous</span>
+  </a>
+  <a className="right carousel-control" href="#myCarousel" data-slide="next" onClick={this.SlideNext}>
+    <span className="glyphicon glyphicon-chevron-right"></span>
+    <span className="sr-only">Next</span>
+  </a>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div className="listing-detail">
         {this.state.step===this.STEP.METAMASK &&
           <Overlay imageUrl="/images/spinner-animation.svg">
@@ -215,6 +416,7 @@ class ListingsDetail extends Component {
           </div>
         </div>
       </div>
+ </div>     
     )
   }
 }
