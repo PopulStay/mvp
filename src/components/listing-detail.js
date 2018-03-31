@@ -130,45 +130,80 @@ class ListingsDetail extends Component {
         <img src={slide.imgageUrl} />
          ))}
       </Carousel>
+      <div className="detail-content container">
+      <div className="row">
+      <div className="col-md-7 col-lg-7 col-sm-7">
+      <div className="detail-content__click-cover">
+
+      </div>
+      </div>
+
+
+      <div className="col-md-5 col-lg-5 col-sm-5">
+      <div className="detail-summary">
+          
+          <div className="detail-price-div">
+              
+              <span className = "detail-price">
+                $ PPS: {Number(price).toLocaleString(undefined, {minimumFractionDigits: 3})} 
+              </span>
+              <span className = "detail-price-font">Daily Price</span>
+              <hr className="details-price-hr"/>
+              <div className="details-daterange-div">
+
+              {
+                  this.props.listingId &&
+                  <DateRangePicker
+                    startDate={this.state.checkInDate}
+                    startDateId="start_date"
+                    endDate={this.state.checkOutDate}
+                    startDatePlaceholderText="Check In"
+                    endDatePlaceholderText="Check Out"
+                    endDateId="end_date"
+                    onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
+                    focusedInput={this.state.focusedInput}
+                    onFocusChange={focusedInput => this.setState({ focusedInput })}
+                  />
+              }
+              </div>
+
+              <div className ="details-totalprice-div">
+               <span className = "detail-totalprice-font">Total Price</span>
+               <span className = "detail-totalprice">
+                $ PPS: {Number(this.calcTotalPrice()).toLocaleString(undefined, {minimumFractionDigits: 3})}
+              </span>
+             </div>
+
+             <div className="detail-summary__action">
+                 {
+                    this.props.listingId &&
+                    <button
+                      className="bg-pink color-blue btn-lg btn-block text-bold text-center"
+                      onClick={this.handleBooking}
+                      disabled={!this.props.listingId || !this.state.checkInDate || !this.state.checkOutDate}
+                      onMouseDown={e => e.preventDefault()}
+                      >
+                        Book
+                    </button>
+                }    
+
+            
+             <h4 className="text-center">You won’t be changed yet</h4>
+             </div>
+
+        </div>
+      
+
+
+      </div>
+      </div>
+      </div>
+      </div>
+
 
 
       <div className="listing-detail">
-        {this.state.step===this.STEP.METAMASK &&
-          <Overlay imageUrl="/images/spinner-animation.svg">
-            Confirm transaction<br />
-            Press &ldquo;Submit&rdquo; in MetaMask window
-          </Overlay>
-        }
-
-
-        {this.state.step===this.STEP.PROCESSING &&
-          <Overlay imageUrl="/images/spinner-animation.svg">
-            Processing your booking<br />
-            Please stand by...
-          </Overlay>
-        }
-
-
-        {this.state.step===this.STEP.PURCHASED &&
-          <Overlay imageUrl="/images/circular-check-button.svg">
-            Booking was successful.<br />
-            <a href="#" onClick={()=>window.location.reload()}>
-              Reload page
-            </a>
-          </Overlay>
-        }
-
-        {this.state.pictures &&
-          <div className="carousel">
-            {this.state.pictures.map(pictureUrl => (
-              <div className="photo" key={pictureUrl}>
-                {(new URL(pictureUrl).protocol === "data:") &&
-                  <img src={pictureUrl} role='presentation' />
-                }
-              </div>
-            ))}
-          </div>
-        }
+    
 
         <div className="container listing-container">
           <div className="row">
@@ -201,21 +236,7 @@ class ListingsDetail extends Component {
                     </span>
                   </div>
                 }
-                {
-                  this.props.listingId &&
-                  <DateRangePicker
-                    startDate={this.state.checkInDate}
-                    startDateId="start_date"
-                    endDate={this.state.checkOutDate}
-                    startDatePlaceholderText="Check In"
-                    endDatePlaceholderText="Check Out"
-                    endDateId="end_date"
-                    onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
-                    focusedInput={this.state.focusedInput}
-                    onFocusChange={focusedInput => this.setState({ focusedInput })}
-                  
-                  />
-                }
+               
 
                 <div>
                   
@@ -227,7 +248,7 @@ class ListingsDetail extends Component {
                       disabled={!this.props.listingId || !this.state.checkInDate || !this.state.checkOutDate}
                       onMouseDown={e => e.preventDefault()}
                       >
-                        Book Now
+                        Book
                     </button>
                   
                   }
@@ -237,6 +258,8 @@ class ListingsDetail extends Component {
           </div>
         </div>
       </div>
+
+
  </div>     
     )
   }

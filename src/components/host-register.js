@@ -123,7 +123,7 @@ class HostRegister extends React.Component {
           </div>
 
           <br/>
-          <button className="btn btn-danger" onClick={this.register}>Confirm</button>
+          <button className="btn btn-danger" onClick={this.register}>ok</button>
           <button className="btn btn-primary" onClick={this.closeModal}>close</button>
         </Modal>
       
