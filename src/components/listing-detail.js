@@ -125,6 +125,45 @@ class ListingsDetail extends Component {
     return (
 
 <div>
+       {this.state.step===this.STEP.METAMASK &&
+          <Overlay imageUrl="/images/spinner-animation.svg">
+            Confirm transaction<br />
+            Press &ldquo;Submit&rdquo; in MetaMask window
+          </Overlay>
+        }
+
+
+        {this.state.step===this.STEP.PROCESSING &&
+          <Overlay imageUrl="/images/spinner-animation.svg">
+            Processing your booking<br />
+            Please stand by...
+          </Overlay>
+        }
+
+
+
+        {this.state.step===this.STEP.PURCHASED &&
+          <Overlay imageUrl="/images/circular-check-button.svg">
+            Booking was successful.<br />
+            <a href="#" onClick={()=>window.location.reload()}>
+              Reload page
+            </a>
+          </Overlay>
+        }
+
+        {this.state.pictures &&
+          <div className="carousel">
+            {this.state.pictures.map(pictureUrl => (
+              <div className="photo" key={pictureUrl}>
+                {(new URL(pictureUrl).protocol === "data:") &&
+                  <img src={pictureUrl} role='presentation' />
+                }
+              </div>
+            ))}
+          </div>
+        }
+
+
       <Carousel>
        {this.state.slides.map(slide => (
         <img src={slide.imgageUrl} />
