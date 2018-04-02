@@ -57,12 +57,12 @@ class ListingCreate extends Component {
 
   render() {
     return (
-      <div className="container listing-form">
+      <div className="becomehost-1 container">
         <br/><br/>
         { this.state.step === this.STEP.DETAILS &&
 
             <div className="row">
-              <div className="col-md-5">
+              <div className="col-md-6 col-lg-6 col-sm-6">
                   <label>STEP {Number(this.state.step)}</label>
                   <h2>Create your listing</h2>
 
@@ -101,18 +101,8 @@ class ListingCreate extends Component {
               </div>
 
 
-               <div className="col-md-5 offset-md-2">
-                  <div className="info-box">
-                    <div>
-                      <h2>Hot tips to win good tenants</h2>
-                      <ul>
-                        <li>Be generous and provide extra photos. A lack of photos can be a key deterrent against tenant enquiry</li>
-                        <li>Before you take a photo, get as much light into the room as possible. People looking for a home respond better to sunny and bright rooms, and are deterred by blurry and dark images</li>
-                        <li>Try not to mimic other listings – being different will make yours stand out from the rest.</li>
-                      </ul>
-                    </div>
-                    <div className="info-box-image"><img className="d-none d-md-block" src="/images/features-graphic.svg" role="presentation" /></div>
-                  </div>
+               <div className="col-md-6 col-lg-6 col-sm-6">
+                  <img className="becomehost-1__bg" src="../images/becomehost-step1-bg.png" alt=""/>
                 </div>
             
             
