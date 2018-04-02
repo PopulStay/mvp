@@ -24,12 +24,22 @@ class ListingCreate extends Component {
             SUCCESS: 6
         }
 
+        this.ROOM_DESCRIPTION = {
+            SETUP_FOR_GUESTS:0,
+            SETUP_FOR_HOST_BELONGINGS:1
+
+        }
+
         this.state = {
             step: 0,
-            category:"",
-            beds:0,
-            location:"",
-            guestsnumber:0,
+            roomtype_category:"",
+            roomtype_guests:0,
+            roomtype_location:"",
+            roomdescription_homeorhotel:"",
+            roomdescription_type:"",
+            roomdescription_guests_have:"",
+            roomdescription_forguestorhost:0,
+
             user: {}
         }
 
@@ -38,6 +48,7 @@ class ListingCreate extends Component {
     }
 
     nextStep() {
+      console.log(this.state);
       if(this.state.step == this.STEP.STEP1)
       {
         this.setState({step:this.STEP.STEP2});
@@ -61,7 +72,8 @@ class ListingCreate extends Component {
     }
 
     preStep(){
-       if(this.state.step == this.STEP.STEP2)
+      console.log(this.state);
+      if(this.state.step == this.STEP.STEP2)
       {
         this.setState({step:this.STEP.STEP1});
       }
@@ -130,7 +142,7 @@ class ListingCreate extends Component {
                   <div className="row">
                   <div className="col-md-6 form-group">
                       <label>Category*</label>
-                      <select className="form-control" onChange={(e) => this.setState({category: e.target.value})}>
+                      <select className="form-control" onChange={(e) => this.setState({roomtype_category: e.target.value})}>
                         <option>Entire Place</option>
                         <option>Private Room</option>
                         <option>Share Room</option>
@@ -139,8 +151,8 @@ class ListingCreate extends Component {
 
 
                   <div className="col-md-6 form-group">
-                      <label>Beds*</label>
-                      <select className="form-control" onChange={(e) => this.setState({beds: e.target.value})}>
+                      <label>Guests*</label>
+                      <select className="form-control" onChange={(e) => this.setState({roomtype_guests: e.target.value})}>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -153,7 +165,7 @@ class ListingCreate extends Component {
 
                   <div className="form-group">
                     <label>Location*</label>
-                    <input type="text" className="form-control" onChange={(e) => this.setState({location: e.target.value})} />
+                    <input type="text" className="form-control" onChange={(e) => this.setState({roomtype_location: e.target.value})} />
                   </div>
 
                   <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.nextStep}>Continue</button>
@@ -184,31 +196,31 @@ class ListingCreate extends Component {
               <h2>Is this listing a home,hotel, or something else? </h2>
 
               <div className="form-group">    
-                <input type="text" className="form-control" onChange={(e) => this.setState({location: e.target.value})} />
+                <input type="text" className="form-control" onChange={(e) => this.setState({roomdescription_homeorhotel: e.target.value})} />
               </div>
                <br/>
 
                <h2>What type is it? </h2>
 
               <div className="form-group">    
-                <input type="text" className="form-control" onChange={(e) => this.setState({location: e.target.value})} />
+                <input type="text" className="form-control" onChange={(e) => this.setState({roomdescription_type: e.target.value})} />
               </div>
                <br/>
 
                <h2>What guests will have? </h2>
 
               <div className="form-group">    
-                <input type="text" className="form-control" onChange={(e) => this.setState({location: e.target.value})} />
+                <input type="text" className="form-control" onChange={(e) => this.setState({roomdescription_guests_have: e.target.value})} />
               </div>
 
                <h2>Is this setup dedicated a guest space?</h2>
                <br/>
 
                <div className="radio">
-                  <h2 className="text-muted"><input className="bg-pink color-white" type="radio" checked name="optradio"/>Yes,it's primarily set up for guests</h2>
+                  <h2 className="text-muted"><input className="bg-pink color-white" type="radio"  name="optradio" value="0" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>Yes,it's primarily set up for guests</h2>
                 </div>
                 <div className="radio">
-                  <h2 className="text-muted"><input className="bg-pink color-white" type="radio" name="optradio"/>No,I keep my personal belongings here</h2>
+                  <h2 className="text-muted"><input className="bg-pink color-white" type="radio" name="optradio" value="1" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>No,I keep my personal belongings here</h2>
                 </div>
 
               <br/><br/>
