@@ -31,16 +31,20 @@ class ListingCreate extends Component {
             user: {}
         }
 
-        this.finishStep1 = this.finishStep1.bind(this)
+        this.nextStep = this.nextStep.bind(this)
     }
 
-    finishStep1() {
-      this.setState({step:this.STEP.STEP2});
+    nextStep() {
+      if(this.state.step == this.STEP.STEP1)
+      {
+        this.setState({step:this.STEP.STEP2});
+        console.log(this.state);
+      }
+      
 
     }
 
     componentWillMount() {
-        
         this.setState({step:this.STEP.STEP1});
         window.web3.eth.getAccounts((error, accounts) => {
             this.setState({
@@ -122,8 +126,8 @@ class ListingCreate extends Component {
                     <input type="text" className="form-control" onChange={(e) => this.setState({location: e.target.value})} />
                   </div>
 
-                  <a className="btn btn-default btn-lg bg-pink color-white" onClick={this.finishStep1} href="">Continue</a>
-
+                  <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.nextStep} >Continue</button>
+                  <br/><br/>
                   <img src="../images/becomehost-step1-hint.jpg" alt=""/>
 
 
