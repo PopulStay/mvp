@@ -76,25 +76,18 @@ class ListingCreate extends Component {
 
         var files = this.state.selectedPictures;
         let reader = new FileReader();
-
-        for(var i=0;i<event.target.files.length;i++)
-        {
-
-           let reader = new FileReader();
-           let file = event.target.files[i];
+        let file = event.target.files[0];
 
           reader.onloadend = () => {
             files.push({
               file: file,
               imagePreviewUrl: reader.result
-            })
+            });
+            this.setState({selectedPictures:files});
           }
 
-          reader.readAsDataURL(file)
-        }
+        reader.readAsDataURL(file)
 
-        this.setState({selectedPictures:files});
-        console.log(this.state);
     }
 
     addCommonSpaceBeds(){
@@ -487,12 +480,21 @@ class ListingCreate extends Component {
           <div className="becomehost-5 container">
           <div className="row">
           <div className="col-md-6 col-lg-6 col-sm-6">
-          <img src="../images/becomehost-step5-content.png" alt=""/>
+          <h1>Great process {this.state.user.user}!</h1>
+           <br/><br/>
+          <h3 className="text-muted">Now let's get some details about your place so you can publish your listings </h3>
+          
+          <hr/>
+
+
+          <h2>Set the sence</h2>
+          <h4 className="color-pink">photos,short description,title</h4>
+
           <input className="btn btn-default btn-lg bg-pink color-white" type="file" onChange={this.fileChangedHandler}/>
-            <br/><br/>
+            <br/><br/> <br/><br/>
 
             {this.state.selectedPictures.map(file => (
-              <div className="col-md-2 col-lg-2 col-sm-2">
+              <div className="col-md-3 col-lg-3 col-sm-3">
             <img className="img-thumbnail" src={file.imagePreviewUrl} />
             </div>
             ))
