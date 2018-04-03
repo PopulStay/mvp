@@ -61,12 +61,28 @@ class ListingCreate extends Component {
             roomstuff_smartpincode_password:"",
             roomstuff_smartpincode_confirmpassword:"",
             roomstuff_smoke_detector:"",
+            selectedPictures:[],
             user: {}
         }
 
         this.nextStep = this.nextStep.bind(this);
         this.preStep  = this.preStep.bind(this)
-        this.addCommonSpaceBeds = this .addCommonSpaceBeds.bind(this);
+        this.addCommonSpaceBeds = this.addCommonSpaceBeds.bind(this);
+        this.fileChangedHandler = this.fileChangedHandler.bind(this);
+    }
+
+    fileChangedHandler(event){
+
+       var files = this.state.selectedPictures;
+      for(var i=0;i<event.target.files.length;i++)
+      {
+         files.push(event.target.files[i]);
+      }
+
+      this.setState({selectedPictures:files});
+      console.log(this.state);
+
+
     }
 
     addCommonSpaceBeds(){
@@ -93,6 +109,12 @@ class ListingCreate extends Component {
         console.log(this.state);
       }
 
+      if(this.state.step == this.STEP.STEP4)
+      {
+        this.setState({step:this.STEP.STEP5});
+        console.log(this.state);
+      }
+
       
       
 
@@ -111,7 +133,15 @@ class ListingCreate extends Component {
         console.log(this.state);
       }
 
+       if(this.state.step == this.STEP.STEP4)
+      {
+        this.setState({step:this.STEP.STEP3});
+        console.log(this.state);
+      }
+
     }
+
+  
 
     componentWillMount() {
         this.setState({step:this.STEP.STEP1});
@@ -437,6 +467,36 @@ class ListingCreate extends Component {
              </div>
           </div>
           </div>
+        }
+         {
+          this.state.step === this.STEP.STEP5 &&
+
+          <div className="becomehost-5 container">
+          <div className="row">
+          <div className="col-md-6 col-lg-6 col-sm-6">
+          <img src="../images/becomehost-step5-content.png" alt=""/>
+          <input type="file" onChange={this.fileChangedHandler}/>
+          
+          </div>
+          <div className="col-md-6 col-lg-6 col-sm-6">
+          <img className="becomehost-5__bg" src="../images/becomehost-step5-bg.png" alt=""/>
+          <div className ="becomehost-5__preview">
+          <img src="./images/becomehost-step5-preview.jpg" alt=""/>
+          <div className="becomehost-5__preview-link">
+          <span>Common room</span>
+          <br/>
+          <a href="./becomehost-preview.html" className="color-pink text-bold">
+          Preview</a>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+
+
+
+
+
         }
 
 
