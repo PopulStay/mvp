@@ -20,8 +20,9 @@ class ListingCreate extends Component {
             STEP2: 2,
             STEP3: 3,
             STEP4: 4,
-            PROCESSING: 5,
-            SUCCESS: 6
+            STEP5: 5,
+            PROCESSING: 6,
+            SUCCESS: 7
         }
 
         this.ROOM_DESCRIPTION = {
@@ -39,12 +40,38 @@ class ListingCreate extends Component {
             roomdescription_type:"",
             roomdescription_guests_have:"",
             roomdescription_forguestorhost:0,
-
+            roombasics_guestsnumber:1,
+            roombasics_guestbedrooms:1,
+            roombasics_totalguests:1,
+            roombasics_commonspacebeds:1,
+            roomstuff_Essentials:0,
+            roomstuff_Shampoo:0,
+            roomstuff_Closet_drwers:0,
+            roomstuff_TV:0,
+            roomstuff_Heat:0,
+            roomstuff_aircondition:0,
+            roomstuff_breakfastcoffetea:0,
+            roomstuff_desk_workspace:0,
+            roomstuff_fireplace:0,
+            roomstuff_iron:0,
+            roomstuff_hairdryer:0,
+            roomstuff_petsinhouse:0,
+            roomstuff_private_entrance:0,
+            roomstuff_smartpincode:0,
+            roomstuff_smartpincode_password:"",
+            roomstuff_smartpincode_confirmpassword:"",
+            roomstuff_smoke_detector:"",
             user: {}
         }
 
         this.nextStep = this.nextStep.bind(this);
         this.preStep  = this.preStep.bind(this)
+        this.addCommonSpaceBeds = this .addCommonSpaceBeds.bind(this);
+    }
+
+    addCommonSpaceBeds(){
+      var number = this.state.roombasics_commonspacebeds+1;
+      this.setState({roombasics_commonspacebeds:number});
     }
 
     nextStep() {
@@ -244,10 +271,6 @@ class ListingCreate extends Component {
 
          {
           this.state.step === this.STEP.STEP3 &&
-
-
-
-
           <div className="becomehost-3 container">
           <div className="row">
           <div className="col-md-8 col-lg-8 col-sm-8">
@@ -255,7 +278,7 @@ class ListingCreate extends Component {
 
                <div className="col-md-6 form-group">
                       <label>Number of guests*</label>
-                      <select className="form-control" onChange={(e) => this.setState({guestsnumber: e.target.value})}>
+                      <select className="form-control" onChange={(e) => this.setState({roombasics_guestsnumber: e.target.value})}>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -266,7 +289,7 @@ class ListingCreate extends Component {
 
                    <div className="col-md-12 form-group">
                       <label>How many bedrooms can guests have*</label>
-                      <select className="form-control" onChange={(e) => this.setState({guestsnumber: e.target.value})}>
+                      <select className="form-control" onChange={(e) => this.setState({roombasics_guestbedrooms: e.target.value})}>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -282,7 +305,7 @@ class ListingCreate extends Component {
                   <div className="row">
                      <div className="col-md-6">
                       <label>Total of guests*</label>
-                      <select className="form-control" onChange={(e) => this.setState({guestsnumber: e.target.value})}>
+                      <select className="form-control" onChange={(e) => this.setState({roombasics_totalguests: e.target.value})}>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -297,30 +320,129 @@ class ListingCreate extends Component {
                   <hr/>
                       <div className="row">
                         <div className="col-md-6">
-                         <h3 className="text-muted">Common space 0 beds</h3>
+                         <h3 className="text-muted">Common space {this.state.roombasics_commonspacebeds} beds</h3>
                         </div>
 
                         <div className="col-md-6">
-                         <button className="btn btn-default btn-lg bg-pink color-white">Add beds</button>
+                         <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.addCommonSpaceBeds}>Add beds</button>
                         </div>
                       </div>
                   <hr/>    
 
-                    <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.preStep}>Back</button>
-                     <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.nextStep}>Next</button>
+                  <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.preStep}>Back</button>
+                  <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.nextStep}>Next</button>
                   </div>
-         
-                 
-          
           </div>
           <div className="col-md-4 col-lg-4 col-sm-4">
           <img className="becomehost__info" src="../images/becomehost-step3-info.jpg" alt=""/>
           </div>
           </div>
           </div>
-
-
         }
+
+        {
+          this.state.step === this.STEP.STEP4 &&
+  
+          <div className="becomehost-4 container">
+          <div className="row">
+              <div className="col-md-7 col-lg-7 col-sm-7 col-md-offset-1 col-lg-offset-1 col-sm-offset-1">
+              <img className="becomehost__step-2" src="../images/becomehost-step4-step.png" alt=""/> 
+
+             <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});  }}/>Essentials</label>
+              <p>Towels,bed sheets,soap,toilet paper,and pillows</p>
+            </div>
+
+              <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_Shampoo ==0 )this.setState({roomstuff_Shampoo:1});else this.setState({roomstuff_Shampoo:0});  }}/>Shampoo</label>  
+             
+            </div>
+
+            <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_Closet_drwers ==0 )this.setState({roomstuff_Closet_drwers:1});else this.setState({roomstuff_Closet_drwers:0});  }}/>Closet/drawers</label>
+            </div>
+
+              <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_TV ==0 )this.setState({roomstuff_TV:1});else this.setState({roomstuff_TV:0});  }}/>TV</label>
+            </div>
+
+
+              <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_Heat ==0 )this.setState({roomstuff_Heat:1});else this.setState({roomstuff_Heat:0});  }}/>Heat</label>
+            </div>
+
+
+              <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_aircondition ==0 )this.setState({roomstuff_aircondition:1});else this.setState({roomstuff_aircondition:0});  }}/>Air conditioning</label>
+            </div>
+
+              <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_breakfastcoffetea ==0 )this.setState({roomstuff_breakfastcoffetea:1});else this.setState({roomstuff_breakfastcoffetea:0});  }}/>Breakfast,coffe,tea</label>
+              
+            </div>
+
+              <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_desk_workspace ==0 )this.setState({roomstuff_desk_workspace:1});else this.setState({roomstuff_desk_workspace:0});  }}/>Desk/workspace</label>
+            </div>
+
+              <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_fireplace ==0 )this.setState({roomstuff_fireplace:1});else this.setState({roomstuff_fireplace:0});  }}/>Fireplace</label>
+              </div>
+
+              <div>
+              <label><input type="checkbox" onChange={(e) => {if(this.state.roomstuff_iron ==0 )this.setState({roomstuff_iron:1});else this.setState({roomstuff_iron:0});  }}/>Iron</label>
+            </div>
+
+              <div>
+              <label><input type="checkbox" onChange={(e) => {if(this.state.roomstuff_hairdryer ==0 )this.setState({roomstuff_hairdryer:1});else this.setState({roomstuff_hairdryer:0});  }}/>Hair dryer</label>
+            </div>
+
+              <div>
+
+              <label><input type="checkbox" onChange={(e) => {if(this.state.roomstuff_petsinhouse ==0 )this.setState({roomstuff_petsinhouse:1});else this.setState({roomstuff_petsinhouse:0});  }}/>Pets in the house</label>
+             
+            </div>
+              <div>
+              <label><input type="checkbox" onChange={(e) => {if(this.state.roomstuff_private_entrance ==0 )this.setState({roomstuff_private_entrance:1});else this.setState({roomstuff_private_entrance:0});  }}/>Private entrance</label>
+            </div>
+
+            <h1>Safety amenities</h1>
+             <div>
+              <label><input type="checkbox"  onChange={(e) => {if(this.state.roomstuff_smartpincode ==0 )this.setState({roomstuff_smartpincode:1});else this.setState({roomstuff_smartpincode:0});  }}/>Smart pin code</label>
+              <hr/>
+              <div className="control-group">
+              <label className="control-label">Insert Your Password{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}</label>
+              <input type="password" className="controls" onChange={(e) => this.setState({roomstuff_smartpincode_password: e.target.value})} />
+              </div>
+
+              <div className="control-group">
+               <label className="control-label">ConFirm Your Password{'\u00A0'}{'\u00A0'}</label>
+               <input type="password" className="controls" onChange={(e) => this.setState({roomstuff_smartpincode_confirmpassword: e.target.value})} />
+             </div>
+              <hr/>
+            </div>
+
+            <div>
+              <label><input type="checkbox" onChange={(e) => {if(this.state.roomstuff_smoke_detector ==0 )this.setState({roomstuff_smoke_detector:1});else this.setState({roomstuff_smoke_detector:0});  }}/>Smoke detector</label>
+            </div>
+            <hr/>
+
+
+              <img src="../images/becomehost-step4-content.png" alt=""/>
+              <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.preStep}>Back</button>
+              <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.nextStep}>Next</button>
+              </div>
+             <div className="col-md-4 col-lg-4 col-sm-4">
+             <img className="becomehost__info" src="../images/becomehost-step4-info.jpg" alt=""/>
+             </div>
+          </div>
+          </div>
+        }
+
+
+
+
+
       </div>
     )
   }
