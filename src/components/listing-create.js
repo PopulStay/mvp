@@ -72,17 +72,29 @@ class ListingCreate extends Component {
     }
 
     fileChangedHandler(event){
+        event.preventDefault();
 
-       var files = this.state.selectedPictures;
-      for(var i=0;i<event.target.files.length;i++)
-      {
-         files.push(event.target.files[i]);
-      }
+        var files = this.state.selectedPictures;
+        let reader = new FileReader();
 
-      this.setState({selectedPictures:files});
-      console.log(this.state);
+        for(var i=0;i<event.target.files.length;i++)
+        {
 
+           let reader = new FileReader();
+           let file = event.target.files[i];
 
+          reader.onloadend = () => {
+            files.push({
+              file: file,
+              imagePreviewUrl: reader.result
+            })
+          }
+
+          reader.readAsDataURL(file)
+        }
+
+        this.setState({selectedPictures:files});
+        console.log(this.state);
     }
 
     addCommonSpaceBeds(){
@@ -184,6 +196,7 @@ class ListingCreate extends Component {
     }
 
   render() {
+
     return (
       <div className="becomehost-1 container">
         <br/><br/>
@@ -475,8 +488,20 @@ class ListingCreate extends Component {
           <div className="row">
           <div className="col-md-6 col-lg-6 col-sm-6">
           <img src="../images/becomehost-step5-content.png" alt=""/>
-          <input type="file" onChange={this.fileChangedHandler}/>
+          <input className="btn btn-default btn-lg bg-pink color-white" type="file" onChange={this.fileChangedHandler}/>
+            <br/><br/>
+
+            {this.state.selectedPictures.map(file => (
+              <div className="col-md-2 col-lg-2 col-sm-2">
+            <img className="img-thumbnail" src={file.imagePreviewUrl} />
+            </div>
+            ))
+             }
           
+
+
+
+
           </div>
           <div className="col-md-6 col-lg-6 col-sm-6">
           <img className="becomehost-5__bg" src="../images/becomehost-step5-bg.png" alt=""/>
