@@ -62,6 +62,7 @@ class ListingCreate extends Component {
             roomstuff_smartpincode_confirmpassword:"",
             roomstuff_smoke_detector:"",
             selectedPictures:[],
+            price_perday:0,
             user: {}
         }
 
@@ -69,6 +70,12 @@ class ListingCreate extends Component {
         this.preStep  = this.preStep.bind(this)
         this.addCommonSpaceBeds = this.addCommonSpaceBeds.bind(this);
         this.fileChangedHandler = this.fileChangedHandler.bind(this);
+        this.submit = this.submit.bind(this);
+    }
+
+    submit(){
+      
+       console.log(this.state);
     }
 
     fileChangedHandler(event){
@@ -489,18 +496,25 @@ class ListingCreate extends Component {
 
           <h2>Set the sence</h2>
           <h4 className="color-pink">photos,short description,title</h4>
-
           <input className="btn btn-default btn-lg bg-pink color-white" type="file" onChange={this.fileChangedHandler}/>
             <br/><br/> <br/><br/>
-
+            <div className="row">
             {this.state.selectedPictures.map(file => (
               <div className="col-md-3 col-lg-3 col-sm-3">
-            <img className="img-thumbnail" src={file.imagePreviewUrl} />
-            </div>
-            ))
+              <img className="img-thumbnail" src={file.imagePreviewUrl} />
+              </div>
+              ))
              }
-          
+             </div>
+             <div className="row">
+             <hr/>
+             <h2>PPS per day ? </h2>
+             <div className="form-group">    
+                <input type="number" className="form-control" onChange={(e) => this.setState({price_perday: e.target.value})}/>
+            </div>
 
+            <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.submit}>Submit</button>
+            </div>
 
 
 
