@@ -1,5 +1,6 @@
 import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
 import ipfsService from '../services/ipfs-service';
+import bs58 from 'bs58'
 
 
 var md5 = require('md5');//最后改IPFS
@@ -20,20 +21,45 @@ class HouseInfoListingService {
     this.houseInfoListingContract = this.contract(HouseInfoListing);
   }
 
+  getBytes32FromIpfsHash(ipfsListing) {
+    return "0x"+bs58.decode(ipfsListing).slice(2).toString('hex')
+  }
+
   submitListing(formListing) {
+          // var roominfo =
+          // {
+          //   roomtype_category:formListing.roomtype_category,
+          //   roomtype_guests:formListing.roomtype_guests,
+          //   roomtype_location:formListing.roomtype_location,
+          //   roomdescription_homeorhotel:formListing.roomdescription_homeorhotel,
+          //   roomdescription_type:formListing.roomdescription_type,
+          //   roomdescription_guests_have:formListing.roomdescription_guests_have,
+          //   roomdescription_forguestorhost:formListing.roomdescription_forguestorhost,
+          //   roombasics_guestsnumber:formListing.roombasics_guestsnumber,
+          //   roombasics_guestbedrooms:formListing.roombasics_guestbedrooms,
+          //   roombasics_totalguests:formListing.roombasics_totalguests,
+          //   roombasics_commonspacebeds:formListing.roombasics_commonspacebeds
+          // };
+
+
+
     ipfsService.submitListing(formListing).then((ipfsHashStr)=>
     {
+
+       var uuids= this.getBytes32FromIpfsHash(ipfsHashStr);
       return new Promise((resolve, reject) => {
        this.houseInfoListingContract.setProvider(window.web3.currentProvider);
        window.web3.eth.getAccounts((error, accounts) => {
        this.houseInfoListingContract.at(process.env.RentHouseListingAddress).then(function(instance){
          //最后改IPFS
+
+         console.log("'"+uuids+"','"+formListing.price_perday+"','"+JSON.stringify(roominfo)+"','"+ipfsHashStr+"','332-0032'");
        return instance.setHouseInfo(
 
-                                      window.web3.utils.randomHex(32),
-                                      formListing.formData.price,
-                                      "",
-                                      md5(JSON.stringify("roominfo")),
+                                      uuids,
+                                      formListing.price_perday,
+                                      JSON.stringify(roominfo),//todo this should changed in production,too large
+                                      ipfsHashStr,
                                       "332-0032",
                                       {from: accounts[0]});
       })
