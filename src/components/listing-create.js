@@ -76,7 +76,9 @@ class ListingCreate extends Component {
 
     submit(){
       
-       console.log(this.state);
+       //console.log(this.state);
+
+       houselistingService.submitListing(this.state);
     }
 
     fileChangedHandler(event){
