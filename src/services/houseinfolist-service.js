@@ -21,33 +21,39 @@ class HouseInfoListingService {
   }
 
   submitListing(formListing) {
-    ipfsService.submitListing(formListing);
+    ipfsService.submitListing(formListing).then((ipfsHashStr)=>
+    {
+      return new Promise((resolve, reject) => {
+       this.houseInfoListingContract.setProvider(window.web3.currentProvider);
+       window.web3.eth.getAccounts((error, accounts) => {
+       this.houseInfoListingContract.at(process.env.RentHouseListingAddress).then(function(instance){
+         //最后改IPFS
+       return instance.setHouseInfo(
+
+                                      window.web3.utils.randomHex(32),
+                                      formListing.formData.price,
+                                      "",
+                                      md5(JSON.stringify("roominfo")),
+                                      "332-0032",
+                                      {from: accounts[0]});
+      })
+      .then((transactionReceipt) => {
+          resolve(transactionReceipt.tx);
+        })
+        .catch((error) => {
+          reject(error);
+        })
+    })
+    })
+
+
+    });
   	// var roominfo ={};
   	// roominfo.beds     = formListing.formData.beds;
   	// roominfo.category = formListing.formData.category;
   	// roominfo.location = formListing.formData.location;
 
-   //  return new Promise((resolve, reject) => {
-   //    this.houseInfoListingContract.setProvider(window.web3.currentProvider);
-   //     window.web3.eth.getAccounts((error, accounts) => {
-   //      this.houseInfoListingContract.at(process.env.RentHouseListingAddress).then(function(instance){
-   //      	//最后改IPFS
-   //    	return instance.setHouseInfo(
-   //                                    md5(JSON.stringify(roominfo)),
-   //                                    formListing.formData.price,
-   //                                    JSON.stringify(roominfo),
-   //                                    md5(JSON.stringify(roominfo)),
-   //                                    "332-0032",
-   //                                    {from: accounts[0]});
-   //    })
-   //    .then((transactionReceipt) => {
-   //        resolve(transactionReceipt.tx);
-   //      })
-   //      .catch((error) => {
-   //        reject(error);
-   //      })
-   //  })
-   //  })
+ 
   }
 
     getDistrictCodes() {
