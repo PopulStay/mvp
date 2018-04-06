@@ -4,7 +4,7 @@ import houselistingService from '../services/houseinfolist-service';
 import ListingDetail from './listing-detail';
 import Overlay from './overlay';
 import hostService from '../services/host-service';
-import ipfs from '../services/ipfs-service'
+
 
 
 

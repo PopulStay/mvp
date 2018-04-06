@@ -1,4 +1,5 @@
 import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
+import ipfsService from '../services/ipfs-service';
 
 
 var md5 = require('md5');//最后改IPFS
@@ -20,6 +21,7 @@ class HouseInfoListingService {
   }
 
   submitListing(formListing) {
+    ipfsService.submitListing(formListing);
   	// var roominfo ={};
   	// roominfo.beds     = formListing.formData.beds;
   	// roominfo.category = formListing.formData.category;

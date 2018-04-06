@@ -11,8 +11,8 @@ function getClientEnvironment(publicUrl) {
     }, {
       'NODE_ENV': JSON.stringify('production'),
       'PUBLIC_URL': JSON.stringify(publicUrl),
-      'IPFS_API_PORT': JSON.stringify("5002"),
-      'IPFS_DOMAIN': JSON.stringify("https://ipfs.infura.io"),
+      'IPFS_API_PORT': JSON.stringify("5001"),
+      'IPFS_DOMAIN': JSON.stringify("ipfs.infura.io"),
       'RentHouseListingAddress':JSON.stringify("0x370fcc6e09a803634b60d52de9fb969face46a05"),
       'PPSAddress':JSON.stringify("0x7184589d0e38ebdcee9a8e046845d665bf33c782"),
       'Server_Address':JSON.stringify("http://localhost:1337/")
