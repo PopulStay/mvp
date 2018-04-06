@@ -11,9 +11,9 @@ class IpfsService {
 
     // If connecting to a local IPFS daemon, set envionment variables
     // IPFS_DOMAIN = 127.0.0.1 and IPFS_API_PORT = 5001
-    this.ipfsDomain = process.env.IPFS_DOMAIN || 'gateway.originprotocol.com'
-    this.ipfsApiPort = process.env.IPFS_API_PORT || '5002'
-    this.ipfsGatewayPort = process.env.IPFS_GATEWAY_PORT || ''
+    this.ipfsDomain = process.env.IPFS_DOMAIN ;
+    this.ipfsApiPort = process.env.IPFS_API_PORT;
+    this.ipfsGatewayPort = process.env.IPFS_GATEWAY_PORT;
     this.ipfsProtocol = 'https'
 
     this.ipfs = ipfsAPI(this.ipfsDomain, this.ipfsApiPort, {protocol: this.ipfsProtocol})

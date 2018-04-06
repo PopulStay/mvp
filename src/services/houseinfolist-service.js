@@ -1,4 +1,6 @@
 import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
+import ipfsService from '../services/ipfs-service';
+import bs58 from 'bs58'
 
 
 var md5 = require('md5');//最后改IPFS
@@ -19,22 +21,41 @@ class HouseInfoListingService {
     this.houseInfoListingContract = this.contract(HouseInfoListing);
   }
 
-  submitListing(formListing) {
-  	var roominfo ={};
-  	roominfo.beds     = formListing.formData.beds;
-  	roominfo.category = formListing.formData.category;
-  	roominfo.location = formListing.formData.location;
+  getBytes32FromIpfsHash(ipfsListing) {
+    return "0x"+bs58.decode(ipfsListing).slice(2).toString('hex')
+  }
 
-    return new Promise((resolve, reject) => {
-      this.houseInfoListingContract.setProvider(window.web3.currentProvider);
+  getIpfsHashFromBytes32(bytes32Hex) {
+   
+    const hashHex = "1220" + bytes32Hex.slice(2)
+    const hashBytes = Buffer.from(hashHex, 'hex');
+    const hashStr = bs58.encode(hashBytes)
+    return hashStr
+  }
+
+  submitListing(formListing) {
+          
+    var roominfo ={};
+    roominfo.beds     = formListing.roombasics_guestbedrooms;
+    roominfo.category = formListing.roomtype_category;
+    roominfo.location = formListing.roomtype_location;
+
+    ipfsService.submitListing(formListing).then((ipfsHashStr)=>
+    {
+
+       var uuids= this.getBytes32FromIpfsHash(ipfsHashStr);
+      return new Promise((resolve, reject) => {
+       this.houseInfoListingContract.setProvider(window.web3.currentProvider);
        window.web3.eth.getAccounts((error, accounts) => {
-        this.houseInfoListingContract.at(process.env.RentHouseListingAddress).then(function(instance){
-        	//最后改IPFS
-      	return instance.setHouseInfo(
-                                      md5(JSON.stringify(roominfo)),
-                                      formListing.formData.price,
+       this.houseInfoListingContract.at(process.env.RentHouseListingAddress).then(function(instance){
+         //最后改IPFS
+
+         console.log("'"+uuids+"','"+formListing.price_perday+"','"+JSON.stringify(roominfo)+"','"+ipfsHashStr+"','332-0032'");
+       return instance.setHouseInfo(
+
+                                      uuids,
+                                      formListing.price_perday,
                                       JSON.stringify(roominfo),
-                                      md5(JSON.stringify(roominfo)),
                                       "332-0032",
                                       {from: accounts[0]});
       })
@@ -46,6 +67,15 @@ class HouseInfoListingService {
         })
     })
     })
+
+
+    });
+  	// var roominfo ={};
+  	// roominfo.beds     = formListing.formData.beds;
+  	// roominfo.category = formListing.formData.category;
+  	// roominfo.location = formListing.formData.location;
+
+ 
   }
 
     getDistrictCodes() {

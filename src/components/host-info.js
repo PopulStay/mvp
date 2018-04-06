@@ -64,6 +64,16 @@ class HostInfo extends React.Component {
        <div className="col-lg-4">
         account:{this.state.account}
        </div>
+       <div className="col-lg-1">
+        <Link to="/hostorder">
+          <button className="btn btn-danger">Order List</button>
+        </Link>
+        </div>
+        <div className="col-lg-2">
+        <Link to="/create">
+          <button className="btn btn-danger">Create List</button>
+        </Link>
+       </div>
       </div>
 
       <br/>
@@ -87,9 +97,7 @@ class HostInfo extends React.Component {
       </div>
 
   <br/><br/>
-  <Link to="/hostorder">
-  <button className="btn btn-danger">Order List</button>
-  </Link>
+
 
   <br/><br/>
   <table className="table">

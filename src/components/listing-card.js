@@ -12,26 +12,35 @@ class ListingCard extends Component {
       name: "Loading...",
       price: "Loading...",
       ipfsHash: null,
-      lister: null
+      lister: null,
+      descriptioninfo:{},
+      previewurl:""
     }
   }
 
   componentDidMount() {
 
+    var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
+
     console.log(this.props.listingId);
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
-        console.log(result[0].toNumber());
-        console.log(result[1].toNumber());
-        console.log(result[2]);
-        console.log(result[3].toNumber());
-        console.log(result[4]);
-        console.log(result[5]);
-        var roominfo = JSON.parse(result[5]);
+        var roominfo = JSON.parse(result[4]);
         this.setState({price:result[0].toNumber()});
         this.setState({category:roominfo.category});
         this.setState({location:roominfo.location});
         this.setState({beds:roominfo.beds});
+        return ipfsService.getListing(ipfsHash)
+    }).then((result)=>{
+          var descriptioninfo = JSON.parse(result);
+         this.setState({descriptioninfo:descriptioninfo});
+         if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
+         {
+          this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
+          console.log(this.state.previewurl);
+         }
+         
+  
 
     }).catch((error) => {
       console.error(error);
@@ -41,21 +50,19 @@ class ListingCard extends Component {
   render() {
 
     return (
+
+
+      
       <div className="col-12 col-md-6 col-lg-4 listing-card">
         <Link to={`/listing/${this.props.listingId}`}>
-          <div className="photo" style={{backgroundImage:`url("${
-            (this.state.pictures && this.state.pictures.length>0 &&
-              (new URL(this.state.pictures[0])).protocol === "data:") ?
-                this.state.pictures[0] :
-                '/images/default-image.jpg'}")`
-          }}>
-          </div>
+          <img className="img-thumbnail" src={this.state.previewurl} role="presentation" />
           <div className="category">{this.state.category} ({this.state.beds} beds)</div>
           <div className="title">{this.state.location}</div>
           <div className="price">
               {Number(this.state.price).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS / day
           </div>
         </Link>
+        <br/><br/>
       </div>
     )
   }

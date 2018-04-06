@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import GuestRegister from './guest-register';
 import HostRegister from './host-register';
 
+import '../css/main.css'
+import '../css/search.css'
+
 function NetworkCheck(props, context) {
   const web3Context = context.web3
   const networkNames = {
@@ -37,43 +40,40 @@ NetworkCheck.contextTypes = {
 
 const NavBar = (props) => {
   return (
-    <nav className="navbar">
-      <div className="container">
-        <Link to="/">
-          <div className="logo-container">
-            <img src="/images/logo_white.svg" height="130" alt="PopulStay" />
-          </div>
-        </Link>
-        <NetworkCheck />
-        <div className="float-right">
-          
-           <div className="row">
-            
-            <div className="col-lg-6">
-             <HostRegister/>
-            </div>
 
-            <div className="col-lg-6">
-             <GuestRegister/>
-            </div>
-            
-            </div>
-          <br/><br/>
-             
+  <div>
+  <header className="header header__white">
+  
+  <a href="../">
+  <img className="header__logo" src="../images/logo.png" alt=""/>
+  </a>
+  
+  <nav className="nav navbar-nav navbar-right">
+  <ul>
+  <li><HostRegister/></li>
+  <li><a href="">Help</a></li>
+  <li><a href="">Login</a></li>
+  <li><GuestRegister/></li>
+  </ul>
+  </nav>
+  </header>
+{!props.hideTagHeader &&
+  <div className="tag-header">
+    <ul className="tag container">
+    <li className="tag__item active"><span className="location-tag">New York</span></li>
+    <li className="tag__item active"><span>4th - 8th March</span></li>
+    <li className="tag__item active"><span>2 Adults</span></li>
+    <li className="tag__item"><img src="./images/search-tag-icon.png" alt=""/> <span>Support PPS token</span></li>
+    <li className="tag__item"><span>Home Type</span></li>
+    <li className="tag__item"><span>Price</span></li>
+    <li className="tag__item"><span>More Fiters</span></li>
+    </ul>
+  </div>
+}
+  </div>
 
 
-          {!props.hideCreateButton &&
-            <div className="navbar-create">
-              <Link to="/create">
-                <button>
-                  Create Listing
-                </button>
-              </Link>
-            </div>
-          }
-        </div>
-      </div>
-    </nav>
+
   )
 }
 

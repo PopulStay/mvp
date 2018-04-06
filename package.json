@@ -1,5 +1,5 @@
 {
-  "name": "origin-demo-dapp",
+  "name": "populstay-dapp",
   "version": "0.2.0",
   "private": true,
   "devDependencies": {
@@ -61,12 +61,17 @@
     "md5": "^2.2.1",
     "moment": "^2.21.0",
     "npm": "^5.7.1",
+    "nuka-carousel": "^4.0.2",
+    "pure-react-carousel": "^1.11.1",
     "react": "^15.6.2",
     "react-dates": "^16.3.6",
     "react-dom": "^15.6.2",
+    "react-flip-move": "^3.0.1",
+    "react-image-upload": "0.0.1",
     "react-js-pagination": "^3.0.1",
     "react-jsonschema-form": "^1.00.0",
     "react-modal": "^3.3.2",
+    "react-responsive-carousel": "^3.1.34",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-web3": "github:wanderingstan/react-web3#state_didchange_fix"
