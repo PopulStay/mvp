@@ -1,4 +1,3 @@
-pragma solidity ^0.4.18;
 
 contract HouseInfoListing{
    address public tokenAddress;//tokenAddress used to pay 
@@ -44,8 +43,9 @@ contract HouseInfoListing{
     uint    contractdatetime;
     uint    state;//0 close , 1 open
     address owner;
-    bytes32 ipfsHash;
+  
   }
+  
   mapping ( address => bytes32[] ) private hostRoomList;//every house info has one uuid,find house info by host address
                                                       
   
@@ -54,14 +54,15 @@ contract HouseInfoListing{
   mapping ( bytes32 => bytes32[] ) private uuids;       //every house info has one uuid,find house info by districtcode
                                                         //should add find house info by city street 
                                                         
-                                                     
+                                                        
+  //通过房屋信息uuid确定预定合约信息                                                        
   mapping ( bytes32 => address[] ) private PreOrders;   
                                                         //find preorders lists by house info uuid 
                                                         //find preOrder or order infomation from this connection 
-
+  //通过房客address找到合约信息
   mapping (address => address[]) private GuestOrders;   //find guest orders by guest address
   
-  
+  //通过房东address找到合约信息
   mapping (address => address[]) private HouseOwnerOrders;//find house owner orders by house owner address
   
   
@@ -94,8 +95,8 @@ contract HouseInfoListing{
       return ;
       
   }
-  //"test",9,"roominfo","test","0x3333322d30303332000000000000000000000000000000000000000000000000"
-   function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _ipfsHash,bytes32 _districtcode) 
+
+   function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _districtcode) 
    public 
    returns(bool success)
   {
@@ -105,16 +106,15 @@ contract HouseInfoListing{
         price   : _price,
         contractdatetime:block.timestamp,
         owner   : msg.sender,
-        state   : 1,
-        ipfsHash: _ipfsHash
+        state   : 1
       });
               
     uuids[_districtcode].push(_uuid);
     hostRoomList[msg.sender].push(_uuid);
     return true;
   }
-
-    function getHostRoomLists(address _hostaddress)
+  
+  function getHostRoomLists(address _hostaddress)
     view
     public
     returns(bytes32[] _hostRoomList)
@@ -160,7 +160,7 @@ contract HouseInfoListing{
   function getHouseInfo(bytes32 _uuid)
     view
     public
-    returns (uint _price, uint _contractdatetime, address _owner,uint _state,bytes32 _ipfsHash,string _roominfo)
+    returns (uint _price, uint _contractdatetime, address _owner,uint _state,string _roominfo)
   {
     //check the contract list, the most important thing is that if state is 0, that means this house had been rented.
     return (
@@ -168,7 +168,6 @@ contract HouseInfoListing{
       houseInfo[_uuid].contractdatetime,
       houseInfo[_uuid].owner,
       houseInfo[_uuid].state,
-      houseInfo[_uuid].ipfsHash,
       houseInfo[_uuid].roominfo
     );
   }
@@ -214,7 +213,7 @@ contract PreOrder{
         price        = _price;
         
     }
-
+    
     function getPreorderInfo()
     view
     public
@@ -243,6 +242,8 @@ contract PreOrder{
         price        
     );
     }
+    
+    
     
     function confirmOrder()
     payable
@@ -287,6 +288,8 @@ contract PreOrder{
     
 }
 
+
+
 contract Token {
 
   event Transfer(address indexed from, address indexed to, uint tokens);
@@ -300,3 +303,4 @@ contract Token {
   function transferFrom(address from, address to, uint tokens) public returns (bool success);
 
 }
+
