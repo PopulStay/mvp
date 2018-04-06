@@ -47,8 +47,8 @@ class HouseInfoListingService {
 
                                       uuids,
                                       formListing.price_perday,
-                                      JSON.stringify(roominfo),//todo this should changed in production,too large
-                                      ipfsHashStr,
+                                      JSON.stringify(roominfo),
+                                      ipfsHashStr,//todo this should changed because of error
                                       "332-0032",
                                       {from: accounts[0]});
       })
