@@ -26,22 +26,11 @@ class HouseInfoListingService {
   }
 
   submitListing(formListing) {
-          // var roominfo =
-          // {
-          //   roomtype_category:formListing.roomtype_category,
-          //   roomtype_guests:formListing.roomtype_guests,
-          //   roomtype_location:formListing.roomtype_location,
-          //   roomdescription_homeorhotel:formListing.roomdescription_homeorhotel,
-          //   roomdescription_type:formListing.roomdescription_type,
-          //   roomdescription_guests_have:formListing.roomdescription_guests_have,
-          //   roomdescription_forguestorhost:formListing.roomdescription_forguestorhost,
-          //   roombasics_guestsnumber:formListing.roombasics_guestsnumber,
-          //   roombasics_guestbedrooms:formListing.roombasics_guestbedrooms,
-          //   roombasics_totalguests:formListing.roombasics_totalguests,
-          //   roombasics_commonspacebeds:formListing.roombasics_commonspacebeds
-          // };
-
-
+          
+    var roominfo ={};
+    roominfo.beds     = formListing.roombasics_guestbedrooms;
+    roominfo.category = formListing.roomtype_category;
+    roominfo.location = formListing.roomtype_location;
 
     ipfsService.submitListing(formListing).then((ipfsHashStr)=>
     {
