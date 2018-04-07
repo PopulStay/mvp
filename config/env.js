@@ -15,7 +15,7 @@ function getClientEnvironment(publicUrl) {
       'IPFS_DOMAIN': JSON.stringify("ipfs.infura.io"),
       'RentHouseListingAddress':JSON.stringify("0x0b0083027863239fb72194a640bb0a9d476dc722"),
       'PPSAddress':JSON.stringify("0x7184589d0e38ebdcee9a8e046845d665bf33c782"),
-      'Server_Address':JSON.stringify("http://localhost:1337/")
+      'Server_Address':JSON.stringify("http://133.130.99.204:1338/")
 
     });
   return {'process.env': processEnv};
