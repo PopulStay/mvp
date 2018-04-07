@@ -55,7 +55,7 @@ class ListingCard extends Component {
       
       <div className="col-12 col-md-6 col-lg-4 listing-card">
         <Link to={`/listing/${this.props.listingId}`}>
-          <img className="img-thumbnail" src={this.state.previewurl} role="presentation" />
+          <img className="photo" src={this.state.previewurl} role="presentation" />
           <div className="category">{this.state.category} ({this.state.beds} beds)</div>
           <div className="title">{this.state.location}</div>
           <div className="price">
