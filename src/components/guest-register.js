@@ -40,6 +40,7 @@ class GuestRegister extends React.Component {
     this.setState( { account: accounts[0], id: accounts[0] });
     guestService.getGuesterInfo(accounts[0]).then((data)=>{
       this.setState({ registered:true });
+      this.setState({ user:data.user });
      });
     });
   }
@@ -79,7 +80,7 @@ class GuestRegister extends React.Component {
 
          {this.state.registered === true  && 
            <Link to="/guestinfo">
-          <button className="logoutButton float-right">GuestAccount</button>
+          <button className="logoutButton float-right">Welcome！{this.state.user}</button>
             </Link>
 
         }
