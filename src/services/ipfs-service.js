@@ -17,12 +17,12 @@ class IpfsService {
     this.ipfsProtocol = 'https'
 
     this.ipfs = ipfsAPI(this.ipfsDomain, this.ipfsApiPort, {protocol: this.ipfsProtocol})
-    this.ipfs.swarm.peers(function(error, response) {
-      if (error) {
-        console.error("IPFS - Can't connect to the IPFS API.")
-        console.error(error)
-      }
-    })
+    // this.ipfs.swarm.peers(function(error, response) {
+    //   if (error) {
+    //     console.error("IPFS - Can't connect to the IPFS API.")
+    //     console.error(error)
+    //   }
+    // })
     IpfsService.instance = this
 
     // Caching
