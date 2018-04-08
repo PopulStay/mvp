@@ -50,7 +50,9 @@ const NavBar = (props) => {
   
   <nav className="nav navbar-nav navbar-right">
   <ul>
-  <li><HostRegister/></li>
+     <Link to="/create">
+          <a className="btn button__fill">Become a Host</a>
+    </Link>
   <li><a href="">Help</a></li>
   <li><a href="">Login</a></li>
   <li><GuestRegister/></li>
