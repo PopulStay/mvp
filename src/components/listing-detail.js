@@ -32,7 +32,8 @@ class ListingsDetail extends Component {
       step: this.STEP.VIEW,
       totalPrice: 0,
       slides:[],
-      currentActive:0
+      currentActive:0,
+      descriptioninfo:{}
     }
 
     this.handleBooking = this.handleBooking.bind(this);
@@ -168,9 +169,122 @@ class ListingsDetail extends Component {
       <div className="detail-content container">
       <div className="row">
       <div className="col-md-7 col-lg-7 col-sm-7">
-      <div className="detail-content__click-cover">
 
-      </div>
+              {
+                  this.state.descriptioninfo.roomtype_category && 
+                  <h5>roomtype_category:{this.state.descriptioninfo.roomtype_category}</h5>
+              } 
+
+              {
+                  this.state.descriptioninfo.roomtype_guests && 
+                  <h5>roomtype_guests:{this.state.descriptioninfo.roomtype_guests}</h5>
+              }
+              {
+                  this.state.descriptioninfo.roomtype_location && 
+                  <h5>roomtype_location:{this.state.descriptioninfo.roomtype_location}</h5>
+              }
+              {
+                  this.state.descriptioninfo.roomdescription_homeorhotel && 
+                  <h5>roomdescription_homeorhotel:{this.state.descriptioninfo.roomdescription_homeorhotel}</h5>
+              }
+              {
+                  this.state.descriptioninfo.roomdescription_type && 
+                  <h5>roomdescription_type:{this.state.descriptioninfo.roomdescription_type}</h5>
+              }
+              {
+                  this.state.descriptioninfo.roomdescription_guests_have && 
+                  <h5>roomdescription_guests_have:{this.state.descriptioninfo.roomdescription_guests_have}</h5>
+              }
+              {
+                  this.state.descriptioninfo.roomdescription_forguestorhost && 
+                  <h5>roomdescription_forguestorhost:{this.state.descriptioninfo.roomdescription_forguestorhost}</h5>
+              }
+              {
+                  this.state.descriptioninfo.roombasics_guestsnumber && 
+                  <h5>roombasics_guestsnumber:{this.state.descriptioninfo.roombasics_guestsnumber}</h5>
+              }
+              {
+                  this.state.descriptioninfo.roombasics_guestbedrooms && 
+                  <h5>roombasics_guestbedrooms:{this.state.descriptioninfo.roombasics_guestbedrooms}</h5>
+              }
+              {
+                  this.state.descriptioninfo.roombasics_totalguests &&
+                   <h5>roombasics_totalguests:{this.state.descriptioninfo.roombasics_totalguests}</h5>
+              }
+              {
+                  this.state.descriptioninfo.roombasics_commonspacebeds && 
+                  <h5>roombasics_commonspacebeds:{this.state.descriptioninfo.roombasics_commonspacebeds}</h5>
+              }
+              {
+              this.state.descriptioninfo.roomstuff_Essentials && 
+              <h5>roomstuff_Essentials:{this.state.descriptioninfo.roomstuff_Essentials}</h5>
+              }
+
+              {
+              this.state.descriptioninfo.roomstuff_Shampoo && 
+              <h5>roomstuff_Shampoo:{this.state.descriptioninfo.roomstuff_Shampoo}</h5>
+              }
+              {
+              this.state.descriptioninfo.roomstuff_Closet_drwers && 
+              <h5>roomstuff_Closet_drwers:{this.state.descriptioninfo.roomstuff_Closet_drwers}</h5>
+              }
+              {
+              this.state.descriptioninfo.roomstuff_TV && 
+              <h5>roomstuff_TV:{this.state.descriptioninfo.roomstuff_TV}</h5>
+              }
+              {
+              this.state.descriptioninfo.roomstuff_Heat && 
+              <h5>roomstuff_Heat:{this.state.descriptioninfo.roomstuff_Heat}</h5>
+              }
+              {
+              this.state.descriptioninfo.roomstuff_aircondition && 
+              <h5>roomstuff_aircondition:{this.state.descriptioninfo.roomstuff_aircondition}</h5>
+              }
+              {
+              this.state.descriptioninfo.roomstuff_breakfastcoffetea && 
+              <h5>roomstuff_breakfastcoffetea:{this.state.descriptioninfo.roomstuff_breakfastcoffetea}</h5>
+              }
+              {
+              this.state.descriptioninfo.roomstuff_desk_workspace && 
+              <h5>roomstuff_desk_workspace:{this.state.descriptioninfo.roomstuff_desk_workspace}</h5>
+              }
+               {
+              this.state.descriptioninfo.roomstuff_fireplace && 
+              <h5>roomstuff_fireplace:{this.state.descriptioninfo.roomstuff_fireplace}</h5>
+              }
+               {
+              this.state.descriptioninfo.roomstuff_iron && 
+              <h5>roomstuff_iron:{this.state.descriptioninfo.roomstuff_iron}</h5>
+              }
+               {
+              this.state.descriptioninfo.roomstuff_hairdryer && 
+              <h5>roomstuff_hairdryer:{this.state.descriptioninfo.roomstuff_hairdryer}</h5>
+              }
+               {
+              this.state.descriptioninfo.roomstuff_petsinhouse && 
+              <h5>roomstuff_petsinhouse:{this.state.descriptioninfo.roomstuff_petsinhouse}</h5>
+              }
+               {
+              this.state.descriptioninfo.roomstuff_private_entrance && 
+              <h5>roomstuff_private_entrance:{this.state.descriptioninfo.roomstuff_private_entrance}</h5>
+              }
+               {
+              this.state.descriptioninfo.roomstuff_smartpincode && 
+              <h5>roomstuff_smartpincode:{this.state.descriptioninfo.roomstuff_smartpincode}</h5>
+              }
+               {
+              this.state.descriptioninfo.roomstuff_smartpincode_password && 
+              <h5>roomstuff_smartpincode_password:{this.state.descriptioninfo.roomstuff_smartpincode_password}</h5>
+              }
+               {
+              this.state.descriptioninfo.roomstuff_smoke_detector && 
+              <h5>roomstuff_smoke_detector:{this.state.descriptioninfo.roomstuff_smoke_detector}</h5>
+              }
+
+
+
+
+      <div className="detail-content__click-cover"></div>
       </div>
 
 
@@ -236,63 +350,6 @@ class ListingsDetail extends Component {
       </div>
 
 
-
-      <div className="listing-detail">
-    
-
-        <div className="container listing-container">
-          <div className="row">
-            <div className="col-12 col-md-8 detail-info-box">
-              <div className="category">{this.state.category} ({this.state.beds} beds)</div>
-              <div className="title">{this.state.location}</div>
-              <div className="category">Creator</div>
-              <div className="description">{this.state.lister}</div>
-              <a href={ipfsService.gatewayUrlForHash(this.state.ipfsHash)} target="_blank">
-                View on IPFS <big>&rsaquo;</big>
-              </a>
-              <div className="debug">
-                <li>IPFS: {this.state.ipfsHash}</li>
-                <li>Lister: {this.state.lister}</li>
-              </div>
-            </div>
-            <div className="col-12 col-md-4">
-              <div className="buy-box">
-                <div>
-                  <span>Daily Price</span>
-                  <span className="price">
-                    {Number(price).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
-                  </span>
-                </div>
-                {this.props.listingId &&
-                  <div>
-                    <span>Total Price</span>
-                    <span className="price">
-                      {Number(this.calcTotalPrice()).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS
-                    </span>
-                  </div>
-                }
-               
-
-                <div>
-                  
-                  {
-                    this.props.listingId &&
-                    <button
-                      className="button"
-                      onClick={this.handleBooking}
-                      disabled={!this.props.listingId || !this.state.checkInDate || !this.state.checkOutDate}
-                      onMouseDown={e => e.preventDefault()}
-                      >
-                        Book
-                    </button>
-                  
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
  </div>     

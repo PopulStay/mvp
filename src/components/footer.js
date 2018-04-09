@@ -4,7 +4,7 @@ const Footer = (props) => {
   return (
     <footer className="footer">
     <div className="footer__brand-info container">
-        <img className="footer__logo" src="./images/logo-2.png" alt="" />
+        <img className="footer__logo" src="../images/logo-2.png" alt="" />
         <div className="footer__dropdown pull-right">
             <div className="dropdown">
 

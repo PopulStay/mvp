@@ -177,9 +177,6 @@ class ListingCreate extends Component {
 
     onSubmitListing(formListing) {
 
-        // this.setState({
-        //     step: this.STEP.METAMASK
-        // });
 
         houselistingService.submitListing(formListing)
             .then((tx) => {
