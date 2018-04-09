@@ -70,11 +70,6 @@ class HouseInfoListingService {
 
 
     });
-  	// var roominfo ={};
-  	// roominfo.beds     = formListing.formData.beds;
-  	// roominfo.category = formListing.formData.category;
-  	// roominfo.location = formListing.formData.location;
-
  
   }
 

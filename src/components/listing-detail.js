@@ -40,7 +40,10 @@ class ListingsDetail extends Component {
 
   loadListing() {
 
-    console.log(this.props.listingId);
+
+
+
+    var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
         var roominfo = JSON.parse(result[4]);
@@ -49,6 +52,25 @@ class ListingsDetail extends Component {
         this.setState({location:roominfo.location});
         this.setState({beds:roominfo.beds});
         this.setState({lister:result[2]});
+        return ipfsService.getListing(ipfsHash)
+    }).then((result)=>{
+          var descriptioninfo = JSON.parse(result);
+         this.setState({descriptioninfo:descriptioninfo});
+         if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
+         {
+          this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
+          var slideArray = this.state.slides;
+
+          for(var i =0;i < descriptioninfo.selectedPictures.length;i++)
+          {
+            var slide ={};
+            slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
+            slideArray.push(slide);
+          }
+
+          this.setState({slides:slideArray});
+         
+         }
 
     }).catch((error) => {
       console.error(error);
@@ -63,23 +85,6 @@ class ListingsDetail extends Component {
       this.loadListing();
     }
   
-    var slideArray = this.state.slides;
-    var slide1 ={};
-    slide1.active = "active";
-    slide1.itemactive = "item active";
-    slide1.imgageUrl ="../images/detail-carousel.jpg";
-    slide1.index =0;
-
-    var slide2 ={};
-    slide2.active = "";
-    slide2.itemactive = "item";
-    slide2.imgageUrl ="../images/img_mountains_wide.jpg";
-    slide2.index =1;
-
-    slideArray.push(slide1);
-    slideArray.push(slide2);
-
-    this.setState({slides:slideArray});
   }
 
   handleBooking() {
@@ -151,24 +156,15 @@ class ListingsDetail extends Component {
           </Overlay>
         }
 
-        {this.state.pictures &&
-          <div className="carousel">
-            {this.state.pictures.map(pictureUrl => (
-              <div className="photo" key={pictureUrl}>
-                {(new URL(pictureUrl).protocol === "data:") &&
-                  <img src={pictureUrl} role='presentation' />
-                }
-              </div>
-            ))}
-          </div>
-        }
-
 
       <Carousel>
        {this.state.slides.map(slide => (
-        <img src={slide.imgageUrl} />
+        <div className="carousel-inner item">
+        <img src={slide.imgageUrl}  />
+        </div>
          ))}
       </Carousel>
+
       <div className="detail-content container">
       <div className="row">
       <div className="col-md-7 col-lg-7 col-sm-7">

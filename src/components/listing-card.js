@@ -21,8 +21,6 @@ class ListingCard extends Component {
   componentDidMount() {
 
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
-
-    console.log(this.props.listingId);
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
         var roominfo = JSON.parse(result[4]);
@@ -39,8 +37,6 @@ class ListingCard extends Component {
           this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
           console.log(this.state.previewurl);
          }
-         
-  
 
     }).catch((error) => {
       console.error(error);
