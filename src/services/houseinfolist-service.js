@@ -1,6 +1,7 @@
 import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
 import ipfsService from '../services/ipfs-service';
-import bs58 from 'bs58'
+import bs58 from 'bs58';
+import axios from 'axios';
 
 
 var md5 = require('md5');//最后改IPFS
@@ -74,20 +75,34 @@ class HouseInfoListingService {
   }
 
     getDistrictCodes() {
+    
+
     return new Promise((resolve, reject) => {
-      this.houseInfoListingContract.setProvider(window.web3.currentProvider)
-      this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
-      .then((instance) => {
-        return instance.getDistrictCode.call();
-      })
-      .then((districtCodes) => {
-        resolve(districtCodes);
-      })
-      .catch((error) => {
-        console.error(error)
-        reject(error)
-      })
+    axios.get(process.env.Server_Address+'DistrictCode/')
+    .then((response)=> {
+      resolve(response);
     })
+    .catch(function (error) {
+      reject(error);
+    });
+    });
+
+
+
+    // return new Promise((resolve, reject) => {
+    //   this.houseInfoListingContract.setProvider(window.web3.currentProvider)
+    //   this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
+    //   .then((instance) => {
+    //     return instance.getDistrictCode.call();
+    //   })
+    //   .then((districtCodes) => {
+    //     resolve(districtCodes);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error)
+    //     reject(error)
+    //   })
+    // })
   }
 
   getHomeRoomList(account) {

@@ -24,8 +24,8 @@ class ListingsGrid extends Component {
 
     houselistingService.getDistrictCodes().then((codes)=>
     {
-      this.setState({districtCodes:codes});
-      houselistingService.getHouseId(codes[this.state.curDistrictCodeIndex]).then((uuids)=>{
+      this.setState({districtCodes:codes.data});
+      houselistingService.getHouseId(codes.data[0].id).then((uuids)=>{
            this.setState({ listingIds: uuids });
       });
     });
