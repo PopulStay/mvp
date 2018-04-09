@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import { Web3Provider } from 'react-web3'
 
 // Components
 import ScrollToTop from './scroll-to-top.js'
@@ -16,6 +15,7 @@ import HostOrder from './host-orderlist.js'
 import Footer from './footer'
 import NavBar from './navbar'
 import Overlay from './overlay'
+import Web3Loader from './web3loader'
 
 // CSS
 
@@ -74,27 +74,9 @@ const HostOrderPage = (props) => (
   </Layout>
 )
 
-const AccountUnavailableScreen = (props) => (
-  <Layout {...props}>
-    <Overlay imageUrl="/images/flat_cross_icon.svg">
-      You are not signed in to MetaMask.<br />
-    </Overlay>
-    <div className="container empty-page" />
-  </Layout>
-)
 
-const Web3UnavailableScreen = (props) => (
-  <Layout {...props}>
-    <Overlay imageUrl="/images/flat_cross_icon.svg">
-      MetaMask extension not installed.<br />
-      <a target="_blank" href="https://metamask.io/">Get MetaMask</a><br />
-      <a target="_blank" href="https://medium.com/originprotocol/origin-demo-dapp-is-now-live-on-testnet-835ae201c58">
-        Full Instructions for Demo
-      </a>
-    </Overlay>
-    <div className="container empty-page" />
-  </Layout>
-)
+
+
 
 const Layout = ({ children, hideTagHeader }) => (
   <div>
@@ -109,11 +91,8 @@ const Layout = ({ children, hideTagHeader }) => (
 // Top level component
 const App = () => (
   <Router>
+  <Web3Loader>
     <ScrollToTop>
-      <Web3Provider
-        web3UnavailableScreen={() => <Web3UnavailableScreen />}
-        accountUnavailableScreen={() => <AccountUnavailableScreen />}
-      >
         <div>
           <Route exact path="/" component={HomePage}/>
           <Route path="/page/:activePage" component={HomePage}/>
@@ -123,8 +102,8 @@ const App = () => (
           <Route path="/hostinfo" component={HostInfoPage}/>
           <Route path="/hostorder" component={HostOrderPage}/>
         </div>
-      </Web3Provider>
     </ScrollToTop>
+    </Web3Loader>
   </Router>
 )
 
