@@ -37,7 +37,7 @@ class GuestRegister extends React.Component {
 
   componentWillMount() {
     window.web3.eth.getAccounts((error, accounts) => {
-    this.setState( { account: accounts[0], id: accounts[0] });
+    this.setState( { account: window.address, id: window.address});
     guestService.getGuesterInfo(accounts[0]).then((data)=>{
       this.setState({ registered:true });
       this.setState({ user:data.user });
@@ -48,9 +48,9 @@ class GuestRegister extends React.Component {
   register(){
    console.log(this.state);
     var register={};
-    register.id      = this.state.id;
+    register.id      = window.address;
     register.user    = this.state.user;
-    register.account = this.state.account;
+    register.account = window.address;
     register.phone   = this.state.phone;
     register.email   = this.state.email;
     guestService.guestRegister(register).then((data)=>{
@@ -99,7 +99,7 @@ class GuestRegister extends React.Component {
 
           <div className="form-group">
             <label>Wallet Account</label>
-            <input type="text"  className="form-control" placeholder="Wallet Account" value={this.state.account} disabled/>
+            <input type="text"  className="form-control" placeholder="Wallet Account" value={window.address} disabled/>
           </div>
 
           <div className="form-group">

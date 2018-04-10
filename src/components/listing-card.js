@@ -24,10 +24,7 @@ class ListingCard extends Component {
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
         var roominfo = JSON.parse(result[4]);
-        this.setState({price:result[0].toNumber()});
-        this.setState({category:roominfo.category});
-        this.setState({location:roominfo.location});
-        this.setState({beds:roominfo.beds});
+        this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds});
         return ipfsService.getListing(ipfsHash)
     }).then((result)=>{
           var descriptioninfo = JSON.parse(result);

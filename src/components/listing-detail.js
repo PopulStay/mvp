@@ -48,7 +48,7 @@ class ListingsDetail extends Component {
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
         var roominfo = JSON.parse(result[4]);
-        this.setState({price:result[0].toNumber()});
+        this.setState({price:result[0]});
         this.setState({category:roominfo.category});
         this.setState({location:roominfo.location});
         this.setState({beds:roominfo.beds});

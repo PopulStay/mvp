@@ -15,10 +15,8 @@ import HostOrder from './host-orderlist.js'
 import Footer from './footer'
 import NavBar from './navbar'
 import Overlay from './overlay'
-import Web3Loader from './web3loader'
 
 // CSS
-
 import '../css/becomehost.css'
 import '../css/detail.css'
 import '../css/homepage.css'
@@ -91,7 +89,6 @@ const Layout = ({ children, hideTagHeader }) => (
 // Top level component
 const App = () => (
   <Router>
-  <Web3Loader>
     <ScrollToTop>
         <div>
           <Route exact path="/" component={HomePage}/>
@@ -103,7 +100,6 @@ const App = () => (
           <Route path="/hostorder" component={HostOrderPage}/>
         </div>
     </ScrollToTop>
-    </Web3Loader>
   </Router>
 )
 
