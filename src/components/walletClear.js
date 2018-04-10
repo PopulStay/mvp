@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import {reactLocalStorage} from 'reactjs-localstorage';
 
 const customStyles = {
   content : {
@@ -13,7 +14,7 @@ const customStyles = {
 };
 
 
-class WalletManage extends React.Component {
+class WalletClear extends React.Component {
   constructor() {
     super();
 
@@ -25,16 +26,17 @@ class WalletManage extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.import = this.import.bind(this);
+    this.clear = this.clear.bind(this);
 
   }
-  import(){
-    // console.log("pirvatekey:",this.state.pirvatekey);
-    //   var obj=window.web3.eth.accounts.wallet.add(this.state.pirvatekey);
-    //   window.address          = obj.address;
-    //   window.addressShow      = window.address.substring(0,10)+"...";
-    //   window.privateKey       = this.state.pirvatekey;
-    // this.closeModal();
+  clear(){
+   
+      
+      window.address          = null;
+      window.addressShow      = null;
+      window.privateKey       = null;
+      reactLocalStorage.setObject('wallet', null);
+      this.closeModal();
 
   }
   openModal() {
@@ -54,7 +56,7 @@ class WalletManage extends React.Component {
 
     <div>
 
-        <a onClick={this.openModal}>Export</a>
+        <a onClick={this.openModal}>Clear</a>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
@@ -62,7 +64,7 @@ class WalletManage extends React.Component {
             <h3>Address:{window.address}</h3>
             <h3>Private Key:{window.privateKey}</h3>
           <br/>
-       
+          <button className="btn btn-danger" onClick={this.clear}>Clear</button>
           <button className="btn btn-primary" onClick={this.closeModal}>Cancel</button>
         </Modal>
       
@@ -71,4 +73,4 @@ class WalletManage extends React.Component {
     );
   }
 }
-export default WalletManage
+export default WalletClear
