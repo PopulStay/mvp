@@ -20,24 +20,24 @@ class GuestInfo extends React.Component {
   }
   
   componentWillMount() {
-    window.web3.eth.getAccounts((error, accounts) => {
-    this.setState( { account: accounts[0], id: accounts[0] });
 
-    guestService.getPreorderList(accounts[0]).then((data)=>{
-      console.log(data);
+    this.setState( { account: window.address, id: window.address });
+
+    guestService.getPreorderList(window.address).then((data)=>{
+   
       this.setState({ orderlist:data});
      });
 
-    ppsService.getBalance(accounts[0]).then((data)=>{
-      console.log(data);
-      this.setState({ ppsBalance:data.toNumber()});
+    ppsService.getBalance(window.address).then((data)=>{
+
+      this.setState({ ppsBalance:data});
      });
 
 
-    guestService.getGuesterInfo(accounts[0]).then((data)=>{
+    guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ user:data.user,phone:data.phone,email:data.email});
      });
-    });
+  
   }
    
 

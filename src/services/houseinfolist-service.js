@@ -49,42 +49,30 @@ class HouseInfoListingService {
     roominfo.category = formListing.roomtype_category;
     roominfo.location = formListing.roomtype_location;
 
+    return new Promise((resolve, reject) => {
+
     ipfsService.submitListing(formListing).then((ipfsHashStr)=>
     {
 
        var uuids= this.getBytes32FromIpfsHash(ipfsHashStr);
-      return new Promise((resolve, reject) => {
-       this.houseInfoListingContract.setProvider(window.web3.currentProvider);
-       window.web3.eth.getAccounts((error, accounts) => {
-       this.houseInfoListingContract.at(process.env.RentHouseListingAddress).then(function(instance){
-         //最后改IPFS
+       var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
+       return contract.methods.setHouseInfo(uuids,
+        formListing.price_perday,
+        JSON.stringify(roominfo),
+        "0x3333322d30303332000000000000000000000000000000000000000000000000")
+       .send({from: window.address,gasPrice: 4476768})
+       .then((res)=>{
+        resolve(res);
+       });
 
-         console.log("'"+uuids+"','"+formListing.price_perday+"','"+JSON.stringify(roominfo)+"','"+ipfsHashStr+"','332-0032'");
-       return instance.setHouseInfo(
+      });
 
-                                      uuids,
-                                      formListing.price_perday,
-                                      JSON.stringify(roominfo),
-                                      "332-0032",
-                                      {from: accounts[0]});
       })
-      .then((transactionReceipt) => {
-          resolve(transactionReceipt.tx);
-        })
-        .catch((error) => {
-          reject(error);
-        })
-    })
-    })
-
-
-    });
  
   }
 
     getDistrictCodes() {
     
-
     return new Promise((resolve, reject) => {
     axios.get(process.env.Server_Address+'DistrictCode/')
     .then((response)=> {
@@ -113,37 +101,14 @@ class HouseInfoListingService {
 
 
   getGuestPreorderList(account) {
-    return new Promise((resolve, reject) => {
-      this.houseInfoListingContract.setProvider(window.web3.currentProvider)
-      this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
-      .then((instance) => {
-        return instance.getGuestOrders.call(account);
-      })
-      .then((preorderlists) => {
-        resolve(preorderlists);
-      })
-      .catch((error) => {
-        console.error(error)
-        reject(error)
-      })
-    })
+       var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
+       return contract.methods.getGuestOrders(account).call();
   }
 
   getHostOrderList(account) {
-    return new Promise((resolve, reject) => {
-      this.houseInfoListingContract.setProvider(window.web3.currentProvider)
-      this.houseInfoListingContract.at(process.env.RentHouseListingAddress)
-      .then((instance) => {
-        return instance.getHostOrders.call(account);
-      })
-      .then((orderLists) => {
-        resolve(orderLists);
-      })
-      .catch((error) => {
-        console.error(error)
-        reject(error)
-      })
-    })
+
+    var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
+     return contract.methods.getHostOrders.call({from:account});
   }
 
   getHouseId(districtCode){

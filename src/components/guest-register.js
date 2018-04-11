@@ -36,13 +36,13 @@ class GuestRegister extends React.Component {
   }
 
   componentWillMount() {
-    window.web3.eth.getAccounts((error, accounts) => {
+    
     this.setState( { account: window.address, id: window.address});
-    guestService.getGuesterInfo(accounts[0]).then((data)=>{
+    guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ registered:true });
       this.setState({ user:data.user });
      });
-    });
+ 
   }
    
   register(){

@@ -102,7 +102,9 @@ class Wallet extends Component {
                 <a className="dropdown-item" href="#" onClick={this.create}><Create/></a>
                 <a className="dropdown-item" href="#" onClick={this.openModal}>Import</a>
                 {
-                  window.address && <div>
+                  window.address && 
+
+                    <div>
                     <a className="dropdown-item" href="#" ><WalletManage/></a>
                     <a className="dropdown-item" href="#"><WalletClear/></a>
                     <a className="dropdown-item" href="#">Gas price</a>

@@ -112,7 +112,7 @@ contract PopulStayToken is ERC20Interface, Owned {
     symbol = "PPS";
     name = "PopulStay Token";
     decimals = 18;
-    _totalSupply = 5000000000 * 10**uint(decimals);
+    _totalSupply = 5000000000;
     balances[owner] = _totalSupply;
     Transfer(address(0), owner, _totalSupply);
   }

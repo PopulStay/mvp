@@ -1,6 +1,8 @@
 import PopulStayToken   from '../../build/contracts/PopulStayToken.json';
+import Web3 from 'web3';
 
-
+var web_provider = process.env.WEB3_PROVIDER;
+var PPS_address = process.env.PPSAddress;
 
 class PPSService {
   static instance
@@ -13,29 +15,37 @@ class PPSService {
 
     PPSService.instance = this;
 
-    this.contract = require('truffle-contract');
-    this.PPSContract = this.contract(PopulStayToken);
+    if(!window.web3loaded)
+    {
+      window.web3 = new Web3( new Web3.providers.HttpProvider(web_provider));
+      window.web3loaded = true;
+    }
   }
 
 
   getBalance(address) {
-      return new Promise((resolve, reject) => {
-      this.PPSContract.setProvider(window.web3.currentProvider)
-      window.web3.eth.getAccounts((error, accounts) => {
-      this.PPSContract.at(process.env.PPSAddress)
-      .then((instance) => {
-            return instance.balanceOf.call(address);
-        })
-        .then((result) => {
-          // Success
-          resolve(result)
-        })
-        .catch((error) => {
-          console.error(error)
-          reject(error)
-        })
-      })
-    })
+
+       var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
+       return contract.methods.balanceOf(address).call();
+
+
+    //   return new Promise((resolve, reject) => {
+    //   this.PPSContract.setProvider(window.web3.currentProvider)
+    //   window.web3.eth.getAccounts((error, accounts) => {
+    //   this.PPSContract.at(process.env.PPSAddress)
+    //   .then((instance) => {
+    //         return instance.balanceOf.call(address);
+    //     })
+    //     .then((result) => {
+    //       // Success
+    //       resolve(result)
+    //     })
+    //     .catch((error) => {
+    //       console.error(error)
+    //       reject(error)
+    //     })
+    //   })
+    // })
   }
 
 

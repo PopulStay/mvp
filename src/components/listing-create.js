@@ -75,10 +75,22 @@ class ListingCreate extends Component {
     }
 
     submit(){
-      
-       //console.log(this.state);
 
-       houselistingService.submitListing(this.state);
+         houselistingService.submitListing(this.state)
+            .then((tx) => {
+                this.setState({
+                    step: this.STEP.PROCESSING
+                });
+                return houselistingService.waitTransactionFinished(tx);
+            })
+            .then((blockNumber) => {
+                this.setState({
+                    step: this.STEP.SUCCESS
+                });
+            })
+            .catch((error) => {
+                alertify.log(error.message);
+            })
     }
 
     fileChangedHandler(event){
@@ -160,19 +172,18 @@ class ListingCreate extends Component {
 
     componentWillMount() {
         this.setState({step:this.STEP.STEP1});
-        window.web3.eth.getAccounts((error, accounts) => {
             this.setState({
-                account: accounts[0],
-                id: accounts[0]
+                account: window.address,
+                id: window.address
             });
 
-            hostService.getHostInfo(accounts[0]).then((data) => {
+            hostService.getHostInfo(window.address).then((data) => {
                 this.setState({
                     user: data
                 });
             });
 
-        });
+       
     }
 
     onSubmitListing(formListing) {
@@ -499,18 +510,24 @@ class ListingCreate extends Component {
           <input className="btn btn-default btn-lg bg-pink color-white" type="file" onChange={this.fileChangedHandler}/>
             <br/><br/> <br/><br/>
             <div className="row">
-            {this.state.selectedPictures.map(file => (
-              <div className="col-md-3 col-lg-3 col-sm-3">
-              <img className="img-thumbnail" src={file.imagePreviewUrl} />
-              </div>
-              ))
-             }
+                  {this.state.selectedPictures.map(file => (
+                    <div className="col-md-3 col-lg-3 col-sm-3">
+                    <img className="img-thumbnail" src={file.imagePreviewUrl} />
+                    </div>
+                    ))
+                   }
              </div>
-             <div className="row">
              <hr/>
-             <h2>PPS per day ? </h2>
+             <div className="row">
+             <div className ="col-lg-12">
+            <h2>PPS per day ? </h2>
+            </div>
+             <div className ="col-lg-12">
+            
              <div className="form-group">    
                 <input type="number" className="form-control" onChange={(e) => this.setState({price_perday: e.target.value})}/>
+            </div>
+
             </div>
 
             <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.submit}>Submit</button>
