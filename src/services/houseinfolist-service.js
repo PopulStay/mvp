@@ -3,11 +3,10 @@ import ipfsService from '../services/ipfs-service';
 import bs58 from 'bs58';
 import axios from 'axios';
 import Web3 from 'web3';
-
-
-
-var web_provider = process.env.WEB3_PROVIDER;
-var houselist_address = process.env.RentHouseListingAddress;
+const Buf = require('buffer/').Buffer ;
+const EthereumTx = require('ethereumjs-tx');
+const web_provider = process.env.WEB3_PROVIDER;
+const houselist_address = process.env.RentHouseListingAddress;
 
 
 class HouseInfoListingService {
@@ -56,14 +55,36 @@ class HouseInfoListingService {
 
        var uuids= this.getBytes32FromIpfsHash(ipfsHashStr);
        var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
-       return contract.methods.setHouseInfo(uuids,
+       var dataobj= contract.methods.setHouseInfo(uuids,
         formListing.price_perday,
         JSON.stringify(roominfo),
         "0x3333322d30303332000000000000000000000000000000000000000000000000")
-       .send({from: window.address,gasPrice: 4476768})
-       .then((res)=>{
-        resolve(res);
-       });
+       .encodeABI();
+
+         window.web3.eth.getTransactionCount(window.address).then(function(txCount) {
+              var txData = {
+                  nonce: window.web3.utils.toHex(txCount),
+                  gasLimit: window.web3.utils.toHex(4476768),
+                  gasPrice: window.web3.utils.toHex(4476768), // 10 Gwei
+                  to: houselist_address,
+                  from: window.address,
+                  data: dataobj
+              }
+
+           
+              var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex')
+              var transaction =new EthereumTx(txData);
+              transaction.sign(pk)
+              var serializedTx = transaction.serialize().toString('hex')
+              window.web3.eth.sendSignedTransaction('0x' + serializedTx, function(err, res) {
+                if(err)
+                reject(err)
+                else
+                resolve(res);
+                  
+              })
+          });
+
 
       });
 
