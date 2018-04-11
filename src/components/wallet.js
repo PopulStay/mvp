@@ -5,7 +5,7 @@ import WalletManage from './walletManage';
 import WalletClear from './walletClear';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
-
+const alertify = require('../../node_modules/alertify/src/alertify.js');
 var web_provider = process.env.WEB3_PROVIDER;
 
 const customStyles = {
@@ -22,7 +22,8 @@ class Wallet extends Component {
     super(props)
 
     this.state={
-      address:""
+      address:"",
+      infoModalIsOpen:false
 
     };
     if(!window.web3loaded)
@@ -30,15 +31,18 @@ class Wallet extends Component {
       window.web3 = new Web3( new Web3.providers.HttpProvider(web_provider));
       window.web3loaded = true;
     }
-    this.create = this.create.bind(this);
+    
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.openInfoModal = this.openInfoModal.bind(this);
+    this.afterOpenInfoModal = this.afterOpenInfoModal.bind(this);
+    this.closeInfoModal = this.closeInfoModal.bind(this);
     this.import = this.import.bind(this);
 
 
     var obj =reactLocalStorage.getObject('wallet');
-    if(obj && obj.address && obj.privateKey && obj.addressshow)
+    if(obj && obj.address && obj.privateKey)
     {
         window.address = obj.address;
         window.privateKey = obj.privateKey;
@@ -47,19 +51,9 @@ class Wallet extends Component {
 
   }
 
-  create(){
-    var obj=window.web3.eth.accounts.wallet.create(1);
-    window.address = obj[obj.length-1].address;
-    window.privateKey = obj[obj.length-1].privateKey;
-    window.addressshow = window.address.substring(0,10)+"...";
-    reactLocalStorage.setObject('wallet', 
-      {
-        'address': window.address,
-      'privateKey': window.privateKey,
-      'addressshow': window.addressshow});
-  }
-
   import(){
+
+   
    
       var obj=window.web3.eth.accounts.wallet.add(this.state.pirvatekey);
       window.address          = obj.address;
@@ -73,6 +67,11 @@ class Wallet extends Component {
 
   }
   openModal() {
+    if(window.address)
+    {
+       this.openInfoModal();
+       return;
+    }
     this.setState({modalIsOpen: true});
   }
 
@@ -82,6 +81,21 @@ class Wallet extends Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
+  }
+
+
+
+
+  openInfoModal() {
+    this.setState({infoModalIsOpen: true});
+  }
+
+  afterOpenInfoModal() {
+    this.subtitle.style.color = '#f00';
+  }
+
+  closeInfoModal() {
+    this.setState({infoModalIsOpen: false});
   }
 
 
@@ -128,6 +142,18 @@ class Wallet extends Component {
           <button className="btn btn-danger" onClick={this.import}>Import</button>
           <button className="btn btn-primary" onClick={this.closeModal}>Cancel</button>
         </Modal>
+
+
+        <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} style={customStyles} 
+        contentLabel="InfoModal">
+          <h2 ref={subtitle => this.subtitle = subtitle}>Please clear your account!</h2>
+          <br/>
+          <h3>Please clear your account , then you can create new account!</h3>
+          <br/>
+          <button className="btn btn-danger" onClick={this.closeInfoModal}>Close</button>
+        </Modal>
+
+
       </div>
      </div> 
 
