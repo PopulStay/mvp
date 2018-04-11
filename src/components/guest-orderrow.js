@@ -23,12 +23,7 @@ class GuestOrderRow extends Component {
     orderService.getPreOrderInfo(this.props.account)
     .then((result) => {
         console.log(result);
-        this.setState({houseInformation : result[3]});
-        this.setState({status           : result[7].toNumber()});
-        this.setState({from             : result[4].toNumber()});
-        this.setState({to               : result[5].toNumber()});
-        this.setState({price            : result[8].toNumber()});
-
+        this.setState({houseInformation:result[3],status:result[7],from:result[4],to:result[5],price:result[8]});
     }).catch((error) => {
       console.error(error);
     });
@@ -40,7 +35,7 @@ class GuestOrderRow extends Component {
      orderService.confirm(this.props.account).then((tx)=>{
        return orderService.waitTransactionFinished(tx)
      }).then((blockNumber) => {
-      this.setState({ status: 1 })
+      this.setState({ status: '1' })
     }).catch((error) => {
       console.error(error);
     });
@@ -68,8 +63,8 @@ class GuestOrderRow extends Component {
         <td>{this.state.from}</td>
         <td>{this.state.to}</td>
         <td>{this.state.price}/PPS</td>
-        {this.state.status === 0 &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
-        {this.state.status === 1 &&<td>Checked In</td>}
+        {this.state.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
+        {this.state.status === '1' &&<td>Checked In</td>}
       </tr>
     
     )

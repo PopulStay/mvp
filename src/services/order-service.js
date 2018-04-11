@@ -1,6 +1,8 @@
 import PreOrder   from '../../build/contracts/PreOrder.json';
-
-
+import Web3 from 'web3';
+const Buf = require('buffer/').Buffer ;
+const EthereumTx = require('ethereumjs-tx');
+const web_provider = process.env.WEB3_PROVIDER;
 
 class PreOrderService {
   constructor() 
@@ -10,46 +12,39 @@ class PreOrderService {
   }
 
     confirm(address){
+       return new Promise((resolve, reject) => {
+      var contract = new window.web3.eth.Contract(PreOrder.abi,address);
+      var dataobj  = contract.methods.confirmOrder().encodeABI();
+      window.web3.eth.getTransactionCount(window.address).then(function(txCount) {
+              var txData = {
+                  nonce: window.web3.utils.toHex(txCount),
+                  gasLimit: window.web3.utils.toHex(4476768),
+                  gasPrice: window.web3.utils.toHex(4476768), // 10 Gwei
+                  to: address,
+                  from: window.address,
+                  data: dataobj
+              }
 
-    return new Promise((resolve, reject) => {
-
-      this.PreOrderContract.setProvider(window.web3.currentProvider);
-      window.web3.eth.getAccounts((error, accounts) => {
-      this.PreOrderContract.at(address)
-      .then((instance) => {
-        return instance.confirmOrder({from: accounts[0], gas: 876790});
-      })
-      .then((transactionReceipt) => {
-        resolve(transactionReceipt.tx);
-      })
-      .catch((error) => {
-        console.error(error)
-        reject(error)
-      })
-
-      })
-    })
+              var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex')
+              var transaction =new EthereumTx(txData);
+              transaction.sign(pk)
+              var serializedTx = transaction.serialize().toString('hex')
+              window.web3.eth.sendSignedTransaction('0x' + serializedTx, function(err, res) {
+                if(err)
+                reject(err)
+                else
+                resolve(res);
+                  
+              })
+          });
+    });
   }
 
 
 
     getPreOrderInfo(address) {
-      return new Promise((resolve, reject) => {
-
-      this.PreOrderContract.setProvider(window.web3.currentProvider)
-      this.PreOrderContract.at(address)
-      .then((instance) => {
-        return instance.getPreorderInfo.call();
-      })
-      .then((result) => {
-        resolve(result);
-      })
-      .catch((error) => {
-        console.error(error)
-        reject(error)
-      })
-
-    })
+       var contract = new window.web3.eth.Contract(PreOrder.abi,address);
+       return contract.methods.getPreorderInfo().call();
   }
 
    waitTransactionFinished(transactionReceipt, pollIntervalMilliseconds=1000) {

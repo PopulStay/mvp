@@ -9,8 +9,7 @@ import ScrollToTop from './scroll-to-top.js'
 import Listings from './listings-grid.js'
 import ListingDetail from './listing-detail.js'
 import ListingCreate from './listing-create.js'
-import GuestInfo from './guest-info.js'
-import HostInfo from './host-info.js'
+import ManagementPanel from './management-panel.js'
 import HostOrder from './host-orderlist.js'
 import Footer from './footer'
 import NavBar from './navbar'
@@ -48,21 +47,15 @@ const CreateListingPage = (props) => (
   </Layout>
 )
 
-const GuestInfoPage = (props) => (
+const ManagePanelPage = (props) => (
   <Layout {...props}  hideTagHeader={true}>
     <div className="container">
-      <GuestInfo />
+      <ManagementPanel />
     </div>
   </Layout>
 )
 
-const HostInfoPage = (props) => (
-  <Layout {...props}  hideTagHeader={true}>
-    <div className="container">
-      <HostInfo />
-    </div>
-  </Layout>
-)
+
 
 const HostOrderPage = (props) => (
   <Layout {...props}  hideTagHeader={true}>
@@ -95,8 +88,7 @@ const App = () => (
           <Route path="/page/:activePage" component={HomePage}/>
           <Route path="/listing/:listingId" component={ListingDetailPage}/>
           <Route path="/create" component={CreateListingPage}/>
-          <Route path="/guestinfo" component={GuestInfoPage}/>
-          <Route path="/hostinfo" component={HostInfoPage}/>
+          <Route path="/managepanel" component={ManagePanelPage}/>
           <Route path="/hostorder" component={HostOrderPage}/>
         </div>
     </ScrollToTop>

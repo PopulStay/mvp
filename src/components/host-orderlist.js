@@ -15,20 +15,12 @@ class HostOrderList extends React.Component {
   }
   
   componentWillMount() {
-    window.web3.eth.getAccounts((error, accounts) => {
-     if(accounts[0])
-     {
-         
-          var accountStr =accounts[0]+"";
-          this.setState( { account: accountStr, id: accountStr });
+ 
+          this.setState( { account: window.address, id: window.address });
           
-          hostService.getHostOrderAddress(accounts[0]).then((data)=>{
+          hostService.getHostOrderAddress(window.address).then((data)=>{
             this.setState({ orderlist:data});
            });
-     } 
-
-
-    });
   }
    
 

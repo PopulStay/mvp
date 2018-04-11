@@ -24,10 +24,10 @@ class GuestOrderRow extends Component {
     .then((result) => {
         console.log(result);
         this.setState({houseInformation : result[3]});
-        this.setState({status           : result[7].toNumber()});
-        this.setState({from             : result[4].toNumber()});
-        this.setState({to               : result[5].toNumber()});
-        this.setState({price            : result[8].toNumber()});
+        this.setState({status           : result[7]});
+        this.setState({from             : result[4]});
+        this.setState({to               : result[5]});
+        this.setState({price            : result[8]});
 
     }).catch((error) => {
       console.error(error);

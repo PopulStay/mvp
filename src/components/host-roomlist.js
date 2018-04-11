@@ -24,10 +24,10 @@ class HostRoomListRow extends Component {
     houselistingService.getHouseInfoDetail(this.props.uuid)
     .then((result) => {
    
-        var roominfo = JSON.parse(result[5]);
+        var roominfo = JSON.parse(result[4]);
         console.log(roominfo);
-        this.setState({state:result[3].toNumber()});
-        this.setState({price:result[0].toNumber()});
+        this.setState({state:result[3]});
+        this.setState({price:result[0]});
         this.setState({category:roominfo.category});
         this.setState({location:roominfo.location});
         this.setState({beds:roominfo.beds});

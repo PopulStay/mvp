@@ -88,7 +88,7 @@ class HouseInfoListingService {
 
       });
 
-      })
+      });
  
   }
 
@@ -107,17 +107,8 @@ class HouseInfoListingService {
   }
 
   getHomeRoomList(account) {
-    return new Promise((resolve, reject) => {
-     
-      this.houseInfoListingContract.getHostRoomLists.call(account)
-      .then((uuids) => {
-        resolve(uuids);
-      })
-      .catch((error) => {
-        console.error(error)
-        reject(error)
-      })
-    })
+       var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
+       return contract.methods.getHostRoomLists(account).call();
   }
 
 
@@ -129,7 +120,7 @@ class HouseInfoListingService {
   getHostOrderList(account) {
 
     var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
-     return contract.methods.getHostOrders.call({from:account});
+     return contract.methods.getHostOrders(account).call();
   }
 
   getHouseId(districtCode){

@@ -23,21 +23,21 @@ class HostInfo extends React.Component {
   }
   
   componentWillMount() {
-    window.web3.eth.getAccounts((error, accounts) => {
-    this.setState( { account: accounts[0], id: accounts[0] });
 
-    hostService.getHouseListing(accounts[0]).then((data)=>{
+    this.setState( { account: window.address, id:  window.address });
+
+    hostService.getHouseListing( window.address).then((data)=>{
 
       this.setState({ roomInfoList:data});
      });
 
-    ppsService.getBalance(accounts[0]).then((data)=>{
+    ppsService.getBalance( window.address).then((data)=>{
       console.log(data);
-      this.setState({ ppsBalance:data.toNumber()});
+      this.setState({ ppsBalance:data});
      });
 
 
-    hostService.getHostInfo(accounts[0]).then((data)=>{
+    hostService.getHostInfo( window.address).then((data)=>{
       this.setState({ 
                       user  : data.user, 
                       phone : data.phone, 
@@ -45,10 +45,6 @@ class HostInfo extends React.Component {
                     address : data.address
                     });
      });
-
-
-
-    });
   }
    
 
@@ -56,50 +52,18 @@ class HostInfo extends React.Component {
     return (
       
       <div>
-      <br/>
-      <div className="row">
-       <div className="col-lg-4">
-          username:{this.state.user}
-       </div>
-       <div className="col-lg-4">
-        account:{this.state.account}
-       </div>
-       <div className="col-lg-1">
+        <div className="row">
+        <div className = "col-lg-6">
+        <h1>Host Managment Panel</h1>
+        </div>
+        <div className = "col-lg-1">
         <Link to="/hostorder">
           <button className="btn btn-danger">Order List</button>
         </Link>
+
         </div>
-        <div className="col-lg-2">
-        <Link to="/create">
-          <button className="btn btn-danger">Create List</button>
-        </Link>
-       </div>
-      </div>
-
-      <br/>
-       <div className="row">
-       <div className="col-lg-4">
-          phone:{this.state.phone}
-       </div>
-       <div className="col-lg-4">
-        email:{this.state.email}
-       </div>
-      </div>
-      <br/>
-       <div className="row">
-         <div className="col-lg-4">
-          address:{this.state.address}
         </div>
-         <div className="col-lg-4">
-          PPS balance:{this.state.ppsBalance}
-        </div>
-
-      </div>
-
-  <br/><br/>
-
-
-  <br/><br/>
+        <hr/>
   <table className="table">
     <thead>
       <tr>

@@ -45,6 +45,8 @@ class GuestInfo extends React.Component {
     return (
 
       <div>
+
+
       <br/>
       <div className="row">
        <div className="col-lg-6">
@@ -71,6 +73,12 @@ class GuestInfo extends React.Component {
           PPS balance:{this.state.ppsBalance}
         </div>
       </div>
+   
+      <br/><br/><br/>
+
+
+      <h1>Guest Managment Panel</h1>
+      <hr/>
       
     <table className="table">
     <thead>
@@ -90,6 +98,8 @@ class GuestInfo extends React.Component {
       ))}
     </tbody>
   </table>
+
+
 
 
 
