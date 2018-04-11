@@ -17,7 +17,7 @@ class ListingsDetail extends Component {
 
     this.STEP = {
       VIEW: 1,
-      METAMASK: 2,
+      SUBMIT: 2,
       PROCESSING: 3,
       PURCHASED: 4,
     }
@@ -48,11 +48,7 @@ class ListingsDetail extends Component {
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
         var roominfo = JSON.parse(result[4]);
-        this.setState({price:result[0]});
-        this.setState({category:roominfo.category});
-        this.setState({location:roominfo.location});
-        this.setState({beds:roominfo.beds});
-        this.setState({lister:result[2]});
+        this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result[2]});
         return ipfsService.getListing(ipfsHash)
     }).then((result)=>{
           var descriptioninfo = JSON.parse(result);
@@ -70,7 +66,7 @@ class ListingsDetail extends Component {
           }
 
           this.setState({slides:slideArray});
-         
+          console.log(this.state);
          }
 
     }).catch((error) => {
@@ -82,8 +78,9 @@ class ListingsDetail extends Component {
 
   componentWillMount() {
     if (this.props.listingId) {
-      // Load from IPFS
+
       this.loadListing();
+
     }
   
   }
@@ -94,8 +91,7 @@ class ListingsDetail extends Component {
     if (this.state.checkInDate && this.state.checkOutDate) {
       unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
     }
-    this.setState({step: this.STEP.METAMASK});
-    // hostaddress, totalTokens, uuid, from, to, days
+    this.setState({step: this.STEP.SUBMIT});
     ppsService.setPreOrder( this.state.lister,
                                      this.state.price * unitsToBuy,
                                      this.props.listingId, 
@@ -106,7 +102,7 @@ class ListingsDetail extends Component {
     .then((transactionReceipt) => {
       console.log("Purchase request sent.")
       this.setState({step: this.STEP.PROCESSING})
-      return ppsService.waitTransactionFinished(transactionReceipt.tx)
+      return ppsService.waitTransactionFinished(transactionReceipt)
     })
     .then((blockNumber) => {
       this.setState({step: this.STEP.PURCHASED})
@@ -294,7 +290,7 @@ class ListingsDetail extends Component {
           <div className="detail-price-div">
               
               <span className = "detail-price">
-                $ PPS: {Number(price).toLocaleString(undefined, {minimumFractionDigits: 3})} 
+                $ PPS: {this.state.price} 
               </span>
               <span className = "detail-price-font">Daily Price</span>
               <hr className="details-price-hr"/>
