@@ -83,9 +83,6 @@ class Wallet extends Component {
     this.setState({modalIsOpen: false});
   }
 
-
-
-
   openInfoModal() {
     this.setState({infoModalIsOpen: true});
   }

@@ -19,7 +19,7 @@ class GuestService {
     
   guestRegister(registerData) {
     return new Promise((resolve, reject) => {
-    axios.post(process.env.Server_Address+'GuestRegister', registerData)
+    axios.post(process.env.Server_Address+'Register', registerData)
     .then(function (response) {
       resolve(response);
     })
@@ -32,7 +32,7 @@ class GuestService {
 
   getGuesterInfo(id) {
     return new Promise((resolve, reject) => {
-    axios.get(process.env.Server_Address+'GuestRegister/'+id)
+    axios.get(process.env.Server_Address+'Register/'+id)
     .then((response)=> {
       resolve(response.data);
     })
