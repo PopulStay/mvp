@@ -153,7 +153,7 @@ class ListingsDetail extends Component {
           </Overlay>
         }
 
-
+    
       <Carousel>
        {this.state.slides.map(slide => (
         <div className="carousel-inner item">
