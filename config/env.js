@@ -17,7 +17,7 @@ function getClientEnvironment(publicUrl) {
       // 'IPFS_DOMAIN': JSON.stringify("gateway.originprotocol.com"),
       'RentHouseListingAddress':JSON.stringify("0xe8ae9ccff1c38d6606ca58da44d746140b21a73a"),
       'PPSAddress':JSON.stringify("0x0f7f8ca2c9b617b4dabb1a16c3e2dc5d83faf907"),
-      'Server_Address':JSON.stringify("http://localhost:1337/"),
+      'Server_Address':JSON.stringify("http://133.130.99.204:1338/"),
       'WEB3_PROVIDER':JSON.stringify("https://kovan.infura.io/FrDFhx3FbezOwQJjQv9T")
        // "https://kovan.infura.io/FrDFhx3FbezOwQJjQv9T";
        //https://mainnet.infura.io/FrDFhx3FbezOwQJjQv9T
