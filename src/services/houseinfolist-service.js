@@ -85,6 +85,7 @@ class HouseInfoListingService {
               params.districeCode    = "0x3333322d30303332000000000000000000000000000000000000000000000000";
               params.houseinfo       = JSON.stringify(roominfo);
               params.transactionData = serializedTx;
+              params.hostAddress     = window.address;
 
               axios.post(process.env.Server_Address+'HouseInformation', params)
               .then(function (response) {
@@ -104,20 +105,31 @@ class HouseInfoListingService {
     getDistrictCodes() {
     
     return new Promise((resolve, reject) => {
-    axios.get(process.env.Server_Address+'DistrictCode/')
-    .then((response)=> {
-      resolve(response);
-    })
-    .catch(function (error) {
-      reject(error);
+      axios.get(process.env.Server_Address+'DistrictCode/')
+      .then((response)=> {
+        resolve(response);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
     });
-    });
-
   }
 
   getHomeRoomList(account) {
-       var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
-       return contract.methods.getHostRoomLists(account).call();
+       // var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
+       // return contract.methods.getHostRoomLists(account).call();
+      return new Promise((resolve, reject) => {
+        axios.get(process.env.Server_Address+'HouseInformation?hostAddress='+account)
+        .then((response)=> {
+          resolve(response.data);
+        })
+        .catch(function (error) {
+          reject(error);
+        });
+    });
+
+
+
   }
 
 

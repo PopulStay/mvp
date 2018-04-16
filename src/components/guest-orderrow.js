@@ -19,10 +19,9 @@ class GuestOrderRow extends Component {
 
 
   getPreOrderInfo(){
-    console.log(this.props.account);
+   
     orderService.getPreOrderInfo(this.props.account)
     .then((result) => {
-        console.log(result);
         this.setState({houseInformation:result[3],status:result[7],from:result[4],to:result[5],price:result[8]});
     }).catch((error) => {
       console.error(error);
