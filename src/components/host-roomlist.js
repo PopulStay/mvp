@@ -28,21 +28,7 @@ class HostRoomListRow extends Component {
       category:roominfo.category,
       location:roominfo.location,
       beds:roominfo.beds});
-    // houselistingService.getHouseInfoDetail(this.props.uuid)
-    // .then((result) => {
    
-    //     var roominfo = JSON.parse(result[4]);
-    //     console.log(roominfo);
-    //     this.setState({state:result[3]});
-    //     this.setState({price:result[0]});
-    //     this.setState({category:roominfo.category});
-    //     this.setState({location:roominfo.location});
-    //     this.setState({beds:roominfo.beds});
-
-    // }).catch((error) => {
-    //   console.error(error);
-    // });
-
   }
 
   componentWillMount() {

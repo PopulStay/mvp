@@ -95,8 +95,8 @@ class ListingsDetail extends Component {
     ppsService.setPreOrder( this.state.lister,
                                      this.state.price * unitsToBuy,
                                      this.props.listingId, 
-                                     this.state.checkInDate.toDate().getDate(), 
-                                     this.state.checkOutDate.toDate().getDate(),
+                                     this.state.checkInDate.toDate().getTime(), 
+                                     this.state.checkOutDate.toDate().getTime(),
                                      unitsToBuy
                                    )
     .then((transactionReceipt) => {
