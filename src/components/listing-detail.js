@@ -153,7 +153,7 @@ class ListingsDetail extends Component {
           </Overlay>
         }
 
-    
+      <div className="carousel-slider">
       <Carousel>
        {this.state.slides.map(slide => (
         <div className="carousel-inner item">
@@ -161,6 +161,7 @@ class ListingsDetail extends Component {
         </div>
          ))}
       </Carousel>
+      </div>
 
       <div className="detail-content container">
       <div className="row">
