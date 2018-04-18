@@ -177,11 +177,11 @@ class ListingCreate extends Component {
                 id: window.address
             });
 
-            hostService.getHostInfo(window.address).then((data) => {
-                this.setState({
-                    user: data
-                });
-            });
+            // hostService.getHostInfo(window.address).then((data) => {
+            //     this.setState({
+            //         user: data
+            //     });
+            // });
 
        
     }

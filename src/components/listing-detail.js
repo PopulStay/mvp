@@ -73,8 +73,7 @@ class ListingsDetail extends Component {
       console.error(error);
     });
   }
-
-
+  
 
   componentWillMount() {
     if (this.props.listingId) {
