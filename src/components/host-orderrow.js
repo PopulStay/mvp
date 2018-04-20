@@ -37,18 +37,6 @@ class GuestOrderRow extends Component {
   }
 
 
-  //  checkIn(){
-  //    orderService.confirm(this.props.account).then((tx)=>{
-  //      return orderService.waitTransactionFinished(tx)
-  //    }).then((blockNumber) => {
-  //     this.setState({ status: 1 })
-  //   }).catch((error) => {
-  //     console.error(error);
-  //   });
-
-
-    
-  // }
   componentDidMount() {
 
      if(this.props.address)

@@ -5,14 +5,12 @@ import { withRouter } from 'react-router'
 
 import ListingCard from './listing-card'
 
-// const alertify = require('../../node_modules/alertify/src/alertify.js')
-
 class ListingsGrid extends Component {
 
   constructor(props, context) {
     super(props);
     this.state = {
-      listingIds: [],
+      listingRows: [],
       listingsPerPage: 12,
       districtCodes:[],
       curDistrictCodeIndex:0
@@ -25,8 +23,8 @@ class ListingsGrid extends Component {
     houselistingService.getDistrictCodes().then((codes)=>
     {
       this.setState({districtCodes:codes.data});
-      var uuids = houselistingService.getHouseId(codes.data[0].id).then((uuids)=>{
-           this.setState({ listingIds: uuids });
+      var uuids = houselistingService.getHouseId(codes.data[0].id).then((data)=>{
+           this.setState({ listingRows: data });
       });
     });
   }
@@ -38,10 +36,10 @@ class ListingsGrid extends Component {
   render() {
     const activePage = this.props.match.params.activePage || 1;
 
-    console.log(this.state.listingIds);
+    console.log(this.state.listingRows);
 
 
-    const showListingsIds = this.state.listingIds.slice(
+    const showListingsRows = this.state.listingRows.slice(
       this.state.listingsPerPage * (activePage-1),
       this.state.listingsPerPage * (activePage))
     return (
@@ -55,8 +53,8 @@ class ListingsGrid extends Component {
         <div className="row">
           <div className="col-lg-8">
             <div className="row">          
-              {showListingsIds.map(listingId => (
-                <ListingCard listingId={listingId} key={listingId}/>
+              {showListingsRows.map(row => (
+                <ListingCard row={row} key={row}/>
               ))}
              </div>
           </div>
@@ -67,7 +65,7 @@ class ListingsGrid extends Component {
         <Pagination
           activePage={activePage}
           itemsCountPerPage={this.state.listingsPerPage}
-          totalItemsCount={this.state.listingIds.length}
+          totalItemsCount={this.state.listingRows.length}
           pageRangeDisplayed={5}
           onChange={this.handlePageChange}
           itemClass="page-item"
