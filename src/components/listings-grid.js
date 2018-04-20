@@ -54,7 +54,7 @@ class ListingsGrid extends Component {
           <div className="col-lg-8">
             <div className="row">          
               {showListingsRows.map(row => (
-                <ListingCard row={row} key={row}/>
+                <ListingCard row={row}/>
               ))}
              </div>
           </div>
