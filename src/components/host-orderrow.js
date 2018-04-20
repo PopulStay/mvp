@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import orderService from '../services/order-service'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import orderService from '../services/order-service';
+import { Link } from 'react-router-dom';
+import Timestamp from 'react-timestamp';
 
 class GuestOrderRow extends Component {
 
@@ -65,8 +66,8 @@ class GuestOrderRow extends Component {
         <td>{this.props.address}</td>
         <td>{this.state.status}</td>
         <td><Link to={`/listing/${this.state.houseInformation}`}>Check</Link></td>
-        <td>{this.state.from}</td>
-        <td>{this.state.to}</td>
+        <td><Timestamp time={this.state.from} format='date'/></td>
+        <td><Timestamp time={this.state.to} format='date'/></td>
         <td>{this.state.price}/PPS</td>
  
       </tr>
