@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { DateRangePicker } from 'react-dates';
 
 
 class Search extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
+      this.state = {
+        checkInDate: null,
+        checkOutDate: null
+      };
   }
 
   render() {
@@ -47,31 +52,33 @@ class Search extends Component {
         </ul>
         <form action="">
         <div className="row">
-        <div className="col-md-8 col-lg-8 col-sm-8">
+        <div className="col-md-10 col-lg-10 col-sm-10">
         <div className="row">
-        <div className="col-md-6 col-lg-6 col-sm-6">
+        <div className="col-md-4 col-lg-4 col-sm-4">
+          <div className="form-group"><label>When</label> 
+                     <DateRangePicker
+                    startDate={this.state.checkInDate}
+                    startDateId="start_date"
+                    endDate={this.state.checkOutDate}
+                    startDatePlaceholderText="Check In"
+                    endDatePlaceholderText="Check Out"
+                    endDateId="end_date"
+                    onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
+                    focusedInput={this.state.focusedInput}
+                    onFocusChange={focusedInput => this.setState({ focusedInput })}
+                  />
+           </div>       
+
+        </div>
+        <div className="col-md-3 col-lg-3 col-sm-3">
+        <div className="form-group"><label>ADULTS</label> 
+        <input type="number" className="form-control input-lg"/>
+        </div>
+        </div>
+        <div className="col-md-3 col-lg-3 col-sm-3">
         <div className="form-group">
-        <label for="exampleInputEmail1">CHECK IN</label> 
-        <input type="text" className="form-control input-lg check-in" value="4th March"/>
-        </div>
-        </div>
-        <div className="col-md-6 col-lg-6 col-sm-6">
-        <div className="form-group">
-        <label for="exampleInputEmail1">CHECK OUT</label> 
-        <input type="text" className="form-control input-lg check-out" value="8th March"/>
-        </div>
-        </div>
-        </div>
-        <div className="row">
-        <div className="col-md-6 col-lg-6 col-sm-6">
-        <div className="form-group"><label for="exampleInputEmail1">ADULTS</label> 
-        <input type="text" className="form-control input-lg"/>
-        </div>
-        </div>
-        <div className="col-md-6 col-lg-6 col-sm-6">
-        <div className="form-group">
-        <label for="exampleInputEmail1">CHILDREN</label> 
-        <input type="text" className="form-control input-lg"/></div>
+        <label>CHILDREN</label> 
+        <input type="number" className="form-control input-lg"/></div>
         </div>
         </div>
         </div>

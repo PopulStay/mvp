@@ -133,15 +133,12 @@ class ListingsDetail extends Component {
           </Overlay>
         }
 
-
         {this.state.step===this.STEP.PROCESSING &&
           <Overlay imageUrl="/images/spinner-animation.svg">
             Processing your booking<br />
             Please stand by...
           </Overlay>
         }
-
-
 
         {this.state.step===this.STEP.PURCHASED &&
           <Overlay imageUrl="/images/circular-check-button.svg">
