@@ -9,12 +9,12 @@ class ListingsGrid extends Component {
 
   constructor(props, context) {
     super(props);
-    this.state = {
-      listingRows: [],
-      listingsPerPage: 12,
-      districtCodes:[],
-      curDistrictCodeIndex:0
-    };
+      this.state = {
+        listingRows: [],
+        listingsPerPage: 12,
+        districtCodes:[],
+        curDistrictCodeIndex:0
+      };
   }
 
   componentWillMount() {
@@ -44,10 +44,6 @@ class ListingsGrid extends Component {
       this.state.listingsPerPage * (activePage))
     return (
 
-
-
-
-
       <div className="listings-grid">
         <h1>Homes around the world</h1>
         <div className="row">
@@ -73,6 +69,7 @@ class ListingsGrid extends Component {
           hideDisabled="true"
         />
       </div>
+  
     )
   }
 }
