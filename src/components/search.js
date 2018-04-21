@@ -13,15 +13,8 @@ class Search extends Component {
         adults:null,
         children:null
       };
-      this.handleSearch = this.handleSearch.bind(this);
+      window.searchCondition = this.state;
   }
-
-  handleSearch(){
-
-   window.searchCondition = this.state;
-
-  }
-
 
   render() {
 
@@ -72,7 +65,7 @@ class Search extends Component {
                     startDatePlaceholderText="Check In"
                     endDatePlaceholderText="Check Out"
                     endDateId="end_date"
-                    onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
+                    onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate });window.searchCondition.checkOutDate = endDate;window.searchCondition.checkInDate = startDate;}}
                     focusedInput={this.state.focusedInput}
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                   />
@@ -81,20 +74,22 @@ class Search extends Component {
         </div>
         <div className="col-md-3 col-lg-3 col-sm-3">
         <div className="form-group"><label>ADULTS</label> 
-        <input type="number" className="form-control input-lg" onChange={(e) => this.setState({adults : e.target.value})} />
+        <input type="number" className="form-control input-lg" onChange={(e) => window.searchCondition.adults = e.target.value } />
         </div>
         </div>
         <div className="col-md-3 col-lg-3 col-sm-3">
         <div className="form-group">
         <label>CHILDREN</label> 
-        <input type="number" className="form-control input-lg"  onChange={(e) => this.setState({children : e.target.value})} /></div>
+        <input type="number" className="form-control input-lg"  onChange={(e) => window.searchCondition.children = e.target.value } /></div>
         </div>
         </div>
         </div>
         </div>
         <div className="row">
         <div className="col-md-4 col-lg-4 col-sm-4 col-md-offset-8 col-lg-offset-8 col-sm-offset-8 text-center">
-        <a href="#" className="btn button__fill btn-lg form__search" onClick={this.handleSearch}>Search</a>
+        <Link to="/home">
+            <a href="#" className="btn button__fill btn-lg form__search">Search</a>
+        </Link>
         </div></div>
         </form>
         </div>

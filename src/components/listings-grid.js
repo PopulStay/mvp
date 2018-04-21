@@ -15,6 +15,8 @@ class ListingsGrid extends Component {
         districtCodes:[],
         curDistrictCodeIndex:0
       };
+
+      console.log("#################search condition#######:",window.searchCondition);
   }
 
   componentWillMount() {
