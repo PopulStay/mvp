@@ -1,6 +1,7 @@
-# PopulStay mvp
-This is PopulStay's MVP. It is built on top of [OriginalProtocol](https://www.originprotocol.com).
+New version for front end development.
 
+# PopulStay mvp
+This is PopulStay's MVP. 
 ## Project Overview
 
 PopulStay is a peer-to-peer home sharing network

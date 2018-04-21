@@ -7127,7 +7127,12 @@ button.close {
   position: relative;
   transition: 0.6s ease-in-out left;
 }
-
+.slider .slider-list{
+  height: 100% !important;
+}
+.slider .slider-list img{
+  width: 100%;
+}
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
@@ -8356,9 +8361,12 @@ header .button__outline {
   margin-bottom: 40px;
 }
 
-.carousel-slider{
-  overflow: hidden;
-}
+
+
+
+
+
+
 
 /* Responsive: Portrait tablets and up */
 

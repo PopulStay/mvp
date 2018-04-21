@@ -161,123 +161,57 @@ class ListingsDetail extends Component {
 
       <div className="detail-content container">
       <div className="row">
-      <div className="col-md-7 col-lg-7 col-sm-7">
-
-              {
-                  this.state.descriptioninfo.roomtype_category && 
-                  <h5>roomtype_category:{this.state.descriptioninfo.roomtype_category}</h5>
-              } 
-
-              {
-                  this.state.descriptioninfo.roomtype_guests && 
-                  <h5>roomtype_guests:{this.state.descriptioninfo.roomtype_guests}</h5>
-              }
-              {
-                  this.state.descriptioninfo.roomtype_location && 
-                  <h5>roomtype_location:{this.state.descriptioninfo.roomtype_location}</h5>
-              }
-              {
-                  this.state.descriptioninfo.roomdescription_homeorhotel && 
-                  <h5>roomdescription_homeorhotel:{this.state.descriptioninfo.roomdescription_homeorhotel}</h5>
-              }
-              {
-                  this.state.descriptioninfo.roomdescription_type && 
-                  <h5>roomdescription_type:{this.state.descriptioninfo.roomdescription_type}</h5>
-              }
-              {
-                  this.state.descriptioninfo.roomdescription_guests_have && 
-                  <h5>roomdescription_guests_have:{this.state.descriptioninfo.roomdescription_guests_have}</h5>
-              }
-              {
-                  this.state.descriptioninfo.roomdescription_forguestorhost && 
-                  <h5>roomdescription_forguestorhost:{this.state.descriptioninfo.roomdescription_forguestorhost}</h5>
-              }
-              {
-                  this.state.descriptioninfo.roombasics_guestsnumber && 
-                  <h5>roombasics_guestsnumber:{this.state.descriptioninfo.roombasics_guestsnumber}</h5>
-              }
-              {
-                  this.state.descriptioninfo.roombasics_guestbedrooms && 
-                  <h5>roombasics_guestbedrooms:{this.state.descriptioninfo.roombasics_guestbedrooms}</h5>
-              }
-              {
-                  this.state.descriptioninfo.roombasics_totalguests &&
-                   <h5>roombasics_totalguests:{this.state.descriptioninfo.roombasics_totalguests}</h5>
-              }
-              {
-                  this.state.descriptioninfo.roombasics_commonspacebeds && 
-                  <h5>roombasics_commonspacebeds:{this.state.descriptioninfo.roombasics_commonspacebeds}</h5>
-              }
-              {
-              this.state.descriptioninfo.roomstuff_Essentials && 
-              <h5>roomstuff_Essentials:{this.state.descriptioninfo.roomstuff_Essentials}</h5>
-              }
-
-              {
-              this.state.descriptioninfo.roomstuff_Shampoo && 
-              <h5>roomstuff_Shampoo:{this.state.descriptioninfo.roomstuff_Shampoo}</h5>
-              }
-              {
-              this.state.descriptioninfo.roomstuff_Closet_drwers && 
-              <h5>roomstuff_Closet_drwers:{this.state.descriptioninfo.roomstuff_Closet_drwers}</h5>
-              }
-              {
-              this.state.descriptioninfo.roomstuff_TV && 
-              <h5>roomstuff_TV:{this.state.descriptioninfo.roomstuff_TV}</h5>
-              }
-              {
-              this.state.descriptioninfo.roomstuff_Heat && 
-              <h5>roomstuff_Heat:{this.state.descriptioninfo.roomstuff_Heat}</h5>
-              }
-              {
-              this.state.descriptioninfo.roomstuff_aircondition && 
-              <h5>roomstuff_aircondition:{this.state.descriptioninfo.roomstuff_aircondition}</h5>
-              }
-              {
-              this.state.descriptioninfo.roomstuff_breakfastcoffetea && 
-              <h5>roomstuff_breakfastcoffetea:{this.state.descriptioninfo.roomstuff_breakfastcoffetea}</h5>
-              }
-              {
-              this.state.descriptioninfo.roomstuff_desk_workspace && 
-              <h5>roomstuff_desk_workspace:{this.state.descriptioninfo.roomstuff_desk_workspace}</h5>
-              }
-               {
-              this.state.descriptioninfo.roomstuff_fireplace && 
-              <h5>roomstuff_fireplace:{this.state.descriptioninfo.roomstuff_fireplace}</h5>
-              }
-               {
-              this.state.descriptioninfo.roomstuff_iron && 
-              <h5>roomstuff_iron:{this.state.descriptioninfo.roomstuff_iron}</h5>
-              }
-               {
-              this.state.descriptioninfo.roomstuff_hairdryer && 
-              <h5>roomstuff_hairdryer:{this.state.descriptioninfo.roomstuff_hairdryer}</h5>
-              }
-               {
-              this.state.descriptioninfo.roomstuff_petsinhouse && 
-              <h5>roomstuff_petsinhouse:{this.state.descriptioninfo.roomstuff_petsinhouse}</h5>
-              }
-               {
-              this.state.descriptioninfo.roomstuff_private_entrance && 
-              <h5>roomstuff_private_entrance:{this.state.descriptioninfo.roomstuff_private_entrance}</h5>
-              }
-               {
-              this.state.descriptioninfo.roomstuff_smartpincode && 
-              <h5>roomstuff_smartpincode:{this.state.descriptioninfo.roomstuff_smartpincode}</h5>
-              }
-               {
-              this.state.descriptioninfo.roomstuff_smartpincode_password && 
-              <h5>roomstuff_smartpincode_password:{this.state.descriptioninfo.roomstuff_smartpincode_password}</h5>
-              }
-               {
-              this.state.descriptioninfo.roomstuff_smoke_detector && 
-              <h5>roomstuff_smoke_detector:{this.state.descriptioninfo.roomstuff_smoke_detector}</h5>
-              }
+      <div className="col-md-7 col-lg-7">
+        <div className="L_box1 col-md-9">
+          <p className="text1">ENTIRE VILA - VEDADO</p>
+          <p className="text2">PlacetedelVedado</p>
+          <div className="box1_list col-md-8">
+            <p><img src="../images/detail-img02.png" alt="" />guests</p>
+            <p><img src="../images/detail-img01.png" alt="" />1 bedroom</p>
+            <p><img src="../images/detail-img05.png" alt="" />1 bed</p>
+            <p><img src="../images/detail-img03.png" alt="" />private bath</p>
+          </div>
+        </div>
 
 
+        <div className="L_box2 col-md-3">
+          <img className="BOX__logo" src="../images/detail-avatar.png" alt="" />
+          <h4>Justin</h4>
+          <img className="BOX2img" src="../images/detail-list.png" alt="" />
+        </div>
+        <div className="L_TEXT1">A quiet neighborhood in private estate, only 5 minutes walk away from MRT/train station. 10 mins from Airport Walking distance to Singapore Expo,Chang Business Park and new University.</div>
+        <p className="More">Read more<span>▼</span></p>
 
+        <div className="L_box3">
+          <h5>Amenities</h5>
+          <p><img src="../images/detail-img07.png" alt="" />Shampoo</p>
+          <p><img src="../images/detail-img08.png" alt="" />Breakfast</p>
+          <p><img src="../images/detail-img09.png" alt="" />TV</p>
+          <p><img src="../images/detail-img10.png" alt="" />Kitchen</p>
+          <p><img src="../images/detail-img11.png" alt="" />Air conditioning</p>
+          <p><img src="../images/detail-img12.png" alt="" />Wifi</p>
+        </div>
 
-      <div className="detail-content__click-cover"></div>
+        <p className="More">Show all 7 amenities<span>▼</span></p>
+        <div className="L_box4">
+            <h5>Sleeping arr 7 amenities</h5>
+            <img src="../images/detail-img06.png" alt="" />
+        </div>
+
+        <div className="L_box5">
+            <h5>House Rules</h5>
+            <p>Check-in is anytime after 2PM</p>
+            <p>Check out by 12PM(noon)</p>
+        </div>
+
+        <p className="More">Dead all rules<span>▼</span></p>
+        <div className="L_box6">
+            <h5>Cancellations</h5>
+            <p>Strict</p>
+            <p>Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati...<span>Read more</span></p>
+        </div>
+        
+        <p className="More">Get details</p>
       </div>
 
 
@@ -290,7 +224,13 @@ class ListingsDetail extends Component {
                 $ PPS: {this.state.price} 
               </span>
               <span className = "detail-price-font">Daily Price</span>
-              <hr className="details-price-hr"/>
+              <p className="detail-price-xx">
+                <img src="../images/detail-xx01.png" alt="" />
+                <img src="../images/detail-xx01.png" alt="" />
+                <img src="../images/detail-xx01.png" alt="" />
+                <img src="../images/detail-xx01.png" alt="" />
+                <img src="../images/detail-xx02.png" alt="" />
+              </p>
               <div className="details-daterange-div">
 
               {
@@ -309,11 +249,61 @@ class ListingsDetail extends Component {
               }
               </div>
 
+              <div className="detail-guest-div">
+                <p>Guest</p>
+                <div className="btn-group">
+                  <button type="button" data-toggle="dropdown"><span>▼</span></button>
+                  <ul className="dropdown-menu" role="menu">
+                    <li role="presentation">
+                      <a role="menuitem"  href="">Java</a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1"href="">数据挖掘</a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="">数据通信/网络</a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="">分离的链接</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
               <div className ="details-totalprice-div">
-               <span className = "detail-totalprice-font">Total Price</span>
-               <span className = "detail-totalprice">
-                $ PPS: {Number(this.calcTotalPrice()).toLocaleString(undefined, {minimumFractionDigits: 3})}
-              </span>
+                <ul>
+                    <li className="blueColor">
+                      <span className = "LeftSpan"><b>￥</b>59×9nights
+                          <img src="../images/detail-img13.png" />
+                      </span>
+                      <span className = "RightSpan"><b>￥</b>527</span>
+                    </li>
+                    <li className="pinkColor">
+                      <span className = "LeftSpan">Special Offer 20% off
+                          <img src="../images/detail-img13.png" />
+                      </span>
+                      <span className = "RightSpan"><b>-￥</b>55</span>
+                    </li>
+                    <li className="pinkColor">
+                      <span className = "LeftSpan">Long stay discount
+                          <img src="../images/detail-img13.png" />
+                      </span>
+                      <span className = "RightSpan"><b>-￥</b>55</span>
+                    </li>
+                    <li className="blueColor">
+                      <span className = "LeftSpan">Cleaning fee
+                          <img src="../images/detail-img13.png" />
+                      </span>
+                      <span className = "RightSpan"><b>￥</b>26</span>
+                    </li>
+                    <li className="blueColor">
+                      <span className = "LeftSpan">Total Price</span>
+                      <span className = "RightSpan">
+                        $ PPS: {Number(this.calcTotalPrice()).toLocaleString(undefined, {minimumFractionDigits: 3})}
+                      </span>
+                    </li>
+                </ul>
+               
              </div>
 
              <div className="detail-summary__action">
