@@ -86,6 +86,8 @@ class HouseInfoListingService {
               params.houseinfo       = JSON.stringify(roominfo);
               params.transactionData = serializedTx;
               params.hostAddress     = window.address;
+              params.guests          = formListing.roombasics_guestsnumber;
+              params.place           = formListing.roomtype_location;
 
               axios.post(process.env.Server_Address+'HouseInformation', params)
               .then(function (response) {
@@ -144,10 +146,14 @@ class HouseInfoListingService {
      return contract.methods.getHostOrders(account).call();
   }
 
-  getHouseId(districtCode){
+  getHouseId(districtCode,from,to,guests,place){
 
     return new Promise((resolve, reject) => {
-      axios.get(process.env.Server_Address+'HouseInformation?districeCode='+districtCode)
+      axios.get(process.env.Server_Address+'HouseInformation?place='+place
+                                                          +'&guests='+guests
+                                                          +'&to='+to
+                                                          +'&from='+from
+                                                          +'&districeCode='+districtCode)
       .then((response)=> {
         resolve(response.data);
       })
