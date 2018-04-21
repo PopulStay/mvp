@@ -9,14 +9,23 @@ class Search extends Component {
     super(props);
       this.state = {
         checkInDate: null,
-        checkOutDate: null
+        checkOutDate: null,
+        adults:null,
+        children:null
       };
+      this.handleSearch = this.handleSearch.bind(this);
   }
+
+  handleSearch(){
+
+   window.searchCondition = this.state;
+
+  }
+
 
   render() {
 
     return (
-      
       <div className="form bg-blue">
        <div className="container">
         <h1 className="color-pink text-bold">
@@ -72,20 +81,20 @@ class Search extends Component {
         </div>
         <div className="col-md-3 col-lg-3 col-sm-3">
         <div className="form-group"><label>ADULTS</label> 
-        <input type="number" className="form-control input-lg"/>
+        <input type="number" className="form-control input-lg" onChange={(e) => this.setState({adults : e.target.value})} />
         </div>
         </div>
         <div className="col-md-3 col-lg-3 col-sm-3">
         <div className="form-group">
         <label>CHILDREN</label> 
-        <input type="number" className="form-control input-lg"/></div>
+        <input type="number" className="form-control input-lg"  onChange={(e) => this.setState({children : e.target.value})} /></div>
         </div>
         </div>
         </div>
         </div>
         <div className="row">
         <div className="col-md-4 col-lg-4 col-sm-4 col-md-offset-8 col-lg-offset-8 col-sm-offset-8 text-center">
-        <a href="./search.html" className="btn button__fill btn-lg form__search">Search</a>
+        <a href="#" className="btn button__fill btn-lg form__search" onClick={this.handleSearch}>Search</a>
         </div></div>
         </form>
         </div>
