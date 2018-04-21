@@ -73,8 +73,7 @@ class ListingsDetail extends Component {
       console.error(error);
     });
   }
-
-
+  
 
   componentWillMount() {
     if (this.props.listingId) {
@@ -95,8 +94,8 @@ class ListingsDetail extends Component {
     ppsService.setPreOrder( this.state.lister,
                                      this.state.price * unitsToBuy,
                                      this.props.listingId, 
-                                     this.state.checkInDate.toDate().getDate(), 
-                                     this.state.checkOutDate.toDate().getDate(),
+                                     this.state.checkInDate.toDate().getTime(), 
+                                     this.state.checkOutDate.toDate().getTime(),
                                      unitsToBuy
                                    )
     .then((transactionReceipt) => {
@@ -134,15 +133,12 @@ class ListingsDetail extends Component {
           </Overlay>
         }
 
-
         {this.state.step===this.STEP.PROCESSING &&
           <Overlay imageUrl="/images/spinner-animation.svg">
             Processing your booking<br />
             Please stand by...
           </Overlay>
         }
-
-
 
         {this.state.step===this.STEP.PURCHASED &&
           <Overlay imageUrl="/images/circular-check-button.svg">
@@ -153,7 +149,7 @@ class ListingsDetail extends Component {
           </Overlay>
         }
 
-
+      <div className="carousel-slider">
       <Carousel>
        {this.state.slides.map(slide => (
         <div className="carousel-inner item">
@@ -161,6 +157,7 @@ class ListingsDetail extends Component {
         </div>
          ))}
       </Carousel>
+      </div>
 
       <div className="detail-content container">
       <div className="row">

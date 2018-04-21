@@ -55,7 +55,8 @@ class HouseInfoListingService {
 
        var uuids= this.getBytes32FromIpfsHash(ipfsHashStr);
        var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
-       var dataobj= contract.methods.setHouseInfo(uuids,
+       var dataobj= contract.methods.setHouseInfo(
+        uuids,
         formListing.price_perday,
         JSON.stringify(roominfo),
         "0x3333322d30303332000000000000000000000000000000000000000000000000")
@@ -69,46 +70,68 @@ class HouseInfoListingService {
                   to: houselist_address,
                   from: window.address,
                   data: dataobj
-              }
+              };
 
            
-              var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex')
+              var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex');
               var transaction =new EthereumTx(txData);
-              transaction.sign(pk)
-              var serializedTx = transaction.serialize().toString('hex')
-              window.web3.eth.sendSignedTransaction('0x' + serializedTx, function(err, res) {
-                if(err)
-                reject(err)
-                else
-                resolve(res);
-                  
+              transaction.sign(pk);
+              var serializedTx = transaction.serialize().toString('hex');
+
+
+              var params = {};
+              params.id              = uuids;
+              params.price           = formListing.price_perday;
+              params.districeCode    = "0x3333322d30303332000000000000000000000000000000000000000000000000";
+              params.houseinfo       = JSON.stringify(roominfo);
+              params.transactionData = serializedTx;
+              params.hostAddress     = window.address;
+              params.guests          = formListing.roombasics_guestsnumber;
+              params.place           = formListing.roomtype_location;
+
+              axios.post(process.env.Server_Address+'HouseInformation', params)
+              .then(function (response) {
+              resolve(response.data.txhash);
               })
+              .catch(function (error) {
+              console.error(error)
+              reject(error)
+              });
           });
-
-
       });
-
       });
  
   }
 
+
     getDistrictCodes() {
     
     return new Promise((resolve, reject) => {
-    axios.get(process.env.Server_Address+'DistrictCode/')
-    .then((response)=> {
-      resolve(response);
-    })
-    .catch(function (error) {
-      reject(error);
+      axios.get(process.env.Server_Address+'DistrictCode/')
+      .then((response)=> {
+        resolve(response);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
     });
-    });
-
   }
 
   getHomeRoomList(account) {
-       var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
-       return contract.methods.getHostRoomLists(account).call();
+       // var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address);
+       // return contract.methods.getHostRoomLists(account).call();
+      return new Promise((resolve, reject) => {
+        axios.get(process.env.Server_Address+'HouseInformation?hostAddress='+account)
+        .then((response)=> {
+          resolve(response.data);
+        })
+        .catch(function (error) {
+          reject(error);
+        });
+    });
+
+
+
   }
 
 
@@ -123,9 +146,24 @@ class HouseInfoListingService {
      return contract.methods.getHostOrders(account).call();
   }
 
-  getHouseId(districtCode){
-     var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address)
-     return contract.methods.getUUIDS(districtCode).call();
+  getHouseId(districtCode,from,to,guests,place){
+
+    return new Promise((resolve, reject) => {
+      axios.get(process.env.Server_Address+'HouseInformation?place='+place
+                                                          +'&guests='+guests
+                                                          +'&to='+to
+                                                          +'&from='+from
+                                                          +'&districeCode='+districtCode)
+      .then((response)=> {
+        resolve(response.data);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
+    })
+
+   //   var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address)
+   //   return contract.methods.getUUIDS(districtCode).call();
   }
 
 

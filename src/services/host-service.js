@@ -30,17 +30,6 @@ class HostService {
     })
   }
 
-  getHostInfo(id) {
-    return new Promise((resolve, reject) => {
-    axios.get(process.env.Server_Address+'HostRegister/'+id)
-    .then((response)=> {
-      resolve(response.data);
-    })
-    .catch(function (error) {
-      reject(error);
-    });
-    })
-  }
   
   getHouseListing(account){
     return houselistingService.getHomeRoomList(account);

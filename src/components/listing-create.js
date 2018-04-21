@@ -177,34 +177,16 @@ class ListingCreate extends Component {
                 id: window.address
             });
 
-            hostService.getHostInfo(window.address).then((data) => {
-                this.setState({
-                    user: data
-                });
-            });
+            // hostService.getHostInfo(window.address).then((data) => {
+            //     this.setState({
+            //         user: data
+            //     });
+            // });
 
        
     }
 
-    onSubmitListing(formListing) {
 
-
-        houselistingService.submitListing(formListing)
-            .then((tx) => {
-                this.setState({
-                    step: this.STEP.PROCESSING
-                });
-                return houselistingService.waitTransactionFinished(tx);
-            })
-            .then((blockNumber) => {
-                this.setState({
-                    step: this.STEP.SUCCESS
-                });
-            })
-            .catch((error) => {
-                alertify.log(error.message);
-            })
-    }
 
   render() {
 
