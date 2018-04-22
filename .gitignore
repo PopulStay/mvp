@@ -67,3 +67,4 @@ build_webpack/
 
 # env.js
 config/env.js
+src/components/listing-detail.js
