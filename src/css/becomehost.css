@@ -5,6 +5,9 @@
 body{
   font-family: FiraSansBlack; 
 }
+.row>div>div{
+  overflow: hidden; 
+}
 .becomehost__step-1 {
   max-width: 60px;
   color: #4d4e4e;
@@ -25,7 +28,9 @@ body{
   font-size: 1.7rem;
 }
 .Step-1 .color-white,
-.Step-2 .btn-lg{
+.Step-2 .btn-lg,
+.Step-3 .btn-lg,
+.Step-4 .btn-lg{
   width: 150px;
   border-radius: 0;
   font-size: 2rem;
@@ -83,7 +88,7 @@ body{
 }
 .Step-1 .form-group .btn-group,
 .Step-2 .form-group .btn-group,
-.Step-3 .form-group .btn-group{
+.Step-3 .btn-group{
   padding: 0;
 }
 .Step-1 .form-group select,
@@ -149,13 +154,60 @@ hr{
   margin-bottom: 2%;
 }
 .bind{
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 .Step-3 .form-group{
   padding: 0;
 }
 .Step-3 h3{
   margin: 5% 0;
+}
+.Step-4 .Pinput{
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background: #151b4e;
+  display: inline-block;
+  float: left;
+  color: #f6416c;
+  text-align: center;
+  line-height: 20px;
+}
+.Step-4 .divinput{
+  float: right;
+  width: 94%;
+  font-size:1.6rem;
+}
+.Step-4 .divinput p:first-child{
+  font-size:1.6rem;
+  margin-bottom: 0;
+}
+.Step-4 .control-group{
+  margin: 6% 5% 1%;
+  border-top: 1px solid #888;  
+  padding-top:5%; 
+}
+.Step-4 .control-group1{
+  border-top: none;  
+  margin: 0 5%;
+  border-bottom: 1px solid #888;  
+  padding-top:0%; 
+  padding-bottom:5%; 
+}
+.Step-4 .control-group label{
+  color: #888;
+  font-size: 1.2rem;
+}
+.Step-4 .detector{
+  padding: 5% 0;
+  border-bottom: 1px solid #888;  
+}
+.Step-5 h1{
+  font-size: 2.8rem;
+}
+.Step-5 h3{
+  font-size: 1.6rem;
+  padding-bottom:5%; 
 }
 .becomehost-1,
 .becomehost-2,
