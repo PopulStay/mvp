@@ -6,9 +6,7 @@ contract HouseInfoListing{
    address private contractowner;
    
    address public preOrderaddressfortest;
-   uint public transferPriceForTest;
-   
-   
+
    function HouseInfoListing(address _tokenAddress)
    payable
    public{
@@ -39,10 +37,11 @@ contract HouseInfoListing{
     
   struct HouseInfo {
     string  roominfo;
-    uint    price;
+    uint    price;//PPS price
     uint    contractdatetime;
     uint    state;//0 close , 1 open
     address owner;
+    uint    ethPrice;
   
   }
   
@@ -67,14 +66,15 @@ contract HouseInfoListing{
   
   
   
+  
+  //preOrder by PPS
   function preOrder( address _guestaddress,address _hostaddress, bytes32 _houseinfo, uint _from, uint _to, uint _days)
   payable
   public
   returns (address _contractaddress)
   {
       uint transferPrice = _days * houseInfo[_houseinfo].price;
-      transferPriceForTest = transferPrice;
-      PreOrder preorder = new PreOrder( tokenAddress , _hostaddress , _guestaddress , _houseinfo , _from , _to , _days , 0 ,transferPrice );
+      PreOrder preorder = new PreOrder( tokenAddress , _hostaddress , _guestaddress , _houseinfo , _from , _to , _days , 0 ,transferPrice,0);
       preOrderaddressfortest =preorder;
          if(Token(tokenAddress).transferFrom(_guestaddress,preorder,transferPrice))//transfer token to contract address
          {
@@ -91,12 +91,39 @@ contract HouseInfoListing{
              return ;
          }
       
-      
       return ;
-      
   }
-
-   function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _districtcode) 
+  
+  function preOrderByEth( address _guestaddress,address _hostaddress, bytes32 _houseinfo, uint _from, uint _to, uint _days)
+  payable
+  public
+  returns (address _contractaddress)
+  {
+    uint transferPrice = _days * houseInfo[_houseinfo].ethPrice;
+    PreOrder preorder = new PreOrder( tokenAddress , _hostaddress , _guestaddress , _houseinfo , _from , _to , _days , 0 , 0 , transferPrice );
+    
+    
+    if( address(preorder).send(msg.value) )//transfer eth to contract address
+    {
+     
+        PreOrders[_houseinfo].push(preorder); 
+        GuestOrders[_guestaddress].push(preorder);
+        HouseOwnerOrders[_hostaddress].push(preorder);
+        return address(preorder);
+     
+    }
+    else
+    {
+        //transfer token failure
+        return ;
+    }
+      
+        return ;
+  }
+  
+  
+  //"test",9,"roominfo","test","0x3333322d30303332000000000000000000000000000000000000000000000000"
+   function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _districtcode,uint _ethPrice) 
    public 
    returns(bool success)
   {
@@ -104,6 +131,7 @@ contract HouseInfoListing{
       {
         roominfo: _roominfo,
         price   : _price,
+        ethPrice: _ethPrice,
         contractdatetime:block.timestamp,
         owner   : msg.sender,
         state   : 1
@@ -160,11 +188,12 @@ contract HouseInfoListing{
   function getHouseInfo(bytes32 _uuid)
     view
     public
-    returns (uint _price, uint _contractdatetime, address _owner,uint _state,string _roominfo)
+    returns (uint _price,uint _ethPrice, uint _contractdatetime, address _owner,uint _state,string _roominfo)
   {
     //check the contract list, the most important thing is that if state is 0, that means this house had been rented.
     return (
       houseInfo[_uuid].price,
+      houseInfo[_uuid].ethPrice,
       houseInfo[_uuid].contractdatetime,
       houseInfo[_uuid].owner,
       houseInfo[_uuid].state,
@@ -188,6 +217,7 @@ contract PreOrder{
     uint public rentDays;
     uint public status;//0:preorder 1: success  -1: cancel
     uint public price;
+    uint public ethPrice;
     
     
     function PreOrder (
@@ -199,7 +229,8 @@ contract PreOrder{
                         uint _to,
                         uint _days,
                         uint _status,
-                        uint _price
+                        uint _price,
+                        uint _ethPrice
                     ) 
     payable public{
         tokenAddress = _tokenAddress;
@@ -211,7 +242,7 @@ contract PreOrder{
         rentDays     = _days;
         status       = _status;
         price        = _price;
-        
+        ethPrice     = _ethPrice;
     }
     
     function getPreorderInfo()
@@ -226,7 +257,8 @@ contract PreOrder{
                 uint _to,
                 uint _days,
                 uint _status,
-                uint _price
+                uint _price,
+                uint _ethPrice
             ) 
     {
     //check the contract list, the most important thing is that if state is 0, that means this house had been rented.
@@ -239,7 +271,8 @@ contract PreOrder{
         to           ,
         rentDays     ,
         status       ,
-        price        
+        price        ,
+        ethPrice
     );
     }
     
@@ -271,6 +304,32 @@ contract PreOrder{
       //3 if step 1 successfully finished, remove order info from PreOrders lists
       return true;
    }
+   
+    function confirmOrderByEth()
+    payable
+    public
+    returns(bool success)
+    {
+        if( msg.sender == guestaddress && status == 0)   
+       {
+            if(owneraddress.send(ethPrice))//transfer token to contract address
+         {
+             
+            status = 1;
+            return true;
+             
+         }
+         else
+         {
+             //transfer token failure
+             return false;
+         }
+           
+       }
+       
+    }
+   
+   
     
     bool private houseOwnerAgreeToCancel = false;
     bool private guestAgreeToCancel      = false;
