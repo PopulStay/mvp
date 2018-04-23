@@ -5,9 +5,7 @@
 body{
   font-family: FiraSansBlack; 
 }
-.row>div>div{
-  overflow: hidden; 
-}
+
 .becomehost__step-1 {
   max-width: 60px;
   color: #4d4e4e;
@@ -201,6 +199,9 @@ hr{
 .Step-4 .detector{
   padding: 5% 0;
   border-bottom: 1px solid #888;  
+}
+.Step-4>div{
+  overflow: hidden; 
 }
 .Step-5 h1{
   font-size: 2.8rem;
