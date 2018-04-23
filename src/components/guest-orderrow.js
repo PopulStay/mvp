@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import orderService from '../services/order-service'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import orderService from '../services/order-service';
+import { Link } from 'react-router-dom';
+import Timestamp from 'react-timestamp';
 
 class GuestOrderRow extends Component {
 
@@ -19,11 +20,10 @@ class GuestOrderRow extends Component {
 
 
   getPreOrderInfo(){
-    console.log(this.props.account);
+   
     orderService.getPreOrderInfo(this.props.account)
     .then((result) => {
-        console.log(result);
-        this.setState({houseInformation:result[3],status:result[7],from:result[4],to:result[5],price:result[8]});
+        this.setState({houseInformation:result[3],status:result[7],from:result[4].substring(0,10),to:result[5].substring(0,10),price:result[8]});
     }).catch((error) => {
       console.error(error);
     });
@@ -60,8 +60,8 @@ class GuestOrderRow extends Component {
         <td>{this.props.account}</td>
         <td>{this.state.status}</td>
         <td><Link to={`/listing/${this.state.houseInformation}`}>Check</Link></td>
-        <td>{this.state.from}</td>
-        <td>{this.state.to}</td>
+        <td><Timestamp time={this.state.from} format='date'/></td>
+        <td><Timestamp time={this.state.to} format='date'/></td>
         <td>{this.state.price}/PPS</td>
         {this.state.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
         {this.state.status === '1' &&<td>Checked In</td>}

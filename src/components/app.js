@@ -14,6 +14,7 @@ import HostOrder from './host-orderlist.js'
 import Footer from './footer'
 import NavBar from './navbar'
 import Overlay from './overlay'
+import Search from './search.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -22,7 +23,11 @@ import '../css/homepage.css'
 import '../css/main.css'
 import '../css/search.css'
 
-
+const SearchPage = (props) => (
+  <Layout {...props} hideTagHeader={true}>
+      <Search />
+  </Layout>
+)
 
 
 const HomePage = (props) => (
@@ -84,7 +89,8 @@ const App = () => (
   <Router>
     <ScrollToTop>
         <div>
-          <Route exact path="/" component={HomePage}/>
+          <Route exact path="/" component={SearchPage}/>
+          <Route exact path="/home" component={HomePage}/>
           <Route path="/page/:activePage" component={HomePage}/>
           <Route path="/listing/:listingId" component={ListingDetailPage}/>
           <Route path="/create" component={CreateListingPage}/>
