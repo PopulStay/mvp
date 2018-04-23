@@ -1,0 +1,539 @@
+%!Adobe-FontList 1.18
+%Locale:0x4809
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-Black.ttf
+FileModTime:1520594720
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-BlackItalic.ttf
+FileModTime:1520594720
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-Bold.ttf
+FileModTime:1520594720
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-BoldItalic.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-ExtraBold.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-ExtraBoldItalic.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-ExtraLight.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-ExtraLightItalic.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-Italic.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-Light.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-LightItalic.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-Medium.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-MediumItalic.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-Regular.ttf
+FileModTime:1520594722
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-SemiBold.ttf
+FileModTime:1520594724
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-SemiBoldItalic.ttf
+FileModTime:1520594724
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-Thin.ttf
+FileModTime:1520594724
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\._FiraSans-ThinItalic.ttf
+FileModTime:1520594724
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-Black
+FamilyName:Fira Sans
+StyleName:Black
+FullName:Fira Sans Black
+MenuName:Fira Sans Black
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-Black.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:507204
+FileModTime:1403020800
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Fira Sans Black
+NameArray:0,Win,1,Fira Sans Black
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-BlackItalic
+FamilyName:Fira Sans
+StyleName:Black Italic
+FullName:Fira Sans Black Italic
+MenuName:Fira Sans Black
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-BlackItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:527560
+FileModTime:1403020800
+WeightClass:900
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Fira Sans Black Italic
+NameArray:0,Win,1,Fira Sans Black
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-Bold
+FamilyName:Fira Sans
+StyleName:Bold
+FullName:Fira Sans Bold
+MenuName:Fira Sans
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:489720
+FileModTime:1403020800
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Fira Sans Bold
+NameArray:0,Win,1,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-BoldItalic
+FamilyName:Fira Sans
+StyleName:Bold Italic
+FullName:Fira Sans Bold Italic
+MenuName:Fira Sans
+StyleBits:3
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-BoldItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:506864
+FileModTime:1403020800
+WeightClass:700
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Fira Sans Bold Italic
+NameArray:0,Win,1,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-ExtraBold
+FamilyName:Fira Sans
+StyleName:ExtraBold
+FullName:Fira Sans ExtraBold
+MenuName:Fira Sans ExtraBold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-ExtraBold.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:497028
+FileModTime:1403020800
+WeightClass:800
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Fira Sans ExtraBold
+NameArray:0,Win,1,Fira Sans ExtraBold
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-ExtraBoldItalic
+FamilyName:Fira Sans
+StyleName:ExtraBold Italic
+FullName:Fira Sans ExtraBold Italic
+MenuName:Fira Sans ExtraBold
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-ExtraBoldItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:536744
+FileModTime:1403020800
+WeightClass:800
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Fira Sans ExtraBold Italic
+NameArray:0,Win,1,Fira Sans ExtraBold
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-ExtraLight
+FamilyName:Fira Sans
+StyleName:ExtraLight
+FullName:Fira Sans ExtraLight
+MenuName:Fira Sans ExtraLight
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-ExtraLight.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:447324
+FileModTime:1403020800
+WeightClass:275
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Fira Sans ExtraLight
+NameArray:0,Win,1,Fira Sans ExtraLight
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-ExtraLightItalic
+FamilyName:Fira Sans
+StyleName:ExtraLight Italic
+FullName:Fira Sans ExtraLight Italic
+MenuName:Fira Sans ExtraLight
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-ExtraLightItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:463000
+FileModTime:1403020800
+WeightClass:275
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Fira Sans ExtraLight Italic
+NameArray:0,Win,1,Fira Sans ExtraLight
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-Italic
+FamilyName:Fira Sans
+StyleName:Italic
+FullName:Fira Sans Italic
+MenuName:Fira Sans
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-Italic.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:472396
+FileModTime:1403020800
+WeightClass:400
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Fira Sans Italic
+NameArray:0,Win,1,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-Light
+FamilyName:Fira Sans
+StyleName:Light
+FullName:Fira Sans Light
+MenuName:Fira Sans Light
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-Light.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:449660
+FileModTime:1403020800
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Fira Sans Light
+NameArray:0,Win,1,Fira Sans Light
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-LightItalic
+FamilyName:Fira Sans
+StyleName:Light Italic
+FullName:Fira Sans Light Italic
+MenuName:Fira Sans Light
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-LightItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:463212
+FileModTime:1403020800
+WeightClass:300
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Fira Sans Light Italic
+NameArray:0,Win,1,Fira Sans Light
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-Medium
+FamilyName:Fira Sans
+StyleName:Medium
+FullName:Fira Sans Medium
+MenuName:Fira Sans Medium
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-Medium.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:457248
+FileModTime:1403020800
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Fira Sans Medium
+NameArray:0,Win,1,Fira Sans Medium
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-MediumItalic
+FamilyName:Fira Sans
+StyleName:Medium Italic
+FullName:Fira Sans Medium Italic
+MenuName:Fira Sans Medium
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-MediumItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:472624
+FileModTime:1403020800
+WeightClass:500
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Fira Sans Medium Italic
+NameArray:0,Win,1,Fira Sans Medium
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-Regular
+FamilyName:Fira Sans
+StyleName:Regular
+FullName:Fira Sans Regular
+MenuName:Fira Sans
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:456996
+FileModTime:1403020800
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Fira Sans Regular
+NameArray:0,Win,1,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-SemiBold
+FamilyName:Fira Sans
+StyleName:SemiBold
+FullName:Fira Sans SemiBold
+MenuName:Fira Sans SemiBold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-SemiBold.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:489028
+FileModTime:1403020800
+WeightClass:600
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Fira Sans SemiBold
+NameArray:0,Win,1,Fira Sans SemiBold
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-SemiBoldItalic
+FamilyName:Fira Sans
+StyleName:SemiBold Italic
+FullName:Fira Sans SemiBold Italic
+MenuName:Fira Sans SemiBold
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-SemiBoldItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:506544
+FileModTime:1403020800
+WeightClass:600
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Fira Sans SemiBold Italic
+NameArray:0,Win,1,Fira Sans SemiBold
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-Thin
+FamilyName:Fira Sans
+StyleName:Thin
+FullName:Fira Sans Thin
+MenuName:Fira Sans Thin
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-Thin.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:442852
+FileModTime:1403020800
+WeightClass:250
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Fira Sans Thin
+NameArray:0,Win,1,Fira Sans Thin
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:FiraSans-ThinItalic
+FamilyName:Fira Sans
+StyleName:Thin Italic
+FullName:Fira Sans Thin Italic
+MenuName:Fira Sans Thin
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\white\Documents\populsay\UI page\Font\FiraSans-ThinItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:457188
+FileModTime:1403020800
+WeightClass:250
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Fira Sans Thin Italic
+NameArray:0,Win,1,Fira Sans Thin
+NameArray:0,Win,16,Fira Sans
+%EndFont
+
