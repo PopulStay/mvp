@@ -182,16 +182,16 @@ class ListingCreate extends Component {
                 id: window.address
             });
 
-            hostService.getHostInfo(window.address).then((data) => {
-                this.setState({
-                    user: data
-                });
-            });
+            // hostService.getHostInfo(window.address).then((data) => {
+            //     this.setState({
+            //         user: data
+            //     });
+            // });
 
        
     }
 
-    onSubmitListing(formListing) {
+
 
 
         houselistingService.submitListing(formListing)
@@ -234,6 +234,8 @@ class ListingCreate extends Component {
     totalguests(totalguest){
       this.setState({roombasics_totalguests: totalguest});
     }
+
+
 
   render() {
     const Categoryarr = [];

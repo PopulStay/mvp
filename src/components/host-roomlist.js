@@ -20,27 +20,20 @@ class HostRoomListRow extends Component {
 
 
   getHostRoomInfo(){
-    console.log(this.props.uuid);
-    houselistingService.getHouseInfoDetail(this.props.uuid)
-    .then((result) => {
+    console.log(this.props.row);
+    var roominfo = this.props.row.houseinfo;
+    this.setState({
+      state:this.props.row.state,
+      price:this.props.row.price,
+      category:roominfo.category,
+      location:roominfo.location,
+      beds:roominfo.beds});
    
-        var roominfo = JSON.parse(result[4]);
-        console.log(roominfo);
-        this.setState({state:result[3]});
-        this.setState({price:result[0]});
-        this.setState({category:roominfo.category});
-        this.setState({location:roominfo.location});
-        this.setState({beds:roominfo.beds});
-
-    }).catch((error) => {
-      console.error(error);
-    });
-
   }
 
   componentWillMount() {
 
-     if(this.props.uuid)
+     if(this.props.row)
      {
       this.getHostRoomInfo();
      }
@@ -58,7 +51,6 @@ class HostRoomListRow extends Component {
         <td>{this.state.location}</td>
         <td>{this.state.price}/PPS</td>
         <td>{this.state.status}</td>
-        
       </tr>
     
     )

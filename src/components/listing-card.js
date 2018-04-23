@@ -20,13 +20,22 @@ class ListingCard extends Component {
 
   componentDidMount() {
 
-    var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
-    houselistingService.getHouseInfoDetail(this.props.listingId)
-    .then((result) => {
-        var roominfo = JSON.parse(result[4]);
-        this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds});
-        return ipfsService.getListing(ipfsHash)
-    }).then((result)=>{
+    var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.row.id);
+    // houselistingService.getHouseInfoDetail(this.props.row)
+    // .then((result) => {
+    //     var roominfo = JSON.parse(result[4]);
+    //     this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds});
+    //     return 
+    var roominfo = this.props.row.houseinfo;
+    this.setState(
+    {
+      price:this.props.row.price,
+      category:roominfo.category,
+      location:roominfo.location,
+      beds:roominfo.beds
+    });
+    ipfsService.getListing(ipfsHash)
+        .then((result)=>{
           var descriptioninfo = JSON.parse(result);
          this.setState({descriptioninfo:descriptioninfo});
          if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
@@ -41,13 +50,9 @@ class ListingCard extends Component {
   }
 
   render() {
-
     return (
-
-
-      
       <div className="col-12 col-md-6 col-lg-4 listing-card">
-        <Link to={`/listing/${this.props.listingId}`}>
+        <Link to={`/listing/${this.props.row.id}`}>
           <img className="photo" src={this.state.previewurl} role="presentation" />
           <div className="category">{this.state.category} ({this.state.beds} beds)</div>
           <div className="title">{this.state.location}</div>

@@ -35,16 +35,6 @@ class HostInfo extends React.Component {
       console.log(data);
       this.setState({ ppsBalance:data});
      });
-
-
-    hostService.getHostInfo( window.address).then((data)=>{
-      this.setState({ 
-                      user  : data.user, 
-                      phone : data.phone, 
-                      email : data.email, 
-                    address : data.address
-                    });
-     });
   }
    
 
@@ -75,8 +65,8 @@ class HostInfo extends React.Component {
       </tr>
     </thead>
     <tbody>
-     {this.state.roomInfoList.map(uuid => (
-            <HostRoomList uuid={uuid} key={uuid}/>
+     {this.state.roomInfoList.map(row => (
+            <HostRoomList row={row} key={row}/>
       ))}
      
     </tbody>
