@@ -1,3 +1,4 @@
+pragma solidity ^0.4.18;
 
 contract HouseInfoListing{
    address public tokenAddress;//tokenAddress used to pay 
@@ -93,37 +94,41 @@ contract HouseInfoListing{
       
       return ;
   }
-  
+  //"0xafc28904fc9ffba207181e60a183716af4e5bce2","0xafc28904fc9ffba207181e60a183716af4e5bce2","0x7465737431000000000000000000000000000000000000000000000000000000",3,6,3
   function preOrderByEth( address _guestaddress,address _hostaddress, bytes32 _houseinfo, uint _from, uint _to, uint _days)
-  payable
   public
-  returns (address _contractaddress)
+  payable
+  returns (address _preorder)
   {
     uint transferPrice = _days * houseInfo[_houseinfo].ethPrice;
-    PreOrder preorder = new PreOrder( tokenAddress , _hostaddress , _guestaddress , _houseinfo , _from , _to , _days , 0 , 0 , transferPrice );
+    PreOrder preorder = new PreOrder( 
+        tokenAddress ,
+        _hostaddress ,
+        _guestaddress ,
+        _houseinfo , 
+        _from ,
+        _to ,
+        _days ,
+        0 ,
+        0 , 
+        transferPrice );
     
-    
-    if( address(preorder).send(msg.value) )//transfer eth to contract address
+    if( address(preorder).send(msg.value) )
     {
-     
+        preOrderaddressfortest = address(preorder);
         PreOrders[_houseinfo].push(preorder); 
         GuestOrders[_guestaddress].push(preorder);
         HouseOwnerOrders[_hostaddress].push(preorder);
         return address(preorder);
-     
     }
-    else
-    {
-        //transfer token failure
-        return ;
-    }
-      
-        return ;
+  
+     return ;
+    
   }
   
   
-  //"test",9,"roominfo","test","0x3333322d30303332000000000000000000000000000000000000000000000000"
-   function setHouseInfo(bytes32 _uuid,uint _price,string _roominfo,bytes32 _districtcode,uint _ethPrice) 
+  //"test1",999,100,"roominfo","0x3333322d30303332000000000000000000000000000000000000000000000000"
+   function setHouseInfo(bytes32 _uuid,uint _price,uint _ethPrice,string _roominfo,bytes32 _districtcode) 
    public 
    returns(bool success)
   {
@@ -219,7 +224,13 @@ contract PreOrder{
     uint public price;
     uint public ethPrice;
     
+    function () 
+    public 
+    payable {
+    }
     
+
+        
     function PreOrder (
                         address _tokenAddress, 
                         address _owneraddress,
@@ -232,7 +243,9 @@ contract PreOrder{
                         uint _price,
                         uint _ethPrice
                     ) 
-    payable public{
+    public                
+    payable 
+    {
         tokenAddress = _tokenAddress;
         owneraddress = _owneraddress;
         guestaddress = _guestaddress;
@@ -279,8 +292,8 @@ contract PreOrder{
     
     
     function confirmOrder()
-    payable
     public
+    payable
     returns(bool success)
     {
        if( msg.sender == guestaddress && status == 0)   
@@ -306,8 +319,8 @@ contract PreOrder{
    }
    
     function confirmOrderByEth()
-    payable
     public
+    payable
     returns(bool success)
     {
         if( msg.sender == guestaddress && status == 0)   
@@ -362,4 +375,3 @@ contract Token {
   function transferFrom(address from, address to, uint tokens) public returns (bool success);
 
 }
-
