@@ -34,18 +34,20 @@ class ListingCreate extends Component {
 
         this.state = {
             step: 0,
-            roomtype_category:"",
-            roomtype_guests:0,
+            roomtype_category:"Entire place",
+            roomtype_guests:1,
             roomtype_location:"",
-            roomdescription_homeorhotel:"",
-            roomdescription_type:"",
-            roomdescription_guests_have:"",
+            roomdescription_homeorhotel:"Home",
+            roomdescription_type:"Single room",
+            roomdescription_guests_have:"Entire place",
             roomdescription_forguestorhost:0,
+            roomdescription_title:"",
+            roomdescription_description:"",
             roombasics_guestsnumber:1,
             roombasics_guestbedrooms:1,
             roombasics_totalguests:1,
             roombasics_commonspacebeds:1,
-            roomstuff_Essentials:0,
+            roomstuff_Essentials:1,
             roomstuff_Shampoo:0,
             roomstuff_Closet_drwers:0,
             roomstuff_TV:0,
@@ -69,7 +71,8 @@ class ListingCreate extends Component {
             step1guests:[1,2,3,4,5],
             homeorhotels:['Home','hotel','Other'],
             types:['Single room','double room','family suite','business suite'],
-            guestshaves:['Entire place']
+            guestshaves:['Entire place'],
+            PasswordActibve:1
         }
 
         this.nextStep = this.nextStep.bind(this);
@@ -80,22 +83,26 @@ class ListingCreate extends Component {
     }
 
     submit(){
+        if(this.state.roomdescription_title == '' && this.state.roomdescription_description == ''){
+        }else{
+           houselistingService.submitListing(this.state)
+              .then((tx) => {
+                  this.setState({
+                      step: this.STEP.PROCESSING
+                  });
+                  return houselistingService.waitTransactionFinished(tx);
+              })
+              .then((blockNumber) => {
+                  this.setState({
+                      step: this.STEP.SUCCESS
+                  });
+              })
+              .catch((error) => {
+                  alertify.log(error.message);
+              })
 
-         houselistingService.submitListing(this.state)
-            .then((tx) => {
-                this.setState({
-                    step: this.STEP.PROCESSING
-                });
-                return houselistingService.waitTransactionFinished(tx);
-            })
-            .then((blockNumber) => {
-                this.setState({
-                    step: this.STEP.SUCCESS
-                });
-            })
-            .catch((error) => {
-                alertify.log(error.message);
-            })
+        }
+
     }
 
     fileChangedHandler(event){
@@ -126,8 +133,11 @@ class ListingCreate extends Component {
       console.log(this.state);
       if(this.state.step == this.STEP.STEP1)
       {
-        this.setState({step:this.STEP.STEP2});
-        console.log(this.state);
+        if(this.state.roomtype_location == ''){
+          this.setState({step:this.STEP.STEP1});
+        }else{
+          this.setState({step:this.STEP.STEP2});
+        }
       }
       
       if(this.state.step == this.STEP.STEP2)
@@ -143,8 +153,19 @@ class ListingCreate extends Component {
 
       if(this.state.step == this.STEP.STEP4)
       {
-        this.setState({step:this.STEP.STEP5});
-        console.log(this.state);
+        if(this.state.roomstuff_smartpincode == 1){
+            if(this.state.roomstuff_smartpincode_password != '' && this.state.roomstuff_smartpincode_confirmpassword != '' && this.state.roomstuff_smartpincode_password == this.state.roomstuff_smartpincode_confirmpassword){
+              this.setState({state:this.state.PasswordActibve=1}); 
+              console.log(this.state.PasswordActibve);
+              this.setState({step:this.STEP.STEP5});
+            }else{
+              this.setState({step:this.STEP.STEP4});
+              this.setState({state:this.state.PasswordActibve=0}); 
+              console.log(this.state.PasswordActibve);
+            }
+        }else{
+            this.setState({step:this.STEP.STEP5});
+        }
       }
 
       
@@ -170,6 +191,17 @@ class ListingCreate extends Component {
         this.setState({step:this.STEP.STEP3});
         console.log(this.state);
       }
+      if(this.state.step == this.STEP.STEP5)
+      {
+        this.setState({step:this.STEP.STEP4});
+        console.log(this.state);
+      }
+       if(this.state.step == this.STEP.SUCCESS)
+      {
+        this.setState({step:this.STEP.STEP1});
+        console.log(this.state);
+      }
+
 
     }
 
@@ -252,7 +284,7 @@ class ListingCreate extends Component {
         { this.state.step === this.STEP.STEP1 &&
 
             <div className="row">
-              <div className="col-md-6 col-lg-6 col-sm-6 Step-1">
+              <div className="col-md-12 col-lg-6 col-sm-12 Step-1">
               <img className="becomehost__step-1" src="../images/becomehost-step.png" alt=""/>
                   <h1>Hi,{this.state.user.user}!,Let's get started listing your space</h1>
 
@@ -284,7 +316,8 @@ class ListingCreate extends Component {
 
                   <div className="form-group">
                     <label>Location*</label>
-                    <input type="text" className="form-control" onChange={(e) => this.setState({roomtype_location: e.target.value})} />
+                    <input type="text"  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
+                    <p className={this.state.roomtype_location == '' ? 'show' : 'hide' }>Please Fill In The Location</p>
                   </div>
 
                   <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.nextStep}>Continue</button>
@@ -296,7 +329,7 @@ class ListingCreate extends Component {
               </div>
 
 
-               <div className="col-md-6 col-lg-6 col-sm-6">
+               <div className="col-md-12 col-lg-6 col-sm-12">
                   <img className="becomehost-1__bg" src="../images/becomehost-step1-bg.png" alt=""/>
                 </div>
             
@@ -349,7 +382,7 @@ class ListingCreate extends Component {
                <h2>Is this setup dedicated a guest space?</h2>
 
                <div className="radio">
-                  <h2 className="text-muted"><input className="bg-pink color-white" type="radio"  name="optradio" value="0" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>Yes,it's primarily set up for guests</h2>
+                  <h2 className="text-muted"><input className="bg-pink color-white" type="radio" checked name="optradio" value="0" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>Yes,it's primarily set up for guests</h2>
                 </div>
                 <div className="radio">
                   <h2 className="text-muted"><input className="bg-pink color-white" type="radio" name="optradio" value="1" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>No,I keep my personal belongings here</h2>
@@ -365,7 +398,7 @@ class ListingCreate extends Component {
              
              </div>
              
-             <div className="col-md-4 col-lg-4 col-sm-4">
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone">
              <img className="becomehost__info" src="./images/becomehost-step2-info.jpg" alt=""/>
              </div>
              </div>
@@ -420,11 +453,11 @@ class ListingCreate extends Component {
                   <h3 className="text-muted">Sleeping arrangment</h3>
                   <hr/>
                       <div className="row">
-                        <div className="col-md-6">
-                         <h3 className="text-muted">Common space {this.state.roombasics_commonspacebeds} beds</h3>
+                        <div className="col-md-6  divLeft">
+                         <h3 className="text-muted">Common space <span>{this.state.roombasics_commonspacebeds}</span> beds</h3>
                         </div>
 
-                        <div className="col-md-6">
+                        <div className="col-md-6 divRight">
                          <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.addCommonSpaceBeds}>Add beds</button>
                         </div>
                       </div>
@@ -434,7 +467,7 @@ class ListingCreate extends Component {
                   <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
                   </div>
           </div>
-          <div className="col-md-4 col-lg-4 col-sm-4">
+          <div className="col-md-4 col-lg-4 col-sm-4 paddingNone">
           <img className="becomehost__info" src="../images/becomehost-step3-info.jpg" alt=""/>
           </div>
           </div>
@@ -522,21 +555,23 @@ class ListingCreate extends Component {
 
             <h1>Safety amenities</h1>
              <div>
-              <p className={this.state.roomstuff_smartpincode ==1 ? 'Pinput glyphicon glyphicon-ok' : 'Pinput'}  onClick={(e) => {if(this.state.roomstuff_smartpincode ==0 )this.setState({roomstuff_smartpincode:1});else this.setState({roomstuff_smartpincode:0});}}></p>
+              <p className={this.state.roomstuff_smartpincode ==1 ? 'Pinput glyphicon glyphicon-ok' : 'Pinput'}  onClick={(e) => {if(this.state.roomstuff_smartpincode ==0 )this.setState({roomstuff_smartpincode:1});else this.setState({roomstuff_smartpincode:0,roomstuff_smartpincode_password:'',roomstuff_smartpincode_confirmpassword :''});}}></p>
               <p className="divinput">Smart pin code</p>
               <div className="control-group">
-              <label className="control-label">Insert Your Password{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}</label>
-              <input type="password" className="controls" onChange={(e) => this.setState({roomstuff_smartpincode_password: e.target.value})} />
+              <label className="control-label">Insert Your Password</label>
+              <input type="password" className="controls" onChange={(e) => this.setState({roomstuff_smartpincode_password: e.target.value})} value={this.state.roomstuff_smartpincode == 1 ? this.state.roomstuff_smartpincode_password : ''} />
+              <span className={this.state.PasswordActibve == 0 ? 'glyphicon glyphicon-remove-sign' : ''}></span>   
               </div>
 
               <div className="control-group control-group1">
-               <label className="control-label">ConFirm Your Password{'\u00A0'}{'\u00A0'}</label>
-               <input type="password" className="controls" onChange={(e) => this.setState({roomstuff_smartpincode_confirmpassword: e.target.value})} />
+               <label className="control-label">ConFirm Your Password</label>
+               <input type="password" className="controls" onChange={(e) => this.setState({roomstuff_smartpincode_confirmpassword: e.target.value})} value={this.state.roomstuff_smartpincode == 1 ? this.state.roomstuff_smartpincode_confirmpassword : ''} />
+                <span className={this.state.PasswordActibve == 0 ? 'glyphicon glyphicon-remove-sign' : ''}></span>  
              </div>
             </div>
 
             <div className="detector">
-              <p className={this.state.roomstuff_smoke_detector ==1 ? 'Pinput glyphicon glyphicon-ok' : 'Pinput'}  onClick={(e) => {if(this.state.roomstuff_smoke_detector ==0 )this.setState({roomstuff_smoke_detector:1});else this.setState({roomstuff_smoke_detector:0});}}></p>
+              <p className={this.state.roomstuff_smoke_detector == 1 ? 'Pinput glyphicon glyphicon-ok' : 'Pinput'}  onClick={(e) => {if(this.state.roomstuff_smoke_detector ==0 )this.setState({roomstuff_smoke_detector:1});else this.setState({roomstuff_smoke_detector:0});}}></p>
               <p className="divinput">Smoke detector</p>
             </div>
 
@@ -545,7 +580,7 @@ class ListingCreate extends Component {
               <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
               <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
               </div>
-             <div className="col-md-4 col-lg-4 col-sm-4">
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone">
              <img className="becomehost__info" src="../images/becomehost-step4-info.jpg" alt=""/>
              </div>
           </div>
@@ -559,10 +594,23 @@ class ListingCreate extends Component {
           <div className="col-md-6 col-lg-6 col-sm-6 Step-5">
           <h1>Great process {this.state.user.user}!</h1>
           <h3 className="text-muted">Now let's get some details about your place so you can publish your listings </h3>
+          <div className="change">
+              <div>
+                <p>Bedrooms,beds,amenities,and more</p>
+                <p>change</p>
+              </div>
+              <span className="glyphicon glyphicon-ok"></span>
+          </div>
+          <img  className="becomehost__step-1" src="../images/step2.png" alt=""/>
           <h2>Set the sence</h2>
-          <h4 className="color-pink">photos,short description,title</h4>
-          <input className="btn btn-default btn-lg bg-pink color-white" type="file" onChange={this.fileChangedHandler}/>
-            <br/><br/> <br/><br/>
+          <h4 className="color-pink">title</h4>
+          <input className={this.state.roomdescription_title == '' ? 'btn btn-default btn-lg color-white formText pinkBorder' : 'btn btn-default btn-lg color-white formText'}   onChange={(e) => this.setState({roomdescription_title: e.target.value})} type="text" value={this.state.roomdescription_title}/>
+          <h4 className="color-pink">PPS per day ?</h4>
+          <input type="number" className="formText" onChange={(e) => this.setState({price_perday: e.target.value})}  value={this.state.price_perday}/>
+          <h4 className="color-pink">description</h4>
+          <textarea  className={this.state.roomdescription_description == '' ? 'color-white formText formText1 pinkBorder' : 'color-white formText formText1'} onChange={(e) => this.setState({roomdescription_description: e.target.value})}>{this.state.roomdescription_description}</textarea>
+          <h4 className="color-pink">photos</h4>
+          <input className="btn btn-default btn-lg bg-pink color-white Fileipt" type="file" onChange={this.fileChangedHandler}/>
             <div className="row">
                   {this.state.selectedPictures.map(file => (
                     <div className="col-md-3 col-lg-3 col-sm-3">
@@ -570,27 +618,14 @@ class ListingCreate extends Component {
                     </div>
                     ))
                    }
-             </div>
-             <hr/>
-             <div className="row">
-             <div className ="col-lg-12">
-            <h2>PPS per day ? </h2>
-            </div>
-             <div className ="col-lg-12">
-            
-             <div className="form-group">    
-                <input type="number" className="form-control" onChange={(e) => this.setState({price_perday: e.target.value})}/>
-            </div>
-
-            </div>
-
-            <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.submit}>Submit</button>
-            </div>
+             </div> 
+            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.preStep}>Back</button>
+            <button className="btn btn-default btn-lg bg-pink color-white subbtn Right" onClick={this.submit}>Submit</button>
 
 
 
           </div>
-          <div className="col-md-6 col-lg-6 col-sm-6">
+          <div className="col-md-6 col-lg-6 col-sm-6 paddingNone">
           <img className="becomehost-5__bg" src="../images/becomehost-step5-bg.png" alt=""/>
           <div className ="becomehost-5__preview">
           <img src="./images/becomehost-step5-preview.jpg" alt=""/>
@@ -601,6 +636,23 @@ class ListingCreate extends Component {
           Preview</a>
           </div>
           </div>
+          </div>
+          </div>
+          </div>
+
+
+
+
+
+        }
+        {
+          this.state.step === this.STEP.SUCCESS &&
+
+          <div className="becomehost-8 container">
+          <div className="row">
+          <div className="col-md-12 col-lg-12 col-sm-12 Step-8">
+            <h1>Submission of success</h1>
+            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.preStep}>Back</button>
           </div>
           </div>
           </div>

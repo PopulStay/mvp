@@ -106,11 +106,11 @@ class Wallet extends Component {
       <div>
             <div className="dropdown">
               <button className="button__outline" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          My Wallet
+                         <span className="glyphicon glyphicon-heart"></span> My Wallet
               </button>            
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
   
-                <a className="dropdown-item" href="#" onClick={this.create}><Create/></a>
+                <a className="dropdown-item dropdown-item1" href="#" onClick={this.create}><Create/></a>
                 <a className="dropdown-item" href="#" onClick={this.openModal}>Import</a>
                 {
                   window.address && 
