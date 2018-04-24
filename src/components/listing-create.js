@@ -40,7 +40,7 @@ class ListingCreate extends Component {
             roomdescription_homeorhotel:"Home",
             roomdescription_type:"Single room",
             roomdescription_guests_have:"Entire place",
-            roomdescription_forguestorhost:0,
+            roomdescription_forguestorhost:2,
             roomdescription_title:"",
             roomdescription_description:"",
             roombasics_guestsnumber:1,
@@ -121,7 +121,6 @@ class ListingCreate extends Component {
           }
 
         reader.readAsDataURL(file)
-
     }
 
     addCommonSpaceBeds(){
@@ -142,8 +141,9 @@ class ListingCreate extends Component {
       
       if(this.state.step == this.STEP.STEP2)
       {
-        this.setState({step:this.STEP.STEP3});
-        console.log(this.state);
+        if(this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1){
+          this.setState({step:this.STEP.STEP3});
+        }
       }
       if(this.state.step == this.STEP.STEP3)
       {
@@ -179,13 +179,12 @@ class ListingCreate extends Component {
       {
         this.setState({step:this.STEP.STEP1});
       }
-
       if(this.state.step == this.STEP.STEP3)
       {
+        this.setState({state:this.state.roomdescription_forguestorhost=2}); 
         this.setState({step:this.STEP.STEP2});
         console.log(this.state);
       }
-
        if(this.state.step == this.STEP.STEP4)
       {
         this.setState({step:this.STEP.STEP3});
@@ -379,7 +378,7 @@ class ListingCreate extends Component {
                 </div>
               </div>
 
-               <h2>Is this setup dedicated a guest space?</h2>
+               <h2 className={this.state.roomdescription_forguestorhost == 2 ? 'textpink' : ''}>Is this setup dedicated a guest space?</h2>
 
                <div className="radio">
                   <h2 className="text-muted"><input className="bg-pink color-white" type="radio"  name="optradio" value="0" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>Yes,it's primarily set up for guests</h2>
