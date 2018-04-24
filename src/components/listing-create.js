@@ -382,7 +382,7 @@ class ListingCreate extends Component {
                <h2>Is this setup dedicated a guest space?</h2>
 
                <div className="radio">
-                  <h2 className="text-muted"><input className="bg-pink color-white" type="radio" checked name="optradio" value="0" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>Yes,it's primarily set up for guests</h2>
+                  <h2 className="text-muted"><input className="bg-pink color-white" type="radio"  name="optradio" value="0" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>Yes,it's primarily set up for guests</h2>
                 </div>
                 <div className="radio">
                   <h2 className="text-muted"><input className="bg-pink color-white" type="radio" name="optradio" value="1" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>No,I keep my personal belongings here</h2>
