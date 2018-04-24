@@ -17,19 +17,34 @@ const NavBar = (props) => {
   <div>
   <header className="header header__white">
   
-  <a href="../">
-  <img className="header__logo" src="../images/logo.png" alt=""/>
-  </a>
-  
   <nav className="nav navbar-nav navbar-right">
-  <ul>
-     <Link to="/create">
-          <a className="btn button__fill">Become a Host</a>
-    </Link>
-  <li><a href="">Help</a></li>
-  <li><Wallet/></li>
-  <li><GuestRegister/></li>
-  </ul>
+    <div className="navbar-header">
+      <butoon  className="glyphicon glyphicon-align-justify navBtn" data-toggle="collapse" data-target="#example-navbar-collapse"></butoon>
+      <a className="navbar-brand" href="../">
+      <img className="header__logo" src="../images/logo.png" alt=""/>
+      </a>
+    </div>
+    <div className="collapse navbar-collapse" id="example-navbar-collapse">  
+      <a className="navbar-brand" href="../">
+        <img className="header__logo" src="../images/logo.png" alt=""/>
+      </a>
+      <ul>
+        <li>
+          <Link to="/create">
+                <a className="btn button__fill">Become a Host</a>
+          </Link>
+        </li>
+        <li>
+          <a href="" className="btn button__Help">Help</a>
+        </li>
+        <li>
+          <Wallet/>
+        </li>
+        <li>
+          <GuestRegister/>
+        </li>
+      </ul>
+    </div>
   </nav>
   </header>
 {!props.hideTagHeader &&
