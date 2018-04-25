@@ -48,7 +48,6 @@ class ListingCard extends Component {
       console.error(error);
     });
   }
-
   render() {
     return (
       <div className="col-12 col-md-6 col-lg-4 listing-card">
@@ -57,7 +56,14 @@ class ListingCard extends Component {
           <div className="category">{this.state.category} ({this.state.beds} beds)</div>
           <div className="title">{this.state.location}</div>
           <div className="price">
-              {Number(this.state.price).toLocaleString(undefined, {minimumFractionDigits: 3})} PPS / day
+              ￥{Number(this.state.price).toLocaleString(undefined, {minimumFractionDigits: 3})} pps per night
+          </div>
+          <div className="divxx">
+            <img src="../images/detail-xx01.png" alt="" />
+            <img src="../images/detail-xx01.png" alt="" />
+            <img src="../images/detail-xx01.png" alt="" />
+            <img src="../images/detail-xx01.png" alt="" />
+            <span>200</span> 
           </div>
         </Link>
         <br/><br/>
@@ -65,5 +71,4 @@ class ListingCard extends Component {
     )
   }
 }
-
 export default ListingCard
