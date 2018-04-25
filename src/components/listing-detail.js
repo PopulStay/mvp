@@ -257,28 +257,9 @@ class ListingsDetail extends Component {
             </div>
         </div>
 
-        <div className="ReviewsDiv">
+        <div>
             <ul>
-                <li>
-                    <p>Accuracy</p>
-                    <div className="divxx">
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx02.png" alt="" />
-                    </div>
-                </li>
-                <li>
-                    <p>Location</p>
-                    <div className="divxx">
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx02.png" alt="" />
-                    </div>
-                </li>
+
             </ul>
         </div>
       </div>

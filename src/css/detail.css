@@ -457,16 +457,6 @@
   font-size: 1.4rem;
   color: #888;
 }
-.ReviewsDiv li,.ReviewsDiv p,.ReviewsDiv li .divxx{
-  width: 50%;
-  float: left;
-}
-.ReviewsDiv p{
-  font-size: 1.8rem;
-}
-.ReviewsDiv li .divxx img{
-  width: 20px;
-}
 @media (max-width: 320px) {
   .box1_list>p{
     width: 40%  !important;
