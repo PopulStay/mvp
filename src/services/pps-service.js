@@ -33,7 +33,9 @@ class PPSService {
   }
 
 
-    setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
+    setPreOrder( hostaddress, totalTokens, uuid, from, to, days,ppsOrEth) {
+
+      
       return new Promise((resolve, reject) => {
        var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
        var dataobj= contract.methods.approveAndCall(
