@@ -4780,6 +4780,7 @@ tbody.collapse.in {
   clear: both;
 }
 
+
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
@@ -5285,6 +5286,9 @@ header .navBtn{
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
     color: #ccc;
     background-color: transparent;
+  }
+  .footer__logo {
+    width: 55% !important;
   }
 }
 
@@ -7957,7 +7961,7 @@ header .dropdown-menu a.dropdown-item1{
 }
 
 .footer__logo {
-  max-width: 230px;
+  width: 20%;
 }
 
 .footer__social-info {

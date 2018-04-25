@@ -38,9 +38,18 @@ class ListingsDetail extends Component {
       guest: "Add customers",
       priceActive:1,
       neighbourhood:0,
-      neighbourhoodurl:'../images/detail-content-map.png'
+      neighbourhoodurl:'../images/detail-content-map.png',
+      neighbourhoodlist:[
+          {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
+          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking AirBnB in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended AirBnB to get an affordable yet convenient locati…Read more'},
+          {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
+          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with Airbnb! Will definitely book this place again.'},
+          {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
+          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking AirBnB in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended AirBnB to get an affordable yet convenient locati…Read more'},
+          {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
+          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with Airbnb! Will definitely book this place again.'}
+      ]
     }
-
     this.handleBooking = this.handleBooking.bind(this);
 
   }
@@ -130,8 +139,22 @@ class ListingsDetail extends Component {
   }
 
   neighbourhood(e){
-    var aa = e.currentTarget.getAttribute('data-index');
-    console.log(aa)  
+    var DataIndex = e.currentTarget.getAttribute('data-index');
+    if(DataIndex == 1){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-transport.jpg"})
+    }else if(DataIndex == 2){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-res.jpg"})
+    }else if(DataIndex == 3){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-pps.jpg"})
+    }else if(DataIndex == 4){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-shop.jpg"})
+    }else if(DataIndex == 5){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-museum.jpg"})
+    }else if(DataIndex == 6){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-guide.jpg"})
+    }else{
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-content-map.png"})
+    }
   }
 
   render() {
@@ -139,6 +162,22 @@ class ListingsDetail extends Component {
     const guestItems = [];
     this.state.guests.forEach((guest,index)=>{
       guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest}</a></li>)
+    })
+
+    const neighbourhoods = [];
+    this.state.neighbourhoodlist.forEach((item,index)=>{
+      neighbourhoods.push(
+          <li>
+              <div className="GuestName">
+                  <img src={item.imgurl} alt="" />
+                  <div>
+                      <p>{item.name}</p>
+                      <p>{item.time}</p>
+                  </div>
+              </div>
+              <p className="GuestDiv">{item.Reviews}</p>
+          </li>
+      )
     })
     return (  
 
@@ -246,7 +285,7 @@ class ListingsDetail extends Component {
         <p className="More box6_More">Get details</p>
 
         <div className="Reviews">
-            <p>69 Reviews</p>
+            <p>{this.state.neighbourhoodlist.length} Reviews</p>
             <div className="divxx">
               <img src="../images/detail-xx01.png" alt="" />
               <img src="../images/detail-xx01.png" alt="" />
@@ -331,76 +370,7 @@ class ListingsDetail extends Component {
 
         <div className="ReviewsGuest">
           <ul>
-            <li>
-                <div className="GuestName">
-                    <img src="../images/Guest1.png" alt="" />
-                    <div>
-                        <p>Afian</p>
-                        <p>March 2018</p>
-                    </div>
-                </div>
-                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
-            </li>
-            <li>
-                <div className="GuestName">
-                    <img src="../images/Guest1.png" alt="" />
-                    <div>
-                        <p>Afian</p>
-                        <p>March 2018</p>
-                    </div>
-                </div>
-                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
-            </li>
-            <li>
-                <div className="GuestName">
-                    <img src="../images/Guest1.png" alt="" />
-                    <div>
-                        <p>Afian</p>
-                        <p>March 2018</p>
-                    </div>
-                </div>
-                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
-            </li>
-            <li>
-                <div className="GuestName">
-                    <img src="../images/Guest1.png" alt="" />
-                    <div>
-                        <p>Afian</p>
-                        <p>March 2018</p>
-                    </div>
-                </div>
-                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
-            </li>
-            <li>
-                <div className="GuestName">
-                    <img src="../images/Guest1.png" alt="" />
-                    <div>
-                        <p>Afian</p>
-                        <p>March 2018</p>
-                    </div>
-                </div>
-                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
-            </li>
-            <li>
-                <div className="GuestName">
-                    <img src="../images/Guest1.png" alt="" />
-                    <div>
-                        <p>Afian</p>
-                        <p>March 2018</p>
-                    </div>
-                </div>
-                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
-            </li>
-            <li>
-                <div className="GuestName">
-                    <img src="../images/Guest1.png" alt="" />
-                    <div>
-                        <p>Afian</p>
-                        <p>March 2018</p>
-                    </div>
-                </div>
-                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
-            </li>
+            {neighbourhoods}
           </ul>
         </div>
 
