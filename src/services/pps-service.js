@@ -33,7 +33,7 @@ class PPSService {
   }
 
 
-    setPreOrder( hostaddress, totalTokens, uuid, from, to, days,ppsOrEth) {
+    setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
 
       
       return new Promise((resolve, reject) => {
@@ -53,6 +53,7 @@ class PPSService {
        params.days = days;  
        params.hostaddress  = hostaddress;
        params.price        = totalTokens;
+       params.ethprice     = 0;
        params.guestaddress = window.address;
        params.houseinfoid  = uuid;
 

@@ -26,6 +26,7 @@ class ListingsDetail extends Component {
       category: "Loading...",
       name: "Loading...",
       price: "Loading...",
+      ethPrice:"Loading...",
       ipfsHash: null,
       lister: null,
       pictures: [],
@@ -49,8 +50,8 @@ class ListingsDetail extends Component {
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
-        var roominfo = JSON.parse(result[4]);
-        this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result[2]});
+        var roominfo = JSON.parse(result._roominfo);
+        this.setState({price:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice});
         return ipfsService.getListing(ipfsHash)
     }).then((result)=>{
           var descriptioninfo = JSON.parse(result);
@@ -93,15 +94,34 @@ class ListingsDetail extends Component {
       unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
     }
     this.setState({step: this.STEP.SUBMIT});
-    ppsService.setPreOrder(          this.state.lister,
-                                     this.state.price * unitsToBuy,
-                                     this.props.listingId, 
-                                     this.state.checkInDate.toDate().getTime(), 
-                                     this.state.checkOutDate.toDate().getTime(),
-                                     unitsToBuy,
-                                     this.state.priceActive
-                                   )
-    .then((transactionReceipt) => {
+    var promise;
+
+    if( this.state.priceActive == 1 )
+    {
+      promise =    ppsService.setPreOrder(          
+                                           this.state.lister,
+                                           this.state.price * unitsToBuy,
+                                           this.props.listingId, 
+                                           this.state.checkInDate.toDate().getTime(), 
+                                           this.state.checkOutDate.toDate().getTime(),
+                                           unitsToBuy
+                                          );
+
+    }else
+    {
+      promise =    houselistingService.setPreOrderByETH(          
+                                               this.state.lister,
+                                               this.state.ethPrice * unitsToBuy,
+                                               this.props.listingId, 
+                                               this.state.checkInDate.toDate().getTime(), 
+                                               this.state.checkOutDate.toDate().getTime(),
+                                               unitsToBuy
+                                              );
+
+    }
+
+ 
+    promise.then((transactionReceipt) => {
       console.log("Purchase request sent.")
       this.setState({step: this.STEP.PROCESSING})
       return ppsService.waitTransactionFinished(transactionReceipt)
