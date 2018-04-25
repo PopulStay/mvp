@@ -237,6 +237,31 @@ class ListingsDetail extends Component {
         </div>
         
         <p className="More box6_More">Get details</p>
+
+        <div className="Reviews">
+            <p>69 Reviews</p>
+            <div className="divxx">
+              <img src="../images/detail-xx01.png" alt="" />
+              <img src="../images/detail-xx01.png" alt="" />
+              <img src="../images/detail-xx01.png" alt="" />
+              <img src="../images/detail-xx01.png" alt="" />
+              <img src="../images/detail-xx02.png" alt="" />
+            </div>
+            <div className="input-group">
+              <span className="input-group-btn">
+                <button className="btn btn-default" type="button">
+                  <span className="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+              <input type="text" className="form-control" placeholder="Search Reviews" />
+            </div>
+        </div>
+
+        <div>
+            <ul>
+
+            </ul>
+        </div>
       </div>
       <div className=" col-sm-12 col-lg-5">
       <div className="detail-summary">
@@ -316,7 +341,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
-                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {Number(this.calcTotalPrice()).toLocaleString(undefined, {minimumFractionDigits: 3}) }
+                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {Number(this.calcTotalPrice())-0+26}
                       </span>
                     </li>
                 </ul>

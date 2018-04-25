@@ -89,7 +89,7 @@
   color:#f6416c;
   padding: 3% 0;
   font-size: 2rem;
-  border-bottom:1px solid #6a6b6b; 
+  border-bottom:1.5px solid #c5c5c5; 
   margin: 0;
   cursor: pointer;
 }
@@ -121,7 +121,7 @@
   margin: 3% 0 5%;
 }
 .L_box5{
-  border-top:1px solid #6a6b6b; 
+  border-top:1.5px solid #c5c5c5; 
 }
 .L_box5 p,.L_box6 p{
   font-size: 1.8rem;
@@ -433,6 +433,29 @@
     height: 300px !important;
   }
 
+}
+.Reviews{
+  padding: 5% 0 1%;
+  overflow: hidden;
+  border-bottom:1.5px solid #c5c5c5; 
+}
+.Reviews>p,.Reviews>div{
+  float: left;
+  width: 33.3%;
+}
+.Reviews>p{
+  font-size: 3.4rem;
+  font-weight: bold;
+}
+.Reviews>div{
+  padding: 2% 0;
+}
+.Reviews .divxx img{
+  width: 25px;
+}
+.Reviews .input-group button span{
+  font-size: 1.4rem;
+  color: #888;
 }
 @media (max-width: 320px) {
   .box1_list>p{
