@@ -37,6 +37,8 @@ class ListingsDetail extends Component {
       guests:['First Guests','Second Guests','Third Guests','Fourth Guests'],
       guest: "Add customers",
       priceActive:1,
+      neighbourhood:0,
+      neighbourhoodurl:'../images/detail-content-map.png'
     }
 
     this.handleBooking = this.handleBooking.bind(this);
@@ -126,6 +128,11 @@ class ListingsDetail extends Component {
   Guests(guest){
 
     this.setState({guest: guest})
+  }
+
+  neighbourhood(e){
+    var aa = e.currentTarget.getAttribute('data-index');
+    console.log(aa)  
   }
 
   render() {
@@ -258,9 +265,156 @@ class ListingsDetail extends Component {
             </div>
         </div>
 
-        <div>
+        <div className="ReviewsDiv">
             <ul>
+                <li>
+                  <p>Accuracy</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Location</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Communication</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Check In</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Cleanliness</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Value</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+            </ul>
+        </div>
 
+        <div className="ReviewsGuest">
+          <ul>
+            <li>
+                <div className="GuestName">
+                    <img src="../images/Guest1.png" alt="" />
+                    <div>
+                        <p>Afian</p>
+                        <p>March 2018</p>
+                    </div>
+                </div>
+                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
+            </li>
+            <li>
+                <div className="GuestName">
+                    <img src="../images/Guest1.png" alt="" />
+                    <div>
+                        <p>Afian</p>
+                        <p>March 2018</p>
+                    </div>
+                </div>
+                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
+            </li>
+            <li>
+                <div className="GuestName">
+                    <img src="../images/Guest1.png" alt="" />
+                    <div>
+                        <p>Afian</p>
+                        <p>March 2018</p>
+                    </div>
+                </div>
+                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
+            </li>
+            <li>
+                <div className="GuestName">
+                    <img src="../images/Guest1.png" alt="" />
+                    <div>
+                        <p>Afian</p>
+                        <p>March 2018</p>
+                    </div>
+                </div>
+                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
+            </li>
+            <li>
+                <div className="GuestName">
+                    <img src="../images/Guest1.png" alt="" />
+                    <div>
+                        <p>Afian</p>
+                        <p>March 2018</p>
+                    </div>
+                </div>
+                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
+            </li>
+            <li>
+                <div className="GuestName">
+                    <img src="../images/Guest1.png" alt="" />
+                    <div>
+                        <p>Afian</p>
+                        <p>March 2018</p>
+                    </div>
+                </div>
+                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
+            </li>
+            <li>
+                <div className="GuestName">
+                    <img src="../images/Guest1.png" alt="" />
+                    <div>
+                        <p>Afian</p>
+                        <p>March 2018</p>
+                    </div>
+                </div>
+                <p className="GuestDiv">Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east</p>
+            </li>
+          </ul>
+        </div>
+
+        <div className="neighbourhood">
+            <p>See the neighbourhood</p>
+            <img src={this.state.neighbourhoodurl} alt="" />
+            <ul>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='1'><img src="../images/transport.png" alt="" /> Public Transit</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='2'><img src="../images/res.png" alt="" /> Restaurant</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='3'><img src="../images/pps.png" alt="" /> PPS Enabled</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='4'><img src="../images/shop.png" alt="" /> Shopping Center</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='5'><img src="../images/museum.png" alt="" /> Souvenir Shop</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='6'><img src="../images/guide.png" alt="" />Guide</li>
             </ul>
         </div>
       </div>
