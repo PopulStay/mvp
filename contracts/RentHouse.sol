@@ -1,12 +1,10 @@
 pragma solidity ^0.4.18;
 
 contract HouseInfoListing{
-   address public tokenAddress;//tokenAddress used to pay 
-   
+   address   public tokenAddress;//tokenAddress used to pay 
    bytes32[] private districtcode;//district code
-   address private contractowner;
-   
-   address public preOrderaddressfortest;
+   address   private contractowner;
+   uint   public preOrderaddressfortest;
 
    function HouseInfoListing(address _tokenAddress)
    payable
@@ -42,31 +40,22 @@ contract HouseInfoListing{
     uint    contractdatetime;
     uint    state;//0 close , 1 open
     address owner;
-    uint    ethPrice;
+    uint    ethPrice;//Gwei
   
   }
   
   mapping ( address => bytes32[] ) private hostRoomList;//every house info has one uuid,find house info by host address
-                                                      
-  
-  
   mapping ( bytes32 => HouseInfo ) private houseInfo;   //describ the house information
   mapping ( bytes32 => bytes32[] ) private uuids;       //every house info has one uuid,find house info by districtcode
                                                         //should add find house info by city street 
-                                                        
-                                                        
   //通过房屋信息uuid确定预定合约信息                                                        
   mapping ( bytes32 => address[] ) private PreOrders;   
                                                         //find preorders lists by house info uuid 
                                                         //find preOrder or order infomation from this connection 
   //通过房客address找到合约信息
   mapping (address => address[]) private GuestOrders;   //find guest orders by guest address
-  
   //通过房东address找到合约信息
   mapping (address => address[]) private HouseOwnerOrders;//find house owner orders by house owner address
-  
-  
-  
   
   //preOrder by PPS
   function preOrder( address _guestaddress,address _hostaddress, bytes32 _houseinfo, uint _from, uint _to, uint _days)
@@ -74,60 +63,44 @@ contract HouseInfoListing{
   public
   returns (address _contractaddress)
   {
-      uint transferPrice = _days * houseInfo[_houseinfo].price;
-      PreOrder preorder = new PreOrder( tokenAddress , _hostaddress , _guestaddress , _houseinfo , _from , _to , _days , 0 ,transferPrice,0);
-      preOrderaddressfortest =preorder;
-         if(Token(tokenAddress).transferFrom(_guestaddress,preorder,transferPrice))//transfer token to contract address
-         {
-             
+        uint transferPrice = _days * houseInfo[_houseinfo].price;
+        PreOrder preorder = new PreOrder( tokenAddress , _hostaddress , _guestaddress , _houseinfo , _from , _to , _days , 0 , transferPrice , 0 );
+        if(Token(tokenAddress).transferFrom(_guestaddress,preorder,transferPrice))//transfer token to contract address
+        {
             PreOrders[_houseinfo].push(preorder); 
             GuestOrders[_guestaddress].push(preorder);
             HouseOwnerOrders[_hostaddress].push(preorder);
             return address(preorder);
-             
-         }
-         else
-         {
-             //transfer token failure
-             return ;
-         }
-      
-      return ;
+        }
+        return ;
   }
-  //"0xafc28904fc9ffba207181e60a183716af4e5bce2","0xafc28904fc9ffba207181e60a183716af4e5bce2","0x7465737431000000000000000000000000000000000000000000000000000000",3,6,3
+  
+  modifier hasValueToPurchase( bytes32 _houseinfo, uint _days ) {
+    require (msg.value >= ( _days * houseInfo[_houseinfo].ethPrice * 1000000000 ));
+    _;
+  }
+  
+  //"0xca35b7d915458ef540ade6068dfe2f44e8fa733c","0xca35b7d915458ef540ade6068dfe2f44e8fa733c","0x7465737431000000000000000000000000000000000000000000000000000000",3,4,1
   function preOrderByEth( address _guestaddress,address _hostaddress, bytes32 _houseinfo, uint _from, uint _to, uint _days)
   public
   payable
+  hasValueToPurchase( _houseinfo,  _days ) 
   returns (address _preorder)
   {
     uint transferPrice = _days * houseInfo[_houseinfo].ethPrice;
-    PreOrder preorder = new PreOrder( 
-        tokenAddress ,
-        _hostaddress ,
-        _guestaddress ,
-        _houseinfo , 
-        _from ,
-        _to ,
-        _days ,
-        0 ,
-        0 , 
-        transferPrice );
-    
-    if( address(preorder).send(msg.value) )
+    PreOrder preorder = new PreOrder( tokenAddress , _hostaddress , _guestaddress , _houseinfo ,  _from , _to , _days , 0 , 0 , transferPrice );
+    preOrderaddressfortest = msg.value;
+    if(  address(preorder).send(msg.value) )
     {
-        preOrderaddressfortest = address(preorder);
         PreOrders[_houseinfo].push(preorder); 
         GuestOrders[_guestaddress].push(preorder);
         HouseOwnerOrders[_hostaddress].push(preorder);
         return address(preorder);
     }
-  
      return ;
-    
   }
   
-  
-  //"test1",999,100,"roominfo","0x3333322d30303332000000000000000000000000000000000000000000000000"
+  //"test1",999,1000000000,"roominfo","0x3333322d30303332000000000000000000000000000000000000000000000000"
    function setHouseInfo(bytes32 _uuid,uint _price,uint _ethPrice,string _roominfo,bytes32 _districtcode) 
    public 
    returns(bool success)
@@ -179,8 +152,6 @@ contract HouseInfoListing{
   {
       return PreOrders[_houseinfo];
   }
-  
-  
   
   function getUUIDS(bytes32 _districtcode)
     view
@@ -298,12 +269,10 @@ contract PreOrder{
     {
        if( msg.sender == guestaddress && status == 0)   
        {
-            if(Token(tokenAddress).transfer(owneraddress,price))//transfer token to contract address
+         if(Token(tokenAddress).transfer(owneraddress,price))//transfer token to contract address
          {
-             
             status = 1;
             return true;
-             
          }
          else
          {
@@ -325,25 +294,19 @@ contract PreOrder{
     {
         if( msg.sender == guestaddress && status == 0)   
        {
-            if(owneraddress.send(ethPrice))//transfer token to contract address
+            if(owneraddress.send(ethPrice* 1000000000))//transfer token to contract address
          {
              
             status = 1;
             return true;
-             
          }
          else
          {
              //transfer token failure
              return false;
          }
-           
        }
-       
     }
-   
-   
-    
     bool private houseOwnerAgreeToCancel = false;
     bool private guestAgreeToCancel      = false;
 //     function cancelOrder()
@@ -363,15 +326,13 @@ contract PreOrder{
 
 
 contract Token {
-
   event Transfer(address indexed from, address indexed to, uint tokens);
   event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
-
   function totalSupply() public constant returns (uint);
   function balanceOf(address tokenOwner) public constant returns (uint balance);
   function allowance(address tokenOwner, address spender) public constant returns (uint remaining);
   function transfer(address to, uint tokens) public returns (bool success);
   function approve(address spender, uint tokens) public returns (bool success);
   function transferFrom(address from, address to, uint tokens) public returns (bool success);
-
 }
+
