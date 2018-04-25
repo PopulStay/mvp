@@ -7854,7 +7854,7 @@ header nav a{
 }
 
 .color-pink {
-  color: #f6416c;
+  color: #f6416c !important;
 }
 
 .text-bold {

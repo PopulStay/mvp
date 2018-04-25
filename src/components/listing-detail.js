@@ -35,7 +35,8 @@ class ListingsDetail extends Component {
       currentActive:0,
       descriptioninfo:{},
       guests:['First Guests','Second Guests','Third Guests','Fourth Guests'],
-      guest: "Add customers"
+      guest: "Add customers",
+      priceActive:1,
     }
 
     this.handleBooking = this.handleBooking.bind(this);
@@ -237,15 +238,18 @@ class ListingsDetail extends Component {
         
         <p className="More box6_More">Get details</p>
       </div>
-
-
       <div className=" col-sm-12 col-lg-5">
       <div className="detail-summary">
+
+          <ul>
+              <li onClick={(e) => {this.setState({priceActive:1})}} className={this.state.priceActive == 1 ? 'active' : ''} >PPS</li>
+              <li onClick={(e) => {this.setState({priceActive:0})}} className={this.state.priceActive == 0 ? 'active' : ''}>ETH</li>
+          </ul>
           
           <div className="detail-price-div">
               
               <span className = "detail-price">
-                $ PPS: {this.state.descriptioninfo.price_perday}
+                $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.state.descriptioninfo.price_perday}
               </span>
               <span className = "detail-price-font">Daily Price</span>
               <p className="detail-price-xx">
@@ -312,7 +316,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
-                        $ PPS: {Number(this.calcTotalPrice())-0+26}
+                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {Number(this.calcTotalPrice()).toLocaleString(undefined, {minimumFractionDigits: 3}) }
                       </span>
                     </li>
                 </ul>
@@ -338,7 +342,6 @@ class ListingsDetail extends Component {
 
         </div>
       
-
 
       </div>
       </div>

@@ -233,11 +233,29 @@
   padding-top: 20px;
   padding-bottom: 80px;
 }
+.detail-summary>ul>li{
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding: 1% 0;
+  font-size: 3rem;
+  border-bottom:  1px solid #131c4e;
+  cursor: pointer;
+  color: #f6416c;
+}
+.detail-summary>ul>li:first-child{
+  border-right:  1px solid #131c4e;
+}
+.detail-summary>ul>li.active{
+  background: #f6416c;
+  color: #131c4e;
+}
 
 .detail-price-font{
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #131c4e;
   font-weight: bold;
+  margin-left: 2%;
 }
 
 .detail-price{

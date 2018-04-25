@@ -66,6 +66,7 @@ class ListingCreate extends Component {
             roomstuff_smoke_detector:"",
             selectedPictures:[],
             price_perday:0,
+            ETHprice_perday:0,
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
             step1guests:[1,2,3,4,5],
@@ -602,11 +603,13 @@ class ListingCreate extends Component {
           </div>
           <img  className="becomehost__step-1" src="../images/step2.png" alt=""/>
           <h2>Set the sence</h2>
-          <h4 className="color-pink">title</h4>
+          <h4 className={this.state.roomdescription_title == '' ? 'color-pink' : ''} >title</h4>
           <input className={this.state.roomdescription_title == '' ? 'btn btn-default btn-lg color-white formText pinkBorder' : 'btn btn-default btn-lg color-white formText'}   onChange={(e) => this.setState({roomdescription_title: e.target.value})} type="text" value={this.state.roomdescription_title}/>
-          <h4 className="color-pink">PPS per day ?</h4>
+          <h4 className={this.state.price_perday == '' ? 'color-pink' : ''}>PPS per day ?</h4>
           <input type="number" className="formText" onChange={(e) => this.setState({price_perday: e.target.value})}  value={this.state.price_perday}/>
-          <h4 className="color-pink">description</h4>
+          <h4 className={this.state.ETHprice_perday == '' ? 'color-pink' : ''}>ETH per day ?</h4>
+          <input type="number" className="formText" onChange={(e) => this.setState({ETHprice_perday: e.target.value})}  value={this.state.ETHprice_perday}/>
+          <h4 className={this.state.roomdescription_description == '' ? 'color-pink' : ''}>description</h4>
           <textarea  className={this.state.roomdescription_description == '' ? 'color-white formText formText1 pinkBorder' : 'color-white formText formText1'} onChange={(e) => this.setState({roomdescription_description: e.target.value})}>{this.state.roomdescription_description}</textarea>
           <h4 className="color-pink">photos</h4>
           <input className="btn btn-default btn-lg bg-pink color-white Fileipt" type="file" onChange={this.fileChangedHandler}/>
