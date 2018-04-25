@@ -91,12 +91,13 @@ class ListingsDetail extends Component {
       unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
     }
     this.setState({step: this.STEP.SUBMIT});
-    ppsService.setPreOrder( this.state.lister,
+    ppsService.setPreOrder(          this.state.lister,
                                      this.state.price * unitsToBuy,
                                      this.props.listingId, 
                                      this.state.checkInDate.toDate().getTime(), 
                                      this.state.checkOutDate.toDate().getTime(),
-                                     unitsToBuy
+                                     unitsToBuy,
+                                     this.state.priceActive
                                    )
     .then((transactionReceipt) => {
       console.log("Purchase request sent.")

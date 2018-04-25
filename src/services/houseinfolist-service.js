@@ -58,6 +58,7 @@ class HouseInfoListingService {
        var dataobj= contract.methods.setHouseInfo(
         uuids,
         formListing.price_perday,
+        parseInt(formListing.ETHprice_perday)*1000000000,
         JSON.stringify(roominfo),
         "0x3333322d30303332000000000000000000000000000000000000000000000000")
        .encodeABI();
@@ -88,6 +89,7 @@ class HouseInfoListingService {
               params.hostAddress     = window.address;
               params.guests          = formListing.roombasics_guestsnumber;
               params.place           = formListing.roomtype_location;
+              params.ethprice        = parseInt(formListing.ETHprice_perday)*1000000000;
 
               axios.post(process.env.Server_Address+'HouseInformation', params)
               .then(function (response) {
