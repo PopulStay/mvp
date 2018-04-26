@@ -12,7 +12,9 @@ class GuestOrderRow extends Component {
       houseInformation: "Loading...",
       from:"Loading",
       to:"Loading",
-      price:"Loading"
+      price:"Loading",
+      ethPrice:"Loading"
+
     }
 
     this.checkIn   = this.checkIn.bind(this);
@@ -20,10 +22,18 @@ class GuestOrderRow extends Component {
 
 
   getPreOrderInfo(){
+  
    
-    orderService.getPreOrderInfo(this.props.account)
+    orderService.getPreOrderInfo( this.props.account)
     .then((result) => {
-        this.setState({houseInformation:result[3],status:result[7],from:result[4].substring(0,10),to:result[5].substring(0,10),price:result[8]});
+        this.setState({
+          houseInformation:result._houseinfo,
+          status:result._status,
+          from:result._from.substring(0,10),
+          to:result._to.substring(0,10),
+          price:result._price,
+          ethPrice:result._ethPrice
+        });
     }).catch((error) => {
       console.error(error);
     });
@@ -32,7 +42,18 @@ class GuestOrderRow extends Component {
 
 
    checkIn(){
-     orderService.confirm(this.props.account).then((tx)=>{
+      var ethOrPPS;
+
+    if( this.state.price != 0 || this.state.price != '0' )
+    {
+      ethOrPPS = 'PPS';
+    }
+    else
+    {
+      ethOrPPS = 'ETH';
+    }
+
+    orderService.confirm( this.props.account , ethOrPPS ).then((tx)=>{
        return orderService.waitTransactionFinished(tx)
      }).then((blockNumber) => {
       this.setState({ status: '1' })
@@ -62,7 +83,8 @@ class GuestOrderRow extends Component {
         <td><Link to={`/listing/${this.state.houseInformation}`}>Check</Link></td>
         <td><Timestamp time={this.state.from} format='date'/></td>
         <td><Timestamp time={this.state.to} format='date'/></td>
-        <td>{this.state.price}/PPS</td>
+        { this.state.price    != '0' &&<td>{this.state.price}/PPS</td> }
+        { this.state.ethPrice != '0' &&<td>{this.state.ethPrice/1000000000}/ETH</td> }
         {this.state.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
         {this.state.status === '1' &&<td>Checked In</td>}
       </tr>
