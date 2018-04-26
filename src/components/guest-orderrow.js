@@ -85,8 +85,8 @@ class GuestOrderRow extends Component {
         <td><Timestamp time={this.state.to} format='date'/></td>
         { this.state.price    != '0' &&<td>{this.state.price}/PPS</td> }
         { this.state.ethPrice != '0' &&<td>{this.state.ethPrice/1000000000}/ETH</td> }
-        {this.state.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
-        {this.state.status === '1' &&<td>Checked In</td>}
+        { this.state.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
+        { this.state.status === '1' &&<td>Checked In</td>}
       </tr>
     
     )
