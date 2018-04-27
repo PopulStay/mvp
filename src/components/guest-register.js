@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import guestService from '../services/guest-service';
-const alertify = require('../../node_modules/alertify/src/alertify.js')
+import Wallet from './wallet';
+import Web3 from 'web3';
+import web3service from '../services/web3-service'
+
+const alertify = require('../../node_modules/alertify/src/alertify.js');
 
 const customStyles = {
   content : {
@@ -33,6 +37,8 @@ class GuestRegister extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.register   = this.register.bind(this);
+    web3service.loadWallet();
+
   }
 
   componentWillMount() {
@@ -91,6 +97,9 @@ class GuestRegister extends React.Component {
           <h2 ref={subtitle => this.subtitle = subtitle}>Guest Register</h2>
           <br/>
           <div>
+
+          <Wallet/>
+          <br/>
 
           <div className="form-group">
             <label>User</label>

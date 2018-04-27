@@ -4,8 +4,6 @@ import Overlay from './overlay';
 import PropTypes from 'prop-types';
 import GuestRegister from './guest-register';
 import HostRegister from './host-register';
-import Wallet from './wallet';
-
 import '../css/main.css'
 import '../css/search.css'
 
@@ -37,9 +35,7 @@ const NavBar = (props) => {
         <li>
           <a href="" className="btn button__Help">Help</a>
         </li>
-        <li>
-          <Wallet/>
-        </li>
+       
         <li>
           <GuestRegister/>
         </li>

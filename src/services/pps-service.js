@@ -34,6 +34,8 @@ class PPSService {
 
 
     setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
+
+      
       return new Promise((resolve, reject) => {
        var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
        var dataobj= contract.methods.approveAndCall(
@@ -51,6 +53,7 @@ class PPSService {
        params.days = days;  
        params.hostaddress  = hostaddress;
        params.price        = totalTokens;
+       params.ethprice     = 0;
        params.guestaddress = window.address;
        params.houseinfoid  = uuid;
 

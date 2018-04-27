@@ -1,5 +1,8 @@
 pragma solidity ^0.4.18;
 
+
+
+
 contract HouseInfoListing{
    address   public tokenAddress;//tokenAddress used to pay 
    bytes32[] private districtcode;//district code

@@ -11,10 +11,17 @@ class PreOrderService {
     this.PreOrderContract = this.contract(PreOrder);
   }
 
-    confirm(address){
+    confirm(address,ethOrPPS){
        return new Promise((resolve, reject) => {
       var contract = new window.web3.eth.Contract(PreOrder.abi,address);
-      var dataobj  = contract.methods.confirmOrder().encodeABI();
+      
+      var dataobj;
+      if( ethOrPPS =='PPS')
+      dataobj  = contract.methods.confirmOrder().encodeABI();
+
+      if( ethOrPPS =='ETH' )
+      dataobj  = contract.methods.confirmOrderByEth().encodeABI();  
+
       window.web3.eth.getTransactionCount(window.address).then(function(txCount) {
               var txData = {
                   nonce: window.web3.utils.toHex(txCount),

@@ -26,6 +26,7 @@ class ListingsDetail extends Component {
       category: "Loading...",
       name: "Loading...",
       price: "Loading...",
+      ethPrice:"Loading...",
       ipfsHash: null,
       lister: null,
       pictures: [],
@@ -35,9 +36,21 @@ class ListingsDetail extends Component {
       currentActive:0,
       descriptioninfo:{},
       guests:['First Guests','Second Guests','Third Guests','Fourth Guests'],
-      guest: "Add customers"
+      guest: "Add customers",
+      priceActive:1,
+      neighbourhood:0,
+      neighbourhoodurl:'../images/detail-content-map.png',
+      neighbourhoodlist:[
+          {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
+          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking AirBnB in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended AirBnB to get an affordable yet convenient locati…Read more'},
+          {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
+          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with Airbnb! Will definitely book this place again.'},
+          {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
+          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking AirBnB in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended AirBnB to get an affordable yet convenient locati…Read more'},
+          {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
+          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with Airbnb! Will definitely book this place again.'}
+      ]
     }
-
     this.handleBooking = this.handleBooking.bind(this);
 
   }
@@ -46,8 +59,8 @@ class ListingsDetail extends Component {
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
-        var roominfo = JSON.parse(result[4]);
-        this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result[2]});
+        var roominfo = JSON.parse(result._roominfo);
+        this.setState({price:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice});
         return ipfsService.getListing(ipfsHash)
     }).then((result)=>{
           var descriptioninfo = JSON.parse(result);
@@ -90,14 +103,34 @@ class ListingsDetail extends Component {
       unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
     }
     this.setState({step: this.STEP.SUBMIT});
-    ppsService.setPreOrder( this.state.lister,
-                                     this.state.price * unitsToBuy,
-                                     this.props.listingId, 
-                                     this.state.checkInDate.toDate().getTime(), 
-                                     this.state.checkOutDate.toDate().getTime(),
-                                     unitsToBuy
-                                   )
-    .then((transactionReceipt) => {
+    var promise;
+
+    if( this.state.priceActive == 1 )
+    {
+      promise =    ppsService.setPreOrder(          
+                                           this.state.lister,
+                                           this.state.price * unitsToBuy,
+                                           this.props.listingId, 
+                                           this.state.checkInDate.toDate().getTime(), 
+                                           this.state.checkOutDate.toDate().getTime(),
+                                           unitsToBuy
+                                          );
+
+    }else
+    {
+      promise =    houselistingService.setPreOrderByETH(          
+                                               this.state.lister,
+                                               this.state.ethPrice * unitsToBuy,
+                                               this.props.listingId, 
+                                               this.state.checkInDate.toDate().getTime(), 
+                                               this.state.checkOutDate.toDate().getTime(),
+                                               unitsToBuy
+                                              );
+
+    }
+
+ 
+    promise.then((transactionReceipt) => {
       console.log("Purchase request sent.")
       this.setState({step: this.STEP.PROCESSING})
       return ppsService.waitTransactionFinished(transactionReceipt)
@@ -126,11 +159,46 @@ class ListingsDetail extends Component {
     this.setState({guest: guest})
   }
 
+  neighbourhood(e){
+    var DataIndex = e.currentTarget.getAttribute('data-index');
+    if(DataIndex == 1){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-transport.jpg"})
+    }else if(DataIndex == 2){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-res.jpg"})
+    }else if(DataIndex == 3){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-pps.jpg"})
+    }else if(DataIndex == 4){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-shop.jpg"})
+    }else if(DataIndex == 5){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-museum.jpg"})
+    }else if(DataIndex == 6){
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-guide.jpg"})
+    }else{
+      this.setState({state: this.state.neighbourhoodurl = "../images/detail-content-map.png"})
+    }
+  }
+
   render() {
     const price = typeof this.state.price === 'string' ? 0 : this.state.price;
     const guestItems = [];
     this.state.guests.forEach((guest,index)=>{
       guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest}</a></li>)
+    })
+
+    const neighbourhoods = [];
+    this.state.neighbourhoodlist.forEach((item,index)=>{
+      neighbourhoods.push(
+          <li>
+              <div className="GuestName">
+                  <img src={item.imgurl} alt="" />
+                  <div>
+                      <p>{item.name}</p>
+                      <p>{item.time}</p>
+                  </div>
+              </div>
+              <p className="GuestDiv">{item.Reviews}</p>
+          </li>
+      )
     })
     return (  
 
@@ -236,16 +304,122 @@ class ListingsDetail extends Component {
         </div>
         
         <p className="More box6_More">Get details</p>
+
+        <div className="Reviews">
+            <p>{this.state.neighbourhoodlist.length} Reviews</p>
+            <div className="divxx">
+              <img src="../images/detail-xx01.png" alt="" />
+              <img src="../images/detail-xx01.png" alt="" />
+              <img src="../images/detail-xx01.png" alt="" />
+              <img src="../images/detail-xx01.png" alt="" />
+              <img src="../images/detail-xx02.png" alt="" />
+            </div>
+            <div className="input-group">
+              <span className="input-group-btn">
+                <button className="btn btn-default" type="button">
+                  <span className="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+              <input type="text" className="form-control" placeholder="Search Reviews" />
+            </div>
+        </div>
+
+        <div className="ReviewsDiv">
+            <ul>
+                <li>
+                  <p>Accuracy</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Location</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Communication</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Check In</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Cleanliness</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>Value</p>
+                  <div className="divxx">
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx01.png" alt="" />
+                    <img src="../images/detail-xx02.png" alt="" />
+                  </div>
+                </li>
+            </ul>
+        </div>
+
+        <div className="ReviewsGuest">
+          <ul>
+            {neighbourhoods}
+          </ul>
+        </div>
+
+        <div className="neighbourhood">
+            <p>See the neighbourhood</p>
+            <img src={this.state.neighbourhoodurl} alt="" />
+            <ul>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='1'><img src="../images/transport.png" alt="" /> Public Transit</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='2'><img src="../images/res.png" alt="" /> Restaurant</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='3'><img src="../images/pps.png" alt="" /> PPS Enabled</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='4'><img src="../images/shop.png" alt="" /> Shopping Center</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='5'><img src="../images/museum.png" alt="" /> Souvenir Shop</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='6'><img src="../images/guide.png" alt="" />Guide</li>
+            </ul>
+        </div>
       </div>
-
-
       <div className=" col-sm-12 col-lg-5">
       <div className="detail-summary">
+
+          <ul>
+              <li onClick={(e) => {this.setState({priceActive:1})}} className={this.state.priceActive == 1 ? 'active' : ''} >PPS</li>
+              <li onClick={(e) => {this.setState({priceActive:0})}} className={this.state.priceActive == 0 ? 'active' : ''}>ETH</li>
+          </ul>
           
           <div className="detail-price-div">
               
               <span className = "detail-price">
-                $ PPS: {this.state.descriptioninfo.price_perday}
+                $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.state.descriptioninfo.price_perday}
               </span>
               <span className = "detail-price-font">Daily Price</span>
               <p className="detail-price-xx">
@@ -312,7 +486,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
-                        $ PPS: {Number(this.calcTotalPrice())-0+26}
+                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {Number(this.calcTotalPrice())-0+26}
                       </span>
                     </li>
                 </ul>
@@ -338,7 +512,6 @@ class ListingsDetail extends Component {
 
         </div>
       
-
 
       </div>
       </div>

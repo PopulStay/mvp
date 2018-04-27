@@ -1621,9 +1621,6 @@ mark,
   text-transform: capitalize;
 }
 
-.text-muted {
-  color: #777777;
-}
 
 .text-primary {
   color: #337ab7;
@@ -4780,6 +4777,7 @@ tbody.collapse.in {
   clear: both;
 }
 
+
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
@@ -5264,6 +5262,7 @@ header .navBtn{
   }
   .navbar-nav li a,.navbar-nav li button{
     font-size: 1.8rem;
+    font-family: FiraSansBlack; 
   }
   .navbar-collapse.collapse{
     display: none;
@@ -5285,6 +5284,9 @@ header .navBtn{
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
     color: #ccc;
     background-color: transparent;
+  }
+  .footer__logo {
+    width: 55% !important;
   }
 }
 
@@ -7854,7 +7856,7 @@ header nav a{
 }
 
 .color-pink {
-  color: #f6416c;
+  color: #f6416c !important;
 }
 
 .text-bold {
@@ -7957,7 +7959,7 @@ header .dropdown-menu a.dropdown-item1{
 }
 
 .footer__logo {
-  max-width: 230px;
+  width: 20%;
 }
 
 .footer__social-info {

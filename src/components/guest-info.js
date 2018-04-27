@@ -4,6 +4,7 @@ import guestService from '../services/guest-service';
 import ppsService from '../services/pps-service';
 import GuestOrderRow from './guest-orderrow';
 
+
 class GuestInfo extends React.Component {
   constructor() {
     super();
