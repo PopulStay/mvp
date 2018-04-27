@@ -281,7 +281,7 @@ class ListingsDetail extends Component {
             <p>Check out by 12PM(noon)</p>
         </div>
 
-      <div className="col-sm-12 col-lg-7">
+      <div className="col-sm-12 col-lg-12">
         <div className="L_box1 col-sm-8 col-md-9">
           <p className="text1">ENTIRE VILA - VEDADO</p>
           <p className="text2">PlacetedelVedado</p>
@@ -507,13 +507,13 @@ class ListingsDetail extends Component {
                     <li role="presentation">
                       <a role="menuitem" tabindex="-1" href="">分离的链接</a>
                     </li>
+                  </ul>
                   <button type="button" data-toggle="dropdown" >{this.state.guest}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
                     { guestItems }
                   </ul>
                 </div>
               </div>
-
               <div className ="details-totalprice-div">
                 <ul>
                     <li className="blueColor">
