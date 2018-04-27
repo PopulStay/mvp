@@ -1621,9 +1621,6 @@ mark,
   text-transform: capitalize;
 }
 
-.text-muted {
-  color: #777777;
-}
 
 .text-primary {
   color: #337ab7;
@@ -5265,6 +5262,7 @@ header .navBtn{
   }
   .navbar-nav li a,.navbar-nav li button{
     font-size: 1.8rem;
+    font-family: FiraSansBlack; 
   }
   .navbar-collapse.collapse{
     display: none;
