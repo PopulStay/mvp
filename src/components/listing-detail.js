@@ -507,6 +507,7 @@ class ListingsDetail extends Component {
                     <li role="presentation">
                       <a role="menuitem" tabindex="-1" href="">分离的链接</a>
                     </li>
+                   </ul>
                   <button type="button" data-toggle="dropdown" >{this.state.guest}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
                     { guestItems }
