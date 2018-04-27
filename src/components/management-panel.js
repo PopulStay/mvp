@@ -6,6 +6,7 @@ import web3service from '../services/web3-service';
 import WalletClear from './walletClear';
 import Wallet from './wallet';
 import WalletManage from './walletManage';
+import WalletGas from './walletGas';
 
 class ManagementPanel extends Component {
 
@@ -22,9 +23,7 @@ class ManagementPanel extends Component {
    
       <div className ="row" >
 
-      <div className = "col-lg-1">
-      <WalletClear/>
-      </div>
+    
 
       <div className = "col-lg-1">
       <WalletManage/>
@@ -32,6 +31,10 @@ class ManagementPanel extends Component {
 
       <div className = "col-lg-1">
       <WalletClear/>
+      </div>
+
+        <div className = "col-lg-1">
+      <WalletGas/>
       </div>
 
       </div>
