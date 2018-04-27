@@ -56,7 +56,7 @@ class WalletClear extends React.Component {
 
     <div>
 
-        <a onClick={this.openModal}>Clear</a>
+        <button className="btn btn-primary" onClick={this.openModal}>Clear</button>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>

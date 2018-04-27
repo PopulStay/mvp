@@ -41,6 +41,59 @@ class HouseInfoListingService {
     return hashStr
   }
 
+  setPreOrderByETH( hostaddress, ethpriceGwei, uuid, from, to, days )
+  {
+    return new Promise((resolve, reject) => {
+      var contract = new window.web3.eth.Contract( HouseInfoListing.abi,houselist_address );
+      var dataobj  = contract.methods.preOrderByEth(
+            window.address,
+            hostaddress,
+            uuid,
+            from,
+            to,
+            days).encodeABI();
+
+       var params  = {};
+       params.from = from;
+       params.to   = to;
+       params.days = days;  
+       params.hostaddress  = hostaddress;
+       params.price        = 0;
+       params.ethprice     = ethpriceGwei;
+       params.guestaddress = window.address;
+       params.houseinfoid  = uuid;
+
+       window.web3.eth.getTransactionCount(window.address).then(function(txCount) {
+              var txData = {
+                  nonce: window.web3.utils.toHex(txCount),
+                  gasLimit: window.web3.utils.toHex(4476768),
+                  gasPrice: window.web3.utils.toHex(4476768), // 10 Gwei
+                  to: houselist_address,
+                  from: window.address,
+                  data: dataobj,
+                  value:ethpriceGwei * 1000000000
+              };
+
+              var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex');
+              var transaction =new EthereumTx(txData);
+              transaction.sign(pk);
+              var serializedTx = transaction.serialize().toString('hex');
+
+              params.transactionData = '0x' + serializedTx;
+
+              axios.post(process.env.Server_Address+'book', params)
+              .then(function (response) {
+              resolve(response.data.txhash);
+              })
+              .catch(function (error) {
+              console.error(error)
+              reject(error)
+              });
+
+    });  
+  });
+  }
+
   submitListing(formListing) {
           
     var roominfo ={};
@@ -58,6 +111,7 @@ class HouseInfoListingService {
        var dataobj= contract.methods.setHouseInfo(
         uuids,
         formListing.price_perday,
+        parseFloat(formListing.ETHprice_perday)*1000000000,
         JSON.stringify(roominfo),
         "0x3333322d30303332000000000000000000000000000000000000000000000000")
        .encodeABI();
@@ -86,6 +140,9 @@ class HouseInfoListingService {
               params.houseinfo       = JSON.stringify(roominfo);
               params.transactionData = serializedTx;
               params.hostAddress     = window.address;
+              params.guests          = formListing.roombasics_guestsnumber;
+              params.place           = formListing.roomtype_location;
+              params.ethprice        = parseFloat(formListing.ETHprice_perday)*1000000000;
 
               axios.post(process.env.Server_Address+'HouseInformation', params)
               .then(function (response) {
@@ -144,10 +201,14 @@ class HouseInfoListingService {
      return contract.methods.getHostOrders(account).call();
   }
 
-  getHouseId(districtCode){
+  getHouseId(districtCode,from,to,guests,place){
 
     return new Promise((resolve, reject) => {
-      axios.get(process.env.Server_Address+'HouseInformation?districeCode='+districtCode)
+      axios.get(process.env.Server_Address+'HouseInformation?place='+place
+                                                          +'&guests='+guests
+                                                          +'&to='+to
+                                                          +'&from='+from
+                                                          +'&districeCode='+districtCode)
       .then((response)=> {
         resolve(response.data);
       })

@@ -9,21 +9,39 @@ class ListingsGrid extends Component {
 
   constructor(props, context) {
     super(props);
-    this.state = {
-      listingRows: [],
-      listingsPerPage: 12,
-      districtCodes:[],
-      curDistrictCodeIndex:0
-    };
+      this.state = {
+        listingRows: [],
+        listingsPerPage: 12,
+        districtCodes:[],
+        curDistrictCodeIndex:0
+      };
+
+      console.log("#################search condition#######:",window.searchCondition);
   }
 
   componentWillMount() {
-    this.handlePageChange = this.handlePageChange.bind(this)
+    this.handlePageChange = this.handlePageChange.bind(this);
+    if( window.searchCondition.checkInDate )
+    {
+      var from   = window.searchCondition.checkInDate.toDate().getTime();
+    }
+
+    if( window.searchCondition.checkOutDate )
+    {
+      var to = window.searchCondition.checkOutDate.toDate().getTime();
+    }
+
+    if( window.searchCondition )
+    {
+      var guests = window.searchCondition.guests;
+      var place  = window.searchCondition.place;      
+    }
+
 
     houselistingService.getDistrictCodes().then((codes)=>
     {
       this.setState({districtCodes:codes.data});
-      var uuids = houselistingService.getHouseId(codes.data[0].id).then((data)=>{
+      var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
            this.setState({ listingRows: data });
       });
     });
@@ -35,18 +53,11 @@ class ListingsGrid extends Component {
 
   render() {
     const activePage = this.props.match.params.activePage || 1;
-
     console.log(this.state.listingRows);
-
-
     const showListingsRows = this.state.listingRows.slice(
       this.state.listingsPerPage * (activePage-1),
       this.state.listingsPerPage * (activePage))
     return (
-
-
-
-
 
       <div className="listings-grid">
         <h1>Homes around the world</h1>
@@ -73,6 +84,7 @@ class ListingsGrid extends Component {
           hideDisabled="true"
         />
       </div>
+  
     )
   }
 }
