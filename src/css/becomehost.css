@@ -14,6 +14,7 @@ body{
   font-family: RobotoRegular; 
   color: #4d4e4e;
 }
+img{width: 100%;}
 .STEPhead span{
   display: inline-block;
   width: 10px;
@@ -32,12 +33,11 @@ body{
   width: 100%;
   overflow: hidden;
   border-top:1px solid #50547a; 
-  margin-top: 20%;
 }
 .STEPBTN button{
   padding: 2% 8%;
   border-radius: 0;
-  margin:5% 0 0;
+  font-size: 2rem;
 }
 .Step1_1 h1,.Step1_5 h1,.Step1_7 h1,
 .Step2_2 h2{
@@ -60,18 +60,14 @@ body{
   margin: 0;
 }
 .Step1_1 h2{
-  margin:8% 0;
+  margin:10% 0;
   font-size: 2rem;
-}
-.Step1_1 .form-control{
-  height: 40px !important;
-  font-size: 1.7rem;
-  border-color: #000;
-  border-radius: 0;
-  padding:0 10%;
 }
 .Step1_1 .form-group{
   margin-bottom: 5%;
+}
+.Step1_1 .form-group1{
+  padding-left: 0;
 }
 .Step1_1 .locatedBox{
   position: relative;
@@ -88,22 +84,28 @@ body{
   font-size: 1.6rem;
   margin-left: 5%;
 }
+.Step1_1 .stepbg{
+  width: 140%;
+  margin: 10% 0 0;
+}
+
 .Step1_1 .form-group .btn-group button,
 .Step1_2 .form-group .btn-group button{
   text-align: left;
 }
+.Step1_1 .form-control,
 .Step1_1 .form-group .btn-group button,
 .Step1_2 .form-group .btn-group button,
 .Step1_3 .form-group .btn-group button,
 .Step1_4 .btn-group button,
-.Step1_5 .Step1_5box input{
+.Step1_5 .Step1_5box input,
+.Step2_3 input{
   background: none;
-  border: 1px solid #000;
+  border: 1px solid #aaa;
   border-radius: 0;
   width: 100%;
-  height: 40px;
-  font-size: 1.8rem;
-  font-family: RobotoThin; 
+  height: 45px;
+  font-size: 1.6rem;
 }
 
 .Step1_1 .form-group .btn-group button span,
@@ -117,18 +119,27 @@ body{
 .Step1_3 .dropdown-menu{
   width: 100%;
   font-family: RobotoThin; 
+  max-height: 160px;
+  overflow: auto;
 }
 .Step1_1 .dropdown-menu a,
 .Step1_2 .dropdown-menu a,
 .Step1_3 .dropdown-menu a{
   width: 100%;
   text-align: center;
-  padding: 3% 5%;
+  padding: 3% 15%;
   margin: 0;
   border-top: 1px solid #888;
   cursor: pointer;
   text-align: left;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+}
+.Step1_1 .dropdown-menu a:hover{
+  background: #f6416c;
+  color: #fff;
+}
+.Step1_1 .STEPBTN{
+  border-top: none;
 }
 .Step1_2 .dropdown-menu a{
   padding:3%;
@@ -439,14 +450,17 @@ hr{
   padding: 2%;
   overflow: hidden;
 }
+.Step2_1 .photos .photosimg:first-child{
+  width: 100%;
+}
 .Step2_1 .photos .photosimg,.Step2_1 .photos .photosipt{
   width: 23%;
   height: 200px;
   position: relative;
   overflow: hidden;
-  border:1px solid #cfcfcf;
   margin: 1% ;
   border-radius: 8px;
+  border:1px solid #cfcfcf;
   float: left;
 }
 .Step2_1 .photos .photosimg>img{
@@ -458,6 +472,7 @@ hr{
 }
 .Step2_1 .photos .photosipt{
   position: relative;
+  border:2px dashed #cfcfcf;
 }
 .Step2_1 .photos input{
   width: 100%;
@@ -477,7 +492,7 @@ hr{
   transform: translate(-50%,-50%);
 }
 .Step2_1 .photos h4 p{
-  font-size: 10rem;
+  font-size: 6rem;
 }
 .Step2_1 .photosipt img{
   width: 80% !important;
@@ -492,6 +507,18 @@ hr{
 }
 .Step2_2 h2{
   margin: 2% 0 5%;
+}
+.Step2_3 input{
+  padding: 0 8%;
+}
+.Step2_3 .box{
+  width: 80%;
+  position: relative;
+}
+.Step2_3 .box span{
+  position: absolute;
+  right: 4%;
+  top: 15%;
 }
 .img-thumbnail{
   margin-bottom: 0 !important;
@@ -508,91 +535,7 @@ hr{
 .textpink{
   color: #f6416c !important;
 }
-.becomehost-1,
-.becomehost-2,
-.becomehost-3,
-.becomehost-4,
-.becomehost-5 {
-  padding-bottom: 100px;
-}
 
-.becomehost-1 a,
-.becomehost-2 a,
-.becomehost-3 a,
-.becomehost-4 a,
-.becomehost-5 a {
-  border-radius: 1px;
-  border-color: #f6416c;
-  min-width: 150px;
-  margin-bottom: 70px;
-}
-
-.becomehost-1 a:last-child,
-.becomehost-2 a:last-child,
-.becomehost-3 a:last-child,
-.becomehost-4 a:last-child,
-.becomehost-5 a:last-child {
-  float: right;
-}
-
-.becomehost-1 .row img,
-.becomehost-2 .row img,
-.becomehost-3 .row img,
-.becomehost-4 .row img,
-.becomehost-5 .row img {
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-.becomehost-1 .row .becomehost__info,
-.becomehost-2 .row .becomehost__info,
-.becomehost-3 .row .becomehost__info,
-.becomehost-4 .row .becomehost__info,
-.becomehost-5 .row .becomehost__info {
-  width: 100%;
-}
-
-
-.becomehost-1__bg {
-  margin-top: 100px;
-}
-
-.becomehost-2,
-.becomehost-3,
-.becomehost-4 {
-  max-width: 900px;
-}
-
-.becomehost-2 .col-md-8:first-child,
-.becomehost-3 .col-md-8:first-child {
-  padding-right: 50px;
-}
-
-.becomehost-5 {
-  max-width: 1100px;
-}
-
-.becomehost-5__preview {
-  position: relative;
-  margin-top: 40px;
-  width: 50%;
-}
-
-.becomehost-5__preview-link {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 18px 0;
-  width: 40%;
-}
-
-.becomehost-5__preview-link span {
-  color: #aaa;
-}
-
-.becomehost-5 a:last-child {
-  float: none;
-}
 .pinkBorder{
   border:1px solid #f6416c !important;
 }

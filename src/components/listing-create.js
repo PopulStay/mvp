@@ -39,8 +39,8 @@ class ListingCreate extends Component {
         this.state = {
             step: 0,
             roomtype_category:"Entire place",
-            roomtype_guests:'for 1 guests',
-            roomtype_location:"",
+            roomtype_guests:1,
+            roomtype_location:"Hong Kong",
             roomdescription_homeorhotel:"Home",
             roomdescription_type:"Single room",
             roomdescription_guests_have:"Entire place",
@@ -90,7 +90,7 @@ class ListingCreate extends Component {
             ETHprice_perday:0,
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
-            step1guests:['for 1 guests','for 2 guests','for 3 guests','for 4 guests','for 5 guests'],
+            step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
             homeorhotels:['Home','hotel','Other'],
             types:['Single room','double room','family suite','business suite'],
             guestshaves:['Entire place'],
@@ -338,7 +338,7 @@ class ListingCreate extends Component {
     })
     const step1guestsarr = [];
     this.state.step1guests.forEach((step1guest,index)=>{
-      step1guestsarr.push(<li><a onClick={this.step1guests.bind(this,step1guest)} >{step1guest}</a></li>)
+      step1guestsarr.push(<li><a onClick={this.step1guests.bind(this,step1guest)} >for {step1guest} guests</a></li>)
     })
     const homeorhotelarr = [];
     this.state.homeorhotels.forEach((homeorhotel,index)=>{
@@ -357,12 +357,12 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-       
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
-            <div className="row">
-              <div className="col-md-12 col-lg-6 col-sm-12 Step1_1">
+            <div className="row Step1_1">
+              <div className="col-md-12 col-lg-6 col-sm-12">
                   <div className="STEPhead">
+                    <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
@@ -376,7 +376,6 @@ class ListingCreate extends Component {
 
                   <div className="row">
                   <div className="col-md-6 form-group">
-                      <label>Category<b>*</b></label>
                       <div className="btn-group col-md-12">
                         <button type="button" data-toggle="dropdown">{this.state.roomtype_category}<span>▼</span></button>
                         <ul className="dropdown-menu" role="menu">
@@ -387,9 +386,8 @@ class ListingCreate extends Component {
 
 
                   <div className="col-md-6 form-group">
-                      <label>Guests<b>*</b></label>
                       <div className="btn-group col-md-12">
-                        <button type="button" data-toggle="dropdown">{this.state.roomtype_guests}<span>▼</span></button>
+                        <button type="button" data-toggle="dropdown">for {this.state.roomtype_guests} guests<span>▼</span></button>
                         <ul className="dropdown-menu" role="menu">
                           { step1guestsarr } 
                         </ul>
@@ -398,18 +396,16 @@ class ListingCreate extends Component {
                   </div>
 
 
-                  <div className="form-group">
-                    <label>Location<b>*</b></label>
+                  <div className="form-group form-group1 col-md-6">
                     <div className="locatedBox">
-                      <img src="../images/located.png" alt=""/>
-                      <input type="text"  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
+                      <input type="text" placeholder="For example: Qingdao"  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
                     </div>
                   </div>
 
                   <div className="STEPBTN">
                       <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.nextStep}>Continue</button>
                   </div>
-                  <br/><br/>
+                  <br/><br/><br/>
                   <img src="../images/becomehost-step1-hint.jpg" alt=""/>
 
 
@@ -417,8 +413,8 @@ class ListingCreate extends Component {
               </div>
 
 
-               <div className="col-md-12 col-lg-6 col-sm-12">
-                  <img className="becomehost-1__bg" src="../images/becomehost-step1_1.png" alt=""/>
+               <div className="col-md-12 col-lg-4 col-md-push-2 col-sm-12">
+                  <img className="stepbg" src="../images/becomehost-step1_1.png" alt=""/>
                 </div>
             
             
@@ -428,10 +424,11 @@ class ListingCreate extends Component {
         {
           this.state.step === this.STEP.Step1_2 &&
           <div className="becomehost-2 container">
-          <div className="row">
-            <div className="col-md-8 col-lg-8 col-sm-8 Step1_2">
+          <div className="row Step1_2">
+            <div className="col-md-8 col-lg-8 col-sm-8">
             <div className="STEPhead">
               <span className="bjpink"></span>
+              <span></span>
               <span></span>
               <span></span>
               <span></span>
@@ -492,7 +489,7 @@ class ListingCreate extends Component {
              
              </div>
              
-             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone">
+             <div className="col-md-4 col-lg-4  col-sm-4 paddingNone">
              <img className="becomehost__info" src="./images/becomehost-step1_2.jpg" alt=""/>
              </div>
              </div>
@@ -994,8 +991,9 @@ class ListingCreate extends Component {
              </div>
 
         }
+         
          {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step2_1 &&
           <div className="becomehost-2 container">
           <div className="row">
             <div className="col-md-8 col-lg-8 col-sm-8 Step2_2">
@@ -1006,23 +1004,7 @@ class ListingCreate extends Component {
                 <p>Step 2: Set the scene</p>
               </div>
 
-
-              <h4>title</h4>
-              <input onChange={(e) => this.setState({roomdescription_title: e.target.value})} value={this.state.roomdescription_title}  type="text" />
-
-              <h4>PPS</h4>
-              <input onChange={(e) => this.setState({PPSprice_perday: e.target.value})} value={this.state.PPSprice_perday}  type="text" />
-
-              <h4>ETH</h4>
-              <input onChange={(e) => this.setState({ETHprice_perday: e.target.value})} value={this.state.ETHprice_perday}  type="text" />
-
-              <h4>Add your mobile number</h4>
-              <div className="phonebox">
-                  <p> <img className={this.state.roomstuff_pets ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/></p>
-                  <input onChange={(e) => this.setState({roomdescription_title: e.target.value})} value={this.state.roomdescription_title}  type="text" />
-              </div>
-
-              <h4>Edit your description</h4>
+              <h2>Edit your description</h2>
               <textarea onChange={(e) => this.setState({roomdescription_description: e.target.value})} placeholder="Describe the decor, light, what’s nearby,etc..."></textarea>
 
               <h4>My place is great for</h4>
@@ -1083,6 +1065,46 @@ class ListingCreate extends Component {
 
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone">
              <img className="becomehost__info" src="./images/becomehost-step1_2.jpg" alt=""/>
+             </div>
+    
+
+             
+             </div>
+             </div>
+
+        }
+
+        {
+          this.state.step === this.STEP.Step2_3 &&
+          <div className="becomehost-2 container">
+          <div className="row">
+            <div className="col-md-8 col-lg-8 col-sm-8 Step2_3">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <p>Step 2: Set the scene</p>
+              </div>
+
+              <h2>Name your place</h2>
+              <div className="box">
+                <span>50</span>
+                <input placeholder="Listing title" onChange={(e) => this.setState({roomdescription_title: e.target.value})} value={this.state.roomdescription_title}  type="text" />
+              </div>
+
+
+              
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone">
+             <img className="becomehost__info" src="./images/becomehost-step2_5.jpg" alt=""/>
              </div>
     
 
