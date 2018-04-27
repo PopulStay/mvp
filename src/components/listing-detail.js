@@ -238,6 +238,49 @@ class ListingsDetail extends Component {
 
       <div className="detail-content container">
       <div className="row">
+      <div className="col-md-7 col-lg-7">
+        <div className="L_box1 col-md-9">
+          <p className="text1">ENTIRE VILA - VEDADO</p>
+          <p className="text2">PlacetedelVedado</p>
+          <div className="box1_list col-md-8">
+            <p><img src="../images/detail-img02.png" alt="" />guests</p>
+            <p><img src="../images/detail-img01.png" alt="" />1 bedroom</p>
+            <p><img src="../images/detail-img05.png" alt="" />1 bed</p>
+            <p><img src="../images/detail-img03.png" alt="" />private bath</p>
+          </div>
+        </div>
+
+
+        <div className="L_box2 col-md-3">
+          <img className="BOX__logo" src="../images/detail-avatar.png" alt="" />
+          <h4>Justin</h4>
+          <img className="BOX2img" src="../images/detail-list.png" alt="" />
+        </div>
+        <div className="L_TEXT1">A quiet neighborhood in private estate, only 5 minutes walk away from MRT/train station. 10 mins from Airport Walking distance to Singapore Expo,Chang Business Park and new University.</div>
+        <p className="More">Read more<span>▼</span></p>
+
+        <div className="L_box3">
+          <h5>Amenities</h5>
+          <p><img src="../images/detail-img07.png" alt="" />Shampoo</p>
+          <p><img src="../images/detail-img08.png" alt="" />Breakfast</p>
+          <p><img src="../images/detail-img09.png" alt="" />TV</p>
+          <p><img src="../images/detail-img10.png" alt="" />Kitchen</p>
+          <p><img src="../images/detail-img11.png" alt="" />Air conditioning</p>
+          <p><img src="../images/detail-img12.png" alt="" />Wifi</p>
+        </div>
+
+        <p className="More">Show all 7 amenities<span>▼</span></p>
+        <div className="L_box4">
+            <h5>Sleeping arr 7 amenities</h5>
+            <img src="../images/detail-img06.png" alt="" />
+        </div>
+
+        <div className="L_box5">
+            <h5>House Rules</h5>
+            <p>Check-in is anytime after 2PM</p>
+            <p>Check out by 12PM(noon)</p>
+        </div>
+
       <div className="col-sm-12 col-lg-7">
         <div className="L_box1 col-sm-8 col-md-9">
           <p className="text1">ENTIRE VILA - VEDADO</p>
@@ -294,8 +337,7 @@ class ListingsDetail extends Component {
             <h5>House Rules</h5>
             <p>Check-in is anytime after 2PM</p>
             <p>Check out by 12PM(noon)</p>
-        </div>
-
+        </div>origin/master
         <p className="More">Dead all rules<span>▼</span></p>
         <div className="L_box6">
             <h5>Cancellations</h5>
@@ -303,6 +345,8 @@ class ListingsDetail extends Component {
             <p>Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati...<span>Read more</span></p>
         </div>
         
+        <p className="More">Get details</p>
+      </div>
         <p className="More box6_More">Get details</p>
 
         <div className="Reviews">
@@ -388,7 +432,6 @@ class ListingsDetail extends Component {
                 </li>
             </ul>
         </div>
-
         <div className="ReviewsGuest">
           <ul>
             {neighbourhoods}
@@ -450,6 +493,20 @@ class ListingsDetail extends Component {
               <div className="detail-guest-div">
                 <p>Guest</p>
                 <div className="btn-group">
+                  <button type="button" data-toggle="dropdown"><span>▼</span></button>
+                  <ul className="dropdown-menu" role="menu">
+                    <li role="presentation">
+                      <a role="menuitem"  href="">Java</a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1"href="">数据挖掘</a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="">数据通信/网络</a>
+                    </li>
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="">分离的链接</a>
+                    </li>
                   <button type="button" data-toggle="dropdown" >{this.state.guest}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
                     { guestItems }
@@ -460,6 +517,10 @@ class ListingsDetail extends Component {
               <div className ="details-totalprice-div">
                 <ul>
                     <li className="blueColor">
+                      <span className = "LeftSpan"><b>￥</b>59×9nights
+                          <img src="../images/detail-img13.png" />
+                      </span>
+                      <span className = "RightSpan"><b>￥</b>527</span>
                       <span className = "LeftSpan"><b>￥</b>{this.state.descriptioninfo.price_perday}×{this.state.days}nights
                           <img src="../images/detail-img13.png" />
                       </span>
@@ -469,12 +530,14 @@ class ListingsDetail extends Component {
                       <span className = "LeftSpan">Special Offer 20% off
                           <img src="../images/detail-img13.png" />
                       </span>
+                      <span className = "RightSpan"><b>-￥</b>55</span>
                       <span className = "RightSpan"><b>￥</b>0</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">Long stay discount
                           <img src="../images/detail-img13.png" />
                       </span>
+                      <span className = "RightSpan"><b>-￥</b>55</span>
                       <span className = "RightSpan"><b>￥</b>0</span>
                     </li>
                     <li className="blueColor">
@@ -486,6 +549,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
+                        $ PPS: {Number(this.calcTotalPrice()).toLocaleString(undefined, {minimumFractionDigits: 3})}
                         $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {Number(this.calcTotalPrice())-0+26}
                       </span>
                     </li>
