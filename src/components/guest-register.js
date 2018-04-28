@@ -7,8 +7,6 @@ import Wallet from './wallet';
 import Web3 from 'web3';
 import web3service from '../services/web3-service'
 
-const alertify = require('../../node_modules/alertify/src/alertify.js');
-
 const customStyles = {
   content : {
     top                   : '8%',
@@ -61,10 +59,10 @@ class GuestRegister extends React.Component {
     register.email   = this.state.email;
     guestService.guestRegister(register).then((data)=>{
       this.setState({ registered:true });
-      alertify.log("register successfully");
       this.closeModal();
      });
   }
+
 
   openModal() {
     this.setState({modalIsOpen: true});

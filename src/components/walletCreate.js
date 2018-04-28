@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
-const alertify = require('../../node_modules/alertify/lib/alertify.js')
 
 const customStyles = {
   content : {
