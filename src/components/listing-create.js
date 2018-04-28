@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import houselistingService from '../services/houseinfolist-service';
 import ListingDetail from './listing-detail';
@@ -26,6 +26,7 @@ class ListingCreate extends Component {
             Step1_7: 1.7,
             Step1_8: 1.8,
             Step1_9: 1.9,
+            Step1_10: 2,
             PROCESSING: 6,
             SUCCESS: 7
         }
@@ -94,8 +95,9 @@ class ListingCreate extends Component {
             homeorhotels:['Home','hotel','Other'],
             types:['Single room','double room','family suite','business suite'],
             guestshaves:['Entire place'],
-            Countrys:['China','123'],
-            PasswordActibve:1
+            Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
+            PasswordActibve:1,
+            Rapair:1
         }
 
         this.nextStep = this.nextStep.bind(this);
@@ -188,25 +190,34 @@ class ListingCreate extends Component {
         this.setState({step:this.STEP.Step1_7});
         console.log(this.state);
       }
-
       if(this.state.step == this.STEP.Step1_7)
+      {
+        this.setState({step:this.STEP.Step1_8});
+        console.log(this.state);
+      }
+
+      if(this.state.step == this.STEP.Step1_8)
       {
         if(this.state.roomstuff_smartpincode == 1){
             if(this.state.roomstuff_smartpincode_password != '' && this.state.roomstuff_smartpincode_confirmpassword != '' && this.state.roomstuff_smartpincode_password == this.state.roomstuff_smartpincode_confirmpassword){
               this.setState({state:this.state.PasswordActibve=1}); 
               console.log(this.state.PasswordActibve);
-              this.setState({step:this.STEP.Step1_8});
+              this.setState({step:this.STEP.Step1_9});
             }else{
-              this.setState({step:this.STEP.Step1_7});
+              this.setState({step:this.STEP.Step1_8});
               this.setState({state:this.state.PasswordActibve=0}); 
               console.log(this.state.PasswordActibve);
             }
         }else{
-            this.setState({step:this.STEP.Step1_8});
+            this.setState({step:this.STEP.Step1_9});
         }
       }
 
-      
+      if(this.state.step == this.STEP.Step1_9)
+      {
+        this.setState({step:this.STEP.Step1_10});
+        console.log(this.state);
+      }
       
 
     }
@@ -241,6 +252,21 @@ class ListingCreate extends Component {
       if(this.state.step == this.STEP.Step1_7)
       {
         this.setState({step:this.STEP.Step1_6});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step1_8)
+      {
+        this.setState({step:this.STEP.Step1_7});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step1_9)
+      {
+        this.setState({step:this.STEP.Step1_8});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step1_10)
+      {
+        this.setState({step:this.STEP.Step1_9});
         console.log(this.state);
       }
 
@@ -325,7 +351,7 @@ class ListingCreate extends Component {
       if(DataIndex == 'jian'){
         this.setState({state: this.state.roombasics_guestbedrooms = this.state.roombasics_guestbedrooms+0.5});
       }else{
-        if(this.state.roombasics_guestbedrooms == 1){
+        if(this.state.roombasics_guestbedrooms == 0.5){
           this.setState({state: this.state.roombasics_guestbedrooms = 0.5});
         }else{
           this.setState({state: this.state.roombasics_guestbedrooms = this.state.roombasics_guestbedrooms-0.5});
@@ -366,7 +392,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-7 col-sm-12">
@@ -452,7 +478,7 @@ class ListingCreate extends Component {
             </div>
 
               <h1>What kind of room do you listing?</h1>
-              <h2>Is this listing a home,hotel, or something else? </h2>
+              <h2>Is this listing a home,hotel,or something else? </h2>
 
               <div className="form-group">    
                 <div className="btn-group col-md-12">
@@ -510,7 +536,7 @@ class ListingCreate extends Component {
                 <div>
                   <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                   <h6>Entire place</h6>
-                  <p>Guest have the whole place to themselves.This usually includes a bedroom, a bathroom, and a kitchen</p>
+                  <p>Guest have the whole place to themselves.This usually includes a bedroom,a bathroom,and a kitchen</p>
                   <h6>Private room</h6>
                   <p>Guest have their own private room for sleeping. Other areas could be shared.</p>
                   <h6>Shared room</h6>
@@ -542,9 +568,9 @@ class ListingCreate extends Component {
                       <label>Number of guests*</label>
                       <div className="btn-group col-md-4">
                         <button type="button" className="guestBtn">
-                          <span className="btnjia" onClick={(e)=>this.guestbeds(e)} data-name="jia">▲</span>
+                          <span className="btnjia" onClick={(e)=>this.guestsnumber(e)} data-name="jia">▲</span>
                           {this.state.roombasics_guestsnumber}
-                          <span className="btnjian" onClick={(e)=>this.guestbeds(e)} data-name="jian">▼</span>
+                          <span className="btnjian" onClick={(e)=>this.guestsnumber(e)} data-name="jian">▼</span>
                         </button>
                       </div>
                   </div>
@@ -564,9 +590,9 @@ class ListingCreate extends Component {
                       <label>How many beds can guests have*</label>
                       <div className="btn-group col-md-4">
                         <button type="button" className="guestBtn">
-                          <span className="btnjia" onClick={(e)=>this.guestbeds(e)} data-name="jia">▲</span>
+                          <span className="btnjia" onClick={(e)=>this.totalguests(e)} data-name="jia">▲</span>
                           {this.state.roombasics_totalguests}
-                          <span className="btnjian" onClick={(e)=>this.guestbeds(e)} data-name="jian">▼</span>
+                          <span className="btnjian" onClick={(e)=>this.totalguests(e)} data-name="jian">▼</span>
                         </button>
                       </div>
                   </div>
@@ -641,7 +667,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>If you have a toilet separate from the shower, count it as a 0.5 bathroom.</p>
+                    <p>If you have a toilet separate from the shower,count it as a 0.5 bathroom.</p>
                 </div>
              </div>
              </div>
@@ -664,7 +690,7 @@ class ListingCreate extends Component {
               <p>Step 1: Start with the basics</p>
             </div>
 
-              <h2>Where’s your place located?</h2>
+              <h1>Where’s your place located?</h1>
               <div className="btn-group col-md-9 step5box">
                 <img className="becomehost__info" src="./images/located.png" alt=""/>
                 <input type="text" placeholder="For example: Qingdao"  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
@@ -690,7 +716,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step1_6 &&
           <div className="becomehost-2 container">
           <div className="row Step1_6">
             <div className="col-md-8 col-lg-7 col-sm-12">
@@ -699,6 +725,7 @@ class ListingCreate extends Component {
               <span className="bjpink"></span>
               <span className="bjpink"></span>
               <span className="bjpink"></span>
+              <span></span>
               <span></span>
               <p>Step 1: Start with the basics</p>
             </div>
@@ -722,7 +749,7 @@ class ListingCreate extends Component {
                 </div>
 
                 <div className="col-md-10 col-lg-10 Step1_6box">
-                  <h2>Apt, Suite. (optional)<span>e.g. # 13–37 Mandalay Towers </span></h2>
+                  <h2>Apt,Suite. (optional)<span>e.g. # 13–37 Mandalay Towers </span></h2>
                   <input onChange={(e) => this.setState({roomstuff_Apt: e.target.value})} value={this.state.roomstuff_Apt}   type="text" />
                 </div>
 
@@ -748,8 +775,52 @@ class ListingCreate extends Component {
              
              </div>
              
-             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone">
-             <img className="becomehost__info" src="./images/becomehost-step1_5.jpg" alt=""/>
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <p>Your exact address will only be shared with confirmed guests.</p>
+                    <img className="img1 " src="./images/locatedimg.png" alt=""/>
+                </div>
+             </div>
+             </div>
+             </div>
+
+        }
+
+          {
+          this.state.step === this.STEP.Step1_7 &&
+          <div className="becomehost-2 container">
+          <div className="row Step1_7">
+            <div className="col-md-8 col-lg-7 col-sm-12">
+            <div className="STEPhead">
+              <span className="bjpink"></span>
+              <span className="bjpink"></span>
+              <span className="bjpink"></span>
+              <span className="bjpink"></span>
+              <span></span>
+              <span></span>
+              <p>Step 1: Start with the basics</p>
+            </div>
+
+              <h1>Is the pin in the right place?</h1>
+              <h2>If needed,you can drag the pin to adjust its location. Only confirmed guests will see this,so they know how to get to your place.</h2>
+              <p>191A Rivervale Drive #11-1318,Singapore,541189,Singapore</p>
+              
+              <div className="Map">
+                <img className="becomehost__info" src="./images/Map.jpg" alt=""/>
+              </div>
+
+
+
+
+            <div className="STEPBTN">
+              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+            </div>
+             
+             </div>
+             
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
              </div>
              </div>
              </div>
@@ -757,26 +828,26 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_6 &&
-  
+          this.state.step === this.STEP.Step1_8 &&
           <div className="becomehost-4 container">
-          <div className="row">
-              <div className="col-md-7 col-lg-7 col-sm-7 col-md-offset-1 col-lg-offset-1 col-sm-offset-1 Step1_6_1">
+          <div className="row Step1_8">
+              <div className="col-md-7 col-lg-7 col-sm-7 col-md-offset-1 col-lg-offset-1 col-sm-offset-1">
                <div className="STEPhead">
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
+                <span></span>
                 <p>Step 1: Start with the basics</p>
               </div>
 
               <h1>What amenities do you offer?</h1>
 
-             <div className="Step1_6box">
+             <div className="Stepbox">
 
-                 <div>
-                  <p className="Pinput"  onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
+                 <div onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
+                  <p className="Pinput" >
                     <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <div className="divinput">
@@ -785,148 +856,88 @@ class ListingCreate extends Component {
                   </div>
                 </div>
 
-                <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_Shampoo ==0 )this.setState({roomstuff_Shampoo:1});else this.setState({roomstuff_Shampoo:0});}}>
+                <div  onClick={(e) => {if(this.state.roomstuff_Shampoo ==0 )this.setState({roomstuff_Shampoo:1});else this.setState({roomstuff_Shampoo:0});}}>
+                  <p  className="Pinput">
                       <img className={this.state.roomstuff_Shampoo ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Shampoo</p> 
                  
                 </div>
 
-                <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_Closet_drwers ==0 )this.setState({roomstuff_Closet_drwers:1});else this.setState({roomstuff_Closet_drwers:0});}}>
+                <div  onClick={(e) => {if(this.state.roomstuff_Closet_drwers ==0 )this.setState({roomstuff_Closet_drwers:1});else this.setState({roomstuff_Closet_drwers:0});}}>
+                  <p  className="Pinput">
                       <img className={this.state.roomstuff_Closet_drwers ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Closet/drawers</p> 
                 </div>
 
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_TV ==0 )this.setState({roomstuff_TV:1});else this.setState({roomstuff_TV:0});}}>
+                  <div  onClick={(e) => {if(this.state.roomstuff_TV ==0 )this.setState({roomstuff_TV:1});else this.setState({roomstuff_TV:0});}}>
+                  <p  className="Pinput">
                       <img className={this.state.roomstuff_TV ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">TV</p>
                 </div>
 
 
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_Heat ==0 )this.setState({roomstuff_Heat:1});else this.setState({roomstuff_Heat:0});}}>
+                  <div onClick={(e) => {if(this.state.roomstuff_Heat ==0 )this.setState({roomstuff_Heat:1});else this.setState({roomstuff_Heat:0});}}>
+                  <p  className="Pinput" >
                       <img className={this.state.roomstuff_Heat ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Heat</p>
                 </div>
 
 
-                  <div>
-                  <p  className="Pinput" onClick={(e) => {if(this.state.roomstuff_aircondition ==0 )this.setState({roomstuff_aircondition:1});else this.setState({roomstuff_aircondition:0});}}>
+                  <div onClick={(e) => {if(this.state.roomstuff_aircondition ==0 )this.setState({roomstuff_aircondition:1});else this.setState({roomstuff_aircondition:0});}}>
+                  <p  className="Pinput">
                       <img className={this.state.roomstuff_aircondition ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Air conditioning</p>
                 </div>
 
-                  <div>
-                  <p  className="Pinput" onClick={(e) => {if(this.state.roomstuff_breakfastcoffetea ==0 )this.setState({roomstuff_breakfastcoffetea:1});else this.setState({roomstuff_breakfastcoffetea:0});}}>
+                  <div onClick={(e) => {if(this.state.roomstuff_breakfastcoffetea ==0 )this.setState({roomstuff_breakfastcoffetea:1});else this.setState({roomstuff_breakfastcoffetea:0});}}>
+                  <p  className="Pinput">
                       <img className={this.state.roomstuff_breakfastcoffetea ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Breakfast,coffe,tea</p>
                   
                 </div>
 
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_desk_workspace ==0 )this.setState({roomstuff_desk_workspace:1});else this.setState({roomstuff_desk_workspace:0});}}>
+                  <div onClick={(e) => {if(this.state.roomstuff_desk_workspace ==0 )this.setState({roomstuff_desk_workspace:1});else this.setState({roomstuff_desk_workspace:0});}}>
+                  <p  className="Pinput" >
                       <img className={this.state.roomstuff_desk_workspace ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Desk/workspace</p>
                 </div>
 
-                  <div>
-                  <p  className="Pinput" onClick={(e) => {if(this.state.roomstuff_fireplace ==0 )this.setState({roomstuff_fireplace:1});else this.setState({roomstuff_fireplace:0});}}>
+                  <div onClick={(e) => {if(this.state.roomstuff_fireplace ==0 )this.setState({roomstuff_fireplace:1});else this.setState({roomstuff_fireplace:0});}}>
+                  <p  className="Pinput">
                       <img className={this.state.roomstuff_fireplace ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Fireplace</p>
                   </div>
 
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_Pool ==0 )this.setState({roomstuff_Pool:1});else this.setState({roomstuff_Pool:0});}}>
-                      <img className={this.state.roomstuff_Pool ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
-                  </p>
-                  <p className="divinput">Pool</p> 
-                </div>
-
-                <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_kitchen ==0 )this.setState({roomstuff_kitchen:1});else this.setState({roomstuff_kitchen:0});}}>
-                      <img className={this.state.roomstuff_kitchen ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
-                  </p>
-                  <p className="divinput">kitchen</p> 
-                </div>
-
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_washer ==0 )this.setState({roomstuff_washer:1});else this.setState({roomstuff_washer:0});}}>
-                      <img className={this.state.roomstuff_washer ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
-                  </p>
-                  <p className="divinput">Laundry - washer</p>
-                </div>
-
-
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_dryer ==0 )this.setState({roomstuff_dryer:1});else this.setState({roomstuff_dryer:0});}}>
-                      <img className={this.state.roomstuff_dryer ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
-                  </p>
-                  <p className="divinput">Laundry - dryer</p>
-                </div>
-
-
-                  <div>
-                  <p  className="Pinput" onClick={(e) => {if(this.state.roomstuff_Park ==0 )this.setState({roomstuff_Park:1});else this.setState({roomstuff_Park:0});}}>
-                      <img className={this.state.roomstuff_Park ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
-                  </p>
-                  <p className="divinput">Park</p>
-                </div>
-
-                  <div>
-                  <p  className="Pinput" onClick={(e) => {if(this.state.roomstuff_Lift ==0 )this.setState({roomstuff_Lift:1});else this.setState({roomstuff_Lift:0});}}>
-                      <img className={this.state.roomstuff_Lift ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
-                  </p>
-                  <p className="divinput">Lift</p>
-                  
-                </div>
-
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_HotTub ==0 )this.setState({roomstuff_HotTub:1});else this.setState({roomstuff_HotTub:0});}}>
-                      <img className={this.state.roomstuff_HotTub ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
-                  </p>
-                  <p className="divinput">Hot tub</p>
-                </div>
-
-                  <div>
-                  <p  className="Pinput" onClick={(e) => {if(this.state.roomstuff_Gym ==0 )this.setState({roomstuff_Gym:1});else this.setState({roomstuff_Gym:0});}}>
-                      <img className={this.state.roomstuff_Gym ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
-                  </p>
-                  <p className="divinput">Gym</p>
-                  </div>
-
-
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_iron ==0 )this.setState({roomstuff_iron:1});else this.setState({roomstuff_iron:0});}}>
+                  <div  onClick={(e) => {if(this.state.roomstuff_iron ==0 )this.setState({roomstuff_iron:1});else this.setState({roomstuff_iron:0});}}>
+                  <p  className="Pinput">
                       <img className={this.state.roomstuff_iron ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Iron</p>
                 </div>
 
-                  <div>
-                  <p  className="Pinput" onClick={(e) => {if(this.state.roomstuff_hairdryer ==0 )this.setState({roomstuff_hairdryer:1});else this.setState({roomstuff_hairdryer:0});}}>
+                  <div onClick={(e) => {if(this.state.roomstuff_hairdryer ==0 )this.setState({roomstuff_hairdryer:1});else this.setState({roomstuff_hairdryer:0});}}>
+                  <p  className="Pinput">
                       <img className={this.state.roomstuff_hairdryer ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Hair dryer</p>
                 </div>
 
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_petsinhouse ==0 )this.setState({roomstuff_petsinhouse:1});else this.setState({roomstuff_petsinhouse:0});}}>
+                  <div onClick={(e) => {if(this.state.roomstuff_petsinhouse ==0 )this.setState({roomstuff_petsinhouse:1});else this.setState({roomstuff_petsinhouse:0});}}>
+                  <p  className="Pinput" >
                       <img className={this.state.roomstuff_petsinhouse ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Pets in the house</p>
                 </div>
-                  <div>
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_private_entrance ==0 )this.setState({roomstuff_private_entrance:1});else this.setState({roomstuff_private_entrance:0});}}>
+                  <div onClick={(e) => {if(this.state.roomstuff_private_entrance ==0 )this.setState({roomstuff_private_entrance:1});else this.setState({roomstuff_private_entrance:0});}}>
+                  <p  className="Pinput" >
                       <img className={this.state.roomstuff_private_entrance ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Private entrance</p>
@@ -937,7 +948,7 @@ class ListingCreate extends Component {
                   <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_smartpincode ==0 )this.setState({roomstuff_smartpincode:1});else this.setState({roomstuff_smartpincode:0,roomstuff_smartpincode_password:'',roomstuff_smartpincode_confirmpassword :''});}}>
                       <img className={this.state.roomstuff_smartpincode ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
-                  <p className="divinput">Smart pin code</p>
+                  <p className="divinput"  onClick={(e) => {if(this.state.roomstuff_smartpincode ==0 )this.setState({roomstuff_smartpincode:1});else this.setState({roomstuff_smartpincode:0,roomstuff_smartpincode_password:'',roomstuff_smartpincode_confirmpassword :''});}}>Smart pin code</p>
                   <div className="control-group">
                   <label className="control-label">Insert Your Password</label>
                   <input type="password" className="controls" onChange={(e) => this.setState({roomstuff_smartpincode_password: e.target.value})} value={this.state.roomstuff_smartpincode == 1 ? this.state.roomstuff_smartpincode_password : ''} />
@@ -951,8 +962,8 @@ class ListingCreate extends Component {
                  </div>
                 </div>
 
-                <div className="detector">
-                  <p  className="Pinput"  onClick={(e) => {if(this.state.roomstuff_smoke_detector ==0 )this.setState({roomstuff_smoke_detector:1});else this.setState({roomstuff_smoke_detector:0});}}>
+                <div className="detector"  onClick={(e) => {if(this.state.roomstuff_smoke_detector ==0 )this.setState({roomstuff_smoke_detector:1});else this.setState({roomstuff_smoke_detector:0});}}>
+                  <p  className="Pinput">
                       <img className={this.state.roomstuff_smoke_detector ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
                   </p>
                   <p className="divinput">Smoke detector</p>
@@ -964,25 +975,125 @@ class ListingCreate extends Component {
                 <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
               </div>
               </div>
-             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone">
-             <img className="becomehost__info" src="../images/becomehost-step1_6.jpg" alt=""/>
+              <div className="col-md-4 col-lg-4  col-sm-4 paddingNone rightbox">
+                  <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <p>Provide the essentials helps guests feel at home in your place.</p>
+                    <p>Some hosts provide breakfast,or just coffee and tea. None of there things arerequired,but sometimes they add a nice touch to help guests feel welcome.</p>
+                  </div>
+               </div>
+          </div>
+          </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step1_9 &&
+          <div className="becomehost-4 container">
+          <div className="row Step1_8">
+              <div className="col-md-7 col-lg-7 col-sm-7 col-md-offset-1 col-lg-offset-1 col-sm-offset-1">
+               <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <p>Step 1: Start with the basics</p>
+              </div>
+
+              <h1>What spaces can guests use?</h1>
+
+             <div className="Stepbox">
+
+                  <div  onClick={(e) => {if(this.state.roomstuff_Pool ==0 )this.setState({roomstuff_Pool:1});else this.setState({roomstuff_Pool:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.roomstuff_Pool ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
+                  </p>
+                  <p className="divinput">Pool</p> 
+                </div>
+
+                <div onClick={(e) => {if(this.state.roomstuff_kitchen ==0 )this.setState({roomstuff_kitchen:1});else this.setState({roomstuff_kitchen:0});}}>
+                  <p  className="Pinput" >
+                      <img className={this.state.roomstuff_kitchen ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
+                  </p>
+                  <p className="divinput">kitchen</p> 
+                </div>
+
+                  <div  onClick={(e) => {if(this.state.roomstuff_washer ==0 )this.setState({roomstuff_washer:1});else this.setState({roomstuff_washer:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.roomstuff_washer ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
+                  </p>
+                  <p className="divinput">Laundry - washer</p>
+                </div>
+
+
+                  <div onClick={(e) => {if(this.state.roomstuff_dryer ==0 )this.setState({roomstuff_dryer:1});else this.setState({roomstuff_dryer:0});}}>
+                  <p  className="Pinput" >
+                      <img className={this.state.roomstuff_dryer ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
+                  </p>
+                  <p className="divinput">Laundry - dryer</p>
+                </div>
+
+
+                  <div onClick={(e) => {if(this.state.roomstuff_Park ==0 )this.setState({roomstuff_Park:1});else this.setState({roomstuff_Park:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.roomstuff_Park ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
+                  </p>
+                  <p className="divinput">Park</p>
+                </div>
+
+                  <div onClick={(e) => {if(this.state.roomstuff_Lift ==0 )this.setState({roomstuff_Lift:1});else this.setState({roomstuff_Lift:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.roomstuff_Lift ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
+                  </p>
+                  <p className="divinput">Lift</p>
+                  
+                </div>
+
+                  <div onClick={(e) => {if(this.state.roomstuff_HotTub ==0 )this.setState({roomstuff_HotTub:1});else this.setState({roomstuff_HotTub:0});}}>
+                  <p  className="Pinput" >
+                      <img className={this.state.roomstuff_HotTub ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
+                  </p>
+                  <p className="divinput">Hot tub</p>
+                </div>
+
+                  <div onClick={(e) => {if(this.state.roomstuff_Gym ==0 )this.setState({roomstuff_Gym:1});else this.setState({roomstuff_Gym:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.roomstuff_Gym ==1 ? 'show' : 'hide'} src="../images/dashang.png" alt=""/>
+                  </p>
+                  <p className="divinput">Gym</p>
+                  </div>
+
+            </div>
+
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+              </div>
+
+              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <p>Spaces should be on the property. Don’t include laundromats or nearby places that aren’t part of your property. If it’s OK with your neighbours,you can include a pool,hot tub,or other shared space.</p>
+                </div>
              </div>
           </div>
           </div>
         }
           
          {
-          this.state.step === this.STEP.Step1_7 &&
+          this.state.step === this.STEP.Step1_10 &&
 
           <div className="becomehost-5 container">
-          <div className="row">
-          <div className="col-md-6 col-lg-6 col-sm-6 Step1_7_1">
+          <div className="row Step1_10">
+          <div className="col-md-6 col-lg-7 col-sm-6">
           <h1>Great process {this.state.user.user}!</h1>
           <h3>Now let's get some details about your place so you can publish your listings </h3>
           <div className="change">
               <div>
                 <p>Bedrooms,beds,amenities,and more</p>
-                <p>change</p>
+                <p className="textpink" onClick={(e) => this.setState({step:1.1})}>change</p>
               </div>
               <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
           </div>
@@ -990,14 +1101,14 @@ class ListingCreate extends Component {
           <div className="Step2box">
             <p className="Step2">Step 2</p>
             <h2>Set the sence</h2>
-            <p className="Set">photos, short description, title</p>
+            <p className="Set">photos,short description,title</p>
             <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.nextStep}>Continue</button>
           </div>
 
           <div className="Step2box">
             <p className="Step3">Step 3</p>
             <h2>Get ready for guests </h2>
-            <p className="Set1">Booking settings, calendar, price</p>
+            <p className="Set1">Booking settings,calendar,price</p>
           </div>
 
           <div className="Stepbox1">
@@ -1015,12 +1126,175 @@ class ListingCreate extends Component {
 
           </div>
 
+          <div className="Rapair" onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}>
+              <img  src="../images/footer_icon-19.png" alt=""/>
+              <span className="left">We recommend: </span>
+              <span className="right">Home Rapair</span>
+          </div>      
+
+          <div  className={this.state.Rapair != 0 ? 'show Shop' : 'hide Shop'}>
+              <div className={this.state.Rapair == 1 ? 'show Shoplist' : 'hide Shoplist'}>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop1</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop1</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop1</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop1</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+              </div>
+              <div className={this.state.Rapair == 2 ? 'show Shoplist' : 'hide Shoplist'}>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop2</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop2</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop2</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop2</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+              </div>
+              <div  className={this.state.Rapair == 3 ? 'show Shoplist' : 'hide Shoplist'}>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop3</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop3</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop3</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+                  <div className="Shopitem">
+                      <div>
+                          <span className="left">Shop3</span>
+                          <span className="right">Home - Fix</span>  
+                      </div>
+                      <ul>
+                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>Contact No:</span>  +65 84736394</li>
+                          <li><span>Email Address : </span> HFC@homefix.com</li>
+                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                      </ul>
+                  </div>
+              </div>
+
+              <ul className="lilist">
+                  <li className={this.state.Rapair == 1 ? 'bjpink' : ''}  onClick={(e) => this.setState({Rapair:1})}></li>
+                  <li className={this.state.Rapair == 2 ? 'bjpink' : ''}  onClick={(e) => this.setState({Rapair:2})}></li>
+                  <li className={this.state.Rapair == 3 ? 'bjpink' : ''}  onClick={(e) => this.setState({Rapair:3})}></li>
+              </ul>
+          </div>
 
 
           </div>
-          <div className="col-md-6 col-lg-6 col-sm-6 paddingNone">
-          <img className="becomehost-5__bg" src="../images/becomehost-step1_1.png" alt=""/>
-          
+          <div className="col-md-6 col-lg-4 col-md-push-1 col-sm-6 paddingNone">
+              <img className="stepbg" src="../images/1.png" alt=""/>
           </div>
           </div>
           </div>
@@ -1082,7 +1356,7 @@ class ListingCreate extends Component {
               </div>
 
               <h2>Edit your description</h2>
-              <textarea onChange={(e) => this.setState({roomdescription_description: e.target.value})} placeholder="Describe the decor, light, what’s nearby,etc..."></textarea>
+              <textarea onChange={(e) => this.setState({roomdescription_description: e.target.value})} placeholder="Describe the decor,light,what’s nearby,etc..."></textarea>
 
               <h4>My place is great for</h4>
 

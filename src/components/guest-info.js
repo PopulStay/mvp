@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import guestService from '../services/guest-service';
 import ppsService from '../services/pps-service';
 import GuestOrderRow from './guest-orderrow';
-
-
+import web3Service from '../services/web3-service';
 class GuestInfo extends React.Component {
   constructor() {
     super();
+    this.CONST = {
+      weiToEther: 1000000000000000000
+    }
 
     this.state = {
       id:"",
@@ -16,6 +18,7 @@ class GuestInfo extends React.Component {
       phone:"",
       email:"",
       ppsBalance:"",
+      ethBalance:"",
       orderlist:[]
     };
   }
@@ -30,8 +33,11 @@ class GuestInfo extends React.Component {
      });
 
     ppsService.getBalance(window.address).then((data)=>{
-
       this.setState({ ppsBalance:data});
+     });
+
+    web3Service.getETHBalance(window.address).then((data)=>{
+      this.setState({ ethBalance:data});
      });
 
 
@@ -70,8 +76,11 @@ class GuestInfo extends React.Component {
       <br/>
 
       <div className="row">
-         <div className="col-lg-6">
+         <div className="col-lg-3">
           PPS balance:{this.state.ppsBalance}
+        </div>
+         <div className="col-lg-3">
+          ETH balance:{this.state.ethBalance/this.CONST.weiToEther}
         </div>
       </div>
    

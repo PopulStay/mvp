@@ -15,6 +15,10 @@ class Web3Service {
     Web3Service.instance = this;  
   }
 
+  getETHBalance(address){
+    return window.web3.eth.getBalance(address);
+  }
+
 
   loadWallet(){
 
@@ -32,6 +36,7 @@ class Web3Service {
           window.address = obj.address;
           window.privateKey = obj.privateKey;
           window.addressshow = obj.address.substring(0,10)+"...";
+          window.gas = 3000000;
       }
     }
     
