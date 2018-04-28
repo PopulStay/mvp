@@ -546,7 +546,7 @@ h1,
 .Step2_3 .box,
 .Step2_3 .box>div,
 .Step1_10 .Rapair,
-.Step2_2.modal-body{
+.Step2_2 .modal-body{
   overflow: hidden; 
 }
 .Step1_8 .Stepbox>div{
@@ -884,11 +884,8 @@ h1,
   box-shadow:none;
   border:none;
 }
-.Step2_2 .modal-body img{
-  position: absolute;
-  top:50%;
-  left: 50%;
-  transform: translate(-50%,-50%) !important;
+.Step2_2 .modal-body{
+  line-height: 600px;
 }
 .Step2_2 .modal-footer{
   border:none;

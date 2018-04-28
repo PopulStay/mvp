@@ -38,6 +38,7 @@ class ListingCreate extends Component {
             SETUP_FOR_HOST_BELONGINGS:1
 
         }
+        
 
         this.state = {
             step: 0,
@@ -112,6 +113,9 @@ class ListingCreate extends Component {
             scene:1,
             modalset:0,
             modalimg:'',
+            rotate:0,
+            range:1,
+
         }
 
         this.nextStep = this.nextStep.bind(this);
@@ -120,6 +124,10 @@ class ListingCreate extends Component {
         this.fileChangedHandler = this.fileChangedHandler.bind(this);
         this.deletePictures = this.deletePictures.bind(this);
         this.submit = this.submit.bind(this);
+
+        this.CSS={  
+            style1:{transform:"rotate(0deg) scale(1)"}  
+        } 
     }
 
     submit(){
@@ -457,9 +465,27 @@ class ListingCreate extends Component {
       }
     }
 
+    RotatePictures(e){
+      if(this.state.rotate == 360){
+        this.state.rotate = 0;
+      }
+      this.state.rotate = this.state.rotate + 90;
+
+      this.setState({CSS: this.CSS.style1.transform = "rotate("+this.state.rotate+"deg) scale("+this.state.range+")"})
+
+    }
+
+    rangePictures(e){
+      this.setState({state: this.state.range = e});
+        this.setState({CSS: this.CSS.style1.transform = "rotate("+this.state.rotate+"deg) scale("+this.state.range+")"})
+    }
+
+    
+
 
 
   render() {
+
     const Categoryarr = [];
     this.state.Categorys.forEach((Category,index)=>{
       Categoryarr.push(<li><a onClick={this.Categorys.bind(this,Category)} >{Category}</a></li>)
@@ -493,7 +519,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-7 col-sm-12">
@@ -1454,7 +1480,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step2_2 &&
+          this.state.step === this.STEP.Step1_1 &&
           <div className="becomehost-2 container">
           <div className="row Step2_2">
             <div className="col-md-12 col-lg-12 col-sm-12">
@@ -1494,31 +1520,31 @@ class ListingCreate extends Component {
                  </div>
               </div>
 
-              <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div className="modal fade show" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                   <div className="modal-content">
                       <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <div className="modal-body">
-                      <img src={this.state.modalimg} />
+                      <img  style={this.CSS.style1} src='./images/detail-carousel.jpg' />
                     </div>
                     <div className="modal-footer">
                       <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
                           <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />Crop</li>
                           <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />Adjust Brightness</li>
-                          <li><img src="../images/Rotate.png" />Rotate</li>
+                          <li onClick={(e) => this.RotatePictures(e)}><img src="../images/Rotate.png" />Rotate</li>
                       </ul>
                       <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
                           <li  className={this.state.modalset == 1 ? "show" : "hide"}>
                               <p>Zoom</p>
-                              <input type="range" name="points" min="1" max="100" />
+                              <input type="range" onChange={(e)=>this.rangePictures(e.target.value)} name="points"  step="0.02" min="1" max="3" value={this.state.range} />
                           </li>
                           <li  className={this.state.modalset == 2 ? "show" : "hide"}>
                               <p>Brightness</p>
-                              <input type="range" name="points" min="1" max="100" />
+                              <input type="range" name="points" step="0.02" min="1" max="3" />
                           </li>
                           <li  className={this.state.modalset == 2 ? "show" : "hide"}>
                               <p>Contrast Ratio</p>
-                              <input type="range" name="points" min="1" max="100" />
+                              <input type="range" name="points" step="0.02" min="1" max="3" />
                           </li>
                       </ul>
                       <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">Cancel</button>
