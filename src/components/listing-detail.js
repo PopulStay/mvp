@@ -11,7 +11,6 @@ import web3Service from '../services/web3-service';
 import Modal from 'react-modal';
 import EthereumQRPlugin from 'ethereum-qr-code';
 const qr = new EthereumQRPlugin();
-const alertify = require('../../node_modules/alertify/src/alertify.js');
 const customStyles = {
   content : {
     top                   : '20%',
@@ -196,7 +195,6 @@ class ListingsDetail extends Component {
     })
     .catch((error) => {
       console.log(error)
-      alertify.log("There was a problem booking this listing.\nSee the console for more details.")
       this.setState({step: this.STEP.VIEW})
     })
   }

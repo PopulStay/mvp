@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import hostService from '../services/host-service';
-const alertify = require('../../node_modules/alertify/src/alertify.js');
 
 const customStyles = {
   content : {
@@ -45,6 +44,7 @@ class HostRegister extends React.Component {
     });
   }
    
+   
   register(){
    console.log(this.state);
     var register={};
@@ -57,7 +57,6 @@ class HostRegister extends React.Component {
 
     hostService.hostRegister(register).then((data)=>{
       this.setState({ registered:true });
-      alertify.log("register successfully");
       this.closeModal();
      });
   }

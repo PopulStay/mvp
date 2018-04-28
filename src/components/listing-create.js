@@ -7,10 +7,6 @@ import hostService from '../services/host-service';
 
 
 
-
-
-const alertify = require('../../node_modules/alertify/src/alertify.js');
-
 class ListingCreate extends Component {
 
     constructor(props) {
@@ -137,7 +133,7 @@ class ListingCreate extends Component {
                   });
               })
               .catch((error) => {
-                  alertify.log(error.message);
+                 
               })
 
         }
