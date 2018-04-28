@@ -7,13 +7,29 @@ import ppsService from '../services/pps-service';
 import ipfsService from '../services/ipfs-service';
 import Carousel from 'nuka-carousel';
 import Overlay from './overlay';
-
-const alertify = require('../../node_modules/alertify/src/alertify.js')
+import web3Service from '../services/web3-service';
+import Modal from 'react-modal';
+import EthereumQRPlugin from 'ethereum-qr-code';
+const qr = new EthereumQRPlugin();
+const alertify = require('../../node_modules/alertify/src/alertify.js');
+const customStyles = {
+  content : {
+    top                   : '20%',
+    left                  : '35%',
+    right                 : '35%',
+    bottom                : '20%'
+  }
+};
 
 class ListingsDetail extends Component {
 
   constructor(props) {
     super(props)
+
+    this.CONST = {
+      weiToEther: 1000000000000000000,
+      weiToGwei:1000000000
+    }
 
     this.STEP = {
       VIEW: 1,
@@ -49,11 +65,31 @@ class ListingsDetail extends Component {
           {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking AirBnB in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended AirBnB to get an affordable yet convenient locati…Read more'},
           {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
           {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with Airbnb! Will definitely book this place again.'}
-      ]
+      ],
+      ethBalance:0,
+      modalIsOpen: false,
+      qrurl:""
     }
     this.handleBooking = this.handleBooking.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
 
   }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  afterOpenModal() {
+    this.subtitle.style.color = '#f00';
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+
 
   loadListing() {
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
@@ -89,10 +125,12 @@ class ListingsDetail extends Component {
 
   componentWillMount() {
     if (this.props.listingId) {
-
       this.loadListing();
-
     }
+
+    web3Service.getETHBalance(window.address).then((data)=>{
+      this.setState({ ethBalance:data/this.CONST.weiToGwei});
+    });
   
   }
 
@@ -118,15 +156,33 @@ class ListingsDetail extends Component {
 
     }else
     {
-      promise =    houselistingService.setPreOrderByETH(          
-                                               this.state.lister,
-                                               this.state.ethPrice * unitsToBuy,
-                                               this.props.listingId, 
-                                               this.state.checkInDate.toDate().getTime(), 
-                                               this.state.checkOutDate.toDate().getTime(),
-                                               unitsToBuy
-                                              );
 
+      if( this.state.ethPrice * unitsToBuy > this.state.ethBalance )
+      {
+        var to =window.address;
+        qr.toDataUrl({
+            to    : window.address,
+            value : this.state.ethPrice * unitsToBuy*this.CONST.weiToGwei,
+            gas   : window.gas
+        }).then((qrCodeDataUri)=>{
+        this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
+        })
+
+         this.openModal();
+         return ;
+
+      }
+      else
+      {
+        promise =    houselistingService.setPreOrderByETH(          
+                                         this.state.lister,
+                                         this.state.ethPrice * unitsToBuy,
+                                         this.props.listingId, 
+                                         this.state.checkInDate.toDate().getTime(), 
+                                         this.state.checkOutDate.toDate().getTime(),
+                                         unitsToBuy
+                                        );
+      }
     }
 
  
@@ -202,7 +258,17 @@ class ListingsDetail extends Component {
     })
     return (  
 
-<div>
+<div> 
+      <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+        contentLabel="Wallet Message">
+          <h3 ref={subtitle => this.subtitle = subtitle}>Your balance is not enough,SCAN QR to pay</h3>
+          <br/>
+            <div className="listing-card">
+            <img className="photo" src={this.state.qrurl}  />
+            </div>
+          <br/>
+        </Modal>
+
        {this.state.step===this.STEP.METAMASK &&
           <Overlay imageUrl="/images/spinner-animation.svg">
             Confirm transaction<br />

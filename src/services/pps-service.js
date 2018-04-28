@@ -27,14 +27,13 @@ class PPSService {
 
 
   getBalance(address) {
-
        var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
        return contract.methods.balanceOf(address).call();
   }
 
 
-    setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
 
+  setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
       
       return new Promise((resolve, reject) => {
        var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
