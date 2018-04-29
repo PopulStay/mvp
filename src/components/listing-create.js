@@ -29,9 +29,9 @@ class ListingCreate extends Component {
             Step2_4: 2.4,
             Step2_5: 2.5,
             Step2_6: 2.6,
-            Step2_7: 2.7,
             PROCESSING: 6,
-            SUCCESS: 7
+            SUCCESS: 7,
+
         }
 
         this.ROOM_DESCRIPTION = {
@@ -39,6 +39,7 @@ class ListingCreate extends Component {
             SETUP_FOR_HOST_BELONGINGS:1
 
         }
+        
 
         this.state = {
             step: 0,
@@ -50,6 +51,7 @@ class ListingCreate extends Component {
             roomdescription_guests_have:"Please choose",
             roomdescription_forguestorhost:2,
             roomdescription_title:"",
+            roomdescription_phone:"",
             roomdescription_description:"",
             roombasics_guestsnumber:1,
             roombasics_guestbedrooms:0.5,
@@ -95,6 +97,7 @@ class ListingCreate extends Component {
             roomdescription_Otherthings:"",
             roomdescription_neighbourhood:"",
             roomdescription_around:"",
+            roomstuff_AreaCode:86,
             selectedPictures:[],
             price_perday:0,
             ETHprice_perday:0,
@@ -106,7 +109,14 @@ class ListingCreate extends Component {
             guestshaves:['Entire place'],
             Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
             PasswordActibve:1,
+            AreaCodes:[86,81,82,83],
             Rapair:1,
+            scene:1,
+            modalset:0,
+            modalimg:'',
+            rotate:0,
+            range:1,
+
         }
 
         this.nextStep = this.nextStep.bind(this);
@@ -115,11 +125,13 @@ class ListingCreate extends Component {
         this.fileChangedHandler = this.fileChangedHandler.bind(this);
         this.deletePictures = this.deletePictures.bind(this);
         this.submit = this.submit.bind(this);
+
+        this.CSS={  
+            style1:{transform:"rotate(0deg) scale(1)"}  
+        } 
     }
 
     submit(){
-        if(this.state.roomdescription_title == '' && this.state.roomdescription_description == ''){
-        }else{
            houselistingService.submitListing(this.state)
               .then((tx) => {
                   this.setState({
@@ -135,9 +147,6 @@ class ListingCreate extends Component {
               .catch((error) => {
                  
               })
-
-        }
-
     }
 
     fileChangedHandler(event){
@@ -164,6 +173,12 @@ class ListingCreate extends Component {
             selectedPictures: this.state.selectedPictures.filter((elem, i) => index != i)
       });
 
+    }
+
+    modalPictures(index,e){
+      this.setState({
+            state:this.state.modalimg = this.state.selectedPictures[index].imagePreviewUrl
+      });
     }
 
     addCommonSpaceBeds(){
@@ -205,7 +220,7 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step1_6)
       {
-        this.setState({step:this.STEP.Step1_7});
+        this.setState({step:this.STEP.Step1_8});
         console.log(this.state);
       }
       if(this.state.step == this.STEP.Step1_7)
@@ -260,6 +275,16 @@ class ListingCreate extends Component {
         this.setState({step:this.STEP.Step2_5});
         console.log(this.state);
       }
+      if(this.state.step == this.STEP.Step2_5)
+      {
+        this.setState({step:this.STEP.Step2_6});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step2_6)
+      {
+        this.setState({step:this.STEP.SUCCESS});
+        console.log(this.state);
+      }
       
 
     }
@@ -298,7 +323,7 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step1_8)
       {
-        this.setState({step:this.STEP.Step1_7});
+        this.setState({step:this.STEP.Step1_6});
         console.log(this.state);
       }
       if(this.state.step == this.STEP.Step1_9)
@@ -334,6 +359,11 @@ class ListingCreate extends Component {
       if(this.state.step == this.STEP.Step2_5)
       {
         this.setState({step:this.STEP.Step2_4});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step2_6)
+      {
+        this.setState({step:this.STEP.Step2_5});
         console.log(this.state);
       }
 
@@ -375,6 +405,9 @@ class ListingCreate extends Component {
     }
     Countrys(Country){
       this.setState({roomstuff_Country: Country});
+    }
+    AreaCodes(AreaCode){
+      this.setState({roomstuff_AreaCode: AreaCode});
     }
 
 
@@ -428,9 +461,27 @@ class ListingCreate extends Component {
       }
     }
 
+    RotatePictures(e){
+      if(this.state.rotate == 360){
+        this.state.rotate = 0;
+      }
+      this.state.rotate = this.state.rotate + 90;
+
+      this.setState({CSS: this.CSS.style1.transform = "rotate("+this.state.rotate+"deg) scale("+this.state.range+")"})
+
+    }
+
+    rangePictures(e){
+      this.setState({state: this.state.range = e});
+        this.setState({CSS: this.CSS.style1.transform = "rotate("+this.state.rotate+"deg) scale("+this.state.range+")"})
+    }
+
+    
+
 
 
   render() {
+
     const Categoryarr = [];
     this.state.Categorys.forEach((Category,index)=>{
       Categoryarr.push(<li><a onClick={this.Categorys.bind(this,Category)} >{Category}</a></li>)
@@ -455,13 +506,16 @@ class ListingCreate extends Component {
     this.state.Countrys.forEach((Country,index)=>{
       Countryarr.push(<li><a onClick={this.Countrys.bind(this,Country)} >{Country}</a></li>)
     })
-
+    const AreaCodearr = [];
+    this.state.AreaCodes.forEach((AreaCode,index)=>{
+      AreaCodearr.push(<li><a onClick={this.AreaCodes.bind(this,AreaCode)} >{AreaCode}</a></li>)
+    })
     
 
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-7 col-sm-12">
@@ -570,6 +624,8 @@ class ListingCreate extends Component {
               </div>
               </div>
 
+              <hr className={this.state.roomdescription_type == 'Please choose' ? 'show':'hide'}/>
+
               <div className={this.state.roomdescription_type == 'Please choose' ? 'hide':'show'}>
                   <h2>What guests will have? </h2>
                   <div className="form-group">    
@@ -584,11 +640,11 @@ class ListingCreate extends Component {
 
                    <h2>Is this setup dedicated a guest space?</h2>
 
-                   <div className="radio">
-                      <label className="text-muted"><input className="bg-pink color-white" type="radio"  name="optradio" value="0" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>Yes,it's primarily set up for guests</label>
+                   <div className="radio" onClick={(e) => this.setState({roomdescription_forguestorhost: 0})}>
+                      <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 0 ?"show":"hide"}></span></p>Yes,it's primarily set up for guests</label>
                     </div>
-                    <div className="radio">
-                      <label className="text-muted"><input className="bg-pink color-white" type="radio" name="optradio" value="1" onChange={(e) => this.setState({roomdescription_forguestorhost: e.target.value})}/>No,I keep my personal belongings here</label>
+                    <div className="radio" onClick={(e) => this.setState({roomdescription_forguestorhost: 1})}>
+                      <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 1 ?"show":"hide"}></span></p>No,I keep my personal belongings here</label>
                     </div>
                     
                 </div>
@@ -900,7 +956,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_8 &&
           <div className="becomehost-4 container">
           <div className="row Step1_8">
-              <div className="col-md-7 col-lg-7 col-sm-7 col-md-offset-1 col-lg-offset-1 col-sm-offset-1">
+              <div className="col-md-7 col-lg-7 col-sm-7">
                <div className="STEPhead">
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
@@ -1059,7 +1115,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_9 &&
           <div className="becomehost-4 container">
           <div className="row Step1_8">
-              <div className="col-md-7 col-lg-7 col-sm-7 col-md-offset-1 col-lg-offset-1 col-sm-offset-1">
+              <div className="col-md-7 col-lg-7 col-sm-7 ">
                <div className="STEPhead">
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
@@ -1449,7 +1505,7 @@ class ListingCreate extends Component {
               <div className="photos">
                   {this.state.selectedPictures.map((file,index) => (
                     <div className="photosimg">
-                      <img className="img-thumbnail" src={file.imagePreviewUrl} />
+                      <img className="img-thumbnail" data-toggle="modal" data-target="#myModal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
                       <span  className="glyphicon glyphicon-trash" onClick={this.deletePictures.bind(this,index)} ></span>
                     </div>
                     ))
@@ -1458,6 +1514,42 @@ class ListingCreate extends Component {
                     <img src="../images/addphoto1.png" />
                     <input className="btn btn-default btn-lg bg-pink color-white Fileipt" type="file" onChange={(e)=>this.fileChangedHandler(e)}/>
                  </div>
+              </div>
+
+              <div className="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                      <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <div className="modal-body">
+                      <img  style={this.CSS.style1} src='./images/detail-carousel.jpg' />
+                    </div>
+                    <div className="modal-footer">
+                      <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
+                          <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />Crop</li>
+                          <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />Adjust Brightness</li>
+                          <li onClick={(e) => this.RotatePictures(e)}><img src="../images/Rotate.png" />Rotate</li>
+                      </ul>
+                      <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
+                          <li  className={this.state.modalset == 1 ? "show" : "hide"}>
+                              <p>Zoom</p>
+                              <input type="range" onChange={(e)=>this.rangePictures(e.target.value)} name="points"  step="0.02" min="1" max="3" value={this.state.range} />
+                          </li>
+                          <li  className={this.state.modalset == 2 ? "show" : "hide"}>
+                              <p>Brightness</p>
+                              <input type="range" name="points" step="0.02" min="1" max="3" />
+                          </li>
+                          <li  className={this.state.modalset == 2 ? "show" : "hide"}>
+                              <p>Contrast Ratio</p>
+                              <input type="range" name="points" step="0.02" min="1" max="3" />
+                          </li>
+                      </ul>
+                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">Cancel</button>
+                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >Complete</button>
+                      <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} type="button" >Save and Replace</button>
+                    </div>
+                  </div>
+                </div>
+              <div className="modal-backdrop fade in"></div>
               </div>
 
              
@@ -1515,10 +1607,10 @@ class ListingCreate extends Component {
                 </div>
             </div>
               
-              <h4 className={this.state.Rapair == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({Rapair:0})}>Add more (optional)</h4>
-              <p className={this.state.Rapair == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({Rapair:0})}>only 30% of hosts add more info here</p>
+              <h4 className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>Add more (optional)</h4>
+              <p className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>only 30% of hosts add more info here</p>
 
-            <div className={this.state.Rapair == 0 ? 'show' : 'hide'}>
+            <div className={this.state.scene == 0 ? 'show' : 'hide'}>
               <h4>About your place (optional)</h4>
               <textarea onChange={(e) => this.setState({roomdescription_Aboutyour: e.target.value})}>{this.state.roomdescription_Aboutyour}</textarea>
 
@@ -1578,7 +1670,7 @@ class ListingCreate extends Component {
 
               <h1>Name your place</h1>
               <div className="box">
-                <span>50</span>
+                <span className={this.state.roomdescription_title.length > 50 ? "textpink" : ""}>{50-this.state.roomdescription_title.length}</span>
                 <input placeholder="Listing title" onChange={(e) => this.setState({roomdescription_title: e.target.value})} value={this.state.roomdescription_title}  type="text" />
               </div>
 
@@ -1608,9 +1700,9 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step2_5 &&
           <div className="becomehost-2 container">
-          <div className="row Step2_4">
+          <div className="row Step2_5">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
               <div className="STEPhead">
                 <span className="bjpink"></span>
@@ -1620,15 +1712,21 @@ class ListingCreate extends Component {
               </div>
 
               <h1>Add your mobile number</h1>
-              <div className="box">
-                <span>50</span>
-                <div className="btn-group col-md-12">
-                  <button type="button" data-toggle="dropdown">{this.state.roomstuff_AreaCode}</button>
+
+
+              <div className="box col-md-10">
+                <div className="phoneimg"><img className="becomehost__info" src="./images/phoneimg.png" alt=""/></div>
+
+                <div className="btn-group col-md-12 phonecode">
+                  <span data-toggle="dropdown">+{this.state.roomstuff_AreaCode}</span>
                   <ul className="dropdown-menu" role="menu">
-                    { Countryarr } 
+                    { AreaCodearr } 
                   </ul>
                 </div>
-                <input placeholder="Listing title" onChange={(e) => this.setState({roomdescription_title: e.target.value})} value={this.state.roomdescription_title}  type="text" />
+                
+                <input onChange={(e) => this.setState({roomdescription_phone: e.target.value})} value={this.state.roomdescription_phone}  type="text" />
+
+                <img className={this.state.roomdescription_phone.length == '11' ? "show" : "hide"} src="./images/landloard_page-30.png" alt=""/>
               </div>
 
 
@@ -1685,7 +1783,7 @@ class ListingCreate extends Component {
             <p className="Step2">Step 3</p>
             <h2>Get ready for guests</h2>
             <p className="Set">Booking settings, calendar, price</p>
-            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.nextStep}>Continue</button>
+            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.submit}>Continue</button>
           </div>
 
 

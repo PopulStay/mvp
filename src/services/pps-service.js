@@ -31,8 +31,6 @@ class PPSService {
        return contract.methods.balanceOf(address).call();
   }
 
-
-
   setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
       
       return new Promise((resolve, reject) => {

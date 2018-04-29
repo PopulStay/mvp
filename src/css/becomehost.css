@@ -55,7 +55,9 @@ h1,
 .Step2_3 h2,
 .Step1_10 .Shopitem>ul li span,
 .Step1_8 .control-group label,
-.Step1_10 .change div p{
+.Step1_10 .change div p,
+.STEPBTN button,
+.Step1_10 button{
   font-family: RobotoBold; 
 }
 .cursor{
@@ -89,7 +91,9 @@ h1,
 .Step2_3 textarea,
 .Step2_3 .divinput,
 .Step2_4 .box span,
-.Step2_4 input{
+.Step2_4 input,
+.Step2_5 .dropdown-menu a,
+.Step2_5 .box input{
   font-family: RobotoThin; 
 }
 .container{
@@ -110,7 +114,7 @@ h1,
   font-size: 2rem;
 }
 .Step1_1 .form-group{
-  margin-bottom: 5%;
+  margin-bottom: 3%;
 }
 .Step1_1 .form-group1{
   padding-left: 0;
@@ -202,7 +206,8 @@ h1,
 .Step1_1 .dropdown-menu,
 .Step1_2 .dropdown-menu,
 .Step1_3 .dropdown-menu,
-.Step1_6 .dropdown-menu{
+.Step1_6 .dropdown-menu,
+.Step2_5 .dropdown-menu{
   width: 100%;
   max-height: 160px;
   overflow: auto;
@@ -212,7 +217,8 @@ h1,
 .Step1_1 .dropdown-menu a,
 .Step1_2 .dropdown-menu a,
 .Step1_3 .dropdown-menu a,
-.Step1_6 .dropdown-menu a{
+.Step1_6 .dropdown-menu a,
+.Step2_5 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 5%;
@@ -225,7 +231,8 @@ h1,
 }
 .Step1_1 .dropdown-menu a:hover,
 .Step1_2 .dropdown-menu a:hover,
-.Step1_6 .dropdown-menu a:hover{
+.Step1_6 .dropdown-menu a:hover,
+.Step2_5 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -234,7 +241,8 @@ h1,
 }
 .Step1_1 .dropdown-menu li:first-child>a,
 .Step1_2 .dropdown-menu li:first-child>a,
-.Step1_3 .dropdown-menu li:first-child>a{
+.Step1_3 .dropdown-menu li:first-child>a,
+.Step2_5 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .Step1_1 .form-group .btn-group,
@@ -291,11 +299,41 @@ h1,
   height: 40px;
 }
 .Step1_2 .radio label{
-  margin-left: 5%;
   font-size: 1.8rem;
+  width: 100%;
+  padding: 0;
+  margin:2% 0 0%; 
+}
+.Step1_2 .radio label p{
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  margin:0 5% 0 0;
+  border:1px solid #f6416c;
+  border-radius: 50%;
+  position: relative;
+  float: left;
+}
+.Step1_2 .radio label p span{
+  display: inline-block;
+  position: absolute;
+  top:49%;
+  left: 49%;
+  transform: translate(-50%,-50%);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #f6416c;
+}
+.Step1_2 h2{
+  margin-top: 0px;  
 }
 .Step1_2 .radio label input{
   left:4%;
+}
+.Step1_2 hr{
+  margin-top: 40%;
+  opacity: 0;
 }
 .rightbox>div,
 .Step2_1 .rightbox,
@@ -383,7 +421,8 @@ h1,
 } 
 .Step1_4 .STEPBTN,
 .Step1_5 .STEPBTN,
-.Step2_4 .STEPBTN{
+.Step2_4 .STEPBTN,
+.Step2_5 .STEPBTN{
   margin-top: 50%;
 }
 .Step1_5 .step5box{
@@ -425,7 +464,8 @@ h1,
   min-height: 300px;
 }
 .Step1_6 .dropdown-menu a,
-.Step1_6 input{
+.Step1_6 input,
+.Step2_5 .dropdown-menu a{
   padding:2% 3%;
   width: 100%;
 }
@@ -433,6 +473,9 @@ h1,
 .Step1_7 .STEPBTN,
 .Step2_3 .STEPBTN{
   margin-top: 10%;
+}
+.Step1_6 .Stepbox{
+  padding: 5% 0 0;
 }
 .Step1_6 .Stepbox>div{
   margin-bottom: 2%;
@@ -502,7 +545,8 @@ h1,
 .Step1_6 .Stepbox,
 .Step2_3 .box,
 .Step2_3 .box>div,
-.Step1_10 .Rapair{
+.Step1_10 .Rapair,
+.Step2_2 .modal-body{
   overflow: hidden; 
 }
 .Step1_8 .Stepbox>div{
@@ -687,7 +731,7 @@ h1,
 .Step1_10 .Shopitem>div{
   background: #151b4e;
   color: #fff;
-  padding:2% 3% 2% 5%;
+  padding:2% 3% 2% 3%;
   overflow: hidden;
   margin:-1px 0 0 -1px;
 }
@@ -817,6 +861,109 @@ h1,
   border-radius: 8px;
   float: left;
 }
+.Step2_2 .modal-backdrop.in{
+  background: #333;
+  opacity: 1;
+}
+.Step2_2 button.close{
+  color: #fff;
+  background: none;
+  float: right;
+  position: absolute;
+  right: -60px;
+  font-size: 5rem;
+  outline:none;
+  opacity: 1;
+}
+.Step2_2 button.close:hover{
+  color: #f6416c;
+}
+.Step2_2 .modal-content{
+  height: 700px;
+  background: none;
+  box-shadow:none;
+  border:none;
+}
+.Step2_2 .modal-body{
+  line-height: 600px;
+}
+.Step2_2 .modal-footer{
+  border:none;
+  height: 100px;
+  padding: 0;
+}
+.Step2_2 .modal-footer button{
+  font-size: 1.6rem;
+  width: 120px;
+}
+.Step2_2 .modal-footer button.Replace{
+  width: 160px;
+  background: #f6416c;
+  color: #fff;
+  border-radius: 0;
+}
+.Step2_2 .modal-footer>.Set,
+.Step2_2 .modal-footer .Brightness{
+  width: 100%;
+}
+.Step2_2 .modal-footer .Set li:first-child{
+  width: 19%;
+}
+.modalshow{
+  display: inline-block;
+}
+.Step2_2 .modal-footer .Set li{
+  cursor: pointer;
+  width: 30%;
+  display: inline-block;
+  color: #fff;
+  text-align: left;
+  font-size: 1.6rem;
+}
+.Step2_2 .modal-footer .Set li img{
+  width: 25px;
+  margin-right: 6%;
+}
+.Step2_2 .modal-footer .Brightness p{
+  float: left;
+  color: #fff;
+  font-size: 1.8rem;
+  margin-right: 5%;
+}
+.Step2_2 .modal-footer .Brightness input{
+  width: 30%;
+  margin: 0.6% 0;
+  cursor: pointer;
+}
+.Step2_2 .modal-footer .Cancel{
+  border:1px solid #f6416c;
+  color: #f6416c;
+  border-radius: 0;
+}
+.Step2_2 .modal-footer .Complete{
+  background: #f6416c;
+  color: #fff;
+  border-radius: 0;
+}
+.Step2_2 .Brightness>li{
+  overflow: hidden;
+}
+.Step2_2 .Brightness>li p{
+  width: 150px;
+  text-align: left;
+}
+.Step2_2 .Brightness>li:first-child p{
+  width: 80px;
+}
+.Step2_2 .modal-dialog{
+  top:52%;
+  left: 50%;
+  transform: translate(-50%,-50%) !important;
+  margin: 0;
+  z-index:9999;
+  width: 85%;
+  max-width: 1000px !important;
+}
 .Step2_2 .photos .photosimg>img{
   padding:0;
   position: absolute;
@@ -864,7 +1011,7 @@ h1,
   margin: 2% 0 5%;
 }
 .Step2_4 input{
-  padding: 0 5%;
+  padding: 0 11% 0 4%;
 }
 .Step2_4 .box{
   width: 70%;
@@ -884,8 +1031,69 @@ h1,
   right: 4%;
   top: 15%;
 }
-.Step2_4 h1{
+.Step2_4 h1,
+.Step2_5 h1{
   margin: 3% 0 5%;
+}
+.Step2_5 .box{
+  border:1px solid #f6416c;
+  height: 45px;
+  border-left: none;
+  padding: 0;
+}
+.Step2_5 .box .phoneimg{
+ background: #f6416c;
+ border:1px solid #f6416c;
+ width: 15%;
+ height: 100%;
+ float: left;
+ position: relative;
+}
+.Step2_5 .box .phoneimg img{
+  width: 20%;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Step2_5 .box .phonecode{
+  float: left;
+  width: 25%;
+  height:100%;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+}
+.Step2_5 .box .phonecode span{
+  font-size: 2rem;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-right:1px solid #f6416c;
+  padding-right: 25%; 
+}
+.Step2_5 .box input{
+  width: 55%;
+  height: 100%;
+  font-size: 1.8rem;
+  border:none;
+  outline:none;
+}
+.Step2_5 .box>img{
+  width: 30px;
+  position: absolute;
+  top:50%;
+  right: 8%;
+  transform: translate(0%,-50%);
+}
+.Step2_5 .dropdown-menu a{
+  text-align: center;
+  padding: 5% 0;
+}
+.Step2_5 .dropdown-menu{
+  transform: translate3d(0px, 45px, 0px) !important;
+  width: 80%;
 }
 .img-thumbnail{
   margin-bottom: 0 !important;
