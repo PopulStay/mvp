@@ -30,7 +30,8 @@ class ListingCreate extends Component {
             Step2_5: 2.5,
             Step2_6: 2.6,
             PROCESSING: 6,
-            SUCCESS: 7
+            SUCCESS: 7,
+
         }
 
         this.ROOM_DESCRIPTION = {
@@ -131,8 +132,6 @@ class ListingCreate extends Component {
     }
 
     submit(){
-        if(this.state.roomdescription_title == '' && this.state.roomdescription_description == ''){
-        }else{
            houselistingService.submitListing(this.state)
               .then((tx) => {
                   this.setState({
@@ -148,9 +147,6 @@ class ListingCreate extends Component {
               .catch((error) => {
                  
               })
-
-        }
-
     }
 
     fileChangedHandler(event){
@@ -286,7 +282,7 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step2_6)
       {
-        this.setState({step:this.STEP.Step3});
+        this.setState({step:this.STEP.SUCCESS});
         console.log(this.state);
       }
       
@@ -519,7 +515,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-7 col-sm-12">
@@ -1480,7 +1476,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step2_2 &&
           <div className="becomehost-2 container">
           <div className="row Step2_2">
             <div className="col-md-12 col-lg-12 col-sm-12">
@@ -1520,7 +1516,7 @@ class ListingCreate extends Component {
                  </div>
               </div>
 
-              <div className="modal fade show" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                   <div className="modal-content">
                       <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -1787,7 +1783,7 @@ class ListingCreate extends Component {
             <p className="Step2">Step 3</p>
             <h2>Get ready for guests</h2>
             <p className="Set">Booking settings, calendar, price</p>
-            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.nextStep}>Continue</button>
+            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.submit}>Continue</button>
           </div>
 
 
