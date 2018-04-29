@@ -220,7 +220,7 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step1_6)
       {
-        this.setState({step:this.STEP.Step1_7});
+        this.setState({step:this.STEP.Step1_8});
         console.log(this.state);
       }
       if(this.state.step == this.STEP.Step1_7)
@@ -323,7 +323,7 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step1_8)
       {
-        this.setState({step:this.STEP.Step1_7});
+        this.setState({step:this.STEP.Step1_6});
         console.log(this.state);
       }
       if(this.state.step == this.STEP.Step1_9)
@@ -1516,7 +1516,7 @@ class ListingCreate extends Component {
                  </div>
               </div>
 
-              <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div className="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                   <div className="modal-content">
                       <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
