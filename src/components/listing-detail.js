@@ -158,18 +158,29 @@ class ListingsDetail extends Component {
 
       if( this.state.ethPrice * unitsToBuy > this.state.ethBalance )
       {
-        var to =window.address;
+        var to    = window.address;
+        var value = this.state.ethPrice * unitsToBuy*this.CONST.weiToGwei;
         qr.toDataUrl({
             to    : window.address,
-            value : this.state.ethPrice * unitsToBuy*this.CONST.weiToGwei,
+            value : value,
             gas   : window.gas
         }).then((qrCodeDataUri)=>{
         this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
         })
 
-         this.openModal();
+        this.openModal();
+        web3Service.getBalanceForCharge(to,value).then((balance) =>{
+        this.closeModal();
+        promise =    houselistingService.setPreOrderByETH(          
+                                         this.state.lister,
+                                         this.state.ethPrice * unitsToBuy,
+                                         this.props.listingId, 
+                                         this.state.checkInDate.toDate().getTime(), 
+                                         this.state.checkOutDate.toDate().getTime(),
+                                         unitsToBuy
+                                        );
+         });
          return ;
-
       }
       else
       {

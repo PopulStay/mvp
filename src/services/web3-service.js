@@ -19,6 +19,22 @@ class Web3Service {
     return window.web3.eth.getBalance(address);
   }
 
+getBalanceForCharge(address, expectbalance, pollIntervalMilliseconds=1000) {
+    return new Promise((resolve, reject) => {
+      let txCheckTimer = setInterval(txCheckTimerCallback, pollIntervalMilliseconds);
+      function txCheckTimerCallback() {
+           window.web3.eth.getBalance(address).then((balance)=>{
+            console.log(balance);
+            if (balance >= expectbalance ) {
+              clearInterval(txCheckTimer);
+              setTimeout(()=>resolve(balance), 2000);
+            }
+           });
+
+            
+      }
+    });
+  }
 
   loadWallet(){
 
