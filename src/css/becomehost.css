@@ -530,6 +530,15 @@ h1,
   text-align: center;
   line-height: 20px;
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.Pinput img{
+  position: absolute;
+  width: 130%;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .Step1_8 .divinput,
 .Step2_3 .divinput,
@@ -1168,7 +1177,7 @@ h1,
 }
 .Step3_2 div.add{
   position: relative;
-  margin: 2% 0;
+  margin: 3% 0 5%;
 }
 .Step3_2 div.add input{
   width: 100%;
@@ -1189,10 +1198,24 @@ h1,
   font-size: 1.8rem;
   color: #fff;
   background: #f6416c;
+  cursor: pointer;
 }
 .Step3_2 h4{
   font-size: 1.6rem;
   margin:1% 0;
+}
+.Step3_2 h3{
+  width: 98%;
+}
+.Step3_2 h3 span{
+  font-size: 2.4rem;
+  font-weight: bold;
+  float: right;
+  opacity: 0.6;
+}
+.Step3_2 h3 span:hover{
+  opacity: 1;
+  cursor: pointer;
 }
 .Step-8 h1{
   text-align: center;
