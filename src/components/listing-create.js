@@ -577,7 +577,7 @@ class ListingCreate extends Component {
               </div>
 
 
-               <div className="col-md-12 col-lg-4 col-md-push-2 col-sm-12">
+               <div className="col-md-12 col-lg-4 col-md-push-1 col-sm-12">
                   <img className="stepbg" src="../images/becomehost-step1_1.png" alt=""/>
                 </div>
             
@@ -657,7 +657,7 @@ class ListingCreate extends Component {
              
              </div>
              
-             <div className="col-md-4 col-lg-4  col-sm-4 paddingNone rightbox">
+             <div className="col-md-12 col-lg-4 col-md-push-1  col-sm-12 paddingNone rightbox">
                 <div>
                   <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                   <h6>Entire place</h6>
@@ -677,7 +677,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_3 &&
           <div className="becomehost-3 container">
           <div className="row Step1_3">
-          <div className="col-md-7 col-lg-7 col-sm-7">
+          <div className="col-md-12 col-lg-7 col-sm-12">
           <div className="STEPhead">
               <span className="bjpink"></span>
               <span className="bjpink"></span>
@@ -744,7 +744,7 @@ class ListingCreate extends Component {
                   </div>
                   </div>
           </div>
-          <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+          <div className="col-md-12 col-lg-4 col-md-push-1 col-sm-12 paddingNone rightbox">
               <div>
                 <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                 <p>The number and type of beds you have determines how many guests can stay comfortably.</p>
@@ -759,7 +759,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_4 &&
           <div className="becomehost-2 container">
           <div className="row Step1_4">
-            <div className="col-md-8 col-lg-7 col-sm-8">
+            <div className="col-md-12 col-lg-7 col-sm-12">
             <div className="STEPhead">
               <span className="bjpink"></span>
               <span className="bjpink"></span>

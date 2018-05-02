@@ -18,6 +18,12 @@ img{width: 100%;}
 hr{
   border-top: 2px solid #c5c5c5;
 }
+.becomehost-1.container{
+  padding: 0 12%;
+}
+.Step1_2{
+  width: 95%;
+}
 .Left{
   float: left;
 }
@@ -135,7 +141,7 @@ h1,
   margin-left: 5%;
 }
 .Step1_1 .stepbg{
-  width: 130%;
+  width: 150%;
   margin: 30% 0 0;
 }
 .Step1_1 .stepfoot{

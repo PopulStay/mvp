@@ -4,6 +4,9 @@ import guestService from '../services/guest-service';
 import ppsService from '../services/pps-service';
 import GuestOrderRow from './guest-orderrow';
 import web3Service from '../services/web3-service';
+import WalletClear from './walletClear';
+import WalletManage from './walletManage';
+import WalletGas from './walletGas';
 class GuestInfo extends React.Component {
   constructor() {
     super();
@@ -51,46 +54,44 @@ class GuestInfo extends React.Component {
   render() {
     return (
 
-      <div>
+      <div className="info">
 
-
-      <br/>
-      <div className="row">
-       <div className="col-lg-6">
-          username:{this.state.user}
-       </div>
-       <div className="col-lg-6">
-        account:{this.state.account}
-       </div>
+      <div className="userBox row">
+          <h1 className="col-sm-12 col-md-12 col-lg-12">Hello!{this.state.user}</h1>
+          <div className="col-sm-2 col-md-2 col-lg-2">
+            <img src="../images/uesrimg.png" />
+          </div>
+          <div className="col-sm-6 col-md-6 col-lg-6 userlist">
+            <div className="col-sm-6 col-md-6 col-lg-6">
+              <span>username:</span>{this.state.user}
+            </div>
+            <div className="col-sm-6 col-md-6 col-lg-6">
+               <span>phone:</span>{this.state.phone}
+            </div>
+            <div className="col-sm-6 col-md-6 col-lg-6">
+               <span>email:</span>{this.state.email}
+            </div>
+            <div className="col-sm-6 col-md-6 col-lg-6">
+               <span>PPS balance:</span>{this.state.ppsBalance}
+            </div>
+            <div className="col-sm-12 col-md-12 col-lg-12">
+               <span>ETH balance:</span>{this.state.ethBalance/this.CONST.weiToEther}
+            </div>
+          </div>
+          <div className="col-sm-3 col-md-3 col-lg-3 userbtn" >
+              <WalletManage/>
+              <WalletClear/>
+              <WalletGas/>
+          </div>
       </div>
 
-      <br/>
-       <div className="row">
-       <div className="col-lg-6">
-          phone:{this.state.phone}
-       </div>
-       <div className="col-lg-6">
-        email:{this.state.email}
-       </div>
-      </div>
-      <br/>
 
-      <div className="row">
-         <div className="col-lg-3">
-          PPS balance:{this.state.ppsBalance}
-        </div>
-         <div className="col-lg-3">
-          ETH balance:{this.state.ethBalance/this.CONST.weiToEther}
-        </div>
-      </div>
-   
-      <br/><br/><br/>
+
 
 
       <h1>Guest Managment Panel</h1>
-      <hr/>
       
-    <table className="table">
+    <table className="table GuestManagment">
     <thead>
       <tr>
         <th>Contract Address</th>
