@@ -3031,6 +3031,90 @@ output {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
+.ReactModal__Overlay{
+ background: rgba(179, 54, 99, 0.9) !important;
+}
+.ReactModal__Content{
+  width: 380px;
+  top:50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  border-radius: 20px;
+  transform: translate(-50%,-50%) !important;
+  border-radius: 25px !important;
+}
+.ReactModal__Content img.close{
+  width: 15px;
+  float: right;
+  cursor: pointer;
+}
+.ReactModal__Content h2{
+  text-align: center;
+  color: #131c4e !important;
+}
+.ReactModal__Content button{
+  width: 70%;
+  border:1px solid #ababab;
+  border-radius: 6px;
+  font-family: RobotoBold; 
+  font-size: 1.6rem;
+}
+.ReactModal__Content .dropdown-menu{
+  width: 70%;
+  padding: 0;
+  margin:0;
+}
+.ReactModal__Content .dropdown-menu>a{
+  padding: 4% 8% !important;
+  margin: 0;
+  border-top: 1px solid #888;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.6rem;
+  color: #4d4e4e;
+}
+.ReactModal__Content .dropdown-menu a{
+  font-size: 1.6rem;
+}
+.ReactModal__Content input{
+  height:40px;
+  border:1px solid #ababab;
+  border-radius: 6px;
+  font-family: RobotoThin; 
+}
+.ReactModal__Content .dropdown{
+  font-size: 1.6rem;
+  color: #f6416c;
+}
+.ReactModal__Content .dropdown span{
+  color: #151b4e;
+  margin-left: 10px;
+  font-size: 1.8rem;
+}
+.ReactModal__Content .form-group label{
+  color: #f6416c;
+  font-family: RobotoThin; 
+}
+.ReactModal__Content #emailHelp{
+  font-family: RobotoThin; 
+  color: #8b8b8a !important;
+}
+.ReactModal__Content img.closeok{
+  cursor: pointer;
+  width: 45%;
+}
+.ReactModal__Content .closecancel{
+  width: 50%;
+  background: none !important;
+  border: none !important;
+  color: #131c4e;
+  font-size: 1.8rem;
+  margin-left: 2%;
+}
+.ReactModal__Content .closecancel:hover{
+  color: #131c4e;
+}
 .form-control:focus {
   border-color: #66afe9;
   outline: 0;

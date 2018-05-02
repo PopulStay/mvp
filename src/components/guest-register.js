@@ -92,6 +92,7 @@ class GuestRegister extends React.Component {
          {this.state.registered === false &&<button className="button__outline" onClick={this.openModal}>Sign up</button>}
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Example Modal">
+          <img className="close" onClick={this.closeModal} src="../images/closezi.png" />
           <h2 ref={subtitle => this.subtitle = subtitle}>Guest Register</h2>
           <br/>
           <div>
@@ -122,8 +123,8 @@ class GuestRegister extends React.Component {
           </div>
 
           <br/>
-          <button className="btn btn-danger" onClick={this.register}>ok</button>
-          <button className="btn btn-primary" onClick={this.closeModal}>cancel</button>
+          <img className="closeok" src="../images/ok.png" onClick={this.register} />
+          <button className="btn btn-primary closecancel" onClick={this.closeModal}>cancel</button>
         </Modal>
       
 

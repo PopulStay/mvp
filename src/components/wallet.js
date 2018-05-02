@@ -76,7 +76,7 @@ class Wallet extends Component {
       <div>
             <div className="dropdown">
               <button className="button__outline" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         <span className="glyphicon"></span> Create Or Import Wallet
+                          Create Or Import Wallet<span>▼</span>
               </button>            
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
   
