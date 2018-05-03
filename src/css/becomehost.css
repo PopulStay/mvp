@@ -14,6 +14,9 @@ body{
   font-family: RobotoRegular; 
   color: #4d4e4e;
 }
+.becomehost-1.container>div>div.row>div.col-lg-7 {
+   padding-right: 15%;
+}
 .becomehost-1.container{
   padding: 0 10%;
 }
@@ -65,7 +68,10 @@ h1,
 .STEPBTN button,
 .Step1_10 button,
 .Step3_2 h4,
-.Explainwhy h3{
+.Explainwhy h3,
+.Step3_6 h5 b,
+.Step3_6 .form-group h5,
+.Step3_6 .rightbox1>div>p{
   font-family: RobotoBold; 
 }
 .cursor{
@@ -112,7 +118,8 @@ h1,
 .Step3_4 .boxdiv p,
 .Step3_5 .box,
 .Step3_6 .dropdown-menu a,
-.Step3_6 .form-group .btn-group button{
+.Step3_6 .form-group .btn-group button,
+.Step3_6 .box>h5{
   font-family: RobotoThin; 
 }
 .container{
@@ -294,6 +301,9 @@ h1,
 }
 .rightbox{
   margin-bottom:8%;
+}
+.rightbox>div{
+  margin-right: 20%;
 }
 .rightbox>div,
 .Step2_1 .rightbox,
@@ -1311,6 +1321,41 @@ h1,
   line-height: 1.9;
   margin-bottom: 4%;
 }
+/*Step3_5 end*/
+.Step3_6 h5{
+  width: 70%;
+  line-height: 1.9;
+  font-size: 1.4rem;
+}
+.Step3_6 h5 b{
+  font-size: 1.7rem;
+}
+.Step3_6 .form-group{
+  width: 90%;
+}
+.Step3_6 .form-group1{
+  width: 100%;
+  height: 100px;
+  margin-top: 0;
+}
+.Step3_6 .dropdown-menu a{
+  padding: 2% 3%;
+}
+.Step3_6 .form-group1 .dropdown-menu a{
+  padding: 2% 8%;
+}
+.Step3_6 .rightbox1>div>p{
+  font-size: 1.8rem;
+  margin-bottom: 5%;
+}
+.Step3_6 .rightbox1>div{
+  background: none!important;
+  color: #808080;
+}
+.Step3_6 .rightbox1 .becomehost__info{
+  width: 60% !important;
+}
+/*Step3_6 end*/
 
 .Explainwhy{
   width: 355px;

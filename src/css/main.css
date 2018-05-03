@@ -8025,8 +8025,8 @@ header .dropdown-menu a.dropdown-item1{
 }
 
 .footer__brand-info {
-  margin:5%;
-  width: 90% !important;
+  margin: 3% 10%;
+  width: 80% !important;
 }
 
 .footer__brand-info div.dropdown {
@@ -8059,7 +8059,7 @@ header .dropdown-menu a.dropdown-item1{
 }
 
 .footer__social-info {
-  padding: 15px 5% 10px;
+  padding: 15px 10% 10px;
 }
 
 .footer__copyright {
