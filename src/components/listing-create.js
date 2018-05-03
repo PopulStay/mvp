@@ -135,6 +135,7 @@ class ListingCreate extends Component {
             Not_safe:0,
             anytime_Checkin:0,
             NO_shoes:0,
+            keep_calendar:0,
             roomstuff_AreaCode:86,
             selectedPictures:[],
             price_perday:199,
@@ -584,7 +585,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -662,52 +663,54 @@ class ListingCreate extends Component {
             </div>
 
               <h1>What kind of room do you listing?</h1>
-              <h2>Is this listing a home,hotel,or something else? </h2>
 
-              <div className="form-group">    
-                <div className="btn-group col-md-12">
-                  <button type="button" data-toggle="dropdown">{this.state.roomdescription_homeorhotel}<span>▼</span></button>
-                  <ul className="dropdown-menu" role="menu">
-                    { homeorhotelarr } 
-                  </ul>
-                </div>
-              </div>
-                
-              <div className={this.state.roomdescription_homeorhotel == 'Please choose' ? 'hide':'show'}>  
-              <h2>What type is it? </h2>
-              <div className="form-group">    
-                <div className="btn-group col-md-12">
-                  <button type="button" data-toggle="dropdown">{this.state.roomdescription_type}<span>▼</span></button>
-                  <ul className="dropdown-menu" role="menu">
-                    { typearr } 
-                  </ul>
-                </div>
-              </div>
-              </div>
+              <div className="box">
+                <h2>Is this listing a home,hotel,or something else? </h2>
 
-              <hr className={this.state.roomdescription_type == 'Please choose' ? 'show':'hide'}/>
-
-              <div className={this.state.roomdescription_type == 'Please choose' ? 'hide':'show'}>
-                  <h2>What guests will have? </h2>
-                  <div className="form-group">    
-                    
-                    <div className="btn-group col-md-12">
-                      <button type="button" data-toggle="dropdown">{this.state.roomdescription_guests_have}<span>▼</span></button>
-                      <ul className="dropdown-menu" role="menu">
-                        { guestshavearr } 
-                      </ul>
-                    </div>
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.roomdescription_homeorhotel}<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      { homeorhotelarr } 
+                    </ul>
                   </div>
+                </div>
+                  
+                <div className={this.state.roomdescription_homeorhotel == 'Please choose' ? 'hide':'show'}>  
+                <h2>What type is it? </h2>
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.roomdescription_type}<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      { typearr } 
+                    </ul>
+                  </div>
+                </div>
+                </div>
 
-                   <h2>Is this setup dedicated a guest space?</h2>
 
-                   <div className="radio" onClick={(e) => this.setState({roomdescription_forguestorhost: 0})}>
-                      <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 0 ?"show":"hide"}></span></p>Yes,it's primarily set up for guests</label>
+                <div className={this.state.roomdescription_type == 'Please choose' ? 'hide':'show'}>
+                    <h2>What guests will have? </h2>
+                    <div className="form-group">    
+                      
+                      <div className="btn-group col-md-12">
+                        <button type="button" data-toggle="dropdown">{this.state.roomdescription_guests_have}<span>▼</span></button>
+                        <ul className="dropdown-menu" role="menu">
+                          { guestshavearr } 
+                        </ul>
+                      </div>
                     </div>
-                    <div className="radio" onClick={(e) => this.setState({roomdescription_forguestorhost: 1})}>
-                      <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 1 ?"show":"hide"}></span></p>No,I keep my personal belongings here</label>
-                    </div>
-                    
+
+                     <h2>Is this setup dedicated a guest space?</h2>
+
+                     <div className="radio" onClick={(e) => this.setState({roomdescription_forguestorhost: 0})}>
+                        <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 0 ?"show":"hide"}></span></p>Yes,it's primarily set up for guests</label>
+                      </div>
+                      <div className="radio" onClick={(e) => this.setState({roomdescription_forguestorhost: 1})}>
+                        <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 1 ?"show":"hide"}></span></p>No,I keep my personal belongings here</label>
+                      </div>
+                      
+                  </div>
                 </div>
             <div className="STEPBTN">
               <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
@@ -828,13 +831,15 @@ class ListingCreate extends Component {
             </div>
 
               <h1>Bathrooms</h1>
-              <h2>Number of bathrooms</h2>
-              <div className="btn-group col-md-5">
-                <button type="button" className="guestBtn">
-                  <span className="btnjia" onClick={(e)=>this.guestbedrooms(e)} data-name="jia">▲</span>
-                  {this.state.roombasics_guestbedrooms}
-                  <span className="btnjian" onClick={(e)=>this.guestbedrooms(e)} data-name="jian">▼</span>
-                </button>
+              <div className="box">
+                <h2>Number of bathrooms</h2>
+                <div className="btn-group col-md-5">
+                  <button type="button" className="guestBtn">
+                    <span className="btnjia" onClick={(e)=>this.guestbedrooms(e)} data-name="jia">▲</span>
+                    {this.state.roombasics_guestbedrooms}
+                    <span className="btnjian" onClick={(e)=>this.guestbedrooms(e)} data-name="jian">▼</span>
+                  </button>
+                </div>
               </div>
 
 
@@ -873,11 +878,12 @@ class ListingCreate extends Component {
             </div>
 
               <h1>Where’s your place located?</h1>
-              <div className="btn-group col-md-9 step5box">
-                <img className="becomehost__info" src="./images/located.png" alt=""/>
-                <input type="text" placeholder="For example: Qingdao"  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
+              <div className="box">
+                <div className="btn-group col-md-9 step5box">
+                  <img className="becomehost__info" src="./images/located.png" alt=""/>
+                  <input type="text" placeholder="For example: Qingdao"  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
+                </div>
               </div>
-             
             <div className="STEPBTN">
               <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
               <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
@@ -914,7 +920,7 @@ class ListingCreate extends Component {
 
               <h1>Where’s your place located?</h1>
               
-              <div className="Stepbox">
+              <div className="box">
                 <div className="col-md-10 col-lg-10 Step1_6box">
                   <h2>Country / Region</h2>
                   <div className="btn-group col-md-12">
@@ -1025,7 +1031,7 @@ class ListingCreate extends Component {
 
               <h1>What amenities do you offer?</h1>
 
-             <div className="Stepbox">
+             <div className="box">
 
                  <div onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
                   <p className="Pinput" >
@@ -1184,7 +1190,7 @@ class ListingCreate extends Component {
 
               <h1>What spaces can guests use?</h1>
 
-             <div className="Stepbox">
+             <div className="box">
 
                   <div  onClick={(e) => {if(this.state.roomstuff_Pool ==0 )this.setState({roomstuff_Pool:1});else this.setState({roomstuff_Pool:0});}}>
                   <p  className="Pinput">
@@ -1290,7 +1296,7 @@ class ListingCreate extends Component {
             <p className="Set1">Booking settings,calendar,price</p>
           </div>
 
-          <div className="Stepbox1">
+          <div className="box1">
             <h2>The 3rd Party service provided by host </h2>
 
             <div className="service">
@@ -1632,7 +1638,7 @@ class ListingCreate extends Component {
 
               <h4>My place is great for</h4>
 
-              <div className="box">  
+              <div className="boxdiv">  
                 <div onClick={(e) => {if(this.state.roomstuff_withKids ==0 )this.setState({roomstuff_withKids:1});else this.setState({roomstuff_withKids:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_withKids ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
@@ -1762,18 +1768,20 @@ class ListingCreate extends Component {
 
 
               <div className="box col-md-10">
-                <div className="phoneimg"><img className="becomehost__info" src="./images/phoneimg.png" alt=""/></div>
+                <div className="boxdiv">
+                  <div className="phoneimg"><img className="becomehost__info" src="./images/phoneimg.png" alt=""/></div>
 
-                <div className="btn-group col-md-12 phonecode">
-                  <span data-toggle="dropdown">+{this.state.roomstuff_AreaCode}</span>
-                  <ul className="dropdown-menu" role="menu">
-                    { AreaCodearr } 
-                  </ul>
+                  <div className="btn-group col-md-12 phonecode">
+                    <span data-toggle="dropdown">+{this.state.roomstuff_AreaCode}</span>
+                    <ul className="dropdown-menu" role="menu">
+                      { AreaCodearr } 
+                    </ul>
+                  </div>
+                  
+                  <input onChange={(e) => this.setState({roomdescription_phone: e.target.value})} value={this.state.roomdescription_phone}  type="text" />
+
+                  <img className={this.state.roomdescription_phone.length == '11' ? "show" : "hide"} src="./images/landloard_page-30.png" alt=""/>
                 </div>
-                
-                <input onChange={(e) => this.setState({roomdescription_phone: e.target.value})} value={this.state.roomdescription_phone}  type="text" />
-
-                <img className={this.state.roomdescription_phone.length == '11' ? "show" : "hide"} src="./images/landloard_page-30.png" alt=""/>
               </div>
 
 
@@ -1832,7 +1840,7 @@ class ListingCreate extends Component {
           </div>
 
 
-          <div className="Stepbox1">
+          <div className="box1">
             <h2>The 3rd Party service provided by host </h2>
 
             <div className="service">
@@ -2474,9 +2482,9 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_11 &&
+          this.state.step === this.STEP.Step3_5 &&
           <div className="becomehost-2 container">
-          <div className="row Step3_4">
+          <div className="row Step3_5">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
               <div className="STEPhead">
                 <span className="bjpink"></span>
@@ -2496,36 +2504,20 @@ class ListingCreate extends Component {
                 <p>Step 3: Get ready for guests</p>
               </div>
 
-              <h1>Here’s how guests will book with you</h1>
+              <h1>Successful hosting starts with an accurate calendar</h1>
 
+              <div className="box">
+                <p>Guests will book available days instantly. Only get booked when you can host by keeping your calendar and availability settings up-to-date.</p>
+                <p>Cancelling disrupts guests’ plans. If you cancel because your calendar is inaccurate, you’ll be charged a penalty fee and the dates won’t be available for anyone else to book.</p>
 
-              <div className="box col-md-12">
-                <div className="boxdiv">
-                  <img className="col-lg-4 pull-left" src="../images/step3_4img1.png" />
-                  <div className="col-lg-8 pull-right">
-                    <h3>Qualified guests find your listing</h3>
-                    <p>Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.</p>
-                  </div>
+                <div  className="check" onClick={(e) => {if(this.state.keep_calendar ==0 )this.setState({keep_calendar:1});else this.setState({keep_calendar:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.keep_calendar ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Got it! I’ll keep my calendar up to date.</p> 
                 </div>
-                <div className="boxdiv">
-                  <img className="col-lg-4 pull-left" src="../images/step3_4img2.png" />
-                  <div className="col-lg-8 pull-right">
-                    <h3>You set controls for who can book</h3>
-                    <p>To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.</p>
-                    <p className="textpink">I want to review every request</p>
-                  </div>
-                </div>
-                <div className="boxdiv">
-                  <img className="col-lg-4 pull-left" src="../images/step3_4img3.png" />
-                  <div className="col-lg-8 pull-right">
-                    <h3>Once a guest books, you get notified</h3>
-                    <p>You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.</p>
-                  </div>
-                </div>
-              </div>
-
-
               
+              </div>
 
              
               <div className="STEPBTN">
@@ -2535,18 +2527,15 @@ class ListingCreate extends Component {
                
              </div>
 
-             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
-                 <div>
-                    <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
-                    <p>In the rare case there are issues. Airbnb has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
-                </div>
-             </div>
+    
     
 
              
              </div>
              </div>
         }
+
+
 
 
 
