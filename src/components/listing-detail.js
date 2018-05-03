@@ -135,6 +135,7 @@ class ListingsDetail extends Component {
   }
 
   handleBooking() {
+    console.log(this.state.descriptioninfo)
     let unitsToBuy = 0;
 
     if (this.state.checkInDate && this.state.checkOutDate) {
@@ -270,12 +271,15 @@ class ListingsDetail extends Component {
 <div> 
       <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
+        <div className="modalcode">
           <h3 ref={subtitle => this.subtitle = subtitle}>Your balance is not enough,SCAN QR to pay</h3>
           <br/>
             <div className="listing-card">
             <img className="photo" src={this.state.qrurl}  />
             </div>
           <br/>
+          <button onClick={(e) => {this.closeModal(e)}} >Cancel</button>
+        </div>  
         </Modal>
 
        {this.state.step===this.STEP.METAMASK &&
@@ -555,7 +559,7 @@ class ListingsDetail extends Component {
                       <span className = "LeftSpan"><b>￥</b>{this.state.descriptioninfo.price_perday}×{this.calcTotalPrice()}nights
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan"><b>￥</b>{(this.state.descriptioninfo.price_perday == null ? "0":"") * this.calcTotalPrice()}</span>
+                      <span className = "RightSpan"><b>￥</b>{this.state.descriptioninfo.price_perday * this.calcTotalPrice()}</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">Special Offer 20% off
@@ -578,7 +582,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
-                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {Number((this.state.descriptioninfo.price_perday == null ? "0":"") * this.calcTotalPrice())-0+26}
+                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.state.descriptioninfo.price_perday * this.calcTotalPrice()-0+26}
                       </span>
                     </li>
                 </ul>
