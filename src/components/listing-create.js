@@ -443,7 +443,6 @@ class ListingCreate extends Component {
                 id: window.address
             });
     }
-
    
     Categorys(Category){
       this.setState({roomtype_category: Category});
