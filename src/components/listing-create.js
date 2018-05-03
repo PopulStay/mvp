@@ -140,6 +140,8 @@ class ListingCreate extends Component {
             price_perday:199,
             ETHprice_perday:199,
             Explainwhy:"",
+            question_rented:"Yes",
+            Howoften_guests:1,
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
@@ -465,6 +467,12 @@ class ListingCreate extends Component {
     AreaCodes(AreaCode){
       this.setState({roomstuff_AreaCode: AreaCode});
     }
+    step1guests(step1guest){
+      this.setState({roomtype_guests: step1guest});
+    }
+    Howoften_guests(Howoften){
+      this.setState({Howoften_guests: Howoften});
+    }
 
 
 
@@ -577,13 +585,17 @@ class ListingCreate extends Component {
     this.state.AreaCodes.forEach((AreaCode,index)=>{
       AreaCodearr.push(<li><a onClick={this.AreaCodes.bind(this,AreaCode)} >{AreaCode}</a></li>)
     })
-    
-    
+    const Howoften_guestsarr = [];
+    this.state.step1guests.forEach((Howoften,index)=>{
+      Howoften_guestsarr.push(<li><a onClick={this.Howoften_guests.bind(this,Howoften)} >{Howoften} days</a></li>)
+    })
 
+    
+    
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -645,6 +657,7 @@ class ListingCreate extends Component {
               </div>
           </div>
         }
+
         {
           this.state.step === this.STEP.Step1_2 &&
           <div className="becomehost-3 container">
@@ -2531,6 +2544,75 @@ class ListingCreate extends Component {
 
     
 
+             
+             </div>
+             </div>
+        }
+
+         {
+          this.state.step === this.STEP.Step1_1 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_6">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Let’s get started with a couple questions</h1>
+
+
+              <div className="box col-md-12">
+
+                <h3>Have you rented out your place before?</h3>
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.question_rented}<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      <li><a  onClick={(e) => this.setState({question_rented:"Yes"})}>Yes</a></li> 
+                      <li><a  onClick={(e)=>this.setState({question_rented:"No"})}>No</a></li> 
+                    </ul>
+                  </div>
+                </div>
+                <h3>How often do you want to have guests?</h3>
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.Howoften_guests} days<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      { Howoften_guestsarr } 
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
+                    <p>Based on your responses, we can  recommend specific availability settings for you.</p>
+                </div>
+             </div>
              
              </div>
              </div>

@@ -110,7 +110,9 @@ h1,
 .Step3_2 .rightbox1 p,
 .Explainwhy p,
 .Step3_4 .boxdiv p,
-.Step3_5 .box{
+.Step3_5 .box,
+.Step3_6 .dropdown-menu a,
+.Step3_6 .form-group .btn-group button{
   font-family: RobotoThin; 
 }
 .container{
@@ -189,7 +191,8 @@ h1,
 /*Step1_1 end*/
 .Step1_1 .form-group .btn-group button,
 .Step1_2 .form-group .btn-group button,
-.Step1_6 .btn-group button,{
+.Step1_6 .btn-group button,
+.Step3_6 .form-group .btn-group button{
   text-align: left;
 }
 .Step1_1 .form-control,
@@ -201,7 +204,8 @@ h1,
 .Step1_8 .Stepbox input,
 .Step1_6 .btn-group button,
 .Step2_4 input,
-.Step1_5 .step5box input{
+.Step1_5 .step5box input,
+.Step3_6 .form-group .btn-group button{
   background: none;
   border: 1px solid #aaa;
   border-radius: 0;
@@ -214,7 +218,8 @@ h1,
 
 .Step1_1 .form-group .btn-group button span,
 .Step1_2 .form-group .btn-group button span,
-.Step1_6 .btn-group button span{
+.Step1_6 .btn-group button span,
+.Step3_6 .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2rem;
@@ -223,7 +228,8 @@ h1,
 .Step1_2 .dropdown-menu,
 .Step1_3 .dropdown-menu,
 .Step1_6 .dropdown-menu,
-.Step2_5 .dropdown-menu{
+.Step2_5 .dropdown-menu,
+.Step3_6 .dropdown-menu{
   width: 100%;
   max-height: 160px;
   overflow: auto;
@@ -235,7 +241,8 @@ h1,
 .Step1_3 .dropdown-menu a,
 .Step1_6 .dropdown-menu a,
 .Step2_5 .dropdown-menu a,
-.ReactModal__Content .dropdown-menu>a{
+.ReactModal__Content .dropdown-menu>a,
+.Step3_6 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 8%;
@@ -249,7 +256,8 @@ h1,
 .Step1_2 .dropdown-menu a:hover,
 .Step1_6 .dropdown-menu a:hover,
 .Step2_5 .dropdown-menu a:hover,
-.ReactModal__Content .dropdown-menu>a:hover{
+.ReactModal__Content .dropdown-menu>a:hover,
+.Step3_6 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -260,7 +268,8 @@ h1,
 .Step1_2 .dropdown-menu li:first-child>a,
 .Step1_3 .dropdown-menu li:first-child>a,
 .Step2_5 .dropdown-menu li:first-child>a,
-.ReactModal__Content .dropdown-menu>a:first-child{
+.ReactModal__Content .dropdown-menu>a:first-child,
+.Step3_6 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .Step1_1 .form-group .btn-group,
@@ -269,8 +278,9 @@ h1,
 .Step1_4 .btn-group,
 .Step1_6 .Step1_6box,
 .Step1_6 .btn-group,
-.box
-{
+.box,
+.Step1_3 .form-group,
+.Step3_6 .form-group .btn-group{
   padding: 0;
 }
 .Step1_1 .form-group select,
@@ -314,7 +324,9 @@ h1,
   padding-right: 0 !important;
 }
 .Step1_2 .form-group .btn-group button,
-.Step1_2 .dropdown-menu{
+.Step1_2 .dropdown-menu,
+.Step3_6 .form-group .btn-group button,
+.Step3_6 .dropdown-menu{
   width: 80%;
 }
 .Step1_2 .STEPBTN{
@@ -337,7 +349,8 @@ h1,
   color:#888;
   font-size: 1.7rem;
 }
-.Step1_2 .form-group{
+.Step1_2 .form-group,
+.Step3_6 .form-group{
   margin: 3% 0 5%;
   width: 70%;
   height: 40px;
@@ -397,9 +410,6 @@ h1,
 }
 .bind{
   font-weight: 500 !important;
-}
-.Step1_3 .form-group{
-  padding: 0;
 }
 .Step1_3 h3{
   margin: 3% 0 5%;
@@ -1290,7 +1300,8 @@ h1,
 .Step3_4 .boxdiv:last-child{
   margin-top: 4%;
 }
-.Step3_4 .becomehost__info{
+.Step3_4 .becomehost__info,
+.Step3_6 .becomehost__info{
   width: 40px !important;
 }
 /*Step3_4 end*/
