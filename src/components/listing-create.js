@@ -165,6 +165,17 @@ class ListingCreate extends Component {
             modalIsOpen:false,
 
         }
+        this.deta={
+            current_year : 1,
+            current_month : 1,
+            current_day :1,
+            select_year : 1,
+            select_month : 1,
+            select_day : 1,
+            history_year : 1,
+            history_month : 1,
+            history_day : 1,
+        }
 
         this.nextStep = this.nextStep.bind(this);
         this.preStep  = this.preStep.bind(this)
@@ -563,6 +574,9 @@ class ListingCreate extends Component {
       });
     }
 
+      
+
+
     
 
 
@@ -614,12 +628,15 @@ class ListingCreate extends Component {
       advance_bookarr.push(<li><a onClick={this.advance_book.bind(this,book)} >{book} months</a></li>)
     })
 
+    var H = new Date();
+    console.log(H.getFullYear())
+
     
     
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -2775,6 +2792,46 @@ class ListingCreate extends Component {
                 </div>
              </div>
              
+             </div>
+             </div>
+        }
+
+          {
+          this.state.step === this.STEP.Step1_1 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_9">
+            <div className="col-md-12 col-lg-12 col-sm-12 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              {this.date.current_year}
+
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+
+
+             
+             </div>
              </div>
              </div>
         }

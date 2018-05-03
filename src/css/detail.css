@@ -511,13 +511,13 @@
   width: 25px;
 }
 .video{
-  width: 400px;
+  width: 310px;
   position: fixed;
   bottom: 5%;
   right: 2%;
   z-index: 99999;
   background: #f6416c;
-  padding: 1%;
+  padding:0.8%;
   border-radius: 10px;
 }
 .video li{
@@ -538,14 +538,15 @@
   bottom:-15px;
 }
 .video .becomehost_line{
-  margin: 10% 0;
+  height: 2px;
+  margin: 10% 0 1%;
 }
 .video div>.keyboard{
-  width: 50px;
+  width: 35px;
   cursor: pointer;
 }
 .video div>input{
-  width: 200px;
+  width: 165px;
   background: none;
   border:none;
   color: #fff;
@@ -555,13 +556,13 @@
   font-family: RobotoThin; 
 }
 .video div>.microphone{
-  width: 20px;
+  width: 15px;
   cursor: pointer;
 }
 .video div>.becomehost_video{
-  width: 35px;
+  width: 25px;
   float: right;
-  margin-top: 1.2%;
+  margin-top: 3%;
   cursor: pointer;
 }
 @media (max-width: 640px) {

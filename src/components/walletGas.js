@@ -49,15 +49,17 @@ class WalletGas extends React.Component {
         <button className="btn btn-primary" onClick={this.openInfoModal}>Gas</button>
         <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} style={customStyles} 
         contentLabel="InfoModal">
-              <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
+        <div className="Gas">
+          <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
           <br/>
-            <div className="form-group">
+          <div className="form-group">
             <label>Gas Price</label>
             <input type="text"  className="form-control" placeholder="Wallet Account" onChange={(e) => this.setState({gas: e.target.value})} />
           </div>
           <br/>
           <button className="btn btn-danger" onClick={this.closeInfoModal}>OK</button>
           <button className="btn btn-primary" onClick={this.closeInfoModal}>Cancel</button>
+        </div> 
         </Modal>
       
 

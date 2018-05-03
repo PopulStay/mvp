@@ -856,6 +856,11 @@ h1,
   margin: 30% 0 0;
 }
 /*Step1_10 end*/
+.Step2_1,
+.Step2_2,
+.Step3_9{
+  padding:0 5%;
+}
 .Step2_1 .photos,
 .Step2_2 .photos{
   position: relative;
@@ -903,7 +908,7 @@ h1,
 }
 .Step2_1 .rightbox{
   top:10%;
-  right:3%;
+  right:7%;
   position: absolute;
   width: 300px;
   padding: 3%;
