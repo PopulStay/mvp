@@ -119,7 +119,15 @@ class ListingCreate extends Component {
             rules_pets:1,
             rules_infants:1,
             rules_children:1,
-            climb_stairs:1,
+            climb_stairs:0,
+            property_animals:0,
+            property_Weapons:0,
+            property_recording:0,
+            Amenity_limitations:0,
+            shared_spaces:0,
+            property_parking:0,
+            property_Pet:0,
+            Potential_noise:0,
             roomstuff_AreaCode:86,
             selectedPictures:[],
             price_perday:199,
@@ -2221,6 +2229,55 @@ class ListingCreate extends Component {
                   </p>
                   <p className="divinput">Must climb stairs</p>
                 </div>
+                <div className="check1" onClick={(e) => {if(this.state.Potential_noise ==0 )this.setState({Potential_noise:1});else this.setState({Potential_noise:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.Potential_noise ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Potential for noise</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_Pet ==0 )this.setState({property_Pet:1});else this.setState({property_Pet:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_Pet ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Pet(s) live on property</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_parking ==0 )this.setState({property_parking:1});else this.setState({property_parking:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_parking ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">No parking on property</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.shared_spaces ==0 )this.setState({shared_spaces:1});else this.setState({shared_spaces:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.shared_spaces ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Some spaces are shared</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.Amenity_limitations ==0 )this.setState({Amenity_limitations:1});else this.setState({Amenity_limitations:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.Amenity_limitations ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Amenity limitations</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_recording ==0 )this.setState({property_recording:1});else this.setState({property_recording:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_recording ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">D Survellance or recording devices on property</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_Weapons ==0 )this.setState({property_Weapons:1});else this.setState({property_Weapons:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_Weapons ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Weapons on property</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_animals ==0 )this.setState({property_animals:1});else this.setState({property_animals:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_animals ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Dangerous animals on property</p>
+                </div>
+                
               </div>
 
 
@@ -2237,7 +2294,8 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>You need to feel confident with every reservation. That’s why we require certain information from every guest before they can book. </p>
+                    <p>In addition to Airbnb’s requirements, guests must agree to all your House Rules before they book.</p>
+                    <p>If you’re ever uncomfortable with a reservation, you can cancel penalty-free before or during a trip.</p>
                 </div>
              </div>
     

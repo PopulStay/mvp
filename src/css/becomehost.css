@@ -554,6 +554,7 @@ h1,
   float: right;
   width: 94%;
   font-size:1.6rem;
+  cursor: pointer;
 }
 .Step1_8 .divinput p:first-child{
   font-size:1.6rem;
@@ -1163,7 +1164,7 @@ h1,
 .Step3_2 .check,
 .Step3_2 .check1{
   margin: 1% 0;
-  height: 50px;
+  height: 45px;
 }
 .Step3_2 .check .divinput{
   float: left;
