@@ -10,8 +10,6 @@ class Video extends Component {
     super(props);
     this.client = {};
     this.localStream = {};
-    this.shareClient = {};
-    this.shareStream = {};
 
     this.constant = {
         mode :'interop',
@@ -19,8 +17,6 @@ class Video extends Component {
       }
 
     this.state = {
-      displayMode  : 'pip',
-      streamList   : [],
       readyState   : false,
       attendeeMode : {
                       audioOnly : 'audio-only',
@@ -34,14 +30,7 @@ class Video extends Component {
   }
 
   componentWillMount() {
-    
-  }
-
-
-
-  handleMic = (e) => {
-  
-   if( window.AgoraRTC)
+    if( window.AgoraRTC)
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
         this.client.init( this.constant.appId ,()=>{
@@ -52,14 +41,29 @@ class Video extends Component {
             console.log("User " + uid + " join channel successfully");
             console.log('At ' + new Date().toLocaleTimeString());
             console.log(uid);
-        // create local stream
-        // It is not recommended to setState in function addStream
-        this.localStream = this.streamInit(uid, this.state.attendeeMode.audioOnly, this.state.videoProfile);
+      
+        this.localStream = window.AgoraRTC.createStream({streamID: uid,audio: true,video: false,screen: false});
+        
+        this.localStream.on("accessAllowed", function() {
+          console.log("accessAllowed");
+        });
+        // The user has denied access to the camera and mic.
+        this.localStream.on("accessDenied", function() {
+          console.log("accessDenied");
+        });
+
+
         this.localStream.init(() => {
-            this.addStream(this.localStream, true);
+             //this.localStream.play('agora_local');
+            
             this.client.publish(this.localStream, err => {
               console.log("Publish local stream error: " + err);
             });
+
+            this.client.on('stream-published', function (evt) {
+                console.log("Publish local stream successfully");
+             });
+
             this.setState({ readyState: true });
         },
           err => {
@@ -70,6 +74,7 @@ class Video extends Component {
         })
       });
     }
+    
   }
 
 
@@ -83,29 +88,6 @@ class Video extends Component {
       console.log('Client failed to leave.')
     })
   }
-
-    addStream = (stream, push = false) => {
-      console.log("#########*  add  Stream   ###############");
-    let repeatition = this.state.streamList.some(item => {
-      return item.getId() === stream.getId()
-    })
-    if (repeatition) {
-      return
-    }
-    if (push) {
-      this.setState({
-        streamList: this.state.streamList.concat([stream])
-      })
-    }
-    else {
-      this.setState({
-        streamList: [stream].concat(this.state.streamList)
-      })
-    }
-
-  }
-
-
 
     
   subscribeStreamEvents = () =>{
@@ -121,19 +103,21 @@ class Video extends Component {
     })
 
     rt.client.on('peer-leave', function (evt) {
+      let stream = evt.stream;
       console.log("Peer has left: " + evt.uid)
       console.log(new Date().toLocaleTimeString())
       console.log(evt)
-      rt.removeStream(evt.uid)
+      stream.stop();
+      
     })
 
     rt.client.on('stream-subscribed', function (evt) {
-      let stream = evt.stream
+      let stream = evt.stream;
       console.log("Got stream-subscribed event")
       console.log(new Date().toLocaleTimeString())
       console.log("Subscribe remote stream successfully: " + stream.getId())
       console.log(evt)
-      rt.addStream(stream)
+      stream.play('agora_remote');
     })
 
     rt.client.on("stream-removed", function (evt) {
@@ -141,53 +125,10 @@ class Video extends Component {
       console.log("Stream removed: " + stream.getId())
       console.log(new Date().toLocaleTimeString())
       console.log(evt)
-      rt.removeStream(stream.getId())
+      stream.stop();
     })
   }
 
-  removeStream = (uid) => {
-    this.state.streamList.map((item, index) => {
-      if (item.getId() === uid) {
-        item.close()
-        let element = document.querySelector('#ag-item-' + uid)
-        if (element) {
-          element.parentNode.removeChild(element)
-        }
-        let tempList = [...this.state.streamList]
-        tempList.splice(index, 1)
-        this.setState({
-          streamList: tempList
-        })
-      }
-
-    })
-  }
-
-  streamInit = (uid, attendeeMode, videoProfile, config) => {
-    let defaultConfig = {
-      streamID: uid,
-      audio: true,
-      video: true,
-      screen: false
-    }
-
-    switch (attendeeMode) {
-      case 'audio-only':
-        defaultConfig.video = false
-        break;
-      case 'audience':
-        defaultConfig.video = false
-        defaultConfig.audio = false
-        break;
-      default:
-      case 'video':
-        break;
-    }
-
-    let stream = window.AgoraRTC.createStream(merge(defaultConfig, config))
-    stream.setVideoProfile(videoProfile)
-    return stream
-  }
 
   render() {
 
@@ -204,6 +145,7 @@ class Video extends Component {
                         <div className ="col-lg-4">
                           <button className="btn btn-danger" onClick={this.handleMic}>Audio</button>
                           <button className="btn btn-warning">Video</button>
+                          <div id="agora_remote"/>
                         </div>
                       </div>
                   </div>
