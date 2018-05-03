@@ -24,12 +24,20 @@ class Video extends Component {
                      },
        videoProfile: '480p_4'
     }
-
-    
       
   }
 
-  componentWillMount() {
+  componentWillUnmount () {
+    this.client && this.client.unpublish(this.localStream)
+    this.localStream && this.localStream.close()
+    this.client && this.client.leave(() => {
+      console.log('Client succeed to leave.')
+    }, () => {
+      console.log('Client failed to leave.')
+    })
+  }
+
+  handleMic =()=> {
     if( window.AgoraRTC)
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
@@ -53,9 +61,7 @@ class Video extends Component {
         });
 
 
-        this.localStream.init(() => {
-             //this.localStream.play('agora_local');
-            
+        this.localStream.init(() => {            
             this.client.publish(this.localStream, err => {
               console.log("Publish local stream error: " + err);
             });
@@ -74,19 +80,6 @@ class Video extends Component {
         })
       });
     }
-    
-  }
-
-
-
-  componentWillUnmount () {
-    this.client && this.client.unpublish(this.localStream)
-    this.localStream && this.localStream.close()
-    this.client && this.client.leave(() => {
-      console.log('Client succeed to leave.')
-    }, () => {
-      console.log('Client failed to leave.')
-    })
   }
 
     
@@ -133,7 +126,7 @@ class Video extends Component {
   render() {
 
     return (  
-              <div className="video">
+              <div id="agora_remote" className="video">
                    <ul>
                       <li>Hello, i would like to book a room from your hostel.<img src="../images/becomehost-triangle.png" /></li>
                    </ul>
