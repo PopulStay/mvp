@@ -128,6 +128,13 @@ class ListingCreate extends Component {
             property_parking:0,
             property_Pet:0,
             Potential_noise:0,
+            Payment_information:0,
+            guest_message:0,
+            last_time:0,
+            governmentissued_ID:0,
+            Not_safe:0,
+            anytime_Checkin:0,
+            NO_shoes:0,
             roomstuff_AreaCode:86,
             selectedPictures:[],
             price_perday:199,
@@ -577,7 +584,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -2042,27 +2049,27 @@ class ListingCreate extends Component {
 
               <div className="box col-md-12">
                 <h3>All Airbnb guests must provide:</h3>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Email: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Confirmedphone: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmedphone ==0 )this.setState({roomdescription_Confirmedphone:1});else this.setState({roomdescription_Confirmedphone:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>Confirmed phone number</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_information: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_information ==0 )this.setState({roomdescription_information:1});else this.setState({roomdescription_information:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_information == 1 ?"show":"hide"}></span></p>Payment information</label>
                 </div>
 
                 <h3>Before booking your home, each guest must:</h3>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Rules: 1})}>
+                <div className="radio"  onClick={(e) => {if(this.state.roomdescription_Rules ==0 )this.setState({roomdescription_Rules:1});else this.setState({roomdescription_Rules:0});}}>
                   <label className="text-muted"><p><span className={this.state.roomdescription_Rules == 1 ?"show":"hide"}></span></p>Agree to your House Rules</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Message: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Message ==0 )this.setState({roomdescription_Message:1});else this.setState({roomdescription_Message:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Message == 1 ?"show":"hide"}></span></p>Message you about their trip</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_manyguests: 1})}>
+                <div className="radio"  onClick={(e) => {if(this.state.roomdescription_manyguests ==0 )this.setState({roomdescription_manyguests:1});else this.setState({roomdescription_manyguests:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_manyguests == 1 ?"show":"hide"}></span></p>Let you know how many guests are coming</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Confirmtime: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmtime ==0 )this.setState({roomdescription_Confirmtime:1});else this.setState({roomdescription_Confirmtime:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Confirmtime == 1 ?"show":"hide"}></span></p>Confirm their check-in time if they’re arriving within 2 days</label>
                 </div>
 
@@ -2107,7 +2114,7 @@ class ListingCreate extends Component {
         }
         
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step3_2 &&
           <div className="becomehost-2 container">
           <div className="row Step3_2">
             <div className="col-md-8 col-lg-7 col-sm-12 ">
@@ -2305,7 +2312,177 @@ class ListingCreate extends Component {
              </div>
         }
 
+        {
+          this.state.step === this.STEP.Step3_3 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_1">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
 
+              <h1>Review Airbnb’s guest requirements</h1>
+
+
+              <div className="box col-md-12">
+                <h3>All Airbnb guests must provide:<span className="textpink">Review</span></h3>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmedphone ==0 )this.setState({roomdescription_Confirmedphone:1});else this.setState({roomdescription_Confirmedphone:0});}} >
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>Confirmed phone number</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.Payment_information ==0 )this.setState({Payment_information:1});else this.setState({Payment_information:0});}} >
+                  <label className="text-muted"><p><span className={this.state.Payment_information == 1 ?"show":"hide"}></span></p>Payment information</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.guest_message ==0 )this.setState({guest_message:1});else this.setState({guest_message:0});}} >
+                  <label className="text-muted"><p><span className={this.state.guest_message == 1 ?"show":"hide"}></span></p>A message about the guest’s trip</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.last_time ==0 )this.setState({last_time:1});else this.setState({last_time:0});}} >
+                  <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>Check-in time for last minute trips</label>
+                </div>
+
+                <h3>Your additional requirements<span className="textpink">Edit</span></h3>
+                <div className="radio"  onClick={(e) => {if(this.state.governmentissued_ID ==0 )this.setState({governmentissued_ID:1});else this.setState({governmentissued_ID:0});}}>
+                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to Airbnb</label>
+                </div>
+
+                <h3>Your House Rules<span className="textpink">Edit</span></h3>
+                <div className="radio" onClick={(e) => {if(this.state.Not_safe ==0 )this.setState({Not_safe:1});else this.setState({Not_safe:0});}} >
+                  <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>Not safe or suitable for children (2-12 years)</label>
+                </div>
+                <div className="radio"  onClick={(e) => {if(this.state.anytime_Checkin ==0 )this.setState({anytime_Checkin:1});else this.setState({anytime_Checkin:0});}} >
+                  <label className="text-muted"><p><span className={this.state.anytime_Checkin == 1 ?"show":"hide"}></span></p>Check-in is anytime after 3PM</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.NO_shoes ==0 )this.setState({NO_shoes:1});else this.setState({NO_shoes:0});}} >
+                  <label className="text-muted"><p><span className={this.state.NO_shoes == 1 ?"show":"hide"}></span></p>NO shoes in the house</label>
+                </div>
+
+              </div>
+
+
+              
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <p>Guests will only be able to book instantly with you if they meet all these requirements and agree to your House Rules. </p>
+                </div>
+             </div>
+    
+
+             
+             </div>
+             </div>
+        }
+        
+        {
+          this.state.step === this.STEP.Step3_4 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_4">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Review Airbnb’s guest requirements</h1>
+
+
+              <div className="box col-md-12">
+                <h3>All Airbnb guests must provide:<span className="textpink">Review</span></h3>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmedphone ==0 )this.setState({roomdescription_Confirmedphone:1});else this.setState({roomdescription_Confirmedphone:0});}} >
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>Confirmed phone number</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.Payment_information ==0 )this.setState({Payment_information:1});else this.setState({Payment_information:0});}} >
+                  <label className="text-muted"><p><span className={this.state.Payment_information == 1 ?"show":"hide"}></span></p>Payment information</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.guest_message ==0 )this.setState({guest_message:1});else this.setState({guest_message:0});}} >
+                  <label className="text-muted"><p><span className={this.state.guest_message == 1 ?"show":"hide"}></span></p>A message about the guest’s trip</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.last_time ==0 )this.setState({last_time:1});else this.setState({last_time:0});}} >
+                  <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>Check-in time for last minute trips</label>
+                </div>
+
+                <h3>Your additional requirements<span className="textpink">Edit</span></h3>
+                <div className="radio"  onClick={(e) => {if(this.state.governmentissued_ID ==0 )this.setState({governmentissued_ID:1});else this.setState({governmentissued_ID:0});}}>
+                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to Airbnb</label>
+                </div>
+
+                <h3>Your House Rules<span className="textpink">Edit</span></h3>
+                <div className="radio" onClick={(e) => {if(this.state.Not_safe ==0 )this.setState({Not_safe:1});else this.setState({Not_safe:0});}} >
+                  <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>Not safe or suitable for children (2-12 years)</label>
+                </div>
+                <div className="radio"  onClick={(e) => {if(this.state.anytime_Checkin ==0 )this.setState({anytime_Checkin:1});else this.setState({anytime_Checkin:0});}} >
+                  <label className="text-muted"><p><span className={this.state.anytime_Checkin == 1 ?"show":"hide"}></span></p>Check-in is anytime after 3PM</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.NO_shoes ==0 )this.setState({NO_shoes:1});else this.setState({NO_shoes:0});}} >
+                  <label className="text-muted"><p><span className={this.state.NO_shoes == 1 ?"show":"hide"}></span></p>NO shoes in the house</label>
+                </div>
+
+              </div>
+
+
+              
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <p>Guests will only be able to book instantly with you if they meet all these requirements and agree to your House Rules. </p>
+                </div>
+             </div>
+    
+
+             
+             </div>
+             </div>
+        }
 
 
 

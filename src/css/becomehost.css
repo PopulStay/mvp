@@ -340,7 +340,7 @@ h1,
 }
 .Step1_2 .radio label,
 .Step3_1 .radio label{
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   width: 100%;
   padding: 0;
   margin:2% 0 0%; 
@@ -348,9 +348,9 @@ h1,
 .Step1_2 .radio label p,
 .Step3_1 .radio label p{
   display: inline-block;
-  width: 22px;
-  height: 22px;
-  margin:0 5% 0 0;
+  width: 18px;
+  height: 18px;
+  margin:0.5% 3% 0 0;
   border:1px solid #f6416c;
   border-radius: 50%;
   position: relative;
@@ -497,7 +497,8 @@ h1,
 }
 .Step1_6 .STEPBTN,
 .Step1_7 .STEPBTN,
-.Step2_3 .STEPBTN{
+.Step2_3 .STEPBTN,
+.Step3_1 .STEPBTN{
   margin-top: 10%;
 }
 .Step1_6 .Stepbox{
@@ -1153,12 +1154,21 @@ h1,
 .Step3_1 .divinput{
   color: #4d4e4e !important;
 }
+.Step3_1 .box{
+  margin-bottom: 10%;
+}
 .Step3_1 .divinput{
   padding-left: 3%;
 }
 .Step3_1 h6{
   color: #808080;
   margin-top: 0;
+}
+.Step3_1 h3 span{
+  float: right;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-right: 10%;
 }
 /*Step3_1 end*/
 .Step3_2 .check,
@@ -1204,6 +1214,7 @@ h1,
 }
 .Step3_2 .rightbox1 p{
   position: relative;
+  margin-bottom: 5%;
 }
 .Step3_2 .rightbox1 span{
   position: absolute;
