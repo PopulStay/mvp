@@ -85,6 +85,10 @@
   float: left;
   color: #131c4e;
 }
+.modalcode .listing-card{
+  width: 60%;
+  margin: 0 20%;
+}
 .modalcode button{
   width: 50%;
   margin: 0 25%;

@@ -61,7 +61,8 @@ h1,
 .Step1_10 .change div p,
 .STEPBTN button,
 .Step1_10 button,
-.Step3_2 h4{
+.Step3_2 h4,
+.Explainwhy h3{
   font-family: RobotoBold; 
 }
 .cursor{
@@ -103,7 +104,8 @@ h1,
 .Step3_2 .divinput,
 .Step3_2 .check .textpink,
 .Step3_2 div.add input,
-.Step3_2 .rightbox1 p{
+.Step3_2 .rightbox1 p,
+.Explainwhy p{
   font-family: RobotoThin; 
 }
 .container{
@@ -1161,7 +1163,7 @@ h1,
 .Step3_2 .check,
 .Step3_2 .check1{
   margin: 1% 0;
-  height: 40px;
+  height: 50px;
 }
 .Step3_2 .check .divinput{
   float: left;
@@ -1237,7 +1239,7 @@ h1,
 }
 .Step3_2 h4{
   font-size: 1.6rem;
-  margin:1% 0;
+  margin:1% 0 3%;
 }
 .Step3_2 h3{
   width: 98%;
@@ -1251,6 +1253,47 @@ h1,
 .Step3_2 h3 span:hover{
   opacity: 1;
   cursor: pointer;
+}
+.Explainwhy{
+  width: 355px;
+  background: #fff;
+  padding: 8%;
+  overflow: hidden;
+}
+.Explainwhy span.close{
+  float: right;
+  font-size: 3rem;
+  margin-top: -15px;
+  margin-right: -10px;
+}
+.Explainwhy h3{
+  font-size: 2.2rem;
+}
+.Explainwhy p{
+  font-size: 1.2rem;
+  margin: 5% 0;
+}
+.Explainwhy textarea{
+  width: 100%;
+  height: 80px;
+  margin: 1% 0 8%;
+  border:1px solid #808080;
+}
+.Explainwhy button.Done{
+  width:40%; 
+  border-radius: 0;
+  background: #f6416c;
+  color: #fff;
+  border: 0;
+  float: left;
+}
+.Explainwhy button.Cancel{
+  width:40%; 
+  border-radius: 0;
+  background: #151b4e;
+  color: #fff;
+  border: 0;
+  float: right;
 }
 .Step-8 h1{
   text-align: center;

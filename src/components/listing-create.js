@@ -3,8 +3,16 @@ import {Link} from 'react-router-dom';
 import houselistingService from '../services/houseinfolist-service';
 import ListingDetail from './listing-detail';
 import Overlay from './overlay';
+import Modal from 'react-modal';
 import hostService from '../services/host-service';
-
+const customStyles = {
+  content : {
+    top                   : '20%',
+    left                  : '35%',
+    right                 : '35%',
+    bottom                : '20%'
+  }
+};
 
 
 class ListingCreate extends Component {
@@ -116,6 +124,7 @@ class ListingCreate extends Component {
             selectedPictures:[],
             price_perday:199,
             ETHprice_perday:199,
+            Explainwhy:"",
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
@@ -133,6 +142,7 @@ class ListingCreate extends Component {
             range:1,
             AdditionalRules:[],
             RulesIpt:"",
+            modalIsOpen:false,
 
         }
 
@@ -142,10 +152,25 @@ class ListingCreate extends Component {
         this.fileChangedHandler = this.fileChangedHandler.bind(this);
         this.deletePictures = this.deletePictures.bind(this);
         this.submit = this.submit.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
 
         this.CSS={  
             style1:{transform:"rotate(0deg) scale(1)"}  
         } 
+    }
+
+    openModal() {
+      this.setState({modalIsOpen: true});
+    }
+
+    afterOpenModal() {
+      this.subtitle.style.color = '#f00';
+    }
+
+    closeModal() {
+      this.setState({modalIsOpen: false});
     }
 
     submit(){
@@ -544,7 +569,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -2074,7 +2099,7 @@ class ListingCreate extends Component {
         }
         
         {
-          this.state.step === this.STEP.Step3_2 &&
+          this.state.step === this.STEP.Step1_1 &&
           <div className="becomehost-2 container">
           <div className="row Step3_2">
             <div className="col-md-8 col-lg-7 col-sm-12 ">
@@ -2114,8 +2139,21 @@ class ListingCreate extends Component {
                   <p  className="Pinput">
                       <img className={this.state.rules_children ==0 ? 'show' : 'hide'} src="../images/checkcuo.png" alt=""/>
                   </p>
-                  <p className="textpink">Explain why</p>
+                  <p className="textpink" onClick={(e) => {this.openModal(e)}} >Explain why</p>
                 </div>
+
+                <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+                contentLabel="Wallet Message">
+                <div className="Explainwhy">
+                  <span className="close" onClick={(e) => {this.closeModal(e)}}>×</span>
+                  <h3>Explain why your listing isn’t  suitable for children</h3>
+                  <p>What features of your space might be dangerous to  children or easily damaged?</p>
+                  <textarea onChange={(e)=>this.setState({Explainwhy:e.target.value})}></textarea>
+                  <button className="Done" onClick={(e) => {this.closeModal(e)}} >Done</button>
+                  <button className="Cancel" onClick={(e) => {this.closeModal(e)}} >Cancel</button>
+                </div>  
+                </Modal>
+
                 <div className="check" onClick={(e) => {if(this.state.rules_infants ==0 )this.setState({rules_infants:1});else this.setState({rules_infants:0});}}>
                   <p className="divinput">Suitable for infants (Under 2 years)
                     <span><img className="Promptimg" src="../images/Prompt.png" />
