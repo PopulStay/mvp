@@ -41,8 +41,8 @@ class ListingsDetail extends Component {
     this.state = {
       category: "Loading...",
       name: "Loading...",
-      price: "Loading...",
-      ethPrice:"Loading...",
+      price: 0,
+      ethPrice:0,
       ipfsHash: null,
       lister: null,
       pictures: [],
@@ -214,8 +214,7 @@ class ListingsDetail extends Component {
   calcTotalPrice() {
     if (this.state.checkInDate && this.state.checkOutDate) {
       let days = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
-      this.state.days = days;
-      return this.state.price * days;
+      return days
     }
     return 0
   }
@@ -314,7 +313,7 @@ class ListingsDetail extends Component {
 
       <div className="detail-content container">
       <div className="row">
-      <div className="col-sm-12 col-lg-7">
+      <div className="col-sm-12 col-md-12 col-lg-7">
         <div className="L_box1 col-sm-8 col-md-9">
           <p className="text1">ENTIRE VILA - VEDADO</p>
           <p className="text2">PlacetedelVedado</p>
@@ -484,9 +483,8 @@ class ListingsDetail extends Component {
             </ul>
         </div>
       </div>
-      <div className=" col-sm-12 col-lg-5">
+      <div className=" col-sm-12 col-md-12 col-lg-5">
       <div className="detail-summary">
-
           <ul>
               <li onClick={(e) => {this.setState({priceActive:1})}} className={this.state.priceActive == 1 ? 'active' : ''} >PPS</li>
               <li onClick={(e) => {this.setState({priceActive:0})}} className={this.state.priceActive == 0 ? 'active' : ''}>ETH</li>
@@ -554,10 +552,10 @@ class ListingsDetail extends Component {
               <div className ="details-totalprice-div">
                 <ul>
                     <li className="blueColor">
-                      <span className = "LeftSpan"><b>￥</b>{this.state.descriptioninfo.price_perday}×{this.state.days}nights
+                      <span className = "LeftSpan"><b>￥</b>{this.state.descriptioninfo.price_perday}×{this.calcTotalPrice()}nights
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan"><b>￥</b>{Number(this.calcTotalPrice()).toLocaleString(undefined, {minimumFractionDigits: 3})}</span>
+                      <span className = "RightSpan"><b>￥</b>{(this.state.descriptioninfo.price_perday == null ? "0":"") * this.calcTotalPrice()}</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">Special Offer 20% off
@@ -580,7 +578,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
-                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {Number(this.calcTotalPrice())-0+26}
+                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {Number((this.state.descriptioninfo.price_perday == null ? "0":"") * this.calcTotalPrice())-0+26}
                       </span>
                     </li>
                 </ul>

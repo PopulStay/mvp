@@ -1,6 +1,6 @@
 .detail-content {
   position: relative;
-  padding: 60px 0;
+  padding: 60px 10%;
   color: #4d4e4e;
 }
 
@@ -8,11 +8,11 @@
   width: 100%;
 }
 
-.detail-content .col-md-7 {
+.detail-content .col-lg-7 {
   padding-right: 50px;
 }
 
-.detail-content .col-md-5 {
+.detail-content .col-lg-5 {
   padding-left: 30px;
 }
 /*leftcontent*/

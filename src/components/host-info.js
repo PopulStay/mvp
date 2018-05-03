@@ -40,37 +40,26 @@ class HostInfo extends React.Component {
 
   render() {
     return (
-      
-      <div>
-        <div className="row">
-        <div className = "col-lg-6">
-        <h1>Host Managment Panel</h1>
-        </div>
-        <div className = "col-lg-1">
-        <Link to="/hostorder">
-          <button className="btn btn-danger">Order List</button>
-        </Link>
+      <div className="HostManagment">
+      <h1>Host Managment Panel</h1>
 
-        </div>
-        </div>
-        <hr/>
-  <table className="table">
-    <thead>
-      <tr>
-        <th>Category</th>
-        <th>Beds</th>
-        <th>Location</th>
-        <th>Price</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-     {this.state.roomInfoList.map(row => (
-            <HostRoomList row={row} key={row}/>
-      ))}
-     
-    </tbody>
-  </table>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Beds</th>
+              <th>Location</th>
+              <th>Price</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+           {this.state.roomInfoList.map(row => (
+                  <HostRoomList row={row} key={row}/>
+            ))}
+           
+          </tbody>
+        </table>
       
 
       </div>

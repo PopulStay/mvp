@@ -20,24 +20,8 @@ class ManagementPanel extends Component {
     return (
 
       <div>
-   
-      <div className ="row" >
 
-    
-
-      <div className = "col-lg-1">
-      <WalletManage/>
-      </div>
-
-      <div className = "col-lg-1">
-      <WalletClear/>
-      </div>
-
-        <div className = "col-lg-1">
-      <WalletGas/>
-      </div>
-
-      </div>
+      
 
       <GuestInfo/>
       <br/><br/><br/><br/><br/><br/>
