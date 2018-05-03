@@ -2407,7 +2407,7 @@ class ListingCreate extends Component {
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
-                <span></span>
+                <span className="bjpink"></span>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -2421,43 +2421,32 @@ class ListingCreate extends Component {
                 <p>Step 3: Get ready for guests</p>
               </div>
 
-              <h1>Review Airbnb’s guest requirements</h1>
+              <h1>Here’s how guests will book with you</h1>
 
 
               <div className="box col-md-12">
-                <h3>All Airbnb guests must provide:<span className="textpink">Review</span></h3>
-                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
+                <div className="boxdiv">
+                  <img className="col-lg-4 pull-left" src="../images/step3_4img1.png" />
+                  <div className="col-lg-8 pull-right">
+                    <h3>Qualified guests find your listing</h3>
+                    <p>Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.</p>
+                  </div>
                 </div>
-                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmedphone ==0 )this.setState({roomdescription_Confirmedphone:1});else this.setState({roomdescription_Confirmedphone:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>Confirmed phone number</label>
+                <div className="boxdiv">
+                  <img className="col-lg-4 pull-left" src="../images/step3_4img2.png" />
+                  <div className="col-lg-8 pull-right">
+                    <h3>You set controls for who can book</h3>
+                    <p>To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.</p>
+                    <p className="textpink">I want to review every request</p>
+                  </div>
                 </div>
-                <div className="radio" onClick={(e) => {if(this.state.Payment_information ==0 )this.setState({Payment_information:1});else this.setState({Payment_information:0});}} >
-                  <label className="text-muted"><p><span className={this.state.Payment_information == 1 ?"show":"hide"}></span></p>Payment information</label>
+                <div className="boxdiv">
+                  <img className="col-lg-4 pull-left" src="../images/step3_4img3.png" />
+                  <div className="col-lg-8 pull-right">
+                    <h3>Once a guest books, you get notified</h3>
+                    <p>You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.</p>
+                  </div>
                 </div>
-                <div className="radio" onClick={(e) => {if(this.state.guest_message ==0 )this.setState({guest_message:1});else this.setState({guest_message:0});}} >
-                  <label className="text-muted"><p><span className={this.state.guest_message == 1 ?"show":"hide"}></span></p>A message about the guest’s trip</label>
-                </div>
-                <div className="radio" onClick={(e) => {if(this.state.last_time ==0 )this.setState({last_time:1});else this.setState({last_time:0});}} >
-                  <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>Check-in time for last minute trips</label>
-                </div>
-
-                <h3>Your additional requirements<span className="textpink">Edit</span></h3>
-                <div className="radio"  onClick={(e) => {if(this.state.governmentissued_ID ==0 )this.setState({governmentissued_ID:1});else this.setState({governmentissued_ID:0});}}>
-                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to Airbnb</label>
-                </div>
-
-                <h3>Your House Rules<span className="textpink">Edit</span></h3>
-                <div className="radio" onClick={(e) => {if(this.state.Not_safe ==0 )this.setState({Not_safe:1});else this.setState({Not_safe:0});}} >
-                  <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>Not safe or suitable for children (2-12 years)</label>
-                </div>
-                <div className="radio"  onClick={(e) => {if(this.state.anytime_Checkin ==0 )this.setState({anytime_Checkin:1});else this.setState({anytime_Checkin:0});}} >
-                  <label className="text-muted"><p><span className={this.state.anytime_Checkin == 1 ?"show":"hide"}></span></p>Check-in is anytime after 3PM</label>
-                </div>
-                <div className="radio" onClick={(e) => {if(this.state.NO_shoes ==0 )this.setState({NO_shoes:1});else this.setState({NO_shoes:0});}} >
-                  <label className="text-muted"><p><span className={this.state.NO_shoes == 1 ?"show":"hide"}></span></p>NO shoes in the house</label>
-                </div>
-
               </div>
 
 
@@ -2473,8 +2462,8 @@ class ListingCreate extends Component {
 
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
-                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Guests will only be able to book instantly with you if they meet all these requirements and agree to your House Rules. </p>
+                    <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
+                    <p>In the rare case there are issues. Airbnb has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
                 </div>
              </div>
     
@@ -2484,7 +2473,80 @@ class ListingCreate extends Component {
              </div>
         }
 
+        {
+          this.state.step === this.STEP.Step1_11 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_4">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
 
+              <h1>Here’s how guests will book with you</h1>
+
+
+              <div className="box col-md-12">
+                <div className="boxdiv">
+                  <img className="col-lg-4 pull-left" src="../images/step3_4img1.png" />
+                  <div className="col-lg-8 pull-right">
+                    <h3>Qualified guests find your listing</h3>
+                    <p>Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.</p>
+                  </div>
+                </div>
+                <div className="boxdiv">
+                  <img className="col-lg-4 pull-left" src="../images/step3_4img2.png" />
+                  <div className="col-lg-8 pull-right">
+                    <h3>You set controls for who can book</h3>
+                    <p>To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.</p>
+                    <p className="textpink">I want to review every request</p>
+                  </div>
+                </div>
+                <div className="boxdiv">
+                  <img className="col-lg-4 pull-left" src="../images/step3_4img3.png" />
+                  <div className="col-lg-8 pull-right">
+                    <h3>Once a guest books, you get notified</h3>
+                    <p>You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.</p>
+                  </div>
+                </div>
+              </div>
+
+
+              
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
+                    <p>In the rare case there are issues. Airbnb has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
+                </div>
+             </div>
+    
+
+             
+             </div>
+             </div>
+        }
 
 
 
