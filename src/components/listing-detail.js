@@ -10,6 +10,7 @@ import Overlay from './overlay';
 import web3Service from '../services/web3-service';
 import Modal from 'react-modal';
 import EthereumQRPlugin from 'ethereum-qr-code';
+import Video from './video';
 const qr = new EthereumQRPlugin();
 const customStyles = {
   content : {
@@ -611,11 +612,8 @@ class ListingsDetail extends Component {
       </div>
       </div>
       </div>
+       <Video listid={this.props.listingId}/>
       </div>
-
-
-
-
  </div>     
     )
   }
