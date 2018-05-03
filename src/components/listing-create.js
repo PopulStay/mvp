@@ -114,8 +114,8 @@ class ListingCreate extends Component {
             climb_stairs:1,
             roomstuff_AreaCode:86,
             selectedPictures:[],
-            price_perday:0,
-            ETHprice_perday:0,
+            price_perday:199,
+            ETHprice_perday:199,
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
@@ -2077,7 +2077,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step3_2 &&
           <div className="becomehost-2 container">
           <div className="row Step3_2">
-            <div className="col-md-8 col-lg-7 col-sm-8 ">
+            <div className="col-md-8 col-lg-7 col-sm-12 ">
               <div className="STEPhead">
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
@@ -2099,9 +2099,15 @@ class ListingCreate extends Component {
               <h1>Set house rules for your guests</h1>
 
 
-              <div className="box col-md-12">
+              <div className="box col-md-10">
                 <div className="check" onClick={(e) => {if(this.state.rules_children ==0 )this.setState({rules_children:1});else this.setState({rules_children:0});}}>
-                  <p className="divinput">Suitable for children (2-12 years)</p>
+                  <p className="divinput">Suitable for children (2-12 years)
+                    <span><img className="Promptimg" src="../images/Prompt.png" />
+                    <div className="rightbox1">
+                      <p><span>▲</span>You can say your listing isn’t suitable for infants or children if there are features that are dangerous for children or there’s a risk of property damage. If you decide to restrict guests with infants or children from booking, add an explanation so guests can understand why your listing isn’t suitable for their trip.</p>
+                    </div>
+                    </span>
+                  </p>
                   <p  className="Pinput">
                       <img className={this.state.rules_children ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
@@ -2111,7 +2117,13 @@ class ListingCreate extends Component {
                   <p className="textpink">Explain why</p>
                 </div>
                 <div className="check" onClick={(e) => {if(this.state.rules_infants ==0 )this.setState({rules_infants:1});else this.setState({rules_infants:0});}}>
-                  <p className="divinput">Suitable for infants (Under 2 years)</p>
+                  <p className="divinput">Suitable for infants (Under 2 years)
+                    <span><img className="Promptimg" src="../images/Prompt.png" />
+                    <div className="rightbox1">
+                      <p><span>▲</span>You can say your listing isn’t suitable for infants or children if there are features that are dangerous for children or there’s a risk of property damage. If you decide to restrict guests with infants or children from booking, add an explanation so guests can understand why your listing isn’t suitable for their trip.</p>
+                    </div>
+                    </span>
+                  </p>
                   <p  className="Pinput">
                       <img className={this.state.rules_infants ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
@@ -2120,7 +2132,13 @@ class ListingCreate extends Component {
                   </p>
                 </div>
                 <div className="check" onClick={(e) => {if(this.state.rules_pets ==0 )this.setState({rules_pets:1});else this.setState({rules_pets:0});}}>
-                  <p className="divinput">Suitable for pets</p>
+                  <p className="divinput">Suitable for pets
+                    <span><img className="Promptimg" src="../images/Prompt.png" />
+                    <div className="rightbox1">
+                      <p><span>▲</span>You can limit guests from bringing pets, but assistance animals—for example, seeing eye dogs—aren’t considered pets. You have to reasonably accommodate reservations where a guest might bring an assistance animal, even if your listing or House Rules state “no pets.”Learn more</p>
+                    </div>
+                    </span>
+                  </p>
                   <p  className="Pinput">
                       <img className={this.state.rules_pets ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
@@ -2178,7 +2196,7 @@ class ListingCreate extends Component {
                
              </div>
 
-             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+             <div className="col-md-4 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                     <p>You need to feel confident with every reservation. That’s why we require certain information from every guest before they can book. </p>

@@ -134,6 +134,7 @@ class ListingsDetail extends Component {
   }
 
   handleBooking() {
+    console.log(this.state.descriptioninfo)
     let unitsToBuy = 0;
 
     if (this.state.checkInDate && this.state.checkOutDate) {
