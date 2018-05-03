@@ -133,7 +133,7 @@ class Video extends Component {
   render() {
 
     return (  
-              <div className="video">
+              <div id="agora_remote" className="video">
                    <ul>
                       <li>Hello, i would like to book a room from your hostel.<img src="../images/becomehost-triangle.png" /></li>
                    </ul>
