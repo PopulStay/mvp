@@ -21,6 +21,9 @@ img{width: 100%;}
 hr{
   border-top: 2px solid #c5c5c5;
 }
+.box{
+  min-height: 300px;
+}
 .Left{
   float: left;
 }
@@ -98,7 +101,7 @@ h1,
 .Step2_4 .box span,
 .Step2_4 input,
 .Step2_5 .dropdown-menu a,
-.Step2_5 .box input,
+.Step2_5 .stepbox input,
 .Step3_1 .radio label,
 .Step3_1 .divinput,
 .Step3_2 .divinput,
@@ -106,7 +109,8 @@ h1,
 .Step3_2 div.add input,
 .Step3_2 .rightbox1 p,
 .Explainwhy p,
-.Step3_4 .boxdiv p{
+.Step3_4 .boxdiv p,
+.Step3_5 .box{
   font-family: RobotoThin; 
 }
 .container{
@@ -205,7 +209,7 @@ h1,
   height: 40px;
   line-height: 100%;
   text-align: left;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .Step1_1 .form-group .btn-group button span,
@@ -321,11 +325,11 @@ h1,
 .Step1_3 h1{
   color: #4d4e4e;
   font-size: 2.8rem;
-  margin: 0 0 10%;
+  margin: 0 0 5%;
 }
 .Step1_2 h2,.Step1_4 h2{
   color: #4d4e4e;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .Step1_2 .form-control,
 .Step2_3 input{
@@ -334,7 +338,7 @@ h1,
   font-size: 1.7rem;
 }
 .Step1_2 .form-group{
-  margin: 3% 0 8%;
+  margin: 3% 0 5%;
   width: 70%;
   height: 40px;
 }
@@ -387,7 +391,7 @@ h1,
 .Step2_3 h4{
   color: #4d4e4e;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 2%;
   display: block;
 }
@@ -445,12 +449,6 @@ h1,
   margin: 5% 0 2%;
 } 
 /*Step1_4 end*/
-.Step1_4 .STEPBTN,
-.Step1_5 .STEPBTN,
-.Step2_4 .STEPBTN,
-.Step2_5 .STEPBTN{
-  margin-top: 50%;
-}
 .Step1_5 .step5box{
   position: relative;
   padding: 0;
@@ -466,7 +464,6 @@ h1,
 }
 .Step1_5 .step5box input{
   padding: 0 10%;
-  font-size: 1.8rem;
 }
 .Step1_5 .img1,
 .Step1_6 .img1{
@@ -475,7 +472,7 @@ h1,
 }
 /*Step1_5 end*/
 .Step1_6 h2{
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .Step1_6 h2 span{
   font-size: 1.4rem;
@@ -484,7 +481,7 @@ h1,
 .Step1_6 .btn-group button,
 .Step1_6 input{
   text-align: left;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 .Step1_6 .dropdown-menu{
   min-height: 300px;
@@ -500,9 +497,6 @@ h1,
 .Step2_3 .STEPBTN,
 .Step3_1 .STEPBTN{
   margin-top: 10%;
-}
-.Step1_6 .Stepbox{
-  padding: 5% 0 0;
 }
 .Step1_6 .Stepbox>div{
   margin-bottom: 2%;
@@ -526,7 +520,8 @@ h1,
 .Step2_3 .Pinput,
 .Step3_1 .Pinput,
 .Step3_2 .Pinput,
-.Step3_2 .check1 .Pinput{
+.Step3_2 .check1 .Pinput,
+.Step3_5 .check .Pinput{
   width: 20px;
   height: 20px;
   border-radius: 5px;
@@ -551,7 +546,8 @@ h1,
 .Step2_3 .divinput,
 .Step3_1 .divinput,
 .Step3_2 .divinput,
-.Step3_2 .check1 .divinput{
+.Step3_2 .check1 .divinput,
+.Step3_5 .check .divinput{
   float: right;
   width: 94%;
   font-size:1.6rem;
@@ -590,16 +586,18 @@ h1,
 }
 .Step1_8 .Stepbox>div,
 .Step1_6 .Stepbox,
-.Step2_3 .box,
-.Step2_3 .box>div,
+.Step2_3 .stepbox,
+.Step2_3 .stepbox>div,
 .Step1_10 .Rapair,
 .Step2_2 .modal-body,
 .Step3_1 .check,
-.Step3_4 .boxdiv{
+.Step3_4 .boxdiv,
+.Step3_5 .check{
   overflow: hidden; 
 }
 .Step1_8 .Stepbox>div,
-.Step3_1 .check{
+.Step3_1 .check,
+.Step3_5 .check{
   padding: 1% 0;
   cursor: pointer;
 }
@@ -632,6 +630,7 @@ h1,
   float: left;
 }
 .Step1_10 .change div p{
+  font-size: 1.6rem;
   margin:1% 0;
   cursor: pointer;
 }
@@ -837,8 +836,11 @@ h1,
   margin: 30% 0 0;
 }
 /*Step1_10 end*/
-.Step2_1 .photos{
+.Step2_1 .photos,
+.Step2_2 .photos{
   position: relative;
+  margin: 3% 0;
+  overflow: hidden;
 }
 .Step2_1 .photos .Fileipt{
   width: 100%;
@@ -879,10 +881,9 @@ h1,
 .Step2_2{
   position: relative;
 }
-.Step2_1 .rightbox,
-.Step2_2 .rightbox{
-  top:0;
-  right:2%;
+.Step2_1 .rightbox{
+  top:10%;
+  right:3%;
   position: absolute;
   width: 300px;
   padding: 3%;
@@ -905,9 +906,17 @@ h1,
 .Step2_2 .rightbox img{
   margin-bottom: 8%;
 }
+.Step2_2 .rightbox{
+  top:18%;
+  right:3%;
+  position: absolute;
+  width: 300px;
+  padding: 3%;
+  z-index: 1;
+}
 .Step2_2 .photos .photosimg,.Step2_2 .photos .photosipt{
   width: 31.1%;
-  height: 180px;
+  height:220px;
   position: relative;
   overflow: hidden;
   margin: 1% ;
@@ -1076,26 +1085,26 @@ h1,
 .Step2_3 h4.cursor{
   margin-bottom:0; 
 }
-.Step2_3 .box>div{
+.Step2_3 .stepbox>div{
   cursor: pointer;
 }
 /*Step2_3 end*/
 .Step2_4 .box span{
   position: absolute;
   right: 4%;
-  top: 15%;
+  top: 2%;
 }
 .Step2_4 h1,
 .Step2_5 h1{
   margin: 3% 0 5%;
 }
-.Step2_5 .box{
+.Step2_5 .stepbox{
   border:1px solid #f6416c;
   height: 45px;
   border-left: none;
   padding: 0;
 }
-.Step2_5 .box .phoneimg{
+.Step2_5 .stepbox .phoneimg{
  background: #f6416c;
  border:1px solid #f6416c;
  width: 15%;
@@ -1103,14 +1112,14 @@ h1,
  float: left;
  position: relative;
 }
-.Step2_5 .box .phoneimg img{
+.Step2_5 .stepbox .phoneimg img{
   width: 20%;
   position: absolute;
   top:50%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
-.Step2_5 .box .phonecode{
+.Step2_5 .stepbox .phonecode{
   float: left;
   width: 25%;
   height:100%;
@@ -1118,7 +1127,7 @@ h1,
   padding: 0;
   cursor: pointer;
 }
-.Step2_5 .box .phonecode span{
+.Step2_5 .stepbox .phonecode span{
   font-size: 2rem;
   position: absolute;
   top:50%;
@@ -1127,14 +1136,14 @@ h1,
   border-right:1px solid #f6416c;
   padding-right: 25%; 
 }
-.Step2_5 .box input{
+.Step2_5 .stepbox input{
   width: 55%;
   height: 100%;
   font-size: 1.8rem;
   border:none;
   outline:none;
 }
-.Step2_5 .box>img{
+.Step2_5 .stepbox>img{
   width: 30px;
   position: absolute;
   top:50%;
@@ -1174,7 +1183,8 @@ h1,
 }
 /*Step3_1 end*/
 .Step3_2 .check,
-.Step3_2 .check1{
+.Step3_2 .check1,
+.Step3_5 .check{
   margin: 1% 0;
   height: 45px;
 }
@@ -1284,6 +1294,12 @@ h1,
   width: 40px !important;
 }
 /*Step3_4 end*/
+.Step3_5 .box p{
+  width: 85%;
+  font-size: 1.6rem;
+  line-height: 1.9;
+  margin-bottom: 4%;
+}
 
 .Explainwhy{
   width: 355px;

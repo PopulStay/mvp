@@ -510,6 +510,60 @@
 .neighbourhood ul li img{
   width: 25px;
 }
+.video{
+  width: 400px;
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+  z-index: 99999;
+  background: #f6416c;
+  padding: 1%;
+  border-radius: 10px;
+}
+.video li{
+  background: #151b4e;
+  border-radius: 5px;
+  width: 70%;
+  float: right;
+  position: relative;
+  color: #fff;
+  font-size: 1.2rem;
+  padding:3% 5%;
+  font-family: RobotoThin; 
+}
+.video li img{
+  position: absolute;
+  width: 20px;
+  right: 0;
+  bottom:-15px;
+}
+.video .becomehost_line{
+  margin: 10% 0;
+}
+.video div>.keyboard{
+  width: 50px;
+  cursor: pointer;
+}
+.video div>input{
+  width: 200px;
+  background: none;
+  border:none;
+  color: #fff;
+  margin: 0 5%;
+  font-size: 1.4rem;
+  padding:2% 3%;
+  font-family: RobotoThin; 
+}
+.video div>.microphone{
+  width: 20px;
+  cursor: pointer;
+}
+.video div>.becomehost_video{
+  width: 35px;
+  float: right;
+  margin-top: 1.2%;
+  cursor: pointer;
+}
 @media (max-width: 640px) {
   body{
     min-width:auto;
