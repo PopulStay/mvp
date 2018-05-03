@@ -43,8 +43,6 @@ class GuestOrderRow extends Component {
      {
       this.getPreOrderInfo();
      }
-
-   
   }
 
   render() {
