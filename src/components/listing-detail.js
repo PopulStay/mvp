@@ -127,10 +127,14 @@ class ListingsDetail extends Component {
     if (this.props.listingId) {
       this.loadListing();
     }
-
-    web3Service.getETHBalance(window.address).then((data)=>{
-      this.setState({ ethBalance:data/this.CONST.weiToGwei});
-    });
+  
+    if(window.address)
+    {
+      web3Service.getETHBalance(window.address).then((data)=>{
+        this.setState({ ethBalance:data/this.CONST.weiToGwei});
+      });
+    }
+ 
   
   }
 
