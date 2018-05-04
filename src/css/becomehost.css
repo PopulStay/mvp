@@ -121,7 +121,11 @@ h1,
 .Step3_6 .dropdown-menu a,
 .Step3_6 .form-group .btn-group button,
 .Step3_6 .box>h5,
-.Step3_10 .boxdiv p{
+.Step3_10 .boxdiv p,
+.Step3_12 .box>p,
+.Step3_12 .boxdiv input,
+.Step3_12 .dropdown-menu a,
+.Step3_12 .rightbox1 p{
   font-family: RobotoThin; 
 }
 .container{
@@ -201,7 +205,8 @@ h1,
 .Step1_1 .form-group .btn-group button,
 .Step1_2 .form-group .btn-group button,
 .Step1_6 .btn-group button,
-.Step3_6 .form-group .btn-group button{
+.Step3_6 .form-group .btn-group button,
+.Step3_12 .form-group .btn-group button{
   text-align: left;
 }
 .Step1_1 .form-control,
@@ -214,7 +219,9 @@ h1,
 .Step1_6 .btn-group button,
 .Step2_4 input,
 .Step1_5 .step5box input,
-.Step3_6 .form-group .btn-group button{
+.Step3_6 .form-group .btn-group button,
+.Step3_12 .boxdiv input,
+.Step3_12 .form-group .btn-group button{
   background: none;
   border: 1px solid #aaa;
   border-radius: 0;
@@ -228,7 +235,8 @@ h1,
 .Step1_1 .form-group .btn-group button span,
 .Step1_2 .form-group .btn-group button span,
 .Step1_6 .btn-group button span,
-.Step3_6 .btn-group button span{
+.Step3_6 .btn-group button span,
+.Step3_12 .form-group .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2rem;
@@ -238,7 +246,8 @@ h1,
 .Step1_3 .dropdown-menu,
 .Step1_6 .dropdown-menu,
 .Step2_5 .dropdown-menu,
-.Step3_6 .dropdown-menu{
+.Step3_6 .dropdown-menu,
+.Step3_12 .dropdown-menu{
   width: 100%;
   max-height: 160px;
   overflow: auto;
@@ -251,7 +260,8 @@ h1,
 .Step1_6 .dropdown-menu a,
 .Step2_5 .dropdown-menu a,
 .ReactModal__Content .dropdown-menu>a,
-.Step3_6 .dropdown-menu a{
+.Step3_6 .dropdown-menu a,
+.Step3_12 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 8%;
@@ -266,7 +276,8 @@ h1,
 .Step1_6 .dropdown-menu a:hover,
 .Step2_5 .dropdown-menu a:hover,
 .ReactModal__Content .dropdown-menu>a:hover,
-.Step3_6 .dropdown-menu a:hover{
+.Step3_6 .dropdown-menu a:hover,
+.Step3_12 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -278,7 +289,8 @@ h1,
 .Step1_3 .dropdown-menu li:first-child>a,
 .Step2_5 .dropdown-menu li:first-child>a,
 .ReactModal__Content .dropdown-menu>a:first-child,
-.Step3_6 .dropdown-menu li:first-child>a{
+.Step3_6 .dropdown-menu li:first-child>a,
+.Step3_12 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .Step1_1 .form-group .btn-group,
@@ -289,7 +301,9 @@ h1,
 .Step1_6 .btn-group,
 .box,
 .Step1_3 .form-group,
-.Step3_6 .form-group .btn-group{
+.Step3_6 .form-group .btn-group,
+.Step3_12 .boxdiv,
+.Step3_12 .form-group .btn-group{
   padding: 0;
 }
 .Step1_1 .form-group select,
@@ -310,7 +324,8 @@ h1,
 .rightbox>div,
 .Step2_1 .rightbox,
 .Step2_2 .rightbox,
-.Step3_2 .rightbox1{
+.Step3_2 .rightbox1,
+.Step3_12 .rightbox1{
   background:#151b4e ;
   padding: 10% 8% 1%;
   color: #fff;
@@ -321,12 +336,14 @@ h1,
 }
 .rightbox>div h6,
 .rightbox>div p,
-.Step3_2 .rightbox1 p{
+.Step3_2 .rightbox1 p,
+.Step3_12 .rightbox1 p{
   font-size: 1.6rem;
   margin: 0 0 1%;
 }
 .rightbox>div p,
-.Step3_2 .rightbox1 p{
+.Step3_2 .rightbox1 p,
+.Step3_12 .rightbox1 p{
   margin-bottom: 15%;
 }
 .becomehost__Step1_2 {
@@ -338,7 +355,9 @@ h1,
 .Step1_2 .form-group .btn-group button,
 .Step1_2 .dropdown-menu,
 .Step3_6 .form-group .btn-group button,
-.Step3_6 .dropdown-menu{
+.Step3_6 .dropdown-menu,
+.Step3_12 .form-group .btn-group button,
+.Step3_12 .dropdown-menu{
   width: 80%;
 }
 .Step1_2 .STEPBTN{
@@ -362,7 +381,8 @@ h1,
   font-size: 1.7rem;
 }
 .Step1_2 .form-group,
-.Step3_6 .form-group{
+.Step3_6 .form-group,
+.Step3_12 .form-group{
   margin: 3% 0 5%;
   width: 70%;
   height: 40px;
@@ -479,14 +499,16 @@ h1,
   overflow: hidden;
   margin-top: 2%;
 }
-.Step1_5 .step5box img{
+.Step1_5 .step5box img,
+.Step3_12 .boxdiv>img{
   width: 20px;
   position: absolute;
   top:50%;
   left: 2%;
   transform: translate(0,-50%);
 }
-.Step1_5 .step5box input{
+.Step1_5 .step5box input,
+.Step3_12 .boxdiv input{
   padding: 0 10%;
 }
 .Step1_5 .img1,
@@ -617,7 +639,8 @@ h1,
 .Step3_1 .check,
 .Step3_4 .boxdiv,
 .Step3_5 .check,
-.Step3_10 .boxdiv{
+.Step3_10 .boxdiv,
+.Step3_12 .boxdiv{
   overflow: hidden; 
 }
 .Step1_8 .Stepbox>div,
@@ -1201,7 +1224,8 @@ h1,
 }
 .Step3_1 .box,
 .Step3_4 .box,
-.Step3_10 .box{
+.Step3_10 .box,
+.Step3_12 .box{
   margin-bottom: 10%;
 }
 .Step3_1 .divinput{
@@ -1251,20 +1275,23 @@ h1,
 .Step3_2 .check .divinput span:hover>.rightbox1{
   display:block;
 }
-.Step3_2 .rightbox1{
+.Step3_2 .rightbox1,
+.Step3_12 .rightbox1{
   width: 300px;
   left: -155px;
   top:40px;
   position: absolute;
   z-index: 10;
-  display: none;
   padding: 2% 3%;
+  display: none;
 }
-.Step3_2 .rightbox1 p{
+.Step3_2 .rightbox1 p,
+.Step3_12 .rightbox1 p{
   position: relative;
   margin-bottom: 5%;
 }
-.Step3_2 .rightbox1 span{
+.Step3_2 .rightbox1 span,
+.Step3_12 .rightbox1 span{
   position: absolute;
   top:-35px;
   left:50%;
@@ -1356,7 +1383,8 @@ h1,
   height: 100px;
   margin-top: 0;
 }
-.Step3_6 .dropdown-menu a{
+.Step3_6 .dropdown-menu a,
+.Step3_12 .dropdown-menu a{
   padding: 2% 3%;
 }
 .Step3_6 .form-group1 .dropdown-menu a{
@@ -1399,7 +1427,8 @@ h1,
 .Step3_10 .content>p{
   line-height: 1.9;
 }
-.Step3_10 .content>span{
+.Step3_10 .content>span,
+.Step3_12 .box>h2>span{
   display: inline-block;
   background: #f6416c;
   color: #fff;
@@ -1409,9 +1438,60 @@ h1,
   width: 24px;
   height: 24px;
 }
-
-
 /*Step3_10 end*/
+.Step3_12 .box>h1{
+  font-size: 2.2rem;
+  margin:5% 0;
+}
+.Step3_12 .box>p{
+  font-size: 1.6rem;
+}
+.Step3_12 .boxdiv>img{
+  width: 10px;
+  top: 25%;
+  left: 4%;
+}
+.Step3_12 .box>h2{
+  color: #131c4e;
+  font-size: 1.8rem;
+  position: relative;
+  cursor: pointer;
+}
+.Step3_12 .box>h2>img{
+  width: 18px;
+  margin-left: 2%;
+}
+.Step3_12 .boxdiv input{
+  width: 80%;
+  background:#fde3e3;
+  border:1px solid #f6416c;
+}
+.Step3_12 .boxdiv p{
+  color: #f6416c;
+  font-size: 1.2rem;
+  margin:2% 0;
+}
+.Step3_12 .form-group{
+  width: 100%;
+}
+.Step3_12 .box>h2>span{
+  margin-left: 2%;
+}
+.Step3_12 .rightbox>div h6{
+  margin-bottom: 5%;
+}
+.Step3_12 .form-group .btn-group button{
+  padding: 6px 15px;
+}
+.Step3_12 .rightbox1{
+  top:auto;
+  left: -2%;
+  margin-top: 4%;
+}
+.Step3_12 .box>h2.demand:hover .rightbox1{
+  display: block;
+}
+/*Step3_12 end*/
 
 .Explainwhy{
   width: 355px;

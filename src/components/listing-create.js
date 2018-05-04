@@ -163,6 +163,7 @@ class ListingCreate extends Component {
             modalimg:'',
             rotate:0,
             range:1,
+            Currency:"PPS",
             AdditionalRules:[],
             RulesIpt:"",
             modalIsOpen:false,
@@ -3029,6 +3030,89 @@ class ListingCreate extends Component {
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                     <p>The right price can change as the number of searches for listings like yours goes up and down. Whichever price option you choose, you'li get tips to help you set prices for your listing</p>
+                </div>
+             </div>
+    
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_12 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_12">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Price your space</h1>
+
+              <div className="box col-md-12">
+                <h3>Increase your chances of getting booked</h3>
+                <p>Set up Smart Pricing to automatically keep your nightly prices competitive as demand in your area changes.</p>
+                
+                <h1>Set up the same base price for each night</h1>
+                <h3>Base Price</h3>
+                <p>If you turn Smart Pricing off for a night,this will be your default price</p>
+
+                <div className="btn-group col-lg-12 boxdiv">
+                  <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                  <input type="text" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                  <p>Please use a base price of at least $13 but no more than $13,272.</p>
+                </div>
+
+                <h2 className="demand">Tip: $114 SGD
+                    <img src="../images/Prompt.png" />
+                    <div className="rightbox1">
+                      <p><span>▲</span>Tips are based on your listing’s qualities, nearby prices and demand</p>
+                    </div>
+                </h2>
+                <h3>Currency</h3>
+
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.Currency}<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      <li onClick={(e) => this.setState({Currency:"PPS"})}><a>PPS</a></li> 
+                      <li onClick={(e) => this.setState({Currency:"ETH"})}><a>ETH</a></li> 
+                    </ul>
+                  </div>
+                </div>
+
+                <h2>Set up Smart Pricing<span>RECOMMENDED</span></h2>
+
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>Start with a lower price to attract bookings</h6>
+                    <p>New hosts start with a lower price to attract their first few bookings. Hosts who set prices within 5% of price tips are nearly 4x more likely to get booked</p>
                 </div>
              </div>
     
