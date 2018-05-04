@@ -683,7 +683,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -3437,7 +3437,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step3_16 &&
           <div className="becomehost-2 container">
           <div className="row Step3_10 Step3_16">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
@@ -3512,6 +3512,58 @@ class ListingCreate extends Component {
               </div>
                
              </div>
+
+
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_17 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_17">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Your local laws and taxes</h1>
+
+              <div className="box col-md-12">
+                <h3>Make sure you familiarise yourself with your local laws, as well as <span className="textpink">Airbnb’s Nondiscrimination Policy.</span></h3>
+                <p>Please educate yourself about the laws in your jurisdiction before listing your space.</p>
+                <p>Most cities have rules covering homesharing, and the specific codes and ordinances can appear in many places (such as zoning, building, licensing or tax codes). In most places, you must register, get a permit, or obtain a license before you list your property or accept guests. You may also be responsible for collecting and remitting certain taxes. In some places, short-term rentals could be prohibited altogether.</p>
+                <p>Since you are responsible for your own decision to list or book, you should get comfortable with the applicable rules before listing on Airbnb. To get you started, we offer some helpful resources under “Your City Laws.”</p>
+                <p>By accepting our Terms of Service and listing your space, you certify that you will follow applicable laws and regulations.</p>
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-6 col-lg-4 col-md-push-1 col-sm-6 paddingNone">
+                <img className="stepbg" src="../images/step3_17img.png" alt=""/>
+            </div>
 
 
 
