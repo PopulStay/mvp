@@ -144,6 +144,7 @@ class ListingCreate extends Component {
             Howoften_guests:1,
             Howoften_From:1,
             Howoften_To:1,
+            advance_book:1,
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
@@ -163,6 +164,17 @@ class ListingCreate extends Component {
             RulesIpt:"",
             modalIsOpen:false,
 
+        }
+        this.deta={
+            current_year : 1,
+            current_month : 1,
+            current_day :1,
+            select_year : 1,
+            select_month : 1,
+            select_day : 1,
+            history_year : 1,
+            history_month : 1,
+            history_day : 1,
         }
 
         this.nextStep = this.nextStep.bind(this);
@@ -481,6 +493,9 @@ class ListingCreate extends Component {
     Howoften_To(To){
       this.setState({Howoften_To: To});
     }
+    advance_book(book){
+      this.setState({advance_book: book});
+    }
 
 
 
@@ -559,6 +574,9 @@ class ListingCreate extends Component {
       });
     }
 
+      
+
+
     
 
 
@@ -605,13 +623,20 @@ class ListingCreate extends Component {
     this.state.step1guests.forEach((To,index)=>{
       Howoften_Toarr.push(<li><a onClick={this.Howoften_To.bind(this,To)} >{To} {To > 12 ? "PM":"AM"}</a></li>)
     })
+    const advance_bookarr = [];
+    this.state.step1guests.forEach((book,index)=>{
+      advance_bookarr.push(<li><a onClick={this.advance_book.bind(this,book)} >{book} months</a></li>)
+    })
+
+    var H = new Date();
+    console.log(H.getFullYear())
 
     
     
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -2704,10 +2729,109 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
                  <div>
                     <p>Today</p>
-                    <img className="becomehost__info" src="./images/step3_6.png" alt=""/>
+                    <img className="becomehost__info" src="./images/step3_7.png" alt=""/>
                 </div>
              </div>
              
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_8 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_6">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>How far in advance can guests book?</h1>
+
+
+              <div className="box col-md-12">
+
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.advance_book} months<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      { advance_bookarr } 
+                    </ul>
+                  </div>
+                </div>
+                <h5><b className="textpink">Tip:</b>Avoid cancelling or declining guests by only  unblocking dates you can host.</h5>
+              </div>
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
+                 <div>
+                    <p>Today</p>
+                    <img className="becomehost__info" src="./images/step3_8.png" alt=""/>
+                </div>
+             </div>
+             
+             </div>
+             </div>
+        }
+
+          {
+          this.state.step === this.STEP.Step1_1 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_9">
+            <div className="col-md-12 col-lg-12 col-sm-12 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              {this.date.current_year}
+
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+
+
+             
+             </div>
              </div>
              </div>
         }

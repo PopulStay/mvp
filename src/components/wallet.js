@@ -80,8 +80,8 @@ class Wallet extends Component {
               </button>            
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
   
-                <a className="dropdown-item dropdown-item1" href="#" onClick={this.create}><Create/></a>
-                <a className="dropdown-item" href="#" onClick={this.openModal}>Import</a>
+                <a className="dropdown-item dropdown-item1" onClick={this.create}><Create/></a>
+                <a className="dropdown-item" onClick={this.openModal}>Import</a>
          
               </div>
             </div>
