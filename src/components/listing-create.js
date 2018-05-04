@@ -3572,6 +3572,81 @@ class ListingCreate extends Component {
              </div>
         }
 
+        {
+          this.state.step === this.STEP.Step3_18 &&
+
+          <div className="becomehost-5 container">
+          <div className="row Step1_10 Step3_18">
+          <div className="col-md-6 col-lg-7 col-sm-6">
+            <h1>You’re ready to publish!</h1>
+            <h3>You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.</h3>
+            <div className="change">
+                <div>
+                  <p>Bedrooms,beds,amenities,and more</p>
+                  <p className="textpink" onClick={(e) => this.setState({step:1.1})}>change</p>
+                </div>
+                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
+            </div>
+
+            <div className="change">
+                <div>
+                  <p>Photos, short description, title</p>
+                  <p className="textpink" onClick={(e) => this.setState({step:2.1})}>change</p>
+                </div>
+                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
+            </div>
+
+            <div className="change">
+                <div>
+                  <p>Booking settings, calendar, price</p>
+                  <p className="textpink" onClick={(e) => this.setState({step:3.1})}>change</p>
+                </div>
+                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
+            </div>
+
+            <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.nextStep}>Publish listing</button>
+
+          </div>
+          <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
+              <img className="stepbg" src="../images/step3_18img.png" alt=""/>
+              <div className="Preview">
+                <img src="./images/becomehost-step5-preview.jpg" />
+                <p>Place name</p>
+                <h6>Preview</h6>
+              </div>
+          </div>
+          </div>
+          </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_19 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_19">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <h1>You’re ready to publish!</h1>
+
+              <div className="box col-md-12">
+                <p>You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.</p>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Publish listing</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Edit Listing</button>
+                
+              </div>
+
+               
+             </div>
+
+             <div className="col-md-6 col-lg-4 col-md-push-1 col-sm-6 paddingNone">
+                <img className="stepbg" src="../images/step3_18img.png" alt=""/>
+            </div>
+
+
+
+             
+             </div>
+             </div>
+        }
+
 
 
 
