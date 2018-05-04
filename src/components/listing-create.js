@@ -3628,17 +3628,22 @@ class ListingCreate extends Component {
 
               <div className="box col-md-12">
                 <p>You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.</p>
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Publish listing</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Edit Listing</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.nextStep}>Publish listing</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.preStep}>Edit Listing</button>
                 
               </div>
 
                
              </div>
 
-             <div className="col-md-6 col-lg-4 col-md-push-1 col-sm-6 paddingNone">
-                <img className="stepbg" src="../images/step3_18img.png" alt=""/>
-            </div>
+             <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
+                  <img className="stepbg" src="../images/step3_18img.png" alt=""/>
+                  <div className="Preview">
+                    <img src="./images/becomehost-step5-preview.jpg" />
+                    <p>Place name</p>
+                    <h6>Preview</h6>
+                  </div>
+              </div>
 
 
 

@@ -1633,22 +1633,26 @@ h1,
   line-height: 1.9;
   margin:5% 0 3%;
 }
-.Step3_18 .paddingNone{
+.Step3_18 .paddingNone,
+.Step3_19 .paddingNone{
   margin-bottom: 8%;
 }
-.Step3_18 .Preview{
+.Step3_18 .Preview,
+.Step3_19 .Preview{
   width: 260px;
   position: absolute;
   left:55%;
   bottom:-8%;
   transform: translate(-50%,0);
 }
-.Step3_18 .Preview p{
+.Step3_18 .Preview p,
+.Step3_19 .Preview p{
   position: absolute;
   top:18%;
   left:61%;
 }
-.Step3_18 .Preview h6{
+.Step3_18 .Preview h6,
+.Step3_19 .Preview h6{
   position: absolute;
   top:40%;
   left:65%;
@@ -1663,7 +1667,7 @@ h1,
 }
 .Step3_19 .box>p{
   line-height: 1.9;
-  margin:2% 0 5%;
+  margin:5% 0 10%;
 }
 .Step3_19 .box button.Left{
   margin-left: 5%;
