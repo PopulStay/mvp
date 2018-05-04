@@ -156,6 +156,7 @@ class ListingCreate extends Component {
             guestshaves:['Entire place'],
             Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
             PasswordActibve:1,
+            Step3_13Actibve:1,
             AreaCodes:[86,81,82,83],
             Rapair:1,
             scene:1,
@@ -3068,16 +3069,17 @@ class ListingCreate extends Component {
                 <h3>Increase your chances of getting booked</h3>
                 <p>Set up Smart Pricing to automatically keep your nightly prices competitive as demand in your area changes.</p>
                 
-                <h1>Set up the same base price for each night</h1>
-                <h3>Base Price</h3>
-                <p>If you turn Smart Pricing off for a night,this will be your default price</p>
+                <div className="Base">
+                  <h1>Set up the same base price for each night</h1>
+                  <h3>Base Price</h3>
+                  <p>If you turn Smart Pricing off for a night,this will be your default price</p>
 
-                <div className="btn-group col-lg-12 boxdiv">
-                  <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
-                  <input type="text" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
-                  <p>Please use a base price of at least $13 but no more than $13,272.</p>
+                  <div className="btn-group col-lg-12 boxdiv">
+                    <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                    <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                  </div>
+                  <p className="textpink">Please use a base price of at least $13 but no more than $13,272.</p>
                 </div>
-
                 <h2 className="demand">Tip: $114 SGD
                     <img src="../images/Prompt.png" />
                     <div className="rightbox1">
@@ -3116,6 +3118,151 @@ class ListingCreate extends Component {
                 </div>
              </div>
     
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_13 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_12 Step3_13">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Price your space</h1>
+
+              <div className="box col-md-12">
+                <h3>Increase your chances of getting booked</h3>
+                <p>Set up Smart Pricing to automatically keep your nightly prices competitive as demand in your area changes.</p>
+                
+                <h2>Set up Smart Pricing<span>RECOMMENDED</span></h2>
+
+                <h3>Maximum price</h3>
+                <p>To help you get booked, your price will move closer to this when demand is low</p>
+
+                <div className="btn-group col-lg-12 boxdiv">
+                  <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                  <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                </div>
+
+                <h3>Maximum price</h3>
+                <p>To help you earn more, your price will move closer to this when demand is high</p>
+
+                <div className="btn-group col-lg-12 boxdiv">
+                  <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                  <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                </div>
+
+                <div className="Base">
+                  <h3>Base Price</h3>
+                  <p>If you turn Smart Pricing off for a night,this will be your default price</p>
+
+                  <div className="btn-group col-lg-12 boxdiv">
+                    <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                    <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                  </div>
+                  <p className="textpink">Please use a base price of at least $13 but no more than $13,272.</p>
+                </div>
+
+                <h2 className="demand">Tip: $114 SGD
+                    <img src="../images/Prompt.png" />
+                    <div className="rightbox1">
+                      <p><span>▲</span>Tips are based on your listing’s qualities, nearby prices and demand</p>
+                    </div>
+                </h2>
+
+                <h3>Currency</h3>
+
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.Currency}<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      <li onClick={(e) => this.setState({Currency:"PPS"})}><a>PPS</a></li> 
+                      <li onClick={(e) => this.setState({Currency:"ETH"})}><a>ETH</a></li> 
+                    </ul>
+                  </div>
+                </div>
+
+                <p>You’re always in control of your nightly price. By continuing, you agree to turn on Smart Pricing. You can change this later in settings.</p>
+
+                <h2>I don’t want my price to adjust with demand</h2>
+
+
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+              <div className="rightdiv">
+                 <div className={this.state.Step3_13Actibve ==1 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>Increase bookings when demand is low</h6>
+                    <p className="step3_13p">Smart Pricing can automatically adjust your nightly price as demand changes based on factors like popular local events, seasonality and weekend vs. weekdays.</p>
+                    <ul>
+                      <li>
+                        <p>Thu</p>
+                        <h5>$114</h5>
+                        <h5>PPS</h5>
+                      </li>
+                      <li>
+                        <p>Fri</p>
+                        <h5>$125</h5>
+                        <h5>PPS</h5>
+                      </li>
+                      <li>
+                        <p>Sat</p>
+                        <h5>$131</h5>
+                        <h5>PPS</h5>
+                      </li>
+                    </ul>
+                    <p>For example, on a day where few people are looking at your space, we’ll drop the price to attract more guests to book with you.</p>
+                </div>
+
+                <div className={this.state.Step3_13Actibve == 2 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>You’re in control</h6>
+                    <p>When you turn on competitive pricing, you set the range you’re willing to charge each night. You can always turn off competitive pricing for specific days in your calendar.</p>
+                </div>
+
+                <div className={this.state.Step3_13Actibve == 3 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>Start with a lower price to attract bookings</h6>
+                    <p>New hosts start with a lower price to attract their first few bookings. Hosts who set prices within 5% of price tips are nearly 4x more likely to get booked.</p>
+                </div>
+
+                <div className="step3_13span">
+                  <span className={this.state.Step3_13Actibve == 1 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:1})} ></span>
+                  <span className={this.state.Step3_13Actibve == 2 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:2})}></span>
+                  <span className={this.state.Step3_13Actibve == 3 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:3})}></span>
+               </div>
+              </div>
+                
+             </div>
+
 
              
              </div>

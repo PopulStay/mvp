@@ -72,7 +72,9 @@ h1,
 .Step3_6 h5 b,
 .Step3_6 .form-group h5,
 .Step3_6 .rightbox1>div>p,
-.Step3_10 .rightbox>div h6{
+.Step3_10 .rightbox>div h6,
+.Step3_13 .rightbox ul li h5,
+.Step3_13 .rightbox ul li p{
   font-family: RobotoBold; 
 }
 .cursor{
@@ -1448,7 +1450,7 @@ h1,
 }
 .Step3_12 .boxdiv>img{
   width: 10px;
-  top: 25%;
+  top: 50%;
   left: 4%;
 }
 .Step3_12 .box>h2{
@@ -1463,10 +1465,12 @@ h1,
 }
 .Step3_12 .boxdiv input{
   width: 80%;
+}
+.Step3_12 .Base .boxdiv input{
   background:#fde3e3;
   border:1px solid #f6416c;
 }
-.Step3_12 .boxdiv p{
+.Step3_12 .boxdiv .textpink{
   color: #f6416c;
   font-size: 1.2rem;
   margin:2% 0;
@@ -1491,7 +1495,62 @@ h1,
 .Step3_12 .box>h2.demand:hover .rightbox1{
   display: block;
 }
+.Step3_12 .btn-group{
+  margin-bottom: 5%;
+}
+.Step3_12 .Base .btn-group{
+ margin-bottom: 1%; 
+}
 /*Step3_12 end*/
+.Step3_13 .rightdiv{
+  position: relative;
+  padding-bottom: 10%;
+}
+.Step3_13 .rightbox ul li{
+  width: 32%;
+  display: inline-block;
+  background: #f6416c;
+  margin-left: 2%;
+  padding:6% 4%;
+}
+.Step3_13 .rightbox p.step3_13p,
+.Step3_13 .rightbox ul{
+  margin-bottom: 8%;
+}
+.Step3_13 .rightbox ul li:first-child{
+  margin-left: 0px;
+}
+.Step3_13 .rightbox ul li p{
+  font-size: 1.4rem;
+  margin:0 0 2%;
+}
+.Step3_13 .rightbox ul li h5{
+  font-size: 1.8rem;
+  margin-top:0;
+  margin-bottom: 1%;
+  color: #151b4e;
+}
+.Step3_13 .step3_13span{
+  width: 20%;
+  background: none;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+.Step3_13 .step3_13span span{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  margin:0 8%;
+  cursor: pointer;
+}
+
+
+
+/*Step3_13 end*/
 
 .Explainwhy{
   width: 355px;
