@@ -146,6 +146,8 @@ class ListingCreate extends Component {
             Howoften_From:1,
             Howoften_To:1,
             advance_book:1,
+            Price_demand:0,
+            Price_fixed:0,
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
@@ -2953,6 +2955,80 @@ class ListingCreate extends Component {
                  <div>
                     <h6>39%</h6>
                     <p>Hosts who use Smart Pricing earn an average of 39% more than hosts who don’t. You can set up Smart Pricing next.</p>
+                </div>
+             </div>
+    
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_11 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_10">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>How do you want to set your price?</h1>
+
+              <div className="box col-md-12">
+                <div className="boxdiv" onClick={(e) => {if(this.state.Price_demand == 0 )this.setState({Price_demand:1});else this.setState({Price_demand:0});}} >
+                  <div className="col-lg-3 pull-left">
+                    <img  src="../images/step3_11img1.png" />
+                  </div>
+                  <div className="col-lg-8 content">
+                    <h3>Price adapts to demand</h3>
+                    <p>You tell Smart Pricing to automatically adjust your price to match demand, but only within a price range that you</p>
+                    <span>RECOMMENDED</span>
+                  </div>
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.Price_demand == 1 ?"show":"hide"}></span></p>
+                  </div>
+                </div>
+                <div className="boxdiv" onClick={(e) => {if(this.state.Price_fixed == 0 )this.setState({Price_fixed:1});else this.setState({Price_fixed:0});}} >
+                  <div className="col-lg-3 pull-left">
+                    <img  src="../images/step3_11img2.png" />
+                  </div>
+                  <div className="col-lg-8 content">
+                    <h3>Price is fixed</h3>
+                    <p>Set a base price. Airbnb gives you price tips that you can accept or ignore.</p>
+                  </div>
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.Price_fixed == 1 ?"show":"hide"}></span></p>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <p>The right price can change as the number of searches for listings like yours goes up and down. Whichever price option you choose, you'li get tips to help you set prices for your listing</p>
                 </div>
              </div>
     
