@@ -941,7 +941,7 @@ h1,
 }
 .Step2_2 .photos .photosimg,.Step2_2 .photos .photosipt{
   width: 31.1%;
-  height:220px;
+  height:170px;
   position: relative;
   overflow: hidden;
   margin: 1% ;
@@ -972,7 +972,7 @@ h1,
   border:none;
 }
 .Step2_2 .modal-body{
-  line-height: 600px;
+  height: 600px;
 }
 .Step2_2 .modal-footer{
   border:none;
@@ -1086,6 +1086,10 @@ h1,
 }
 .Step2_2 .photos h4 p{
   font-size: 6rem;
+}
+.Step2_2 .canvas{
+  width: 100%;
+  height: 100%;
 }
 /*Step2_2 end*/
 .Step2_3 textarea{

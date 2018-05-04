@@ -5,6 +5,7 @@ import ListingDetail from './listing-detail';
 import Overlay from './overlay';
 import Modal from 'react-modal';
 import hostService from '../services/host-service';
+import { DateRangePicker } from 'react-dates';
 const customStyles = {
   content : {
     top                   : '20%',
@@ -165,7 +166,7 @@ class ListingCreate extends Component {
             modalIsOpen:false,
 
         }
-        this.deta={
+        this.DETA={
             current_year : 1,
             current_month : 1,
             current_day :1,
@@ -248,11 +249,6 @@ class ListingCreate extends Component {
 
     }
 
-    modalPictures(index,e){
-      this.setState({
-            state:this.state.modalimg = this.state.selectedPictures[index].imagePreviewUrl
-      });
-    }
 
     addCommonSpaceBeds(){
       var number = this.state.roombasics_commonspacebeds+1;
@@ -548,21 +544,63 @@ class ListingCreate extends Component {
       }
     }
 
+    modalPictures(index,e){
+      this.setState({
+            state:this.state.modalimg = this.state.selectedPictures[index].imagePreviewUrl
+      });
+      var c=document.getElementById("myCanvas");
+      var canvas=c.getContext("2d");
+      canvas.clearRect(0,0,c.width,c.height);
+      var img=new Image()
+      img.src=this.state.selectedPictures[index].imagePreviewUrl;
+      canvas.drawImage(img,0,0,c.width,c.height);
+    }
+
     RotatePictures(e){
-      if(this.state.rotate == 360){
-        this.state.rotate = 0;
-      }
-      this.state.rotate = this.state.rotate + 90;
-
-      this.setState({CSS: this.CSS.style1.transform = "rotate("+this.state.rotate+"deg) scale("+this.state.range+")"})
-
+      var c=document.getElementById("myCanvas");
+      var canvas=c.getContext("2d");
+      var img=new Image();
+      img.src=this.state.modalimg;
+      canvas.drawImage(img,0,0,c.width,c.height);
+      var x = c.width/2; 
+      var y = c.height/2;
+      canvas.clearRect(0,0,c.width,c.height);
+      canvas.translate(x,y);
+      canvas.rotate((Math.PI/180)*90);
+      canvas.translate(-x,-y);
+      canvas.drawImage(img,0,0,c.width,c.height);
     }
 
-    rangePictures(e){
-      this.setState({state: this.state.range = e});
-        this.setState({CSS: this.CSS.style1.transform = "rotate("+this.state.rotate+"deg) scale("+this.state.range+")"})
+    rangePictures(scale){
+      var c=document.getElementById("myCanvas");
+      var canvas=c.getContext("2d");
+      var img=new Image();
+      img.src=this.state.modalimg;
+      canvas.drawImage(img,0,0,c.width,c.height);
+      var imageWidth = c.width*scale;
+      var imageHeight = c.height*scale;
+      canvas.clearRect(0,0,c.width,c.height);
+      var x = c.width/2 - imageWidth/2;
+      var y = c.height/2 - imageHeight/2;
+      canvas.drawImage(img,x,y,imageWidth,imageHeight);
     }
 
+    BrightnessPictures(e){
+      var c=document.getElementById("myCanvas");
+      var canvas=c.getContext("2d");
+      var img=new Image();
+      img.src=this.state.modalimg;
+      canvas.drawImage(img,0,0,c.width,c.height);
+      var imgData=canvas.getImageData(0,0,c.width,c.height);
+      console.log(imgData.data[0])
+      for (var i=0;i<imgData.data.length;i+=4)
+        {
+        imgData.data[i+0]+=e;
+        imgData.data[i+1]+=e+20;
+        imgData.data[i+2]+=e+20;
+        }
+      canvas.putImageData(imgData,0,0);
+    }
     AdditionalRules(e){
       this.setState({state: this.state.AdditionalRules.push(this.state.RulesIpt)});
       this.setState({state: this.state.RulesIpt=""});
@@ -628,15 +666,14 @@ class ListingCreate extends Component {
       advance_bookarr.push(<li><a onClick={this.advance_book.bind(this,book)} >{book} months</a></li>)
     })
 
-    var H = new Date();
-    console.log(H.getFullYear())
+
 
     
     
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -1630,7 +1667,7 @@ class ListingCreate extends Component {
                   <div className="modal-content">
                       <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <div className="modal-body">
-                      <img  style={this.CSS.style1} src='./images/detail-carousel.jpg' />
+                    <canvas id="myCanvas" className="canvas"></canvas>
                     </div>
                     <div className="modal-footer">
                       <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
@@ -1641,11 +1678,11 @@ class ListingCreate extends Component {
                       <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
                           <li  className={this.state.modalset == 1 ? "show" : "hide"}>
                               <p>Zoom</p>
-                              <input type="range" onChange={(e)=>this.rangePictures(e.target.value)} name="points"  step="0.02" min="1" max="3" value={this.state.range} />
+                              <input type="range" onChange={(e)=>this.rangePictures(e.target.value)} name="points"  step="0.01" min="1" max="3" />
                           </li>
                           <li  className={this.state.modalset == 2 ? "show" : "hide"}>
                               <p>Brightness</p>
-                              <input type="range" name="points" step="0.02" min="1" max="3" />
+                              <input type="range" onChange={(e)=>this.BrightnessPictures(e.target.value)} name="points" step="0.01" min="-1" max="1" />
                           </li>
                           <li  className={this.state.modalset == 2 ? "show" : "hide"}>
                               <p>Contrast Ratio</p>
@@ -2796,8 +2833,8 @@ class ListingCreate extends Component {
              </div>
         }
 
-          {
-          this.state.step === this.STEP.Step1_1 &&
+        {
+          this.state.step === this.STEP.Step3_9 &&
           <div className="becomehost-2 container">
           <div className="row Step3_9">
             <div className="col-md-12 col-lg-12 col-sm-12 ">
@@ -2819,7 +2856,17 @@ class ListingCreate extends Component {
                 <p>Step 3: Get ready for guests</p>
               </div>
 
-              {this.date.current_year}
+             <DateRangePicker
+                startDate={this.state.checkInDate}
+                startDateId="start_date"
+                endDate={this.state.checkOutDate}
+                startDatePlaceholderText="Check In"
+                endDatePlaceholderText="Check Out"
+                endDateId="end_date"
+                onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
+                focusedInput={this.state.focusedInput}
+                onFocusChange={focusedInput => this.setState({ focusedInput })}
+              />
 
 
              
