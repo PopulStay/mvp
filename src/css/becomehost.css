@@ -305,7 +305,8 @@ h1,
 .Step1_3 .form-group,
 .Step3_6 .form-group .btn-group,
 .Step3_12 .boxdiv,
-.Step3_12 .form-group .btn-group{
+.Step3_12 .form-group .btn-group,
+.Step3_14 .boxdiv>div.content{
   padding: 0;
 }
 .Step1_1 .form-group select,
@@ -318,7 +319,7 @@ h1,
   border-color: #999;
 }
 .rightbox{
-  margin-bottom:8%;
+  margin:6% 0 8%;
 }
 .rightbox>div{
   margin: 0 8% 0 10%;
@@ -1547,10 +1548,19 @@ h1,
   margin:0 8%;
   cursor: pointer;
 }
-
-
-
 /*Step3_13 end*/
+
+.Step3_14 .rightbox>div h6{
+  font-size: 1.6rem;
+  color: #fff;
+}
+.Step3_14 .radio{
+  margin-top: 8%;
+}
+.Step3_10 .content>span{
+  margin-bottom: 5%;
+}
+/*Step3_14 end*/
 
 .Explainwhy{
   width: 355px;

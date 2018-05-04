@@ -148,6 +148,8 @@ class ListingCreate extends Component {
             advance_book:1,
             Price_demand:0,
             Price_fixed:0,
+            NO_special_offer:0,
+            first_guests_20:0,
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
@@ -3252,6 +3254,96 @@ class ListingCreate extends Component {
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                     <h6>Start with a lower price to attract bookings</h6>
                     <p>New hosts start with a lower price to attract their first few bookings. Hosts who set prices within 5% of price tips are nearly 4x more likely to get booked.</p>
+                </div>
+
+                <div className="step3_13span">
+                  <span className={this.state.Step3_13Actibve == 1 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:1})} ></span>
+                  <span className={this.state.Step3_13Actibve == 2 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:2})}></span>
+                  <span className={this.state.Step3_13Actibve == 3 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:3})}></span>
+               </div>
+              </div>
+                
+             </div>
+
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_14 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_10 Step3_13 Step3_14">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Something special for your first guests</h1>
+
+              <div className="box col-md-12">
+                <div className="boxdiv" onClick={(e) => {if(this.state.first_guests_20 == 0 )this.setState({first_guests_20:1});else this.setState({first_guests_20:0});}} >
+                  <div className="col-lg-9 content">
+                    <h3>Offer 20% off to your first guests</h3>
+                    <p>The first 3 guests who book your place will get 20% off their stay. This special offer can attract new guests, and help you get the 3 reviews you need for a star rating.</p>
+                    <span>RECOMMENDED</span>
+                  </div>
+                  <div className="col-lg-2 col-lg-push-1 radio">
+                    <p><span className={this.state.first_guests_20 == 1 ?"show":"hide"}></span></p>
+                  </div>
+                </div>
+                <div className="boxdiv" onClick={(e) => {if(this.state.NO_special_offer == 0 )this.setState({NO_special_offer:1});else this.setState({NO_special_offer:0});}} >
+                  <div className="col-lg-9 content">
+                    <h3>Don’t add a special offer</h3>
+                    <p>Once you publish your listing, you won’t be able to add this offer.</p>
+                  </div>
+                  <div className="col-lg-2 col-lg-push-1 radio">
+                    <p><span className={this.state.NO_special_offer == 1 ?"show":"hide"}></span></p>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+              <div className="rightdiv">
+                 <div className={this.state.Step3_13Actibve ==1 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>Why add a special offer？</h6>
+                    <p className="step3_13p">This will help attract your first guests, and help get your first reviews. Once you get 3 reviews, you’ll get a star rating in search results, which will help your listing stand out. New listings that get booked and reviewed in the first month appear more often in search results and get an average of 3.6x more bookings in their first 3 months</p>
+                </div>
+
+                <div className={this.state.Step3_13Actibve == 2 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>We’ll share your offer</h6>
+                    <p>We’ll let guests who are searching in your area know that they can save 20% if they book your home. This can help get more eyes on your listing, but only the first 3 guests who book will be eligible for the offer.</p>
+                </div>
+
+                <div className={this.state.Step3_13Actibve == 3 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>First 3 guests can claim your offer</h6>
+                    <p>The offer will be available to 3 guests. That way, you can get 3 reviews and your star rating. After 3 guests have claimed your offer, it won’t be valid anymore. If no one claims the offer, it’ll automatically expire after 30 days.</p>
                 </div>
 
                 <div className="step3_13span">
