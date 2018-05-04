@@ -3,8 +3,16 @@ import {Link} from 'react-router-dom';
 import houselistingService from '../services/houseinfolist-service';
 import ListingDetail from './listing-detail';
 import Overlay from './overlay';
+import Modal from 'react-modal';
 import hostService from '../services/host-service';
-
+const customStyles = {
+  content : {
+    top                   : '20%',
+    left                  : '35%',
+    right                 : '35%',
+    bottom                : '20%'
+  }
+};
 
 
 class ListingCreate extends Component {
@@ -111,14 +119,35 @@ class ListingCreate extends Component {
             rules_pets:1,
             rules_infants:1,
             rules_children:1,
-            climb_stairs:1,
+            climb_stairs:0,
+            property_animals:0,
+            property_Weapons:0,
+            property_recording:0,
+            Amenity_limitations:0,
+            shared_spaces:0,
+            property_parking:0,
+            property_Pet:0,
+            Potential_noise:0,
+            Payment_information:0,
+            guest_message:0,
+            last_time:0,
+            governmentissued_ID:0,
+            Not_safe:0,
+            anytime_Checkin:0,
+            NO_shoes:0,
             roomstuff_AreaCode:86,
             selectedPictures:[],
-            price_perday:0,
-            ETHprice_perday:0,
+            price_perday:199,
+            ETHprice_perday:199,
+            Explainwhy:"",
+            question_rented:"Yes",
+            Howoften_guests:1,
+            Howoften_From:1,
+            Howoften_To:1,
+            advance_book:1,
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
-            step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+            step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
             homeorhotels:['Home','hotel','Other'],
             types:['Single room','double room','family suite','business suite'],
             guestshaves:['Entire place'],
@@ -133,7 +162,19 @@ class ListingCreate extends Component {
             range:1,
             AdditionalRules:[],
             RulesIpt:"",
+            modalIsOpen:false,
 
+        }
+        this.deta={
+            current_year : 1,
+            current_month : 1,
+            current_day :1,
+            select_year : 1,
+            select_month : 1,
+            select_day : 1,
+            history_year : 1,
+            history_month : 1,
+            history_day : 1,
         }
 
         this.nextStep = this.nextStep.bind(this);
@@ -142,10 +183,25 @@ class ListingCreate extends Component {
         this.fileChangedHandler = this.fileChangedHandler.bind(this);
         this.deletePictures = this.deletePictures.bind(this);
         this.submit = this.submit.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
 
         this.CSS={  
             style1:{transform:"rotate(0deg) scale(1)"}  
         } 
+    }
+
+    openModal() {
+      this.setState({modalIsOpen: true});
+    }
+
+    afterOpenModal() {
+      this.subtitle.style.color = '#f00';
+    }
+
+    closeModal() {
+      this.setState({modalIsOpen: false});
     }
 
     submit(){
@@ -403,7 +459,6 @@ class ListingCreate extends Component {
                 id: window.address
             });
     }
-
    
     Categorys(Category){
       this.setState({roomtype_category: Category});
@@ -425,6 +480,21 @@ class ListingCreate extends Component {
     }
     AreaCodes(AreaCode){
       this.setState({roomstuff_AreaCode: AreaCode});
+    }
+    step1guests(step1guest){
+      this.setState({roomtype_guests: step1guest});
+    }
+    Howoften_guests(Howoften){
+      this.setState({Howoften_guests: Howoften});
+    }
+    Howoften_From(From){
+      this.setState({Howoften_From: From});
+    }
+    Howoften_To(To){
+      this.setState({Howoften_To: To});
+    }
+    advance_book(book){
+      this.setState({advance_book: book});
     }
 
 
@@ -504,6 +574,9 @@ class ListingCreate extends Component {
       });
     }
 
+      
+
+
     
 
 
@@ -538,13 +611,32 @@ class ListingCreate extends Component {
     this.state.AreaCodes.forEach((AreaCode,index)=>{
       AreaCodearr.push(<li><a onClick={this.AreaCodes.bind(this,AreaCode)} >{AreaCode}</a></li>)
     })
-    
-    
+    const Howoften_guestsarr = [];
+    this.state.step1guests.forEach((Howoften,index)=>{
+      Howoften_guestsarr.push(<li><a onClick={this.Howoften_guests.bind(this,Howoften)} >{Howoften} days</a></li>)
+    })
+    const Howoften_Fromarr = [];
+    this.state.step1guests.forEach((From,index)=>{
+      Howoften_Fromarr.push(<li><a onClick={this.Howoften_From.bind(this,From)} >{From} {From > 12 ? "PM":"AM"}</a></li>)
+    })
+    const Howoften_Toarr = [];
+    this.state.step1guests.forEach((To,index)=>{
+      Howoften_Toarr.push(<li><a onClick={this.Howoften_To.bind(this,To)} >{To} {To > 12 ? "PM":"AM"}</a></li>)
+    })
+    const advance_bookarr = [];
+    this.state.step1guests.forEach((book,index)=>{
+      advance_bookarr.push(<li><a onClick={this.advance_book.bind(this,book)} >{book} months</a></li>)
+    })
 
+    var H = new Date();
+    console.log(H.getFullYear())
+
+    
+    
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -606,6 +698,7 @@ class ListingCreate extends Component {
               </div>
           </div>
         }
+
         {
           this.state.step === this.STEP.Step1_2 &&
           <div className="becomehost-3 container">
@@ -622,6 +715,8 @@ class ListingCreate extends Component {
             </div>
 
               <h1>What kind of room do you listing?</h1>
+
+             <div className="box"> 
               <h2>Is this listing a home,hotel,or something else? </h2>
 
               <div className="form-group">    
@@ -645,8 +740,6 @@ class ListingCreate extends Component {
               </div>
               </div>
 
-              <hr className={this.state.roomdescription_type == 'Please choose' ? 'show':'hide'}/>
-
               <div className={this.state.roomdescription_type == 'Please choose' ? 'hide':'show'}>
                   <h2>What guests will have? </h2>
                   <div className="form-group">    
@@ -668,6 +761,7 @@ class ListingCreate extends Component {
                       <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 1 ?"show":"hide"}></span></p>No,I keep my personal belongings here</label>
                     </div>
                     
+                </div>
                 </div>
             <div className="STEPBTN">
               <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
@@ -788,6 +882,8 @@ class ListingCreate extends Component {
             </div>
 
               <h1>Bathrooms</h1>
+
+              <div className="box">
               <h2>Number of bathrooms</h2>
               <div className="btn-group col-md-5">
                 <button type="button" className="guestBtn">
@@ -795,6 +891,7 @@ class ListingCreate extends Component {
                   {this.state.roombasics_guestbedrooms}
                   <span className="btnjian" onClick={(e)=>this.guestbedrooms(e)} data-name="jian">▼</span>
                 </button>
+              </div>
               </div>
 
 
@@ -833,9 +930,11 @@ class ListingCreate extends Component {
             </div>
 
               <h1>Where’s your place located?</h1>
+              <div className="box">
               <div className="btn-group col-md-9 step5box">
                 <img className="becomehost__info" src="./images/located.png" alt=""/>
                 <input type="text" placeholder="For example: Qingdao"  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
+              </div>
               </div>
              
             <div className="STEPBTN">
@@ -1592,7 +1691,7 @@ class ListingCreate extends Component {
 
               <h4>My place is great for</h4>
 
-              <div className="box">  
+              <div className="stepbox">  
                 <div onClick={(e) => {if(this.state.roomstuff_withKids ==0 )this.setState({roomstuff_withKids:1});else this.setState({roomstuff_withKids:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_withKids ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
@@ -1722,6 +1821,7 @@ class ListingCreate extends Component {
 
 
               <div className="box col-md-10">
+                <div className="stepbox">
                 <div className="phoneimg"><img className="becomehost__info" src="./images/phoneimg.png" alt=""/></div>
 
                 <div className="btn-group col-md-12 phonecode">
@@ -1734,6 +1834,7 @@ class ListingCreate extends Component {
                 <input onChange={(e) => this.setState({roomdescription_phone: e.target.value})} value={this.state.roomdescription_phone}  type="text" />
 
                 <img className={this.state.roomdescription_phone.length == '11' ? "show" : "hide"} src="./images/landloard_page-30.png" alt=""/>
+              </div>
               </div>
 
 
@@ -2009,27 +2110,27 @@ class ListingCreate extends Component {
 
               <div className="box col-md-12">
                 <h3>All Airbnb guests must provide:</h3>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Email: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Confirmedphone: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmedphone ==0 )this.setState({roomdescription_Confirmedphone:1});else this.setState({roomdescription_Confirmedphone:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>Confirmed phone number</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_information: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_information ==0 )this.setState({roomdescription_information:1});else this.setState({roomdescription_information:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_information == 1 ?"show":"hide"}></span></p>Payment information</label>
                 </div>
 
                 <h3>Before booking your home, each guest must:</h3>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Rules: 1})}>
+                <div className="radio"  onClick={(e) => {if(this.state.roomdescription_Rules ==0 )this.setState({roomdescription_Rules:1});else this.setState({roomdescription_Rules:0});}}>
                   <label className="text-muted"><p><span className={this.state.roomdescription_Rules == 1 ?"show":"hide"}></span></p>Agree to your House Rules</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Message: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Message ==0 )this.setState({roomdescription_Message:1});else this.setState({roomdescription_Message:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Message == 1 ?"show":"hide"}></span></p>Message you about their trip</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_manyguests: 1})}>
+                <div className="radio"  onClick={(e) => {if(this.state.roomdescription_manyguests ==0 )this.setState({roomdescription_manyguests:1});else this.setState({roomdescription_manyguests:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_manyguests == 1 ?"show":"hide"}></span></p>Let you know how many guests are coming</label>
                 </div>
-                <div className="radio" onClick={(e) => this.setState({roomdescription_Confirmtime: 1})}>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmtime ==0 )this.setState({roomdescription_Confirmtime:1});else this.setState({roomdescription_Confirmtime:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Confirmtime == 1 ?"show":"hide"}></span></p>Confirm their check-in time if they’re arriving within 2 days</label>
                 </div>
 
@@ -2077,7 +2178,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step3_2 &&
           <div className="becomehost-2 container">
           <div className="row Step3_2">
-            <div className="col-md-8 col-lg-7 col-sm-8 ">
+            <div className="col-md-8 col-lg-7 col-sm-12 ">
               <div className="STEPhead">
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
@@ -2099,19 +2200,44 @@ class ListingCreate extends Component {
               <h1>Set house rules for your guests</h1>
 
 
-              <div className="box col-md-12">
+              <div className="box col-md-10">
                 <div className="check" onClick={(e) => {if(this.state.rules_children ==0 )this.setState({rules_children:1});else this.setState({rules_children:0});}}>
-                  <p className="divinput">Suitable for children (2-12 years)</p>
+                  <p className="divinput">Suitable for children (2-12 years)
+                    <span><img className="Promptimg" src="../images/Prompt.png" />
+                    <div className="rightbox1">
+                      <p><span>▲</span>You can say your listing isn’t suitable for infants or children if there are features that are dangerous for children or there’s a risk of property damage. If you decide to restrict guests with infants or children from booking, add an explanation so guests can understand why your listing isn’t suitable for their trip.</p>
+                    </div>
+                    </span>
+                  </p>
                   <p  className="Pinput">
                       <img className={this.state.rules_children ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
                   <p  className="Pinput">
                       <img className={this.state.rules_children ==0 ? 'show' : 'hide'} src="../images/checkcuo.png" alt=""/>
                   </p>
-                  <p className="textpink">Explain why</p>
+                  <p className="textpink" onClick={(e) => {this.openModal(e)}} >Explain why</p>
                 </div>
+
+                <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+                contentLabel="Wallet Message">
+                <div className="Explainwhy">
+                  <span className="close" onClick={(e) => {this.closeModal(e)}}>×</span>
+                  <h3>Explain why your listing isn’t  suitable for children</h3>
+                  <p>What features of your space might be dangerous to  children or easily damaged?</p>
+                  <textarea onChange={(e)=>this.setState({Explainwhy:e.target.value})}></textarea>
+                  <button className="Done" onClick={(e) => {this.closeModal(e)}} >Done</button>
+                  <button className="Cancel" onClick={(e) => {this.closeModal(e)}} >Cancel</button>
+                </div>  
+                </Modal>
+
                 <div className="check" onClick={(e) => {if(this.state.rules_infants ==0 )this.setState({rules_infants:1});else this.setState({rules_infants:0});}}>
-                  <p className="divinput">Suitable for infants (Under 2 years)</p>
+                  <p className="divinput">Suitable for infants (Under 2 years)
+                    <span><img className="Promptimg" src="../images/Prompt.png" />
+                    <div className="rightbox1">
+                      <p><span>▲</span>You can say your listing isn’t suitable for infants or children if there are features that are dangerous for children or there’s a risk of property damage. If you decide to restrict guests with infants or children from booking, add an explanation so guests can understand why your listing isn’t suitable for their trip.</p>
+                    </div>
+                    </span>
+                  </p>
                   <p  className="Pinput">
                       <img className={this.state.rules_infants ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
@@ -2120,7 +2246,13 @@ class ListingCreate extends Component {
                   </p>
                 </div>
                 <div className="check" onClick={(e) => {if(this.state.rules_pets ==0 )this.setState({rules_pets:1});else this.setState({rules_pets:0});}}>
-                  <p className="divinput">Suitable for pets</p>
+                  <p className="divinput">Suitable for pets
+                    <span><img className="Promptimg" src="../images/Prompt.png" />
+                    <div className="rightbox1">
+                      <p><span>▲</span>You can limit guests from bringing pets, but assistance animals—for example, seeing eye dogs—aren’t considered pets. You have to reasonably accommodate reservations where a guest might bring an assistance animal, even if your listing or House Rules state “no pets.”Learn more</p>
+                    </div>
+                    </span>
+                  </p>
                   <p  className="Pinput">
                       <img className={this.state.rules_pets ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
@@ -2165,6 +2297,142 @@ class ListingCreate extends Component {
                   </p>
                   <p className="divinput">Must climb stairs</p>
                 </div>
+                <div className="check1" onClick={(e) => {if(this.state.Potential_noise ==0 )this.setState({Potential_noise:1});else this.setState({Potential_noise:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.Potential_noise ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Potential for noise</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_Pet ==0 )this.setState({property_Pet:1});else this.setState({property_Pet:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_Pet ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Pet(s) live on property</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_parking ==0 )this.setState({property_parking:1});else this.setState({property_parking:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_parking ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">No parking on property</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.shared_spaces ==0 )this.setState({shared_spaces:1});else this.setState({shared_spaces:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.shared_spaces ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Some spaces are shared</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.Amenity_limitations ==0 )this.setState({Amenity_limitations:1});else this.setState({Amenity_limitations:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.Amenity_limitations ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Amenity limitations</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_recording ==0 )this.setState({property_recording:1});else this.setState({property_recording:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_recording ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">D Survellance or recording devices on property</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_Weapons ==0 )this.setState({property_Weapons:1});else this.setState({property_Weapons:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_Weapons ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Weapons on property</p>
+                </div>
+                <div className="check1" onClick={(e) => {if(this.state.property_animals ==0 )this.setState({property_animals:1});else this.setState({property_animals:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.property_animals ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Dangerous animals on property</p>
+                </div>
+                
+              </div>
+
+
+              
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-12 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <p>In addition to Airbnb’s requirements, guests must agree to all your House Rules before they book.</p>
+                    <p>If you’re ever uncomfortable with a reservation, you can cancel penalty-free before or during a trip.</p>
+                </div>
+             </div>
+    
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_3 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_1">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Review Airbnb’s guest requirements</h1>
+
+
+              <div className="box col-md-12">
+                <h3>All Airbnb guests must provide:<span className="textpink">Review</span></h3>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmedphone ==0 )this.setState({roomdescription_Confirmedphone:1});else this.setState({roomdescription_Confirmedphone:0});}} >
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>Confirmed phone number</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.Payment_information ==0 )this.setState({Payment_information:1});else this.setState({Payment_information:0});}} >
+                  <label className="text-muted"><p><span className={this.state.Payment_information == 1 ?"show":"hide"}></span></p>Payment information</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.guest_message ==0 )this.setState({guest_message:1});else this.setState({guest_message:0});}} >
+                  <label className="text-muted"><p><span className={this.state.guest_message == 1 ?"show":"hide"}></span></p>A message about the guest’s trip</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.last_time ==0 )this.setState({last_time:1});else this.setState({last_time:0});}} >
+                  <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>Check-in time for last minute trips</label>
+                </div>
+
+                <h3>Your additional requirements<span className="textpink">Edit</span></h3>
+                <div className="radio"  onClick={(e) => {if(this.state.governmentissued_ID ==0 )this.setState({governmentissued_ID:1});else this.setState({governmentissued_ID:0});}}>
+                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to Airbnb</label>
+                </div>
+
+                <h3>Your House Rules<span className="textpink">Edit</span></h3>
+                <div className="radio" onClick={(e) => {if(this.state.Not_safe ==0 )this.setState({Not_safe:1});else this.setState({Not_safe:0});}} >
+                  <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>Not safe or suitable for children (2-12 years)</label>
+                </div>
+                <div className="radio"  onClick={(e) => {if(this.state.anytime_Checkin ==0 )this.setState({anytime_Checkin:1});else this.setState({anytime_Checkin:0});}} >
+                  <label className="text-muted"><p><span className={this.state.anytime_Checkin == 1 ?"show":"hide"}></span></p>Check-in is anytime after 3PM</label>
+                </div>
+                <div className="radio" onClick={(e) => {if(this.state.NO_shoes ==0 )this.setState({NO_shoes:1});else this.setState({NO_shoes:0});}} >
+                  <label className="text-muted"><p><span className={this.state.NO_shoes == 1 ?"show":"hide"}></span></p>NO shoes in the house</label>
+                </div>
+
               </div>
 
 
@@ -2181,7 +2449,82 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>You need to feel confident with every reservation. That’s why we require certain information from every guest before they can book. </p>
+                    <p>Guests will only be able to book instantly with you if they meet all these requirements and agree to your House Rules. </p>
+                </div>
+             </div>
+    
+
+             
+             </div>
+             </div>
+        }
+        
+        {
+          this.state.step === this.STEP.Step3_4 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_4">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Here’s how guests will book with you</h1>
+
+
+              <div className="box col-md-12">
+                <div className="boxdiv">
+                  <img className="col-lg-4 pull-left" src="../images/step3_4img1.png" />
+                  <div className="col-lg-8 pull-right">
+                    <h3>Qualified guests find your listing</h3>
+                    <p>Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.</p>
+                  </div>
+                </div>
+                <div className="boxdiv">
+                  <img className="col-lg-4 pull-left" src="../images/step3_4img2.png" />
+                  <div className="col-lg-8 pull-right">
+                    <h3>You set controls for who can book</h3>
+                    <p>To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.</p>
+                    <p className="textpink">I want to review every request</p>
+                  </div>
+                </div>
+                <div className="boxdiv">
+                  <img className="col-lg-4 pull-left" src="../images/step3_4img3.png" />
+                  <div className="col-lg-8 pull-right">
+                    <h3>Once a guest books, you get notified</h3>
+                    <p>You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.</p>
+                  </div>
+                </div>
+              </div>
+
+
+              
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
+                    <p>In the rare case there are issues. Airbnb has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
                 </div>
              </div>
     
@@ -2191,9 +2534,307 @@ class ListingCreate extends Component {
              </div>
         }
 
+        {
+          this.state.step === this.STEP.Step3_5 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_5">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Successful hosting starts with an accurate calendar</h1>
 
 
+              <div className="box col-md-12">
+                <p>Guests will book available days instantly. Only get booked when you can host by keeping your calendar and availability settings up-to-date.</p>
+                <p>Cancelling disrupts guests’ plans. If you cancel because your calendar is inaccurate, you’ll be charged a penalty fee and the dates won’t be available for anyone else to book.</p>
 
+                <div className="check"  onClick={(e) => {if(this.state.roomstuff_Closet_drwers ==0 )this.setState({roomstuff_Closet_drwers:1});else this.setState({roomstuff_Closet_drwers:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.roomstuff_Closet_drwers ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Closet/drawers</p> 
+                </div>
+              </div>
+
+
+              
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+    
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_6 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_6">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Let’s get started with a couple questions</h1>
+
+
+              <div className="box col-md-12">
+
+                <h3>Have you rented out your place before?</h3>
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.question_rented}<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      <li><a onClick={(e)=>this.setState({question_rented:"Yes"})}>Yes</a></li>
+                      <li><a onClick={(e)=>this.setState({question_rented:"No"})}>No</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <h3>How often do you want to have guests?</h3>
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.Howoften_guests} days<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      { Howoften_guestsarr } 
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
+                    <p>Based on your responses, we can  recommend specific availability settings for you.</p>
+                </div>
+             </div>
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_7 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_6">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>How much notice do you need before a guest arrives?</h1>
+
+
+              <div className="box col-md-12">
+
+                <h3>Have you rented out your place before?</h3>
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.Howoften_guests} days<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      { Howoften_guestsarr } 
+                    </ul>
+                  </div>
+                </div>
+                <h5><b className="textpink">Tip:</b> At least 2 days’ notice can help you plan for a guest’s arrival, but you might miss out on last-minute trips.</h5>
+                <h3 className="textpink">When can guests check in?</h3>
+                <div className="form-group form-group1">    
+                  <div className="btn-group col-md-6">
+                    <h5>From:</h5>
+                    <button type="button" data-toggle="dropdown">{this.state.Howoften_From} {this.state.Howoften_From > 12 ? "PM":"AM"}<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      { Howoften_Fromarr } 
+                    </ul>
+                  </div>
+
+                  <div className="btn-group col-md-6">
+                    <h5>To:</h5>
+                    <button type="button" data-toggle="dropdown">{this.state.Howoften_To} {this.state.Howoften_To > 12 ? "PM":"AM"}<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      { Howoften_Toarr } 
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
+                 <div>
+                    <p>Today</p>
+                    <img className="becomehost__info" src="./images/step3_7.png" alt=""/>
+                </div>
+             </div>
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_8 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_6">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>How far in advance can guests book?</h1>
+
+
+              <div className="box col-md-12">
+
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.advance_book} months<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      { advance_bookarr } 
+                    </ul>
+                  </div>
+                </div>
+                <h5><b className="textpink">Tip:</b>Avoid cancelling or declining guests by only  unblocking dates you can host.</h5>
+              </div>
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
+                 <div>
+                    <p>Today</p>
+                    <img className="becomehost__info" src="./images/step3_8.png" alt=""/>
+                </div>
+             </div>
+             
+             </div>
+             </div>
+        }
+
+          {
+          this.state.step === this.STEP.Step1_1 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_9">
+            <div className="col-md-12 col-lg-12 col-sm-12 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              {this.date.current_year}
+
+
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+
+
+             
+             </div>
+             </div>
+             </div>
+        }
 
 
 

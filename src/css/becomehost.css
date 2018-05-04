@@ -14,15 +14,18 @@ body{
   font-family: RobotoRegular; 
   color: #4d4e4e;
 }
-img{width: 100%;}
-hr{
-  border-top: 2px solid #c5c5c5;
+.becomehost-1.container>div>div.row>div.col-lg-7 {
+   padding-right: 15%;
 }
 .becomehost-1.container{
   padding: 0 10%;
 }
-.Step1_2{
-  width: 95%;
+img{width: 100%;}
+hr{
+  border-top: 2px solid #c5c5c5;
+}
+.box{
+  min-height: 300px;
 }
 .Left{
   float: left;
@@ -64,7 +67,11 @@ h1,
 .Step1_10 .change div p,
 .STEPBTN button,
 .Step1_10 button,
-.Step3_2 h4{
+.Step3_2 h4,
+.Explainwhy h3,
+.Step3_6 h5 b,
+.Step3_6 .form-group h5,
+.Step3_6 .rightbox1>div>p{
   font-family: RobotoBold; 
 }
 .cursor{
@@ -100,18 +107,24 @@ h1,
 .Step2_4 .box span,
 .Step2_4 input,
 .Step2_5 .dropdown-menu a,
-.Step2_5 .box input,
+.Step2_5 .stepbox input,
 .Step3_1 .radio label,
 .Step3_1 .divinput,
 .Step3_2 .divinput,
 .Step3_2 .check .textpink,
-.Step3_2 div.add input{
+.Step3_2 div.add input,
+.Step3_2 .rightbox1 p,
+.Explainwhy p,
+.Step3_4 .boxdiv p,
+.Step3_5 .box,
+.Step3_6 .dropdown-menu a,
+.Step3_6 .form-group .btn-group button,
+.Step3_6 .box>h5{
   font-family: RobotoThin; 
 }
 .container{
   width: 100%;
 }
-
 .becomehost__Step1_1 {
   max-width: 60px;
   color: #4d4e4e;
@@ -147,7 +160,7 @@ h1,
   margin-left: 5%;
 }
 .Step1_1 .stepbg{
-  width: 150%;
+  width: 120%;
   margin: 30% 0 0;
 }
 .Step1_1 .stepfoot{
@@ -171,7 +184,7 @@ h1,
 }
 .Step1_1 .stepfoot h4 img{
   float: right;
-  margin:3%  15% 0 0;
+  margin:3%  12% 0 0;
 }
 .Step1_1 .stepfoot img{
   width: 25px;
@@ -185,7 +198,8 @@ h1,
 /*Step1_1 end*/
 .Step1_1 .form-group .btn-group button,
 .Step1_2 .form-group .btn-group button,
-.Step1_6 .btn-group button,{
+.Step1_6 .btn-group button,
+.Step3_6 .form-group .btn-group button{
   text-align: left;
 }
 .Step1_1 .form-control,
@@ -197,7 +211,8 @@ h1,
 .Step1_8 .Stepbox input,
 .Step1_6 .btn-group button,
 .Step2_4 input,
-.Step1_5 .step5box input{
+.Step1_5 .step5box input,
+.Step3_6 .form-group .btn-group button{
   background: none;
   border: 1px solid #aaa;
   border-radius: 0;
@@ -205,12 +220,13 @@ h1,
   height: 40px;
   line-height: 100%;
   text-align: left;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .Step1_1 .form-group .btn-group button span,
 .Step1_2 .form-group .btn-group button span,
-.Step1_6 .btn-group button span{
+.Step1_6 .btn-group button span,
+.Step3_6 .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2rem;
@@ -219,7 +235,8 @@ h1,
 .Step1_2 .dropdown-menu,
 .Step1_3 .dropdown-menu,
 .Step1_6 .dropdown-menu,
-.Step2_5 .dropdown-menu{
+.Step2_5 .dropdown-menu,
+.Step3_6 .dropdown-menu{
   width: 100%;
   max-height: 160px;
   overflow: auto;
@@ -231,7 +248,8 @@ h1,
 .Step1_3 .dropdown-menu a,
 .Step1_6 .dropdown-menu a,
 .Step2_5 .dropdown-menu a,
-.ReactModal__Content .dropdown-menu>a{
+.ReactModal__Content .dropdown-menu>a,
+.Step3_6 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 8%;
@@ -245,7 +263,8 @@ h1,
 .Step1_2 .dropdown-menu a:hover,
 .Step1_6 .dropdown-menu a:hover,
 .Step2_5 .dropdown-menu a:hover,
-.ReactModal__Content .dropdown-menu>a:hover{
+.ReactModal__Content .dropdown-menu>a:hover,
+.Step3_6 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -256,7 +275,8 @@ h1,
 .Step1_2 .dropdown-menu li:first-child>a,
 .Step1_3 .dropdown-menu li:first-child>a,
 .Step2_5 .dropdown-menu li:first-child>a,
-.ReactModal__Content .dropdown-menu>a:first-child{
+.ReactModal__Content .dropdown-menu>a:first-child,
+.Step3_6 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .Step1_1 .form-group .btn-group,
@@ -265,8 +285,9 @@ h1,
 .Step1_4 .btn-group,
 .Step1_6 .Step1_6box,
 .Step1_6 .btn-group,
-.box
-{
+.box,
+.Step1_3 .form-group,
+.Step3_6 .form-group .btn-group{
   padding: 0;
 }
 .Step1_1 .form-group select,
@@ -278,9 +299,16 @@ h1,
   border-radius: 0;
   border-color: #999;
 }
+.rightbox{
+  margin-bottom:8%;
+}
+.rightbox>div{
+  margin-right: 20%;
+}
 .rightbox>div,
 .Step2_1 .rightbox,
-.Step2_2 .rightbox{
+.Step2_2 .rightbox,
+.Step3_2 .rightbox1{
   background:#151b4e ;
   padding: 10% 8% 1%;
   color: #fff;
@@ -290,11 +318,13 @@ h1,
   margin-bottom:8%;
 }
 .rightbox>div h6,
-.rightbox>div p{
+.rightbox>div p,
+.Step3_2 .rightbox1 p{
   font-size: 1.6rem;
   margin: 0 0 1%;
 }
-.rightbox>div p{
+.rightbox>div p,
+.Step3_2 .rightbox1 p{
   margin-bottom: 15%;
 }
 .becomehost__Step1_2 {
@@ -304,7 +334,9 @@ h1,
   padding-right: 0 !important;
 }
 .Step1_2 .form-group .btn-group button,
-.Step1_2 .dropdown-menu{
+.Step1_2 .dropdown-menu,
+.Step3_6 .form-group .btn-group button,
+.Step3_6 .dropdown-menu{
   width: 80%;
 }
 .Step1_2 .STEPBTN{
@@ -315,11 +347,11 @@ h1,
 .Step1_3 h1{
   color: #4d4e4e;
   font-size: 2.8rem;
-  margin: 0 0 10%;
+  margin: 0 0 5%;
 }
 .Step1_2 h2,.Step1_4 h2{
   color: #4d4e4e;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .Step1_2 .form-control,
 .Step2_3 input{
@@ -327,14 +359,15 @@ h1,
   color:#888;
   font-size: 1.7rem;
 }
-.Step1_2 .form-group{
-  margin: 3% 0 8%;
+.Step1_2 .form-group,
+.Step3_6 .form-group{
+  margin: 3% 0 5%;
   width: 70%;
   height: 40px;
 }
 .Step1_2 .radio label,
 .Step3_1 .radio label{
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   width: 100%;
   padding: 0;
   margin:2% 0 0%; 
@@ -342,9 +375,9 @@ h1,
 .Step1_2 .radio label p,
 .Step3_1 .radio label p{
   display: inline-block;
-  width: 22px;
-  height: 22px;
-  margin:0 5% 0 0;
+  width: 18px;
+  height: 18px;
+  margin:0.5% 3% 0 0;
   border:1px solid #f6416c;
   border-radius: 50%;
   position: relative;
@@ -381,15 +414,12 @@ h1,
 .Step2_3 h4{
   color: #4d4e4e;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 2%;
   display: block;
 }
 .bind{
   font-weight: 500 !important;
-}
-.Step1_3 .form-group{
-  padding: 0;
 }
 .Step1_3 h3{
   margin: 3% 0 5%;
@@ -439,12 +469,6 @@ h1,
   margin: 5% 0 2%;
 } 
 /*Step1_4 end*/
-.Step1_4 .STEPBTN,
-.Step1_5 .STEPBTN,
-.Step2_4 .STEPBTN,
-.Step2_5 .STEPBTN{
-  margin-top: 50%;
-}
 .Step1_5 .step5box{
   position: relative;
   padding: 0;
@@ -460,7 +484,6 @@ h1,
 }
 .Step1_5 .step5box input{
   padding: 0 10%;
-  font-size: 1.8rem;
 }
 .Step1_5 .img1,
 .Step1_6 .img1{
@@ -469,7 +492,7 @@ h1,
 }
 /*Step1_5 end*/
 .Step1_6 h2{
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .Step1_6 h2 span{
   font-size: 1.4rem;
@@ -478,7 +501,7 @@ h1,
 .Step1_6 .btn-group button,
 .Step1_6 input{
   text-align: left;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 .Step1_6 .dropdown-menu{
   min-height: 300px;
@@ -491,11 +514,9 @@ h1,
 }
 .Step1_6 .STEPBTN,
 .Step1_7 .STEPBTN,
-.Step2_3 .STEPBTN{
+.Step2_3 .STEPBTN,
+.Step3_1 .STEPBTN{
   margin-top: 10%;
-}
-.Step1_6 .Stepbox{
-  padding: 5% 0 0;
 }
 .Step1_6 .Stepbox>div{
   margin-bottom: 2%;
@@ -519,7 +540,8 @@ h1,
 .Step2_3 .Pinput,
 .Step3_1 .Pinput,
 .Step3_2 .Pinput,
-.Step3_2 .check1 .Pinput{
+.Step3_2 .check1 .Pinput,
+.Step3_5 .check .Pinput{
   width: 20px;
   height: 20px;
   border-radius: 5px;
@@ -544,10 +566,12 @@ h1,
 .Step2_3 .divinput,
 .Step3_1 .divinput,
 .Step3_2 .divinput,
-.Step3_2 .check1 .divinput{
+.Step3_2 .check1 .divinput,
+.Step3_5 .check .divinput{
   float: right;
   width: 94%;
   font-size:1.6rem;
+  cursor: pointer;
 }
 .Step1_8 .divinput p:first-child{
   font-size:1.6rem;
@@ -582,16 +606,18 @@ h1,
 }
 .Step1_8 .Stepbox>div,
 .Step1_6 .Stepbox,
-.Step2_3 .box,
-.Step2_3 .box>div,
+.Step2_3 .stepbox,
+.Step2_3 .stepbox>div,
 .Step1_10 .Rapair,
 .Step2_2 .modal-body,
 .Step3_1 .check,
-.Step3_2 .check{
+.Step3_4 .boxdiv,
+.Step3_5 .check{
   overflow: hidden; 
 }
 .Step1_8 .Stepbox>div,
-.Step3_1 .check{
+.Step3_1 .check,
+.Step3_5 .check{
   padding: 1% 0;
   cursor: pointer;
 }
@@ -624,6 +650,7 @@ h1,
   float: left;
 }
 .Step1_10 .change div p{
+  font-size: 1.6rem;
   margin:1% 0;
   cursor: pointer;
 }
@@ -825,12 +852,20 @@ h1,
   color: #f6416c;
 }
 .Step1_10 .stepbg{
-  width: 150%;
+  width: 130%;
   margin: 30% 0 0;
 }
 /*Step1_10 end*/
-.Step2_1 .photos{
+.Step2_1,
+.Step2_2,
+.Step3_9{
+  padding:0 5%;
+}
+.Step2_1 .photos,
+.Step2_2 .photos{
   position: relative;
+  margin: 3% 0;
+  overflow: hidden;
 }
 .Step2_1 .photos .Fileipt{
   width: 100%;
@@ -871,10 +906,9 @@ h1,
 .Step2_2{
   position: relative;
 }
-.Step2_1 .rightbox,
-.Step2_2 .rightbox{
-  top:%;
-  right:2%;
+.Step2_1 .rightbox{
+  top:10%;
+  right:7%;
   position: absolute;
   width: 300px;
   padding: 3%;
@@ -897,9 +931,17 @@ h1,
 .Step2_2 .rightbox img{
   margin-bottom: 8%;
 }
+.Step2_2 .rightbox{
+  top:18%;
+  right:3%;
+  position: absolute;
+  width: 300px;
+  padding: 3%;
+  z-index: 1;
+}
 .Step2_2 .photos .photosimg,.Step2_2 .photos .photosipt{
   width: 31.1%;
-  height: 180px;
+  height:220px;
   position: relative;
   overflow: hidden;
   margin: 1% ;
@@ -1068,26 +1110,26 @@ h1,
 .Step2_3 h4.cursor{
   margin-bottom:0; 
 }
-.Step2_3 .box>div{
+.Step2_3 .stepbox>div{
   cursor: pointer;
 }
 /*Step2_3 end*/
 .Step2_4 .box span{
   position: absolute;
   right: 4%;
-  top: 15%;
+  top: 2%;
 }
 .Step2_4 h1,
 .Step2_5 h1{
   margin: 3% 0 5%;
 }
-.Step2_5 .box{
+.Step2_5 .stepbox{
   border:1px solid #f6416c;
   height: 45px;
   border-left: none;
   padding: 0;
 }
-.Step2_5 .box .phoneimg{
+.Step2_5 .stepbox .phoneimg{
  background: #f6416c;
  border:1px solid #f6416c;
  width: 15%;
@@ -1095,14 +1137,14 @@ h1,
  float: left;
  position: relative;
 }
-.Step2_5 .box .phoneimg img{
+.Step2_5 .stepbox .phoneimg img{
   width: 20%;
   position: absolute;
   top:50%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
-.Step2_5 .box .phonecode{
+.Step2_5 .stepbox .phonecode{
   float: left;
   width: 25%;
   height:100%;
@@ -1110,7 +1152,7 @@ h1,
   padding: 0;
   cursor: pointer;
 }
-.Step2_5 .box .phonecode span{
+.Step2_5 .stepbox .phonecode span{
   font-size: 2rem;
   position: absolute;
   top:50%;
@@ -1119,14 +1161,14 @@ h1,
   border-right:1px solid #f6416c;
   padding-right: 25%; 
 }
-.Step2_5 .box input{
+.Step2_5 .stepbox input{
   width: 55%;
   height: 100%;
   font-size: 1.8rem;
   border:none;
   outline:none;
 }
-.Step2_5 .box>img{
+.Step2_5 .stepbox>img{
   width: 30px;
   position: absolute;
   top:50%;
@@ -1147,6 +1189,10 @@ h1,
 .Step3_1 .divinput{
   color: #4d4e4e !important;
 }
+.Step3_1 .box,
+.Step3_4 .box{
+  margin-bottom: 10%;
+}
 .Step3_1 .divinput{
   padding-left: 3%;
 }
@@ -1154,10 +1200,18 @@ h1,
   color: #808080;
   margin-top: 0;
 }
+.Step3_1 h3 span{
+  float: right;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-right: 10%;
+}
 /*Step3_1 end*/
 .Step3_2 .check,
-.Step3_2 .check1{
+.Step3_2 .check1,
+.Step3_5 .check{
   margin: 1% 0;
+  height: 45px;
 }
 .Step3_2 .check .divinput{
   float: left;
@@ -1174,6 +1228,38 @@ h1,
 }
 .Step3_2 .check:first-child .divinput,.Pinput{
   margin-bottom: 0px;
+}
+.Step3_2 .Promptimg{
+  width: 14px;
+  margin-left: 1%;
+}
+.Step3_2 .check .divinput span{
+  position: relative;
+  cursor: pointer;
+}
+.Step3_2 .check .divinput span:hover>.rightbox1{
+  display:block;
+}
+.Step3_2 .rightbox1{
+  width: 300px;
+  left: -155px;
+  top:40px;
+  position: absolute;
+  z-index: 10;
+  display: none;
+  padding: 2% 3%;
+}
+.Step3_2 .rightbox1 p{
+  position: relative;
+  margin-bottom: 5%;
+}
+.Step3_2 .rightbox1 span{
+  position: absolute;
+  top:-35px;
+  left:50%;
+  transform: translate(-50%,0);
+  font-size: 3rem;
+  color: #151b4e;
 }
 .Step3_2 div.add{
   position: relative;
@@ -1202,7 +1288,7 @@ h1,
 }
 .Step3_2 h4{
   font-size: 1.6rem;
-  margin:1% 0;
+  margin:1% 0 3%;
 }
 .Step3_2 h3{
   width: 98%;
@@ -1216,6 +1302,106 @@ h1,
 .Step3_2 h3 span:hover{
   opacity: 1;
   cursor: pointer;
+}
+/*Step3_2 end*/
+.Step3_4 .boxdiv h3{
+  font-size: 2rem;
+}
+.Step3_4 .boxdiv p{
+  width: 85%;
+  line-height: 1.9;
+  font-size: 1.6rem;
+}
+.Step3_4 .boxdiv:last-child{
+  margin-top: 4%;
+}
+.Step3_4 .becomehost__info,
+.Step3_6 .becomehost__info{
+  width: 40px !important;
+}
+/*Step3_4 end*/
+.Step3_5 .box p{
+  width: 85%;
+  font-size: 1.6rem;
+  line-height: 1.9;
+  margin-bottom: 4%;
+}
+/*Step3_5 end*/
+.Step3_6 h5{
+  width: 70%;
+  line-height: 1.9;
+  font-size: 1.4rem;
+}
+.Step3_6 h5 b{
+  font-size: 1.7rem;
+}
+.Step3_6 .form-group{
+  width: 90%;
+}
+.Step3_6 .form-group1{
+  width: 100%;
+  height: 100px;
+  margin-top: 0;
+}
+.Step3_6 .dropdown-menu a{
+  padding: 2% 3%;
+}
+.Step3_6 .form-group1 .dropdown-menu a{
+  padding: 2% 8%;
+}
+.Step3_6 .rightbox1>div>p{
+  font-size: 1.8rem;
+  margin-bottom: 5%;
+}
+.Step3_6 .rightbox1>div{
+  background: none!important;
+  color: #808080;
+}
+.Step3_6 .rightbox1 .becomehost__info{
+  width: 60% !important;
+}
+/*Step3_6 end*/
+
+.Explainwhy{
+  width: 355px;
+  background: #fff;
+  padding: 8%;
+  overflow: hidden;
+}
+.Explainwhy span.close{
+  float: right;
+  font-size: 3rem;
+  margin-top: -15px;
+  margin-right: -10px;
+}
+.Explainwhy h3{
+  font-size: 2.2rem;
+}
+.Explainwhy p{
+  font-size: 1.2rem;
+  margin: 5% 0;
+}
+.Explainwhy textarea{
+  width: 100%;
+  height: 80px;
+  margin: 1% 0 8%;
+  border:1px solid #808080;
+}
+.Explainwhy button.Done{
+  width:40%; 
+  border-radius: 0;
+  background: #f6416c;
+  color: #fff;
+  border: 0;
+  float: left;
+}
+.Explainwhy button.Cancel{
+  width:40%; 
+  border-radius: 0;
+  background: #151b4e;
+  color: #fff;
+  border: 0;
+  float: right;
 }
 .Step-8 h1{
   text-align: center;
@@ -1239,9 +1425,6 @@ h1,
   body{
     width: 100%;
     min-width:auto;
-  }
-  .container{
-    margin: 0 auto !important;
   }
   .Step1_2{
     padding-left: 0;
@@ -1303,4 +1486,11 @@ h1,
   }
   
 }
+@media (max-width: 1200px) {
+  .becomehost-1.container{
+    padding: 0 5%;
+    margin-top: 5%;
+  }
+}
 /*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJlY29tZWhvc3Quc2NzcyIsIl92YXIuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHRTtFQUNFLGdCQUFlO0NBQ2hCOztBQUVEO0VBQ0UsaUJBQWdCO0NBQ2pCOztBQUdIOzs7OztFQUtFLHNCQUFxQjtDQXFCdEI7O0FBMUJEOzs7OztFQVFJLG1CQUFrQjtFQUNsQixzQkNoQlU7RURpQlYsaUJBQWdCO0VBQ2hCLG9CQUFtQjtDQUNwQjs7QUFaSDs7Ozs7RUFlSSxhQUFZO0NBQ2I7O0FBaEJIOzs7OztFQW1CSSxvQkFBbUI7RUFDbkIsWUFBVztDQUNaOztBQXJCSDs7Ozs7RUF3QkksWUFBVztDQUNaOztBQUdIO0VBRUksb0JBQW1CO0NBQ3BCOztBQUVEO0VBQ0Usa0JBQWlCO0NBQ2xCOztBQUdIOzs7RUFHRSxpQkFBZ0I7Q0FDakI7O0FBRUQ7O0VBR0ksb0JBQW1CO0NBQ3BCOztBQUdIO0VBQ0Usa0JBQWlCO0VBQ2pCLGtCQUFpQjtDQXVCbEI7O0FBckJDO0VBQ0UsbUJBQWtCO0VBQ2xCLGlCQUFnQjtFQUNoQixXQUFVO0NBQ1g7O0FBRUQ7RUFDRSxtQkFBa0I7RUFDbEIsT0FBTTtFQUNOLFNBQVE7RUFDUixnQkFBZTtFQUNmLFdBQVU7Q0FLWDs7QUFWRDtFQVFJLFlBQVc7Q0FDWjs7QUFuQkw7RUF1QkksWUFBVztDQUNaIiwiZmlsZSI6ImJlY29tZWhvc3QuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAndmFyJztcblxuLmJlY29tZWhvc3Qge1xuICAmX19zdGVwLTEge1xuICAgIG1heC13aWR0aDogNjBweDtcbiAgfVxuXG4gICZfX3N0ZXAtMiB7XG4gICAgbWF4LXdpZHRoOiAzMDBweDtcbiAgfVxufVxuXG4uYmVjb21laG9zdC0xLFxuLmJlY29tZWhvc3QtMixcbi5iZWNvbWVob3N0LTMsXG4uYmVjb21laG9zdC00LFxuLmJlY29tZWhvc3QtNSB7XG4gIHBhZGRpbmctYm90dG9tOiAxMDBweDtcblxuICBhIHtcbiAgICBib3JkZXItcmFkaXVzOiAxcHg7XG4gICAgYm9yZGVyLWNvbG9yOiAkcGluaztcbiAgICBtaW4td2lkdGg6IDE1MHB4O1xuICAgIG1hcmdpbi1ib3R0b206IDcwcHg7XG4gIH1cblxuICBhOmxhc3QtY2hpbGQge1xuICAgIGZsb2F0OiByaWdodDtcbiAgfVxuXG4gIC5yb3cgaW1nIHtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG5cbiAgLnJvdyAgLmJlY29tZWhvc3RfX2luZm8ge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG59XG5cbi5iZWNvbWVob3N0LTEge1xuICAuY29sLW1kLTY6Zmlyc3QtY2hpbGQge1xuICAgIHBhZGRpbmctcmlnaHQ6IDUwcHg7XG4gIH1cblxuICAmX19iZyB7XG4gICAgbWFyZ2luLXRvcDogMTAwcHg7XG4gIH1cbn1cblxuLmJlY29tZWhvc3QtMixcbi5iZWNvbWVob3N0LTMsXG4uYmVjb21laG9zdC00IHtcbiAgbWF4LXdpZHRoOiA5MDBweDtcbn1cblxuLmJlY29tZWhvc3QtMixcbi5iZWNvbWVob3N0LTMge1xuICAuY29sLW1kLTg6Zmlyc3QtY2hpbGQge1xuICAgIHBhZGRpbmctcmlnaHQ6IDUwcHg7XG4gIH1cbn1cblxuLmJlY29tZWhvc3QtNSB7XG4gIHBhZGRpbmctdG9wOiA2MHB4O1xuICBtYXgtd2lkdGg6IDExMDBweDtcblxuICAmX19wcmV2aWV3IHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgbWFyZ2luLXRvcDogNDBweDtcbiAgICB3aWR0aDogNTAlO1xuICB9XG5cbiAgJl9fcHJldmlldy1saW5rIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAwO1xuICAgIHJpZ2h0OiAwO1xuICAgIHBhZGRpbmc6IDE4cHggMDtcbiAgICB3aWR0aDogNDAlO1xuXG4gICAgc3BhbiB7XG4gICAgICBjb2xvcjogI2FhYTtcbiAgICB9XG4gIH1cblxuICBhOmxhc3QtY2hpbGQge1xuICAgIGZsb2F0OiBub25lO1xuICB9XG59IiwiJGJhc2UtZm9udC1zaXplOiAxMHB4O1xuXG4kd2hpdGU6ICNmZmY7XG4kZ3JheTogI2VlZTtcbiRkYXJrLWJsdWU6ICMxMzFjNGU7XG4kcGluazogI2Y2NDE2YztcbiRncmVlbjogIzY2Y2IwMDsiXX0= */
+

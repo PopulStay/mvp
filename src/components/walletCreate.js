@@ -94,22 +94,26 @@ class WalletCreate extends React.Component {
         <a onClick={this.create}>Create</a>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="CreateModal">
+        <div className="Create1">
           <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
           <br/>
           <h3>Address:{window.address}</h3>
           <h3>Pirvate Key:{window.privateKey}</h3>
           <br/>
           <button className="btn btn-danger" onClick={this.closeModal}>Close</button>
+        </div>  
         </Modal>
 
 
         <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} style={customStyles} 
         contentLabel="InfoModal">
+        <div className="Create">
           <h2 ref={subtitle => this.subtitle = subtitle}>Please clear your account!</h2>
           <br/>
           <h3>Please clear your account , then you can create new account!</h3>
           <br/>
           <button className="btn btn-danger" onClick={this.closeInfoModal}>Close</button>
+        </div>  
         </Modal>
       
 

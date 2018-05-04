@@ -126,22 +126,17 @@ class Video extends Component {
   render() {
 
     return (  
-              <div>
-                   <div className="col-lg-offset-9 col-lg-4 form-group">   
-                      <label >Message:</label>
-                      <textarea className="form-control" rows="5" id="comment"></textarea>
-                      <hr/>
-                      <div className ="row" >
-                        <div className ="col-lg-8">
-                          <input className="form-control" type="text"/>
-                        </div>
-                        <div className ="col-lg-4">
-                          <button className="btn btn-danger" onClick={this.handleMic}>Audio</button>
-                          <button className="btn btn-warning">Video</button>
-                          <div id="agora_remote"/>
-                        </div>
-                      </div>
-                  </div>
+              <div id="agora_remote" className="video">
+                   <ul>
+                      <li>Hello, i would like to book a room from your hostel.<img src="../images/becomehost-triangle.png" /></li>
+                   </ul>
+                   <img className="becomehost_line" src="../images/becomehost-line.png" />
+                   <div>
+                      <img className="keyboard" src="../images/becomehost-keyboard.png" />
+                      <input type="text" placeholder="Message Me"/>
+                      <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
+                      <img className="becomehost_video" src="../images/becomehost-video.png" />
+                   </div>
               </div>
             )
   }
