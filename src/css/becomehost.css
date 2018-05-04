@@ -140,7 +140,8 @@ h1,
 .Step3_17 .box>p,
 .Step3_19 .box>p,
 .Step3_20 .box>p,
-.Step3_20 .boxdiv .content>p{
+.Step3_20 .boxdiv .content>p,
+.Step3_21 p{
   font-family: RobotoThin; 
 }
 .container{
@@ -588,7 +589,8 @@ h1,
 .Step3_1 .Pinput,
 .Step3_2 .Pinput,
 .Step3_2 .check1 .Pinput,
-.Step3_5 .check .Pinput{
+.Step3_5 .check .Pinput,
+.Step3_21 .Pinput{
   width: 20px;
   height: 20px;
   border-radius: 5px;
@@ -614,7 +616,8 @@ h1,
 .Step3_1 .divinput,
 .Step3_2 .divinput,
 .Step3_2 .check1 .divinput,
-.Step3_5 .check .divinput{
+.Step3_5 .check .divinput,
+.Step3_21 .divinput{
   float: right;
   width: 94%;
   font-size:1.6rem;
@@ -662,7 +665,8 @@ h1,
 .Step3_5 .check,
 .Step3_10 .boxdiv,
 .Step3_12 .boxdiv,
-.Step3_15 .boxdiv{
+.Step3_15 .boxdiv,
+.Step3_21 .box>div{
   overflow: hidden; 
 }
 .Step1_8 .Stepbox>div,
@@ -1252,7 +1256,8 @@ h1,
 .Step3_12 .box,
 .Step3_15 .box,
 .Step3_17 .box,
-.Step3_20 .box{
+.Step3_20 .box,
+.Step3_21 .box{
   margin-bottom: 10%;
 }
 .Step3_1 .divinput{
@@ -1379,6 +1384,10 @@ h1,
   line-height: 1.9;
   font-size: 1.6rem;
 }
+.Step3_4 .boxdiv img{
+  width: 100%;
+  margin-top: 10%;
+}
 .Step3_4 .boxdiv:last-child{
   margin-top: 4%;
 }
@@ -1386,6 +1395,17 @@ h1,
 .Step3_6 .becomehost__info,
 .Step3_20 .becomehost__info{
   width: 40px !important;
+}
+.Step3_4 .rightbox div>p{
+  margin-bottom: 3%;
+}
+.Step3_4 .rightbox h5{
+  text-align: center;
+  font-size: 1.6rem;
+  color: #f6416c;
+  border-bottom:1px solid #f6416c;
+  padding-bottom: 3%;
+  margin-bottom: 15%;
 }
 /*Step3_4 end*/
 .Step3_5 .box p{
@@ -1563,7 +1583,7 @@ h1,
   color: #151b4e;
 }
 .Step3_13 .step3_13span{
-  width: 20%;
+  width: 23%;
   background: none;
   position: absolute;
   bottom: 5%;
@@ -1601,7 +1621,8 @@ h1,
 .Step3_15 .boxdiv input{
   padding: 0 3%;
 }
-.Step3_15 .box>h2{
+.Step3_15 .box>h2,
+.Step3_21 .box>h2{
   color: #131c4e;
   font-size: 1.8rem;
   cursor: pointer;
@@ -1730,6 +1751,19 @@ h1,
 }
 
 /*Step3_20 end*/
+.Step3_21 .box>div{
+  margin-bottom:3%;
+}
+.Step3_21 p{
+  font-size: 1.6rem;
+}
+.Step3_21 .p1{
+  margin:3% 0 5%;
+}
+.Step3_21 .box>h2{
+  margin:8% 0 0;
+}
+/*Step3_21 end*/
 .Explainwhy{
   width: 355px;
   background: #fff;
