@@ -683,7 +683,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -3646,6 +3646,67 @@ class ListingCreate extends Component {
               </div>
 
 
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step1_1 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_20">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <h1>Before you make the switch</h1>
+
+
+
+              <div className="box col-md-12">
+                <p> Hosts who allow guests to book instantly enjoy the  following perks:</p>
+                <div className="boxdiv">
+                  <div className="col-lg-2 pull-left">
+                    <img  src="../images/step3_20img1.png" />
+                  </div>
+                  <div className="col-lg-9 content">
+                    <h3>Increased earnings</h3>
+                    <p>Guests love booking instantly, so hosts often get double the reservations.</p>
+                  </div>
+                </div>
+                <div className="boxdiv" >
+                  <div className="col-lg-2 pull-left">
+                    <img  src="../images/step3_20img2.png" />
+                  </div>
+                  <div className="col-lg-9 content">
+                    <h3>Search boost</h3>
+                    <p>On average, Singapore hosts who let guests book instantly got 123% more search views in the past month.</p>
+                  </div>
+                </div>
+                <div className="boxdiv">
+                  <div className="col-lg-2 pull-left">
+                    <img  src="../images/step3_20img3.png" />
+                  </div>
+                  <div className="col-lg-9 content">
+                    <h3>More control</h3>
+                    <p>You can require government-issued ID or positive reviews from other hosts.the reservations.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="STEPBTN">
+                <span className="Left">Allow instant booking</span>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
+                    <h6>Ultimate host protection</h6>
+                    <p>You can <h6>cancel any reservations</h6> penalty-free if you're uncomfortable with a reservation. You also have access to <h6>24/7 customer support</h6> and airbnb's <h6>S1, 200,000 SGD Host Guarantee.</h6></p>
+                </div>
+             </div>
+    
 
              
              </div>
