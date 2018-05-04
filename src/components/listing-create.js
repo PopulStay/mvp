@@ -2883,6 +2883,86 @@ class ListingCreate extends Component {
              </div>
         }
 
+        {
+          this.state.step === this.STEP.Step3_10 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_10">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Let’s talk pricing essentials</h1>
+
+
+              <div className="box col-md-12">
+                <div className="boxdiv">
+                  <div className="col-lg-3 pull-left">
+                    <img  src="../images/step3_10img3.png" />
+                  </div>
+                  <div className="col-lg-9 pull-right">
+                    <h3>Start by choosing a price range</h3>
+                    <p>Factor in things like your location, what you offer as a host, and anything extra that makes your home unique, like a pool table.</p>
+                  </div>
+                </div>
+                <div className="boxdiv">
+                  <div className="col-lg-3 pull-left">
+                    <img  src="../images/step3_10img2.png" />
+                  </div>
+                  <div className="col-lg-9 pull-right">
+                    <h3>Demand changes, your price should too</h3>
+                    <p>Take advantage of high demand during local events and popular times of the year. During low demand, you might want to lower your price to attract more guests, just like hotels do.</p>
+                  </div>
+                </div>
+                <div className="boxdiv">
+                  <div className="col-lg-3 pull-left">
+                    <img  src="../images/step3_10img.png" />
+                  </div>
+                  <div className="col-lg-9 pull-right">
+                    <h3>We’re here to help</h3>
+                    <p>We offer tools to help you do both of these—Smart Pricing will look at demand in your area and help you set the right price for every night.</p>
+                  </div>
+                </div>
+              </div>
+
+
+              
+             
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <h6>39%</h6>
+                    <p>Hosts who use Smart Pricing earn an average of 39% more than hosts who don’t. You can set up Smart Pricing next.</p>
+                </div>
+             </div>
+    
+
+             
+             </div>
+             </div>
+        }
+
+
 
 
 
