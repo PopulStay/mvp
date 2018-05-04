@@ -3361,6 +3361,77 @@ class ListingCreate extends Component {
              </div>
         }
 
+        {
+          this.state.step === this.STEP.Step3_15 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_15">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Length-of-stay prices</h1>
+
+              <div className="box boxdiv col-md-12">
+                <p className="p1">Encourage travellers to book longer stays by offering a discount. </p>
+
+                <h3>Weekly discount</h3>
+
+                <div className="btn-group col-lg-12 boxdiv">
+                  <input type="text" placeholder="0 % off" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                </div>
+
+                <h2 className="demand">Tip: 21%</h2>
+                <p className="textpink">Travellers searching for stays longer than a week typically book listings with discounts.</p>
+
+                <h3>Monthly discount</h3>
+
+                <div className="btn-group col-lg-12 boxdiv">
+                  <input type="txet" placeholder="0 % off" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                </div>
+
+                <h2 className="demand">Tip: 49%</h2>
+                <p className="textpink">68% of travellers staying longer than one month book listings with discounts greater than 20%.</p>
+
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>Discount for longer stays</h6>
+                    <p>To encourage longer stays, some hosts set a weekly or monthly discount. If you want your listing to appear in searches for reservations of 28 nights or more, set a monthly discount.</p>
+                    <p>Weekly discounts will apply to any reservation of 7 to 27 nights.</p>
+                </div>
+             </div>
+
+
+             
+             </div>
+             </div>
+        }
+
 
 
 

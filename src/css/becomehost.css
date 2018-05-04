@@ -127,7 +127,9 @@ h1,
 .Step3_12 .box>p,
 .Step3_12 .boxdiv input,
 .Step3_12 .dropdown-menu a,
-.Step3_12 .rightbox1 p{
+.Step3_12 .rightbox1 p,
+.Step3_15 .box>p,
+.Step3_15 .boxdiv input{
   font-family: RobotoThin; 
 }
 .container{
@@ -208,7 +210,8 @@ h1,
 .Step1_2 .form-group .btn-group button,
 .Step1_6 .btn-group button,
 .Step3_6 .form-group .btn-group button,
-.Step3_12 .form-group .btn-group button{
+.Step3_12 .form-group .btn-group button,
+.Step3_15 .form-group .btn-group button{
   text-align: left;
 }
 .Step1_1 .form-control,
@@ -223,7 +226,8 @@ h1,
 .Step1_5 .step5box input,
 .Step3_6 .form-group .btn-group button,
 .Step3_12 .boxdiv input,
-.Step3_12 .form-group .btn-group button{
+.Step3_12 .form-group .btn-group button,
+.Step3_15 .boxdiv input{
   background: none;
   border: 1px solid #aaa;
   border-radius: 0;
@@ -238,7 +242,8 @@ h1,
 .Step1_2 .form-group .btn-group button span,
 .Step1_6 .btn-group button span,
 .Step3_6 .btn-group button span,
-.Step3_12 .form-group .btn-group button span{
+.Step3_12 .form-group .btn-group button span,
+.Step3_15 .form-group .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2rem;
@@ -249,7 +254,8 @@ h1,
 .Step1_6 .dropdown-menu,
 .Step2_5 .dropdown-menu,
 .Step3_6 .dropdown-menu,
-.Step3_12 .dropdown-menu{
+.Step3_12 .dropdown-menu,
+.Step3_15 .dropdown-menu{
   width: 100%;
   max-height: 160px;
   overflow: auto;
@@ -263,7 +269,8 @@ h1,
 .Step2_5 .dropdown-menu a,
 .ReactModal__Content .dropdown-menu>a,
 .Step3_6 .dropdown-menu a,
-.Step3_12 .dropdown-menu a{
+.Step3_12 .dropdown-menu a,
+.Step3_15 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 8%;
@@ -279,7 +286,8 @@ h1,
 .Step2_5 .dropdown-menu a:hover,
 .ReactModal__Content .dropdown-menu>a:hover,
 .Step3_6 .dropdown-menu a:hover,
-.Step3_12 .dropdown-menu a:hover{
+.Step3_12 .dropdown-menu a:hover,
+.Step3_15 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -292,7 +300,8 @@ h1,
 .Step2_5 .dropdown-menu li:first-child>a,
 .ReactModal__Content .dropdown-menu>a:first-child,
 .Step3_6 .dropdown-menu li:first-child>a,
-.Step3_12 .dropdown-menu li:first-child>a{
+.Step3_12 .dropdown-menu li:first-child>a,
+.Step3_15 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .Step1_1 .form-group .btn-group,
@@ -306,7 +315,8 @@ h1,
 .Step3_6 .form-group .btn-group,
 .Step3_12 .boxdiv,
 .Step3_12 .form-group .btn-group,
-.Step3_14 .boxdiv>div.content{
+.Step3_14 .boxdiv>div.content,
+.Step3_15 .boxdiv{
   padding: 0;
 }
 .Step1_1 .form-group select,
@@ -347,7 +357,7 @@ h1,
 .rightbox>div p,
 .Step3_2 .rightbox1 p,
 .Step3_12 .rightbox1 p{
-  margin-bottom: 15%;
+  margin-bottom: 10%;
 }
 .becomehost__Step1_2 {
   max-width: 300px;
@@ -360,7 +370,8 @@ h1,
 .Step3_6 .form-group .btn-group button,
 .Step3_6 .dropdown-menu,
 .Step3_12 .form-group .btn-group button,
-.Step3_12 .dropdown-menu{
+.Step3_12 .dropdown-menu,
+.Step3_15 .form-group .btn-group button{
   width: 80%;
 }
 .Step1_2 .STEPBTN{
@@ -385,7 +396,8 @@ h1,
 }
 .Step1_2 .form-group,
 .Step3_6 .form-group,
-.Step3_12 .form-group{
+.Step3_12 .form-group,
+.Step3_15 .form-group{
   margin: 3% 0 5%;
   width: 70%;
   height: 40px;
@@ -643,7 +655,8 @@ h1,
 .Step3_4 .boxdiv,
 .Step3_5 .check,
 .Step3_10 .boxdiv,
-.Step3_12 .boxdiv{
+.Step3_12 .boxdiv,
+.Step3_15 .boxdiv{
   overflow: hidden; 
 }
 .Step1_8 .Stepbox>div,
@@ -1228,7 +1241,8 @@ h1,
 .Step3_1 .box,
 .Step3_4 .box,
 .Step3_10 .box,
-.Step3_12 .box{
+.Step3_12 .box,
+.Step3_15 .box{
   margin-bottom: 10%;
 }
 .Step3_1 .divinput{
@@ -1387,7 +1401,8 @@ h1,
   margin-top: 0;
 }
 .Step3_6 .dropdown-menu a,
-.Step3_12 .dropdown-menu a{
+.Step3_12 .dropdown-menu a,
+.Step3_15 .dropdown-menu a{
   padding: 2% 3%;
 }
 .Step3_6 .form-group1 .dropdown-menu a{
@@ -1446,7 +1461,8 @@ h1,
   font-size: 2.2rem;
   margin:5% 0;
 }
-.Step3_12 .box>p{
+.Step3_12 .box>p,
+.Step3_15 .box>p{
   font-size: 1.6rem;
 }
 .Step3_12 .boxdiv>img{
@@ -1464,19 +1480,22 @@ h1,
   width: 18px;
   margin-left: 2%;
 }
-.Step3_12 .boxdiv input{
+.Step3_12 .boxdiv input,
+.Step3_15 .boxdiv input{
   width: 80%;
 }
 .Step3_12 .Base .boxdiv input{
   background:#fde3e3;
   border:1px solid #f6416c;
 }
-.Step3_12 .boxdiv .textpink{
+.Step3_12 .boxdiv .textpink,
+.Step3_15 .boxdiv .textpink{
   color: #f6416c;
   font-size: 1.2rem;
   margin:2% 0;
 }
-.Step3_12 .form-group{
+.Step3_12 .form-group,
+.Step3_15 .form-group{
   width: 100%;
 }
 .Step3_12 .box>h2>span{
@@ -1561,7 +1580,21 @@ h1,
   margin-bottom: 5%;
 }
 /*Step3_14 end*/
-
+.Step3_15 .p1{
+  margin:3% 0 15%;
+}
+.Step3_15 .btn-group{
+  margin-bottom: 3%;
+}
+.Step3_15 .boxdiv input{
+  padding: 0 3%;
+}
+.Step3_15 .box>h2{
+  color: #131c4e;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+/*Step3_15 end*/
 .Explainwhy{
   width: 355px;
   background: #fff;
