@@ -1595,6 +1595,15 @@ h1,
   cursor: pointer;
 }
 /*Step3_15 end*/
+.Step3_16 .radio{
+  margin-top: 3.5%;
+}
+.Step3_16 .radio p{
+  width: 21px;
+  height: 21px;
+}
+
+/*Step3_16 end*/
 .Explainwhy{
   width: 355px;
   background: #fff;

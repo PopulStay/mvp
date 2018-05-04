@@ -150,6 +150,10 @@ class ListingCreate extends Component {
             Price_fixed:0,
             NO_special_offer:0,
             first_guests_20:0,
+            Welcome_guests:0,
+            confirmation_booking:0,
+            requirements_book:0,
+            starting_host:0,
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
@@ -679,7 +683,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -3425,6 +3429,90 @@ class ListingCreate extends Component {
                     <p>Weekly discounts will apply to any reservation of 7 to 27 nights.</p>
                 </div>
              </div>
+
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step1_1 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_10 Step3_16">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Based on your settings,  here’s what you could expect</h1>
+
+              <div className="box col-md-12">
+                <div className="boxdiv" onClick={(e) => {if(this.state.starting_host == 0 )this.setState({starting_host:1});else this.setState({starting_host:0});}} >
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.starting_host == 1 ?"show":"hide"}></span></p>
+                  </div>
+                  <div className="col-lg-9  content">
+                    <h3>You’re available to host starting 29 Apr</h3>
+                    <p>Lou is planning her trip and thinks your listing is perfect.</p>
+                  </div>
+                </div>
+
+                <div className="boxdiv" onClick={(e) => {if(this.state.requirements_book == 0 )this.setState({requirements_book:1});else this.setState({requirements_book:0});}} >
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.requirements_book == 1 ?"show":"hide"}></span></p>
+                  </div>
+                  <div className="col-lg-9  content">
+                    <h3>Guests who meet Airbnb requirements can  instantly book.</h3>
+                    <p>In addition to meeting guest requirements, Lou agrees to your House Rules.</p>
+                  </div>
+                </div>
+
+                <div className="boxdiv" onClick={(e) => {if(this.state.confirmation_booking == 0 )this.setState({confirmation_booking:1});else this.setState({confirmation_booking:0});}} >
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.confirmation_booking == 1 ?"show":"hide"}></span></p>
+                  </div>
+                  <div className="col-lg-9  content">
+                    <h3>Guests send a message with their booking  confirmation.</h3>
+                    <p>Lou says she’ll be in town for work and she’d love to stay with you.</p>
+                  </div>
+                </div>
+
+                <div className="boxdiv" onClick={(e) => {if(this.state.Welcome_guests == 0 )this.setState({Welcome_guests:1});else this.setState({Welcome_guests:0});}} >
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.Welcome_guests == 1 ?"show":"hide"}></span></p>
+                  </div>
+                  <div className="col-lg-9  content">
+                    <h3>Welcome guests to your space!</h3>
+                    <p>Before Lou arrives, coordinate details like check-in time and key exchange.</p>
+                  </div>
+                </div>
+
+
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
 
 
              
