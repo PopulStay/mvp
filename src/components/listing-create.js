@@ -22,22 +22,43 @@ class ListingCreate extends Component {
         super(props)
 
         this.STEP = {
-            Step1_1: 1.1,
-            Step1_2: 1.2,
-            Step1_3: 1.3,
-            Step1_4: 1.4,
-            Step1_5: 1.5,
-            Step1_6: 1.6,
-            Step1_7: 1.7,
-            Step1_8: 1.8,
-            Step1_9: 1.9,
+            Step1_1: 1.01,
+            Step1_2: 1.02,
+            Step1_3: 1.03,
+            Step1_4: 1.04,
+            Step1_5: 1.05,
+            Step1_6: 1.06,
+            Step1_7: 1.07,
+            Step1_8: 1.08,
+            Step1_9: 1.09,
             Step1_10: 2,
-            Step2_1: 2.1,
-            Step2_2: 2.2,
-            Step2_3: 2.3,
-            Step2_4: 2.4,
-            Step2_5: 2.5,
-            Step2_6: 2.6,
+            Step2_1: 2.01,
+            Step2_2: 2.02,
+            Step2_3: 2.03,
+            Step2_4: 2.04,
+            Step2_5: 2.05,
+            Step2_6: 2.06,
+            Step3_1: 3.01,
+            Step3_2: 3.02,
+            Step3_3: 3.03,
+            Step3_4: 3.04,
+            Step3_5: 3.05,
+            Step3_6: 3.06,
+            Step3_7: 3.07,
+            Step3_8: 3.08,
+            Step3_9: 3.09,
+            Step3_10: 4,
+            Step3_11: 3.11,
+            Step3_12: 3.12,
+            Step3_13: 3.13,
+            Step3_14: 3.14,
+            Step3_15: 3.15,
+            Step3_16: 3.16,
+            Step3_17: 3.17,
+            Step3_18: 3.18,
+            Step3_19: 3.19,
+            Step3_20: 3.20,
+            Step3_21: 3.21,
             PROCESSING: 6,
             SUCCESS: 7,
 
@@ -106,7 +127,7 @@ class ListingCreate extends Component {
             roomdescription_Otherthings:"",
             roomdescription_neighbourhood:"",
             roomdescription_around:"",
-            roomstuff_submittedAirbnb:"",
+            roomstuff_submittedPopulStay:"",
             roomdescription_Confirmtime:"",
             roomdescription_manyguests:"",
             roomdescription_Message:"",
@@ -138,24 +159,40 @@ class ListingCreate extends Component {
             NO_shoes:0,
             roomstuff_AreaCode:86,
             selectedPictures:[],
-            price_perday:199,
-            ETHprice_perday:199,
+            Currency:"PPS",
+            price_perday:0,
+            maxprice_perday:0,
+            minprice_perday:0,
             Explainwhy:"",
-            question_rented:"Yes",
-            Howoften_guests:1,
-            Howoften_From:1,
-            Howoften_To:1,
-            advance_book:1,
+            question_rented:"Please choose",
+            Howoften_guests:"Please choose",
+            notice_arrives:"Please choose",
+            Howoften_From:"select a time",
+            Howoften_To:"select a time",
+            advance_book:"Non reservations",
             Price_demand:0,
             Price_fixed:0,
+            NO_special_offer:0,
+            first_guests_20:0,
+            Welcome_guests:0,
+            confirmation_booking:0,
+            requirements_book:0,
+            starting_host:0,
+            uncomfortable_controls:0,
+            listing_lower:0,
+            hours_respond:0,
             user: {user:'Loading...'},
-            Categorys:['Entire place','Private Room','Share Room'],
+            Categorys:['Whole house','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
+            Check_in_time:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             homeorhotels:['Home','hotel','Other'],
             types:['Single room','double room','family suite','business suite'],
             guestshaves:['Entire place'],
             Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
+            Months:["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC","JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"],
+            advance_books:["Anytime","3 months","6 months","9 months","A year","Non reservations"],
             PasswordActibve:1,
+            Step3_13Actibve:1,
             AreaCodes:[86,81,82,83],
             Rapair:1,
             scene:1,
@@ -163,10 +200,10 @@ class ListingCreate extends Component {
             modalimg:'',
             rotate:0,
             range:1,
-            Currency:"PPS",
             AdditionalRules:[],
             RulesIpt:"",
             modalIsOpen:false,
+            guests_check:false,
 
         }
         this.DETA={
@@ -190,10 +227,8 @@ class ListingCreate extends Component {
         this.openModal = this.openModal.bind(this);
         this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.deleteRules = this.deleteRules.bind(this);
 
-        this.CSS={  
-            style1:{transform:"rotate(0deg) scale(1)"}  
-        } 
     }
 
     openModal() {
@@ -354,6 +389,113 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step2_6)
       {
+        this.setState({step:this.STEP.Step3_1});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_1)
+      {
+        this.setState({step:this.STEP.Step3_2});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_2)
+      {
+        this.setState({step:this.STEP.Step3_3});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_3)
+      {
+        this.setState({step:this.STEP.Step3_4});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_4)
+      {
+        this.setState({step:this.STEP.Step3_5});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_5)
+      {
+        if(this.state.roomstuff_Closet_drwers == 1){
+          this.setState({step:this.STEP.Step3_6});
+        }
+        
+      }
+      if(this.state.step == this.STEP.Step3_6)
+      {
+        this.setState({step:this.STEP.Step3_7});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_7)
+      {
+        this.setState({step:this.STEP.Step3_8});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_8)
+      {
+        this.setState({step:this.STEP.Step3_10});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_9)
+      {
+        this.setState({step:this.STEP.Step3_10});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_10)
+      {
+        this.setState({step:this.STEP.Step3_11});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_11)
+      {
+        this.setState({step:this.STEP.Step3_12});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_12)
+      {
+        this.setState({step:this.STEP.Step3_13});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_13)
+      {
+        this.setState({step:this.STEP.Step3_14});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_14)
+      {
+        this.setState({step:this.STEP.Step3_15});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_15)
+      {
+        this.setState({step:this.STEP.Step3_16});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_16)
+      {
+        this.setState({step:this.STEP.Step3_17});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_17)
+      {
+        this.setState({step:this.STEP.Step3_18});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_18)
+      {
+        this.setState({step:this.STEP.Step3_19});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_19)
+      {
+        this.setState({step:this.STEP.Step3_20});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_20)
+      {
+        this.setState({step:this.STEP.Step3_21});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_21)
+      {
         this.setState({step:this.STEP.SUCCESS});
         console.log(this.state);
       }
@@ -438,6 +580,111 @@ class ListingCreate extends Component {
         this.setState({step:this.STEP.Step2_5});
         console.log(this.state);
       }
+      if(this.state.step == this.STEP.Step3_1)
+      {
+        this.setState({step:this.STEP.Step2_6});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_2)
+      {
+        this.setState({step:this.STEP.Step3_1});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_3)
+      {
+        this.setState({step:this.STEP.Step3_2});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_4)
+      {
+        this.setState({step:this.STEP.Step3_3});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_5)
+      {
+        this.setState({step:this.STEP.Step3_4});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_6)
+      {
+        this.setState({step:this.STEP.Step3_5});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_7)
+      {
+        this.setState({step:this.STEP.Step3_6});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_8)
+      {
+        this.setState({step:this.STEP.Step3_7});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_9)
+      {
+        this.setState({step:this.STEP.Step3_8});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_10)
+      {
+        this.setState({step:this.STEP.Step3_8});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_11)
+      {
+        this.setState({step:this.STEP.Step3_10});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_12)
+      {
+        this.setState({step:this.STEP.Step3_11});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_13)
+      {
+        this.setState({step:this.STEP.Step3_12});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_14)
+      {
+        this.setState({step:this.STEP.Step3_13});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_15)
+      {
+        this.setState({step:this.STEP.Step3_14});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_16)
+      {
+        this.setState({step:this.STEP.Step3_15});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_17)
+      {
+        this.setState({step:this.STEP.Step3_16});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_18)
+      {
+        this.setState({step:this.STEP.Step3_17});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_19)
+      {
+        this.setState({step:this.STEP.Step3_18});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_20)
+      {
+        this.setState({step:this.STEP.Step3_19});
+        console.log(this.state);
+      }
+      if(this.state.step == this.STEP.Step3_21)
+      {
+        this.setState({step:this.STEP.Step3_20});
+        console.log(this.state);
+      }
 
 
        if(this.state.step == this.STEP.SUCCESS)
@@ -447,6 +694,9 @@ class ListingCreate extends Component {
       }
 
 
+    }
+    Getcontent(event){
+      return event.target.innerHTML;
     }
 
   
@@ -607,12 +857,23 @@ class ListingCreate extends Component {
     AdditionalRules(e){
       this.setState({state: this.state.AdditionalRules.push(this.state.RulesIpt)});
       this.setState({state: this.state.RulesIpt=""});
+      e.preventDefault();
     }
 
     deleteRules(index,e){
       this.setState({
             AdditionalRules: this.state.AdditionalRules.filter((elem, i) => index != i)
       });
+    }
+    current(){
+      var D = new Date();
+      if(this.state.advance_book=="Anytime"){
+        return D.getFullYear()+3
+      }else if(this.state.advance_book=="A year"){
+        return D.getFullYear()
+      }else{
+        return this.state.Months[D.getMonth()]
+      }
     }
 
       
@@ -652,21 +913,17 @@ class ListingCreate extends Component {
     this.state.AreaCodes.forEach((AreaCode,index)=>{
       AreaCodearr.push(<li><a onClick={this.AreaCodes.bind(this,AreaCode)} >{AreaCode}</a></li>)
     })
-    const Howoften_guestsarr = [];
-    this.state.step1guests.forEach((Howoften,index)=>{
-      Howoften_guestsarr.push(<li><a onClick={this.Howoften_guests.bind(this,Howoften)} >{Howoften} days</a></li>)
-    })
     const Howoften_Fromarr = [];
-    this.state.step1guests.forEach((From,index)=>{
-      Howoften_Fromarr.push(<li><a onClick={this.Howoften_From.bind(this,From)} >{From} {From > 12 ? "PM":"AM"}</a></li>)
+    this.state.Check_in_time.forEach((From,index)=>{
+      Howoften_Fromarr.push(<li><a onClick={this.Howoften_From.bind(this,From)} >{From}</a></li>)
     })
     const Howoften_Toarr = [];
-    this.state.step1guests.forEach((To,index)=>{
-      Howoften_Toarr.push(<li><a onClick={this.Howoften_To.bind(this,To)} >{To} {To > 12 ? "PM":"AM"}</a></li>)
+    this.state.Check_in_time.forEach((To,index)=>{
+      Howoften_Toarr.push(<li><a onClick={this.Howoften_To.bind(this,To)} >{To}</a></li>)
     })
     const advance_bookarr = [];
-    this.state.step1guests.forEach((book,index)=>{
-      advance_bookarr.push(<li><a onClick={this.advance_book.bind(this,book)} >{book} months</a></li>)
+    this.state.advance_books.forEach((book,index)=>{
+      advance_bookarr.push(<li><a onClick={this.advance_book.bind(this,book)} >{book}</a></li>)
     })
 
 
@@ -1371,7 +1628,7 @@ class ListingCreate extends Component {
           <div className="change">
               <div>
                 <p>Bedrooms,beds,amenities,and more</p>
-                <p className="textpink" onClick={(e) => this.setState({step:1.1})}>change</p>
+                <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step1_1})}>change</p>
               </div>
               <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
           </div>
@@ -1605,7 +1862,7 @@ class ListingCreate extends Component {
                   </ul>
               </div>
               
-              <div className="photos" onChange={(e) => this.setState({step:2.2})}>
+              <div className="photos" onChange={(e) => this.setState({step:this.STEP.Step2_2})}>
                  <div className="photosipt">
                     <img src="../images/addphoto.png" alt=""/>
                     <input className="btn btn-default btn-lg bg-pink color-white Fileipt" type="file" onChange={this.fileChangedHandler}/>
@@ -1654,7 +1911,7 @@ class ListingCreate extends Component {
               <div className="photos">
                   {this.state.selectedPictures.map((file,index) => (
                     <div className="photosimg">
-                      <img className="img-thumbnail" data-toggle="modal" data-target="#myModal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
+                      <img className="img-thumbnail" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
                       <span  className="glyphicon glyphicon-trash" onClick={this.deletePictures.bind(this,index)} ></span>
                     </div>
                     ))
@@ -1912,7 +2169,7 @@ class ListingCreate extends Component {
           <div className="change">
               <div>
                 <p>Bedrooms,beds,amenities,and more</p>
-                <p className="textpink" onClick={(e) => this.setState({step:1.1})}>change</p>
+                <p className="textpink" onClick={(e) => this.setState({step:this.STEP.Step1_1})}>change</p>
               </div>
               <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
           </div>
@@ -1920,7 +2177,7 @@ class ListingCreate extends Component {
           <div className="change">
               <div>
                 <p>Photos, short description, title</p>
-                <p className="textpink" onClick={(e) => this.setState({step:2.1})}>change</p>
+                <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step2_1})}>change</p>
               </div>
               <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
           </div>
@@ -1929,7 +2186,7 @@ class ListingCreate extends Component {
             <p className="Step2">Step 3</p>
             <h2>Get ready for guests</h2>
             <p className="Set">Booking settings, calendar, price</p>
-            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.submit}>Continue</button>
+            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.nextStep}>Continue</button>
           </div>
 
 
@@ -2145,11 +2402,11 @@ class ListingCreate extends Component {
                 <p>Step 3: Get ready for guests</p>
               </div>
 
-              <h1>Review Airbnb’s guest requirements</h1>
+              <h1>Review PopulStay’s guest requirements</h1>
 
 
               <div className="box col-md-12">
-                <h3>All Airbnb guests must provide:</h3>
+                <h3>All PopulStay guests must provide:</h3>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
                 </div>
@@ -2175,11 +2432,11 @@ class ListingCreate extends Component {
                 </div>
 
                 <h3 className="textpink">Add additional requirements</h3>
-                <div className="check" onClick={(e) => {if(this.state.roomstuff_submittedAirbnb ==0 )this.setState({roomstuff_submittedAirbnb:1});else this.setState({roomstuff_submittedAirbnb:0});}}>
+                <div className="check" onClick={(e) => {if(this.state.roomstuff_submittedPopulStay ==0 )this.setState({roomstuff_submittedPopulStay:1});else this.setState({roomstuff_submittedPopulStay:0});}}>
                   <p  className="Pinput">
-                      <img className={this.state.roomstuff_submittedAirbnb ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      <img className={this.state.roomstuff_submittedPopulStay ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">government-issued ID submitted to Airbnb</p>
+                  <p className="divinput">government-issued ID submitted to PopulStay</p>
                 </div>
                 <div className="check" onClick={(e) => {if(this.state.roomstuff_Recommended ==0 )this.setState({roomstuff_Recommended:1});else this.setState({roomstuff_Recommended:0});}}>
                   <p  className="Pinput">
@@ -2320,15 +2577,16 @@ class ListingCreate extends Component {
                 </div>
 
                 <h4>Additional rules</h4>
-                
                 {this.state.AdditionalRules.map((Rules,index) => (
                   <h3>{Rules}<span data-index={index} onClick={this.deleteRules.bind(this,index)}>×</span></h3>
                   ))
                 }
-                <div className="add">
-                  <input type="text" onChange={(e)=>this.setState({RulesIpt:e.target.value})} placeholder="Quiet hours? No shoes in the house?" value={this.state.RulesIpt} />
-                  <span onClick={(e)=>this.AdditionalRules(e)}>Add</span>
-                </div>
+                <form onSubmit={(e)=>this.AdditionalRules(e)}>
+                  <div className="add">
+                    <input type="text" onChange={(e)=>this.setState({RulesIpt:e.target.value})} placeholder="Quiet hours? No shoes in the house?" value={this.state.RulesIpt} />
+                    <button type="submit">Add</button>
+                  </div>
+                </form>
 
                 <h4>Details guests must know about your home</h4>
                 <div className="check1" onClick={(e) => {if(this.state.climb_stairs ==0 )this.setState({climb_stairs:1});else this.setState({climb_stairs:0});}}>
@@ -2402,7 +2660,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>In addition to Airbnb’s requirements, guests must agree to all your House Rules before they book.</p>
+                    <p>In addition to PopulStay’s requirements, guests must agree to all your House Rules before they book.</p>
                     <p>If you’re ever uncomfortable with a reservation, you can cancel penalty-free before or during a trip.</p>
                 </div>
              </div>
@@ -2436,11 +2694,11 @@ class ListingCreate extends Component {
                 <p>Step 3: Get ready for guests</p>
               </div>
 
-              <h1>Review Airbnb’s guest requirements</h1>
+              <h1>Review PopulStay guest requirements</h1>
 
 
               <div className="box col-md-12">
-                <h3>All Airbnb guests must provide:<span className="textpink">Review</span></h3>
+                <h3>All PopulStay guests must provide:<span className="textpink" >Review</span></h3>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
                 </div>
@@ -2457,12 +2715,12 @@ class ListingCreate extends Component {
                   <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>Check-in time for last minute trips</label>
                 </div>
 
-                <h3>Your additional requirements<span className="textpink">Edit</span></h3>
+                <h3>Your additional requirements<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>Edit</span></h3>
                 <div className="radio"  onClick={(e) => {if(this.state.governmentissued_ID ==0 )this.setState({governmentissued_ID:1});else this.setState({governmentissued_ID:0});}}>
-                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to Airbnb</label>
+                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to PopulStay</label>
                 </div>
 
-                <h3>Your House Rules<span className="textpink">Edit</span></h3>
+                <h3>Your House Rules<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>Edit</span></h3>
                 <div className="radio" onClick={(e) => {if(this.state.Not_safe ==0 )this.setState({Not_safe:1});else this.setState({Not_safe:0});}} >
                   <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>Not safe or suitable for children (2-12 years)</label>
                 </div>
@@ -2527,32 +2785,36 @@ class ListingCreate extends Component {
 
               <div className="box col-md-12">
                 <div className="boxdiv">
-                  <img className="col-lg-4 pull-left" src="../images/step3_4img1.png" />
-                  <div className="col-lg-8 pull-right">
+                  <div className="col-lg-3 pull-left">
+                    <img src="../images/step3_4img1.png" />
+                  </div>
+                  <div className="col-lg-9 pull-right">
                     <h3>Qualified guests find your listing</h3>
                     <p>Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.</p>
                   </div>
                 </div>
                 <div className="boxdiv">
-                  <img className="col-lg-4 pull-left" src="../images/step3_4img2.png" />
-                  <div className="col-lg-8 pull-right">
+                  <div className="col-lg-3 pull-left">
+                    <img src="../images/step3_4img2.png" />
+                  </div>
+                  <div className="col-lg-9 pull-right">
                     <h3>You set controls for who can book</h3>
                     <p>To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.</p>
                     <p className="textpink">I want to review every request</p>
                   </div>
                 </div>
                 <div className="boxdiv">
-                  <img className="col-lg-4 pull-left" src="../images/step3_4img3.png" />
-                  <div className="col-lg-8 pull-right">
+                  <div className="col-lg-3 pull-left">
+                    <img src="../images/step3_4img3.png" />
+                  </div>
+                  <div className="col-lg-9 pull-right">
                     <h3>Once a guest books, you get notified</h3>
                     <p>You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.</p>
                   </div>
                 </div>
               </div>
 
-
               
-
              
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
@@ -2564,7 +2826,8 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
-                    <p>In the rare case there are issues. Airbnb has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
+                    <p>In the rare case there are issues. PopulStay has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
+                    <h5>Set rules for who can book instantly</h5>
                 </div>
              </div>
     
@@ -2608,7 +2871,7 @@ class ListingCreate extends Component {
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_Closet_drwers ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Closet/drawers</p> 
+                  <p className="divinput">Got it! I’ll keep my calendar up to date.</p> 
                 </div>
               </div>
 
@@ -2663,17 +2926,19 @@ class ListingCreate extends Component {
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.question_rented}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      <li><a onClick={(e)=>this.setState({question_rented:"Yes"})}>Yes</a></li>
-                      <li><a onClick={(e)=>this.setState({question_rented:"No"})}>No</a></li>
+                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>I'm a novice in this respect</a></li>
+                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>I have a renting experience</a></li>
                     </ul>
                   </div>
                 </div>
                 <h3>How often do you want to have guests?</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
-                    <button type="button" data-toggle="dropdown">{this.state.Howoften_guests} days<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown">{this.state.Howoften_guests}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      { Howoften_guestsarr } 
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>Not sure yet</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>Part of the time</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>As much as possible</a></li>
                     </ul>
                   </div>
                 </div>
@@ -2730,18 +2995,22 @@ class ListingCreate extends Component {
                 <h3>Have you rented out your place before?</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
-                    <button type="button" data-toggle="dropdown">{this.state.Howoften_guests} days<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown">{this.state.notice_arrives}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      { Howoften_guestsarr } 
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>Same day</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>1 days</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>2 days</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>3 days</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>7 days</a></li>
                     </ul>
                   </div>
                 </div>
                 <h5><b className="textpink">Tip:</b> At least 2 days’ notice can help you plan for a guest’s arrival, but you might miss out on last-minute trips.</h5>
-                <h3 className="textpink">When can guests check in?</h3>
-                <div className="form-group form-group1">    
+                <h3 className="textpink" onClick={(e)=>this.setState({guests_check:true})}>When can guests check in?</h3>
+                <div className={this.state.guests_check == true?"form-group form-group1 show":"form-group form-group1 hide"}>    
                   <div className="btn-group col-md-6">
                     <h5>From:</h5>
-                    <button type="button" data-toggle="dropdown">{this.state.Howoften_From} {this.state.Howoften_From > 12 ? "PM":"AM"}<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown">{this.state.Howoften_From}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
                       { Howoften_Fromarr } 
                     </ul>
@@ -2749,7 +3018,7 @@ class ListingCreate extends Component {
 
                   <div className="btn-group col-md-6">
                     <h5>To:</h5>
-                    <button type="button" data-toggle="dropdown">{this.state.Howoften_To} {this.state.Howoften_To > 12 ? "PM":"AM"}<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown" disabled={this.state.Howoften_From == "flexible" ? "disabled" : "" } > {this.state.Howoften_From == "flexible" ? "flexible": this.state.Howoften_To }<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
                       { Howoften_Toarr } 
                     </ul>
@@ -2769,7 +3038,18 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
                  <div>
                     <p>Today</p>
-                    <img className="becomehost__info" src="./images/step3_7.png" alt=""/>
+                    <div className="date">
+                      <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
+                      <span>{new Date().getDate()-2}</span>
+                    </div>
+                    <div className="date">
+                      <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
+                      <span>{new Date().getDate()-1}</span>
+                    </div>
+                    <div className="date">
+                      <img className="becomehost__info" src="./images/step3_7img2.png" alt=""/>
+                      <span className="textpink">{new Date().getDate()}</span>
+                    </div>
                 </div>
              </div>
              
@@ -2780,7 +3060,7 @@ class ListingCreate extends Component {
         {
           this.state.step === this.STEP.Step3_8 &&
           <div className="becomehost-2 container">
-          <div className="row Step3_6">
+          <div className="row Step3_6 Step3_8">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
               <div className="STEPhead">
                 <span className="bjpink"></span>
@@ -2807,7 +3087,7 @@ class ListingCreate extends Component {
 
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
-                    <button type="button" data-toggle="dropdown">{this.state.advance_book} months<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown">{this.state.advance_book}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
                       { advance_bookarr } 
                     </ul>
@@ -2827,8 +3107,54 @@ class ListingCreate extends Component {
 
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
                  <div>
-                    <p>Today</p>
-                    <img className="becomehost__info" src="./images/step3_8.png" alt=""/>
+                    <div className={this.state.advance_book == "A year" ? "hide date" : "modalshow date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>
+                            {this.state.advance_book != "A year" && this.state.advance_book != "Anytime"  ? this.state.Months[new Date().getMonth()-2] : ""}
+                            {this.state.advance_book == "Anytime" ? new Date().getFullYear()+1 : ""}
+                            {this.state.advance_book == "A year" ? new Date().getFullYear()-2 : ""}
+                      </span>
+                    </div>
+                    <div className="date">
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>
+                            {this.state.advance_book != "A year" && this.state.advance_book != "Anytime" ? this.state.Months[new Date().getMonth()-1] : ""}
+                            {this.state.advance_book == "Anytime" ? new Date().getFullYear()+2 : ""}
+                            {this.state.advance_book == "A year" ? new Date().getFullYear()-1 : ""}
+                      </span>
+                    </div>
+                    <div className="date">
+                      <img className="becomehost__info" src={this.state.advance_book == "9 months" || this.state.advance_book == "6 months" ? "./images/step3_8img1.png" : "./images/step3_8img2.png"} alt=""/>
+                      <span className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months" ? "" : "textpink"}>{this.current()}</span>
+                    </div>
+
+
+                    <div className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>{this.state.Months[new Date().getMonth()+1]}</span>
+                    </div>
+                    <div className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>{this.state.Months[new Date().getMonth()+2]}</span>
+                    </div>
+                    <div className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src={this.state.advance_book == "6 months" ? "./images/step3_8img2.png" : "./images/step3_8img1.png"} alt=""/>
+                      <span className={this.state.advance_book == "6 months" ? "textpink" : "" } >{this.state.Months[new Date().getMonth()+3]}</span>
+                    </div>
+
+
+                    <div className={this.state.advance_book == "9 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>{this.state.Months[new Date().getMonth()+4]}</span>
+                    </div>
+                    <div className={this.state.advance_book == "9 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>{this.state.Months[new Date().getMonth()+5]}</span>
+                    </div>
+                    <div className={this.state.advance_book == "9 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src={this.state.advance_book == "9 months" ? "./images/step3_8img2.png" : "./images/step3_8img1.png"} alt=""/>
+                      <span className={this.state.advance_book == "9 months" ? "textpink" : "" }>{this.state.Months[new Date().getMonth()+6]}</span>
+                    </div>
                 </div>
              </div>
              
@@ -3010,7 +3336,7 @@ class ListingCreate extends Component {
                   </div>
                   <div className="col-lg-8 content">
                     <h3>Price is fixed</h3>
-                    <p>Set a base price. Airbnb gives you price tips that you can accept or ignore.</p>
+                    <p>Set a base price. PopulStay gives you price tips that you can accept or ignore.</p>
                   </div>
                   <div className="col-lg-1 radio">
                     <p><span className={this.state.Price_fixed == 1 ?"show":"hide"}></span></p>
@@ -3068,17 +3394,18 @@ class ListingCreate extends Component {
                 <h3>Increase your chances of getting booked</h3>
                 <p>Set up Smart Pricing to automatically keep your nightly prices competitive as demand in your area changes.</p>
                 
-                <h1>Set up the same base price for each night</h1>
-                <h3>Base Price</h3>
-                <p>If you turn Smart Pricing off for a night,this will be your default price</p>
+                <div className="Base">
+                  <h1>Set up the same base price for each night</h1>
+                  <h3>Base Price</h3>
+                  <p>If you turn Smart Pricing off for a night,this will be your default price</p>
 
-                <div className="btn-group col-lg-12 boxdiv">
-                  <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
-                  <input type="text" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
-                  <p>Please use a base price of at least $13 but no more than $13,272.</p>
+                  <div className="btn-group col-lg-12 boxdiv">
+                    <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                    <input type="number" className={this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "form-control inputActive" : "form-control"} onChange={(e) => {this.setState({price_perday:e.target.value});}} value={this.state.price_perday}  />
+                  </div>
+                  <p className="textpink">Please use a base price of at least $13 but no more than $13,272.</p>
                 </div>
-
-                <h2 className="demand">Tip: $114 SGD
+                <h2 className="demand">Tip: $114 {this.state.Currency}
                     <img src="../images/Prompt.png" />
                     <div className="rightbox1">
                       <p><span>▲</span>Tips are based on your listing’s qualities, nearby prices and demand</p>
@@ -3103,7 +3430,7 @@ class ListingCreate extends Component {
               
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className={ this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "buttonActive Right" : "Right"} disabled={ this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
               </div>
                
              </div>
@@ -3116,6 +3443,638 @@ class ListingCreate extends Component {
                 </div>
              </div>
     
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_13 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_12 Step3_13">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Price your space</h1>
+
+              <div className="box col-md-12">
+                <h3>Increase your chances of getting booked</h3>
+                <p>Set up Smart Pricing to automatically keep your nightly prices competitive as demand in your area changes.</p>
+                
+                <h2>Set up Smart Pricing<span>RECOMMENDED</span></h2>
+
+                <h3>Minimum price</h3>
+                <p>To help you get booked, your price will move closer to this when demand is low</p>
+
+                <div className="btn-group col-lg-12 boxdiv">
+                  <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                  <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({minprice_perday:e.target.value});else this.setState({minETHprice_perday:e.target.value});}} className="form-control"  />
+                </div>
+
+                <h3>Maximum price</h3>
+                <p>To help you earn more, your price will move closer to this when demand is high</p>
+
+                <div className="btn-group col-lg-12 boxdiv">
+                  <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                  <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({maxprice_perday:e.target.value});else this.setState({maxETHprice_perday:e.target.value});}} className="form-control"  />
+                </div>
+
+                <div className="Base">
+                  <h3>Base Price</h3>
+                  <p>If you turn Smart Pricing off for a night,this will be your default price</p>
+
+                  <div className="btn-group col-lg-12 boxdiv">
+                    <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                    <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                  </div>
+                  <p className="textpink">Please use a base price of at least $13 but no more than $13,272.</p>
+                </div>
+
+                <h2 className="demand">Tip: $114 SGD
+                    <img src="../images/Prompt.png" />
+                    <div className="rightbox1">
+                      <p><span>▲</span>Tips are based on your listing’s qualities, nearby prices and demand</p>
+                    </div>
+                </h2>
+
+                <h3>Currency</h3>
+
+                <div className="form-group">    
+                  <div className="btn-group col-md-12">
+                    <button type="button" data-toggle="dropdown">{this.state.Currency}<span>▼</span></button>
+                    <ul className="dropdown-menu" role="menu">
+                      <li onClick={(e) => this.setState({Currency:"PPS"})}><a>PPS</a></li> 
+                      <li onClick={(e) => this.setState({Currency:"ETH"})}><a>ETH</a></li> 
+                    </ul>
+                  </div>
+                </div>
+
+                <p>You’re always in control of your nightly price. By continuing, you agree to turn on Smart Pricing. You can change this later in settings.</p>
+
+                <h2>I don’t want my price to adjust with demand</h2>
+
+
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+              <div className="rightdiv">
+                 <div className={this.state.Step3_13Actibve ==1 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>Increase bookings when demand is low</h6>
+                    <p className="step3_13p">Smart Pricing can automatically adjust your nightly price as demand changes based on factors like popular local events, seasonality and weekend vs. weekdays.</p>
+                    <ul>
+                      <li>
+                        <p>Thu</p>
+                        <h5>$114</h5>
+                        <h5>PPS</h5>
+                      </li>
+                      <li>
+                        <p>Fri</p>
+                        <h5>$125</h5>
+                        <h5>PPS</h5>
+                      </li>
+                      <li>
+                        <p>Sat</p>
+                        <h5>$131</h5>
+                        <h5>PPS</h5>
+                      </li>
+                    </ul>
+                    <p>For example, on a day where few people are looking at your space, we’ll drop the price to attract more guests to book with you.</p>
+                </div>
+
+                <div className={this.state.Step3_13Actibve == 2 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>You’re in control</h6>
+                    <p>When you turn on competitive pricing, you set the range you’re willing to charge each night. You can always turn off competitive pricing for specific days in your calendar.</p>
+                </div>
+
+                <div className={this.state.Step3_13Actibve == 3 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>Start with a lower price to attract bookings</h6>
+                    <p>New hosts start with a lower price to attract their first few bookings. Hosts who set prices within 5% of price tips are nearly 4x more likely to get booked.</p>
+                </div>
+
+                <div className="step3_13span">
+                  <span className={this.state.Step3_13Actibve == 1 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:1})} ></span>
+                  <span className={this.state.Step3_13Actibve == 2 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:2})}></span>
+                  <span className={this.state.Step3_13Actibve == 3 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:3})}></span>
+               </div>
+              </div>
+                
+             </div>
+
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_14 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_10 Step3_13 Step3_14">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Something special for your first guests</h1>
+
+              <div className="box col-md-12">
+                <div className="boxdiv" onClick={(e) => {if(this.state.first_guests_20 == 0 )this.setState({first_guests_20:1});else this.setState({first_guests_20:0});}} >
+                  <div className="col-lg-9 content">
+                    <h3>Offer 20% off to your first guests</h3>
+                    <p>The first 3 guests who book your place will get 20% off their stay. This special offer can attract new guests, and help you get the 3 reviews you need for a star rating.</p>
+                    <span>RECOMMENDED</span>
+                  </div>
+                  <div className="col-lg-2 col-lg-push-1 radio">
+                    <p><span className={this.state.first_guests_20 == 1 ?"show":"hide"}></span></p>
+                  </div>
+                </div>
+                <div className="boxdiv" onClick={(e) => {if(this.state.NO_special_offer == 0 )this.setState({NO_special_offer:1});else this.setState({NO_special_offer:0});}} >
+                  <div className="col-lg-9 content">
+                    <h3>Don’t add a special offer</h3>
+                    <p>Once you publish your listing, you won’t be able to add this offer.</p>
+                  </div>
+                  <div className="col-lg-2 col-lg-push-1 radio">
+                    <p><span className={this.state.NO_special_offer == 1 ?"show":"hide"}></span></p>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+              <div className="rightdiv">
+                 <div className={this.state.Step3_13Actibve ==1 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>Why add a special offer？</h6>
+                    <p className="step3_13p">This will help attract your first guests, and help get your first reviews. Once you get 3 reviews, you’ll get a star rating in search results, which will help your listing stand out. New listings that get booked and reviewed in the first month appear more often in search results and get an average of 3.6x more bookings in their first 3 months</p>
+                </div>
+
+                <div className={this.state.Step3_13Actibve == 2 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>We’ll share your offer</h6>
+                    <p>We’ll let guests who are searching in your area know that they can save 20% if they book your home. This can help get more eyes on your listing, but only the first 3 guests who book will be eligible for the offer.</p>
+                </div>
+
+                <div className={this.state.Step3_13Actibve == 3 ? 'show' : 'hide'}>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>First 3 guests can claim your offer</h6>
+                    <p>The offer will be available to 3 guests. That way, you can get 3 reviews and your star rating. After 3 guests have claimed your offer, it won’t be valid anymore. If no one claims the offer, it’ll automatically expire after 30 days.</p>
+                </div>
+
+                <div className="step3_13span">
+                  <span className={this.state.Step3_13Actibve == 1 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:1})} ></span>
+                  <span className={this.state.Step3_13Actibve == 2 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:2})}></span>
+                  <span className={this.state.Step3_13Actibve == 3 ? 'bjpink' : ''} onClick={(e) => this.setState({Step3_13Actibve:3})}></span>
+               </div>
+              </div>
+                
+             </div>
+
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_15 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_15">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Length-of-stay prices</h1>
+
+              <div className="box boxdiv col-md-12">
+                <p className="p1">Encourage travellers to book longer stays by offering a discount. </p>
+
+                <h3>Weekly discount</h3>
+
+                <div className="btn-group col-lg-12 boxdiv">
+                  <input type="text" placeholder="0 % off" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                </div>
+
+                <h2 className="demand">Tip: 21%</h2>
+                <p className="textpink">Travellers searching for stays longer than a week typically book listings with discounts.</p>
+
+                <h3>Monthly discount</h3>
+
+                <div className="btn-group col-lg-12 boxdiv">
+                  <input type="txet" placeholder="0 % off" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                </div>
+
+                <h2 className="demand">Tip: 49%</h2>
+                <p className="textpink">68% of travellers staying longer than one month book listings with discounts greater than 20%.</p>
+
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                <div>
+                    <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
+                    <h6>Discount for longer stays</h6>
+                    <p>To encourage longer stays, some hosts set a weekly or monthly discount. If you want your listing to appear in searches for reservations of 28 nights or more, set a monthly discount.</p>
+                    <p>Weekly discounts will apply to any reservation of 7 to 27 nights.</p>
+                </div>
+             </div>
+
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_16 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_10 Step3_16">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Based on your settings,  here’s what you could expect</h1>
+
+              <div className="box col-md-12">
+                <div className="boxdiv" onClick={(e) => {if(this.state.starting_host == 0 )this.setState({starting_host:1});else this.setState({starting_host:0});}} >
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.starting_host == 1 ?"show":"hide"}></span></p>
+                  </div>
+                  <div className="col-lg-9  content">
+                    <h3>You’re available to host starting 29 Apr</h3>
+                    <p>Lou is planning her trip and thinks your listing is perfect.</p>
+                  </div>
+                </div>
+
+                <div className="boxdiv" onClick={(e) => {if(this.state.requirements_book == 0 )this.setState({requirements_book:1});else this.setState({requirements_book:0});}} >
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.requirements_book == 1 ?"show":"hide"}></span></p>
+                  </div>
+                  <div className="col-lg-9  content">
+                    <h3>Guests who meet PopulStay requirements can  instantly book.</h3>
+                    <p>In addition to meeting guest requirements, Lou agrees to your House Rules.</p>
+                  </div>
+                </div>
+
+                <div className="boxdiv" onClick={(e) => {if(this.state.confirmation_booking == 0 )this.setState({confirmation_booking:1});else this.setState({confirmation_booking:0});}} >
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.confirmation_booking == 1 ?"show":"hide"}></span></p>
+                  </div>
+                  <div className="col-lg-9  content">
+                    <h3>Guests send a message with their booking  confirmation.</h3>
+                    <p>Lou says she’ll be in town for work and she’d love to stay with you.</p>
+                  </div>
+                </div>
+
+                <div className="boxdiv" onClick={(e) => {if(this.state.Welcome_guests == 0 )this.setState({Welcome_guests:1});else this.setState({Welcome_guests:0});}} >
+                  <div className="col-lg-1 radio">
+                    <p><span className={this.state.Welcome_guests == 1 ?"show":"hide"}></span></p>
+                  </div>
+                  <div className="col-lg-9  content">
+                    <h3>Welcome guests to your space!</h3>
+                    <p>Before Lou arrives, coordinate details like check-in time and key exchange.</p>
+                  </div>
+                </div>
+
+
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_17 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_17">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <div className="STEPhead">
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span> 
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <span className="bjpink"></span>
+                <p>Step 3: Get ready for guests</p>
+              </div>
+
+              <h1>Your local laws and taxes</h1>
+
+              <div className="box col-md-12">
+                <h3>Make sure you familiarise yourself with your local laws, as well as <span className="textpink">PopulStay’s Nondiscrimination Policy.</span></h3>
+                <p>Please educate yourself about the laws in your jurisdiction before listing your space.</p>
+                <p>Most cities have rules covering homesharing, and the specific codes and ordinances can appear in many places (such as zoning, building, licensing or tax codes). In most places, you must register, get a permit, or obtain a license before you list your property or accept guests. You may also be responsible for collecting and remitting certain taxes. In some places, short-term rentals could be prohibited altogether.</p>
+                <p>Since you are responsible for your own decision to list or book, you should get comfortable with the applicable rules before listing on PopulStay. To get you started, we offer some helpful resources under “Your City Laws.”</p>
+                <p>By accepting our Terms of Service and listing your space, you certify that you will follow applicable laws and regulations.</p>
+              </div>
+
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-6 col-lg-4 col-md-push-1 col-sm-6 paddingNone">
+                <img className="stepbg" src="../images/step3_17img.png" alt=""/>
+            </div>
+
+
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_18 &&
+
+          <div className="becomehost-5 container">
+          <div className="row Step1_10 Step3_18">
+          <div className="col-md-6 col-lg-7 col-sm-6">
+            <h1>You’re ready to publish!</h1>
+            <h3>You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.</h3>
+            <div className="change">
+                <div>
+                  <p>Bedrooms,beds,amenities,and more</p>
+                  <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step1_1})}>change</p>
+                </div>
+                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
+            </div>
+
+            <div className="change">
+                <div>
+                  <p>Photos, short description, title</p>
+                  <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_1})}>change</p>
+                </div>
+                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
+            </div>
+
+            <div className="change">
+                <div>
+                  <p>Booking settings, calendar, price</p>
+                  <p className="textpink" onClick={(e) => this.setState({step:this.STEP.Step3_1})}>change</p>
+                </div>
+                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
+            </div>
+
+            <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.nextStep}>Publish listing</button>
+
+          </div>
+          <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
+              <img className="stepbg" src="../images/step3_18img.png" alt=""/>
+              <div className="Preview">
+                <img src="./images/becomehost-step5-preview.jpg" />
+                <p>Place name</p>
+                <h6>Preview</h6>
+              </div>
+          </div>
+          </div>
+          </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_19 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_19">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <h1>You’re ready to publish!</h1>
+
+              <div className="box col-md-12">
+                <p>You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.</p>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.nextStep}>Publish listing</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.preStep}>Edit Listing</button>
+                
+              </div>
+
+               
+             </div>
+
+             <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
+                  <img className="stepbg" src="../images/step3_18img.png" alt=""/>
+                  <div className="Preview">
+                    <img src="./images/becomehost-step5-preview.jpg" />
+                    <p>Place name</p>
+                    <h6>Preview</h6>
+                  </div>
+              </div>
+
+
+
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_20 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_20">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <h1>Before you make the switch</h1>
+
+
+
+              <div className="box col-md-12">
+                <p> Hosts who allow guests to book instantly enjoy the  following perks:</p>
+                <div className="boxdiv">
+                  <div className="col-lg-2 pull-left">
+                    <img  src="../images/step3_20img1.png" />
+                  </div>
+                  <div className="col-lg-9 content">
+                    <h3>Increased earnings</h3>
+                    <p>Guests love booking instantly, so hosts often get double the reservations.</p>
+                  </div>
+                </div>
+                <div className="boxdiv" >
+                  <div className="col-lg-2 pull-left">
+                    <img  src="../images/step3_20img2.png" />
+                  </div>
+                  <div className="col-lg-9 content">
+                    <h3>Search boost</h3>
+                    <p>On average, Singapore hosts who let guests book instantly got 123% more search views in the past month.</p>
+                  </div>
+                </div>
+                <div className="boxdiv">
+                  <div className="col-lg-2 pull-left">
+                    <img  src="../images/step3_20img3.png" />
+                  </div>
+                  <div className="col-lg-9 content">
+                    <h3>More control</h3>
+                    <p>You can require government-issued ID or positive reviews from other hosts.the reservations.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="STEPBTN">
+                <span className="Left">Allow instant booking</span>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
+
+             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+                 <div>
+                    <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
+                    <h6>Ultimate host protection</h6>
+                    <p>You can <h6>cancel any reservations</h6> penalty-free if you're uncomfortable with a reservation. You also have access to <h6>24/7 customer support</h6> and PopulStay's <h6>S1, 200,000 SGD Host Guarantee.</h6></p>
+                </div>
+             </div>
+    
+             
+             </div>
+             </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_21 &&
+          <div className="becomehost-2 container">
+          <div className="row Step3_21">
+            <div className="col-md-8 col-lg-7 col-sm-8 ">
+              <h1>Are you sure you want all guests to  send requests?</h1>
+
+
+
+              <div className="box col-md-12">
+                <p className="p1">Check the boxes to confirm you understand: </p>
+
+                <div  onClick={(e) => {if(this.state.hours_respond ==0 )this.setState({hours_respond:1});else this.setState({hours_respond:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.hours_respond ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">You’ll only have 24 hours to respond to  requests without penalty</p>
+                </div>
+
+                <div  onClick={(e) => {if(this.state.listing_lower ==0 )this.setState({listing_lower:1});else this.setState({listing_lower:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.listing_lower ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Your listing will be ranked lower in search, so you may get fewer reservations</p>
+                </div>
+
+                <div  onClick={(e) => {if(this.state.uncomfortable_controls ==0 )this.setState({uncomfortable_controls:1});else this.setState({uncomfortable_controls:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.uncomfortable_controls ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">You’ll lose some host protection and controls, including penalty-free cancellations if you’re uncomfortable with a reservation</p>
+                </div>
+
+                <p>Did you know?  On average, Singapore hosts who let guests book instantly got 123% more search views in the past month.</p>
+
+                <h2>Allow qualified guests to book instantly</h2>
+              </div>
+              
+              <div className="STEPBTN">
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              </div>
+               
+             </div>
 
              
              </div>
