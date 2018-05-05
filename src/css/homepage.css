@@ -50,7 +50,9 @@
   min-width: 160px;
   max-width: 180px;
 }
-
+.listings-grid h1{
+  margin-bottom: 2%;
+}
 .listing-card .photo {
   width: 100%;
   overflow: hidden;
@@ -66,13 +68,14 @@
   color: #f6416c;
   margin: 3% 0 1%;
   font-size: 1.6rem;
-  font-weight: bold;
+  font-family: RobotoBold; 
 }
 .listing-card .title{
   color: #131c4e;
   font-size: 1.6rem;
   margin-bottom: 1%;
   font-weight: bold;
+  font-family: RobotoBold; 
 }
 .listing-card .divxx img{
   width: 15px;
@@ -80,10 +83,14 @@
   margin-right:3%;
 }
 .listing-card .divxx span{
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   display: inline-block;
   float: left;
   color: #131c4e;
+}
+.listing-card .price,
+.listing-card .divxx span{
+  font-family: RobotoThin; 
 }
 .modalcode .listing-card{
   width: 60%;
