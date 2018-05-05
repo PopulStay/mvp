@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { merge } from 'lodash';
 import {AGORA_APP_ID} from '../agora.config';
 
-
 class Video extends Component {
 
   constructor(props) {
@@ -27,7 +26,20 @@ class Video extends Component {
       
   }
 
+  componentWillMount() {
+
+    console.log(window.io.sails);
+     window.io.sails.url = 'http://localhost:1337/';
+    // if(io.sails)
+    // {
+    //   io.sails.url = process.env.Server_Address;
+    // }
+ 
+  }
+
   componentWillUnmount () {
+
+
     this.client && this.client.unpublish(this.localStream)
     this.localStream && this.localStream.close()
     this.client && this.client.leave(() => {
