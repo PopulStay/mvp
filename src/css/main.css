@@ -8707,11 +8707,12 @@ header .dropdown-menu a.dropdown-item1{
 }
 .Signup .dropdown-menu a{
   font-size: 1.6rem;
+  padding: 0 6%;
 }
 .Signup .dropdown-menu a>div>a{
   display: block;
   height: 40px;
-  line-height: 40px;
+  padding: 0;
 }
 .Signup input{
   height:40px;
@@ -8725,7 +8726,7 @@ header .dropdown-menu a.dropdown-item1{
 }
 .Signup .dropdown span{
   color: #151b4e;
-  margin-left: 20%;
+  margin-left: 10%;
   font-size: 1.8rem;
 }
 .Signup .form-group label{

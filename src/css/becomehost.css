@@ -59,6 +59,24 @@ hr{
   padding: 1% 8%;
   border-radius: 0;
   font-size: 2rem;
+  border:none;
+  background-color: #f6416c;
+  color: #fff;
+  border:1px solid #f6416c;
+  cursor: pointer;
+}
+.buttonActive{
+  opacity: 0.5;
+}
+.buttonActive:hover{
+  background-color: #f6416c!important;
+  color: #fff!important;  
+}
+.STEPBTN button:hover,
+.Step1_10 button:hover,
+.Step3_19 .box button:hover{
+  color: #f6416c;
+  background-color: #fff;
 }
 .Step1_6 .STEPBTN,
 .Step1_7 .STEPBTN,
@@ -1478,17 +1496,18 @@ h1,
 .Step3_10 .boxdiv:hover{
   cursor: pointer;
 }
-.Step3_10 .boxdiv .pull-left,
 .Step3_20 .boxdiv .pull-left{
   position: relative;
   height: 110px;
 }
 .Step3_10 .boxdiv .pull-left img{
-  position: absolute;
-  top:50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 50%;
+  width: 65%;
+  margin-top: 31%;
+  margin: 31% 20%;
+
+}
+.Step3_10 .boxdiv p{
+  font-size: 1.6rem;
 }
 .Step3_10 .rightbox>div h6{
   font-size: 6rem;
@@ -1540,9 +1559,9 @@ h1,
 .Step3_15 .boxdiv input{
   width: 80%;
 }
-.Step3_12 .Base .boxdiv input{
-  background:#fde3e3;
-  border:1px solid #f6416c;
+.inputActive{
+  background:#fde3e3 !important;
+  border:1px solid #f6416c !important;
 }
 .Step3_12 .boxdiv .textpink,
 .Step3_15 .boxdiv .textpink{

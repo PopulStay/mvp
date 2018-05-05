@@ -159,12 +159,10 @@ class ListingCreate extends Component {
             NO_shoes:0,
             roomstuff_AreaCode:86,
             selectedPictures:[],
+            Currency:"PPS",
             price_perday:0,
             maxprice_perday:0,
             minprice_perday:0,
-            ETHprice_perday:0,
-            maxETHprice_perday:0,
-            minETHprice_perday:0,
             Explainwhy:"",
             question_rented:"Please choose",
             Howoften_guests:"Please choose",
@@ -202,7 +200,6 @@ class ListingCreate extends Component {
             modalimg:'',
             rotate:0,
             range:1,
-            Currency:"PPS",
             AdditionalRules:[],
             RulesIpt:"",
             modalIsOpen:false,
@@ -434,7 +431,7 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step3_8)
       {
-        this.setState({step:this.STEP.Step3_9});
+        this.setState({step:this.STEP.Step3_10});
         console.log(this.state);
       }
       if(this.state.step == this.STEP.Step3_9)
@@ -630,7 +627,7 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step3_10)
       {
-        this.setState({step:this.STEP.Step3_9});
+        this.setState({step:this.STEP.Step3_8});
         console.log(this.state);
       }
       if(this.state.step == this.STEP.Step3_11)
@@ -1914,7 +1911,7 @@ class ListingCreate extends Component {
               <div className="photos">
                   {this.state.selectedPictures.map((file,index) => (
                     <div className="photosimg">
-                      <img className="img-thumbnail" data-toggle="modal" data-target="#myModal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
+                      <img className="img-thumbnail" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
                       <span  className="glyphicon glyphicon-trash" onClick={this.deletePictures.bind(this,index)} ></span>
                     </div>
                     ))
@@ -3404,11 +3401,11 @@ class ListingCreate extends Component {
 
                   <div className="btn-group col-lg-12 boxdiv">
                     <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
-                    <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                    <input type="number" className={this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "form-control inputActive" : "form-control"} onChange={(e) => {this.setState({price_perday:e.target.value});}} value={this.state.price_perday}  />
                   </div>
                   <p className="textpink">Please use a base price of at least $13 but no more than $13,272.</p>
                 </div>
-                <h2 className="demand">Tip: $114 SGD
+                <h2 className="demand">Tip: $114 {this.state.Currency}
                     <img src="../images/Prompt.png" />
                     <div className="rightbox1">
                       <p><span>▲</span>Tips are based on your listing’s qualities, nearby prices and demand</p>
@@ -3433,7 +3430,7 @@ class ListingCreate extends Component {
               
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className={ this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "buttonActive Right" : "Right"} disabled={ this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
               </div>
                
              </div>
