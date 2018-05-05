@@ -1455,19 +1455,24 @@ h1,
   color: #808080;
 }
 .Step3_6 .rightbox1>div>.date{
-  width: 30%;
+  width: 22%;
   position: relative;
   display: inline-block;
+  margin-right: 5%;
 }
 .Step3_6 .rightbox1>div>.date span{
   position: absolute;
   font-size: 1.4rem;
-  bottom: 13%;
-  left: 48%;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,0%);
   color: #ccc;
 }
 .Step3_6 .rightbox1 .becomehost__info{
-  width: 80% !important;
+  width: 100% !important;
+}
+.Step3_8 .rightbox1>div>.date span{
+  font-size: 2rem;
 }
 /*Step3_6 end*/
 .Step3_10 .boxdiv:hover{

@@ -171,7 +171,7 @@ class ListingCreate extends Component {
             notice_arrives:"Please choose",
             Howoften_From:"select a time",
             Howoften_To:"select a time",
-            advance_book:1,
+            advance_book:"Non reservations",
             Price_demand:0,
             Price_fixed:0,
             NO_special_offer:0,
@@ -184,13 +184,15 @@ class ListingCreate extends Component {
             listing_lower:0,
             hours_respond:0,
             user: {user:'Loading...'},
-            Categorys:['Entire place','Private Room','Share Room'],
+            Categorys:['Whole house','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
             Check_in_time:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             homeorhotels:['Home','hotel','Other'],
             types:['Single room','double room','family suite','business suite'],
             guestshaves:['Entire place'],
             Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
+            Months:["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC","JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"],
+            advance_books:["Anytime","3 months","6 months","9 months","A year","Non reservations"],
             PasswordActibve:1,
             Step3_13Actibve:1,
             AreaCodes:[86,81,82,83],
@@ -866,6 +868,16 @@ class ListingCreate extends Component {
             AdditionalRules: this.state.AdditionalRules.filter((elem, i) => index != i)
       });
     }
+    current(){
+      var D = new Date();
+      if(this.state.advance_book=="Anytime"){
+        return D.getFullYear()+3
+      }else if(this.state.advance_book=="A year"){
+        return D.getFullYear()
+      }else{
+        return this.state.Months[D.getMonth()]
+      }
+    }
 
       
 
@@ -913,8 +925,8 @@ class ListingCreate extends Component {
       Howoften_Toarr.push(<li><a onClick={this.Howoften_To.bind(this,To)} >{To}</a></li>)
     })
     const advance_bookarr = [];
-    this.state.step1guests.forEach((book,index)=>{
-      advance_bookarr.push(<li><a onClick={this.advance_book.bind(this,book)} >{book} months</a></li>)
+    this.state.advance_books.forEach((book,index)=>{
+      advance_bookarr.push(<li><a onClick={this.advance_book.bind(this,book)} >{book}</a></li>)
     })
 
 
@@ -1853,7 +1865,7 @@ class ListingCreate extends Component {
                   </ul>
               </div>
               
-              <div className="photos" onChange={(e) => this.setState({step:2.2})}>
+              <div className="photos" onChange={(e) => this.setState({step:this.STEP.Step2_2})}>
                  <div className="photosipt">
                     <img src="../images/addphoto.png" alt=""/>
                     <input className="btn btn-default btn-lg bg-pink color-white Fileipt" type="file" onChange={this.fileChangedHandler}/>
@@ -3051,7 +3063,7 @@ class ListingCreate extends Component {
         {
           this.state.step === this.STEP.Step3_8 &&
           <div className="becomehost-2 container">
-          <div className="row Step3_6">
+          <div className="row Step3_6 Step3_8">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
               <div className="STEPhead">
                 <span className="bjpink"></span>
@@ -3078,7 +3090,7 @@ class ListingCreate extends Component {
 
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
-                    <button type="button" data-toggle="dropdown">{this.state.advance_book} months<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown">{this.state.advance_book}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
                       { advance_bookarr } 
                     </ul>
@@ -3098,8 +3110,54 @@ class ListingCreate extends Component {
 
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
                  <div>
-                    <p>Today</p>
-                    <img className="becomehost__info" src="./images/step3_8.png" alt=""/>
+                    <div className={this.state.advance_book == "A year" ? "hide date" : "modalshow date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>
+                            {this.state.advance_book != "A year" && this.state.advance_book != "Anytime"  ? this.state.Months[new Date().getMonth()-2] : ""}
+                            {this.state.advance_book == "Anytime" ? new Date().getFullYear()+1 : ""}
+                            {this.state.advance_book == "A year" ? new Date().getFullYear()-2 : ""}
+                      </span>
+                    </div>
+                    <div className="date">
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>
+                            {this.state.advance_book != "A year" && this.state.advance_book != "Anytime" ? this.state.Months[new Date().getMonth()-1] : ""}
+                            {this.state.advance_book == "Anytime" ? new Date().getFullYear()+2 : ""}
+                            {this.state.advance_book == "A year" ? new Date().getFullYear()-1 : ""}
+                      </span>
+                    </div>
+                    <div className="date">
+                      <img className="becomehost__info" src={this.state.advance_book == "9 months" || this.state.advance_book == "6 months" ? "./images/step3_8img1.png" : "./images/step3_8img2.png"} alt=""/>
+                      <span className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months" ? "" : "textpink"}>{this.current()}</span>
+                    </div>
+
+
+                    <div className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>{this.state.Months[new Date().getMonth()+1]}</span>
+                    </div>
+                    <div className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>{this.state.Months[new Date().getMonth()+2]}</span>
+                    </div>
+                    <div className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src={this.state.advance_book == "6 months" ? "./images/step3_8img2.png" : "./images/step3_8img1.png"} alt=""/>
+                      <span className={this.state.advance_book == "6 months" ? "textpink" : "" } >{this.state.Months[new Date().getMonth()+3]}</span>
+                    </div>
+
+
+                    <div className={this.state.advance_book == "9 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>{this.state.Months[new Date().getMonth()+4]}</span>
+                    </div>
+                    <div className={this.state.advance_book == "9 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
+                      <span>{this.state.Months[new Date().getMonth()+5]}</span>
+                    </div>
+                    <div className={this.state.advance_book == "9 months"  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src={this.state.advance_book == "9 months" ? "./images/step3_8img2.png" : "./images/step3_8img1.png"} alt=""/>
+                      <span className={this.state.advance_book == "9 months" ? "textpink" : "" }>{this.state.Months[new Date().getMonth()+6]}</span>
+                    </div>
                 </div>
              </div>
              
