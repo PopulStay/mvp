@@ -127,7 +127,7 @@ class ListingCreate extends Component {
             roomdescription_Otherthings:"",
             roomdescription_neighbourhood:"",
             roomdescription_around:"",
-            roomstuff_submittedAirbnb:"",
+            roomstuff_submittedPopulStay:"",
             roomdescription_Confirmtime:"",
             roomdescription_manyguests:"",
             roomdescription_Message:"",
@@ -166,10 +166,11 @@ class ListingCreate extends Component {
             maxETHprice_perday:0,
             minETHprice_perday:0,
             Explainwhy:"",
-            question_rented:"Yes",
-            Howoften_guests:1,
-            Howoften_From:1,
-            Howoften_To:1,
+            question_rented:"Please choose",
+            Howoften_guests:"Please choose",
+            notice_arrives:"Please choose",
+            Howoften_From:"select a time",
+            Howoften_To:"select a time",
             advance_book:1,
             Price_demand:0,
             Price_fixed:0,
@@ -185,6 +186,7 @@ class ListingCreate extends Component {
             user: {user:'Loading...'},
             Categorys:['Entire place','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
+            Check_in_time:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             homeorhotels:['Home','hotel','Other'],
             types:['Single room','double room','family suite','business suite'],
             guestshaves:['Entire place'],
@@ -202,6 +204,7 @@ class ListingCreate extends Component {
             AdditionalRules:[],
             RulesIpt:"",
             modalIsOpen:false,
+            guests_check:false,
 
         }
         this.DETA={
@@ -225,10 +228,8 @@ class ListingCreate extends Component {
         this.openModal = this.openModal.bind(this);
         this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.deleteRules = this.deleteRules.bind(this);
 
-        this.CSS={  
-            style1:{transform:"rotate(0deg) scale(1)"}  
-        } 
     }
 
     openModal() {
@@ -414,8 +415,10 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step3_5)
       {
-        this.setState({step:this.STEP.Step3_6});
-        console.log(this.state);
+        if(this.state.roomstuff_Closet_drwers == 1){
+          this.setState({step:this.STEP.Step3_6});
+        }
+        
       }
       if(this.state.step == this.STEP.Step3_6)
       {
@@ -693,6 +696,9 @@ class ListingCreate extends Component {
 
 
     }
+    Getcontent(event){
+      return event.target.innerHTML;
+    }
 
   
 
@@ -852,6 +858,7 @@ class ListingCreate extends Component {
     AdditionalRules(e){
       this.setState({state: this.state.AdditionalRules.push(this.state.RulesIpt)});
       this.setState({state: this.state.RulesIpt=""});
+      e.preventDefault();
     }
 
     deleteRules(index,e){
@@ -897,17 +904,13 @@ class ListingCreate extends Component {
     this.state.AreaCodes.forEach((AreaCode,index)=>{
       AreaCodearr.push(<li><a onClick={this.AreaCodes.bind(this,AreaCode)} >{AreaCode}</a></li>)
     })
-    const Howoften_guestsarr = [];
-    this.state.step1guests.forEach((Howoften,index)=>{
-      Howoften_guestsarr.push(<li><a onClick={this.Howoften_guests.bind(this,Howoften)} >{Howoften} days</a></li>)
-    })
     const Howoften_Fromarr = [];
-    this.state.step1guests.forEach((From,index)=>{
-      Howoften_Fromarr.push(<li><a onClick={this.Howoften_From.bind(this,From)} >{From} {From > 12 ? "PM":"AM"}</a></li>)
+    this.state.Check_in_time.forEach((From,index)=>{
+      Howoften_Fromarr.push(<li><a onClick={this.Howoften_From.bind(this,From)} >{From}</a></li>)
     })
     const Howoften_Toarr = [];
-    this.state.step1guests.forEach((To,index)=>{
-      Howoften_Toarr.push(<li><a onClick={this.Howoften_To.bind(this,To)} >{To} {To > 12 ? "PM":"AM"}</a></li>)
+    this.state.Check_in_time.forEach((To,index)=>{
+      Howoften_Toarr.push(<li><a onClick={this.Howoften_To.bind(this,To)} >{To}</a></li>)
     })
     const advance_bookarr = [];
     this.state.step1guests.forEach((book,index)=>{
@@ -1616,7 +1619,7 @@ class ListingCreate extends Component {
           <div className="change">
               <div>
                 <p>Bedrooms,beds,amenities,and more</p>
-                <p className="textpink" onClick={(e) => this.setState({step:1.01})}>change</p>
+                <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step1_1})}>change</p>
               </div>
               <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
           </div>
@@ -2157,7 +2160,7 @@ class ListingCreate extends Component {
           <div className="change">
               <div>
                 <p>Bedrooms,beds,amenities,and more</p>
-                <p className="textpink" onClick={(e) => this.setState({step:1.01})}>change</p>
+                <p className="textpink" onClick={(e) => this.setState({step:this.STEP.Step1_1})}>change</p>
               </div>
               <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
           </div>
@@ -2165,7 +2168,7 @@ class ListingCreate extends Component {
           <div className="change">
               <div>
                 <p>Photos, short description, title</p>
-                <p className="textpink" onClick={(e) => this.setState({step:2.01})}>change</p>
+                <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step2_1})}>change</p>
               </div>
               <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
           </div>
@@ -2390,11 +2393,11 @@ class ListingCreate extends Component {
                 <p>Step 3: Get ready for guests</p>
               </div>
 
-              <h1>Review Airbnb’s guest requirements</h1>
+              <h1>Review PopulStay’s guest requirements</h1>
 
 
               <div className="box col-md-12">
-                <h3>All Airbnb guests must provide:</h3>
+                <h3>All PopulStay guests must provide:</h3>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
                 </div>
@@ -2420,11 +2423,11 @@ class ListingCreate extends Component {
                 </div>
 
                 <h3 className="textpink">Add additional requirements</h3>
-                <div className="check" onClick={(e) => {if(this.state.roomstuff_submittedAirbnb ==0 )this.setState({roomstuff_submittedAirbnb:1});else this.setState({roomstuff_submittedAirbnb:0});}}>
+                <div className="check" onClick={(e) => {if(this.state.roomstuff_submittedPopulStay ==0 )this.setState({roomstuff_submittedPopulStay:1});else this.setState({roomstuff_submittedPopulStay:0});}}>
                   <p  className="Pinput">
-                      <img className={this.state.roomstuff_submittedAirbnb ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      <img className={this.state.roomstuff_submittedPopulStay ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">government-issued ID submitted to Airbnb</p>
+                  <p className="divinput">government-issued ID submitted to PopulStay</p>
                 </div>
                 <div className="check" onClick={(e) => {if(this.state.roomstuff_Recommended ==0 )this.setState({roomstuff_Recommended:1});else this.setState({roomstuff_Recommended:0});}}>
                   <p  className="Pinput">
@@ -2565,15 +2568,16 @@ class ListingCreate extends Component {
                 </div>
 
                 <h4>Additional rules</h4>
-                
                 {this.state.AdditionalRules.map((Rules,index) => (
                   <h3>{Rules}<span data-index={index} onClick={this.deleteRules.bind(this,index)}>×</span></h3>
                   ))
                 }
-                <div className="add">
-                  <input type="text" onChange={(e)=>this.setState({RulesIpt:e.target.value})} placeholder="Quiet hours? No shoes in the house?" value={this.state.RulesIpt} />
-                  <span onClick={(e)=>this.AdditionalRules(e)}>Add</span>
-                </div>
+                <form onSubmit={(e)=>this.AdditionalRules(e)}>
+                  <div className="add">
+                    <input type="text" onChange={(e)=>this.setState({RulesIpt:e.target.value})} placeholder="Quiet hours? No shoes in the house?" value={this.state.RulesIpt} />
+                    <button type="submit">Add</button>
+                  </div>
+                </form>
 
                 <h4>Details guests must know about your home</h4>
                 <div className="check1" onClick={(e) => {if(this.state.climb_stairs ==0 )this.setState({climb_stairs:1});else this.setState({climb_stairs:0});}}>
@@ -2647,7 +2651,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>In addition to Airbnb’s requirements, guests must agree to all your House Rules before they book.</p>
+                    <p>In addition to PopulStay’s requirements, guests must agree to all your House Rules before they book.</p>
                     <p>If you’re ever uncomfortable with a reservation, you can cancel penalty-free before or during a trip.</p>
                 </div>
              </div>
@@ -2681,11 +2685,11 @@ class ListingCreate extends Component {
                 <p>Step 3: Get ready for guests</p>
               </div>
 
-              <h1>Review Airbnb’s guest requirements</h1>
+              <h1>Review PopulStay guest requirements</h1>
 
 
               <div className="box col-md-12">
-                <h3>All Airbnb guests must provide:<span className="textpink">Review</span></h3>
+                <h3>All PopulStay guests must provide:<span className="textpink" >Review</span></h3>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
                   <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
                 </div>
@@ -2702,12 +2706,12 @@ class ListingCreate extends Component {
                   <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>Check-in time for last minute trips</label>
                 </div>
 
-                <h3>Your additional requirements<span className="textpink">Edit</span></h3>
+                <h3>Your additional requirements<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>Edit</span></h3>
                 <div className="radio"  onClick={(e) => {if(this.state.governmentissued_ID ==0 )this.setState({governmentissued_ID:1});else this.setState({governmentissued_ID:0});}}>
-                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to Airbnb</label>
+                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to PopulStay</label>
                 </div>
 
-                <h3>Your House Rules<span className="textpink">Edit</span></h3>
+                <h3>Your House Rules<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>Edit</span></h3>
                 <div className="radio" onClick={(e) => {if(this.state.Not_safe ==0 )this.setState({Not_safe:1});else this.setState({Not_safe:0});}} >
                   <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>Not safe or suitable for children (2-12 years)</label>
                 </div>
@@ -2813,7 +2817,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
-                    <p>In the rare case there are issues. Airbnb has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
+                    <p>In the rare case there are issues. PopulStay has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
                     <h5>Set rules for who can book instantly</h5>
                 </div>
              </div>
@@ -2858,7 +2862,7 @@ class ListingCreate extends Component {
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_Closet_drwers ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Closet/drawers</p> 
+                  <p className="divinput">Got it! I’ll keep my calendar up to date.</p> 
                 </div>
               </div>
 
@@ -2913,17 +2917,19 @@ class ListingCreate extends Component {
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.question_rented}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      <li><a onClick={(e)=>this.setState({question_rented:"Yes"})}>Yes</a></li>
-                      <li><a onClick={(e)=>this.setState({question_rented:"No"})}>No</a></li>
+                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>I'm a novice in this respect</a></li>
+                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>I have a renting experience</a></li>
                     </ul>
                   </div>
                 </div>
                 <h3>How often do you want to have guests?</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
-                    <button type="button" data-toggle="dropdown">{this.state.Howoften_guests} days<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown">{this.state.Howoften_guests}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      { Howoften_guestsarr } 
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>Not sure yet</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>Part of the time</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>As much as possible</a></li>
                     </ul>
                   </div>
                 </div>
@@ -2980,18 +2986,22 @@ class ListingCreate extends Component {
                 <h3>Have you rented out your place before?</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
-                    <button type="button" data-toggle="dropdown">{this.state.Howoften_guests} days<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown">{this.state.notice_arrives}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      { Howoften_guestsarr } 
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>Same day</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>1 days</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>2 days</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>3 days</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>7 days</a></li>
                     </ul>
                   </div>
                 </div>
                 <h5><b className="textpink">Tip:</b> At least 2 days’ notice can help you plan for a guest’s arrival, but you might miss out on last-minute trips.</h5>
-                <h3 className="textpink">When can guests check in?</h3>
-                <div className="form-group form-group1">    
+                <h3 className="textpink" onClick={(e)=>this.setState({guests_check:true})}>When can guests check in?</h3>
+                <div className={this.state.guests_check == true?"form-group form-group1 show":"form-group form-group1 hide"}>    
                   <div className="btn-group col-md-6">
                     <h5>From:</h5>
-                    <button type="button" data-toggle="dropdown">{this.state.Howoften_From} {this.state.Howoften_From > 12 ? "PM":"AM"}<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown">{this.state.Howoften_From}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
                       { Howoften_Fromarr } 
                     </ul>
@@ -2999,7 +3009,7 @@ class ListingCreate extends Component {
 
                   <div className="btn-group col-md-6">
                     <h5>To:</h5>
-                    <button type="button" data-toggle="dropdown">{this.state.Howoften_To} {this.state.Howoften_To > 12 ? "PM":"AM"}<span>▼</span></button>
+                    <button type="button" data-toggle="dropdown" disabled={this.state.Howoften_From == "flexible" ? "disabled" : "" } > {this.state.Howoften_From == "flexible" ? "flexible": this.state.Howoften_To }<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
                       { Howoften_Toarr } 
                     </ul>
@@ -3019,7 +3029,18 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
                  <div>
                     <p>Today</p>
-                    <img className="becomehost__info" src="./images/step3_7.png" alt=""/>
+                    <div className="date">
+                      <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
+                      <span>{new Date().getDate()-2}</span>
+                    </div>
+                    <div className="date">
+                      <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
+                      <span>{new Date().getDate()-1}</span>
+                    </div>
+                    <div className="date">
+                      <img className="becomehost__info" src="./images/step3_7img2.png" alt=""/>
+                      <span className="textpink">{new Date().getDate()}</span>
+                    </div>
                 </div>
              </div>
              
@@ -3260,7 +3281,7 @@ class ListingCreate extends Component {
                   </div>
                   <div className="col-lg-8 content">
                     <h3>Price is fixed</h3>
-                    <p>Set a base price. Airbnb gives you price tips that you can accept or ignore.</p>
+                    <p>Set a base price. PopulStay gives you price tips that you can accept or ignore.</p>
                   </div>
                   <div className="col-lg-1 radio">
                     <p><span className={this.state.Price_fixed == 1 ?"show":"hide"}></span></p>
@@ -3720,7 +3741,7 @@ class ListingCreate extends Component {
                     <p><span className={this.state.requirements_book == 1 ?"show":"hide"}></span></p>
                   </div>
                   <div className="col-lg-9  content">
-                    <h3>Guests who meet Airbnb requirements can  instantly book.</h3>
+                    <h3>Guests who meet PopulStay requirements can  instantly book.</h3>
                     <p>In addition to meeting guest requirements, Lou agrees to your House Rules.</p>
                   </div>
                 </div>
@@ -3789,10 +3810,10 @@ class ListingCreate extends Component {
               <h1>Your local laws and taxes</h1>
 
               <div className="box col-md-12">
-                <h3>Make sure you familiarise yourself with your local laws, as well as <span className="textpink">Airbnb’s Nondiscrimination Policy.</span></h3>
+                <h3>Make sure you familiarise yourself with your local laws, as well as <span className="textpink">PopulStay’s Nondiscrimination Policy.</span></h3>
                 <p>Please educate yourself about the laws in your jurisdiction before listing your space.</p>
                 <p>Most cities have rules covering homesharing, and the specific codes and ordinances can appear in many places (such as zoning, building, licensing or tax codes). In most places, you must register, get a permit, or obtain a license before you list your property or accept guests. You may also be responsible for collecting and remitting certain taxes. In some places, short-term rentals could be prohibited altogether.</p>
-                <p>Since you are responsible for your own decision to list or book, you should get comfortable with the applicable rules before listing on Airbnb. To get you started, we offer some helpful resources under “Your City Laws.”</p>
+                <p>Since you are responsible for your own decision to list or book, you should get comfortable with the applicable rules before listing on PopulStay. To get you started, we offer some helpful resources under “Your City Laws.”</p>
                 <p>By accepting our Terms of Service and listing your space, you certify that you will follow applicable laws and regulations.</p>
               </div>
 
@@ -3826,7 +3847,7 @@ class ListingCreate extends Component {
             <div className="change">
                 <div>
                   <p>Bedrooms,beds,amenities,and more</p>
-                  <p className="textpink" onClick={(e) => this.setState({step:1.01})}>change</p>
+                  <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step1_1})}>change</p>
                 </div>
                 <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
             </div>
@@ -3834,7 +3855,7 @@ class ListingCreate extends Component {
             <div className="change">
                 <div>
                   <p>Photos, short description, title</p>
-                  <p className="textpink" onClick={(e) => this.setState({step:2.01})}>change</p>
+                  <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_1})}>change</p>
                 </div>
                 <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
             </div>
@@ -3842,7 +3863,7 @@ class ListingCreate extends Component {
             <div className="change">
                 <div>
                   <p>Booking settings, calendar, price</p>
-                  <p className="textpink" onClick={(e) => this.setState({step:3.01})}>change</p>
+                  <p className="textpink" onClick={(e) => this.setState({step:this.STEP.Step3_1})}>change</p>
                 </div>
                 <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
             </div>
@@ -3946,7 +3967,7 @@ class ListingCreate extends Component {
                  <div>
                     <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
                     <h6>Ultimate host protection</h6>
-                    <p>You can <h6>cancel any reservations</h6> penalty-free if you're uncomfortable with a reservation. You also have access to <h6>24/7 customer support</h6> and airbnb's <h6>S1, 200,000 SGD Host Guarantee.</h6></p>
+                    <p>You can <h6>cancel any reservations</h6> penalty-free if you're uncomfortable with a reservation. You also have access to <h6>24/7 customer support</h6> and PopulStay's <h6>S1, 200,000 SGD Host Guarantee.</h6></p>
                 </div>
              </div>
     

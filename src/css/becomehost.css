@@ -81,7 +81,8 @@ h1,
 .Step3_6 .rightbox1>div>p,
 .Step3_10 .rightbox>div h6,
 .Step3_13 .rightbox ul li h5,
-.Step3_13 .rightbox ul li p{
+.Step3_13 .rightbox ul li p,
+.Step3_6 .rightbox1>div>.date span{
   font-family: RobotoBold; 
 }
 .cursor{
@@ -141,7 +142,8 @@ h1,
 .Step3_19 .box>p,
 .Step3_20 .box>p,
 .Step3_20 .boxdiv .content>p,
-.Step3_21 p{
+.Step3_21 p,
+.Step3_2 h3{
   font-family: RobotoThin; 
 }
 .container{
@@ -285,7 +287,7 @@ h1,
 .Step3_15 .dropdown-menu a{
   width: 100%;
   text-align: center;
-  padding: 2% 8%;
+  padding: 2% 6%;
   margin: 0;
   border-top: 1px solid #888;
   cursor: pointer;
@@ -1292,6 +1294,7 @@ h1,
   float: left;
   width: 100%;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 .Step3_2 .check:first-child .divinput,.Pinput{
   margin-bottom: 0px;
@@ -1342,7 +1345,7 @@ h1,
   padding: 0 18% 0 3%;
   font-size: 1.6rem;
 }
-.Step3_2 div.add span{
+.Step3_2 div.add button{
   position: absolute;
   display: inline-block;
   height: 100%;
@@ -1350,11 +1353,12 @@ h1,
   right:0;
   top:0;
   text-align: center;
-  line-height: 45px;
   font-size: 1.8rem;
   color: #fff;
   background: #f6416c;
   cursor: pointer;
+  border:none;
+  border-radius: 0;
 }
 .Step3_2 h4{
   font-size: 1.6rem;
@@ -1414,6 +1418,9 @@ h1,
   line-height: 1.9;
   margin-bottom: 4%;
 }
+.Step3_5 .check .Pinput{
+  margin-top: 1%;
+}
 /*Step3_5 end*/
 .Step3_6 h5{
   width: 70%;
@@ -1447,8 +1454,20 @@ h1,
   background: none!important;
   color: #808080;
 }
+.Step3_6 .rightbox1>div>.date{
+  width: 30%;
+  position: relative;
+  display: inline-block;
+}
+.Step3_6 .rightbox1>div>.date span{
+  position: absolute;
+  font-size: 1.4rem;
+  bottom: 13%;
+  left: 48%;
+  color: #ccc;
+}
 .Step3_6 .rightbox1 .becomehost__info{
-  width: 60% !important;
+  width: 80% !important;
 }
 /*Step3_6 end*/
 .Step3_10 .boxdiv:hover{
@@ -1764,12 +1783,6 @@ h1,
   margin:8% 0 0;
 }
 /*Step3_21 end*/
-.Explainwhy{
-  width: 355px;
-  background: #fff;
-  padding: 8%;
-  overflow: hidden;
-}
 .Explainwhy span.close{
   float: right;
   font-size: 3rem;
