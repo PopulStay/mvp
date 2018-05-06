@@ -21,20 +21,28 @@ class Video extends Component {
                       audioOnly : 'audio-only',
                       audience   : 'audience'
                      },
-       videoProfile: '480p_4'
+       videoProfile: '480p_4',
+       message:"",
+       text:""
     }
       
   }
 
   componentWillMount() {
 
-    console.log(window.io.sails);
-     window.io.sails.url = 'http://localhost:1337/';
-    // if(io.sails)
-    // {
-    //   io.sails.url = process.env.Server_Address;
-    // }
- 
+    window.io.socket.get('/messages/join?listId='+this.props.listid,(data, jwRes) =>{
+        console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
+        
+    });
+
+
+    window.io.socket.on('chat',  (data)=> {
+      console.log('Socket `' + data.message + '` joined the party!');
+      var message = this.state.message+'\n\r'+data.message;
+      this.setState({message:message});
+    });
+
+    
   }
 
   componentWillUnmount () {
@@ -47,6 +55,22 @@ class Video extends Component {
     }, () => {
       console.log('Client failed to leave.')
     })
+  }
+
+  handleEnterMessage =()=>{
+     window.io.socket.get("/messages/chat?text="+this.state.text+"&listId="+this.props.listid, (data, jwRes)=> {
+        console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
+        var message = this.state.message+'\n\r'+this.state.text;
+        this.setState({message:message});
+    });
+
+  }
+
+  handleKeyPress =(e)=> {
+    if (e.key === 'Enter') {
+      console.log('do validate');
+      this.handleEnterMessage();
+    }
   }
 
   handleMic =()=> {
@@ -140,12 +164,12 @@ class Video extends Component {
     return (  
               <div id="agora_remote" className="video">
                    <ul>
-                      <li>Hello, i would like to book a room from your hostel.<img src="../images/becomehost-triangle.png" /></li>
+                      <li>{this.state.message}<img src="../images/becomehost-triangle.png" /></li>
                    </ul>
                    <img className="becomehost_line" src="../images/becomehost-line.png" />
                    <div>
                       <img className="keyboard" src="../images/becomehost-keyboard.png" />
-                      <input type="text" placeholder="Message Me"/>
+                      <input type="text" onKeyPress={this.handleKeyPress} onChange={(e) => this.setState({text: e.target.value})}  placeholder="Message Me"/>
                       <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                       <img className="becomehost_video" src="../images/becomehost-video.png" />
                    </div>
