@@ -520,6 +520,34 @@
   padding:0.8%;
   border-radius: 10px;
 }
+.video>ul{
+  max-height: 200px;
+  overflow: auto;
+  padding: 0 2% 0 0;
+}
+.video ul::-webkit-scrollbar {
+    width:10px;
+    height:10px;
+}
+.video ul::-webkit-scrollbar-button    {
+    background-color:#151b4e;
+}
+.video ul::-webkit-scrollbar-track     {
+    background:#151b4e;
+}
+.video ul::-webkit-scrollbar-track-piece {
+    background:url(http://www.lyblog.net/wp/wp-content/themes/mine/img/stripes_tiny_08.png);
+}
+.video ul::-webkit-scrollbar-thumb{
+    background:#fff;
+    border-radius:4px;
+}
+.video ul::-webkit-scrollbar-corner {
+    background:#151b4e;
+}
+.video ul::-webkit-scrollbar-resizer  {
+    background:#151b4e;
+}
 .video li{
   background: #151b4e;
   border-radius: 5px;
@@ -530,16 +558,17 @@
   font-size: 1.2rem;
   padding:3% 5%;
   font-family: RobotoThin; 
+  margin-bottom: 10%;
 }
 .video li img{
   position: absolute;
   width: 20px;
   right: 0;
-  bottom:-15px;
+  bottom:-10px;
 }
 .video .becomehost_line{
   height: 2px;
-  margin: 10% 0 1%;
+  margin: 5% 0 1%;
 }
 .video div>.keyboard{
   width: 35px;

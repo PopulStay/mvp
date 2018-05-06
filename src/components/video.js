@@ -22,7 +22,7 @@ class Video extends Component {
                       audience   : 'audience'
                      },
        videoProfile: '480p_4',
-       message:"",
+       messagearr:[],
        text:""
     }
       
@@ -60,14 +60,13 @@ class Video extends Component {
   handleEnterMessage =()=>{
      window.io.socket.get("/messages/chat?text="+this.state.text+"&listId="+this.props.listid, (data, jwRes)=> {
         console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
-        var message = this.state.message+'\n\r'+this.state.text;
-        this.setState({message:message});
+        this.setState({state: this.state.messagearr.push(this.state.text)});
     });
 
   }
 
   handleKeyPress =(e)=> {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && e.target.value != "") {
       console.log('do validate');
       this.handleEnterMessage();
     }
@@ -164,12 +163,15 @@ class Video extends Component {
     return (  
               <div id="agora_remote" className="video">
                    <ul>
-                      <li>{this.state.message}<img src="../images/becomehost-triangle.png" /></li>
+                      {this.state.messagearr.map((message,index) => (
+                          <li>{message}<img src="../images/becomehost-triangle.png" /></li>
+                        ))
+                      }
                    </ul>
                    <img className="becomehost_line" src="../images/becomehost-line.png" />
                    <div>
                       <img className="keyboard" src="../images/becomehost-keyboard.png" />
-                      <input type="text" onKeyPress={this.handleKeyPress} onChange={(e) => this.setState({text: e.target.value})}  placeholder="Message Me"/>
+                      <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})}  placeholder="Message Me"/>
                       <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                       <img className="becomehost_video" src="../images/becomehost-video.png" />
                    </div>
@@ -180,3 +182,4 @@ class Video extends Component {
 
 
 export default Video
+
