@@ -172,7 +172,6 @@ class ListingCreate extends Component {
             advance_book:"Non reservations",
             Price_demand:0,
             Price_fixed:0,
-            NO_special_offer:0,
             first_guests_20:0,
             Welcome_guests:0,
             confirmation_booking:0,
@@ -181,6 +180,8 @@ class ListingCreate extends Component {
             uncomfortable_controls:0,
             listing_lower:0,
             hours_respond:0,
+            discount_Weekly:0,
+            discount_Monthly:0,
             user: {user:'Loading...'},
             Categorys:['Whole house','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
@@ -306,9 +307,7 @@ class ListingCreate extends Component {
       
       if(this.state.step == this.STEP.Step1_2)
       {
-        if(this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1){
-          this.setState({step:this.STEP.Step1_3});
-        }
+        this.setState({step:this.STEP.Step1_3});
       }
       if(this.state.step == this.STEP.Step1_3)
       {
@@ -451,7 +450,7 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step3_12)
       {
-        this.setState({step:this.STEP.Step3_13});
+        this.setState({step:this.STEP.Step3_14});
         console.log(this.state);
       }
       if(this.state.step == this.STEP.Step3_13)
@@ -647,7 +646,7 @@ class ListingCreate extends Component {
       }
       if(this.state.step == this.STEP.Step3_14)
       {
-        this.setState({step:this.STEP.Step3_13});
+        this.setState({step:this.STEP.Step3_12});
         console.log(this.state);
       }
       if(this.state.step == this.STEP.Step3_15)
@@ -990,8 +989,8 @@ class ListingCreate extends Component {
                       
                   </div>
               </div>
-              <div className="col-md-12 col-lg-4 col-md-push-2 col-sm-12">
-                  <img className="stepbg" src="../images/becomehost-step1_1.png" alt=""/>
+              <div className="col-md-12 col-lg-4 col-md-push-2 col-sm-12 rightbj">
+                  <img className="stepbg rightimg" src="../images/becomehost-step1_1.png" alt=""/>
               </div>
           </div>
         }
@@ -1062,11 +1061,11 @@ class ListingCreate extends Component {
                 </div>
             <div className="STEPBTN">
               <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              <button className={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "Right" : "buttonActive Right"} disabled={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "" : "disabled"} onClick={this.nextStep}>Next</button>
             </div>
              </div>
              <div className="col-md-12 col-lg-4 col-sm-12 paddingNone rightbox">
-                <div>
+                <div className={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "show" : "hide"}>
                   <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                   <h6>Entire place</h6>
                   <p>Guest have the whole place to themselves.This usually includes a bedroom,a bathroom,and a kitchen</p>
@@ -1081,7 +1080,7 @@ class ListingCreate extends Component {
 
         }
 
-         {
+        {
           this.state.step === this.STEP.Step1_3 &&
           <div className="becomehost-3 container">
           <div className="row Step1_3">
@@ -1101,7 +1100,7 @@ class ListingCreate extends Component {
                       <label>Number of guests*</label>
                       <div className="btn-group col-md-4">
                         <button type="button" className="guestBtn">
-                          <span className="btnjia" onClick={(e)=>this.guestsnumber(e)} data-name="jia">▲</span>
+                          <span className={this.state.roombasics_guestsnumber == 1 ? "btnjia spanActive" : "btnjia"} onClick={(e)=>this.guestsnumber(e)} data-name="jia">▲</span>
                           {this.state.roombasics_guestsnumber}
                           <span className="btnjian" onClick={(e)=>this.guestsnumber(e)} data-name="jian">▼</span>
                         </button>
@@ -1112,7 +1111,7 @@ class ListingCreate extends Component {
                       <label>How many bedrooms can guests use?</label>
                       <div className="btn-group col-md-7">
                         <button type="button" className="guestBtn">
-                          <span className="btnjia" onClick={(e)=>this.guestbeds(e)} data-name="jia">▲</span>
+                          <span className={this.state.roombasics_guestbeds == 1 ? "btnjia spanActive" : "btnjia"} onClick={(e)=>this.guestbeds(e)} data-name="jia">▲</span>
                           {this.state.roombasics_guestbeds}
                           <span className="btnjian" onClick={(e)=>this.guestbeds(e)} data-name="jian">▼</span>
                         </button>
@@ -1123,7 +1122,7 @@ class ListingCreate extends Component {
                       <label>How many beds can guests have*</label>
                       <div className="btn-group col-md-4">
                         <button type="button" className="guestBtn">
-                          <span className="btnjia" onClick={(e)=>this.totalguests(e)} data-name="jia">▲</span>
+                          <span className={this.state.roombasics_totalguests == 1 ? "btnjia spanActive" : "btnjia"} onClick={(e)=>this.totalguests(e)} data-name="jia">▲</span>
                           {this.state.roombasics_totalguests}
                           <span className="btnjian" onClick={(e)=>this.totalguests(e)} data-name="jian">▼</span>
                         </button>
@@ -1184,7 +1183,7 @@ class ListingCreate extends Component {
               <h2>Number of bathrooms</h2>
               <div className="btn-group col-md-5">
                 <button type="button" className="guestBtn">
-                  <span className="btnjia" onClick={(e)=>this.guestbedrooms(e)} data-name="jia">▲</span>
+                  <span className={this.state.roombasics_guestbedrooms == 0.5 ? "btnjia spanActive" : "btnjia"} onClick={(e)=>this.guestbedrooms(e)} data-name="jia">▲</span>
                   {this.state.roombasics_guestbedrooms}
                   <span className="btnjian" onClick={(e)=>this.guestbedrooms(e)} data-name="jian">▼</span>
                 </button>
@@ -3401,9 +3400,9 @@ class ListingCreate extends Component {
 
                   <div className="btn-group col-lg-12 boxdiv">
                     <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
-                    <input type="number" className={this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "form-control inputActive" : "form-control"} onChange={(e) => {this.setState({price_perday:e.target.value});}} value={this.state.price_perday}  />
+                    <input type="number" className={this.state.price_perday < 13 || this.state.price_perday >= 13272 ? "form-control inputActive" : "form-control"} onChange={(e) => {this.setState({price_perday:e.target.value});}} value={this.state.price_perday}  />
                   </div>
-                  <p className="textpink">Please use a base price of at least $13 but no more than $13,272.</p>
+                  <p className={this.state.price_perday < 13 || this.state.price_perday >= 13272 ? "textpink show" : "hide"}>Please use a base price of at least $13 but no more than $13,272.</p>
                 </div>
                 <h2 className="demand">Tip: $114 {this.state.Currency}
                     <img src="../images/Prompt.png" />
@@ -3423,14 +3422,14 @@ class ListingCreate extends Component {
                   </div>
                 </div>
 
-                <h2>Set up Smart Pricing<span>RECOMMENDED</span></h2>
+                <h2 onClick={(e) => this.setState({step:this.STEP.Step3_13})}>Set up Smart Pricing<span>RECOMMENDED</span></h2>
 
               </div>
 
               
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className={ this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "buttonActive Right" : "Right"} disabled={ this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className={ this.state.price_perday < 13 || this.state.price_perday >= 13272 ? "buttonActive Right" : "Right"} disabled={ this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
               </div>
                
              </div>
@@ -3479,32 +3478,39 @@ class ListingCreate extends Component {
                 <p>Set up Smart Pricing to automatically keep your nightly prices competitive as demand in your area changes.</p>
                 
                 <h2>Set up Smart Pricing<span>RECOMMENDED</span></h2>
-
+                
+                <div className="Base">
                 <h3>Minimum price</h3>
                 <p>To help you get booked, your price will move closer to this when demand is low</p>
 
                 <div className="btn-group col-lg-12 boxdiv">
                   <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
-                  <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({minprice_perday:e.target.value});else this.setState({minETHprice_perday:e.target.value});}} className="form-control"  />
+                  <input type="number" className={this.state.minprice_perday < 13 || this.state.minprice_perday >= 13272 ? "form-control inputActive" : "form-control"} onChange={(e) => {this.setState({minprice_perday:e.target.value});}} value={this.state.minprice_perday}  />
+                </div>
+                  <p className={this.state.minprice_perday < 13 || this.state.minprice_perday >= 13272 ? "textpink show" : "hide"}>Please use a base Minimum price of at least $13 but no more than $13,272.</p>
                 </div>
 
+                <div className="Base">
                 <h3>Maximum price</h3>
                 <p>To help you earn more, your price will move closer to this when demand is high</p>
 
                 <div className="btn-group col-lg-12 boxdiv">
                   <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
-                  <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({maxprice_perday:e.target.value});else this.setState({maxETHprice_perday:e.target.value});}} className="form-control"  />
+                  <input type="number" className={this.state.maxprice_perday < 13 || this.state.maxprice_perday >= 13272 ? "form-control inputActive" : "form-control"} onChange={(e) => {this.setState({maxprice_perday:e.target.value});}} value={this.state.maxprice_perday}  />
+                </div>
+                  <p className={this.state.maxprice_perday < 13 || this.state.maxprice_perday >= 13272 ? "textpink show" : "hide"}>Please use a base Maximum price of at least $13 but no more than $13,272.</p>
+                  <p className={this.state.minprice_perday > this.state.maxprice_perday ? "textpink show" : "hide"}>The highest price should not be lower than the lowest price.</p>
                 </div>
 
                 <div className="Base">
-                  <h3>Base Price</h3>
-                  <p>If you turn Smart Pricing off for a night,this will be your default price</p>
+                <h3>Base Price</h3>
+                <p>If you turn Smart Pricing off for a night,this will be your default price</p>
 
-                  <div className="btn-group col-lg-12 boxdiv">
-                    <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
-                    <input type="number" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
-                  </div>
-                  <p className="textpink">Please use a base price of at least $13 but no more than $13,272.</p>
+                <div className="btn-group col-lg-12 boxdiv">
+                  <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
+                  <input type="number" className={this.state.price_perday < 13 || this.state.price_perday >= 13272 ? "form-control inputActive" : "form-control"} onChange={(e) => {this.setState({price_perday:e.target.value});}} value={this.state.price_perday}  />
+                </div>
+                <p className={this.state.price_perday < 13 || this.state.price_perday >= 13272 ? "textpink show" : "hide"}>Please use a base price of at least $13 but no more than $13,272.</p>
                 </div>
 
                 <h2 className="demand">Tip: $114 SGD
@@ -3528,7 +3534,7 @@ class ListingCreate extends Component {
 
                 <p>You’re always in control of your nightly price. By continuing, you agree to turn on Smart Pricing. You can change this later in settings.</p>
 
-                <h2>I don’t want my price to adjust with demand</h2>
+                <h2 onClick={(e) => this.setState({step:this.STEP.Step3_12})}>I don’t want my price to adjust with demand</h2>
 
 
               </div>
@@ -3536,7 +3542,7 @@ class ListingCreate extends Component {
               
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className={ this.state.price_perday < 13 || this.state.price_perday >= 13272 || this.state.maxprice_perday < 13 || this.state.maxprice_perday >= 13272 || this.state.minprice_perday < 13 || this.state.minprice_perday >= 13272 || this.state.maxprice_perday < this.state.minprice_perday ? "buttonActive Right" : "Right"} disabled={this.state.price_perday < 13 || this.state.price_perday >= 13272 || this.state.maxprice_perday < 13 || this.state.maxprice_perday >= 13272 || this.state.minprice_perday < 13 || this.state.minprice_perday >= 13272 ? "disabled" : ""}  onClick={this.nextStep}>Next</button>
               </div>
                
              </div>
@@ -3620,7 +3626,7 @@ class ListingCreate extends Component {
               <h1>Something special for your first guests</h1>
 
               <div className="box col-md-12">
-                <div className="boxdiv" onClick={(e) => {if(this.state.first_guests_20 == 0 )this.setState({first_guests_20:1});else this.setState({first_guests_20:0});}} >
+                <div className="boxdiv" onClick={(e) => {this.setState({first_guests_20:1})}} >
                   <div className="col-lg-9 content">
                     <h3>Offer 20% off to your first guests</h3>
                     <p>The first 3 guests who book your place will get 20% off their stay. This special offer can attract new guests, and help you get the 3 reviews you need for a star rating.</p>
@@ -3630,13 +3636,13 @@ class ListingCreate extends Component {
                     <p><span className={this.state.first_guests_20 == 1 ?"show":"hide"}></span></p>
                   </div>
                 </div>
-                <div className="boxdiv" onClick={(e) => {if(this.state.NO_special_offer == 0 )this.setState({NO_special_offer:1});else this.setState({NO_special_offer:0});}} >
+                <div className="boxdiv" onClick={(e) => {this.setState({first_guests_20:0})}} >
                   <div className="col-lg-9 content">
                     <h3>Don’t add a special offer</h3>
                     <p>Once you publish your listing, you won’t be able to add this offer.</p>
                   </div>
                   <div className="col-lg-2 col-lg-push-1 radio">
-                    <p><span className={this.state.NO_special_offer == 1 ?"show":"hide"}></span></p>
+                    <p><span className={this.state.first_guests_20 == 0 ?"show":"hide"}></span></p>
                   </div>
                 </div>
               </div>
@@ -3713,21 +3719,24 @@ class ListingCreate extends Component {
                 <p className="p1">Encourage travellers to book longer stays by offering a discount. </p>
 
                 <h3>Weekly discount</h3>
-
-                <div className="btn-group col-lg-12 boxdiv">
-                  <input type="text" placeholder="0 % off" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                <div className="Base">
+                  <div className="btn-group col-lg-12 boxdiv">
+                    <input type="text" placeholder="0 % off" onChange={(e) => {this.setState({discount_Weekly:e.target.value})}} className="form-control" value={this.state.discount_Weekly} />
+                  </div>
                 </div>
 
-                <h2 className="demand">Tip: 21%</h2>
+                <h2 className="demand" onClick={(e) => {this.setState({discount_Weekly:21})}}>Tip: 21%</h2>
                 <p className="textpink">Travellers searching for stays longer than a week typically book listings with discounts.</p>
 
                 <h3>Monthly discount</h3>
 
-                <div className="btn-group col-lg-12 boxdiv">
-                  <input type="txet" placeholder="0 % off" onChange={(e) => {if(this.state.Currency == "PPS" )this.setState({price_perday:e.target.value});else this.setState({ETHprice_perday:e.target.value});}} className="form-control"  />
+                <div className="Base">
+                  <div className="btn-group col-lg-12 boxdiv">
+                    <input type="txet" placeholder="0 % off" onChange={(e) => {this.setState({discount_Monthly:e.target.value})}} className="form-control" value={this.state.discount_Monthly} />
+                  </div>
                 </div>
 
-                <h2 className="demand">Tip: 49%</h2>
+                <h2 className="demand" onClick={(e) => {this.setState({discount_Monthly:49})}}>Tip: 49%</h2>
                 <p className="textpink">68% of travellers staying longer than one month book listings with discounts greater than 20%.</p>
 
               </div>
@@ -3786,7 +3795,7 @@ class ListingCreate extends Component {
                     <p><span className={this.state.starting_host == 1 ?"show":"hide"}></span></p>
                   </div>
                   <div className="col-lg-9  content">
-                    <h3>You’re available to host starting 29 Apr</h3>
+                    <h3>You’re available to host starting {new Date().getDate()+2} {this.state.Months[new Date().getMonth()]}</h3>
                     <p>Lou is planning her trip and thinks your listing is perfect.</p>
                   </div>
                 </div>
@@ -3893,62 +3902,15 @@ class ListingCreate extends Component {
 
         {
           this.state.step === this.STEP.Step3_18 &&
-
-          <div className="becomehost-5 container">
-          <div className="row Step1_10 Step3_18">
-          <div className="col-md-6 col-lg-7 col-sm-6">
-            <h1>You’re ready to publish!</h1>
-            <h3>You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.</h3>
-            <div className="change">
-                <div>
-                  <p>Bedrooms,beds,amenities,and more</p>
-                  <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step1_1})}>change</p>
-                </div>
-                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
-            </div>
-
-            <div className="change">
-                <div>
-                  <p>Photos, short description, title</p>
-                  <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_1})}>change</p>
-                </div>
-                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
-            </div>
-
-            <div className="change">
-                <div>
-                  <p>Booking settings, calendar, price</p>
-                  <p className="textpink" onClick={(e) => this.setState({step:this.STEP.Step3_1})}>change</p>
-                </div>
-                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
-            </div>
-
-            <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.nextStep}>Publish listing</button>
-
-          </div>
-          <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
-              <img className="stepbg" src="../images/step3_18img.png" alt=""/>
-              <div className="Preview">
-                <img src="./images/becomehost-step5-preview.jpg" />
-                <p>Place name</p>
-                <h6>Preview</h6>
-              </div>
-          </div>
-          </div>
-          </div>
-        }
-
-        {
-          this.state.step === this.STEP.Step3_19 &&
           <div className="becomehost-2 container">
-          <div className="row Step3_19">
+          <div className="row Step3_18">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
               <h1>You’re ready to publish!</h1>
 
               <div className="box col-md-12">
                 <p>You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.</p>
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.nextStep}>Publish listing</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.preStep}>Edit Listing</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.submit}>Publish listing</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Edit Listing</button>
                 
               </div>
 
@@ -3969,6 +3931,53 @@ class ListingCreate extends Component {
              
              </div>
              </div>
+        }
+
+        {
+          this.state.step === this.STEP.Step3_19 &&
+
+          <div className="becomehost-5 container">
+          <div className="row Step1_10 Step3_19">
+          <div className="col-md-6 col-lg-7 col-sm-6">
+            <h1>You’re ready to publish!</h1>
+            <h3>You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.</h3>
+            <div className="change">
+                <div>
+                  <p>Bedrooms,beds,amenities,and more</p>
+                  <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step1_1})}>change</p>
+                </div>
+                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
+            </div>
+
+            <div className="change">
+                <div>
+                  <p>Photos, short description, title</p>
+                  <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step2_1})}>change</p>
+                </div>
+                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
+            </div>
+
+            <div className="change">
+                <div>
+                  <p>Booking settings, calendar, price</p>
+                  <p className="textpink" onClick={(e) => this.setState({step:this.STEP.Step3_1})}>change</p>
+                </div>
+                <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
+            </div>
+
+            <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.submit}>Publish listing</button>
+
+          </div>
+          <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
+              <img className="stepbg" src="../images/step3_18img.png" alt=""/>
+              <div className="Preview">
+                <img src="./images/becomehost-step5-preview.jpg" />
+                <p>Place name</p>
+                <h6>Preview</h6>
+              </div>
+          </div>
+          </div>
+          </div>
         }
 
         {
@@ -4080,11 +4089,6 @@ class ListingCreate extends Component {
              </div>
              </div>
         }
-
-
-
-
-
 
         {
           this.state.step === this.STEP.SUCCESS &&

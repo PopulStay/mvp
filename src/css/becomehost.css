@@ -55,7 +55,7 @@ hr{
 }
 .STEPBTN button,
 .Step1_10 button,
-.Step3_19 .box button{
+.Step3_18 .box button{
   padding: 1% 8%;
   border-radius: 0;
   font-size: 2rem;
@@ -64,6 +64,9 @@ hr{
   color: #fff;
   border:1px solid #f6416c;
   cursor: pointer;
+}
+.spanActive{
+  opacity: 0.5;
 }
 .buttonActive{
   opacity: 0.5;
@@ -74,7 +77,7 @@ hr{
 }
 .STEPBTN button:hover,
 .Step1_10 button:hover,
-.Step3_19 .box button:hover{
+.Step3_18 .box button:hover{
   color: #f6416c;
   background-color: #fff;
 }
@@ -157,7 +160,7 @@ h1,
 .Step3_15 .box>p,
 .Step3_15 .boxdiv input,
 .Step3_17 .box>p,
-.Step3_19 .box>p,
+.Step3_18 .box>p,
 .Step3_20 .box>p,
 .Step3_20 .boxdiv .content>p,
 .Step3_21 p,
@@ -201,9 +204,23 @@ h1,
   font-size: 1.6rem;
   margin-left: 5%;
 }
-.Step1_1 .stepbg{
+.rightbj{
+  position: relative;
+}
+.Step1_1 .rightimg{
+  position: absolute;
+  top:0;
+  left: 0;
   width: 120%;
   margin: 30% 0 0;
+  animation:step1bg 5s;
+  -moz-animation:step1bg 5s; /* Firefox */
+  -webkit-animation:step1bg 5s; /* Safari and Chrome */
+  -o-animation:step1bg 5s; /* Opera */  
+}
+@keyframes step1bg{
+0% {width: 0%;top:10%;left: 100%;}
+10% {width: 120%;top:0%;left: 0;}
 }
 .Step1_1 .stepfoot{
   background: #151b4e;
@@ -528,13 +545,13 @@ h1,
 .Step1_4 .guestBtn .btnjia{
   float: left;
   color: #f6416c;
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 .Step1_3 .guestBtn .btnjian,
 .Step1_4 .guestBtn .btnjian{
   float: right;
   color: #f6416c;
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 .Step1_4 h2{
   margin: 5% 0 2%;
@@ -674,6 +691,7 @@ h1,
   padding: 5% 0;
   margin-bottom: 5%;
 }
+.Base,
 .Step1_8 .Stepbox>div,
 .Step1_6 .Stepbox,
 .Step2_3 .stepbox,
@@ -710,7 +728,6 @@ h1,
 /*Step1_8 end*/
 .Step1_10 h3{
   font-size: 1.6rem;
-  padding-bottom:5%; 
 }
 .Step1_10 .change{
   width: 90%;
@@ -755,7 +772,7 @@ h1,
 }
 .Step1_10 .Step2box{
   overflow: hidden;
-  padding: 5% 0 7%;
+  padding: 0 0 7%;
 }
 .Step1_10 .Stepbox1{
   border-top: 1px solid #ccc; 
@@ -927,7 +944,7 @@ h1,
 }
 .Step1_10 .stepbg,
 .Step3_17 .stepbg,
-.Step3_19 .stepbg{
+.Step3_18 .stepbg{
   width: 130%;
   margin: 30% 0 0;
 }
@@ -1384,12 +1401,16 @@ h1,
 }
 .Step3_2 h3{
   width: 98%;
+  position: relative;
 }
 .Step3_2 h3 span{
   font-size: 2.4rem;
   font-weight: bold;
-  float: right;
   opacity: 0.6;
+  position: absolute;
+  top: 50%;
+  right:5%;
+  transform:translate(0,-60%); 
 }
 .Step3_2 h3 span:hover{
   opacity: 1;
@@ -1591,10 +1612,7 @@ h1,
   display: block;
 }
 .Step3_12 .btn-group{
-  margin-bottom: 5%;
-}
-.Step3_12 .Base .btn-group{
- margin-bottom: 1%; 
+  margin-bottom: 1%;
 }
 /*Step3_12 end*/
 .Step3_13 .rightdiv{
@@ -1656,7 +1674,7 @@ h1,
 }
 /*Step3_14 end*/
 .Step3_15 .p1{
-  margin:3% 0 15%;
+  margin:3% 0 7%;
 }
 .Step3_15 .btn-group{
   margin-bottom: 3%;
@@ -1669,6 +1687,9 @@ h1,
   color: #131c4e;
   font-size: 1.8rem;
   cursor: pointer;
+}
+.Step3_15 .box>h2{
+  margin-top:0;
 }
 /*Step3_15 end*/
 .Step3_16 .radio{
@@ -1695,33 +1716,33 @@ h1,
 }
 
 /*Step3_17 end*/
-.Step3_18 button{
+.Step3_19 button{
   padding: 1% 8%;
 }
-.Step3_18 h3{
+.Step3_19 h3{
   line-height: 1.9;
   margin:5% 0 3%;
 }
-.Step3_18 .paddingNone,
-.Step3_19 .paddingNone{
+.Step3_19 .paddingNone,
+.Step3_18 .paddingNone{
   margin-bottom: 8%;
 }
-.Step3_18 .Preview,
-.Step3_19 .Preview{
+.Step3_19 .Preview,
+.Step3_18 .Preview{
   width: 260px;
   position: absolute;
   left:55%;
   bottom:-8%;
   transform: translate(-50%,0);
 }
-.Step3_18 .Preview p,
-.Step3_19 .Preview p{
+.Step3_19 .Preview p,
+.Step3_18 .Preview p{
   position: absolute;
   top:18%;
   left:61%;
 }
-.Step3_18 .Preview h6,
-.Step3_19 .Preview h6{
+.Step3_19 .Preview h6,
+.Step3_18 .Preview h6{
   position: absolute;
   top:40%;
   left:65%;
@@ -1731,18 +1752,18 @@ h1,
 }
 
 /*Step3_18 end*/
-.Step3_19 .box{
+.Step3_18 .box{
   width: 80%;
 }
-.Step3_19 .box>p{
+.Step3_18 .box>p{
   line-height: 1.9;
   margin:5% 0 10%;
 }
-.Step3_19 .box button.Left{
+.Step3_18 .box button.Left{
   margin-left: 5%;
   padding: 1% 3%;
 }
-.Step3_19 .box button.Right{
+.Step3_18 .box button.Right{
   margin-right: 15%;
   background: none;
   border: none;
