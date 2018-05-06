@@ -552,7 +552,6 @@
   background: #151b4e;
   border-radius: 5px;
   width: 70%;
-  float: right;
   position: relative;
   color: #fff;
   font-size: 1.2rem;
@@ -563,8 +562,13 @@
 .video li img{
   position: absolute;
   width: 20px;
-  right: 0;
   bottom:-10px;
+}
+.videorightimg{
+  right: 0;
+}
+.videoleftimg{
+  left: 0;
 }
 .video .becomehost_line{
   height: 2px;

@@ -38,8 +38,12 @@ class Video extends Component {
 
     window.io.socket.on('chat',  (data)=> {
       console.log('Socket `' + data.message + '` joined the party!');
-      var message = this.state.message+'\n\r'+data.message;
-      this.setState({message:message});
+      var datamessage = data.message;
+      this.setState({state: this.state.messagearr.push({
+              index: 1,
+              message: datamessage
+        })});
+        this.setState({text:''});
     });
 
     
@@ -60,7 +64,11 @@ class Video extends Component {
   handleEnterMessage =()=>{
      window.io.socket.get("/messages/chat?text="+this.state.text+"&listId="+this.props.listid, (data, jwRes)=> {
         console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
-        this.setState({state: this.state.messagearr.push(this.state.text)});
+        this.setState({state: this.state.messagearr.push({
+              index: 0,
+              message: this.state.text
+        })});
+        this.setState({text:''});
     });
 
   }
@@ -163,15 +171,18 @@ class Video extends Component {
     return (  
               <div id="agora_remote" className="video">
                    <ul>
-                      {this.state.messagearr.map((message,index) => (
-                          <li>{message}<img src="../images/becomehost-triangle.png" /></li>
+                      {this.state.messagearr.map((item,index) => (
+                          <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
+                            <img  className={item.index == 0 ? "show videorightimg" : "hide videorightimg"} src="../images/becomehost-triangle.png" />
+                            <img  className={item.index == 1 ? "show videoleftimg" : "hide videoleftimg"} src="../images/becomehost-triangle1.png" />
+                          </li>
                         ))
                       }
                    </ul>
                    <img className="becomehost_line" src="../images/becomehost-line.png" />
                    <div>
                       <img className="keyboard" src="../images/becomehost-keyboard.png" />
-                      <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})}  placeholder="Message Me"/>
+                      <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
                       <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                       <img className="becomehost_video" src="../images/becomehost-video.png" />
                    </div>
@@ -179,7 +190,6 @@ class Video extends Component {
             )
   }
 }
-
 
 export default Video
 
