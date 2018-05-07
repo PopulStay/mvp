@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { merge } from 'lodash';
 import {AGORA_APP_ID} from '../agora.config';
+import houselistingService from '../services/houseinfolist-service';
 
 class Video extends Component {
 
@@ -23,29 +24,20 @@ class Video extends Component {
                      },
        videoProfile: '480p_4',
        messagearr:[],
-       text:""
+       text:"",
+       host:"",
+       connectguest:""
     }
       
   }
 
   componentWillMount() {
-
-    window.io.socket.get('/messages/join?listId='+this.props.listid,(data, jwRes) =>{
-        console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
-        
-    });
-
-
-    window.io.socket.on('chat',  (data)=> {
-      console.log('Socket `' + data.message + '` joined the party!');
-      var datamessage = data.message;
-      this.setState({state: this.state.messagearr.push({
-              index: 1,
-              message: datamessage
-        })});
-        this.setState({text:''});
-    });
-
+    console.log(this.props.listingId);
+     houselistingService.getHouseInfoDetail(this.props.listingId)
+     .then((result) => {
+        this.setState({host:result._owner});
+        this.handleEvent();
+     });
     
   }
 
@@ -62,14 +54,65 @@ class Video extends Component {
   }
 
   handleEnterMessage =()=>{
-     window.io.socket.get("/messages/chat?text="+this.state.text+"&listId="+this.props.listid, (data, jwRes)=> {
+     if( window.address == this.state.host )
+     {
+        window.io.socket.get("/messages/tellguest?text="+this.state.text+"&host="+this.state.host+"&guest="+this.state.connectguest, 
+        (data, jwRes)=> 
+        {
+          console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
+          this.setState({state: this.state.messagearr.push({index: 0,message: this.state.text})});
+          this.setState({text:''});
+        });
+
+     }
+
+     if( window.address != this.state.host )
+     {
+        window.io.socket.get("/messages/tellhost?text="+this.state.text+"&host="+this.state.host+"&guest="+window.address, 
+        (data, jwRes)=> 
+        {
+          console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
+          this.setState({state: this.state.messagearr.push({index: 0,message: this.state.text})});
+          this.setState({text:''});
+        });
+      }
+
+  }
+
+  handleEvent =()=>{
+        window.io.socket.get('/messages/join?host='+this.state.host,(data, jwRes) =>{
         console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
-        this.setState({state: this.state.messagearr.push({
-              index: 0,
-              message: this.state.text
-        })});
-        this.setState({text:''});
+        
     });
+
+    if( window.address == this.state.host )
+    {
+        window.io.socket.on('hostlisten',  (data)=> {
+          console.log("host listen");
+          var datamessage = data.message;
+          
+
+          this.setState({state: this.state.messagearr.push({
+                  index: 1,
+                  message: datamessage
+            })});
+          this.setState({text:''});
+          this.setState({connectguest:data.guest});
+        });
+    }
+
+    if( window.address != this.state.host )
+    {
+      window.io.socket.on('guestlisten'+window.address,  (data)=> {
+        console.log("######################guestlisten"+window.address);
+        var datamessage = data.message;
+        this.setState({state: this.state.messagearr.push({
+                index: 1,
+                message: datamessage
+          })});
+          this.setState({text:''});
+      });  
+    }
 
   }
 
@@ -86,9 +129,9 @@ class Video extends Component {
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
         this.client.init( this.constant.appId ,()=>{
         console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
-        console.log("this.props.listid"+this.props.listid);
+        console.log("this.state.host"+this.state.host);
         this.subscribeStreamEvents();
-        this.client.join(null, this.props.listid, null, (uid) => {
+        this.client.join(null, this.state.host, null, (uid) => {
             console.log("User " + uid + " join channel successfully");
             console.log('At ' + new Date().toLocaleTimeString());
             console.log(uid);

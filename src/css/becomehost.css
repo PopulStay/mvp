@@ -1222,6 +1222,7 @@ h1,
   margin: 3% 0 5%;
 }
 .Step2_5 .stepbox{
+  position: relative;
   border:1px solid #f6416c;
   height: 45px;
   border-left: none;
@@ -1254,10 +1255,10 @@ h1,
   font-size: 2rem;
   position: absolute;
   top:50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  right: 0;
+  transform: translate(0%,-50%);
   border-right:1px solid #f6416c;
-  padding-right: 25%; 
+  padding-right: 35%; 
 }
 .Step2_5 .stepbox input{
   width: 55%;
@@ -1265,12 +1266,13 @@ h1,
   font-size: 1.8rem;
   border:none;
   outline:none;
+  padding:  0 8%;
 }
 .Step2_5 .stepbox>img{
   width: 30px;
   position: absolute;
   top:50%;
-  right: 8%;
+  right: 4%;
   transform: translate(0%,-50%);
 }
 .Step2_5 .dropdown-menu a{
@@ -1279,7 +1281,7 @@ h1,
 }
 .Step2_5 .dropdown-menu{
   transform: translate3d(0px, 45px, 0px) !important;
-  width: 80%;
+  width:100%;
 }
 /*Step2_5 end*/
 .Step3_1,
@@ -1485,21 +1487,33 @@ h1,
 .Step3_6 .form-group1 .dropdown-menu a{
   padding: 2% 8%;
 }
-.Step3_6 .rightbox1>div>p{
+.Step3_8 .rightbox1>div>p{
   font-size: 1.8rem;
   margin-bottom: 5%;
 }
-.Step3_6 .rightbox1>div{
+.Step3_8 .rightbox1>div{
   background: none!important;
   color: #808080;
 }
-.Step3_6 .rightbox1>div>.date{
+.Step3_7 .rightbox1 p{
+  font-size: 1.8rem;
+}
+.Step3_7 .rightbox1>div>.date,
+.Step3_8 .rightbox1>div>.date{
   width: 22%;
   position: relative;
   display: inline-block;
   margin-right: 5%;
 }
-.Step3_6 .rightbox1>div>.date span{
+.Step3_7 .rightbox1>div>.date span{
+  position: absolute;
+  font-size: 1.8rem;
+  top: 59%;
+  left: 68%;
+  transform: translate(-50%,0%);
+  color: #ccc;
+}
+.Step3_8 .rightbox1>div>.date span{
   position: absolute;
   font-size: 1.4rem;
   top: 45%;
@@ -1507,7 +1521,8 @@ h1,
   transform: translate(-50%,0%);
   color: #ccc;
 }
-.Step3_6 .rightbox1 .becomehost__info{
+.Step3_7 .rightbox1>div>.date img,
+.Step3_8 .rightbox1 .becomehost__info{
   width: 100% !important;
 }
 .Step3_8 .rightbox1>div>.date span{
