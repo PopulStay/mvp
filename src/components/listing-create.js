@@ -205,6 +205,9 @@ class ListingCreate extends Component {
             RulesIpt:"",
             modalIsOpen:false,
             guests_check:false,
+            phoneactive:0,
+            guests_know:0,
+            
 
         }
         this.DETA={
@@ -874,6 +877,15 @@ class ListingCreate extends Component {
         return this.state.Months[D.getMonth()]
       }
     }
+    phonenumber(e){
+      this.setState({state:this.state.roomdescription_phone=e});
+      var rephone = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+      if(e.length != "" && rephone.test(e)){
+        this.setState({state: this.state.phoneactive=1});
+      }else{
+        this.setState({state: this.state.phoneactive=0});
+      }
+    }
 
       
 
@@ -932,7 +944,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-12 col-lg-6  col-sm-12">
@@ -1307,7 +1319,7 @@ class ListingCreate extends Component {
 
             <div className="STEPBTN">
               <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              <button  className={ this.state.roomstuff_Street == "" || this.state.roomstuff_Apt == "" || this.state.roomstuff_City == "" || this.state.roomstuff_ZIPCode == ""  ? "buttonActive Right" : "Right"} disabled={ this.state.roomstuff_Street == "" || this.state.roomstuff_Apt == "" || this.state.roomstuff_City == "" || this.state.roomstuff_ZIPCode == "" ? "disabled" : ""} onClick={this.nextStep}>Next</button>
             </div>
              
              </div>
@@ -1324,7 +1336,7 @@ class ListingCreate extends Component {
 
         }
 
-          {
+        {
           this.state.step === this.STEP.Step1_7 &&
           <div className="becomehost-2 container">
           <div className="row Step1_7">
@@ -2040,7 +2052,7 @@ class ListingCreate extends Component {
             </div>
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className={ this.state.roomdescription_description == "" ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_description == "" ? "disabled" : ""} onClick={this.nextStep}>Next</button>
               </div>
                
              </div>
@@ -2083,7 +2095,7 @@ class ListingCreate extends Component {
              
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
               </div>
                
              </div>
@@ -2127,9 +2139,9 @@ class ListingCreate extends Component {
                   </ul>
                 </div>
                 
-                <input onChange={(e) => this.setState({roomdescription_phone: e.target.value})} value={this.state.roomdescription_phone}  type="text" />
+                <input onChange={(e) => this.phonenumber(e.target.value)} value={this.state.roomdescription_phone}  type="text" />
 
-                <img className={this.state.roomdescription_phone.length == '11' ? "show" : "hide"} src="./images/landloard_page-30.png" alt=""/>
+                <img className={this.state.phoneactive == 1 ? "show" : "hide"} src="./images/landloard_page-30.png" alt=""/>
               </div>
               </div>
 
@@ -2139,7 +2151,7 @@ class ListingCreate extends Component {
              
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className={ this.state.phoneactive == 0 ? "buttonActive Right" : "Right"} disabled={ this.state.phoneactive == 0 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
               </div>
                
              </div>
@@ -2587,60 +2599,62 @@ class ListingCreate extends Component {
                   </div>
                 </form>
 
-                <h4>Details guests must know about your home</h4>
-                <div className="check1" onClick={(e) => {if(this.state.climb_stairs ==0 )this.setState({climb_stairs:1});else this.setState({climb_stairs:0});}}>
-                  <p  className="Pinput">
-                      <img className={this.state.climb_stairs ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                  </p>
-                  <p className="divinput">Must climb stairs</p>
-                </div>
-                <div className="check1" onClick={(e) => {if(this.state.Potential_noise ==0 )this.setState({Potential_noise:1});else this.setState({Potential_noise:0});}}>
-                  <p  className="Pinput">
-                      <img className={this.state.Potential_noise ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                  </p>
-                  <p className="divinput">Potential for noise</p>
-                </div>
-                <div className="check1" onClick={(e) => {if(this.state.property_Pet ==0 )this.setState({property_Pet:1});else this.setState({property_Pet:0});}}>
-                  <p  className="Pinput">
-                      <img className={this.state.property_Pet ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                  </p>
-                  <p className="divinput">Pet(s) live on property</p>
-                </div>
-                <div className="check1" onClick={(e) => {if(this.state.property_parking ==0 )this.setState({property_parking:1});else this.setState({property_parking:0});}}>
-                  <p  className="Pinput">
-                      <img className={this.state.property_parking ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                  </p>
-                  <p className="divinput">No parking on property</p>
-                </div>
-                <div className="check1" onClick={(e) => {if(this.state.shared_spaces ==0 )this.setState({shared_spaces:1});else this.setState({shared_spaces:0});}}>
-                  <p  className="Pinput">
-                      <img className={this.state.shared_spaces ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                  </p>
-                  <p className="divinput">Some spaces are shared</p>
-                </div>
-                <div className="check1" onClick={(e) => {if(this.state.Amenity_limitations ==0 )this.setState({Amenity_limitations:1});else this.setState({Amenity_limitations:0});}}>
-                  <p  className="Pinput">
-                      <img className={this.state.Amenity_limitations ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                  </p>
-                  <p className="divinput">Amenity limitations</p>
-                </div>
-                <div className="check1" onClick={(e) => {if(this.state.property_recording ==0 )this.setState({property_recording:1});else this.setState({property_recording:0});}}>
-                  <p  className="Pinput">
-                      <img className={this.state.property_recording ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                  </p>
-                  <p className="divinput">D Survellance or recording devices on property</p>
-                </div>
-                <div className="check1" onClick={(e) => {if(this.state.property_Weapons ==0 )this.setState({property_Weapons:1});else this.setState({property_Weapons:0});}}>
-                  <p  className="Pinput">
-                      <img className={this.state.property_Weapons ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                  </p>
-                  <p className="divinput">Weapons on property</p>
-                </div>
-                <div className="check1" onClick={(e) => {if(this.state.property_animals ==0 )this.setState({property_animals:1});else this.setState({property_animals:0});}}>
-                  <p  className="Pinput">
-                      <img className={this.state.property_animals ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                  </p>
-                  <p className="divinput">Dangerous animals on property</p>
+                <h4 className={this.state.guests_know == 0 ? "textpink":""} onClick={(e)=>this.setState({guests_know:1})}>Details guests must know about your home</h4>
+                <div className={this.state.guests_know == 0 ? "hide":"show"}>
+                  <div className="check1" onClick={(e) => {if(this.state.climb_stairs ==0 )this.setState({climb_stairs:1});else this.setState({climb_stairs:0});}}>
+                    <p  className="Pinput">
+                        <img className={this.state.climb_stairs ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                    </p>
+                    <p className="divinput">Must climb stairs</p>
+                  </div>
+                  <div className="check1" onClick={(e) => {if(this.state.Potential_noise ==0 )this.setState({Potential_noise:1});else this.setState({Potential_noise:0});}}>
+                    <p  className="Pinput">
+                        <img className={this.state.Potential_noise ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                    </p>
+                    <p className="divinput">Potential for noise</p>
+                  </div>
+                  <div className="check1" onClick={(e) => {if(this.state.property_Pet ==0 )this.setState({property_Pet:1});else this.setState({property_Pet:0});}}>
+                    <p  className="Pinput">
+                        <img className={this.state.property_Pet ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                    </p>
+                    <p className="divinput">Pet(s) live on property</p>
+                  </div>
+                  <div className="check1" onClick={(e) => {if(this.state.property_parking ==0 )this.setState({property_parking:1});else this.setState({property_parking:0});}}>
+                    <p  className="Pinput">
+                        <img className={this.state.property_parking ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                    </p>
+                    <p className="divinput">No parking on property</p>
+                  </div>
+                  <div className="check1" onClick={(e) => {if(this.state.shared_spaces ==0 )this.setState({shared_spaces:1});else this.setState({shared_spaces:0});}}>
+                    <p  className="Pinput">
+                        <img className={this.state.shared_spaces ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                    </p>
+                    <p className="divinput">Some spaces are shared</p>
+                  </div>
+                  <div className="check1" onClick={(e) => {if(this.state.Amenity_limitations ==0 )this.setState({Amenity_limitations:1});else this.setState({Amenity_limitations:0});}}>
+                    <p  className="Pinput">
+                        <img className={this.state.Amenity_limitations ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                    </p>
+                    <p className="divinput">Amenity limitations</p>
+                  </div>
+                  <div className="check1" onClick={(e) => {if(this.state.property_recording ==0 )this.setState({property_recording:1});else this.setState({property_recording:0});}}>
+                    <p  className="Pinput">
+                        <img className={this.state.property_recording ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                    </p>
+                    <p className="divinput">D Survellance or recording devices on property</p>
+                  </div>
+                  <div className="check1" onClick={(e) => {if(this.state.property_Weapons ==0 )this.setState({property_Weapons:1});else this.setState({property_Weapons:0});}}>
+                    <p  className="Pinput">
+                        <img className={this.state.property_Weapons ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                    </p>
+                    <p className="divinput">Weapons on property</p>
+                  </div>
+                  <div className="check1" onClick={(e) => {if(this.state.property_animals ==0 )this.setState({property_animals:1});else this.setState({property_animals:0});}}>
+                    <p  className="Pinput">
+                        <img className={this.state.property_animals ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                    </p>
+                    <p className="divinput">Dangerous animals on property</p>
+                  </div>
                 </div>
                 
               </div>
@@ -2880,7 +2894,7 @@ class ListingCreate extends Component {
              
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button  className={ this.state.roomstuff_Closet_drwers ==0 ? "buttonActive Right" : "Right"} disabled={ this.state.roomstuff_Closet_drwers ==0 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
               </div>
                
              </div>
@@ -2966,7 +2980,7 @@ class ListingCreate extends Component {
         {
           this.state.step === this.STEP.Step3_7 &&
           <div className="becomehost-2 container">
-          <div className="row Step3_6">
+          <div className="row Step3_6 Step3_7">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
               <div className="STEPhead">
                 <span className="bjpink"></span>
@@ -3035,19 +3049,35 @@ class ListingCreate extends Component {
 
 
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
-                 <div>
+                 <div className={this.state.notice_arrives == "Please choose" ? "hide" : ""}>
                     <p>Today</p>
                     <div className="date">
-                      <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
-                      <span>{new Date().getDate()-2}</span>
+                      <img className="becomehost__info" src={this.state.notice_arrives == "Same day" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == "Same day" ? "textpink" : ""}>{new Date().getDate()}</span>
                     </div>
-                    <div className="date">
-                      <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
-                      <span>{new Date().getDate()-1}</span>
+                    <div className={this.state.notice_arrives == "Same day" ? "hide date" : "date"}>
+                      <img className="becomehost__info" src={this.state.notice_arrives == "1 days" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == "1 days" ? "textpink" : ""}>{new Date().getDate()+1}</span>
                     </div>
-                    <div className="date">
-                      <img className="becomehost__info" src="./images/step3_7img2.png" alt=""/>
-                      <span className="textpink">{new Date().getDate()}</span>
+                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" ? "hide date" : "date"}>
+                      <img className="becomehost__info" src={this.state.notice_arrives == "2 days" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == "2 days" ? "textpink" : ""}>{new Date().getDate()+2}</span>
+                    </div>
+                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" || this.state.notice_arrives == "2 days" ? "hide date" : "date"}>
+                      <img className="becomehost__info" src={this.state.notice_arrives == "3 days" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == "3 days" ? "textpink" : ""}>{new Date().getDate()+3}</span>
+                    </div>
+                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" || this.state.notice_arrives == "2 days" || this.state.notice_arrives == "3 days" ? "hide date" : "date"}>
+                      <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
+                      <span>{new Date().getDate()+4}</span>
+                    </div>
+                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" || this.state.notice_arrives == "2 days" || this.state.notice_arrives == "3 days" ? "hide date" : "date"}>
+                      <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
+                      <span>{new Date().getDate()+5}</span>
+                    </div>
+                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" || this.state.notice_arrives == "2 days" || this.state.notice_arrives == "3 days" ? "hide date" : "date"}>
+                      <img className="becomehost__info" src={this.state.notice_arrives == "7 days" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == "7 days" ? "textpink" : ""}>{new Date().getDate()+6}</span>
                     </div>
                 </div>
              </div>
@@ -3934,7 +3964,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step3_19 &&
+          this.state.step === this.STEP.Step1_1 &&
 
           <div className="becomehost-5 container">
           <div className="row Step1_10 Step3_19">
