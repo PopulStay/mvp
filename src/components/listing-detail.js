@@ -616,7 +616,7 @@ class ListingsDetail extends Component {
       </div>
       </div>
       </div>
-       <Video listid={this.props.listingId}/>
+       <Video listingId={this.props.listingId}/>
       </div>
  </div>     
     )
