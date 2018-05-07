@@ -47,11 +47,11 @@ class Wallet extends Component {
 
   }
   openModal() {
-    if(window.address)
-    {
-       this.openInfoModal();
-       return;
-    }
+    // if(window.address)
+    // {
+    //    this.openInfoModal();
+    //    return;
+    // }
     this.setState({modalIsOpen: true});
   }
 
