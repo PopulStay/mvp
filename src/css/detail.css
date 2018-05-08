@@ -416,7 +416,7 @@
   border-bottom:1.5px solid #c5c5c5; 
 }
 .ReviewsDiv li{
-  width: 45%;
+  width: 47%;
   float: left;
   padding: 1% 0;
 }
@@ -523,7 +523,7 @@
 .video>ul{
   max-height: 200px;
   overflow: auto;
-  padding: 0 2% 0 0;
+  padding: 0 2%;
 }
 .video ul::-webkit-scrollbar {
     width:10px;

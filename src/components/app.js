@@ -22,6 +22,8 @@ import '../css/detail.css'
 import '../css/homepage.css'
 import '../css/main.css'
 import '../css/search.css'
+import '../css/media.css'
+import '../css/Modal.css'
 
 const SearchPage = (props) => (
   <Layout {...props} hideTagHeader={true}>

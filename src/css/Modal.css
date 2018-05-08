@@ -1,0 +1,239 @@
+.info h1,
+.HostManagment h1{
+  border-left:2px solid #f6416c; 
+  padding-left: 2%;
+  margin-bottom: 2%;
+  margin-left: 5%;
+  font-size: 2.2rem;
+}
+.userBox{
+  background: #151b4e;
+  color: #fff;
+  padding:4% 5%;
+  margin:0 0 4%;
+  overflow: hidden;
+}
+.userBox h1{
+  margin-left: 2% !important;
+  font-size: 3.4rem !important;
+  margin-top: 0;
+}
+.userBox img{
+  width: 90%;
+  height: auto;
+}
+.userBox .userlist{
+  font-family: RobotoThin; 
+  font-size: 1.4rem;
+  margin-top: 3.8%;
+}
+.userBox .userlist>div{
+  padding: 2% 0;
+}
+.userBox span{
+  font-family: RobotoBold; 
+  font-size: 1.6rem;
+  margin-right: 2%;
+}
+.HostManagment h1{
+  margin-left: -2%;
+}
+.GuestManagment,
+.HostManagment{
+  width: 86%;
+  margin-left: 7%;
+}
+.GuestManagment th,
+.HostManagment th{
+  border-top: 1px solid #151b4e !important;
+  border-bottom: 1px solid #151b4e !important;
+  font-family: RobotoBold; 
+  font-size: 1.6rem;
+  padding: 1.5% 0 !important;
+  width: 15%;
+  text-align:center;
+}
+.GuestManagment td,
+.HostManagment td{
+  width: 15%;
+  text-align:center;
+  color: #999;
+  padding: 1% 0 !important;
+}
+.GuestManagment tr,
+.HostManagment tr{
+  border-bottom: 1px solid #aaa !important;
+}
+.userbtn{
+  margin-top: 4%;
+}
+.userbtn>div{
+  padding: 3% 0;
+}
+.userbtn>div>button{
+  background: none;
+  border:1px solid #f6416c;
+  width: 100px;
+  border-radius: 0;
+}
+.userbtn>div>button:hover{
+  background: #f6416c;
+  color: #fff;
+}
+.Signup,
+.modalcode,
+.PirvateKey,
+.Create,
+.Create1,
+.clear,
+.Gas,
+.Explainwhy{
+  width: 370px;
+  background: #fff;
+  border-radius: 7px;
+  padding:2%;
+  position: absolute;
+  top:50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  border-radius: 20px;
+  transform: translate(-50%,-50%) !important;
+  border-radius: 25px !important;
+}
+.Create h2,
+.Create1 h2,
+.PirvateKey h2,
+.clear h2,
+.Gas h2{
+  color: #f6416c;
+  text-align: center;
+}
+.Create button{
+  width: 100%;
+}
+.clear button{
+  width: 20%;
+  margin:0 15%;
+}
+.Gas button{
+  width: 30%;
+  margin:0 10%;
+}
+.Create1,
+.PirvateKey,
+.clear{
+  width: 80%;
+}
+.Gas{
+  width: 50%;
+}
+.Gas label{
+  font-size: 1.6rem;
+}
+.Gas input{
+  border:1px solid #808080;
+}
+.Create1 button,
+.PirvateKey button{
+  width: 30%;
+  margin:0 35%;
+}
+.ReactModal__Overlay{
+ background: rgba(179, 54, 99, 0.9) !important;
+}
+.Signup img.close{
+  width: 15px;
+  float: right;
+  cursor: pointer;
+}
+.Signup h2{
+  text-align: center;
+  color: #131c4e !important;
+  font-size: 2.2rem;
+}
+.Signup button{
+  width: 80%;
+  border:1px solid #ababab;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  text-align: left;
+}
+.Signup .dropdown-menu{
+  width: 80%;
+  padding: 0;
+  margin:0;
+}
+.Signup .dropdown-menu>a{
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 5%;
+  margin: 0;
+  border-top: 1px solid #888;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.6rem;
+  color: #4d4e4e;
+  padding: 0 8% !important;
+}
+.Signup .dropdown-menu a{
+  font-size: 1.6rem;
+  padding: 0 6%;
+}
+.Signup .dropdown-menu a>div>a{
+  display: block;
+  height: 40px;
+  padding: 0;
+}
+.Signup input{
+  height:40px;
+  border:1px solid #ababab;
+  border-radius: 6px;
+  font-family: RobotoThin; 
+}
+.Signup .dropdown{
+  font-size: 1.6rem;
+  color: #f6416c;
+}
+.Signup .dropdown span{
+  color: #151b4e;
+  margin-left: 10%;
+  font-size: 1.8rem;
+}
+.Signup .form-group label{
+  color: #f6416c;
+  font-family: RobotoThin; 
+}
+.Signup #emailHelp{
+  font-family: RobotoThin; 
+  color: #8b8b8a !important;
+}
+.Signup img.closeok{
+  cursor: pointer;
+  width: 45%;
+}
+.Signup .closecancel{
+  width: 50%;
+  background: none !important;
+  border: none !important;
+  color: #131c4e;
+  font-size: 1.8rem;
+  margin-left: 2%;
+  text-align: center;
+}
+.Signup .closecancel:hover{
+  color: #131c4e;
+}
+.ReactModal__Content{
+  position: fixed;
+  width: 100%;
+  height:100%;
+  background: none !important;
+  border: none !important;
+  overflow: hidden !important;
+  top: 0!important;
+  bottom: 0!important;
+  left: 0!important;
+  right:0!important;
+}

@@ -1,0 +1,191 @@
+@media screen and (max-width: 1200px){
+	/*header  start*/
+	body{
+		width: 100%;
+	}
+	.navbar-collapse ul{
+	    width: 60%;
+	}
+	/*header  end*/
+	.rightbox{
+		padding:0;
+	}
+	.rightbox>div{
+		margin: 0 ;
+	}
+	.Step1_8 .divinput, .Step2_3 .divinput, .Step3_1 .divinput, .Step3_2 .divinput, .Step3_2 .check1 .divinput, .Step3_5 .check .divinput, .Step3_21 .divinput{
+		width: 92%;
+	}
+	.Step1_10 .Shopitem>div>span.right{
+		width: 55%;
+		font-size: 1.4rem;
+	}
+
+}
+
+@media screen and (max-width: 980px){
+	/*header  start*/
+	.header{
+		padding: 4% 0% 4% 3%;
+	}
+	/*header  end*/
+
+	/*becomehost  start*/
+	.becomehost-1.container{
+		padding: 0 5%;
+	}
+	.navbar-collapse ul{
+	    width: 70%;
+	}
+	.col-md-12.col-lg-6.Step1_6box.right,
+	.Step1_6 .Step1_6box .col-lg-6,
+	.Step1_6 .Stepbox>div{
+	  padding: 0%;
+	}	
+	.Step1_8 .divinput, .Step2_3 .divinput, .Step3_1 .divinput, .Step3_2 .divinput, .Step3_2 .check1 .divinput, .Step3_5 .check .divinput, .Step3_21 .divinput{
+		width: 90%;
+	}
+	.Step1_8 .control-group label,
+	.Step1_8 .Stepbox input{
+		width: 50%;
+	}
+	.Step1_8 .Stepbox input{
+		height: 30px;
+	}
+	.Step1_10 .Shopitem>div>span{
+		font-size: 1.4rem;
+	}
+	/*becomehost  end*/
+
+	/*footer  start*/
+	.footer__brand-info{
+    	width: 90% !important;
+		margin:3% 5%;
+	}
+	.footer__social-info{
+		padding: 2% 5% 1%;
+	}
+	/*footer  end*/
+}
+
+
+@media screen and (max-width: 767px){
+	/*header  start*/
+	header .navBtn{
+	    position: absolute;
+	    top: 50%;
+	    right: 5%;
+	    transform: translate(0%,-50%);
+	    font-size: 3rem;
+	    color: #d9534f;
+	    border: 1px solid #d9534f;
+	    width: 40px;
+	    text-align: center;
+	    height: 40px;
+	    cursor: pointer;
+	    line-height: 37px;
+	    display: block;
+  	}
+  	.header{
+    	padding:0 !important;
+    	margin-bottom: 3%;
+  	}
+  	header ul{
+  		margin:0 0 2%;
+  	}
+  	.navbar-nav{
+	    width: 100%;
+	    margin: 0;
+  	}
+  	.navbar-header{
+  		height: 60px;
+	    padding: 0 2%;
+	    border-bottom: 1px solid #c5c5c5;
+	    display: block !important;
+	    position: relative;
+  	}
+  	.navbar-nav>a{
+	    display: inline-block;
+	    float: left;
+  	}
+  	.header__logo{
+    	width: 35px !important;
+  	}
+  	.navbar-nav ul{
+    	padding: 0;
+    	width: 100% !important;
+	}
+	.navbar-collapse{
+    	border-bottom: 1px solid #c5c5c5;
+  	}
+  	.navbar-nav li{
+	    width: 100%;
+	    border-top: 1px solid #c5c5c5;
+	    padding: 1% 0;
+  	}
+  	.navbar-nav .navbar-collapse .navbar-brand{
+    	display: none !important;
+  	}
+  	.navbar-nav li:first-child{
+    	border-top: none;
+  	}
+  	.button__fill{
+    	background-color: #fff !important;
+  	}
+  	.float-right{
+    	float: none !important;
+  	}
+  	.navbar-brand{
+  		padding: 1.5% 3%;
+  	}
+  	.navbar-nav li a,.navbar-nav li button{
+    	font-size: 1.8rem;
+    	font-family: FiraSansBlack; 
+  	}
+  	.navbar-collapse.collapse{
+    	display: none;
+  	}
+  	.container{
+  		max-width:100%;
+  	}
+	/*header  end*/
+
+	/*becomehost  start*/
+	.container>div>div.row>div.col-lg-7{
+		padding: 0;
+	}
+	.Step1_1 .rightimg{
+		position: static; 
+		width: 100%;
+		margin-top: 0;
+	}
+	.Step1_1 .form-group button, 
+	.Step1_1 .form-control{
+		width: 100% !important;
+	}
+	.Step1_1 .stepfoot h4 span{
+		padding: 0 4%;
+	}
+	/*------------Step1_1--------------------*/
+	.Step1_10 .change,
+	.Step1_2 .form-group, .Step3_6 .form-group, .Step3_12 .form-group, .Step3_15 .form-group{
+		width: 100%;
+	}
+	.Step1_2 .form-group .btn-group button, .Step1_2 .dropdown-menu, .Step3_6 .form-group .btn-group button, .Step3_6 .dropdown-menu, .Step3_12 .form-group .btn-group button, .Step3_12 .dropdown-menu, .Step3_15 .form-group .btn-group button{
+		width: 100%;
+	}
+	/*------------Step1_2--------------------*/
+	.Step1_10 .change div p{
+		font-size: 1.4rem;
+	}
+	.Step1_10 .stepbg, .Step3_17 .stepbg, .Step3_18 .stepbg{
+		width: 100%;
+	}
+	.Step1_10 .Shopitem>div>span.right{
+		font-size: 1.3rem;
+	}
+	.Step1_10 .paddingNone{
+		margin-bottom: 3%;
+	}
+	/*becomehost  end*/
+}
