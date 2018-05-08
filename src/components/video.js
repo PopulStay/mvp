@@ -26,7 +26,8 @@ class Video extends Component {
        messagearr:[],
        text:"",
        host:"",
-       connectguest:""
+       connectguest:"",
+       online:false
     }
       
   }
@@ -80,7 +81,7 @@ class Video extends Component {
   }
 
   handleEvent =()=>{
-        window.io.socket.get('/messages/join?host='+this.state.host,(data, jwRes) =>{
+        window.io.socket.get('/messages/join?account='+window.address+'&host='+this.state.host,(data, jwRes) =>{
         console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
         
     });
@@ -111,8 +112,20 @@ class Video extends Component {
                 message: datamessage
           })});
           this.setState({text:''});
-      });  
+      }); 
     }
+
+
+     window.io.socket.on('online'+this.state.host,  (data)=> {
+        console.log("######################online ",data);
+        this.setState({online:true});
+       
+      });  
+
+      window.io.socket.on('offline'+this.state.host,  (data)=> {
+        console.log("######################offline ",data);
+         this.setState({online:false});
+      });  
 
   }
 
@@ -229,6 +242,15 @@ class Video extends Component {
                       <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                       <img className="becomehost_video" src="../images/becomehost-video.png" />
                    </div>
+                   {
+                    this.state.online &&
+                     <p>Host on line</p>
+                   }
+                   {
+                    !this.state.online &&
+                     <p>Host off line</p>
+                   }
+                  
               </div>
             )
   }
