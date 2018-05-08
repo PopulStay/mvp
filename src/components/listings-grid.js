@@ -68,21 +68,22 @@ class ListingsGrid extends Component {
                 <ListingCard row={row}/>
               ))}
              </div>
+             <Pagination
+              activePage={activePage}
+              itemsCountPerPage={this.state.listingsPerPage}
+              totalItemsCount={this.state.listingRows.length}
+              pageRangeDisplayed={5}
+              onChange={this.handlePageChange}
+              itemClass="page-item"
+              linkClass="page-link"
+              hideDisabled="true"
+            />
           </div>
           <div className="col-lg-4">
            <img className="img-thumbnail" src="./images/search-map.jpg" role="presentation" />
           </div>
         </div>
-        <Pagination
-          activePage={activePage}
-          itemsCountPerPage={this.state.listingsPerPage}
-          totalItemsCount={this.state.listingRows.length}
-          pageRangeDisplayed={5}
-          onChange={this.handlePageChange}
-          itemClass="page-item"
-          linkClass="page-link"
-          hideDisabled="true"
-        />
+        
       </div>
   
     )
