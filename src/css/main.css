@@ -7726,14 +7726,54 @@ header ul {
 header li {
   vertical-align: middle;
   display: inline-block;
-  width: 30%;
   text-align: center;
 }
-
+header li.Li1,
+header li.Li2,
+header li.Li5{
+  width: 25%;
+}
+header li.Li3{
+  margin-left: 5%;
+}
+header li.Li3,
+header li.Li4{
+  width: 10%;
+  color: #131c4e;
+}
+header li.Li3>a,
+header li.Li4>a{
+  color: #131c4e;
+}
 header button {
   min-width: 124px;
 }
-
+header li.Li1 .button__fill{
+  border-radius: 50px;
+  padding: 2% 7%;
+  color: #fff;
+  background: -webkit-linear-gradient(left, #2b2051 , #762d5b); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #2b2051, #762d5b); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #2b2051, #762d5b); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #2b2051 , #762d5b);
+  border:none;
+  font-family: RobotoThin; 
+}
+header li.Li2 .button__fill{
+  border-radius: 50px;
+  padding: 2% 7%;
+  color: #fff;
+  background: -webkit-linear-gradient(left, #8a305e , #e9406a); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #8a305e, #e9406a); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #8a305e, #e9406a); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #8a305e , #e9406a);
+  border:none;
+  font-family: RobotoThin; 
+}
+header li.Li5 button{
+  border:1px solid #131c4e;
+  padding: 2% 3%;
+}
 header a {
   margin-left: 15px;
   margin-right: 15px;
@@ -7796,14 +7836,7 @@ header nav a{
   font-weight: bold;
 }
 
-.button__fill {
-  color: #131c4e;
-  background-color: #f6416c;
-  border-color: transparent;
-}
-.button__Help{
-  width: 120px;
-}
+
 .button__outline {
   background-color: transparent;
   border-width: 1px;
@@ -7817,9 +7850,7 @@ header nav a{
 .header__logo {
   width: 60px;
 }
-.header__white a {
-  color: #131c4e !important;
-}
+
 
 .header__message.active {
   position: relative;
@@ -8412,7 +8443,7 @@ header .dropdown-menu a.dropdown-item1{
 }
 .navbar-collapse ul{
   float: right;
-  width: 50%;
+  width:60%;
 }
 .navbar-collapse{
   display: block;
@@ -8430,8 +8461,8 @@ header .dropdown-menu a.dropdown-item1{
   }
 }
 .navbar-nav li a,.navbar-nav li button{
-    font-size: 1.8rem;
-  }
+    font-size: 1.6rem;
+}
 .navbar-right .dropdown-menu{
   transform: translate3d(0, 37px, 0px) !important;
 }  

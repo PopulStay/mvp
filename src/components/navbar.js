@@ -14,7 +14,6 @@ const NavBar = (props) => {
 
   <div>
   <header className="header header__white">
-  
   <nav className="nav navbar-nav navbar-right">
     <div className="navbar-header">
       <butoon  className="glyphicon glyphicon-align-justify navBtn" data-toggle="collapse" data-target="#example-navbar-collapse"></butoon>
@@ -27,16 +26,23 @@ const NavBar = (props) => {
         <img className="header__logo" src="../images/logo.png" alt=""/>
       </a>
       <ul>
-        <li>
+        <li className="Li1">
           <Link to="/create">
                 <a className="btn button__fill">Become a Host</a>
           </Link>
         </li>
-        <li>
+        <li className="Li2">
+          <Link to="/create">
+                <a className="btn button__fill">Become an organiser</a>
+          </Link>
+        </li>
+        <li className="Li3">
           <a href="" className="btn button__Help">Help</a>
         </li>
-       
-        <li>
+       <li className="Li4">
+          <a href="" className="btn button__Help">Login</a>
+        </li>
+        <li className="Li5">
           <GuestRegister/>
         </li>
       </ul>

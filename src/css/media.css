@@ -4,7 +4,7 @@
 		width: 100%;
 	}
 	.navbar-collapse ul{
-	    width: 60%;
+	    width: 70%;
 	}
 	/*header  end*/
 	.rightbox{
@@ -35,7 +35,7 @@
 		padding: 0 5%;
 	}
 	.navbar-collapse ul{
-	    width: 70%;
+	    width: 80%;
 	}
 	.col-md-12.col-lg-6.Step1_6box.right,
 	.Step1_6 .Step1_6box .col-lg-6,
@@ -88,10 +88,15 @@
   	}
   	.header{
     	padding:0 !important;
-    	margin-bottom: 3%;
   	}
   	header ul{
-  		margin:0 0 2%;
+  		margin:0;
+  	}
+  	header li{
+  		padding: 2% 0;
+  	}
+  	header li.Li3>a, header li.Li4>a{
+  		padding: 0;
   	}
   	.navbar-nav{
 	    width: 100%;
@@ -118,10 +123,20 @@
 	.navbar-collapse{
     	border-bottom: 1px solid #c5c5c5;
   	}
-  	.navbar-nav li{
+  	header li.Li1, header li.Li2, header li.Li5,header li.Li3, header li.Li4{
 	    width: 100%;
 	    border-top: 1px solid #c5c5c5;
-	    padding: 1% 0;
+  	}
+  	header li.Li1 .button__fill,header li.Li2 .button__fill{
+  		background: none;
+  		color: #151b4e;
+  		padding: 0;
+  	}
+  	header li.Li3{
+  		margin-left: 0;
+  	}
+  	header li.Li5 button{
+  		border: none;
   	}
   	.navbar-nav .navbar-collapse .navbar-brand{
     	display: none !important;
