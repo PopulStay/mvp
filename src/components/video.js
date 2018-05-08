@@ -87,7 +87,7 @@ class Video extends Component {
 
     if( window.address == this.state.host )
     {
-        window.io.socket.on('hostlisten',  (data)=> {
+        window.io.socket.on('hostlisten'+window.address,  (data)=> {
           console.log("host listen");
           var datamessage = data.message;
           
