@@ -20,15 +20,46 @@
 		width: 55%;
 		font-size: 1.4rem;
 	}
+	.form .container > .row{
+		padding: 2% 0;
+	}
+	.form form{
+		padding-top: 2%;
+	}
+	.index_box>div{
+		margin-bottom: 1%;
+	}
+	.index_content .search{
+		padding: 12% 0 7% 5%;
+	}
 
 }
-
 @media screen and (max-width: 980px){
 	/*header  start*/
 	.header{
 		padding: 4% 0% 4% 3%;
 	}
 	/*header  end*/
+
+	/*home  start*/
+	.form .container{
+		width:85%;
+	}
+	.index_content .form__search{
+		width: 120%;
+	}
+	.form .container span.color-pink, .form .container h4{
+		margin: 2% 0 ;
+		font-size: 1.8rem;
+	}
+	.form .container h1{
+		font-size: 3rem;
+	}
+	.index_content .search{
+		padding: 0;
+		margin-left: 5%;
+	}
+	/*home  end*/
 
 	/*becomehost  start*/
 	.becomehost-1.container{
@@ -164,6 +195,39 @@
   		max-width:100%;
   	}
 	/*header  end*/
+
+	/*home  start*/
+	.form .container{
+		background:none;
+		padding:3% 0;
+	}
+	.form label{
+		width: 50%;
+	}
+	.index_content .DateInput{
+		width: 50%;
+		margin-right: 0;
+	}
+	.index_box,
+	.index_box>div{
+		padding: 0;
+	}
+	.index_content .guestsnum .form-group,
+	.index_content .guestsnum:last-child .form-group,
+	.index_content .form__search{
+		width: 100%;
+	}
+	.index_content .search{
+		padding: 0;
+	}
+	.index_foot ul .litext1,
+	.index_foot ul li{
+		font-size: 1.4rem;
+	}
+	.index_foot{
+		margin: 5% 0;
+	}
+	/*home  end*/
 
 	/*becomehost  start*/
 	.container>div>div.row>div.col-lg-7{
