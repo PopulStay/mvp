@@ -51,7 +51,21 @@ template {
 a {
   background-color: transparent;
 }
-
+a{
+text-decoration:none;
+}
+a:link{
+text-decoration:none;
+}
+a:visited{
+text-decoration:none;
+}
+a:hover{
+text-decoration:none;
+}
+a:active{
+text-decoration:none;
+}
 a:active,
 a:hover {
   outline: 0;
@@ -8206,17 +8220,21 @@ header .dropdown-menu a.dropdown-item1{
 /* end of dot */
 /* tag header */
 .tag-header {
-  padding: 14px 10%;
+  padding: 14px 5%;
   background-color: #131c4e;
   color: #f6416c;
 }
 .tag-header li {
   display: inline-block;
 }
-
+.tag-header .tag__item a{
+  color: #f6416c;
+  text-decoration:none;
+}
 .tag-header .tag__item {
   margin: 0 10px;
-  min-width: 120px;
+  min-width: 128px;
+  cursor: pointer;
 }
 .tag-header .tag__item:first-child {
   margin-left: 0;
@@ -8245,7 +8263,7 @@ header .dropdown-menu a.dropdown-item1{
 
 .tag__item span {
   vertical-align: middle;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-family: RobotoThin; 
 }
 .listings-grid{

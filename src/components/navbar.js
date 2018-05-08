@@ -52,7 +52,7 @@ const NavBar = (props) => {
 {!props.hideTagHeader &&
   <div className="tag-header">
     <ul className="tag container">
-    <li className="tag__item"><img src="./images/Experience.png" alt=""/><span>Experience</span></li>
+    <li className="tag__item"><a href="/experience"><img src="./images/Experience.png" alt=""/><span>Experience</span></a></li>
     <li className="tag__item active"><span className="location-tag">New York</span></li>
     <li className="tag__item active"><span>4th - 8th March</span></li>
     <li className="tag__item active"><span>2 Adults</span></li>
