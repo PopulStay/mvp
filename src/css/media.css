@@ -57,7 +57,14 @@
 	}
 	.index_content .search{
 		padding: 0;
-		margin-left: 5%;
+	}
+	.form .index_home .listing-card:nth-child(even){
+	  padding-right: 0;
+	  padding-left: 15px;
+	}
+	.form .index_home .listing-card:nth-child(odd){
+	  padding-left: 0;
+	  padding-right: 15px;
 	}
 	/*home  end*/
 
@@ -226,6 +233,17 @@
 	}
 	.index_foot{
 		margin: 5% 0;
+	}
+	.form .index_home h2{
+		font-size: 2rem;
+		margin:0 0 5%;
+	}
+	.form .index_home .listing-card{
+		padding: 0!important;
+	}
+	.form .row img{
+		width: 80%;
+    	margin: 0 10% 7%;
 	}
 	/*home  end*/
 

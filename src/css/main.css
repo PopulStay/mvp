@@ -5220,7 +5220,14 @@ tbody.collapse.in {
     background-color: transparent;
   }
   .footer__logo {
-    width: 55% !important;
+    display: none;
+  }
+  .footer_ul{
+    width: 50% !important;
+  }
+  .social__icon{
+    width: 19px;
+    margin-top: 10%;
   }
 }
 
@@ -7903,8 +7910,11 @@ header .dropdown-menu a.dropdown-item1{
 
 .footer__brand-info .dropdown > button {
   position: relative;
-  min-width: 120px;
+  width: 120px;
   border-radius: 1px;
+  border:1px solid #d6d7e0;
+  background:#fff;
+  font-family: RobotoThin; 
 }
 
 .footer__brand-info .dropdown .caret {
@@ -7923,7 +7933,22 @@ header .dropdown-menu a.dropdown-item1{
 }
 
 .footer__logo {
+  width: 10%;
+  float: left;
+}
+.footer_ul{
   width: 20%;
+  float: left;
+  line-height:2.2;
+  margin: 2% 0 2% 5%;
+  color: #151b4e;
+  font-family: RobotoThin; 
+}
+.footer_ul ul>a{
+  color: #151b4e;
+}
+.footer_ul li{
+  cursor: pointer;
 }
 
 .footer__social-info {
@@ -7932,6 +7957,8 @@ header .dropdown-menu a.dropdown-item1{
 
 .footer__copyright {
   line-height: 26px;
+  font-size: 1.6rem;
+  font-family: RobotoThin; 
 }
 
 .footer__hint-panel, .footer__messages {

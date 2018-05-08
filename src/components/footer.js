@@ -1,17 +1,27 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Footer = (props) => {
   return (
     <footer className="footer">
     <div className="footer__brand-info container">
         <img className="footer__logo" src="../images/logo-2.png" alt="" />
+        <div className="footer_ul">
+            <ul>
+                <Link to="/create">
+                    <li>Become a Host</li>
+                </Link>
+                <li>Help Center</li>
+                <li>About Populstay</li>
+            </ul>
+        </div>
         <div className="footer__dropdown pull-right">
             <div className="dropdown">
 
                 <button type="button" className="text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <div>English</div>
-    <span className="caret"></span>
-    </button>
+                <div>English</div>
+                <span className="caret"></span>
+                </button>
 
                 <ul className="dropdown-menu" aria-labelledby="dLabel">
                     <li></li>

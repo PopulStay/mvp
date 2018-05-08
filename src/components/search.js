@@ -93,7 +93,7 @@ class Search extends Component {
                             <li className="liimg"><img src="../images/img_home.png" /></li>
                             <li className="litext">Find dream</li>
                             <li className="liicon">•</li>
-                            <li className="litext1">HOMES</li>
+                            <a href="../"><li className="litext1">HOMES</li></a>
                             <li className="liicon">•</li>
                             <li className="litext1">EXPERIENCE</li>
                         </ul>
