@@ -227,11 +227,14 @@
   margin: 3% 0;
   font-family: RobotoBold; 
 }
-.experience .lunbo{
+.experience .lunbo,
+.experienceintro_content .contentbox6 .box1{
   position: relative;
 }
 .experience .pre,
-.experience .next{
+.experience .next,
+.experienceintro_content .contentbox6 .box1 .pre,
+.experienceintro_content .contentbox6 .box1 .next{
   position: absolute;
   width: 30px;
   height: 40px;
@@ -245,31 +248,37 @@
   top:50%;
   transform: translate(0,-50%);
 }
-.experience .pre{
+.experience .pre,
+.experienceintro_content .contentbox6 .box1 .pre{
   left: 0;
 }
-.experience .next{
+.experience .next,
+.experienceintro_content .contentbox6 .box1 .next{
   right: 0;
 }
-.experience .content{
+.experience .content,
+.experienceintro_content .contentbox6 .box1 .content{
   width: 100%;
   display: inline-block;
   padding: 0 3%;
   margin: 0;
   overflow: hidden;
 }
-.experience .content .lists{
+.experience .content .lists,
+.experienceintro_content .contentbox6 .box1 .content .lists{
   width: 19%;
   position: relative;
   height: 150px;
   display: inline-block;
   margin: 0 0.5%
 }
-.experience .content .lists img{
+.experience .content .lists img,
+.experienceintro_content .contentbox6 .box1 .content .lists img{
   width: 100%;
   height: 100%;
 }
-.experience .content .lists p{
+.experience .content .lists p,
+.experienceintro_content .contentbox6 .box1 .content .lists p{
   position: absolute;
   width: 100%;
   bottom: 0;

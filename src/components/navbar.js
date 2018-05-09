@@ -32,6 +32,7 @@ class NavBar extends Component {
   return (
 
       <div>
+    {this.props.hideTagHeader !="NO" &&
       <header className="header header__white">
       <nav className="nav navbar-nav navbar-right">
         <div className="navbar-header">
@@ -51,14 +52,14 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="Li2">
-              <Link to="/create">
+              <Link to="/Intro">
                     <a className="btn button__fill">Become an organiser</a>
               </Link>
             </li>
             <li className="Li3">
               <a href="" className="btn button__Help">Help</a>
             </li>
-           <li className="Li4">
+            <li className="Li4">
               <a href="" className="btn button__Help">Login</a>
             </li>
             <li className="Li5">
@@ -68,6 +69,7 @@ class NavBar extends Component {
         </div>
       </nav>
       </header>
+    }
     {!this.props.hideTagHeader &&
       <div className="tag-header">
         <ul className="tag container">

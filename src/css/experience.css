@@ -1,0 +1,301 @@
+.experienceintro_header{
+	position: relative;
+}
+.experienceintro_header header{
+	width: 100%;
+	position: absolute;
+	top:1%;
+}
+.experienceintro_header header li a,
+.experienceintro_header header li.Li5 button{
+	background: none !important;
+	border: none !important;
+	color: #fff !important;
+ 	font-family: RobotoThin; 
+}
+.experienceintro_header header li{
+	width: 15%;
+	margin-left: 0;
+}
+.experienceintro_header .navbar-collapse ul{
+	text-align: right;
+}
+.experienceintro_header .headbox{
+	position: absolute;
+	bottom: 10%;
+	color: #fff;
+	margin: 0 8%;
+}
+.experienceintro_header .headbox h2{
+	font-size: 4rem;
+}
+.experienceintro_header .headbox p{
+	font-size: 2rem;
+	margin: 4% 0;
+}
+.experienceintro_header .headbox button{
+	width: 30%;
+	font-size: 2rem;
+	border-radius: 0;
+	margin:5% 5% 0 0;
+    font-family: RobotoBold; 
+    height:40px;
+    line-height: 100%;
+	border:1px solid #fff;
+}
+.experienceintro_header .headbox button.btn1{
+	color:#151b4e;
+	background:  #fff;
+}
+.experienceintro_header .headbox button.btn2{
+	color:#fff;
+	background: none;
+}
+.experienceintro_content .contentbox,
+.experienceintro_content .contentbox1,
+.experienceintro_content .contentbox2,
+.experienceintro_content .contentbox3,
+.experienceintro_content .contentbox4{
+	margin: 3% 0 ;
+	overflow: hidden;
+	position: relative;
+}
+.experienceintro_content .contentbox img{
+	padding: 0;
+}
+.experienceintro_content .contentbox>h3,
+.experienceintro_content .contentbox1>h3{
+	position: absolute;
+	z-index: 9;
+	line-height: 1.5;
+	bottom: 30%;
+	right: 35%;
+	font-size: 4.4rem;
+	color: #fff;
+	width: 30%;
+    font-family: RobotoBold; 
+}
+.experienceintro_content .contentbox>p{
+	padding: 0;
+	font-size: 1.8rem;
+	padding: 0 5%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.experienceintro_content .contentbox1>h3{
+	top: 10%;
+}
+.experienceintro_content .contentbox1>div{
+	padding:5% 3% 5.1%;
+	height: 100%;
+	background: #e3f4ef;
+}
+.experienceintro_content .contentbox1>img{
+	padding: 0;
+}
+.experienceintro_content .contentbox1>div .text1,
+.experienceintro_content .contentbox3>.box1 .text1{
+	font-size: 2.2rem;
+	position: relative;
+	padding:22% 10% 10%;
+	margin: 3% 0 5%;
+	line-height: 1.9;
+}
+.experienceintro_content .contentbox1>div .text1 span,
+.experienceintro_content .contentbox3>.box1 span{
+	height: 40px;
+	font-size: 8rem;
+    font-family: RobotoBold; 
+	color: #f5426c;
+	position: absolute;
+}
+.experienceintro_content .contentbox1>div .text1 span:first-child,
+.experienceintro_content .contentbox3>.box1 span:first-child{
+	left: 0;
+	top:-20px;
+}
+.experienceintro_content .contentbox1>div .text1 span:last-child,
+.experienceintro_content .contentbox3>.box1 span:last-child{
+	right: 0;
+	bottom:20px;
+}
+.experienceintro_content .contentbox1>div .text2,
+.experienceintro_content .contentbox1>div .text3,
+.experienceintro_content .contentbox3>.box1 .text2,
+.experienceintro_content .contentbox3>.box1 .text3{
+	width: 80%;
+	text-align: center;
+	font-size: 1.8rem;
+    margin:10% auto;
+    line-height: 1.5;
+}
+.experienceintro_content .contentbox1>div .text2,
+.experienceintro_content .contentbox3>.box1 .text2{
+    font-family: RobotoBold; 
+	font-size: 1.8rem;
+}
+.experienceintro_content .contentbox1>div ul,
+.experienceintro_content .contentbox3>.box1 ul{
+	text-align: center;
+	margin-bottom: 20%;
+}
+.experienceintro_content .contentbox1>div ul li,
+.experienceintro_content .contentbox3>.box1 ul li{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #e9bec7;
+	display: inline-block;
+	margin: 0 1.5%;
+}
+.experienceintro_content .contentbox1>div ul li:first-child,
+.experienceintro_content .contentbox3>.box1 ul li:first-child{
+	background: #f5426c;
+}
+.experienceintro_content .contentbox1>div .text4{
+	width: 80%;
+    margin:10% auto;
+	line-height: 1.9;
+	font-size: 1.8rem;
+}
+
+.experienceintro_content .contentbox2>h3{
+	text-align: center;
+	font-size: 4rem;
+}
+.experienceintro_content .contentbox2>p,
+.experienceintro_content .contentbox5 ul li p{
+	text-align: center;
+	width:50%;
+	margin: 0 auto 2%;
+	font-size:1.8rem;
+	line-height: 1.9;
+}
+
+.experienceintro_content .contentbox3{
+	position: relative;
+	padding: 0 5%;
+}
+.experienceintro_content .contentbox3>.box1{
+	position: absolute;
+	width: 70%;
+	z-index: 9;
+	top:35%;
+	margin: 0 8%;
+	padding:2% 4%;
+	left: 50%;
+	margin-left:-35%; 
+	text-align: center;
+}
+.experienceintro_content .contentbox3>.box1 img{
+	width: 40%;
+	display: block;
+	margin:0 auto 2%;
+}
+.experienceintro_content .contentbox3>.box1 .text2,
+.experienceintro_content .contentbox3>.box1 .text3{
+	margin:2% auto; 
+}
+
+.experienceintro_content .contentbox3>.box1 .text1{
+	padding: 6% 10% 6%;
+}
+.experienceintro_content .contentbox3>.box1 span:last-child{
+	bottom: 50px;
+}
+.experienceintro_content .contentbox3>.box2{
+	margin: -13% 10% 0;
+	overflow: hidden;
+}
+.experienceintro_content .contentbox3>.box2 .lists>p{
+	font-size: 1.8rem;
+	margin: 6% 0 5%;
+}
+
+.experienceintro_content .contentbox4>.box1{
+	width: 100%;
+	position: absolute;
+	top:0;
+	text-align: center;
+	margin: 0 auto;
+}
+.experienceintro_content .contentbox4>.box1 h3{
+	font-size: 4rem;
+	color: #fff;
+   font-family: RobotoBold; 
+   margin: 3% 0;
+}
+.experienceintro_content .contentbox4>.box1 p{
+	color: #fff;
+	font-size: 2rem;
+}
+.experienceintro_content .contentbox4>.box2{
+	position: absolute;
+	bottom: 10%;
+	padding: 0 5%;
+}
+.experienceintro_content .contentbox4>.box2 span{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	border-radius:50%;
+	background: #fff;
+	color: #151b4e; 
+	font-size: 3rem;
+   	font-family: RobotoBold; 
+   	float: left;
+   	margin: 7% 0;
+}
+.experienceintro_content .contentbox4>.box2 .lists>div{
+	width: 85%;
+	display: inline-block;
+	float: right;
+	color: #fff;
+	font-size: 2rem;
+}
+.experienceintro_content .contentbox4>.box2 .lists>div h3{
+   	font-family: RobotoBold; 
+}
+.experienceintro_content .contentbox4>.box2 .lists>div p{
+  	font-family: RobotoThin; 
+}
+.experienceintro_content .contentbox5{
+	margin: 3% 8%;
+}
+.experienceintro_content .contentbox5>h3{
+	font-size: 4rem;
+   	font-family: RobotoBold; 
+}
+.experienceintro_content .contentbox5 ul li{
+	border-bottom: 1px solid #4d4e4e;
+	padding: 1% 0;
+	text-align: left;
+}
+.experienceintro_content .contentbox5 ul li:last-child{
+	border:none;
+}
+.experienceintro_content .contentbox5 ul li>p{
+	width: 50%;
+	margin-left: 0;
+	text-align: left;
+	margin-bottom: 0;
+}
+.experienceintro_content .contentbox5 ul li>p span{
+	font-size: 1.8rem;
+}
+.experienceintro_content .contentbox5 ul li>span{
+	color: #f6416c;
+	font-size: 2rem;
+}
+.experienceintro_content .contentbox5 ul li>span>b{
+	margin-left: 2%;
+}
+.experienceintro_content .contentbox6{
+	margin: 0 5%;
+}
+.experienceintro_content .contentbox6 .box1{
+	margin-bottom: 3%;
+}

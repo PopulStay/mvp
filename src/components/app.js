@@ -17,6 +17,7 @@ import Overlay from './overlay'
 import Search from './search.js'
 import Listingexperience from './listing-experience.js'
 import Listingall from './listing-all.js'
+import Experienceintro from './experience-intro.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -26,6 +27,7 @@ import '../css/main.css'
 import '../css/search.css'
 import '../css/media.css'
 import '../css/Modal.css'
+import '../css/experience.css'
 
 const SearchPage = (props) => (
   <Layout {...props} hideTagHeader={true}>
@@ -96,11 +98,19 @@ const experiencePage = (props) => (
     </div>
   </Layout>
 )
+
 const all = (props) => (
   <Layout {...props}>
     <div className="container">
       <Listingall />
     </div>
+  </Layout>
+)
+
+
+const Intro = (props) => (
+  <Layout {...props}  hideTagHeader="NO">
+      <Experienceintro />
   </Layout>
 )
 
@@ -112,13 +122,14 @@ const App = () => (
         <div>
           <Route exact path="/" component={SearchPage}/>
           <Route exact path="/home" component={HomePage}/>
-          <Route exact path="/experience" component={experiencePage}/>
-          <Route exact path="/all" component={all}/>
           <Route path="/page/:activePage" component={HomePage}/>
           <Route path="/listing/:listingId" component={ListingDetailPage}/>
           <Route path="/create" component={CreateListingPage}/>
           <Route path="/managepanel" component={ManagePanelPage}/>
           <Route path="/hostorder" component={HostOrderPage}/>
+          <Route exact path="/experience" component={experiencePage}/>
+          <Route exact path="/all" component={all}/>
+          <Route exact path="/Intro" component={Intro}/>
         </div>
     </ScrollToTop>
   </Router>
