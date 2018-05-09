@@ -15,6 +15,10 @@ import Footer from './footer'
 import NavBar from './navbar'
 import Overlay from './overlay'
 import Search from './search.js'
+import Listingexperience from './listing-experience.js'
+import Listingall from './listing-all.js'
+import Experienceintro from './experience-intro.js'
+import Itrolist from './intro-list.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -22,6 +26,9 @@ import '../css/detail.css'
 import '../css/homepage.css'
 import '../css/main.css'
 import '../css/search.css'
+import '../css/media.css'
+import '../css/Modal.css'
+import '../css/experience.css'
 
 const SearchPage = (props) => (
   <Layout {...props} hideTagHeader={true}>
@@ -74,14 +81,45 @@ const HostOrderPage = (props) => (
 
 
 
-const Layout = ({ children, hideTagHeader }) => (
+const Layout = ({ children, hideTagHeader , hideTagFooter}) => (
   <div>
     
       <NavBar hideTagHeader={hideTagHeader} />
       {children}
     
-    <Footer />
+    <Footer hideTagFooter={hideTagFooter} />
   </div>
+)
+
+
+const experiencePage = (props) => (
+  <Layout {...props}>
+    <div className="container">
+      <Listingexperience />
+    </div>
+  </Layout>
+)
+
+const all = (props) => (
+  <Layout {...props}>
+    <div className="container">
+      <Listingall />
+    </div>
+  </Layout>
+)
+
+
+const Intro = (props) => (
+  <Layout {...props}  hideTagHeader="NO">
+      <Experienceintro />
+  </Layout>
+)
+
+
+const experiencelist = (props) => (
+  <Layout {...props}  hideTagHeader="NO" hideTagFooter="NO">
+      <Itrolist />
+  </Layout>
 )
 
 // Top level component
@@ -96,6 +134,10 @@ const App = () => (
           <Route path="/create" component={CreateListingPage}/>
           <Route path="/managepanel" component={ManagePanelPage}/>
           <Route path="/hostorder" component={HostOrderPage}/>
+          <Route exact path="/experience" component={experiencePage}/>
+          <Route exact path="/all" component={all}/>
+          <Route exact path="/Intro" component={Intro}/>
+          <Route exact path="/experiencelist" component={experiencelist}/>
         </div>
     </ScrollToTop>
   </Router>

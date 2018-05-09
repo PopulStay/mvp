@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import houselistingService from '../services/houseinfolist-service'
 import Pagination from 'react-js-pagination'
 import { withRouter } from 'react-router'
-
 import ListingCard from './listing-card'
 
 class ListingsGrid extends Component {
@@ -65,24 +64,27 @@ class ListingsGrid extends Component {
           <div className="col-lg-8">
             <div className="row">          
               {showListingsRows.map(row => (
+                <div className="col-12 col-md-6 col-lg-4 listing-card">
                 <ListingCard row={row}/>
+                </div>
               ))}
              </div>
+             <Pagination
+              activePage={activePage}
+              itemsCountPerPage={this.state.listingsPerPage}
+              totalItemsCount={this.state.listingRows.length}
+              pageRangeDisplayed={5}
+              onChange={this.handlePageChange}
+              itemClass="page-item"
+              linkClass="page-link"
+              hideDisabled="true"
+            />
           </div>
           <div className="col-lg-4">
            <img className="img-thumbnail" src="./images/search-map.jpg" role="presentation" />
           </div>
         </div>
-        <Pagination
-          activePage={activePage}
-          itemsCountPerPage={this.state.listingsPerPage}
-          totalItemsCount={this.state.listingRows.length}
-          pageRangeDisplayed={5}
-          onChange={this.handlePageChange}
-          itemClass="page-item"
-          linkClass="page-link"
-          hideDisabled="true"
-        />
+        
       </div>
   
     )

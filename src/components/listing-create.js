@@ -207,6 +207,12 @@ class ListingCreate extends Component {
             guests_check:false,
             phoneactive:0,
             guests_know:0,
+            Date_year: 0,
+            Date_month: 0,
+            Date_day: 0,
+            Date_week: 0,
+            Date_Months:"",
+            Date_List:[],
             
 
         }
@@ -886,10 +892,11 @@ class ListingCreate extends Component {
         this.setState({state: this.state.phoneactive=0});
       }
     }
+    datedome(){
+
+    }
 
       
-
-
     
 
 
@@ -944,10 +951,10 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
-              <div className="col-md-12 col-lg-6  col-sm-12">
+              <div className="col-md-6 col-lg-6  col-sm-12">
                   <div className="STEPhead">
                     <span></span>
                     <span></span>
@@ -961,25 +968,25 @@ class ListingCreate extends Component {
 
                   <h2>What's kind of place do you have?</h2>
 
-                  <div className="row">
-                  <div className="col-md-6 form-group">
-                      <div className="btn-group col-md-12">
-                        <button type="button" data-toggle="dropdown">{this.state.roomtype_category}<span>▼</span></button>
-                        <ul className="dropdown-menu" role="menu">
-                          { Categoryarr }
-                        </ul>
-                      </div>
-                  </div>
+                  <div className="box1">
+                    <div className="col-md-6 form-group">
+                        <div className="btn-group col-md-12">
+                          <button type="button" data-toggle="dropdown">{this.state.roomtype_category}<span>▼</span></button>
+                          <ul className="dropdown-menu" role="menu">
+                            { Categoryarr }
+                          </ul>
+                        </div>
+                    </div>
 
 
-                  <div className="col-md-6 form-group">
-                      <div className="btn-group col-md-12">
-                        <button type="button" data-toggle="dropdown">for {this.state.roomtype_guests} guests<span>▼</span></button>
-                        <ul className="dropdown-menu" role="menu">
-                          { step1guestsarr } 
-                        </ul>
-                      </div>
-                  </div>
+                    <div className="col-md-6 form-group">
+                        <div className="btn-group col-md-12">
+                          <button type="button" data-toggle="dropdown">for {this.state.roomtype_guests} guests<span>▼</span></button>
+                          <ul className="dropdown-menu" role="menu">
+                            { step1guestsarr } 
+                          </ul>
+                        </div>
+                    </div>
                   </div>
 
 
@@ -996,12 +1003,12 @@ class ListingCreate extends Component {
                   <div className="stepfoot">
                       <img className="stepbg" src="../images/details_page-25_1.png" alt=""/>
                       <p>Listing for a month</p>
-                      <h4>insert your advised earning : S$ <span>2018</span><b>/pps value:46700</b><img className="stepbg" src="../images/details_page-22.png" alt=""/></h4>
+                      <h4>insert your advised earning : S$ <span>2018</span><b>/pps value:46700<img className="stepbg" src="../images/details_page-22.png" alt=""/></b></h4>
 
                       
                   </div>
               </div>
-              <div className="col-md-12 col-lg-4 col-md-push-2 col-sm-12 rightbj">
+              <div className="col-md-5 col-lg-4 col-md-push-2 col-sm-12 rightbj">
                   <img className="stepbg rightimg" src="../images/becomehost-step1_1.png" alt=""/>
               </div>
           </div>
@@ -1011,7 +1018,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_2 &&
           <div className="becomehost-3 container">
           <div className="row Step1_2">
-            <div className="col-md-12 col-lg-7 col-sm-12">
+            <div className="col-md-7 col-lg-7 col-sm-12">
             <div className="STEPhead">
               <span className="bjpink"></span>
               <span></span>
@@ -1076,7 +1083,7 @@ class ListingCreate extends Component {
               <button className={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "Right" : "buttonActive Right"} disabled={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "" : "disabled"} onClick={this.nextStep}>Next</button>
             </div>
              </div>
-             <div className="col-md-12 col-lg-4 col-sm-12 paddingNone rightbox">
+             <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
                 <div className={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "show" : "hide"}>
                   <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                   <h6>Entire place</h6>
@@ -1096,7 +1103,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_3 &&
           <div className="becomehost-3 container">
           <div className="row Step1_3">
-          <div className="col-md-12 col-lg-7 col-sm-12">
+          <div className="col-md-7 col-lg-7 col-sm-12">
           <div className="STEPhead">
               <span className="bjpink"></span>
               <span className="bjpink"></span>
@@ -1163,7 +1170,7 @@ class ListingCreate extends Component {
                   </div>
                   </div>
           </div>
-          <div className="col-md-12 col-lg-4 col-sm-12 paddingNone rightbox">
+          <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
               <div>
                 <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                 <p>The number and type of beds you have determines how many guests can stay comfortably.</p>
@@ -1178,7 +1185,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_4 &&
           <div className="becomehost-2 container">
           <div className="row Step1_4">
-            <div className="col-md-12 col-lg-7 col-sm-12">
+            <div className="col-md-7 col-lg-7 col-sm-12">
             <div className="STEPhead">
               <span className="bjpink"></span>
               <span className="bjpink"></span>
@@ -1211,7 +1218,7 @@ class ListingCreate extends Component {
              
              </div>
              
-             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+             <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                     <p>If you have a toilet separate from the shower,count it as a 0.5 bathroom.</p>
@@ -1226,7 +1233,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_5 &&
           <div className="becomehost-2 container">
           <div className="row Step1_5">
-            <div className="col-md-8 col-lg-7 col-sm-8">
+            <div className="col-md-7 col-lg-7 col-sm-12">
             <div className="STEPhead">
               <span className="bjpink"></span>
               <span className="bjpink"></span>
@@ -1252,7 +1259,7 @@ class ListingCreate extends Component {
              
              </div>
              
-             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+             <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                     <p>Your exact address will only be shared with confirmed guests.</p>
@@ -1268,7 +1275,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_6 &&
           <div className="becomehost-2 container">
           <div className="row Step1_6">
-            <div className="col-md-8 col-lg-7 col-sm-12">
+            <div className="col-md-7 col-lg-7 col-sm-12">
             <div className="STEPhead">
               <span className="bjpink"></span>
               <span className="bjpink"></span>
@@ -1282,7 +1289,7 @@ class ListingCreate extends Component {
               <h1>Where’s your place located?</h1>
               
               <div className="Stepbox">
-                <div className="col-md-10 col-lg-10 Step1_6box">
+                <div className="col-md-12 col-lg-12 Step1_6box">
                   <h2>Country / Region</h2>
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.roomstuff_Country}<span>▼</span></button>
@@ -1292,22 +1299,22 @@ class ListingCreate extends Component {
                   </div>
                 </div>
 
-                <div className="col-md-10 col-lg-10 Step1_6box">
+                <div className="col-md-12 col-lg-12 Step1_6box">
                   <h2>Street Address<span>e.g. Blk 35 Mandalay Road</span></h2>
                   <input onChange={(e) => this.setState({roomstuff_Street: e.target.value})} value={this.state.roomstuff_Street}  type="text" />
                 </div>
 
-                <div className="col-md-10 col-lg-10 Step1_6box">
+                <div className="col-md-12 col-lg-12 Step1_6box">
                   <h2>Apt,Suite. (optional)<span>e.g. # 13–37 Mandalay Towers </span></h2>
                   <input onChange={(e) => this.setState({roomstuff_Apt: e.target.value})} value={this.state.roomstuff_Apt}   type="text" />
                 </div>
 
-                <div className="col-md-10 col-lg-10 Step1_6box">
-                  <div className="col-md-5 col-lg-5 Step1_6box">
+                <div className="col-md-12 col-lg-12 Step1_6box">
+                  <div className="col-md-12 col-lg-6 Step1_6box">
                     <h2>City<span>e.g. Singapore</span></h2>
                     <input  onChange={(e) => this.setState({roomstuff_City: e.target.value})} value={this.state.roomstuff_City}   type="text" />
                   </div>
-                  <div className="col-md-push-2 col-md-5 col-lg-5 Step1_6box">
+                  <div className=" col-md-12 col-lg-6 Step1_6box right">
                     <h2>ZIP Code<span>e.g. 308215</span></h2>
                     <input  onChange={(e) => this.setState({roomstuff_ZIPCode: e.target.value})} value={this.state.roomstuff_ZIPCode}  type="text" />
                   </div>
@@ -1324,7 +1331,7 @@ class ListingCreate extends Component {
              
              </div>
              
-             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+             <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                     <p>Your exact address will only be shared with confirmed guests.</p>
@@ -1340,7 +1347,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_7 &&
           <div className="becomehost-2 container">
           <div className="row Step1_7">
-            <div className="col-md-8 col-lg-7 col-sm-12">
+            <div className="col-md-7 col-lg-7 col-sm-12">
             <div className="STEPhead">
               <span className="bjpink"></span>
               <span className="bjpink"></span>
@@ -1369,7 +1376,7 @@ class ListingCreate extends Component {
              
              </div>
              
-             <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+             <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
              </div>
              </div>
              </div>
@@ -1379,7 +1386,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_8 &&
           <div className="becomehost-4 container">
           <div className="row Step1_8">
-              <div className="col-md-7 col-lg-7 col-sm-7">
+              <div className="col-md-7 col-lg-7 col-sm-12">
                <div className="STEPhead">
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
@@ -1523,7 +1530,7 @@ class ListingCreate extends Component {
                 <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
               </div>
               </div>
-              <div className="col-md-4 col-lg-4  col-sm-4 paddingNone rightbox">
+              <div className="col-md-5 col-lg-4  col-sm-12 paddingNone rightbox">
                   <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                     <p>Provide the essentials helps guests feel at home in your place.</p>
@@ -1538,7 +1545,7 @@ class ListingCreate extends Component {
           this.state.step === this.STEP.Step1_9 &&
           <div className="becomehost-4 container">
           <div className="row Step1_8">
-              <div className="col-md-7 col-lg-7 col-sm-7 ">
+              <div className="col-md-7 col-lg-7 col-sm-12 ">
                <div className="STEPhead">
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
@@ -1618,7 +1625,7 @@ class ListingCreate extends Component {
               </div>
               </div>
 
-              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
+              <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                     <p>Spaces should be on the property. Don’t include laundromats or nearby places that aren’t part of your property. If it’s OK with your neighbours,you can include a pool,hot tub,or other shared space.</p>
@@ -1631,9 +1638,9 @@ class ListingCreate extends Component {
         {
           this.state.step === this.STEP.Step1_10 &&
 
-          <div className="becomehost-5 container">
+          <div className="becomehost-2 container">
           <div className="row Step1_10">
-          <div className="col-md-6 col-lg-7 col-sm-6">
+          <div className="col-md-7 col-lg-7 col-sm-12">
           <h1>Great process {this.state.user.user}!</h1>
           <h3>Now let's get some details about your place so you can publish your listings </h3>
           <div className="change">
@@ -1839,7 +1846,7 @@ class ListingCreate extends Component {
 
 
           </div>
-          <div className="col-md-6 col-lg-4 col-md-push-1 col-sm-6 paddingNone">
+          <div className="col-md-5 col-lg-4 col-md-push-1 col-sm-12 paddingNone">
               <img className="stepbg" src="../images/1.png" alt=""/>
           </div>
           </div>
@@ -1921,8 +1928,8 @@ class ListingCreate extends Component {
               
               <div className="photos">
                   {this.state.selectedPictures.map((file,index) => (
-                    <div className="photosimg">
-                      <img className="img-thumbnail" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
+                    <div className="photosimg" >
+                      <img className="img-thumbnail"  data-toggle="modal" data-target="#myModal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
                       <span  className="glyphicon glyphicon-trash" onClick={this.deletePictures.bind(this,index)} ></span>
                     </div>
                     ))
@@ -3213,18 +3220,36 @@ class ListingCreate extends Component {
                 <span></span>
                 <p>Step 3: Get ready for guests</p>
               </div>
+              {this.datedome()}
 
-             <DateRangePicker
-                startDate={this.state.checkInDate}
-                startDateId="start_date"
-                endDate={this.state.checkOutDate}
-                startDatePlaceholderText="Check In"
-                endDatePlaceholderText="Check Out"
-                endDateId="end_date"
-                onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
-                focusedInput={this.state.focusedInput}
-                onFocusChange={focusedInput => this.setState({ focusedInput })}
-              />
+              <div className="box row">
+                <div className="col-lg-1 preDate">◀</div>
+                <div className="col-lg-10 content">
+                  <button>Block this month</button>
+                  <div className="col-md-12 tbhead">
+                    <span>{this.state.Date_month}</span>
+                    <p>{this.state.Date_Months}</p>
+                    <h2>{this.state.Date_year}</h2>
+                  </div>
+                  <div className="col-md-12 table">
+                      <ul>
+                        <li className="th">SUN</li>
+                        <li className="th">MON</li>
+                        <li className="th">TUE</li>
+                        <li className="th">WED</li>
+                        <li className="th">liUH</li>
+                        <li className="th">FRI</li>
+                        <li className="th">SAT</li>
+                        {this.state.Date_List.map(item => (
+                        <li>{item}</li>
+                         ))}
+                      </ul>
+                      
+                  </div>
+                </div>
+                <div className="col-lg-1 nextDate">▶</div>
+              </div> 
+             
 
 
              
@@ -3964,7 +3989,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step3_19 &&
 
           <div className="becomehost-5 container">
           <div className="row Step1_10 Step3_19">

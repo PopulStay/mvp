@@ -19,7 +19,6 @@ class ListingCard extends Component {
   }
 
   componentDidMount() {
-
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.row.id);
     // houselistingService.getHouseInfoDetail(this.props.row)
     // .then((result) => {
@@ -27,6 +26,7 @@ class ListingCard extends Component {
     //     this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds});
     //     return 
     var roominfo = this.props.row.houseinfo;
+    console.log(this.props)
     this.setState(
     {
       price:this.props.row.price,
@@ -50,7 +50,6 @@ class ListingCard extends Component {
   }
   render() {
     return (
-      <div className="col-12 col-md-6 col-lg-4 listing-card">
         <Link to={`/listing/${this.props.row.id}`}>
           <img className="photo" src={this.state.previewurl} role="presentation" />
           <div className="category">{this.state.category} ({this.state.beds} beds)</div>
@@ -66,8 +65,6 @@ class ListingCard extends Component {
             <span>200</span> 
           </div>
         </Link>
-        <br/><br/>
-      </div>
     )
   }
 }

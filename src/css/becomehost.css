@@ -33,7 +33,8 @@ hr{
 .Right{
   float: right;
 }
-.STEPhead span{
+.STEPhead span,
+.introlist .STEPhead span{
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -47,7 +48,8 @@ hr{
   margin: 1% 0 4%;
   font-family: RobotoBold; 
 }
-.STEPBTN{
+.STEPBTN,
+.introlist .STEPBTN{
   width: 100%;
   overflow: hidden;
   border-top:1px solid #ccc; 
@@ -103,7 +105,9 @@ h1,
 .Step3_10 .rightbox>div h6,
 .Step3_13 .rightbox ul li h5,
 .Step3_13 .rightbox ul li p,
-.Step3_6 .rightbox1>div>.date span{
+.Step3_6 .rightbox1>div>.date span,
+.Step3_9 .box span,
+.Step3_9 .box table tr td{
   font-family: RobotoBold; 
 }
 .cursor{
@@ -164,7 +168,8 @@ h1,
 .Step3_20 .box>p,
 .Step3_20 .boxdiv .content>p,
 .Step3_21 p,
-.Step3_2 h3{
+.Step3_2 h3,
+.introlist_4 .radio label{
   font-family: RobotoThin; 
 }
 .container{
@@ -185,6 +190,11 @@ h1,
 }
 .Step1_1 .form-group{
   margin-bottom: 3%;
+  padding: 0;
+}
+.Step1_1 .form-group button,
+.Step1_1 .form-control{
+  width: 90%  !important;
 }
 .Step1_1 .form-group1{
   padding-left: 0;
@@ -206,6 +216,7 @@ h1,
 }
 .rightbj{
   position: relative;
+  margin-bottom: 3%;
 }
 .Step1_1 .rightimg{
   position: absolute;
@@ -231,6 +242,7 @@ h1,
 .Step1_1 .stepfoot p,
 .Step1_1 .stepfoot h4{
   font-size: 1.8rem;
+  line-height: 1.9;
 }
 .Step1_1 .stepfoot h4 span{
   display: inline-block;
@@ -242,14 +254,16 @@ h1,
   font-size: 1.6rem;
 }
 .Step1_1 .stepfoot h4 img{
-  float: right;
-  margin:3%  12% 0 0;
+  position: absolute;
+  top:70%;
+  right:-30px;
 }
 .Step1_1 .stepfoot img{
   width: 25px;
   margin: 0 0 5%;
 }
 .Step1_1 .stepfoot b{
+  position: relative;
   color: #f6416c;
   font-size: 1.4rem;
 }
@@ -452,7 +466,8 @@ h1,
   height: 40px;
 }
 .Step1_2 .radio label,
-.Step3_1 .radio label{
+.Step3_1 .radio label,
+.introlist .boxleft .box .radio label{
   font-size: 1.6rem;
   width: 100%;
   padding: 0;
@@ -460,7 +475,8 @@ h1,
 }
 .Step1_2 .radio label p,
 .Step3_1 .radio label p,
-.Step3_10 .radio p{
+.Step3_10 .radio p,
+.introlist .boxleft .box .radio p{
   display: inline-block;
   width: 18px;
   height: 18px;
@@ -472,7 +488,8 @@ h1,
 }
 .Step1_2 .radio label p span,
 .Step3_1 .radio label p span,
-.Step3_10 .radio p span{
+.Step3_10 .radio p span,
+.introlist .boxleft .box .radio label p span{
   display: inline-block;
   position: absolute;
   top:50%;
@@ -602,9 +619,16 @@ h1,
   padding:2% 3%;
   width: 100%;
 }
-
+.Step1_6 .Step1_6box .col-lg-6{
+  padding-right: 2%;
+}
+.col-md-12.col-lg-6.Step1_6box.right{
+  padding-left:2%; 
+  padding-right: 0%;
+}
 .Step1_6 .Stepbox>div{
   margin-bottom: 2%;
+  padding-right:10%;
 }
 /*Step1_6 end*/
 .Step1_7 h2{
@@ -737,7 +761,7 @@ h1,
   border-bottom: 1px solid #ccc;
 }
 .Step1_10 .change div{
-  width: 90%;
+  width: 85%;
   float: left;
 }
 .Step1_10 .change div p{
@@ -746,6 +770,7 @@ h1,
   cursor: pointer;
 }
 .Step1_10 .change img{
+  float: right;
   width: 40px !important;
   margin: 2% 0 0  !important;
 
@@ -906,7 +931,7 @@ h1,
   background: #fff;
   color:#151b4e;
   padding: 2% 5%;
-  width: 70%;
+  width: 66%;
   float: right;
   margin: 0 0 0 5%;
 }
@@ -1529,6 +1554,72 @@ h1,
   font-size: 2rem;
 }
 /*Step3_6 end*/
+
+.Step3_9 .box .content{
+  margin: 0 auto;
+}
+.Step3_9 .box button{
+  background: #f6416c;
+  color: #fff;
+  border:none;
+  float: right;
+  border-radius: 0;
+  font-size: 1.6rem;
+  padding: 1% 3%;
+}
+.Step3_9 .box .tbhead{
+  margin:3% 0;
+}
+.Step3_9 .box span{
+  font-size: 4.6rem;
+  float: left;
+  color: #151b4e;
+}
+.Step3_9 .box p{
+  margin: 1.2% 0 1.2% 3%;
+  float: left;
+  padding: 1% 0 1% 3%;
+  border-left:1.5px solid #151b4e;
+  font-weight: bold;
+  font-size: 2.4rem;
+  color: #151b4e;
+}
+.Step3_9 .box h2{
+  float: right;
+  font-size: 5rem;
+  color: #151b4e;
+  margin: 0;
+}
+.Step3_9 .box .table .th{
+  text-align: center;
+  color: #151b4e;
+  font-size: 1.8rem;
+}
+.Step3_9 .box .table li{
+  width: 14.2%;
+  text-align: center;
+  font-size: 3rem;
+  color: #b3b3b3;
+  padding: 2% 0 0;
+  display: inline-block;
+}
+.Step3_9 .box .table{
+  margin-bottom: 5%;
+}
+.Step3_9 .box .preDate,
+.Step3_9 .box .nextDate{
+  font-size: 5rem;
+  color: #f6416c;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0,-50%);
+  cursor: pointer;
+}
+.Step3_9 .box .preDate{
+  left:0;
+}
+/*Step3_9 end*/
 .Step3_10 .boxdiv:hover{
   cursor: pointer;
 }
@@ -1732,7 +1823,7 @@ h1,
 
 /*Step3_17 end*/
 .Step3_19 button{
-  padding: 1% 8%;
+  width: 210px;
 }
 .Step3_19 h3{
   line-height: 1.9;
@@ -1775,11 +1866,9 @@ h1,
   margin:5% 0 10%;
 }
 .Step3_18 .box button.Left{
-  margin-left: 5%;
   padding: 1% 3%;
 }
 .Step3_18 .box button.Right{
-  margin-right: 15%;
   background: none;
   border: none;
   color: #131c4e;
@@ -1895,77 +1984,6 @@ h1,
 }
 .bjpink{
   background:#f6416c !important;
-}
-@media (max-width: 1000px) {
-  body{
-    width: 100%;
-    min-width:auto;
-  }
-  .Step1_2{
-    padding-left: 0;
-  }
-  .Step1_2 .form-group,.becomehost-5__preview{
-    width: 100%;
-  }
-  .Step1_2,.Step1_3,.Step1_8,.Step1_10,.becomehost-1,.paddingNone{
-    padding: 0 !important;
-  }
-  .Step1_3 .divLeft{
-    float: left;
-    width: 60%;
-  }
-  .Step1_3 .divRight{
-    float: right;
-    width: 40%;
-  }
-  .Step1_3 .divRight button{
-    float: right;
-    padding: 4% 8%;
-  }
-  .Step1_8 .divinput{
-    width: 90%;
-    font-size: 1.8rem;
-  }
-  .Step1_8 .divinput p:first-child{
-    font-size: 1.8rem;
-  }
-  .Step1_8 .control-group label {
-    color: #f6416c;
-    font-size: 1.6rem;
-    display: block;
-  }
-  .Step1_8 .control-group input{
-    width: 100%;
-    height: 40px;
-    margin: 2px;
-  }
-
-  .Step1_10 .change span {
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-      font-size: 1.5rem;
-      margin: 2%; 
-  }
-  .Step1_10 .formText,.Step1_10 .Fileipt{
-    width: 100%;
-  }
-  .Step1_10 .subbtn{
-    margin-bottom: 10%;
-  }
-  .becomehost-5__preview-link{
-    padding: 8% 0;
-  }
-  .becomehost-5__preview-link>span,.becomehost-5__preview-link>a{
-    font-size: 1.8rem;
-  }
-  
-}
-@media (max-width: 1200px) {
-  .becomehost-1.container{
-    padding: 0 5%;
-    margin-top: 5%;
-  }
 }
 /*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJlY29tZWhvc3Quc2NzcyIsIl92YXIuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHRTtFQUNFLGdCQUFlO0NBQ2hCOztBQUVEO0VBQ0UsaUJBQWdCO0NBQ2pCOztBQUdIOzs7OztFQUtFLHNCQUFxQjtDQXFCdEI7O0FBMUJEOzs7OztFQVFJLG1CQUFrQjtFQUNsQixzQkNoQlU7RURpQlYsaUJBQWdCO0VBQ2hCLG9CQUFtQjtDQUNwQjs7QUFaSDs7Ozs7RUFlSSxhQUFZO0NBQ2I7O0FBaEJIOzs7OztFQW1CSSxvQkFBbUI7RUFDbkIsWUFBVztDQUNaOztBQXJCSDs7Ozs7RUF3QkksWUFBVztDQUNaOztBQUdIO0VBRUksb0JBQW1CO0NBQ3BCOztBQUVEO0VBQ0Usa0JBQWlCO0NBQ2xCOztBQUdIOzs7RUFHRSxpQkFBZ0I7Q0FDakI7O0FBRUQ7O0VBR0ksb0JBQW1CO0NBQ3BCOztBQUdIO0VBQ0Usa0JBQWlCO0VBQ2pCLGtCQUFpQjtDQXVCbEI7O0FBckJDO0VBQ0UsbUJBQWtCO0VBQ2xCLGlCQUFnQjtFQUNoQixXQUFVO0NBQ1g7O0FBRUQ7RUFDRSxtQkFBa0I7RUFDbEIsT0FBTTtFQUNOLFNBQVE7RUFDUixnQkFBZTtFQUNmLFdBQVU7Q0FLWDs7QUFWRDtFQVFJLFlBQVc7Q0FDWjs7QUFuQkw7RUF1QkksWUFBVztDQUNaIiwiZmlsZSI6ImJlY29tZWhvc3QuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAndmFyJztcblxuLmJlY29tZWhvc3Qge1xuICAmX19zdGVwLTEge1xuICAgIG1heC13aWR0aDogNjBweDtcbiAgfVxuXG4gICZfX3N0ZXAtMiB7XG4gICAgbWF4LXdpZHRoOiAzMDBweDtcbiAgfVxufVxuXG4uYmVjb21laG9zdC0xLFxuLmJlY29tZWhvc3QtMixcbi5iZWNvbWVob3N0LTMsXG4uYmVjb21laG9zdC00LFxuLmJlY29tZWhvc3QtNSB7XG4gIHBhZGRpbmctYm90dG9tOiAxMDBweDtcblxuICBhIHtcbiAgICBib3JkZXItcmFkaXVzOiAxcHg7XG4gICAgYm9yZGVyLWNvbG9yOiAkcGluaztcbiAgICBtaW4td2lkdGg6IDE1MHB4O1xuICAgIG1hcmdpbi1ib3R0b206IDcwcHg7XG4gIH1cblxuICBhOmxhc3QtY2hpbGQge1xuICAgIGZsb2F0OiByaWdodDtcbiAgfVxuXG4gIC5yb3cgaW1nIHtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG5cbiAgLnJvdyAgLmJlY29tZWhvc3RfX2luZm8ge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG59XG5cbi5iZWNvbWVob3N0LTEge1xuICAuY29sLW1kLTY6Zmlyc3QtY2hpbGQge1xuICAgIHBhZGRpbmctcmlnaHQ6IDUwcHg7XG4gIH1cblxuICAmX19iZyB7XG4gICAgbWFyZ2luLXRvcDogMTAwcHg7XG4gIH1cbn1cblxuLmJlY29tZWhvc3QtMixcbi5iZWNvbWVob3N0LTMsXG4uYmVjb21laG9zdC00IHtcbiAgbWF4LXdpZHRoOiA5MDBweDtcbn1cblxuLmJlY29tZWhvc3QtMixcbi5iZWNvbWVob3N0LTMge1xuICAuY29sLW1kLTg6Zmlyc3QtY2hpbGQge1xuICAgIHBhZGRpbmctcmlnaHQ6IDUwcHg7XG4gIH1cbn1cblxuLmJlY29tZWhvc3QtNSB7XG4gIHBhZGRpbmctdG9wOiA2MHB4O1xuICBtYXgtd2lkdGg6IDExMDBweDtcblxuICAmX19wcmV2aWV3IHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgbWFyZ2luLXRvcDogNDBweDtcbiAgICB3aWR0aDogNTAlO1xuICB9XG5cbiAgJl9fcHJldmlldy1saW5rIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAwO1xuICAgIHJpZ2h0OiAwO1xuICAgIHBhZGRpbmc6IDE4cHggMDtcbiAgICB3aWR0aDogNDAlO1xuXG4gICAgc3BhbiB7XG4gICAgICBjb2xvcjogI2FhYTtcbiAgICB9XG4gIH1cblxuICBhOmxhc3QtY2hpbGQge1xuICAgIGZsb2F0OiBub25lO1xuICB9XG59IiwiJGJhc2UtZm9udC1zaXplOiAxMHB4O1xuXG4kd2hpdGU6ICNmZmY7XG4kZ3JheTogI2VlZTtcbiRkYXJrLWJsdWU6ICMxMzFjNGU7XG4kcGluazogI2Y2NDE2YztcbiRncmVlbjogIzY2Y2IwMDsiXX0= */
 
