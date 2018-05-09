@@ -27,7 +27,9 @@ class Video extends Component {
        text:"",
        host:"",
        connectguest:"",
-       online:false
+       online:false,
+       calling:false,
+       connectionCode:""
     }
       
   }
@@ -100,6 +102,12 @@ class Video extends Component {
           this.setState({text:''});
           this.setState({connectguest:data.guest});
         });
+
+        window.io.socket.on('connection'+this.state.host,  (data)=> {
+         console.log("######################connection ",data);
+         this.setState({connectionCode:data.connection,calling:true});
+
+        });  
     }
 
     if( window.address != this.state.host )
@@ -126,7 +134,6 @@ class Video extends Component {
         console.log("######################offline ",data);
          this.setState({online:false});
       });  
-
   }
 
   handleKeyPress =(e)=> {
@@ -137,14 +144,33 @@ class Video extends Component {
   }
 
   handleMic =()=> {
-    if( window.AgoraRTC)
+
+ 
+    if(window.address == this.state.host)
+    {
+      return ;
+    }
+
+
+    window.io.socket.get('/messages/connection?account='+window.address+'&host='+this.state.host,
+      (data, jwRes)=>
+      {
+        //console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
+        this.setState({connectionCode:data.connection});
+        this.audioCall();
+      }
+    );
+  }
+
+  audioCall = () =>{
+        if( window.AgoraRTC)
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
         this.client.init( this.constant.appId ,()=>{
         console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
         console.log("this.state.host"+this.state.host);
         this.subscribeStreamEvents();
-        this.client.join(null, this.state.host, null, (uid) => {
+        this.client.join(null, this.state.connectionCode, null, (uid) => {
             console.log("User " + uid + " join channel successfully");
             console.log('At ' + new Date().toLocaleTimeString());
             console.log(uid);
@@ -169,16 +195,18 @@ class Video extends Component {
                 console.log("Publish local stream successfully");
              });
 
-            this.setState({ readyState: true });
+            this.setState({ readyState: true , calling: false });
         },
           err => {
             console.log("getUserMedia failed", err);
-            this.setState({ readyState: true });
+            this.setState({ readyState: true , calling: false  });
           });
      
         })
       });
     }
+
+
   }
 
     
@@ -250,6 +278,18 @@ class Video extends Component {
                     !this.state.online &&
                      <p>Host off line</p>
                    }
+
+                  {
+                    this.state.readyState &&
+                    <p>in Talking</p>
+                   }
+
+                   {
+                    this.state.calling &&
+                     <button className="btn btn-danger" onClick={this.audioCall}>Answer</button>
+                   }
+
+
                   
               </div>
             )
