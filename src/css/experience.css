@@ -299,3 +299,136 @@
 .experienceintro_content .contentbox6 .box1{
 	margin-bottom: 3%;
 }
+.introlist{
+	padding: 1.5%;
+}
+.introlist>div{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top:0;
+	padding: 2%;
+}
+.introlist .boxleft{
+	width: 40%;
+	height: 100%;
+	float:left;
+	position: relative;
+}
+.introlist .boxleft .logo{
+	width: 30px;
+}
+.introlist_1 .boxleft .box{
+	padding: 0 10%;
+	width: 100%;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.introlist_1 .boxleft .box h3,
+.introlist_2 .boxleft h3{
+	font-size: 3rem;
+    margin-bottom: 5%;
+    line-height: 1.4;
+}
+.introlist_1 .boxleft .box p{
+	font-size: 1.8rem;
+}
+.introlist .boxleft .box button.next{
+	padding: 1% 8%;
+	border-radius: 0;
+	font-size: 2rem;
+	border:none;
+	background-color: #f6416c;
+	color: #fff;
+	border:1px solid #f6416c;
+	cursor: pointer;
+	margin: 5% 0 ;
+   	font-family: RobotoBold; 
+}
+.introlist .boxright{
+	width:60%;
+	float: right;
+	overflow: hidden;
+	position: relative;
+}
+.introlist .boxright img{
+	width: 100%;
+	position: absolute;
+	top:50%;
+	right: 0;
+	transform: translate(0,-40%);
+}
+.introlist_2 .boxleft .box{
+	padding: 0 25% 0 10%;
+	width: 100%;
+	height: 81%;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.introlist_2 .boxleft .btn-group{
+	padding: 0;
+}
+.introlist_2 .boxleft .btn-group button{
+	background: none;
+	border: 1px solid #606060;
+	border-radius: 0;
+	width: 100%;
+	height: 45px;
+	line-height: 100%;
+	text-align: left;
+	font-size: 1.6rem;
+  	font-family: RobotoThin; 
+}
+.introlist_2 .boxleft .btn-group button span{
+  float: right;
+  color: #f6416c;
+  font-size: 2.2rem;
+}
+.introlist_2 .dropdown-menu{
+  width: 100%;
+  max-height: 300px;
+  overflow: auto;
+  font-family: RobotoThin; 
+}
+.introlist_2 .dropdown-menu a{
+  width: 100%;
+  text-align: center;
+  padding: 2% 3%;
+  margin: 0;
+  border-top: 1px solid #888;
+  cursor: pointer;
+  text-align: left;
+  color: #000;
+  font-size: 1.6rem;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+.introlist_2 .dropdown-menu li:first-child>a{
+  border-top: none;
+}
+.introlist_2 .dropdown-menu a:hover{
+  background: #f6416c;
+  color: #fff;
+}
+.introlist .boxleft .box button.next{
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
+}
+.introlist .boxleft .box button.pre{
+	position: absolute;
+	background: none;
+	border:none;
+	bottom: 0;
+	left: 10%;
+	padding: 0;
+    font-family: RobotoThin; 
+}
+.introlist .boxleft .box button.pre span{
+	color: #f6416c;
+	margin-right: 3%;
+	font-size: 1.4rem;
+}

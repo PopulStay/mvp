@@ -18,6 +18,7 @@ import Search from './search.js'
 import Listingexperience from './listing-experience.js'
 import Listingall from './listing-all.js'
 import Experienceintro from './experience-intro.js'
+import Itrolist from './intro-list.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -80,13 +81,13 @@ const HostOrderPage = (props) => (
 
 
 
-const Layout = ({ children, hideTagHeader }) => (
+const Layout = ({ children, hideTagHeader , hideTagFooter}) => (
   <div>
     
       <NavBar hideTagHeader={hideTagHeader} />
       {children}
     
-    <Footer />
+    <Footer hideTagFooter={hideTagFooter} />
   </div>
 )
 
@@ -115,6 +116,12 @@ const Intro = (props) => (
 )
 
 
+const experiencelist = (props) => (
+  <Layout {...props}  hideTagHeader="NO" hideTagFooter="NO">
+      <Itrolist />
+  </Layout>
+)
+
 // Top level component
 const App = () => (
   <Router>
@@ -130,6 +137,7 @@ const App = () => (
           <Route exact path="/experience" component={experiencePage}/>
           <Route exact path="/all" component={all}/>
           <Route exact path="/Intro" component={Intro}/>
+          <Route exact path="/experiencelist" component={experiencelist}/>
         </div>
     </ScrollToTop>
   </Router>

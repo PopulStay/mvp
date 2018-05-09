@@ -893,10 +893,6 @@ class ListingCreate extends Component {
       }
     }
     datedome(){
-      var CurrentD =  new Date();
-      var ActiveD =  new Date();
-      
-      
 
     }
 
