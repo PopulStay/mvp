@@ -955,7 +955,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-6 col-lg-6  col-sm-12">
@@ -1640,7 +1640,7 @@ class ListingCreate extends Component {
         }
           
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step1_10 &&
 
           <div className="becomehost-2 container">
           <div className="row Step1_10">

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { DateRangePicker } from 'react-dates';
+import houselistingService from '../services/houseinfolist-service'
+import { withRouter } from 'react-router'
+import ListingCard from './listing-card'
 
 
 class Search extends Component {
@@ -13,6 +16,10 @@ class Search extends Component {
         guests:null,
         place:null,
         locationName:"Tokyo",
+        listingRows: [],
+        listingsPerPage: 8,
+        districtCodes:[],
+        curDistrictCodeIndex:0
       };
       window.searchCondition = this.state;
   }
@@ -21,7 +28,43 @@ class Search extends Component {
     this.setState({state: this.state.locationName = DataName});
   }
 
+   componentWillMount() {
+    this.handlePageChange = this.handlePageChange.bind(this);
+    if( window.searchCondition.checkInDate )
+    {
+      var from   = window.searchCondition.checkInDate.toDate().getTime();
+    }
+
+    if( window.searchCondition.checkOutDate )
+    {
+      var to = window.searchCondition.checkOutDate.toDate().getTime();
+    }
+
+    if( window.searchCondition )
+    {
+      var guests = window.searchCondition.guests;
+      var place  = window.searchCondition.place;      
+    }
+
+
+    houselistingService.getDistrictCodes().then((codes)=>
+    {
+      this.setState({districtCodes:codes.data});
+      var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
+           this.setState({ listingRows: data });
+      });
+    });
+  }
+
+  handlePageChange(pageNumber) {
+    this.props.history.push(`/page/${pageNumber}`)
+  }
+
   render() {
+       const activePage = this.props.match.params.activePage || 1;
+      const showListingsRows = this.state.listingRows.slice(
+      this.state.listingsPerPage * (activePage-1),
+      this.state.listingsPerPage * (activePage))
 
     return (
       <div className="form">
@@ -105,105 +148,29 @@ class Search extends Component {
         <div className="container index_home">
             <h2>Homes around the world</h2>
             <div className="overflow">
-                <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
-                  <img className="photo" src="../images/detail-carousel.jpg" role="presentation" />
-                  <div className="category">Entire place (0.5 beds)</div>
-                  <div className="title">new york</div>
-                  <div className="price">
-                      ￥200 pps per night
-                  </div>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <span>200</span> 
-                  </div>
-                </div>
-                <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
-                  <img className="photo" src="../images/detail-carousel.jpg" role="presentation" />
-                  <div className="category">Entire place (0.5 beds)</div>
-                  <div className="title">new york</div>
-                  <div className="price">
-                      ￥200 pps per night
-                  </div>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <span>200</span> 
-                  </div>
-                </div>
-                <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
-                  <img className="photo" src="../images/detail-carousel.jpg" role="presentation" />
-                  <div className="category">Entire place (0.5 beds)</div>
-                  <div className="title">new york</div>
-                  <div className="price">
-                      ￥200 pps per night
-                  </div>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <span>200</span> 
-                  </div>
-                </div>
+                  {showListingsRows.map(row => (
+                    <div className="col-12 col-md-6 col-lg-4 listing-card">
+                    <ListingCard row={row}/>
+                    </div>
+                  ))}
             </div>
+            <Link to="/all">
             <h4>Show all (2000+)</h4>
+            </Link>
         </div>
         <div className="container index_home">
             <h2>Experiences travellers love</h2>
             <p>Book activities led by local hosts on your next trip</p>
             <div className="overflow">
-                <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
-                  <img className="photo" src="../images/detail-carousel.jpg" role="presentation" />
-                  <div className="category">Entire place (0.5 beds)</div>
-                  <div className="title">new york</div>
-                  <div className="price">
-                      ￥200 pps per night
+                {showListingsRows.map(row => (
+                  <div className="col-12 col-md-6 col-lg-4 listing-card">
+                  <ListingCard row={row}/>
                   </div>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <span>200</span> 
-                  </div>
-                </div>
-                <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
-                  <img className="photo" src="../images/detail-carousel.jpg" role="presentation" />
-                  <div className="category">Entire place (0.5 beds)</div>
-                  <div className="title">new york</div>
-                  <div className="price">
-                      ￥200 pps per night
-                  </div>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <span>200</span> 
-                  </div>
-                </div>
-                <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
-                  <img className="photo" src="../images/detail-carousel.jpg" role="presentation" />
-                  <div className="category">Entire place (0.5 beds)</div>
-                  <div className="title">new york</div>
-                  <div className="price">
-                      ￥200 pps per night
-                  </div>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <span>200</span> 
-                  </div>
-                </div>
+                ))}
             </div>
+            <Link to="/all">
             <h4>Show all (2000+)</h4>
+            </Link>
         </div>
     </div>
 
@@ -212,4 +179,4 @@ class Search extends Component {
   }
 }
 
-export default Search
+export default withRouter(Search)

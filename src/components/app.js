@@ -16,6 +16,7 @@ import NavBar from './navbar'
 import Overlay from './overlay'
 import Search from './search.js'
 import Listingexperience from './listing-experience.js'
+import Listingall from './listing-all.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -95,6 +96,13 @@ const experiencePage = (props) => (
     </div>
   </Layout>
 )
+const all = (props) => (
+  <Layout {...props}>
+    <div className="container">
+      <Listingall />
+    </div>
+  </Layout>
+)
 
 
 // Top level component
@@ -105,6 +113,7 @@ const App = () => (
           <Route exact path="/" component={SearchPage}/>
           <Route exact path="/home" component={HomePage}/>
           <Route exact path="/experience" component={experiencePage}/>
+          <Route exact path="/all" component={all}/>
           <Route path="/page/:activePage" component={HomePage}/>
           <Route path="/listing/:listingId" component={ListingDetailPage}/>
           <Route path="/create" component={CreateListingPage}/>

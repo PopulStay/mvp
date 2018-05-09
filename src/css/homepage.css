@@ -29,6 +29,10 @@
   background: url(../images/index.png) no-repeat;
   background-size: 100%;
 }
+.form .index_home a{
+  color: #4d4e4e;
+  text-decoration: none;
+}
 .form .index_content{
   margin:5% auto 0;
 }
@@ -101,7 +105,7 @@
   font-size: 1.8rem;
 }
 .index_foot ul>a{
-  color: #151b4e;
+  color: #4d4e4e;
 }
 .index_foot ul .liimg{
   width: 5%;
@@ -158,6 +162,7 @@
 }
 .listing-card .photo {
   width: 100%;
+  max-height: 200px;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;

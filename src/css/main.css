@@ -7923,7 +7923,7 @@ header .dropdown-menu a.dropdown-item1{
 }
 
 .footer .social li {
-  margin: 0 3px;
+  margin: 0 2px;
 }
 
 .footer__brand-info {
@@ -7956,7 +7956,7 @@ header .dropdown-menu a.dropdown-item1{
 }
 
 .footer__dropdown {
-  padding: 12px 0;
+  padding: 4% 0;
 }
 
 .footer__logo {
@@ -8230,6 +8230,9 @@ header .dropdown-menu a.dropdown-item1{
 .tag-header .tag__item a{
   color: #f6416c;
   text-decoration:none;
+}
+.tag-header .tag__item.active a{
+  color: #131c4e;
 }
 .tag-header .tag__item {
   margin: 0 10px;
