@@ -326,14 +326,13 @@
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
-.introlist_1 .boxleft .box h3,
-.introlist_2 .boxleft h3{
+.introlist .boxleft h3{
 	font-size: 3rem;
     margin-bottom: 5%;
-    line-height: 1.4;
 }
 .introlist_1 .boxleft .box p{
 	font-size: 1.8rem;
+	line-height: 1.9;
 }
 .introlist .boxleft .box button.next{
 	padding: 1% 8%;
@@ -360,19 +359,74 @@
 	right: 0;
 	transform: translate(0,-40%);
 }
-.introlist_2 .boxleft .box{
-	padding: 0 25% 0 10%;
+.introlist .boxleft .box button.next{
+	position: absolute;
+	bottom: 8%;
+	left: 10%;
+}
+.introlist .boxleft .box p.pre{
+	position: absolute;
+	bottom: 0;
+	left: 10%;
+	padding: 0;
+    font-family: RobotoThin; 
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+.introlist .boxleft .box p.pre span{
+	color: #f6416c;
+	margin-right: 3%;
+	font-size: 1.8rem;
+}
+.introlist_1 .boxleft .box{
+	height: 55%;
+}
+
+.introlist_2 p{
+	font-size:1.8rem;
+	position: relative;
+	padding-left: 5%;
+	margin-bottom: 0px;
+}
+.introlist_2 ul li{
+	margin-bottom: 3%;
+}
+.introlist_2 ul li span{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	line-height: 15px;
+	text-align: center;
+	border:1px solid #4d4e4e;
+	border-radius: 50%;
+	color: #4d4e4e;
+	font-weight: bold;
+	position: absolute;
+	top:4px;
+	left: 0;
+}
+.introlist .boxleft .box{
+	padding: 0 20% 0 10%;
 	width: 100%;
-	height: 81%;
 	position: absolute;
 	top:50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
-.introlist_2 .boxleft .btn-group{
+.introlist_2 .boxleft .box,
+.introlist_3 .boxleft .box{
+	height:85%;
+}
+.introlist_3 .boxleft h3{
+	margin: 35% 0 15%;
+}
+.introlist_3 .boxleft .box{
+	padding: 0 25% 0 10%;
+}
+.introlist_3 .boxleft .btn-group{
 	padding: 0;
 }
-.introlist_2 .boxleft .btn-group button{
+.introlist_3 .boxleft .btn-group button{
 	background: none;
 	border: 1px solid #606060;
 	border-radius: 0;
@@ -383,18 +437,18 @@
 	font-size: 1.6rem;
   	font-family: RobotoThin; 
 }
-.introlist_2 .boxleft .btn-group button span{
+.introlist_3 .boxleft .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2.2rem;
 }
-.introlist_2 .dropdown-menu{
+.introlist_3 .dropdown-menu{
   width: 100%;
   max-height: 300px;
   overflow: auto;
   font-family: RobotoThin; 
 }
-.introlist_2 .dropdown-menu a{
+.introlist_3 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 3%;
@@ -406,29 +460,10 @@
   font-size: 1.6rem;
   -webkit-font-smoothing:subpixel-antialiased;
 }
-.introlist_2 .dropdown-menu li:first-child>a{
+.introlist_3 .dropdown-menu li:first-child>a{
   border-top: none;
 }
-.introlist_2 .dropdown-menu a:hover{
+.introlist_3 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
-}
-.introlist .boxleft .box button.next{
-	position: absolute;
-	bottom: 10%;
-	left: 10%;
-}
-.introlist .boxleft .box button.pre{
-	position: absolute;
-	background: none;
-	border:none;
-	bottom: 0;
-	left: 10%;
-	padding: 0;
-    font-family: RobotoThin; 
-}
-.introlist .boxleft .box button.pre span{
-	color: #f6416c;
-	margin-right: 3%;
-	font-size: 1.4rem;
 }

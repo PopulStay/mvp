@@ -23,21 +23,42 @@ class introlist extends Component {
   componentWillMount() {
       this.setState({step:this.STEP.Step1});
   }
-
+  nextstep(){
+    if(this.state.step == this.STEP.Step1) {
+      this.setState({step:this.STEP.Step2});
+    }
+    if(this.state.step == this.STEP.Step2) {
+      this.setState({step:this.STEP.Step3});
+    }
+    if(this.state.step == this.STEP.Step3) {
+      this.setState({step:this.STEP.Step4});
+    }
+  }
+  prestep(e){
+    if(this.state.step == this.STEP.Step4) {
+      this.setState({step:this.STEP.Step3});
+    }
+    if(this.state.step == this.STEP.Step3) {
+      this.setState({step:this.STEP.Step2});
+    }
+    if(this.state.step == this.STEP.Step2) {
+      this.setState({step:this.STEP.Step1});
+    }
+  }
 
   render() {
     const Countrys = this.state.Countrys;
 
     return (
       <div className="introlist">
-        { this.state.step === this.STEP.Step2 &&
+        { this.state.step === this.STEP.Step1 &&
           <div className="introlist_1 row">
               <div className="boxleft">
                   <img className="logo" src="./images/introlist_logo.png" />
                   <div className="box">
                       <h3>Hi there, Zhao !</h3>
                       <p>We’re excited to learn about the experience you’d like to host on Populstay.In just a few minutes, you’ll start to create your experience page, then you’ll submit it to be reviewed by Populstay</p>
-                      <button className="next">Next</button>
+                      <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
                   </div>
               </div>
               <div className="boxright">
@@ -45,7 +66,7 @@ class introlist extends Component {
               </div>
           </div>
         }
-        { this.state.step === this.STEP.Step1 &&
+        { this.state.step === this.STEP.Step2 &&
           <div className="introlist_2 row">
               <div className="boxleft">
                   <img className="logo" src="./images/introlist_logo.png" />
@@ -53,6 +74,46 @@ class introlist extends Component {
                     <div className="STEPhead">
                       <span className="bjpink"></span>
                       <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                      <h3>Here’s an overview  of the process: </h3>
+                      <ul>
+                          <li>
+                              <p><span>1</span>Learn about our expectations(2-3 minutes) </p>
+                              <p>Find out what makes experiences different and what Populstay is looking for.</p>
+                          </li>
+                          <li>
+                              <p><span>2</span>Create your experience (as much time as you need)</p>
+                              <p>Add photos, videos, descriptions, and other details to be reviewed by Populstay.</p>
+                          </li>
+                          <li>
+                              <p><span>3</span>Submit for review</p>
+                              <p>Someone from Populstay  will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!</p>
+                          </li>
+                      </ul>
+                      <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                      <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                  </div>
+              </div>
+              <div className="boxright">
+                  <img src="./images/introlist_2.png" />
+              </div>
+          </div>
+        }
+
+        { this.state.step === this.STEP.Step3 &&
+          <div className="introlist_3 row">
+              <div className="boxleft">
+                  <img className="logo" src="./images/introlist_logo.png" />
+                  <div className="box">
+                    <div className="STEPhead">
+                      <span className="bjpink"></span>
+                      <span className="bjpink"></span>
                       <span></span>
                       <span></span>
                       <span></span>
@@ -69,15 +130,16 @@ class introlist extends Component {
                           ))}
                         </ul>
                       </div>
-                      <button className="next">Next</button>
-                      <button className="pre"><span>◀</span>BACK</button>
+                      <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                      <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
                   </div>
               </div>
               <div className="boxright">
-                  <img src="./images/introlist_1.png" />
+                  <img src="./images/introlist_3.png" />
               </div>
           </div>
         }
+
       </div>
     )
   }
