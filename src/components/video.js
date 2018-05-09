@@ -195,11 +195,11 @@ class Video extends Component {
                 console.log("Publish local stream successfully");
              });
 
-            this.setState({ readyState: true });
+            this.setState({ readyState: true , calling: false });
         },
           err => {
             console.log("getUserMedia failed", err);
-            this.setState({ readyState: true });
+            this.setState({ readyState: true , calling: false  });
           });
      
         })
