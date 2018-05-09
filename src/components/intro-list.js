@@ -17,6 +17,7 @@ class introlist extends Component {
         step: 0,
         Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
         city:"Angola",
+        work_experience:0,
     };
 
   }
@@ -129,6 +130,40 @@ class introlist extends Component {
                             <li><a onClick={(e) => this.setState({city: item})}>{item}</a></li>
                           ))}
                         </ul>
+                      </div>
+                      <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                      <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                  </div>
+              </div>
+              <div className="boxright">
+                  <img src="./images/introlist_3.png" />
+              </div>
+          </div>
+        }
+
+        { this.state.step === this.STEP.Step4 &&
+          <div className="introlist_4 row">
+              <div className="boxleft">
+                  <img className="logo" src="./images/introlist_logo.png" />
+                  <div className="box">
+                    <div className="STEPhead">
+                      <span className="bjpink"></span>
+                      <span className="bjpink"></span>
+                      <span className="bjpink"></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                      <h3>Have you hosted an experience on Populstay or somewhere else before?</h3>
+                      <div className="radio" onClick={(e) => this.setState({work_experience: 0})}>
+                        <label className="text-muted"><p><span className={this.state.work_experience == 0 ?"show":"hide"}></span></p>Yes, i've done this before</label>
+                        <h4 className={this.state.work_experience == 0 ?"show":"hide"}>We welcome your participation and experience in Audemars Pigeut, which is different from organizing activities on other platforms.</h4>
+                      </div>
+                      <div className="radio" onClick={(e) => this.setState({work_experience: 1})}>
+                        <label className="text-muted"><p><span className={this.state.work_experience == 1 ?"show":"hide"}></span></p>No, not yet!</label>
+                        <h4 className={this.state.work_experience == 1 ?"show":"hide"}>No problem! Anyone with a lot of passion and a great idea can become a host. We'll show you tips and examples along the way to help you build a great experience and be successful.</h4>
                       </div>
                       <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
                       <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
