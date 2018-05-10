@@ -28,7 +28,8 @@ class Video extends Component {
        host:"",
        connectguest:"",
        online:false,
-       calling:false,
+       audioCalling:false,
+       videoCalling:false,
        connectionCode:""
     }
       
@@ -56,6 +57,9 @@ class Video extends Component {
     })
   }
 
+
+
+//sending message and online control
   handleEnterMessage =()=>{
      if( window.address == this.state.host )
      {
@@ -104,8 +108,16 @@ class Video extends Component {
         });
 
         window.io.socket.on('connection'+this.state.host,  (data)=> {
-         console.log("######################connection ",data);
-         this.setState({connectionCode:data.connection,calling:true});
+          console.log("######################connection ",data);
+          if(data.type == 'audio')
+          {
+            this.setState({connectionCode:data.connection,audioCalling:true}); 
+          }
+          else if(data.type == 'video')
+          {
+            this.setState({connectionCode:data.connection,videoCalling:true}); 
+          }
+         
 
         });  
     }
@@ -143,6 +155,74 @@ class Video extends Component {
     }
   }
 
+  //video message
+  handleVideo =()=> {
+
+ 
+    if(window.address == this.state.host)
+    {
+      return ;
+    }
+
+
+    window.io.socket.get('/messages/connection?type=video&account='+window.address+'&host='+this.state.host,
+      (data, jwRes)=>
+      {
+        this.setState({connectionCode:data.connection});
+        this.videoCall();
+      }
+    );
+  }
+
+  videoCall = () =>{
+        if( window.AgoraRTC)
+    { 
+        this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
+        this.client.init( this.constant.appId ,()=>{
+        console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
+        console.log("this.state.host"+this.state.host);
+        this.subscribeStreamEvents();
+        this.client.join(null, this.state.connectionCode, null, (uid) => {
+            console.log("User " + uid + " join channel successfully");
+            console.log('At ' + new Date().toLocaleTimeString());
+            console.log(uid);
+      
+        this.localStream = window.AgoraRTC.createStream({streamID: uid,audio: true,video: true,screen: false});
+        this.localStream.setVideoProfile("480p_4");
+        this.localStream.on("accessAllowed", function() {
+          console.log("accessAllowed");
+        });
+        // The user has denied access to the camera and mic.
+        this.localStream.on("accessDenied", function() {
+          console.log("accessDenied");
+        });
+
+
+        this.localStream.init(() => {            
+            this.client.publish(this.localStream, err => {
+              console.log("Publish local stream error: " + err);
+            });
+
+            this.client.on('stream-published', function (evt) {
+                console.log("Publish local stream successfully");
+             });
+
+            this.setState({ readyState: true , videoCalling: false });
+        },
+          err => {
+            console.log("getUserMedia failed", err);
+            this.setState({ readyState: true , videoCalling: false  });
+          });
+     
+        })
+      });
+    }
+
+
+  }
+
+//audio message  
+
   handleMic =()=> {
 
  
@@ -152,10 +232,9 @@ class Video extends Component {
     }
 
 
-    window.io.socket.get('/messages/connection?account='+window.address+'&host='+this.state.host,
+    window.io.socket.get('/messages/connection?type=audio&account='+window.address+'&host='+this.state.host,
       (data, jwRes)=>
       {
-        //console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
         this.setState({connectionCode:data.connection});
         this.audioCall();
       }
@@ -195,21 +274,18 @@ class Video extends Component {
                 console.log("Publish local stream successfully");
              });
 
-            this.setState({ readyState: true , calling: false });
+            this.setState({ readyState: true , audioCalling: false });
         },
           err => {
             console.log("getUserMedia failed", err);
-            this.setState({ readyState: true , calling: false  });
+            this.setState({ readyState: true , audioCalling: false  });
           });
      
         })
       });
     }
-
-
   }
 
-    
   subscribeStreamEvents = () =>{
     let rt = this;
     rt.client.on('stream-added', function (evt) {
@@ -237,7 +313,10 @@ class Video extends Component {
       console.log(new Date().toLocaleTimeString())
       console.log("Subscribe remote stream successfully: " + stream.getId())
       console.log(evt)
+      // if( this.state.audioCalling )
       stream.play('agora_remote');
+      // else if ( this.state.videoCalling )
+      // stream.play('agora_remote','/res');  
     })
 
     rt.client.on("stream-removed", function (evt) {
@@ -253,7 +332,7 @@ class Video extends Component {
   render() {
 
     return (  
-              <div id="agora_remote" className="video">
+              <div className="video">
                    <ul>
                       {this.state.messagearr.map((item,index) => (
                           <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
@@ -268,7 +347,7 @@ class Video extends Component {
                       <img className="keyboard" src="../images/becomehost-keyboard.png" />
                       <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
                       <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
-                      <img className="becomehost_video" src="../images/becomehost-video.png" />
+                      <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
                    </div>
                    {
                     this.state.online &&
@@ -285,11 +364,16 @@ class Video extends Component {
                    }
 
                    {
-                    this.state.calling &&
-                     <button className="btn btn-danger" onClick={this.audioCall}>Answer</button>
+                    this.state.audioCalling &&
+                     <button className="btn btn-danger" onClick={this.audioCall}>Answer Audio</button>
                    }
 
+                    {
+                    this.state.videoCalling &&
+                     <button className="btn btn-danger" onClick={this.videoCall}>Answer Video</button>
+                   }
 
+                  <video id="agora_remote" source='/res' controls="controls"></video>
                   
               </div>
             )
