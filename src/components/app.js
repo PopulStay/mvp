@@ -19,6 +19,7 @@ import Listingexperience from './listing-experience.js'
 import Listingall from './listing-all.js'
 import Experienceintro from './experience-intro.js'
 import Itrolist from './intro-list.js'
+import Registerlist from './register-list.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -122,6 +123,12 @@ const experiencelist = (props) => (
   </Layout>
 )
 
+const Register = (props) => (
+  <Layout {...props}  hideTagHeader="NO" hideTagFooter="NO">
+      <Registerlist />
+  </Layout>
+)
+
 // Top level component
 const App = () => (
   <Router>
@@ -137,7 +144,7 @@ const App = () => (
           <Route exact path="/experience" component={experiencePage}/>
           <Route exact path="/all" component={all}/>
           <Route exact path="/Intro" component={Intro}/>
-          <Route exact path="/experiencelist" component={experiencelist}/>
+          <Route exact path="/Register" component={Register}/>
         </div>
     </ScrollToTop>
   </Router>

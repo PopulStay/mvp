@@ -366,7 +366,7 @@ class introlist extends Component {
                           </li>
                       </ul>
                   </div>
-                    <button className="next"><a herf="/">Create an experience</a></button>
+                    <button className="next"><a  href="/Register">Create an experience</a></button>
                     <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
               </div>
               <div className="boxright">
