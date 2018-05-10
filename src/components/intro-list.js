@@ -14,7 +14,8 @@ class introlist extends Component {
             Step5:5,
             Step6:6,
             Step7:7,
-            Step8:8
+            Step8:8,
+            Step9:9
     }
 
     this.state = {
@@ -22,6 +23,8 @@ class introlist extends Component {
         Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
         city:"Angola",
         work_experience:0,
+        experience:"",
+        hospitality:"",
     };
 
   }
@@ -50,8 +53,14 @@ class introlist extends Component {
     if(this.state.step == this.STEP.Step7) {
       this.setState({step:this.STEP.Step8});
     }
+    if(this.state.step == this.STEP.Step8) {
+      this.setState({step:this.STEP.Step9});
+    }
   }
   prestep(e){
+    if(this.state.step == this.STEP.Step9) {
+      this.setState({step:this.STEP.Step8});
+    }
     if(this.state.step == this.STEP.Step8) {
       this.setState({step:this.STEP.Step7});
     }
@@ -83,7 +92,7 @@ class introlist extends Component {
         { this.state.step === this.STEP.Step1 &&
           <div className="introlist_1 row">
               <div className="boxleft">
-                  <img className="logo" src="./images/introlist_logo.png" />
+                  <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
                   <div className="box">
                       <h3>Hi there, Zhao !</h3>
                       <p>We’re excited to learn about the experience you’d like to host on Populstay.In just a few minutes, you’ll start to create your experience page, then you’ll submit it to be reviewed by Populstay</p>
@@ -99,7 +108,7 @@ class introlist extends Component {
         { this.state.step === this.STEP.Step2 &&
           <div className="introlist_2 row">
               <div className="boxleft">
-                  <img className="logo" src="./images/introlist_logo.png" />
+                  <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
                   <div className="STEPhead">
                     <span className="bjpink"></span>
                     <span></span>
@@ -114,16 +123,16 @@ class introlist extends Component {
                       <h3>Here’s an overview  of the process: </h3>
                       <ul>
                           <li>
-                              <p><span>1</span>Learn about our expectations(2-3 minutes) </p>
-                              <p>Find out what makes experiences different and what Populstay is looking for.</p>
+                              <p className="text1"><span>1</span>Learn about our expectations(2-3 minutes) </p>
+                              <p className="text2">Find out what makes experiences different and what Populstay is looking for.</p>
                           </li>
                           <li>
-                              <p><span>2</span>Create your experience (as much time as you need)</p>
-                              <p>Add photos, videos, descriptions, and other details to be reviewed by Populstay.</p>
+                              <p className="text1"><span>2</span>Create your experience (as much time as you need)</p>
+                              <p className="text2">Add photos, videos, descriptions, and other details to be reviewed by Populstay.</p>
                           </li>
                           <li>
-                              <p><span>3</span>Submit for review</p>
-                              <p>Someone from Populstay  will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!</p>
+                              <p className="text1"><span>3</span>Submit for review</p>
+                              <p className="text2">Someone from Populstay  will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!</p>
                           </li>
                       </ul>
                   </div>
@@ -139,7 +148,7 @@ class introlist extends Component {
         { this.state.step === this.STEP.Step3 &&
           <div className="introlist_3 row">
               <div className="boxleft">
-                  <img className="logo" src="./images/introlist_logo.png" />
+                  <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
                   <div className="STEPhead">
                     <span className="bjpink"></span>
                     <span className="bjpink"></span>
@@ -173,7 +182,7 @@ class introlist extends Component {
         { this.state.step === this.STEP.Step4 &&
           <div className="introlist_4 row">
               <div className="boxleft">
-                  <img className="logo" src="./images/introlist_logo.png" />
+                  <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
                   <div className="STEPhead">
                     <span className="bjpink"></span>
                     <span className="bjpink"></span>
@@ -207,7 +216,7 @@ class introlist extends Component {
         { this.state.step === this.STEP.Step5 &&
           <div className="introlist_5 row">
               <div className="boxleft">
-                  <img className="logo" src="./images/introlist_logo.png" />
+                  <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
                   <div className="STEPhead">
                     <span className="bjpink"></span>
                     <span className="bjpink"></span>
@@ -239,9 +248,9 @@ class introlist extends Component {
         }
 
         { this.state.step === this.STEP.Step6 &&
-          <div className="introlist_5 row">
+          <div className="introlist_5 introlist_6 row">
               <div className="boxleft">
-                  <img className="logo" src="./images/introlist_logo.png" />
+                  <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
                   <div className="STEPhead">
                     <span className="bjpink"></span>
                     <span className="bjpink"></span>
@@ -267,7 +276,101 @@ class introlist extends Component {
                   <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
               </div>
               <div className="boxright">
-                  <img src="./images/introlist_5.png" />
+                  <img src="./images/introlist_6.png" />
+              </div>
+          </div>
+        }
+
+        { this.state.step === this.STEP.Step7 &&
+          <div className="introlist_7 row">
+              <div className="boxleft">
+                  <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
+                  <div className="STEPhead">
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div className="box">
+                      <h3>Imagine your guests have all arrived. Hou would you kick off the first 10 minutes of your experience ?</h3>
+                      <textarea onChange={(e) => this.setState({experience: e.target.value})}></textarea>
+                  </div>
+                  <button className={this.state.experience == "" ? "btnactive next" : "next"}  disabled={ this.state.experience == "" ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}  >Next</button>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+              </div>
+              <div className="boxright">
+                  <img src="./images/introlist_7.png" />
+              </div>
+          </div>
+        }
+
+        { this.state.step === this.STEP.Step8 &&
+          <div className="introlist_7 row">
+              <div className="boxleft">
+                  <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
+                  <div className="STEPhead">
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div className="box">
+                      <h3>What dose hospitality mean to you ? </h3>
+                      <textarea onChange={(e) => this.setState({hospitality: e.target.value})}></textarea>
+                  </div>
+                  <button className={this.state.hospitality == "" ? "btnactive next" : "next"}  disabled={ this.state.hospitality == "" ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}  >Next</button>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+              </div>
+              <div className="boxright">
+                  <img src="./images/introlist_7.png" />
+              </div>
+          </div>
+        }
+
+        { this.state.step === this.STEP.Step9 &&
+          <div className="introlist_2 introlist_9 row">
+              <div className="boxleft">
+                  <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
+                  <div className="STEPhead">
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                  </div>
+                  <div className="box">
+                      <h3>Here’s an overview  of the process: </h3>
+                      <ul>
+                          <li>
+                              <p className="text1"><span>✔</span>Learn about our expectations(2-3 minutes) </p>
+                              <p className="text2">Find out what makes experiences different and what Populstay is looking for.</p>
+                          </li>
+                          <li>
+                              <p className="text1"><span>2</span>Create your experience (as much time as you need)</p>
+                              <p className="text2">Add photos, videos, descriptions, and other details to be reviewed by Populstay.</p>
+                          </li>
+                          <li>
+                              <p className="text1"><span>3</span>Submit for review</p>
+                              <p className="text2">Someone from Populstay  will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!</p>
+                          </li>
+                      </ul>
+                  </div>
+                    <button className="next"><a herf="/">Create an experience</a></button>
+                    <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+              </div>
+              <div className="boxright">
+                  <img src="./images/introlist_9.png" />
               </div>
           </div>
         }

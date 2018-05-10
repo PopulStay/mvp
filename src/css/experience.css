@@ -299,6 +299,9 @@
 .experienceintro_content .contentbox6 .box1{
 	margin-bottom: 3%;
 }
+.btnactive{
+	opacity: 0.5;
+}
 .introlist{
 	padding: 1.5%;
 }
@@ -330,9 +333,8 @@
 }
 .introlist .boxleft h3{
 	font-size: 3rem;
-    margin-bottom: 5%;
+    margin:0 0 5%;
 }
-
 .introlist .boxleft .box{
 	padding: 10% 20% 0 10%;
 	width: 100%;
@@ -340,6 +342,7 @@
 	top:50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+	height:85%;
 }
 .introlist .boxleft button.next{
 	position: absolute;
@@ -434,11 +437,15 @@
 	top:4px;
 	left: 0;
 }
-.introlist_2 .boxleft .box,
-.introlist_3 .boxleft .box,
-.introlist_4 .boxleft .box,
-.introlist_5 .boxleft .box{
-	height:85%;
+.introlist_2 .box ul li:first-child span{
+	color: #fff;
+	background:  #4d4e4e;
+}
+.introlist_2 .box ul li .text2{
+	font-family: RobotoThin; 
+}
+.introlist_2 .boxleft p.pre{
+	bottom: 3.5%;
 }
 .introlist_3 .boxleft h3{
 	margin: 35% 0 15%;
@@ -532,5 +539,17 @@
 	left: 10%;
 }
 .introlist_5 .boxright img{
+	transform: translate(0,-50%);
+}
+
+.introlist_6 .boxright img{
 	transform: translate(0,-70%);
 }
+
+.introlist_7 textarea{
+	width: 100%;
+	height: 100px;
+	border:1px solid #606060;
+	margin-top: 3%;
+}
+
