@@ -27,13 +27,19 @@ class registerlist extends Component {
         hospitality:"",
         language:["中国(简体)","English"],
         languagetext:"Choose language",
+        experiencetype:["Art and design","fashion","entertainment","motion","Health care","Outdoors","Delicious food","Life","Culture","Music","Business affairs","Night life"],
+        experiencetext1:"Select a category",
+        experiencetext2:"Select a category",
+        experiencetYesNo:0,
+        experiencetext2type:0,
+        location:"",
     };
 
   }
   componentWillMount() {
       this.setState({step:this.STEP.Step1});
   }
-  nextstep(){
+  nextstep(e){
     if(this.state.step == this.STEP.Step1) {
       this.setState({step:this.STEP.Step2});
     }
@@ -89,6 +95,7 @@ class registerlist extends Component {
 
   render() {
     const language = this.state.language;
+    const experiencetype = this.state.experiencetype;
 
     return (
       <div className="register">
@@ -133,7 +140,7 @@ class registerlist extends Component {
             </header>
         </div>
         <div className="register_content">
-          { this.state.step === this.STEP.Step10 &&
+          { this.state.step === this.STEP.Step1 &&
             <div className="registerlist_1 row">
                 <div className="STEPhead">
                   <span className="bjpink"></span>
@@ -152,14 +159,14 @@ class registerlist extends Component {
                 <div className="box col-sm-7 col-md-7 col-lg-7">
                     <h3>Location</h3>
                     <h5>Which city will you host your experience in?</h5>
-                    <input type="text" value="" placeholder="Singapore, Singapore" />
+                    <input type="text" onChange={(e) => this.setState({location: e.target.value})} placeholder="Singapore, Singapore" />
                     <p>Great! Your city is supported. </p>
-                    <button className="next">next</button>
+                    <button className={ this.state.location == "" ? "btnactive next" : " next"} disabled={ this.state.location == "" ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>next</button>
                 </div>
             </div>
           }
 
-          { this.state.step === this.STEP.Step1 &&
+          { this.state.step === this.STEP.Step2 &&
             <div className="registerlist_2 row">
                 <div className="STEPhead">
                   <span className="bjpink"></span>
@@ -177,9 +184,9 @@ class registerlist extends Component {
                 </div>
                 <div className="box col-sm-12 col-md-7 col-lg-7">
                     <h3>Which language will you write your descriptions in?</h3>
-                    <h5>Keep in mind that most travellers on Airbnb speak English, Chinese, French, or Spanish. If you’re comfortable writing and speaking in one of those languages, we suggest starting there.</h5>
+                    <h5>Keep in mind that most travellers on PopulStay speak English, Chinese, French, or Spanish. If you’re comfortable writing and speaking in one of those languages, we suggest starting there.</h5>
                     <p>I’ll write my descriptions and speak in : </p>
-                    <div className="btn-group col-md-12">
+                    <div className="btn-group">
                       <button type="button" data-toggle="dropdown">{this.state.languagetext}<span>▼</span></button>
                       <ul className="dropdown-menu" role="menu">
                         {language.map(item => (
@@ -187,12 +194,12 @@ class registerlist extends Component {
                           ))}
                       </ul>
                     </div>
-                    <button className="next">next</button>
+                    <button className="next" onClick={(e)=>this.nextstep(e)}>next</button>
                 </div>
                 <div className="box1 col-sm-12 col-md-5 col-lg-5">
                     <div>
                         <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                        <h6>Languages spoken by Airbnb travellers to Singapore</h6>
+                        <h6>Languages spoken by PopulStay travellers to Singapore</h6>
                         <ul>
                             <li className="English">
                                 <p className="text1"><span className="Left">English</span><span className="Right">72%</span></p>
@@ -216,6 +223,59 @@ class registerlist extends Component {
                             </li>
                         </ul>
                     </div>
+                </div>
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step3 &&
+            <div className="registerlist_3 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>What type of experience will you host?</h3>
+                    <h5>Choose the category that best describes your experience. Add a second, if you think it fits into another category.</h5>
+                    <div className="btn-group">
+                      <button type="button" data-toggle="dropdown">{this.state.experiencetext1}<span>▼</span></button>
+                      <ul className="dropdown-menu" role="menu">
+                        {experiencetype.map(item => (
+                            <li><a onClick={(e) => this.setState({experiencetext1: item})}>{item}</a></li>
+                          ))}
+                      </ul>
+                    </div>
+                    <p className={this.state.experiencetext2type == 0 ? "show textPink" : "hide textPink"} onClick={(e) => this.setState({experiencetext2type: 1})}> + Add secondary category (optional)</p>
+                    <p className={this.state.experiencetext2type == 1 ? "show textp" : "hide textp"}>Second categories (selection) <span className="textPink" onClick={(e) => this.setState({experiencetext2type: 0})}>deleting</span></p>
+                    <div  className={this.state.experiencetext2type == 1 ? "show btn-group" : "hide btn-group"} >
+                      <button type="button" data-toggle="dropdown">{this.state.experiencetext2}<span>▼</span></button>
+                      <ul className="dropdown-menu" role="menu">
+                        {experiencetype.map(item => (
+                            <li><a onClick={(e) => this.setState({experiencetext2: item})}>{item}</a></li>
+                          ))}
+                      </ul>
+                    </div>
+                    <h3 className="h31">Are you hosting on behalf of a nonprofit organisation?</h3>
+                    <h5>If you’re hosting on behalf of a nonprofit or charitable organisation, you may qualify to host a Social Impact experience. PopulStay will waive service fees, and 100% of the proceeds will go to the organisation. Learn more</h5>
+
+                    <div className="check" onClick={(e) => {if(this.state.experiencetYesNo ==0 )this.setState({experiencetYesNo:1});else this.setState({experiencetYesNo:0});}}>
+                      <p  className="Pinput">
+                          <img className={this.state.experiencetYesNo ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      </p>
+                      <p className="divinput">Yes, I’m hosting on behalf of a nonprofit organisation </p>
+                    </div>
+                    <p className={this.state.experiencetYesNo == 1 ? "show" : "hide"}>Fantastic！ To join the experience, you need to register at our partner Techsoup. After you submit the experience page, we will send instructions for registration.</p>
+
+                    <button className="next" onClick={(e)=>this.nextstep(e)}>next</button>
                 </div>
             </div>
           }

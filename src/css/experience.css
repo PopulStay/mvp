@@ -464,7 +464,8 @@
 	padding: 0;
 }
 .introlist_3 .boxleft .btn-group button,
-.registerlist_2 .btn-group button{
+.registerlist_2 .btn-group button,
+.registerlist_3 .btn-group button{
 	background: none;
 	border: 1px solid #606060;
 	border-radius: 0;
@@ -476,20 +477,23 @@
   	font-family: RobotoThin; 
 }
 .introlist_3 .boxleft .btn-group button span,
-.registerlist_2 .btn-group button span{
+.registerlist_2 .btn-group button span,
+.registerlist_3 .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2.2rem;
 }
 .introlist_3 .dropdown-menu,
-.registerlist_2 .dropdown-menu{
+.registerlist_2 .dropdown-menu,
+.registerlist_3 .dropdown-menu{
   width: 100%;
   max-height: 300px;
   overflow: auto;
   font-family: RobotoThin; 
 }
 .introlist_3 .dropdown-menu a,
-.registerlist_2 .dropdown-menu a{
+.registerlist_2 .dropdown-menu a,
+.registerlist_3 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 3%;
@@ -502,16 +506,19 @@
   -webkit-font-smoothing:subpixel-antialiased;
 }
 .introlist_3 .dropdown-menu,
-.registerlist_2 .dropdown-menu{
+.registerlist_2 .dropdown-menu,
+.registerlist_3 .dropdown-menu{
 	padding: 0;
 	margin: 0;
 }
 .introlist_3 .dropdown-menu li:first-child>a,
-.registerlist_2 .dropdown-menu li:first-child>a{
+.registerlist_2 .dropdown-menu li:first-child>a,
+.registerlist_3 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .introlist_3 .dropdown-menu a:hover,
-.registerlist_2 .dropdown-menu a:hover{
+.registerlist_2 .dropdown-menu a:hover,
+.registerlist_3 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -576,7 +583,7 @@
 	padding: 2%;
 }
 .register .textPink{
-	color: #f6416c;
+	color: #f6416c !important;
 }
 .register_content{
 	padding: 0 8%;
@@ -616,7 +623,7 @@
 }
 .register_content button.next{
 	position: absolute;
-	bottom: -55%;
+	bottom: 0;
 	left: 0;
 	width: 120px;
 	height: 40px;
@@ -629,15 +636,18 @@
 	cursor: pointer;
 }
 .register .box{
-	height: 85%;
+	padding-right:10%; 
+	padding-bottom:11%; 
 }
 .register .box h3{
-	font-size: 2.8rem;
+	font-size: 2.4rem;
 	color: #4d4e4e;
+    font-family: RobotoBold; 
 }
 .register .box h5{
-	font-size: 1.8rem;
+	font-size: 1.7rem;
 	color: #4d4e4e;
+  	font-family: RobotoThin; 
 }
 .register .box p{
 	font-size: 1.4rem;
@@ -675,9 +685,6 @@
 
 .registerlist_2{
 	height: 100%;
-}
-.registerlist_2 .box{
-	padding-right:10%; 
 }
 .registerlist_2 .box h5{
 	line-height: 1.4;
@@ -724,4 +731,56 @@
 }
 .registerlist_2 .box1 .Français .text2 span{
 	width: 2%;
+}
+
+
+.registerlist_3 .btn-group{
+	width: 70%;
+	padding: 0;
+}
+.registerlist_3 h3.h31{
+	margin: 3% 0;
+}
+.registerlist_3 h5{
+	line-height: 1.4;
+	margin-bottom: 3%;
+}
+.registerlist_3 p span{
+	font-size: 1.4rem;
+}
+.registerlist_3 .check{
+    margin: 3% 0 0;
+    overflow: hidden;
+}
+.registerlist_3 .textPink,
+.registerlist_3 .textp{
+	margin-top: 3%;
+	cursor: pointer;
+}
+.registerlist_3 .check .Pinput{
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	background: #151b4e;
+	display: inline-block;
+	float: left;
+	color: #f6416c;
+	text-align: center;
+	line-height: 20px;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+}
+.Pinput img{
+	position: absolute;
+	width: 130%;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.registerlist_3 .check .divinput{
+  float: right;
+  width: 94%;
+  font-size:1.6rem;
+  cursor: pointer;
 }
