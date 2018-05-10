@@ -10,7 +10,11 @@ class introlist extends Component {
             Step1:1,
             Step2:2,
             Step3:3,
-            Step4:4
+            Step4:4,
+            Step5:5,
+            Step6:6,
+            Step7:7,
+            Step8:8
     }
 
     this.state = {
@@ -34,8 +38,32 @@ class introlist extends Component {
     if(this.state.step == this.STEP.Step3) {
       this.setState({step:this.STEP.Step4});
     }
+    if(this.state.step == this.STEP.Step4) {
+      this.setState({step:this.STEP.Step5});
+    }
+    if(this.state.step == this.STEP.Step5) {
+      this.setState({step:this.STEP.Step6});
+    }
+    if(this.state.step == this.STEP.Step6) {
+      this.setState({step:this.STEP.Step7});
+    }
+    if(this.state.step == this.STEP.Step7) {
+      this.setState({step:this.STEP.Step8});
+    }
   }
   prestep(e){
+    if(this.state.step == this.STEP.Step8) {
+      this.setState({step:this.STEP.Step7});
+    }
+    if(this.state.step == this.STEP.Step7) {
+      this.setState({step:this.STEP.Step6});
+    }
+    if(this.state.step == this.STEP.Step6) {
+      this.setState({step:this.STEP.Step5});
+    }
+    if(this.state.step == this.STEP.Step5) {
+      this.setState({step:this.STEP.Step4});
+    }
     if(this.state.step == this.STEP.Step4) {
       this.setState({step:this.STEP.Step3});
     }
@@ -59,29 +87,30 @@ class introlist extends Component {
                   <div className="box">
                       <h3>Hi there, Zhao !</h3>
                       <p>We’re excited to learn about the experience you’d like to host on Populstay.In just a few minutes, you’ll start to create your experience page, then you’ll submit it to be reviewed by Populstay</p>
-                      <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
                   </div>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_1.png" />
               </div>
           </div>
         }
+
         { this.state.step === this.STEP.Step2 &&
           <div className="introlist_2 row">
               <div className="boxleft">
                   <img className="logo" src="./images/introlist_logo.png" />
+                  <div className="STEPhead">
+                    <span className="bjpink"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                   <div className="box">
-                    <div className="STEPhead">
-                      <span className="bjpink"></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
                       <h3>Here’s an overview  of the process: </h3>
                       <ul>
                           <li>
@@ -97,9 +126,9 @@ class introlist extends Component {
                               <p>Someone from Populstay  will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!</p>
                           </li>
                       </ul>
-                      <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
-                      <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
                   </div>
+                    <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_2.png" />
@@ -111,17 +140,17 @@ class introlist extends Component {
           <div className="introlist_3 row">
               <div className="boxleft">
                   <img className="logo" src="./images/introlist_logo.png" />
+                  <div className="STEPhead">
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                   <div className="box">
-                    <div className="STEPhead">
-                      <span className="bjpink"></span>
-                      <span className="bjpink"></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
                       <h3>First things first, which city would you like to host in?</h3>
                       <div className="btn-group col-md-12">
                         <button type="button" data-toggle="dropdown">{this.state.city}<span>▼</span></button>
@@ -131,9 +160,9 @@ class introlist extends Component {
                           ))}
                         </ul>
                       </div>
-                      <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
-                      <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
                   </div>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_3.png" />
@@ -145,17 +174,17 @@ class introlist extends Component {
           <div className="introlist_4 row">
               <div className="boxleft">
                   <img className="logo" src="./images/introlist_logo.png" />
+                  <div className="STEPhead">
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                   <div className="box">
-                    <div className="STEPhead">
-                      <span className="bjpink"></span>
-                      <span className="bjpink"></span>
-                      <span className="bjpink"></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
                       <h3>Have you hosted an experience on Populstay or somewhere else before?</h3>
                       <div className="radio" onClick={(e) => this.setState({work_experience: 0})}>
                         <label className="text-muted"><p><span className={this.state.work_experience == 0 ?"show":"hide"}></span></p>Yes, i've done this before</label>
@@ -165,12 +194,80 @@ class introlist extends Component {
                         <label className="text-muted"><p><span className={this.state.work_experience == 1 ?"show":"hide"}></span></p>No, not yet!</label>
                         <h4 className={this.state.work_experience == 1 ?"show":"hide"}>No problem! Anyone with a lot of passion and a great idea can become a host. We'll show you tips and examples along the way to help you build a great experience and be successful.</h4>
                       </div>
-                      <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
-                      <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
                   </div>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
               </div>
               <div className="boxright">
-                  <img src="./images/introlist_3.png" />
+                  <img src="./images/introlist_4.png" />
+              </div>
+          </div>
+        }
+
+        { this.state.step === this.STEP.Step5 &&
+          <div className="introlist_5 row">
+              <div className="boxleft">
+                  <img className="logo" src="./images/introlist_logo.png" />
+                  <div className="STEPhead">
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div className="box">
+                      <h3>What is Populstay looking for in an experience?</h3>
+                      <p>The following things don't qualify as a Populstay experience.</p>
+                      <ul>
+                          <li>It's led by a knowledgeable and passionate host</li>
+                          <li>Guests participate hands-on, or are immersed in an activity</li>
+                          <li>It gives guests access to a special place or community</li>
+                          <li>It's unique, niche, or not what you'd expect</li>
+                      </ul>
+                  </div>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                  <p className="textPink">Learn more about our standards</p>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+              </div>
+              <div className="boxright">
+                  <img src="./images/introlist_5.png" />
+              </div>
+          </div>
+        }
+
+        { this.state.step === this.STEP.Step6 &&
+          <div className="introlist_5 row">
+              <div className="boxleft">
+                  <img className="logo" src="./images/introlist_logo.png" />
+                  <div className="STEPhead">
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span className="bjpink"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div className="box">
+                      <h3>What we're not looking for:</h3>
+                      <p>The following things don't qualify as a Populstay experience.</p>
+                      <ul>
+                          <li>Large and impersonal tours(e.g. tours with 15 or more people)</li>
+                          <li>An event with no clear host(e.g. singles night at a bar)</li>
+                          <li>A service (e.g. airport transportation)</li>
+                          <li>Something guests could easily find on their own(e.g. a generic visit to the Eiffel Tower)</li>
+                      </ul>
+                  </div>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                  <p className="textPink">Learn more about our standards</p>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+              </div>
+              <div className="boxright">
+                  <img src="./images/introlist_5.png" />
               </div>
           </div>
         }

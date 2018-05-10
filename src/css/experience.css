@@ -318,23 +318,33 @@
 .introlist .boxleft .logo{
 	width: 30px;
 }
-.introlist_1 .boxleft .box{
-	padding: 0 10%;
+.introlist .STEPhead{
+	position: absolute;
+	width: 100%;
+	top:10%;
+	left: 10%;
+}
+.introlist .boxleft .box p,
+.introlist_5 .boxleft .box ul li{
+	font-size: 1.8rem;
+}
+.introlist .boxleft h3{
+	font-size: 3rem;
+    margin-bottom: 5%;
+}
+
+.introlist .boxleft .box{
+	padding: 10% 20% 0 10%;
 	width: 100%;
 	position: absolute;
 	top:50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
-.introlist .boxleft h3{
-	font-size: 3rem;
-    margin-bottom: 5%;
-}
-.introlist_1 .boxleft .box p{
-	font-size: 1.8rem;
-	line-height: 1.9;
-}
-.introlist .boxleft .box button.next{
+.introlist .boxleft button.next{
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
 	padding: 1% 8%;
 	border-radius: 0;
 	font-size: 2rem;
@@ -364,24 +374,43 @@
 	bottom: 8%;
 	left: 10%;
 }
-.introlist .boxleft .box p.pre{
+.introlist .boxleft p.pre{
 	position: absolute;
-	bottom: 0;
-	left: 10%;
 	padding: 0;
     font-family: RobotoThin; 
     cursor: pointer;
     font-size: 1.8rem;
+	bottom:2%;
+	left: 10%;
 }
-.introlist .boxleft .box p.pre span{
+.introlist .boxleft p.pre span{
 	color: #f6416c;
 	margin-right: 3%;
 	font-size: 1.8rem;
 }
+
+.introlist_1 .boxleft .box{
+	padding: 0 10%;
+	width: 100%;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
 .introlist_1 .boxleft .box{
 	height: 55%;
 }
+.introlist_1 .boxleft button.next{
+	bottom: 20%;
+}
+.introlist_1 .boxleft .box p{
+	font-size: 1.8rem;
+	line-height: 1.9;
+}
 
+.introlist_2 .boxleft .box{
+	padding-right: 5%;
+}
 .introlist_2 p{
 	font-size:1.8rem;
 	position: relative;
@@ -405,17 +434,10 @@
 	top:4px;
 	left: 0;
 }
-.introlist .boxleft .box{
-	padding: 0 20% 0 10%;
-	width: 100%;
-	position: absolute;
-	top:50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-}
 .introlist_2 .boxleft .box,
 .introlist_3 .boxleft .box,
-.introlist_4 .boxleft .box{
+.introlist_4 .boxleft .box,
+.introlist_5 .boxleft .box{
 	height:85%;
 }
 .introlist_3 .boxleft h3{
@@ -468,6 +490,10 @@
   background: #f6416c;
   color: #fff;
 }
+.introlist_3 .boxright img,
+.introlist_4 .boxright img{
+	transform: translate(0,-60%);
+}
 
 .introlist_4 .box .radio label{
 	font-size: 1.8rem !important;
@@ -481,4 +507,30 @@
 	font-size: 1.4rem;
 	color: #6c757d;
 	font-family: RobotoThin; 
+}
+
+
+.introlist_5 .box{
+	padding-right:5% !important;
+}
+.introlist_5 .box>p{
+	font-size: 2rem;
+	margin-bottom: 3%;
+}
+.introlist_5 .box ul{
+	margin-left: 5%;
+}
+.introlist_5 .box ul li{
+	list-style: disc;
+	font-size: 1.6rem;
+	margin-bottom: 3%;
+}
+.textPink{
+	color: #f6416c;
+	position: absolute;
+	bottom: 9%;
+	left: 10%;
+}
+.introlist_5 .boxright img{
+	transform: translate(0,-70%);
 }
