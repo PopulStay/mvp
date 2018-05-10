@@ -33,6 +33,11 @@ class registerlist extends Component {
         experiencetYesNo:0,
         experiencetext2type:0,
         location:"",
+        Organisation_name:"",
+        Prove1:0,
+        Prove2:0,
+        Login_type:0,
+        next_type:0,
     };
 
   }
@@ -140,7 +145,7 @@ class registerlist extends Component {
             </header>
         </div>
         <div className="register_content">
-          { this.state.step === this.STEP.Step1 &&
+          { this.state.step === this.STEP.Step10 &&
             <div className="registerlist_1 row">
                 <div className="STEPhead">
                   <span className="bjpink"></span>
@@ -264,7 +269,7 @@ class registerlist extends Component {
                           ))}
                       </ul>
                     </div>
-                    <h3 className="h31">Are you hosting on behalf of a nonprofit organisation?</h3>
+                    <h3 className="h31"><img src="./images/registerlist_3.png" />Are you hosting on behalf of a nonprofit organisation?</h3>
                     <h5>If you’re hosting on behalf of a nonprofit or charitable organisation, you may qualify to host a Social Impact experience. PopulStay will waive service fees, and 100% of the proceeds will go to the organisation. Learn more</h5>
 
                     <div className="check" onClick={(e) => {if(this.state.experiencetYesNo ==0 )this.setState({experiencetYesNo:1});else this.setState({experiencetYesNo:0});}}>
@@ -273,10 +278,146 @@ class registerlist extends Component {
                       </p>
                       <p className="divinput">Yes, I’m hosting on behalf of a nonprofit organisation </p>
                     </div>
-                    <p className={this.state.experiencetYesNo == 1 ? "show" : "hide"}>Fantastic！ To join the experience, you need to register at our partner Techsoup. After you submit the experience page, we will send instructions for registration.</p>
+                    <p className={this.state.experiencetYesNo == 1 ? "show" : "hide"}>Great! To participate, you’ll have to register with our partner, TechSoup. We’ll send you instructions after you submit your experience page.</p>
 
+                    <div className={this.state.experiencetYesNo == 1 ? "show box3" : "hide box3"} >
+                        <h3>Make sure you’re signed into the organization’s Airbnb  account</h3>
+                        <p>To host a Social Impact experience, you’ll need to add the nonprofit’s bank account as a payout method. You may need to create a new Airbnb account if the organisation doesn’t already have one.</p>
+                        <div className="userimg"><img src="../images/uesrimg.png" /></div>
+                        <span>Eric</span>
+
+                        <div className="check" onClick={(e) => {if(this.state.Login_type ==0 )this.setState({Login_type:1});else this.setState({Login_type:0}); if(this.state.next_type ==0 )this.setState({next_type:1});else this.setState({next_type:0});}} >
+                          <p  className="Pinput">
+                              <img className={this.state.Login_type ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                          </p>
+                          <p className="divinput">I’m signed into the organization’s account and not my personal Airbnb account.</p>
+                        </div>
+                    </div>
+                    <button className={this.state.next_type == 1 ? 'show Undo' : 'hide Undo'}  onClick={(e) => this.setState({next_type: 0})}>Undo</button>
+
+                    <button  className={ this.state.experiencetYesNo == 0 ? "btnactive next" : " next"} disabled={  this.state.experiencetYesNo == 0 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>next</button>
+                    <button className={this.state.next_type == 1 ? 'show next' : 'hide next'} onClick={(e) => this.setState({next_type: 0})}>Save</button>
+                </div>
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step4 &&
+            <div className="registerlist_3 registerlist_4 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Tell us about the organisation you represent </h3>
+                    <h5>Organisation name</h5>
+
+                    <input type="text"  onChange={(e) => this.setState({Organisation_name: e.target.value})} placeholder="Enter the name"/>
+                   
+                    <h3 className="h31">I certify that: </h3>
+
+                    <div className="check" onClick={(e) => {if(this.state.Prove1 ==0 )this.setState({Prove1:1});else this.setState({Prove1:0});}}>
+                      <p  className="Pinput">
+                          <img className={this.state.Prove1 ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      </p>
+                      <p className="divinput">I have the consent of the charitable organisation to run this experience on their behalf</p>
+                    </div>
+
+                    <div className="check" onClick={(e) => {if(this.state.Prove2 ==0 )this.setState({Prove2:1});else this.setState({Prove2:0});}}>
+                      <p  className="Pinput">
+                          <img className={this.state.Prove2 ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      </p>
+                      <p className="divinput">The charitable organisation meets <span className="textpink">PopulStay criteria for a Social Impact experience</span></p>
+                    </div>
+
+
+                    <button className="next"  className={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "btnactive next" : " next"} disabled={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>next</button>
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src="../images/registerlist_4.png" />
+                        <ul>
+                            <li className="li1">Experience</li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />Singapore</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li>
+                                <h5>What we’ll do</h5>
+                                <p>Give an overview description of what your guests will be doing on this experience.</p>
+                            </li>
+                            <li>
+                                <h5>What I’ll provide</h5>
+                                <p>Let your guests know if you’ll be including anything for this experience.</p>
+                            </li>
+                            <li>
+                                <h5>Where we’ll be</h5>
+                                <p>Tell your guests where you’ll be taking them for this experience.</p>
+                            </li>
+                            <li className="li3">
+                                <h5>Notes</h5>
+                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                            </li>
+                            <li className="li3">
+                                <img src="./images/registerlist_4api.jpg" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step1 &&
+            <div className="registerlist_3 registerlist_4 registerlist_5 row">
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Create the page guests will see </h3>
+                    <h5>Use the preview on the the right to see how your experience will look publicly. As you create the description for your experience, it will appear in the preview. Write in a clear, straightforward, and friendly way. We’ll give you tips on when to show off your personality and be more descriptive.</h5>
                     <button className="next" onClick={(e)=>this.nextstep(e)}>next</button>
                 </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src="../images/registerlist_4.png" />
+                        <ul>
+                            <li className="li1">Experience</li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />Singapore</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li>
+                                <h5>What we’ll do</h5>
+                                <p>Give an overview description of what your guests will be doing on this experience.</p>
+                            </li>
+                            <li>
+                                <h5>What I’ll provide</h5>
+                                <p>Let your guests know if you’ll be including anything for this experience.</p>
+                            </li>
+                            <li>
+                                <h5>Where we’ll be</h5>
+                                <p>Tell your guests where you’ll be taking them for this experience.</p>
+                            </li>
+                            <li className="li3">
+                                <h5>Notes</h5>
+                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                            </li>
+                            <li className="li3">
+                                <img src="./images/registerlist_4api.jpg" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
           }
 
