@@ -32,6 +32,7 @@ class Video extends Component {
        videoCalling:false,
        connectionCode:"",
        agora_remotetype:0,
+       guestAddress:""
     }
       
   }
@@ -112,14 +113,12 @@ class Video extends Component {
           console.log("######################connection ",data);
           if(data.type == 'audio')
           {
-            this.setState({connectionCode:data.connection,audioCalling:true}); 
+            this.setState({connectionCode:data.connection,audioCalling:true,guestAddress:data.guestAddress}); 
           }
           else if(data.type == 'video')
           {
-            this.setState({connectionCode:data.connection,videoCalling:true}); 
+            this.setState({connectionCode:data.connection,videoCalling:true,guestAddress:data.guestAddress}); 
           }
-         
-
         });  
     }
 
@@ -134,6 +133,18 @@ class Video extends Component {
           })});
           this.setState({text:''});
       }); 
+
+       window.io.socket.on('answerconnection'+window.address,  (data)=> {
+          console.log("######################connection ",data);
+          if(data.type == 'audio')
+          {
+            this.audioCall();
+          }
+          else if(data.type == 'video')
+          {
+            this.videoCall();
+          }
+        });  
     }
 
 
@@ -159,17 +170,24 @@ class Video extends Component {
   //video message
   handleVideo =()=> {
 
- 
     if(window.address == this.state.host)
     {
       return ;
     }
 
-
     window.io.socket.get('/messages/connection?type=video&account='+window.address+'&host='+this.state.host,
       (data, jwRes)=>
       {
         this.setState({connectionCode:data.connection});
+      }
+    );
+  }
+
+
+  answerVideo = () =>{
+        window.io.socket.get('/messages/answerconnection?type=video&account='+this.state.guestAddress+'&host='+window.address,
+      (data, jwRes)=>
+      {
         this.videoCall();
       }
     );
@@ -241,6 +259,14 @@ class Video extends Component {
       (data, jwRes)=>
       {
         this.setState({connectionCode:data.connection});
+      }
+    );
+  }
+
+  answerAudio = () =>{
+        window.io.socket.get('/messages/answerconnection?type=audio&account='+this.state.guestAddress+'&host='+window.address,
+      (data, jwRes)=>
+      {
         this.audioCall();
       }
     );
@@ -353,8 +379,8 @@ class Video extends Component {
                         ))
                       }
                    </ul>
-                   <h6 className={this.state.videoCalling ? "show" : "hide"}><p>Video call</p><a onClick={this.audioCall}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
-                   <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><a onClick={this.videoCall}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
+                   <h6 className={this.state.videoCalling || this.state.agora_remotetype == 1 ? "show" : "hide"}><p>Video call</p><a onClick={this.answerVideo}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
+                   <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><a onClick={this.answerAudio}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
                    <p className="text2"></p>
                    <div className="videobtn">
                       <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
