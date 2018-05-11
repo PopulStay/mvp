@@ -72,6 +72,7 @@ class ListingCreate extends Component {
         
 
         this.state = {
+            ETHprice_perday:99,
             step: 0,
             roomtype_category:"Entire place",
             roomtype_guests:1,
