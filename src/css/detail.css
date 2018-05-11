@@ -656,7 +656,7 @@
   height: 280px !important;
   overflow: hidden;
 }
-.video #agora_remote video{
+.video #agora_remote>div:first-child>video{
   position: inherit !important;
   width: 100% !important;
   height: 280px !important;
