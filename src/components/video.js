@@ -30,7 +30,8 @@ class Video extends Component {
        online:false,
        audioCalling:false,
        videoCalling:false,
-       connectionCode:""
+       connectionCode:"",
+       agora_remotetype:0,
     }
       
   }
@@ -227,6 +228,8 @@ class Video extends Component {
 
   handleMic =()=> {
 
+    this.setState({ agora_remotetype: 0});
+
  
     if(window.address == this.state.host)
     {
@@ -332,7 +335,7 @@ class Video extends Component {
 
     return (  
               <div className="video">
-                  <div id="agora_remote"></div>
+                  <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
                   <h4>
                     <span className="spantype"></span>
                     <p>host’s name<br/>

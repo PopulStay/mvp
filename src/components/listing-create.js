@@ -72,7 +72,6 @@ class ListingCreate extends Component {
         
 
         this.state = {
-            ETHprice_perday:99,
             step: 0,
             roomtype_category:"Entire place",
             roomtype_guests:1,
@@ -161,8 +160,8 @@ class ListingCreate extends Component {
             roomstuff_AreaCode:86,
             selectedPictures:[],
             Currency:"PPS",
-            price_perday:0,
-            ETHprice_perday:this.state.price_perday/100000,
+            price_perday:99,
+            ETHprice_perday:99,
             maxprice_perday:0,
             minprice_perday:0,
             Explainwhy:"",
@@ -953,7 +952,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-6 col-lg-6  col-sm-12">
@@ -3422,7 +3421,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step3_12 &&
           <div className="becomehost-2 container">
           <div className="row Step3_12">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
