@@ -315,7 +315,7 @@ class Video extends Component {
       console.log(new Date().toLocaleTimeString())
       console.log("Subscribe remote stream successfully: " + stream.getId())
       console.log(evt)
-      stream.play('agora_remote','/res');
+      stream.play('agora_remote');
     })
 
     rt.client.on("stream-removed", function (evt) {
@@ -350,15 +350,14 @@ class Video extends Component {
                         ))
                       }
                    </ul>
-                   <h6 className={this.state.videoCalling ? "show" : "hide"}><p>Video call</p><span className="Answer">Answer</span> or <span className="Decline">Decline</span></h6>
-                   <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><span className="Answer">Answer</span> or <span className="Decline">Decline</span></h6>
+                   <h6 className={this.state.videoCalling ? "show" : "hide"}><p>Video call</p><a onClick={this.audioCall}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
+                   <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><a onClick={this.videoCall}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
                    <p className="text2"></p>
                    <div className="videobtn">
                       <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
                       <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
                       <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                    </div>
-                  
                   </div>
             )
   }
