@@ -161,7 +161,8 @@ class ListingCreate extends Component {
             roomstuff_AreaCode:86,
             selectedPictures:[],
             Currency:"PPS",
-            price_perday:0,
+            price_perday:99,
+            ETHprice_perday:99,
             maxprice_perday:0,
             minprice_perday:0,
             Explainwhy:"",
@@ -255,21 +256,21 @@ class ListingCreate extends Component {
     }
 
     submit(){
-           houselistingService.submitListing(this.state)
-              .then((tx) => {
-                  this.setState({
-                      step: this.STEP.PROCESSING
-                  });
-                  return houselistingService.waitTransactionFinished(tx);
-              })
-              .then((blockNumber) => {
-                  this.setState({
-                      step: this.STEP.SUCCESS
-                  });
-              })
-              .catch((error) => {
-                 
-              })
+         houselistingService.submitListing(this.state)
+          .then((tx) => {
+              this.setState({
+                  step: this.STEP.PROCESSING
+              });
+              console.log(tx)
+              return houselistingService.waitTransactionFinished(tx);
+          })
+          .then((blockNumber) => {
+              this.setState({
+                  step: this.STEP.SUCCESS
+              });
+          })
+          .catch((error) => {
+          })
     }
 
     fileChangedHandler(event){

@@ -7763,8 +7763,7 @@ header li {
   text-align: center;
 }
 header li.Li1,
-header li.Li2,
-header li.Li5{
+header li.Li2{
   width: 25%;
 }
 header li.Li3{
@@ -7777,6 +7776,10 @@ header li.Li4{
 }
 header li.Li3>a,
 header li.Li4>a{
+  color: #131c4e;
+}
+header li.Li5{
+  width: auto !important;
   color: #131c4e;
 }
 header button {
@@ -7807,6 +7810,7 @@ header li.Li2 .button__fill{
 header li.Li5 button{
   border:1px solid #131c4e;
   padding: 2% 3%;
+  color: #131c4e;
 }
 header a {
   margin-left: 15px;
