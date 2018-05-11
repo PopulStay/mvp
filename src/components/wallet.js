@@ -90,6 +90,7 @@ class Wallet extends Component {
        <div>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Example Modal">
+          <div className="Import">
           <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
           <br/>
             <div className="form-group">
@@ -97,8 +98,9 @@ class Wallet extends Component {
             <input type="text"  className="form-control" placeholder="Wallet Account" onChange={(e) => this.setState({pirvatekey: e.target.value})} />
           </div>
           <br/>
-          <button className="btn btn-danger" onClick={this.import}>Import</button>
-          <button className="btn btn-primary" onClick={this.closeModal}>Cancel</button>
+          <button className="btn btn-danger Left" onClick={this.import}>Import</button>
+          <button className="btn btn-primary Right " onClick={this.closeModal}>Cancel</button>
+          </div>
         </Modal>
 
 

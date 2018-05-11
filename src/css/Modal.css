@@ -87,7 +87,8 @@
 .Create1,
 .clear,
 .Gas,
-.Explainwhy{
+.Explainwhy,
+.Import{
   width: 370px;
   background: #fff;
   border-radius: 7px;
@@ -105,7 +106,8 @@
 .Create1 h2,
 .PirvateKey h2,
 .clear h2,
-.Gas h2{
+.Gas h2,
+.Import h2{
   color: #f6416c;
   text-align: center;
 }
@@ -122,16 +124,19 @@
 }
 .Create1,
 .PirvateKey,
-.clear{
+.clear,
+{
   width: 80%;
 }
 .Gas{
   width: 50%;
 }
-.Gas label{
+.Gas label,
+.Import label{
   font-size: 1.6rem;
 }
-.Gas input{
+.Gas input,
+.Import input{
   border:1px solid #808080;
 }
 .Create1 button,
@@ -236,4 +241,7 @@
   bottom: 0!important;
   left: 0!important;
   right:0!important;
+}
+.Import{
+
 }

@@ -132,7 +132,7 @@
   font-size: 3rem;
   font-family: RobotoBold; 
 }
-.form .index_home .listing-card:nth-child(1){
+.form .index_home .listing-card:nth-child(1n){
   padding-left: 0;
 }
 .form .index_home .listing-card:nth-child(3n){

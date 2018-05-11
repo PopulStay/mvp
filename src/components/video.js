@@ -332,6 +332,15 @@ class Video extends Component {
 
     return (  
               <div className="video">
+                  <div id="agora_remote"></div>
+                  <h4>
+                    <span className="spantype"></span>
+                    <p>host’s name<br/>
+                        <span className={this.state.online ? "spanshow" : "hide"}>Host on line</span>
+                        <span className={!this.state.online ? "spanshow" : "hide"}>Host off line</span>
+                        <span className={this.state.readyState ? "spanshow" : "hide"}>&nbsp;&nbsp;in Talking</span>
+                    </p>
+                  </h4>
                    <ul>
                       {this.state.messagearr.map((item,index) => (
                           <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
@@ -341,36 +350,15 @@ class Video extends Component {
                         ))
                       }
                    </ul>
-                   <img className="becomehost_line" src="../images/becomehost-line.png" />
-                   <div>
-                      <img className="keyboard" src="../images/becomehost-keyboard.png" />
+                   <h6 className={this.state.videoCalling ? "show" : "hide"}><p>Video call</p><span className="Answer">Answer</span> or <span className="Decline">Decline</span></h6>
+                   <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><span className="Answer">Answer</span> or <span className="Decline">Decline</span></h6>
+                   <p className="text2"></p>
+                   <div className="videobtn">
                       <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
-                      <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                       <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
+                      <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                    </div>
-                   {
-                    this.state.online &&
-                     <p>Host on line</p>
-                   }
-                   {
-                    !this.state.online &&
-                     <p>Host off line</p>
-                   }
-                  {
-                    this.state.readyState &&
-                    <p>in Talking</p>
-                  }
-
-                  {
-                    this.state.audioCalling &&
-                     <button className="btn btn-danger" onClick={this.audioCall}>Answer Audio</button>
-                  }
-                  {
-                    this.state.videoCalling &&
-                    <button className="btn btn-danger" onClick={this.videoCall}>Answer Video</button>
-                  }
-        
-                  <div id="agora_remote"></div>
+                  
                   </div>
             )
   }
