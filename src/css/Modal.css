@@ -101,6 +101,7 @@
   border-radius: 20px;
   transform: translate(-50%,-50%) !important;
   border-radius: 25px !important;
+  font-family: RobotoBold; 
 }
 .Create h2,
 .Create1 h2,
@@ -110,6 +111,7 @@
 .Import h2{
   color: #f6416c;
   text-align: center;
+  font-family: RobotoBold; 
 }
 .Create button{
   width: 100%;
@@ -124,25 +126,26 @@
 }
 .Create1,
 .PirvateKey,
-.clear,
-{
-  width: 80%;
-}
-.Gas{
-  width: 50%;
+.clear{
+  width: 60% !important;
 }
 .Gas label,
 .Import label{
   font-size: 1.6rem;
+  margin-bottom:3%; 
 }
 .Gas input,
-.Import input{
+.Import input,
+.PirvateKey,
+.clear{
   border:1px solid #808080;
+  font-family: RobotoThin; 
 }
 .Create1 button,
 .PirvateKey button{
   width: 30%;
   margin:0 35%;
+  font-family: RobotoBold; 
 }
 .ReactModal__Overlay{
  background: rgba(179, 54, 99, 0.9) !important;
@@ -242,6 +245,13 @@
   left: 0!important;
   right:0!important;
 }
-.Import{
-
+.Import .Left,
+.Import .Right{
+  width: 30%;
+  border:1px solid #ababab;
+  border-radius: 0;
+  height:35px;
+  line-height: auto;
+  font-size: 1.6rem;
+  padding: 0 auto!important;
 }
