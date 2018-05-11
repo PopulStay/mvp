@@ -532,24 +532,6 @@ class ListingsDetail extends Component {
               <div className="detail-guest-div">
                 <p>Guest</p>
                 <div className="btn-group">
-
-
-                
-                 
-                  
-                   
-              
-                  
-                      
-                
-                   
-                      
-                
-                    
-                    
-                  
-                 
-
                   <button type="button" data-toggle="dropdown" >{this.state.guest}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
                     { guestItems }
