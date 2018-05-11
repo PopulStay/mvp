@@ -175,7 +175,8 @@ class Video extends Component {
   }
 
   videoCall = () =>{
-        if( window.AgoraRTC)
+
+    if( window.AgoraRTC)
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
         this.client.init( this.constant.appId ,()=>{
@@ -186,7 +187,6 @@ class Video extends Component {
             console.log("User " + uid + " join channel successfully");
             console.log('At ' + new Date().toLocaleTimeString());
             console.log(uid);
-      
         this.localStream = window.AgoraRTC.createStream({streamID: uid,audio: true,video: true,screen: false});
         this.localStream.setVideoProfile("480p_4");
         this.localStream.on("accessAllowed", function() {
@@ -198,7 +198,9 @@ class Video extends Component {
         });
 
 
-        this.localStream.init(() => {            
+        this.localStream.init(() => { 
+            //this.localStream.play('agora_local');   
+
             this.client.publish(this.localStream, err => {
               console.log("Publish local stream error: " + err);
             });
@@ -313,10 +315,7 @@ class Video extends Component {
       console.log(new Date().toLocaleTimeString())
       console.log("Subscribe remote stream successfully: " + stream.getId())
       console.log(evt)
-      // if( this.state.audioCalling )
-      stream.play('agora_remote');
-      // else if ( this.state.videoCalling )
-      // stream.play('agora_remote','/res');  
+      stream.play('agora_remote','/res');
     })
 
     rt.client.on("stream-removed", function (evt) {
@@ -357,25 +356,22 @@ class Video extends Component {
                     !this.state.online &&
                      <p>Host off line</p>
                    }
-
                   {
                     this.state.readyState &&
                     <p>in Talking</p>
-                   }
+                  }
 
-                   {
+                  {
                     this.state.audioCalling &&
                      <button className="btn btn-danger" onClick={this.audioCall}>Answer Audio</button>
-                   }
-
-                    {
+                  }
+                  {
                     this.state.videoCalling &&
-                     <button className="btn btn-danger" onClick={this.videoCall}>Answer Video</button>
-                   }
-
-                  <video id="agora_remote" source='/res' controls="controls"></video>
-                  
-              </div>
+                    <button className="btn btn-danger" onClick={this.videoCall}>Answer Video</button>
+                  }
+        
+                  <div id="agora_remote"></div>
+                  </div>
             )
   }
 }
