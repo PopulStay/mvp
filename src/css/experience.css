@@ -299,6 +299,10 @@
 .experienceintro_content .contentbox6 .box1{
 	margin-bottom: 3%;
 }
+.btnactive{
+	opacity: 0.5;
+}
+/*------------introlist--------------------*/
 .introlist{
 	padding: 1.5%;
 }
@@ -318,23 +322,34 @@
 .introlist .boxleft .logo{
 	width: 30px;
 }
-.introlist_1 .boxleft .box{
-	padding: 0 10%;
+.introlist .STEPhead{
+	position: absolute;
+	width: 100%;
+	top:10%;
+	left: 10%;
+}
+.introlist .boxleft .box p,
+.introlist_5 .boxleft .box ul li{
+	font-size: 1.8rem;
+}
+.introlist .boxleft h3{
+	font-size: 3rem;
+    margin:0 0 5%;
+  font-family: RobotoBold; 
+}
+.introlist .boxleft .box{
+	padding: 10% 20% 0 10%;
 	width: 100%;
 	position: absolute;
 	top:50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+	height:85%;
 }
-.introlist .boxleft h3{
-	font-size: 3rem;
-    margin-bottom: 5%;
-}
-.introlist_1 .boxleft .box p{
-	font-size: 1.8rem;
-	line-height: 1.9;
-}
-.introlist .boxleft .box button.next{
+.introlist .boxleft button.next{
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
 	padding: 1% 8%;
 	border-radius: 0;
 	font-size: 2rem;
@@ -364,24 +379,48 @@
 	bottom: 8%;
 	left: 10%;
 }
-.introlist .boxleft .box p.pre{
+.introlist .boxleft p.pre{
 	position: absolute;
-	bottom: 0;
-	left: 10%;
 	padding: 0;
     font-family: RobotoThin; 
     cursor: pointer;
     font-size: 1.8rem;
+	bottom:2%;
+	left: 10%;
 }
-.introlist .boxleft .box p.pre span{
+.introlist .boxleft p.pre span{
 	color: #f6416c;
 	margin-right: 3%;
 	font-size: 1.8rem;
 }
+.introlist .textPink{
+	color: #f6416c;
+	position: absolute;
+	bottom: 9%;
+	left: 10%;
+}
+.introlist_1 .boxleft .box{
+	padding: 0 10%;
+	width: 100%;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
 .introlist_1 .boxleft .box{
 	height: 55%;
 }
+.introlist_1 .boxleft button.next{
+	bottom: 20%;
+}
+.introlist_1 .boxleft .box p{
+	font-size: 1.8rem;
+	line-height: 1.9;
+}
 
+.introlist_2 .boxleft .box{
+	padding-right: 5%;
+}
 .introlist_2 p{
 	font-size:1.8rem;
 	position: relative;
@@ -405,18 +444,15 @@
 	top:4px;
 	left: 0;
 }
-.introlist .boxleft .box{
-	padding: 0 20% 0 10%;
-	width: 100%;
-	position: absolute;
-	top:50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+.introlist_2 .box ul li:first-child span{
+	color: #fff;
+	background:  #4d4e4e;
 }
-.introlist_2 .boxleft .box,
-.introlist_3 .boxleft .box,
-.introlist_4 .boxleft .box{
-	height:85%;
+.introlist_2 .box ul li .text2{
+	font-family: RobotoThin; 
+}
+.introlist_2 .boxleft p.pre{
+	bottom: 3.5%;
 }
 .introlist_3 .boxleft h3{
 	margin: 35% 0 15%;
@@ -427,7 +463,9 @@
 .introlist_3 .boxleft .btn-group{
 	padding: 0;
 }
-.introlist_3 .boxleft .btn-group button{
+.introlist_3 .boxleft .btn-group button,
+.registerlist_2 .btn-group button,
+.registerlist_3 .btn-group button{
 	background: none;
 	border: 1px solid #606060;
 	border-radius: 0;
@@ -438,18 +476,24 @@
 	font-size: 1.6rem;
   	font-family: RobotoThin; 
 }
-.introlist_3 .boxleft .btn-group button span{
+.introlist_3 .boxleft .btn-group button span,
+.registerlist_2 .btn-group button span,
+.registerlist_3 .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2.2rem;
 }
-.introlist_3 .dropdown-menu{
+.introlist_3 .dropdown-menu,
+.registerlist_2 .dropdown-menu,
+.registerlist_3 .dropdown-menu{
   width: 100%;
   max-height: 300px;
   overflow: auto;
   font-family: RobotoThin; 
 }
-.introlist_3 .dropdown-menu a{
+.introlist_3 .dropdown-menu a,
+.registerlist_2 .dropdown-menu a,
+.registerlist_3 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 3%;
@@ -457,18 +501,31 @@
   border-top: 1px solid #888;
   cursor: pointer;
   text-align: left;
-  color: #000;
+  color: #4d4e4e;
   font-size: 1.6rem;
   -webkit-font-smoothing:subpixel-antialiased;
 }
-.introlist_3 .dropdown-menu li:first-child>a{
+.introlist_3 .dropdown-menu,
+.registerlist_2 .dropdown-menu,
+.registerlist_3 .dropdown-menu{
+	padding: 0;
+	margin: 0;
+}
+.introlist_3 .dropdown-menu li:first-child>a,
+.registerlist_2 .dropdown-menu li:first-child>a,
+.registerlist_3 .dropdown-menu li:first-child>a{
   border-top: none;
 }
-.introlist_3 .dropdown-menu a:hover{
+.introlist_3 .dropdown-menu a:hover,
+.registerlist_2 .dropdown-menu a:hover,
+.registerlist_3 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
-
+.introlist_3 .boxright img,
+.introlist_4 .boxright img{
+	transform: translate(0,-60%);
+}
 .introlist_4 .box .radio label{
 	font-size: 1.8rem !important;
 }
@@ -481,4 +538,346 @@
 	font-size: 1.4rem;
 	color: #6c757d;
 	font-family: RobotoThin; 
+}
+
+
+.introlist_5 .box{
+	padding-right:5% !important;
+}
+.introlist_5 .box>p{
+	font-size: 2rem;
+	margin-bottom: 3%;
+}
+.introlist_5 .box ul{
+	margin-left: 5%;
+}
+.introlist_5 .box ul li{
+	list-style: disc;
+	font-size: 1.6rem;
+	margin-bottom: 3%;
+}
+
+.introlist_5 .boxright img{
+	transform: translate(0,-50%);
+}
+
+.introlist_6 .boxright img{
+	transform: translate(0,-70%);
+}
+
+.introlist_7 textarea{
+	width: 100%;
+	height: 100px;
+	border:1px solid #606060;
+	margin-top: 3%;
+}
+.introlist_9 a{
+	color: #fff;
+	text-decoration: none;
+}
+
+/*------------register--------------------*/
+.register{
+	width: 100%;
+	height: 100%;
+	padding: 2%;
+}
+.register .textPink{
+	color: #f6416c !important;
+}
+.register_content{
+	padding: 0 8%;
+	position: relative;
+	height: 80%;
+}
+.register .STEPhead{
+	width: 100%;
+	height: 50px;
+}
+.register .STEPhead span{
+	margin-right: 1%; 
+}
+.register .STEPhead ul li{
+	display: inline-block;
+	margin:1% 1% 0 0; 
+	font-size: 1.8rem;
+}
+.register .STEPhead ul li.glyphicon-play{
+	font-size: 1.4rem;
+}
+.register_header header{
+	padding: 0 5% 1% 6%;
+}
+.register_header ul{
+	width: 80%;
+	text-align: right;
+}
+.register_header ul li a>span{
+	margin-right: 5%;
+	font-size: 1.6rem;
+}
+.register_header ul li:nth-child(1),
+.register_header ul li:nth-child(2){
+	width: 12%;
+	float: left;
+}
+.register_content button.next{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 120px;
+	height: 40px;
+	border-radius: 0;
+	font-size: 2rem;
+	border:none;
+	background-color: #f6416c;
+	color: #fff;
+	border:1px solid #f6416c;
+	cursor: pointer;
+}
+.register .box{
+	padding-right:9%; 
+	padding-bottom:11%; 
+}
+.register .box h3{
+	font-size: 2.4rem;
+	color: #4d4e4e;
+    font-family: RobotoBold; 
+}
+.register .box h5{
+	font-size: 1.7rem;
+	color: #4d4e4e;
+  	font-family: RobotoThin; 
+}
+.register .box p{
+	font-size: 1.4rem;
+	color: #4d4e4e;
+  	font-family: RobotoThin; 
+}
+.registerlist_1{
+	padding: 0;
+	margin: 0;
+}
+.register .box1>div{
+	width: 70%;
+	background:#151b4e ;
+	padding: 6%;
+	color: #fff;
+}
+.register .box1 .becomehost__info{
+	width: 20px;
+	margin-bottom:8%;
+}
+.register .box1 h6,
+.register .box1 p{
+	font-size: 1.6rem;
+	margin: 0 0 1%;
+}
+.registerlist_1 .box input,
+.registerlist_4 .box input{
+	width: 70%;
+	height: 40px;
+	padding: 0 3%;
+	font-size: 1.8rem;
+  	margin: 5% 0 2%;
+  	border:1px solid #aaa;
+  	font-family: RobotoThin; 
+}
+
+.registerlist_2{
+	height: 100%;
+}
+.registerlist_2 .box h5{
+	line-height: 1.4;
+	font-size: 1.6rem;
+}
+.registerlist_2 .box p{
+	font-size: 1.8rem;
+	margin: 4% 0;
+}
+.registerlist_2 .btn-group{
+	width: 55%;
+	padding: 0;
+}
+.registerlist_2 .btn-group button{
+	height: 40px;
+}
+.registerlist_2 .box1 ul li{
+	margin: 5% 0;
+  	font-family: RobotoThin; 
+}
+.registerlist_2 .box1 .text1{
+	overflow: hidden;
+}
+.registerlist_2 .box1 .text2{
+	height: 15px;
+	border:1px solid #f6416c;
+}
+.registerlist_2 .box1 .text2 span{
+	display: block;
+	height:100%;
+	background: #f6416c;
+}
+.registerlist_2 .box1 .English .text2 span{
+	width: 72%;
+}
+.registerlist_2 .box1 .zhongwen .text2 span{
+	width: 13%;
+}
+.registerlist_2 .box1 .hanwen .text2 span{
+	width: 4%;
+}
+.registerlist_2 .box1 .Deutsch .text2 span{
+	width: 3%;
+}
+.registerlist_2 .box1 .Français .text2 span{
+	width: 2%;
+}
+
+
+.registerlist_3 .btn-group{
+	width: 70%;
+	padding: 0;
+}
+.registerlist_3 h3.h31{
+	margin: 3% 0;
+}
+.registerlist_3 h3 img{
+	width: 20px;
+	margin-right: 2%;
+}
+.registerlist_3 h5{
+	line-height: 1.4;
+	margin-bottom: 3%;
+}
+.registerlist_3 p span{
+	font-size: 1.4rem;
+}
+.registerlist_3 .check{
+    margin: 3% 0 0;
+    overflow: hidden;
+}
+.registerlist_3 .textPink,
+.registerlist_3 .textp{
+	margin-top: 3%;
+	cursor: pointer;
+}
+.registerlist_3 .check .Pinput{
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	background: #151b4e;
+	display: inline-block;
+	float: left;
+	color: #f6416c;
+	text-align: center;
+	line-height: 20px;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+}
+.registerlist_3 .Pinput img{
+	position: absolute;
+	width: 130%;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.registerlist_3 .check .divinput{
+  float: right;
+  width: 94%;
+  font-size:1.6rem;
+  cursor: pointer;
+}
+.registerlist_3 .box3 .userimg{
+	width: 60px;
+	height: 60px;
+	border-radius:50%;
+	overflow: hidden;
+	position: relative;
+	border:1px solid #f6416c;
+	float: left;
+	margin-top: 2%;
+}
+.registerlist_3 .box3 .userimg img{
+	position: absolute;
+	width: 110%;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.registerlist_3 .box3 span{
+	display: inline-block;
+	font-size: 1.8rem;
+	margin:6% 0 0 4%;
+    font-family: RobotoBold; 
+}
+.registerlist_3 .box3 .check{
+	width: 100%;
+	padding: 5% 0 0;
+}
+.registerlist_3 button.Undo{
+	position: absolute;
+	bottom: 0;
+	left: 30%;
+	width: 120px;
+	height: 40px;
+	border-radius: 0;
+	font-size: 2rem;
+	border:none;
+	background-color: #fff;
+	color: #f6416c;
+	border:1px solid #f6416c;
+	cursor: pointer;
+}
+
+.registerlist_4 .box input{
+	margin: 3% 0;
+}
+
+.registerlist_4 .box2>div{
+	width: 70%;
+	margin: 0 auto;
+}
+.registerlist_4 .box2>div ul li{
+	border-bottom:1px solid #aaa;
+	padding: 5% 0;
+	color: #c2c2c2;
+}
+.registerlist_4 .box2>div ul li h5{
+  	font-family: RobotoBold; 
+  	margin: 0;
+  	font-size: 2rem;
+}
+.registerlist_4 .box2>div ul li p{
+    font-family: RobotoThin; 
+    width: 80%;
+}
+.registerlist_4 .box2>div ul li.li1{
+	font-size: 2rem;
+  	font-family: RobotoBold; 
+  	color: #131c4e;
+  	padding: 5% 0 2%;
+	border-bottom:1px solid #f74d75;
+}
+.registerlist_4 .box2>div ul li.li2{
+  	color: #131c4e;
+    font-family: RobotoThin; 
+
+}
+.registerlist_4 .box2>div ul li.li2 p img{
+	width: 18px;
+	margin-right: 2%;
+}
+.registerlist_4 .box2>div ul li.li3{
+	border-bottom: none;
+	padding:5% 0 0;
+}
+
+.registerlist_4 button.next{
+	top:50%;
+}
+
+.registerlist_5 button.next{
+	top:40% !important;
 }

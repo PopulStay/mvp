@@ -34,7 +34,8 @@ hr{
   float: right;
 }
 .STEPhead span,
-.introlist .STEPhead span{
+.introlist .STEPhead span,
+.registerlist .STEPhead span{
   display: inline-block;
   width: 10px;
   height: 10px;
