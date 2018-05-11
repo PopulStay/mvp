@@ -144,6 +144,7 @@ const App = () => (
           <Route exact path="/experience" component={experiencePage}/>
           <Route exact path="/all" component={all}/>
           <Route exact path="/Intro" component={Intro}/>
+          <Route exact path="/experiencelist" component={experiencelist}/>
           <Route exact path="/Register" component={Register}/>
         </div>
     </ScrollToTop>

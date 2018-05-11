@@ -38,6 +38,7 @@ class registerlist extends Component {
         Prove2:0,
         Login_type:0,
         next_type:0,
+        selectedPictures:"",
     };
 
   }
@@ -97,6 +98,19 @@ class registerlist extends Component {
     }
   }
 
+  fileChangedHandler(event){
+    event.preventDefault();
+    var files = this.state.selectedPictures;
+    let reader = new FileReader();
+    let file = event.target.files[0];
+
+      reader.onloadend = () => {
+      console.log(reader.result)
+        this.setState({selectedPictures:reader.result});
+      }
+    reader.readAsDataURL(file)
+    console.log(this.state.selectedPictures)
+  }
 
   render() {
     const language = this.state.language;
@@ -378,7 +392,7 @@ class registerlist extends Component {
             </div>
           }
 
-          { this.state.step === this.STEP.Step1 &&
+          { this.state.step === this.STEP.Step5 &&
             <div className="registerlist_3 registerlist_4 registerlist_5 row">
                 <div className="box col-sm-7 col-md-7 col-lg-7">
                     <h3>Create the page guests will see </h3>
@@ -389,6 +403,106 @@ class registerlist extends Component {
                 <div className="box2 col-sm-12 col-md-5 col-lg-5">
                     <div>
                         <img src="../images/registerlist_4.png" />
+                        <ul>
+                            <li className="li1">Experience</li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />Singapore</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li>
+                                <h5>What we’ll do</h5>
+                                <p>Give an overview description of what your guests will be doing on this experience.</p>
+                            </li>
+                            <li>
+                                <h5>What I’ll provide</h5>
+                                <p>Let your guests know if you’ll be including anything for this experience.</p>
+                            </li>
+                            <li>
+                                <h5>Where we’ll be</h5>
+                                <p>Tell your guests where you’ll be taking them for this experience.</p>
+                            </li>
+                            <li className="li3">
+                                <h5>Notes</h5>
+                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                            </li>
+                            <li className="li3">
+                                <img src="./images/registerlist_4api.jpg" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step1 &&
+            <div className="registerlist_4 registerlist_6 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Create your cover</h3>
+                    <h5>If you don’t have the perfect photo right now, don’t worry. Use the best one you have on hand.</h5>
+                    <p className="textpink">Tips and examples▲</p>
+                    <div className="examples">
+                      <ul className="ulleft col-sm-12 col-md-6 col-lg-6">
+                          <li><img src="../images/registerlist_dui.png" /><p>Think of your first photo and title as a book cover—it’s the first thing people will see</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>Go with active, candid images</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>Try to take the photo in a well-lit space</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>Photos with a vertical orientation work best</p></li>
+                      </ul>
+                      <ul className="ulright col-sm-6 col-md-6 col-lg-6">
+                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t use a flash or heavy filters</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t upload blurry or distorted images</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>Photos cannot feature children, logos, or alcohol</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t upload images with text overlaid</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>No posed portraits</p></li>
+                      </ul>
+                    </div>
+                    <div className="imgs">
+                        <img src="../images/registerlist_4.png" />
+                        <img src="../images/registerlist_4.png" />
+                        <img src="../images/registerlist_4.png" />
+                    </div>
+
+                    <h3>Experience title</h3>
+                    <p>A great title is short, clear and descriptive. Try starting with a fun or unique verb.</p>
+                    <input type="text" placeholder="E.g. Dance your way through Rio’s samba scene" />
+                    <p>10 characters needed</p>
+                    <div className={this.state.selectedPictures == "" ? "show photoleft col-sm-12 col-md-12 col-lg-12" : "hide photoleft col-sm-6 col-md-6 col-lg-6"} >
+                      <h3>Cover photo</h3>
+                      <p className={this.state.selectedPictures == "" ? "hide" : "show"}>Adjust your cover image for how you’d like it to appear in search results.</p>
+                      <div className={this.state.selectedPictures == "" ? "hide" : "show"}>
+                          <img src={this.state.selectedPictures == "" ? "../images/registerlist_4.png" : this.state.selectedPictures} />
+                      </div>
+                    </div>
+                    <div  className={this.state.selectedPictures == "" ? "hide photoright col-sm-6 col-md-6 col-lg-6" : "show photoright col-sm-6 col-md-6 col-lg-6"} >
+                      <h3>Thumbnail</h3>
+                      <p>Adjust your cover image for how you’d like it to appear in search results.</p>
+                      <div>
+                          <img src={this.state.selectedPictures == "" ? "../images/registerlist_4.png" : this.state.selectedPictures} />
+                      </div>
+                    </div>
+                    <button className="Upload"><img src="../images/registerlist_btnimg.png" />Upload cover photo<input type="file" onChange={(e)=>this.fileChangedHandler(e)}/></button>
+                      
+                    <div></div> 
+                    <button className="next"  className={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "btnactive next" : " next"} disabled={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>next</button>
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.selectedPictures == "" ? "../images/registerlist_4.png" : this.state.selectedPictures} />
                         <ul>
                             <li className="li1">Experience</li>
                             <li className="li2">

@@ -881,3 +881,72 @@
 .registerlist_5 button.next{
 	top:40% !important;
 }
+
+.registerlist_6 ul.ulleft,
+.registerlist_6 ul.ulright{
+	padding-left: 0;
+}
+.registerlist_6 .box ul.ulleft li img,
+.registerlist_6 .box ul.ulright li img{
+	width: 5%;
+}
+.registerlist_6 .box ul.ulleft li,
+.registerlist_6 .box ul.ulright li,
+.registerlist_6 .examples{
+	overflow: hidden;
+}
+.registerlist_6 .box ul.ulleft li p,
+.registerlist_6 .box ul.ulright li p{
+	width: 90%;
+	float: right;
+}
+.registerlist_6 .box .imgs{
+	width: 100%;
+	margin-top: 3%;
+}
+.registerlist_6 .box .imgs img{
+	width: 20%;
+	margin-right: 2%;
+}
+
+.registerlist_6 button.next{
+	top:90% !important;
+}
+.registerlist_6 .Upload img{
+	width: 30px;
+	margin-right:2%;
+}
+.registerlist_6 .Upload{
+	width: 200px;
+	height: 40px;
+	border-radius: 0;
+	font-size: 1.6rem;
+	border:none;
+	background-color: #f6416c;
+	color: #fff;
+	border:1px solid #f6416c;
+	cursor: pointer;
+	position: relative;
+	margin-top: 3%;
+}
+.registerlist_6 .Upload input{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+.registerlist_6 .photoleft,
+.registerlist_6 .photoright{
+	padding-left: 0;
+}
+.registerlist_6 .photoleft img,
+.registerlist_6 .photoright img{
+	width: 70%;
+}
+.registerlist_6 .photoleft p{
+	opacity: 0;
+}
