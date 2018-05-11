@@ -353,8 +353,8 @@ class Video extends Component {
                         ))
                       }
                    </ul>
-                   <h6 className={this.state.videoCalling ? "show" : "hide"}><p>Video call</p><a onClick={this.audioCall}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
-                   <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><a onClick={this.videoCall}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
+                   <h6 className={this.state.videoCalling || this.state.agora_remotetype == 1 ? "show" : "hide"}><p>Video call</p><a onClick={this.videoCall}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
+                   <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><a onClick={this.audioCall}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
                    <p className="text2"></p>
                    <div className="videobtn">
                       <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
