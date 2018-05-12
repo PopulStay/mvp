@@ -28,7 +28,7 @@ class Search extends Component {
     this.setState({state: this.state.locationName = DataName});
   }
 
-   componentWillMount() {
+   componentDidMount() {
     this.handlePageChange = this.handlePageChange.bind(this);
     if( window.searchCondition.checkInDate )
     {
