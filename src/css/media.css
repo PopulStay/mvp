@@ -4,7 +4,7 @@
 		width: 100%;
 	}
 	.navbar-collapse ul{
-	    width: 70%;
+	    width: 90%;
 	}
 	/*header  end*/
 	.rightbox{
@@ -72,9 +72,7 @@
 	.becomehost-1.container{
 		padding: 0 5%;
 	}
-	.navbar-collapse ul{
-	    width: 80%;
-	}
+	
 	.col-md-12.col-lg-6.Step1_6box.right,
 	.Step1_6 .Step1_6box .col-lg-6,
 	.Step1_6 .Stepbox>div{

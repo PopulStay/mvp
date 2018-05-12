@@ -38,7 +38,12 @@ class registerlist extends Component {
         Prove2:0,
         Login_type:0,
         next_type:0,
-        selectedPictures:"",
+        Experience_Pictures:"",
+        select_Pictures:"",
+        modalset:0,
+        modalimg:"",
+        Tips_examples:1,
+        Experience_title:"",
     };
 
   }
@@ -100,17 +105,78 @@ class registerlist extends Component {
 
   fileChangedHandler(event){
     event.preventDefault();
-    var files = this.state.selectedPictures;
+    var files = this.state.Experience_Pictures;
     let reader = new FileReader();
     let file = event.target.files[0];
 
       reader.onloadend = () => {
       console.log(reader.result)
-        this.setState({selectedPictures:reader.result});
+        this.setState({Experience_Pictures:reader.result});
+        this.setState({select_Pictures:reader.result});
       }
     reader.readAsDataURL(file)
-    console.log(this.state.selectedPictures)
+    console.log(this.state.Experience_Pictures)
   }
+
+  modalPictures(e){
+    this.setState({
+          state:this.state.modalimg = this.state.Experience_Pictures
+    });
+    console.log(this.state.Experience_Pictures)
+    console.log(this.state.modalimg)
+    var c=document.getElementById("myCanvas");
+    var canvas=c.getContext("2d");
+    canvas.clearRect(0,0,c.width,c.height);
+    var img=new Image()
+    img.src=this.state.Experience_Pictures;
+    canvas.drawImage(img,0,0,c.width,c.height);
+  }
+
+   RotatePictures(e){
+      var c=document.getElementById("myCanvas");
+      var canvas=c.getContext("2d");
+      var img=new Image();
+      img.src=this.state.modalimg;
+      canvas.drawImage(img,0,0,c.width,c.height);
+      var x = c.width/2; 
+      var y = c.height/2;
+      canvas.clearRect(0,0,c.width,c.height);
+      canvas.translate(x,y);
+      canvas.rotate((Math.PI/180)*90);
+      canvas.translate(-x,-y);
+      canvas.drawImage(img,0,0,c.width,c.height);
+    }
+
+    rangePictures(scale){
+      var c=document.getElementById("myCanvas");
+      var canvas=c.getContext("2d");
+      var img=new Image();
+      img.src=this.state.modalimg;
+      canvas.drawImage(img,0,0,c.width,c.height);
+      var imageWidth = c.width*scale;
+      var imageHeight = c.height*scale;
+      canvas.clearRect(0,0,c.width,c.height);
+      var x = c.width/2 - imageWidth/2;
+      var y = c.height/2 - imageHeight/2;
+      canvas.drawImage(img,x,y,imageWidth,imageHeight);
+    }
+
+    BrightnessPictures(e){
+      var c=document.getElementById("myCanvas");
+      var canvas=c.getContext("2d");
+      var img=new Image();
+      img.src=this.state.modalimg;
+      canvas.drawImage(img,0,0,c.width,c.height);
+      var imgData=canvas.getImageData(0,0,c.width,c.height);
+      console.log(imgData.data[0])
+      for (var i=0;i<imgData.data.length;i+=4)
+        {
+        imgData.data[i+0]+=e;
+        imgData.data[i+1]+=e+20;
+        imgData.data[i+2]+=e+20;
+        }
+      canvas.putImageData(imgData,0,0);
+    }
 
   render() {
     const language = this.state.language;
@@ -150,7 +216,7 @@ class registerlist extends Component {
                     <li className="Li4">
                       <a href="" className="btn button__Help">Login</a>
                     </li>
-                    <li className="Li4">
+                    <li className="Li5">
                       <GuestRegister/>
                     </li>
                   </ul>
@@ -454,8 +520,8 @@ class registerlist extends Component {
                 <div className="box col-sm-7 col-md-7 col-lg-7">
                     <h3>Create your cover</h3>
                     <h5>If you don’t have the perfect photo right now, don’t worry. Use the best one you have on hand.</h5>
-                    <p className="textpink">Tips and examples▲</p>
-                    <div className="examples">
+                    <p className="textpink" onClick={(e) => {if(this.state.Tips_examples == 0 )this.setState({Tips_examples:1});else this.setState({Tips_examples:0});}}>Tips and examples<span className={this.state.Tips_examples == 1 ? "modalshow" : "hide"}>▲</span><span className={this.state.Tips_examples == 0 ? "modalshow" : "hide"}>▼</span></p>
+                    <div className={this.state.Tips_examples == 1 ? "show examples" : "hide examples"}>
                       <ul className="ulleft col-sm-12 col-md-6 col-lg-6">
                           <li><img src="../images/registerlist_dui.png" /><p>Think of your first photo and title as a book cover—it’s the first thing people will see</p></li>
                           <li><img src="../images/registerlist_dui.png" /><p>Go with active, candid images</p></li>
@@ -470,41 +536,82 @@ class registerlist extends Component {
                           <li><img src="../images/registerlist_cuo.png" /><p>No posed portraits</p></li>
                       </ul>
                     </div>
-                    <div className="imgs">
-                        <img src="../images/registerlist_4.png" />
-                        <img src="../images/registerlist_4.png" />
-                        <img src="../images/registerlist_4.png" />
+                    <div className={this.state.Tips_examples == 1 ? "show imgs" : "hide imgs"}>
+                        <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_6img1.jpg"})} src="../images/registerlist_6img1.jpg" /></div>
+                        <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_6img2.jpg"})} src="../images/registerlist_6img2.jpg" /></div>
+                        <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_6img3.jpg"})} src="../images/registerlist_6img3.jpg" /></div>
                     </div>
 
                     <h3>Experience title</h3>
                     <p>A great title is short, clear and descriptive. Try starting with a fun or unique verb.</p>
-                    <input type="text" placeholder="E.g. Dance your way through Rio’s samba scene" />
-                    <p>10 characters needed</p>
-                    <div className={this.state.selectedPictures == "" ? "show photoleft col-sm-12 col-md-12 col-lg-12" : "hide photoleft col-sm-6 col-md-6 col-lg-6"} >
+                    <input type="text" placeholder="E.g. Dance your way through Rio’s samba scene"  onChange={(e) => this.setState({Experience_title: e.target.value})}/>
+                    <p className={this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "textpink" : ""}>{this.state.Experience_title.length <= 38 ? this.state.Experience_title.length+" characters needed" : this.state.Experience_title.length-38+" characters Exceed"}</p>
+                    <div className={this.state.Experience_Pictures == "" ? "hide photoleft col-sm-12 col-md-12 col-lg-12" : "show photoleft col-sm-6 col-md-6 col-lg-6"} >
                       <h3>Cover photo</h3>
-                      <p className={this.state.selectedPictures == "" ? "hide" : "show"}>Adjust your cover image for how you’d like it to appear in search results.</p>
-                      <div className={this.state.selectedPictures == "" ? "hide" : "show"}>
-                          <img src={this.state.selectedPictures == "" ? "../images/registerlist_4.png" : this.state.selectedPictures} />
+                      <p className={this.state.Experience_Pictures == "" ? "hide" : "show"}>Adjust your cover image for how you’d like it to appear in search results.</p>
+                      <div className={this.state.Experience_Pictures == "" ? "hide photochage" : "show photochage"}>
+                          <img src={this.state.Experience_Pictures == "" ? "../images/registerlist_4.png" : this.state.Experience_Pictures} />
+                          <p  data-toggle="modal" data-target="#myModal" onClick={(e) => this.modalPictures(e)}><span>Edit</span></p>
+                          <span className="glyphicon glyphicon-trash"  onClick={(e) => {if(this.state.select_Pictures == this.state.Experience_Pictures)this.setState({Experience_Pictures: "",select_Pictures: ""});else this.setState({Experience_Pictures: ""})}}></span>
                       </div>
                     </div>
-                    <div  className={this.state.selectedPictures == "" ? "hide photoright col-sm-6 col-md-6 col-lg-6" : "show photoright col-sm-6 col-md-6 col-lg-6"} >
+                    <div  className={this.state.Experience_Pictures == "" ? "hide photoright col-sm-6 col-md-6 col-lg-6" : "show photoright col-sm-6 col-md-6 col-lg-6"} >
                       <h3>Thumbnail</h3>
                       <p>Adjust your cover image for how you’d like it to appear in search results.</p>
-                      <div>
-                          <img src={this.state.selectedPictures == "" ? "../images/registerlist_4.png" : this.state.selectedPictures} />
+                      <div className={this.state.Experience_Pictures == "" ? "hide photochage" : "show photochage"}>
+                          <img src={this.state.Experience_Pictures == "" ? "../images/registerlist_4.png" : this.state.Experience_Pictures} />
+                          <p  data-toggle="modal" data-target="#myModal" onClick={(e) => this.modalPictures(e)}><span>Edit</span></p>
                       </div>
                     </div>
-                    <button className="Upload"><img src="../images/registerlist_btnimg.png" />Upload cover photo<input type="file" onChange={(e)=>this.fileChangedHandler(e)}/></button>
+                    <div className={this.state.Experience_Pictures == "" ? "show Uploaddiv col-lg-12" : "hide Uploaddiv col-lg-12"}>
+                        <button className="Upload"><img src="../images/registerlist_btnimg.png" />Upload cover photo<input type="file" onChange={(e)=>this.fileChangedHandler(e)}/></button>
+                    </div>
+
+                    <div className="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div className="modal-dialog">
+                        <div className="modal-content">
+                            <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3>Adjust the cover photo</h3>
+                          <div className="modal-body">
+                          <canvas id="myCanvas" className="canvas"></canvas>
+                          </div>
+                          <div className="modal-footer">
+                            <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
+                                <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />Crop</li>
+                                <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />Adjust Brightness</li>
+                                <li onClick={(e) => this.RotatePictures(e)}><img src="../images/Rotate.png" />Rotate</li>
+                            </ul>
+                            <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
+                                <li  className={this.state.modalset == 1 ? "show" : "hide"}>
+                                    <p>Zoom</p>
+                                    <input type="range" onChange={(e)=>this.rangePictures(e.target.value)} name="points"  step="0.01" min="1" max="3" />
+                                </li>
+                                <li  className={this.state.modalset == 2 ? "show" : "hide"}>
+                                    <p>Brightness</p>
+                                    <input type="range" onChange={(e)=>this.BrightnessPictures(e.target.value)} name="points" step="0.01" min="-1" max="1" />
+                                </li>
+                                <li  className={this.state.modalset == 2 ? "show" : "hide"}>
+                                    <p>Contrast Ratio</p>
+                                    <input type="range" name="points" step="0.02" min="1" max="3" />
+                                </li>
+                            </ul>
+                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">Cancel</button>
+                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >Complete</button>
+                            <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} type="button" data-dismiss="modal" aria-hidden="true">Save and Replace</button>
+                          </div>
+                        </div>
+                      </div>
+                    <div className="modal-backdrop fade in"></div>
+                    </div>
                       
-                    <div></div> 
-                    <button className="next"  className={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "btnactive next" : " next"} disabled={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>next</button>
+                    <button className="next"  className={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "btnactive next" : " next"} disabled={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>next</button>
                 </div>
 
                 <div className="box2 col-sm-12 col-md-5 col-lg-5">
                     <div>
-                        <img src={this.state.selectedPictures == "" ? "../images/registerlist_4.png" : this.state.selectedPictures} />
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
-                            <li className="li1">Experience</li>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
                             <li className="li2">
                                 <p><img src="./images/registerlist_4location.png" />Singapore</p>
                                 <p><img src="./images/registerlist_4time.png" />0 hour total</p>
