@@ -138,11 +138,11 @@ class Video extends Component {
           console.log("######################connection ",data);
           if(data.type == 'audio')
           {
-            this.audioCall();
+            this.audioJoin();
           }
           else if(data.type == 'video')
           {
-            this.videoCall();
+            this.videoJoin();
           }
         });  
     }
@@ -179,19 +179,22 @@ class Video extends Component {
       (data, jwRes)=>
       {
         this.setState({connectionCode:data.connection});
+        this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
+        this.client.init( this.constant.appId ,()=>{
+          this.subscribeStreamEvents();
+        });
       }
     );
   }
 
 
   answerVideo = () =>{
-        window.io.socket.get('/messages/answerconnection?type=video&account='+this.state.guestAddress+'&host='+window.address,
-      (data, jwRes)=>
-      {
-        this.videoCall();
-      }
-    );
+      this.videoCall();
+      window.io.socket.get('/messages/answerconnection?type=video&account='+this.state.guestAddress+'&host='+window.address,
+      (data, jwRes)=>{});
   }
+
+
 
   videoCall = () =>{
 
@@ -202,7 +205,15 @@ class Video extends Component {
         console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
         console.log("this.state.host"+this.state.host);
         this.subscribeStreamEvents();
-        this.client.join(null, this.state.connectionCode, null, (uid) => {
+        this.videoJoin();
+      });
+    }
+
+
+  }
+
+  videoJoin = () =>{
+            this.client.join(null, this.state.connectionCode, null, (uid) => {
             console.log("User " + uid + " join channel successfully");
             console.log('At ' + new Date().toLocaleTimeString());
             console.log(uid);
@@ -235,11 +246,7 @@ class Video extends Component {
             this.setState({ readyState: true , videoCalling: false  });
           });
      
-        })
-      });
-    }
-
-
+        });
   }
 
 //audio message  
@@ -259,17 +266,21 @@ class Video extends Component {
       (data, jwRes)=>
       {
         this.setState({connectionCode:data.connection});
+        this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
+        this.client.init( this.constant.appId ,()=>{
+        console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
+        console.log("this.state.host"+this.state.host);
+        this.subscribeStreamEvents();
+      });
       }
     );
   }
 
   answerAudio = () =>{
-        window.io.socket.get('/messages/answerconnection?type=audio&account='+this.state.guestAddress+'&host='+window.address,
-      (data, jwRes)=>
-      {
-        this.audioCall();
-      }
-    );
+
+      this.audioCall();
+      window.io.socket.get('/messages/answerconnection?type=audio&account='+this.state.guestAddress+'&host='+window.address,
+      (data, jwRes)=>{});
   }
 
   audioCall = () =>{
@@ -280,10 +291,18 @@ class Video extends Component {
         console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
         console.log("this.state.host"+this.state.host);
         this.subscribeStreamEvents();
+        this.audioJoin();
+
+      });
+    }
+  }
+
+  audioJoin = () =>{
+
         this.client.join(null, this.state.connectionCode, null, (uid) => {
-            console.log("User " + uid + " join channel successfully");
-            console.log('At ' + new Date().toLocaleTimeString());
-            console.log(uid);
+        console.log("User " + uid + " join channel successfully");
+        console.log('At ' + new Date().toLocaleTimeString());
+        console.log(uid);
       
         this.localStream = window.AgoraRTC.createStream({streamID: uid,audio: true,video: false,screen: false});
         
@@ -312,9 +331,7 @@ class Video extends Component {
             this.setState({ readyState: true , audioCalling: false  });
           });
      
-        })
-      });
-    }
+        });
   }
 
   subscribeStreamEvents = () =>{
