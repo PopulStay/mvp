@@ -62,8 +62,6 @@ class WalletCreate extends React.Component {
 
   }
    
-
-
   openModal() {
     this.setState({modalIsOpen: true});
   }
@@ -88,6 +86,14 @@ class WalletCreate extends React.Component {
     this.setState({infoModalIsOpen: false});
   }
 
+  substring0x = (str) => {
+    str = str +"";
+    return str.substring(2,str.length);
+  }
+
+  componentDidMount() {
+  }
+
   render() {
     return (
 
@@ -100,7 +106,7 @@ class WalletCreate extends React.Component {
           <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
           <br/>
           <h3>Address:{window.address}</h3>
-          <h3>Pirvate Key:{window.privateKey}</h3>
+          <h3>Pirvate Key:{this.substring0x(window.privateKey)}</h3>
           <br/>
           <button className="btn btn-danger" onClick={this.closeModal}>Close</button>
         </div>  
