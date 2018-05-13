@@ -7766,9 +7766,6 @@ header li.Li1,
 header li.Li2{
   width: 25%;
 }
-header li.Li3{
-  margin-left: 5%;
-}
 header li.Li3,
 header li.Li4{
   width: 10%;
@@ -7781,6 +7778,7 @@ header li.Li4>a{
 header li.Li5{
   width: auto !important;
   color: #131c4e;
+  margin-left: 2%;
 }
 header button {
   min-width: 124px;
@@ -7809,8 +7807,9 @@ header li.Li2 .button__fill{
 }
 header li.Li5 button{
   border:1px solid #131c4e;
-  padding: 2% 3%;
+  padding: 2% 6%;
   color: #131c4e;
+  position: relative;
 }
 header a {
   margin-left: 15px;
@@ -7832,7 +7831,7 @@ header .button__outline {
 }
 header .logoutButton{
   background: transparent;
-  border: none;
+  border: none !important;
 }
 header .logoutButton span{
   display: inline-block;
@@ -7840,8 +7839,9 @@ header .logoutButton span{
   height: 8px;
   border-radius: 50%;
   background: #f6416c;
-  float: right;
-  margin-left: 5px;
+  position: absolute;
+  top:2px;
+  right: 2px;
 }
 header nav{
   width: 50%;
@@ -8512,7 +8512,8 @@ header .dropdown-menu a.dropdown-item1{
 }
 .navbar-collapse ul{
   float: right;
-  width:60%;
+  width:70%;
+  text-align: right;
 }
 .navbar-collapse{
   display: block;

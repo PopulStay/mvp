@@ -621,6 +621,14 @@
 	width: 12%;
 	float: left;
 }
+.register_header ul li{
+	color: #131c4e;
+}
+.register_header ul li button{
+	color: #131c4e;
+	text-align: center;
+	position:relative;
+}
 .register_content button.next{
 	position: absolute;
 	bottom: 0;
@@ -854,11 +862,16 @@
     width: 80%;
 }
 .registerlist_4 .box2>div ul li.li1{
+	border-bottom:1px solid #f74d75;
+	overflow: hidden;
+}
+.registerlist_4 .box2>div ul li.li1>p{
 	font-size: 2rem;
   	font-family: RobotoBold; 
   	color: #131c4e;
-  	padding: 5% 0 2%;
-	border-bottom:1px solid #f74d75;
+  	width: 100%;
+  	margin: 0;
+  	word-break:break-all;
 }
 .registerlist_4 .box2>div ul li.li2{
   	color: #131c4e;
@@ -904,9 +917,16 @@
 	width: 100%;
 	margin-top: 3%;
 }
-.registerlist_6 .box .imgs img{
-	width: 20%;
+.registerlist_6 .box .imgs>div{
+	width: 16%;
+	display: inline-block;
 	margin-right: 2%;
+	overflow: hidden;
+	cursor: pointer;
+}
+.registerlist_6 .box .imgs>div:nth-child(2) img{
+	width: 150%;
+	margin-left: -20%;
 }
 
 .registerlist_6 button.next{
@@ -915,6 +935,10 @@
 .registerlist_6 .Upload img{
 	width: 30px;
 	margin-right:2%;
+	margin-top:-4px;
+}
+.registerlist_6 .textpink{
+	cursor: pointer;
 }
 .registerlist_6 .Upload{
 	width: 200px;
@@ -928,6 +952,9 @@
 	cursor: pointer;
 	position: relative;
 	margin-top: 3%;
+}
+.registerlist_6 .Uploaddiv{
+	padding: 0;
 }
 .registerlist_6 .Upload input{
 	position: absolute;
@@ -943,10 +970,46 @@
 .registerlist_6 .photoright{
 	padding-left: 0;
 }
-.registerlist_6 .photoleft img,
-.registerlist_6 .photoright img{
-	width: 70%;
-}
 .registerlist_6 .photoleft p{
 	opacity: 0;
+}
+.registerlist_6 .photochage{
+	width: 70%;
+	position: relative;
+	cursor: pointer;
+}
+.registerlist_6 .photochage p{
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0;
+}
+.registerlist_6 .photochage p>span{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+	font-size: 2.2rem;
+  	font-family: RobotoBold; 
+}
+.registerlist_6 .photochage>span{
+	color: #fff;
+	position: absolute;
+	top:5%;
+	right: 5%;
+	font-size: 1.6rem;
+	opacity: 0;
+}
+.registerlist_6 .photochage:hover span{
+	opacity: 1;
+}
+.registerlist_6 .photochage:hover p{
+	opacity: 0.5;
+}
+.registerlist_6 .modal-content h3{
+	color: #fff;
+	margin: 0 2%;
 }
