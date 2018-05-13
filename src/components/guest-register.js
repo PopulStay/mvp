@@ -7,6 +7,7 @@ import Wallet from './wallet';
 import Web3 from 'web3';
 import web3service from '../services/web3-service'
 
+
 const customStyles = {
   content : {
     top                   : '8%',
@@ -40,12 +41,8 @@ class GuestRegister extends React.Component {
   }
 
   componentWillMount() {
-    
-    this.setState( { account: window.address, id: window.address});
-    guestService.getGuesterInfo(window.address).then((data)=>{
-      this.setState({ registered:true });
-      this.setState({ user:data.user });
-     });
+    this.loadUserData();
+  
  
   }
    
@@ -76,10 +73,28 @@ class GuestRegister extends React.Component {
   closeModal() {
     this.setState({modalIsOpen: false});
   }
-  onAccountChange = (address) =>{
-    this.setState({account:address});
+
+  loadUserData = () =>{
+    this.setState( { account: window.address, id: window.address});
+    guestService.getGuesterInfo(window.address).then((data)=>{
+      this.setState({ registered:true });
+      this.setState({ user:data.user });
+     });
 
   }
+  onAccountChange = (address) =>{
+    this.setState({account:address});
+     guestService.getGuesterInfo(window.address).then((data)=>{
+      if(data && data.user)
+      {
+          this.setState({ registered:true });
+          this.setState({ user:data.user });
+          this.closeModal();
+      }
+     });
+
+  }
+
 
   render() {
     return (

@@ -51,6 +51,12 @@ class WalletClear extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+  substring0x = (str) => {
+    str = str +"";
+    return str.substring(2,str.length);
+  }
+
+
   render() {
     return (
 
@@ -63,7 +69,7 @@ class WalletClear extends React.Component {
             <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
             <br/>
               <h3>Address:{window.address}</h3>
-              <h3>Private Key:{window.privateKey}</h3>
+              <h3>Private Key:{this.substring0x(window.privateKey)}</h3>
             <br/>
             <button className="btn btn-danger" onClick={this.clear}>Clear</button>
             <button className="btn btn-primary" onClick={this.closeModal}>Cancel</button>
