@@ -80,7 +80,7 @@ class Wallet extends Component {
               </button>            
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
   
-                <a className="dropdown-item dropdown-item1" onClick={this.create}><Create/></a>
+                <a className="dropdown-item dropdown-item1"><Create onAccountChange={this.props.onAccountChange}/></a>
                 <a className="dropdown-item" onClick={this.openModal}>Import</a>
          
               </div>

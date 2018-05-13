@@ -44,10 +44,12 @@ class WalletCreate extends React.Component {
     }
     else
     {
+
         var obj=window.web3.eth.accounts.wallet.create(1);
         window.address = obj[obj.length-1].address;
         window.privateKey = obj[obj.length-1].privateKey;
         window.addressshow = window.address.substring(0,10)+"...";
+        this.props.onAccountChange(window.address);
         reactLocalStorage.setObject('wallet', 
           {
             'address': window.address,

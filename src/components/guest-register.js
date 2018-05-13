@@ -76,6 +76,10 @@ class GuestRegister extends React.Component {
   closeModal() {
     this.setState({modalIsOpen: false});
   }
+  onAccountChange = (address) =>{
+    this.setState({account:address});
+
+  }
 
   render() {
     return (
@@ -99,7 +103,7 @@ class GuestRegister extends React.Component {
                 <br/>
                 <div>
 
-                <Wallet/>
+                <Wallet onAccountChange={this.onAccountChange}/>
                 <br/>
 
                 <div className="form-group">
@@ -109,7 +113,7 @@ class GuestRegister extends React.Component {
 
                 <div className="form-group">
                   <label>Wallet Account</label>
-                  <input type="text"  className="form-control" placeholder="Wallet Account" value={window.address} disabled/>
+                  <input type="text"  className="form-control" placeholder="Wallet Account" value={this.state.account} disabled/>
                 </div>
 
                 <div className="form-group">
