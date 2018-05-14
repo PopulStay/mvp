@@ -465,7 +465,8 @@
 }
 .introlist_3 .boxleft .btn-group button,
 .registerlist_2 .btn-group button,
-.registerlist_3 .btn-group button{
+.registerlist_3 .btn-group button,
+.registerlist_12 .box label .btn-group button{
 	background: none;
 	border: 1px solid #606060;
 	border-radius: 0;
@@ -478,14 +479,16 @@
 }
 .introlist_3 .boxleft .btn-group button span,
 .registerlist_2 .btn-group button span,
-.registerlist_3 .btn-group button span{
+.registerlist_3 .btn-group button span,
+.registerlist_12 .box label .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2.2rem;
 }
 .introlist_3 .dropdown-menu,
 .registerlist_2 .dropdown-menu,
-.registerlist_3 .dropdown-menu{
+.registerlist_3 .dropdown-menu,
+.registerlist_12 .dropdown-menu{
   width: 100%;
   max-height: 300px;
   overflow: auto;
@@ -493,7 +496,8 @@
 }
 .introlist_3 .dropdown-menu a,
 .registerlist_2 .dropdown-menu a,
-.registerlist_3 .dropdown-menu a{
+.registerlist_3 .dropdown-menu a,
+.registerlist_12 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 3%;
@@ -507,18 +511,21 @@
 }
 .introlist_3 .dropdown-menu,
 .registerlist_2 .dropdown-menu,
-.registerlist_3 .dropdown-menu{
+.registerlist_3 .dropdown-menu,
+.registerlist_12 .dropdown-menu{
 	padding: 0;
 	margin: 0;
 }
 .introlist_3 .dropdown-menu li:first-child>a,
 .registerlist_2 .dropdown-menu li:first-child>a,
-.registerlist_3 .dropdown-menu li:first-child>a{
+.registerlist_3 .dropdown-menu li:first-child>a,
+.registerlist_12 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .introlist_3 .dropdown-menu a:hover,
 .registerlist_2 .dropdown-menu a:hover,
-.registerlist_3 .dropdown-menu a:hover{
+.registerlist_3 .dropdown-menu a:hover,
+.registerlist_12 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -601,6 +608,7 @@
 	display: inline-block;
 	margin:1% 1% 0 0; 
 	font-size: 1.8rem;
+	cursor: pointer;
 }
 .register .STEPhead ul li.glyphicon-play{
 	font-size: 1.4rem;
@@ -629,8 +637,8 @@
 	text-align: center;
 	position:relative;
 }
-.register_content button.next{
-	width: 120px;
+.register_content button.next,
+.registerlist_12 .stepbox button{
 	height: 40px;
 	border-radius: 0;
 	font-size: 2rem;
@@ -640,6 +648,7 @@
 	border:1px solid #f6416c;
 	cursor: pointer;
 	margin: 15% 50% 0 0;
+	padding: 0 5%;
 }
 .register .box{
 	padding-right:9%; 
@@ -823,10 +832,7 @@
 	padding: 5% 0 0;
 }
 .registerlist_3 button.Undo{
-	position: absolute;
-	bottom: 0;
-	left: 30%;
-	width: 120px;
+	padding: 0 5%;
 	height: 40px;
 	border-radius: 0;
 	font-size: 2rem;
@@ -835,6 +841,11 @@
 	color: #f6416c;
 	border:1px solid #f6416c;
 	cursor: pointer;
+	float: left;
+}
+.registerlist_3 button.Save{
+	float: left;
+	margin: 0;
 }
 
 .registerlist_4 .box input{
@@ -864,6 +875,7 @@
 .registerlist_4 .box2>div ul li.li1{
 	border-bottom:1px solid #f74d75;
 	overflow: hidden;
+	padding-bottom:1%; 
 }
 .registerlist_4 .box2>div ul li.li1>p{
 	font-size: 2rem;
@@ -1066,34 +1078,130 @@
 	width: 15px;
 	margin-right: 2%;
 }
-.registerlist_8 .box textarea{
-	width: 100%;
-	height: 100px;
+.registerlist_8 .box textarea,
+.registerlist_12 .box label textarea{
+	width: 85%;
+	height: 150px;
 	border: 1px solid #f6416c;
 	padding: 2% ;
 	font-weight: 1.6rem;
-    font-family: RobotoThin; 
-    margin-top: 8%;
+    margin-top: 5%;
+    font-weight: 300;
 }
 .textactive{
 	color: #131c4e;
 }
-.registerlist_8 .box2>div ul li>h5{
+.registerlist_4 .box2>div ul li>h5{
 	overflow: hidden;
 }
-.registerlist_8 .box2>div ul li>h5>span{
+.registerlist_4 .box2>div ul li>h5>span{
 	padding: 3% 0 0;
 	display: inline-block;
 	font-family: RobotoBold;
     font-size: 2rem;
 }
-.registerlist_8 .box2>div ul li>h5>p{
+.registerlist_4 .box2>div ul li>h5>p{
 	width: 40px;
 	height:40px;
 	border-radius: 50%;
 	overflow: hidden;
 	float: right;
 }
-.registerlist_8 .box2>div ul li>h5>p>img{
+.registerlist_4 .box2>div ul li>h5>p>img{
 	margin-top: -5%;
+}
+.registerlist_12 .box h6{
+	font-size: 1.8rem;
+	margin-top: 5%;
+	font-weight: 600;
+}
+.registerlist_12 .box label{
+	width: 100%;
+   font-family: RobotoThin !important; 
+   margin-bottom: 3%;
+}
+.registerlist_12 .box label input,
+.registerlist_12 .box label .btn-group{
+	font-size: 1.5rem;
+	width: 90%;
+	margin: 0;
+	font-weight: 300;
+}
+.registerlist_12 .box label .btn-group button{
+	border: 1px solid #aaa;
+}
+.registerlist_12 .box label p,
+.registerlist_12 .stepbox h5{
+	font-size: 1.6rem;
+	font-weight: 400;
+	font-family:none;
+}
+.registerlist_12 .box label .p1{
+	font-size: 1.4rem;
+	font-weight: 300;
+}
+.registerlist_12 .box .Left{
+	width: 45%;
+}
+.registerlist_12 .box .Right{
+	width: 45%;
+	margin-right: 5.5%;
+}
+.registerlist_12 .box .Left input,
+.registerlist_12 .box .Right input{
+	padding: 0 7%;
+}
+.registerlist_12 .box label textarea {
+	width: 90%;
+	height:80px;
+}
+.registerlist_12 .box label:last-child{
+	margin-bottom: 0;
+}
+.registerlist_12 .stepbox button{
+	margin: 2% 0;
+}
+.registerlist_12 .stepbox img{
+	width: 85%;
+	margin: 2% 0;
+}
+.registerlist_4 .box2>div ul li .apidiv{
+	position: relative;
+}
+.registerlist_4 .box2>div ul li .apidiv>p{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	position: absolute;
+	background: #e6afbc;
+	opacity: 0.8;
+	top:30%;
+	left: 42%;
+}
+.registerlist_4 .box2>div ul li .apidiv>div{
+	position: absolute;
+	background: #e6afbc;
+	top: -10%;
+    left: 22%;
+	background: #151b4e;
+	text-align: center;
+	padding: 0 5%;
+}
+.registerlist_4 .box2>div ul li .apidiv>div>h6{
+	font-size: 1.6rem;
+	color: #fff;
+    font-family: RobotoBold; 
+}
+.registerlist_4 .box2>div ul li .apidiv>div>p{
+	color: #fff;
+	font-size: 1.2rem;
+    font-family: RobotoThin; 
+}
+.registerlist_4 .box2>div ul li .apidiv>div>span{
+	color: #151b4e;
+	font-size: 3rem;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0%);
+	bottom: -25px;
 }
