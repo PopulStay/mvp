@@ -1090,14 +1090,14 @@ h1,
 }
 .Step2_2 .modal-content,
 .registerlist_6 .modal-content{
-  height: 700px;
+  height: 640px;
   background: none;
   box-shadow:none;
   border:none;
 }
 .Step2_2 .modal-body,
 .registerlist_6 .modal-body{
-  height: 600px;
+  height:540px;
 }
 .Step2_2 .modal-footer,
 .registerlist_6 .modal-footer{
@@ -1149,12 +1149,12 @@ h1,
   float: left;
   color: #fff;
   font-size: 1.8rem;
-  margin: 2%;
+  margin-left: 1%;
 }
 .Step2_2 .modal-footer .Brightness input,
 .registerlist_6 .modal-footer .Brightness input{
   width: 30%;
-  margin: 0.6% 0;
+  margin: -1% 0;
   cursor: pointer;
 }
 .Step2_2 .modal-footer .Cancel,
@@ -1184,7 +1184,7 @@ h1,
 }
 .Step2_2 .modal-dialog,
 .registerlist_6 .modal-dialog{
-  top:52%;
+  top:50%;
   left: 50%;
   transform: translate(-50%,-50%) !important;
   margin: 0;
