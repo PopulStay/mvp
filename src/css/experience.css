@@ -630,9 +630,6 @@
 	position:relative;
 }
 .register_content button.next{
-	position: absolute;
-	bottom: 0;
-	left: 0;
 	width: 120px;
 	height: 40px;
 	border-radius: 0;
@@ -642,6 +639,7 @@
 	color: #fff;
 	border:1px solid #f6416c;
 	cursor: pointer;
+	margin: 15% 50% 0 0;
 }
 .register .box{
 	padding-right:9%; 
@@ -857,9 +855,11 @@
   	margin: 0;
   	font-size: 2rem;
 }
-.registerlist_4 .box2>div ul li p{
+.registerlist_4 .box2>div ul li>p{
     font-family: RobotoThin; 
-    width: 80%;
+    word-break: break-all;
+    max-height: 100px;
+    overflow: auto;
 }
 .registerlist_4 .box2>div ul li.li1{
 	border-bottom:1px solid #f74d75;
@@ -886,15 +886,6 @@
 	border-bottom: none;
 	padding:5% 0 0;
 }
-
-.registerlist_4 button.next{
-	top:50%;
-}
-
-.registerlist_5 button.next{
-	top:40% !important;
-}
-
 .registerlist_6 ul.ulleft,
 .registerlist_6 ul.ulright{
 	padding-left: 0;
@@ -927,10 +918,6 @@
 .registerlist_6 .box .imgs>div:nth-child(2) img{
 	width: 150%;
 	margin-left: -20%;
-}
-
-.registerlist_6 button.next{
-	top:90% !important;
 }
 .registerlist_6 .Upload img{
 	width: 30px;
@@ -1074,4 +1061,39 @@
 	height: 160%;
 	opacity: 0;
 	cursor: pointer;
+}
+.registerlist_8 .box p.textpink img{
+	width: 15px;
+	margin-right: 2%;
+}
+.registerlist_8 .box textarea{
+	width: 100%;
+	height: 100px;
+	border: 1px solid #f6416c;
+	padding: 2% ;
+	font-weight: 1.6rem;
+    font-family: RobotoThin; 
+    margin-top: 8%;
+}
+.textactive{
+	color: #131c4e;
+}
+.registerlist_8 .box2>div ul li>h5{
+	overflow: hidden;
+}
+.registerlist_8 .box2>div ul li>h5>span{
+	padding: 3% 0 0;
+	display: inline-block;
+	font-family: RobotoBold;
+    font-size: 2rem;
+}
+.registerlist_8 .box2>div ul li>h5>p{
+	width: 40px;
+	height:40px;
+	border-radius: 50%;
+	overflow: hidden;
+	float: right;
+}
+.registerlist_8 .box2>div ul li>h5>p>img{
+	margin-top: -5%;
 }

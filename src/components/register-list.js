@@ -45,6 +45,7 @@ class registerlist extends Component {
         Tips_examples:1,
         Experience_title:"",
         photolist:[],
+        introduce:"",
     };
 
   }
@@ -670,11 +671,11 @@ class registerlist extends Component {
             </div>
           }
 
-          { this.state.step === this.STEP.Step1 &&
+          { this.state.step === this.STEP.Step7 &&
             <div className="registerlist_4 registerlist_6 registerlist_7 row">
                 <div className="STEPhead">
                   <span className="bjpink"></span>
-                  <span></span>
+                  <span className="bjpink"></span>
                   <span></span>
                   <span></span>
                   <span></span>
@@ -824,6 +825,152 @@ class registerlist extends Component {
                             <li className="li2">
                                 <p><img src="./images/registerlist_4location.png" />Singapore</p>
                                 <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li>
+                                <h5>What we’ll do</h5>
+                                <p>Give an overview description of what your guests will be doing on this experience.</p>
+                            </li>
+                            <li>
+                                <h5>What I’ll provide</h5>
+                                <p>Let your guests know if you’ll be including anything for this experience.</p>
+                            </li>
+                            <li>
+                                <h5>Where we’ll be</h5>
+                                <p>Tell your guests where you’ll be taking them for this experience.</p>
+                            </li>
+                            <li className="li3">
+                                <h5>Notes</h5>
+                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                            </li>
+                            <li className="li3">
+                                <img src="./images/registerlist_4api.jpg" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step8 &&
+            <div className="registerlist_4 registerlist_6 registerlist_8 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Tell guests what makes you qualified to host this experience</h3>
+                    <h5>Mention all the things that make you the best person to host this experience. For example, tell us you’ve lived in your community for many years, or you’re well known for what you do.</h5>
+                    <p className="textpink"><img src="/images/photoi.png" />Tips and examples</p>
+                    <textarea onChange={(e)=>this.setState({introduce:e.target.value})} placeholder="I’m co-founder of the Amazing Brewing Company and one of seven certified cicerones (beer sommeliers) in Korea. I’ve lived in Asia, Europe, and the US and tasted beer at over 100 breweries worldwide."></textarea>  
+                    <p className={this.state.introduce.length<120 ? "textpink" : ""}>{this.state.introduce.length > 120 ? this.state.introduce.length : 120-this.state.introduce.length} characters needed</p>
+                    <button className={ this.state.introduce.length<120 ? "btnactive next" : " next"} disabled={ this.state.introduce.length<120 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>next</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />Singapore</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5>What we’ll do</h5>
+                                <p>Give an overview description of what your guests will be doing on this experience.</p>
+                            </li>
+                            <li>
+                                <h5>What I’ll provide</h5>
+                                <p>Let your guests know if you’ll be including anything for this experience.</p>
+                            </li>
+                            <li>
+                                <h5>Where we’ll be</h5>
+                                <p>Tell your guests where you’ll be taking them for this experience.</p>
+                            </li>
+                            <li className="li3">
+                                <h5>Notes</h5>
+                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                            </li>
+                            <li className="li3">
+                                <img src="./images/registerlist_4api.jpg" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step9 &&
+            <div className="registerlist_4 registerlist_6 registerlist_8 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Tell guests what makes you qualified to host this experience</h3>
+                    <h5>Mention all the things that make you the best person to host this experience. For example, tell us you’ve lived in your community for many years, or you’re well known for what you do.</h5>
+                    <p className="textpink"><img src="/images/photoi.png" />Tips and examples</p>
+                    <textarea onChange={(e)=>this.setState({introduce:e.target.value})} placeholder="I’m co-founder of the Amazing Brewing Company and one of seven certified cicerones (beer sommeliers) in Korea. I’ve lived in Asia, Europe, and the US and tasted beer at over 100 breweries worldwide."></textarea>  
+                    <p className={this.state.introduce.length<120 ? "textpink" : ""}>{this.state.introduce.length > 120 ? this.state.introduce.length : 120-this.state.introduce.length} characters needed</p>
+                    <button className={ this.state.introduce.length<120 ? "btnactive next" : " next"} disabled={ this.state.introduce.length<120 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>next</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />Singapore</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
                             </li>
                             <li>
                                 <h5>What we’ll do</h5>
