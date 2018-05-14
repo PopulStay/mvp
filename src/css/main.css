@@ -7807,7 +7807,7 @@ header li.Li2 .button__fill{
 }
 header li.Li5 button{
   border:1px solid #131c4e;
-  padding: 2% 6%;
+  padding: 2% 8%;
   color: #131c4e;
   position: relative;
 }
@@ -7831,7 +7831,6 @@ header .button__outline {
 }
 header .logoutButton{
   background: transparent;
-  border: none !important;
 }
 header .logoutButton span{
   display: inline-block;

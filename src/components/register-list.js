@@ -44,6 +44,7 @@ class registerlist extends Component {
         modalimg:"",
         Tips_examples:1,
         Experience_title:"",
+        photolist:[],
     };
 
   }
@@ -118,6 +119,20 @@ class registerlist extends Component {
     console.log(this.state.Experience_Pictures)
   }
 
+  photolist(event){
+    event.preventDefault();
+    var plists = this.state.photolist;
+    let reader = new FileReader();
+    let file = event.target.files[0];
+
+      reader.onloadend = () => {
+        plists.push(reader.result);
+        this.setState({photolist:plists});
+      }
+    reader.readAsDataURL(file)
+    console.log(this.state.photolist.length)
+  }
+
   modalPictures(e){
     this.setState({
           state:this.state.modalimg = this.state.Experience_Pictures
@@ -176,6 +191,11 @@ class registerlist extends Component {
         imgData.data[i+2]+=e+20;
         }
       canvas.putImageData(imgData,0,0);
+    }
+    delphoto(e,index){
+      this.setState({
+            photolist: this.state.photolist.filter((elem, i) => index != i)
+      });
     }
 
   render() {
@@ -501,12 +521,20 @@ class registerlist extends Component {
             </div>
           }
 
-          { this.state.step === this.STEP.Step1 &&
+          { this.state.step === this.STEP.Step6 &&
             <div className="registerlist_4 registerlist_6 row">
                 <div className="STEPhead">
                   <span className="bjpink"></span>
-                  <span className="bjpink"></span>
-                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                   <ul>
                       <li className="textPink">Basics</li>
                       <li className="glyphicon glyphicon-play textPink"></li>
@@ -605,6 +633,187 @@ class registerlist extends Component {
                     </div>
                       
                     <button className="next"  className={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "btnactive next" : " next"} disabled={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>next</button>
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />Singapore</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li>
+                                <h5>What we’ll do</h5>
+                                <p>Give an overview description of what your guests will be doing on this experience.</p>
+                            </li>
+                            <li>
+                                <h5>What I’ll provide</h5>
+                                <p>Let your guests know if you’ll be including anything for this experience.</p>
+                            </li>
+                            <li>
+                                <h5>Where we’ll be</h5>
+                                <p>Tell your guests where you’ll be taking them for this experience.</p>
+                            </li>
+                            <li className="li3">
+                                <h5>Notes</h5>
+                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                            </li>
+                            <li className="li3">
+                                <img src="./images/registerlist_4api.jpg" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step1 &&
+            <div className="registerlist_4 registerlist_6 registerlist_7 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Create your cover</h3>
+                    <h5>If you don’t have the perfect photo right now, don’t worry. Use the best one you have on hand.</h5>
+                    <p className="textpink" onClick={(e) => {if(this.state.Tips_examples == 0 )this.setState({Tips_examples:1});else this.setState({Tips_examples:0});}}>Tips and examples<span className={this.state.Tips_examples == 1 ? "modalshow" : "hide"}>▲</span><span className={this.state.Tips_examples == 0 ? "modalshow" : "hide"}>▼</span></p>
+                    <div className={this.state.Tips_examples == 1 ? "show examples" : "hide examples"}>
+                      <ul className="ulleft col-sm-12 col-md-6 col-lg-6">
+                          <li><img src="../images/registerlist_dui.png" /><p>Think of your first photo and title as a book cover—it’s the first thing people will see</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>Go with active, candid images</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>Try to take the photo in a well-lit space</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>Photos with a vertical orientation work best</p></li>
+                      </ul>
+                      <ul className="ulright col-sm-6 col-md-6 col-lg-6">
+                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t use a flash or heavy filters</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t upload blurry or distorted images</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>Photos cannot feature children, logos, or alcohol</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t upload images with text overlaid</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>No posed portraits</p></li>
+                      </ul>
+                    </div>
+                    <div className={this.state.Tips_examples == 1 ? "show imgs" : "hide imgs"}>
+                        <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_7img1.jpg"})} src="../images/registerlist_7img1.jpg" /></div>
+                        <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_7img4.jpg"})} src="../images/registerlist_7img4.jpg" /></div>
+                        <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_7img2.jpg"})} src="../images/registerlist_7img2.jpg" /></div>
+                        <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_7img3.jpg"})} src="../images/registerlist_7img3.jpg" /></div>
+                        <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_7img5.jpg"})} src="../images/registerlist_7img5.jpg" /></div>
+                    </div>
+
+                    <h3>Gallery</h3>
+                    <div className="Gallery">
+                        <div className="col-sm-12 col-md-4 col-lg-4">
+                          <div className="imgdiv">
+                            <img onClick={(e)=>this.setState({step:this.STEP.Step6})} src={this.state.Experience_Pictures == "" ? "../images/registerlist_4.png" : this.state.Experience_Pictures} /></div>
+                        </div>
+
+                        <div className="col-sm-12 col-md-4 col-lg-4">
+                          <div className={this.state.photolist.length <= 0 ? "hide imgdiv" : "show imgdiv"}>
+                            <img src={this.state.photolist[0]} />
+                            <p><span>Edit</span></p>
+                            <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,0)}></span>
+                          </div>
+                          <div className={this.state.photolist.length <= 0 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Host</h4><p>Show yourself<br/>leading the activity</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                        </div>
+
+                        <div className="col-sm-12 col-md-4 col-lg-4">
+                          <div className={this.state.photolist.length <= 1 ? "hide imgdiv" : "show imgdiv"}>
+                            <img src={this.state.photolist[1]} />
+                            <p><span>Edit</span></p>
+                            <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,1)}></span>
+                          </div>
+                          <div className={this.state.photolist.length <= 1 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Action</h4><p>Show guests engaging<br/>in your experience</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                        </div>
+
+                        <div className="col-sm-12 col-md-4 col-lg-4">
+                          <div className={this.state.photolist.length <= 2 ? "hide imgdiv" : "show imgdiv"}>
+                            <img src={this.state.photolist[2]} />
+                            <p><span>Edit</span></p>
+                            <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,2)}></span>
+                          </div>
+                          <div className={this.state.photolist.length <= 2 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Details</h4><p>Capture a close-up of textures<br/>or interesting details</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                        </div>
+
+                        <div className="col-sm-12 col-md-4 col-lg-4">
+                          <div className={this.state.photolist.length <= 3 ? "hide imgdiv" : "show imgdiv"}>
+                            <img src={this.state.photolist[3]} />
+                            <p><span>Edit</span></p>
+                            <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,3)}></span>
+                          </div>
+                          <div className={this.state.photolist.length <= 3 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Location</h4><p>Show the full scene and<br/>try to include people</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                        </div>
+
+                        <div className="col-sm-12 col-md-4 col-lg-4">
+                          <div className={this.state.photolist.length <= 4 ? "hide imgdiv" : "show imgdiv"}>
+                            <img src={this.state.photolist[4]} />
+                            <p><span>Edit</span></p>
+                            <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,4)}></span>
+                          </div>
+                          <div className={this.state.photolist.length <= 4 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Miscellaneous</h4><p>Add up to 10 photos</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                        </div>
+                    </div>
+
+
+
+                    <div className="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div className="modal-dialog">
+                        <div className="modal-content">
+                            <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3>Adjust the cover photo</h3>
+                          <div className="modal-body">
+                          <canvas id="myCanvas" className="canvas"></canvas>
+                          </div>
+                          <div className="modal-footer">
+                            <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
+                                <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />Crop</li>
+                                <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />Adjust Brightness</li>
+                                <li onClick={(e) => this.RotatePictures(e)}><img src="../images/Rotate.png" />Rotate</li>
+                            </ul>
+                            <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
+                                <li  className={this.state.modalset == 1 ? "show" : "hide"}>
+                                    <p>Zoom</p>
+                                    <input type="range" onChange={(e)=>this.rangePictures(e.target.value)} name="points"  step="0.01" min="1" max="3" />
+                                </li>
+                                <li  className={this.state.modalset == 2 ? "show" : "hide"}>
+                                    <p>Brightness</p>
+                                    <input type="range" onChange={(e)=>this.BrightnessPictures(e.target.value)} name="points" step="0.01" min="-1" max="1" />
+                                </li>
+                                <li  className={this.state.modalset == 2 ? "show" : "hide"}>
+                                    <p>Contrast Ratio</p>
+                                    <input type="range" name="points" step="0.02" min="1" max="3" />
+                                </li>
+                            </ul>
+                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">Cancel</button>
+                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >Complete</button>
+                            <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} type="button" data-dismiss="modal" aria-hidden="true">Save and Replace</button>
+                          </div>
+                        </div>
+                      </div>
+                    <div className="modal-backdrop fade in"></div>
+                    </div>
+                      
+                    <button className="next"  onClick={(e)=>this.nextstep(e)}>next</button>
                 </div>
 
                 <div className="box2 col-sm-12 col-md-5 col-lg-5">
