@@ -29,6 +29,7 @@ class ListingsDetail extends Component {
     this.CONST = {
       weiToEther: 1000000000000000000,
       weiToGwei:1000000000
+      
     }
 
     this.STEP = {
@@ -96,7 +97,7 @@ class ListingsDetail extends Component {
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
         var roominfo = JSON.parse(result._roominfo);
-        this.setState({price:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice});
+        this.setState({price:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei});
         return ipfsService.getListing(ipfsHash)
     }).then((result)=>{
           var descriptioninfo = JSON.parse(result);
