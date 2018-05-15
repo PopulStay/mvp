@@ -466,7 +466,8 @@
 .introlist_3 .boxleft .btn-group button,
 .registerlist_2 .btn-group button,
 .registerlist_3 .btn-group button,
-.registerlist_12 .box label .btn-group button{
+.registerlist_12 .box label .btn-group button,
+.registerlist_14 .btn-group button{
 	background: none;
 	border: 1px solid #606060;
 	border-radius: 0;
@@ -480,7 +481,8 @@
 .introlist_3 .boxleft .btn-group button span,
 .registerlist_2 .btn-group button span,
 .registerlist_3 .btn-group button span,
-.registerlist_12 .box label .btn-group button span{
+.registerlist_12 .box label .btn-group button span,
+.registerlist_14 .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2.2rem;
@@ -488,7 +490,8 @@
 .introlist_3 .dropdown-menu,
 .registerlist_2 .dropdown-menu,
 .registerlist_3 .dropdown-menu,
-.registerlist_12 .dropdown-menu{
+.registerlist_12 .dropdown-menu,
+.registerlist_14 .dropdown-menu{
   width: 100%;
   max-height: 300px;
   overflow: auto;
@@ -497,7 +500,8 @@
 .introlist_3 .dropdown-menu a,
 .registerlist_2 .dropdown-menu a,
 .registerlist_3 .dropdown-menu a,
-.registerlist_12 .dropdown-menu a{
+.registerlist_12 .dropdown-menu a,
+.registerlist_14 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 3%;
@@ -512,20 +516,23 @@
 .introlist_3 .dropdown-menu,
 .registerlist_2 .dropdown-menu,
 .registerlist_3 .dropdown-menu,
-.registerlist_12 .dropdown-menu{
+.registerlist_12 .dropdown-menu,
+.registerlist_14 .dropdown-menu{
 	padding: 0;
 	margin: 0;
 }
 .introlist_3 .dropdown-menu li:first-child>a,
 .registerlist_2 .dropdown-menu li:first-child>a,
 .registerlist_3 .dropdown-menu li:first-child>a,
-.registerlist_12 .dropdown-menu li:first-child>a{
+.registerlist_12 .dropdown-menu li:first-child>a,
+.registerlist_14 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .introlist_3 .dropdown-menu a:hover,
 .registerlist_2 .dropdown-menu a:hover,
 .registerlist_3 .dropdown-menu a:hover,
-.registerlist_12 .dropdown-menu a:hover{
+.registerlist_12 .dropdown-menu a:hover,
+.registerlist_14 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -693,7 +700,7 @@
 	width: 70%;
 	height: 40px;
 	padding: 0 3%;
-	font-size: 1.8rem;
+	font-size: 1.6rem;
   	margin: 5% 0 2%;
   	border:1px solid #aaa;
   	font-family: RobotoThin; 
@@ -714,7 +721,8 @@
 	width: 55%;
 	padding: 0;
 }
-.registerlist_2 .btn-group button{
+.registerlist_2 .btn-group button,
+.registerlist_14 .btn-group button{
 	height: 40px;
 }
 .registerlist_2 .box1 ul li{
@@ -768,7 +776,8 @@
 .registerlist_3 p span{
 	font-size: 1.4rem;
 }
-.registerlist_3 .check{
+.registerlist_3 .check,
+.registerlist_14 .check{
     margin: 3% 0 0;
     overflow: hidden;
 }
@@ -777,7 +786,8 @@
 	margin-top: 3%;
 	cursor: pointer;
 }
-.registerlist_3 .check .Pinput{
+.registerlist_3 .check .Pinput,
+.registerlist_14 .check .Pinput{
 	width: 20px;
 	height: 20px;
 	border-radius: 5px;
@@ -791,14 +801,16 @@
 	overflow: hidden;
 	position: relative;
 }
-.registerlist_3 .Pinput img{
+.registerlist_3 .Pinput img,
+.registerlist_14 .Pinput img{
 	position: absolute;
 	width: 130%;
 	top:50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
-.registerlist_3 .check .divinput{
+.registerlist_3 .check .divinput,
+.registerlist_14 .check .divinput{
   float: right;
   width: 94%;
   font-size:1.6rem;
@@ -897,6 +909,68 @@
 .registerlist_4 .box2>div ul li.li3{
 	border-bottom: none;
 	padding:5% 0 0;
+}
+.textactive{
+	color: #131c4e;
+}
+.registerlist_4 .box2>div ul li>h5{
+	overflow: hidden;
+}
+.registerlist_4 .box2>div ul li>h5>span{
+	padding: 3% 0 0;
+	display: inline-block;
+	font-family: RobotoBold;
+    font-size: 2rem;
+}
+.registerlist_4 .box2>div ul li>h5>p{
+	width: 40px;
+	height:40px;
+	border-radius: 50%;
+	overflow: hidden;
+	float: right;
+}
+.registerlist_4 .box2>div ul li>h5>p>img{
+	margin-top: -5%;
+}
+.registerlist_4 .box2>div ul li .apidiv{
+	position: relative;
+}
+.registerlist_4 .box2>div ul li .apidiv>p{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	position: absolute;
+	background: #e6afbc;
+	opacity: 0.8;
+	top:30%;
+	left: 42%;
+}
+.registerlist_4 .box2>div ul li .apidiv>div{
+	position: absolute;
+	background: #e6afbc;
+	top: -10%;
+    left: 22%;
+	background: #151b4e;
+	text-align: center;
+	padding: 0 5%;
+}
+.registerlist_4 .box2>div ul li .apidiv>div>h6{
+	font-size: 1.6rem;
+	color: #fff;
+    font-family: RobotoBold; 
+}
+.registerlist_4 .box2>div ul li .apidiv>div>p{
+	color: #fff;
+	font-size: 1.2rem;
+    font-family: RobotoThin; 
+}
+.registerlist_4 .box2>div ul li .apidiv>div>span{
+	color: #151b4e;
+	font-size: 3rem;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0%);
+	bottom: -25px;
 }
 .registerlist_6 ul.ulleft,
 .registerlist_6 ul.ulright{
@@ -1088,32 +1162,12 @@
     margin-top: 5%;
     font-weight: 300;
 }
-.textactive{
-	color: #131c4e;
-}
-.registerlist_4 .box2>div ul li>h5{
-	overflow: hidden;
-}
-.registerlist_4 .box2>div ul li>h5>span{
-	padding: 3% 0 0;
-	display: inline-block;
-	font-family: RobotoBold;
-    font-size: 2rem;
-}
-.registerlist_4 .box2>div ul li>h5>p{
-	width: 40px;
-	height:40px;
-	border-radius: 50%;
-	overflow: hidden;
-	float: right;
-}
-.registerlist_4 .box2>div ul li>h5>p>img{
-	margin-top: -5%;
-}
-.registerlist_12 .box h6{
+.registerlist_12 .box h6,
+.registerlist_14 h6{
 	font-size: 1.8rem;
 	margin-top: 5%;
-	font-weight: 600;
+	font-weight: 500;
+	font-family: none;
 }
 .registerlist_12 .box label{
 	width: 100%;
@@ -1127,7 +1181,8 @@
 	margin: 0;
 	font-weight: 300;
 }
-.registerlist_12 .box label .btn-group button{
+.registerlist_12 .box label .btn-group button,
+.registerlist_14 .btn-group button{
 	border: 1px solid #aaa;
 }
 .registerlist_12 .box label p,
@@ -1165,43 +1220,128 @@
 	width: 85%;
 	margin: 2% 0;
 }
-.registerlist_4 .box2>div ul li .apidiv{
-	position: relative;
+.registerlist_14 .btn-group,
+.registerlist_14 h6.Item_ne{
+	width: 70%;
 }
-.registerlist_4 .box2>div ul li .apidiv>p{
+.registerlist_14 h6 span{
+	margin-top: 1%;
+	font-size: 1.6rem;
+	cursor: pointer;
+}
+.registerlist_14 input{
+	border-top: none !important;
+	margin: 0 0 2% 0!important;
+}
+.registerlist_14 p.textpink{
+	cursor: pointer;
+}
+.Prompt{
+	position: fixed;
+	width: 100%;
+	height: 100%;	
+	top:0;
+	left: 0;
+	z-index: 99;
+}
+.Prompt .bj{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+}
+.Prompt .Prompt_content{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 100;
+	width: 65%;
+	background: url(../images/jbbj.png) no-repeat;
+	background-size: 100% 100%;
+}
+.Prompt .Prompt_content>div.boxleft{
+	width: 50%;
+	float: left;
+	padding: 4% 6%;
+}
+.Prompt .Prompt_content>div.boxright{
+	width: 50%;
+	float: right;
+	padding: 4% 6%;
+}
+.Prompt .boxleft h3{
+	font-size: 2rem;
+	margin-top: 0;
+}
+.Prompt .boxleft h6{
+	font-size: 1.6rem;
+	font-weight: 500;
+}
+.Prompt .boxleft p{
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+.Prompt .boxright .listtop{
+	overflow: hidden;
+}
+.Prompt .boxright .listtop img{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.Prompt .boxright .listtop .Left{
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	position: absolute;
-	background: #e6afbc;
-	opacity: 0.8;
-	top:30%;
-	left: 42%;
+	overflow: hidden;
+	position: relative;
 }
-.registerlist_4 .box2>div ul li .apidiv>div{
-	position: absolute;
-	background: #e6afbc;
-	top: -10%;
-    left: 22%;
-	background: #151b4e;
-	text-align: center;
-	padding: 0 5%;
-}
-.registerlist_4 .box2>div ul li .apidiv>div>h6{
-	font-size: 1.6rem;
+.Prompt .boxright .listtop .Right{
 	color: #fff;
-    font-family: RobotoBold; 
+	float: left;
+	margin-left: 5%;
 }
-.registerlist_4 .box2>div ul li .apidiv>div>p{
+.Prompt .boxright .listtop .Right h5{
 	color: #fff;
-	font-size: 1.2rem;
-    font-family: RobotoThin; 
+	margin-bottom: 0px;
+  	font-family: RobotoBold; 
 }
-.registerlist_4 .box2>div ul li .apidiv>div>span{
-	color: #151b4e;
-	font-size: 3rem;
+.Prompt .boxright>span.close{
 	position: absolute;
-	left: 50%;
-	transform: translate(-50%,0%);
-	bottom: -25px;
+	top:3%;
+	right: 3%;
+	color: #fff;
+	z-index: 100;
+	font-size: 4rem;
+}
+.Prompt .boxright .lists>h6{
+	color: #fff;
+	font-size: 1.4rem;
+	margin-top: 0;
+}
+.Prompt .boxright .lists>p,
+.Prompt .boxright .listbottom p{
+	color: #fff;
+	font-size: 1.4rem;
+}
+.Prompt .boxright .listtop .Right span{
+	font-size: 1.4rem;
+}
+.Prompt .boxright .listbottom{
+	margin-top: 10%;
+}
+.Prompt .boxright .listbottom .Right{
+	width: 20%;
+	text-align: right;
+	padding-right: 5%;
+}
+.Prompt .boxright .listbottom .Right span{
+	font-size: 2rem;
+	cursor: pointer;
+}
+.Prompt .boxright .listbottom span:first-child{
+	margin-right:100%;
 }

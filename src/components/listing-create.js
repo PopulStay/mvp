@@ -3456,11 +3456,11 @@ class ListingCreate extends Component {
 
                   <div className="btn-group col-lg-12 boxdiv">
                     <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
-                    <input type="number" className={this.state.price_perday < 13 || this.state.price_perday >= 13272 ? "form-control inputActive" : "form-control"} onChange={(e) => {this.setState({price_perday:e.target.value});}} value={this.state.price_perday}  />
+                    <input type="number" className={this.state.price_perday < 10 || this.state.price_perday >= 13272000 ? "form-control inputActive" : "form-control"} onChange={(e) => {if(this.state.Currency == "PPS") this.setState({price_perday:e.target.value,ETHprice_perday:(0.00001*e.target.value)});else this.setState({ETHprice_perday:e.target.value,price_perday:(100000*e.target.value)});}} />
                   </div>
-                  <p className={this.state.price_perday < 13 || this.state.price_perday >= 13272 ? "textpink show" : "hide"}>Please use a base price of at least $13 but no more than $13,272.</p>
+                  <p className={this.state.price_perday < 10 || this.state.price_perday >= 13272000 ? "textpink show" : "hide"}>Please use a base price of at least 10PPS but no more than 13,272,000PPS</p>
                 </div>
-                <h2 className="demand">Tip: $114 {this.state.Currency}
+                <h2 className="demand">Tip: 114 {this.state.Currency}
                     <img src="../images/Prompt.png" />
                     <div className="rightbox1">
                       <p><span>▲</span>Tips are based on your listing’s qualities, nearby prices and demand</p>
@@ -3485,7 +3485,7 @@ class ListingCreate extends Component {
               
               <div className="STEPBTN">
                 <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className={ this.state.price_perday < 13 || this.state.price_perday >= 13272 ? "buttonActive Right" : "Right"} disabled={ this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className={ this.state.price_perday < 10 || this.state.price_perday >= 132720000 ? "buttonActive Right" : "Right"} disabled={ this.state.price_perday <= 0 || this.state.price_perday >= 13272 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
               </div>
                
              </div>

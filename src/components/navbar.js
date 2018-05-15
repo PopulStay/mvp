@@ -56,9 +56,6 @@ class NavBar extends Component {
                     <a className="btn button__fill">Become an organiser</a>
               </Link>
             </li>
-            <li className="Li3">
-              <a href="" className="btn button__Help">Help</a>
-            </li>
             <li className="Li4">
               <a href="" className="btn button__Help">Login</a>
             </li>

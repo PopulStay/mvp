@@ -65,6 +65,17 @@ class registerlist extends Component {
         ZIP_code:"",
         Direction:"",
         API_img:"",
+        position_information:"",
+        Content_providedarr:["food","Drink","Accommodation","Ticket","Traffic","Equipment","Snack"],
+        Content_provided:"Selection project",
+        Content_provided_1:"Selection project",
+        Not_providing:0,
+        placeholder_provided:"",
+        Provide_content:"",
+        Provide_content_1:"",
+        add_item:0,
+        Promptlist_14:1,
+        Prompttype_14:false,
     };
 
   }
@@ -256,11 +267,93 @@ class registerlist extends Component {
             photolist: this.state.photolist.filter((elem, i) => index != i)
       });
     }
+    providedclick(e){
+      this.setState({
+            Content_provided: this.state.Content_providedarr[e]
+      });
+      if(e==0){
+        this.setState({
+              placeholder_provided: "What kind of food will you provide? For example, barbecue dinner and so on."
+        });
+      }else if(e==1){
+        this.setState({
+              placeholder_provided: "What drinks will you provide?"
+        });
+      }else if(e==2){
+        this.setState({
+              placeholder_provided: "Where are you going to live?"
+        });
+      }else if(e==3){
+        this.setState({
+              placeholder_provided: "What kind of tickets will you pay for it?"
+        });
+      }else if(e==4){
+        this.setState({
+              placeholder_provided: "What means of transportation will the experience use?"
+        });
+      }else if(e==5){
+        this.setState({
+              placeholder_provided: "What facilities will you provide?"
+        });
+      }else{
+        this.setState({
+              placeholder_provided: "Give the project an external name?"
+        });
+      }
+    }
+    providedclick1(e){
+      this.setState({
+            Content_provided_1: this.state.Content_providedarr[e]
+      });
+      if(e==0){
+        this.setState({
+              placeholder_provided: "What kind of food will you provide? For example, barbecue dinner and so on."
+        });
+      }else if(e==1){
+        this.setState({
+              placeholder_provided: "What drinks will you provide?"
+        });
+      }else if(e==2){
+        this.setState({
+              placeholder_provided: "Where are you going to live?"
+        });
+      }else if(e==3){
+        this.setState({
+              placeholder_provided: "What kind of tickets will you pay for it?"
+        });
+      }else if(e==4){
+        this.setState({
+              placeholder_provided: "What means of transportation will the experience use?"
+        });
+      }else if(e==5){
+        this.setState({
+              placeholder_provided: "What facilities will you provide?"
+        });
+      }else{
+        this.setState({
+              placeholder_provided: "Give the project an external name?"
+        });
+      }
+    }
+    Promptlist(obj){
+      if(obj == 14){
+        if(this.state.Promptlist_14 == 3){
+          this.setState({
+                Promptlist_14: 1
+          });
+        }else{
+          this.setState({
+                Promptlist_14: this.state.Promptlist_14+1
+          });
+        }
+      }
+    }
 
   render() {
     const language = this.state.language;
     const experiencetype = this.state.experiencetype;
     const Countrysarr = this.state.Countrysarr;
+    const Content_providedarr = this.state.Content_providedarr;
 
     return (
       <div className="register">
@@ -289,9 +382,6 @@ class registerlist extends Component {
                     </li>
                     <li className="Li4">
                       <a className="btn button__fill">Trips</a>
-                    </li>
-                    <li className="Li4">
-                      <a href="" className="btn button__Help">Help</a>
                     </li>
                     <li className="Li4">
                       <a href="" className="btn button__Help">Login</a>
@@ -1232,7 +1322,7 @@ class registerlist extends Component {
             </div>
           }
 
-          { this.state.step === this.STEP.Step1 &&
+          { this.state.step === this.STEP.Step12 &&
             <div className="registerlist_4 registerlist_6 registerlist_12 row">
                 <div className="STEPhead">
                   <span className="bjpink"></span>
@@ -1342,6 +1432,240 @@ class registerlist extends Component {
                             <li>
                                 <h5>Where we’ll be</h5>
                                 <p>Tell your guests where you’ll be taking them for this experience.</p>
+                            </li>
+                            <li className="li3">
+                                <h5>Notes</h5>
+                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                            </li>
+                            <li className="li3">
+                                <div className="apidiv">
+                                  <img src={this.state.API_img == "" ? "./images/registerlist_4api.jpg" : this.state.API_img} />
+                                  <p></p>
+                                  <div>
+                                    <span>▼</span>
+                                    <h6>Where we’ll meet</h6>
+                                    <p>9 Raffles place. singapore</p>
+                                  </div>
+                                </div>
+                            </li>
+                            <li className="li3">
+                                <h5>About Warm house</h5>
+                                <p>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step13 &&
+            <div className="registerlist_4 registerlist_8 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Add details about where you’ll be</h3>
+                    <h5>Tell guests where you’ll go, why each location is special, or why you love it. It’s ok if it’s just one location.</h5>
+                    <p className="textpink"><img src="/images/photoi.png" />Tips and examples</p>
+                    <textarea onChange={(e)=>this.setState({position_information:e.target.value})} placeholder="Consider including special places guests can’t find or access on their own"></textarea>  
+                    <p className={this.state.position_information.length<100 ? "textpink" : ""}>{this.state.position_information.length > 100 ? this.state.position_information.length : 100-this.state.position_information.length} characters needed</p>
+                    <button className={ this.state.position_information.length<100 ? "btnactive next" : " next"} disabled={ this.state.position_information.length<100 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>next</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />{this.state.Location_name == "" ? "Singapore" : this.state.Location_name}</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Experience_content == "" ? "" : "textactive"}>What we’ll do</h5>
+                                <p className={this.state.Experience_content == "" ? "" : "textactive"}>{this.state.Experience_content.length > 0 ? this.state.Experience_content : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5>What I’ll provide</h5>
+                                <p>Let your guests know if you’ll be including anything for this experience.</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
+                                <p className={this.state.position_information == "" ? "" : "textactive"}>{this.state.position_information.length > 0 ? this.state.position_information : "Tell your guests where you’ll be taking them for this experience."}</p>
+                            </li>
+                            <li className="li3">
+                                <h5>Notes</h5>
+                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                            </li>
+                            <li className="li3">
+                                <div className="apidiv">
+                                  <img src={this.state.API_img == "" ? "./images/registerlist_4api.jpg" : this.state.API_img} />
+                                  <p></p>
+                                  <div>
+                                    <span>▼</span>
+                                    <h6>Where we’ll meet</h6>
+                                    <p>9 Raffles place. singapore</p>
+                                  </div>
+                                </div>
+                            </li>
+                            <li className="li3">
+                                <h5>About Warm house</h5>
+                                <p>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step1 &&
+            <div className="registerlist_4 registerlist_8 registerlist_14 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <div className={this.state.Prompttype_14 ? "show Prompt" : "hide Prompt"}>
+                        <div className="bj"></div>
+                        <div className="Prompt_content">
+                          <div className="boxleft">
+                              <h3>Tips</h3>
+                              <h6>Highlight your expertise</h6>
+                              <p>Show off why you’re qualified to host. Mention any unique skills, credentials, or even life experience that make you a credible host.</p>
+                              <h6>Sound personable</h6>
+                              <p>Let your personality shine through. Try ending with a fun fact or interesting personal detail to avoid sounding too formal.</p>
+                          </div>
+                          <div className="boxright">
+                              <span className="close" onClick={(e)=>this.setState({Prompttype_14:"false"})}>×</span>
+                              <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
+                              <div className={this.state.Promptlist_14 == 1 ? "show lists" : "hide lists"}>
+                                <h6>Refreshments</h6><p>Welcome to share your personal preferences. I will try to satisfy it!</p>
+                                <h6>Appetizer</h6><p>Please tell me if you have any special dietary requirements, such as vegetarian or gluten free.</p>
+                              </div>
+                              <div className={this.state.Promptlist_14 == 2 ? "show lists" : "hide lists"}>
+                                <h6>seafood dinner</h6><p>This seascape restaurant has been established for a long time to provide fresh seafood and refreshing beer on the picnic table.</p>
+                                <h6>Sparkling Water</h6><p>Take wine and sit around the bonfire</p>
+                              </div>
+                              <div className={this.state.Promptlist_14 == 3 ? "show lists" : "hide lists"}>
+                                <h6>Travel to Rick 's Estate</h6><p>We will pick you up at Neptune 's Net restaurant and then go up the hill to Rick' s Estate.</p>
+                                <p>Digital cameras, telescopes, special interfaces and three legs.</p>
+                              </div>
+                              <div className="listbottom"><p className="Left">Example {this.state.Promptlist_14} of 3</p><p className="Right"><span>◀</span><span onClick={(e)=>this.Promptlist(14)}>▶</span></p></div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <h3>What will you provide for guests?</h3>
+                    <h5>It’s important to let guests know what you’ll provide because it helps them understand what they’re paying for.</h5>
+                    <p className="textpink"  onClick={(e)=>this.setState({Prompttype_14:true})}><img src="/images/photoi.png" />Tips and examples</p>
+                    <h6 className="Item_ne">Item one<span className={this.state.Content_provided == "Selection project" ? "hide textpink Right" : "show textpink Right"} onClick={(e)=>this.setState({Content_provided:"Selection project"})}>Delete</span></h6>
+                    <div className="btn-group">
+                      <button type="button" data-toggle="dropdown" >{this.state.Content_provided}<span>▼</span></button>
+                      <ul className="dropdown-menu" role="menu">
+                        {Content_providedarr.map((item,index) => (
+                            <li><a onClick={(e)=>this.providedclick(index)}>{item}</a></li>
+                          ))}
+                      </ul>
+                    </div>
+                    <input onChange={(e)=>this.setState({Provide_content:e.target.value})} className={this.state.Content_provided == "Selection project" ? "hide" : "show"} type="text" placeholder={this.state.placeholder_provided} />
+                    <div className={this.state.Provide_content == "" ? "hide":"show"}>
+                      <p className={this.state.Provide_content.length <= 30 ? "":"textpink"}>{this.state.Provide_content.length <30 ? 30-this.state.Provide_content.length+" characters needed" : this.state.Provide_content.length-30+"characters exceed"}</p>
+                      <p className={this.state.add_item == 1 ? "hide textpink":"show textpink"} onClick={(e)=>this.setState({add_item:1})}>+ add another item</p>
+
+                      <div className={this.state.add_item == 0 ? "hide":"show"}>
+                        <h6 className="Item_ne">Item one<span className={this.state.Content_provided_1 == "Selection project" ? "hide textpink Right" : "show textpink Right"} onClick={(e)=>this.setState({Content_provided_1:"Selection project"})}>Delete</span></h6>
+                        <div className="btn-group">
+                          <button type="button" data-toggle="dropdown" >{this.state.Content_provided_1}<span>▼</span></button>
+                          <ul className="dropdown-menu" role="menu">
+                            {Content_providedarr.map((item,index) => (
+                                <li><a onClick={(e)=>this.providedclick1(index)}>{item}</a></li>
+                              ))}
+                          </ul>
+                        </div>
+                        <input onChange={(e)=>this.setState({Provide_content_1:e.target.value})} className={this.state.Content_provided_1 == "Selection project" ? "hide" : "show"} type="text" placeholder={this.state.placeholder_provided} />
+                      </div>
+
+                      <h6>Not providing anything for your guests?  </h6>
+                      <div className="check" onClick={(e) => {if(this.state.Not_providing ==0 )this.setState({Not_providing:1});else this.setState({Not_providing:0});}}>
+                        <p  className="Pinput">
+                            <img className={this.state.Not_providing ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                        </p>
+                        <p className="divinput">I am not providing anything</p>
+                      </div>
+                    </div>
+                    <button className="next"  onClick={(e)=>this.nextstep(e)}>next</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />{this.state.Location_name == "" ? "Singapore" : this.state.Location_name}</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Experience_content == "" ? "" : "textactive"}>What we’ll do</h5>
+                                <p className={this.state.Experience_content == "" ? "" : "textactive"}>{this.state.Experience_content.length > 0 ? this.state.Experience_content : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
+                                <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
+                                <p className={this.state.position_information == "" ? "" : "textactive"}>{this.state.position_information.length > 0 ? this.state.position_information : "Tell your guests where you’ll be taking them for this experience."}</p>
                             </li>
                             <li className="li3">
                                 <h5>Notes</h5>
