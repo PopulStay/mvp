@@ -55,7 +55,7 @@ class HostInfo extends React.Component {
           </thead>
           <tbody>
            {this.state.roomInfoList.map(row => (
-                  <HostRoomList row={row} key={row}/>
+                  <HostRoomList row={row}/>
             ))}
            
           </tbody>
