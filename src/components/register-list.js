@@ -25,6 +25,13 @@ class registerlist extends Component {
             Step15:15,
             Step16:16,
             Step17:17,
+            Step18:18,
+            Step19:19,
+            Step20:20,
+            Step21:21,
+            Step22:22,
+            Step23:23,
+            Step24:24,
     }
 
     this.state = {
@@ -114,95 +121,10 @@ class registerlist extends Component {
       this.setState({step:this.STEP.Step1});
   }
   nextstep(e){
-    if(this.state.step == this.STEP.Step1) {
-      this.setState({step:this.STEP.Step2});
-    }
-    if(this.state.step == this.STEP.Step2) {
-      this.setState({step:this.STEP.Step3});
-    }
-    if(this.state.step == this.STEP.Step3) {
-      this.setState({step:this.STEP.Step4});
-    }
-    if(this.state.step == this.STEP.Step4) {
-      this.setState({step:this.STEP.Step5});
-    }
-    if(this.state.step == this.STEP.Step5) {
-      this.setState({step:this.STEP.Step6});
-    }
-    if(this.state.step == this.STEP.Step6) {
-      this.setState({step:this.STEP.Step7});
-    }
-    if(this.state.step == this.STEP.Step7) {
-      this.setState({step:this.STEP.Step8});
-    }
-    if(this.state.step == this.STEP.Step8) {
-      this.setState({step:this.STEP.Step9});
-    }
-    if(this.state.step == this.STEP.Step9) {
-      this.setState({step:this.STEP.Step10});
-    }
-    if(this.state.step == this.STEP.Step10) {
-      this.setState({step:this.STEP.Step11});
-    }
-    if(this.state.step == this.STEP.Step11) {
-      this.setState({step:this.STEP.Step12});
-    }
-    if(this.state.step == this.STEP.Step12) {
-      this.setState({step:this.STEP.Step13});
-    }
-    if(this.state.step == this.STEP.Step13) {
-      this.setState({step:this.STEP.Step14});
-    }
-    if(this.state.step == this.STEP.Step14) {
-      this.setState({step:this.STEP.Step15});
-    }
+    this.setState({step:this.state.step+1});
   }
   prestep(e){
-    if(this.state.step == this.STEP.Step16) {
-      this.setState({step:this.STEP.Step15});
-    }
-    if(this.state.step == this.STEP.Step15) {
-      this.setState({step:this.STEP.Step14});
-    }
-    if(this.state.step == this.STEP.Step14) {
-      this.setState({step:this.STEP.Step13});
-    }
-    if(this.state.step == this.STEP.Step13) {
-      this.setState({step:this.STEP.Step12});
-    }
-    if(this.state.step == this.STEP.Step12) {
-      this.setState({step:this.STEP.Step11});
-    }
-    if(this.state.step == this.STEP.Step11) {
-      this.setState({step:this.STEP.Step10});
-    }
-    if(this.state.step == this.STEP.Step10) {
-      this.setState({step:this.STEP.Step9});
-    }
-    if(this.state.step == this.STEP.Step9) {
-      this.setState({step:this.STEP.Step8});
-    }
-    if(this.state.step == this.STEP.Step8) {
-      this.setState({step:this.STEP.Step7});
-    }
-    if(this.state.step == this.STEP.Step7) {
-      this.setState({step:this.STEP.Step6});
-    }
-    if(this.state.step == this.STEP.Step6) {
-      this.setState({step:this.STEP.Step5});
-    }
-    if(this.state.step == this.STEP.Step5) {
-      this.setState({step:this.STEP.Step4});
-    }
-    if(this.state.step == this.STEP.Step4) {
-      this.setState({step:this.STEP.Step3});
-    }
-    if(this.state.step == this.STEP.Step3) {
-      this.setState({step:this.STEP.Step2});
-    }
-    if(this.state.step == this.STEP.Step2) {
-      this.setState({step:this.STEP.Step1});
-    }
+    this.setState({step:this.state.step-1});
   }
 
   fileChangedHandler(event){
@@ -548,7 +470,7 @@ class registerlist extends Component {
             </header>
         </div>
         <div className="register_content">
-          { this.state.step === this.STEP.Step1 &&
+          { this.state.step === this.STEP.Step10 &&
             <div className="registerlist_1 row">
                 <div className="STEPhead">
                   <span className="bjpink"></span>
@@ -1649,7 +1571,7 @@ class registerlist extends Component {
 
                     </div>
 
-                    <button className={ this.state.Location_name == "" || this.state.Street_address == "" || this.state.City == "" ? "btnactive next" : " next"} disabled={this.state.Location_name == "" || this.state.Street_address == "" || this.state.City == "" ? "" : "disabled"}  onClick={(e)=>this.nextstep(e)}>Save & Continue</button>
+                    <button className={ this.state.Location_name == "" || this.state.Street_address == "" || this.state.City == "" ? "btnactive next" : " next"} disabled={this.state.Location_name == "" || this.state.Street_address == "" || this.state.City == "" ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Save & Continue</button>
 
                 </div>
 
@@ -1938,7 +1860,7 @@ class registerlist extends Component {
                             <li>
                                 <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
                                 <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
-                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1}</p>
                             </li>
                             <li>
                                 <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
@@ -2041,7 +1963,7 @@ class registerlist extends Component {
                             <li>
                                 <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
                                 <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
-                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1}</p>
                             </li>
                             <li>
                                 <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
@@ -2137,7 +2059,7 @@ class registerlist extends Component {
                             <li>
                                 <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
                                 <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
-                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1}</p>
                             </li>
                             <li>
                                 <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
@@ -2200,7 +2122,7 @@ class registerlist extends Component {
                             <li>
                                 <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
                                 <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
-                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1}</p>
                             </li>
                             <li>
                                 <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
@@ -2336,7 +2258,7 @@ class registerlist extends Component {
                             <li>
                                 <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
                                 <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
-                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1}</p>
                             </li>
                             <li>
                                 <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
@@ -2428,7 +2350,7 @@ class registerlist extends Component {
                             <li>
                                 <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
                                 <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
-                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1}</p>
                             </li>
                             <li>
                                 <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
@@ -2624,7 +2546,7 @@ class registerlist extends Component {
                             <li>
                                 <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
                                 <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
-                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1}</p>
                             </li>
                             <li>
                                 <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
@@ -2794,7 +2716,7 @@ class registerlist extends Component {
                             <li>
                                 <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
                                 <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
-                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1}</p>
                             </li>
                             <li>
                                 <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
@@ -2828,6 +2750,105 @@ class registerlist extends Component {
                             </li>
                         </ul>
                     </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step25 &&
+            <div className="registerlist_4 registerlist_25 row">
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Thanks! You’ve successfully submitted  your experience. </h3>
+                    <h5>Now sit back and relax - we’ll need some time to review and make sure it’s a fit. When we’re done, we’ll notify you via email.</h5>
+                    <h5>You can also keep editing your experience, or get ahead of the game by <span className="textpink">verifying your ID.</span></h5>
+
+                    <button className="next Left"  onClick={(e)=>this.nextstep(e)}>Verify ID</button>
+                    <button className="next Right" onClick={(e)=>this.setState({step:this.STEP.Step1})}>Edit Submissioin</button>
+                    <button className="next Right Exit" >Exit</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />{this.state.Location_name == "" ? "Singapore" : this.state.Location_name}</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Experience_content == "" ? "" : "textactive"}>What we’ll do</h5>
+                                <p className={this.state.Experience_content == "" ? "" : "textactive"}>{this.state.Experience_content.length > 0 ? this.state.Experience_content : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
+                                <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
+                                <p className={this.state.position_information == "" ? "" : "textactive"}>{this.state.position_information.length > 0 ? this.state.position_information : "Tell your guests where you’ll be taking them for this experience."}</p>
+                            </li>
+                            <li className="li3">
+                                <h5 className={this.state.Book_understand == "" ? "" : "textactive"}>Notes</h5>
+                                <p className={this.state.Book_understand == "" ? "" : "textactive"}>{this.state.Book_understand.length > 0 ? this.state.Book_understand : "Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking"}</p>
+                            </li>
+                            <li className="li3">
+                                <div className="apidiv">
+                                  <img src={this.state.API_img == "" ? "./images/registerlist_4api.jpg" : this.state.API_img} />
+                                  <p></p>
+                                  <div>
+                                    <span>▼</span>
+                                    <h6>Where we’ll meet</h6>
+                                    <p>9 Raffles place. singapore</p>
+                                  </div>
+                                </div>
+                            </li>
+                            <li>
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                            </li>
+                            <li className={this.state.Maximum_group == "Please choose" ? "hide" : "show"}>
+                                <h5 className="textactive">Group size up to {this.state.Maximum_group} guests </h5>
+                            </li>
+                            <li className={this.state.Additional_requirements == "" && this.state.bring_kids == 0 && this.state.Alcohol == 0 ? "hide li3" : "show li3"}>
+                                <h5 className="textactive">Who can come</h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step1 &&
+            <div className="registerlist_4 registerlist_26 row">
+                <div className="box col-sm-12 col-md-12 col-lg-12">
+                  <div className="register26_head">
+                    <div className="Left">
+                      <h3>Welcome backyour experience.</h3>
+                      <h5>Keep track of and edit all your experiences. Happy hosting!</h5>
+                    </div>
+                    <button className="Right" >New idea</button>
+                  </div>  
+                  <div className="col-lg-4 boxleft">
+                    <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                    <p>Experience submitted</p>
+                  </div>
+                  <div className="col-lg-6 boxright">
+                      <h3>Warm house</h3>
+                      <h5>Your experience was submitted. Expect to hear back from us in about 2-4 weeks.</h5>
+                      <button className="next" onClick={(e)=>this.setState({step:this.STEP.Step1})}>Edit Submissioin</button>
+                      <button className="next"  onClick={(e)=>this.nextstep(e)}><a href="/VerifyID">Verify ID</a></button>
+                  </div>
+
+
                 </div>
 
             </div>

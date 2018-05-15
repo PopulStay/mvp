@@ -629,6 +629,9 @@
 .register .STEPhead ul li.glyphicon-play{
 	font-size: 1.4rem;
 }
+.register_header{
+	width: 100%;
+}
 .register_header header{
 	padding: 0 5% 1% 6%;
 }
@@ -1397,7 +1400,8 @@
 	color:#f6416c;
 }
 
-.registerlist_17 h3{
+.registerlist_17 h3,
+.registerlist_25 h3{
 	margin-top: 10%;
 }
 .registerlist_17 button.next{
@@ -1485,9 +1489,67 @@
 	margin-top: 5%;
 }
 .registerlist_24 p,
-.registerlist_24 span.textpink{
+.registerlist_24 span.textpink,
+.registerlist_25 h5>span{
 	font-size: 1.6rem !important;
 }
-.registerlist_24 button.next{
+.registerlist_24 button.next,
+.registerlist_25 button.next{
 	margin:15% 0 0;
+}
+.registerlist_25 h5{
+	margin-top: 5%;
+}
+.registerlist_25 button.Right{
+	background: #fff;
+	border:1px solid #f6416c;
+	color: #f6416c;
+}
+.registerlist_25 button.Exit{
+	margin-right: 2%;
+}
+
+.registerlist_26 .register26_head{
+	overflow: hidden;
+}
+.registerlist_26 .register26_head button{
+	height: 40px;
+	border-radius: 0;
+	font-size: 2rem;
+	border:none;
+	cursor: pointer;
+	padding: 0 3%;
+	margin: 3%;
+	background: #fff;
+	border:1px solid #f6416c;
+	color: #f6416c;
+}
+.registerlist_26 .boxleft{
+	padding: 0;
+	position: relative;
+}
+.registerlist_26 .boxleft p{
+	font-size: 1.6rem;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color: #fff;
+	border-bottom: 12px solid #f6416c;
+	margin-bottom: 0;
+	padding:0 0 1% 5%; 
+}
+.registerlist_26 .boxright{
+	padding: 1% 5%;
+}
+.registerlist_26 .boxright button{
+	margin: 5% 5% 0 0;
+}
+.registerlist_26 .boxright button a{
+	color: #f6416c;
+	font-size: 2rem;
+}
+.registerlist_26 .boxright button:last-child{
+	background: #fff;
+	border:1px solid #f6416c;
+	color: #f6416c;
 }
