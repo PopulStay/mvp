@@ -201,6 +201,23 @@ class HouseInfoListingService {
      return contract.methods.getHostOrders(account).call();
   }
 
+   getHouseInfoById(id){
+
+    return new Promise((resolve, reject) => {
+      axios.get(process.env.Server_Address+'HouseInformation/'+id)
+      .then((response)=> {
+        resolve(response.data);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
+    })
+
+
+  }
+
+
+
   getHouseId(districtCode,from,to,guests,place){
 
     return new Promise((resolve, reject) => {
