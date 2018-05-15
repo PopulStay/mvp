@@ -73,9 +73,18 @@ class registerlist extends Component {
         placeholder_provided:"",
         Provide_content:"",
         Provide_content_1:"",
-        add_item:0,
+        add_another:0,
+        Promptlist_8:1,
+        Prompttype_8:false,
+        Promptlist_9:1,
+        Prompttype_9:false,
+        Promptlist_11:1,
+        Prompttype_11:false,
+        Promptlist_13:1,
+        Prompttype_13:false,
         Promptlist_14:1,
         Prompttype_14:false,
+        inputlistarr:[],
     };
 
   }
@@ -335,7 +344,51 @@ class registerlist extends Component {
         });
       }
     }
-    Promptlist(obj){
+    Promptnext(obj){
+      if(obj == 8){
+        if(this.state.Promptlist_8 == 3){
+          this.setState({
+                Promptlist_8: 1
+          });
+        }else{
+          this.setState({
+                Promptlist_8: this.state.Promptlist_8+1
+          });
+        }
+      }
+      if(obj == 9){
+        if(this.state.Promptlist_9 == 3){
+          this.setState({
+                Promptlist_9: 1
+          });
+        }else{
+          this.setState({
+                Promptlist_9: this.state.Promptlist_9+1
+          });
+        }
+      }
+      if(obj == 11){
+        if(this.state.Promptlist_11 == 2){
+          this.setState({
+                Promptlist_11: 1
+          });
+        }else{
+          this.setState({
+                Promptlist_11: this.state.Promptlist_11+1
+          });
+        }
+      }
+      if(obj == 13){
+        if(this.state.Promptlist_13 == 2){
+          this.setState({
+                Promptlist_13: 1
+          });
+        }else{
+          this.setState({
+                Promptlist_13: this.state.Promptlist_13+1
+          });
+        }
+      }
       if(obj == 14){
         if(this.state.Promptlist_14 == 3){
           this.setState({
@@ -348,12 +401,86 @@ class registerlist extends Component {
         }
       }
     }
+    Promptpre(obj){
+      if(obj == 8){
+        if(this.state.Promptlist_8 == 1){
+          this.setState({
+                Promptlist_8: 3
+          });
+        }else{
+          this.setState({
+                Promptlist_8: this.state.Promptlist_8-1
+          });
+        }
+      }
+      if(obj == 9){
+        if(this.state.Promptlist_9 == 1){
+          this.setState({
+                Promptlist_9: 3
+          });
+        }else{
+          this.setState({
+                Promptlist_9: this.state.Promptlist_9-1
+          });
+        }
+      }
+      if(obj == 11){
+        if(this.state.Promptlist_11 == 1){
+          this.setState({
+                Promptlist_11: 2
+          });
+        }else{
+          this.setState({
+                Promptlist_11: this.state.Promptlist_11-1
+          });
+        }
+      }
+      if(obj == 13){
+        if(this.state.Promptlist_13 == 1){
+          this.setState({
+                Promptlist_13: 2
+          });
+        }else{
+          this.setState({
+                Promptlist_13: this.state.Promptlist_13-1
+          });
+        }
+      }
+      if(obj == 14){
+        if(this.state.Promptlist_14 == 1){
+          this.setState({
+                Promptlist_14: 3
+          });
+        }else{
+          this.setState({
+                Promptlist_14: this.state.Promptlist_14-1
+          });
+        }
+      }
+    }
+
+    addinputlist(e){
+      var inputlist = this.state.inputlistarr;
+      inputlist.push("");
+      this.setState({inputlistarr:inputlist});
+    }
+    inputlistval(e,index){
+      var inputlist = this.state.inputlistarr;
+      inputlist[index] = e.target.value;
+      this.setState({inputlistarr:inputlist});
+    }
+    inputlistdel(e,index){
+      var inputlist = this.state.inputlistarr;
+      inputlist.splice(index,1);
+      this.setState({inputlistarr:inputlist});
+    }
 
   render() {
     const language = this.state.language;
     const experiencetype = this.state.experiencetype;
     const Countrysarr = this.state.Countrysarr;
     const Content_providedarr = this.state.Content_providedarr;
+    const inputlistarr = this.state.inputlistarr;
 
     return (
       <div className="register">
@@ -1040,9 +1167,40 @@ class registerlist extends Component {
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <div className={this.state.Prompttype_8 ? "show Prompt" : "hide Prompt"}>
+                        <div className="bj"></div>
+                        <div className="Prompt_content">
+                          <div className="boxleft">
+                              <h3>Tips</h3>
+                              <h6>Highlight your professional knowledge</h6>
+                              <p>Tell you why you are qualified to be an experienced person. You can mention your unique skills, diploma and life experience to convince you that you are a trusted and experienced person.</p>
+                              <h6>Show your personality</h6>
+                              <p>Fully demonstrate your unique personality. Don't be too cautious. You can end with an anecdote or interesting personal message.</p>
+                          </div>
+                          <div className="boxright">
+                              <span className="close" onClick={(e)=>this.setState({Prompttype_8:false})}>×</span>
+                              <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
+                              <div className={this.state.Promptlist_8 == 1 ? "show lists" : "hide lists"}>
+                                <p>I am one of the founders of Amazing Brewing Company and also one of the 7 professional wine tasting masters in Korea. I have lived in Asia, Europe and the United States, and have sampled over 100 breweries from all over the world.</p>
+                              </div>
+                              <div className={this.state.Promptlist_8 == 2 ? "show lists" : "hide lists"}>
+                                <p>I was born and raised in a village in Kenya, and moved to Nairobi when I was 18 years old. I am driving a 400cc motorcycle and I love the community of Kenya riding communities. I believe that there is a special bond between the riders, which is closely linked to all of us.</p>
+                              </div>
+                              <div className={this.state.Promptlist_8 == 3 ? "show lists" : "hide lists"}>
+                                <p>After I left the private bank, I began to reflect on our way of life and began writing travel blogs. So I set up WaterThruSkin to travel around the world to promote green fashion ideas, vegetarian eating habits and eco-tourism.</p>
+                              </div>
+                              <div className="listbottom">
+                                <p className="Left">Example {this.state.Promptlist_8} of 3</p>
+                                <p className="Right"><span onClick={(e)=>this.Promptpre(8)}>◀</span><span onClick={(e)=>this.Promptnext(8)}>▶</span></p>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
+
                     <h3>Tell guests what makes you qualified to host this experience</h3>
                     <h5>Mention all the things that make you the best person to host this experience. For example, tell us you’ve lived in your community for many years, or you’re well known for what you do.</h5>
-                    <p className="textpink"><img src="/images/photoi.png" />Tips and examples</p>
+                    <p className="textpink" onClick={(e)=>this.setState({Prompttype_8:true})}><img src="/images/photoi.png" />Tips and examples</p>
                     <textarea onChange={(e)=>this.setState({introduce:e.target.value})} placeholder="I’m co-founder of the Amazing Brewing Company and one of seven certified cicerones (beer sommeliers) in Korea. I’ve lived in Asia, Europe, and the US and tasted beer at over 100 breweries worldwide."></textarea>  
                     <p className={this.state.introduce.length<120 ? "textpink" : ""}>{this.state.introduce.length > 120 ? this.state.introduce.length : 120-this.state.introduce.length} characters needed</p>
                     <button className={ this.state.introduce.length<120 ? "btnactive next" : " next"} disabled={ this.state.introduce.length<120 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>next</button>
@@ -1117,9 +1275,40 @@ class registerlist extends Component {
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <div className={this.state.Prompttype_9 ? "show Prompt" : "hide Prompt"}>
+                        <div className="bj"></div>
+                        <div className="Prompt_content">
+                          <div className="boxleft">
+                              <h3>Tips</h3>
+                              <h6>Start with a verb</h6>
+                              <p>It is necessary for participants to understand the content of the activity immediately. Please start with the main verb, and then introduce who they will be or where they are going to do the activity.</p>
+                              <h6>Brief and clear</h6>
+                              <p>A slogan is enough, and the language is concise and clear, and there is no need to add too many fancy adjectives.</p>
+                          </div>
+                          <div className="boxright">
+                              <span className="close" onClick={(e)=>this.setState({Prompttype_9:false})}>×</span>
+                              <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
+                              <div className={this.state.Promptlist_9 == 1 ? "show lists" : "hide lists"}>
+                                <p>Tasting the Japanese national wine with the wine experts</p>
+                              </div>
+                              <div className={this.state.Promptlist_9 == 2 ? "show lists" : "hide lists"}>
+                                <p>Witness the fashion rejuvenation of Detroit</p>
+                              </div>
+                              <div className={this.state.Promptlist_9 == 3 ? "show lists" : "hide lists"}>
+                                <p>Record daily life with two Cuban filmmakers</p>
+                              </div>
+                              <div className="listbottom">
+                                <p className="Left">Example {this.state.Promptlist_9} of 3</p>
+                                <p className="Right"><span onClick={(e)=>this.Promptpre(9)}>◀</span><span onClick={(e)=>this.Promptnext(9)}>▶</span></p>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
+
                     <h3>Write a tagline</h3>
                     <h5>Clearly describe your experience in one short, catchy sentence. Start with a verb that tells guests what they will do.</h5>
-                    <p className="textpink"><img src="/images/photoi.png" />Tips and examples</p>
+                    <p className="textpink" onClick={(e)=>this.setState({Prompttype_9:true})}><img src="/images/photoi.png" />Tips and examples</p>
                     <input type="text"  onChange={(e)=>this.setState({Slogan:e.target.value})} placeholder="Write your tagline here"/>
                     <p className={this.state.Slogan.length<60 ? "textpink" : ""}>{this.state.Slogan.length > 60 ? this.state.Slogan.length : 60-this.state.Slogan.length} characters remaining</p>
                     <button className={ this.state.Slogan.length<60 ? "btnactive next" : " next"} disabled={ this.state.Slogan.length<60 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Save & Continue</button>
@@ -1235,8 +1424,9 @@ class registerlist extends Component {
                                 <img src="./images/registerlist_4api.jpg" />
                             </li>
                             <li className="li3">
-                                <h5>About Warm house</h5>
-                                <p>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
                             </li>
                         </ul>
                     </div>
@@ -1270,9 +1460,37 @@ class registerlist extends Component {
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
+                  <div className={this.state.Prompttype_11 ? "show Prompt" : "hide Prompt"}>
+                        <div className="bj"></div>
+                        <div className="Prompt_content">
+                          <div className="boxleft">
+                              <h3>Tips</h3>
+                              <h6>Set expectations</h6>
+                              <p>The important thing is to let participants know what they will encounter in their experience. If participants need to prepare for some adventure activities, please tell them ahead of time.</p>
+                              <h6>Detailed and specific</h6>
+                              <p>If your experience is technical, such as workshops or tutorials, you will not be afraid to introduce details. Participants want to be able to know exactly where their money is spent.</p>
+                          </div>
+                          <div className="boxright">
+                              <span className="close" onClick={(e)=>this.setState({Prompttype_11:false})}>×</span>
+                              <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
+                              <div className={this.state.Promptlist_11 == 1 ? "show lists" : "hide lists"}>
+                                <p>You can directly participate in our weekly basketball camp and spend two hours of practice and playing time with 60 children. Only three of us are responsible for all the children (boys and girls are between 10 and 17 years old), so I hope you can help us train and guide them to play basketball. Spend time together with your children, let your vitality unfold, sweat and passion, and of course you need plenty of energy.</p>
+                              </div>
+                              <div className={this.state.Promptlist_11 == 2 ? "show lists" : "hide lists"}>
+                                <p>My hometown is Colle Val d 'Elsa, which is about 1 hours south of Florence, and I will recommend all the shops I like in a local market. I can take you around the cheeses, the local fish market and my own butcher's shop, and the stalls of the most fresh fruits and vegetables in Tuscany.</p>
+                              </div>
+                              <div className="listbottom">
+                                <p className="Left">Example {this.state.Promptlist_11} of 2</p>
+                                <p className="Right"><span onClick={(e)=>this.Promptpre(11)}>◀</span><span onClick={(e)=>this.Promptnext(11)}>▶</span></p>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+  
+
                     <h3>Describe what you’ll do</h3>
                     <h5>Get guests excited with a fun, detailed description of the itinerary.</h5>
-                    <p className="textpink"><img src="/images/photoi.png" />Tips and examples</p>
+                    <p className="textpink" onClick={(e)=>this.setState({Prompttype_11:true})}><img src="/images/photoi.png" />Tips and examples</p>
                     <textarea onChange={(e)=>this.setState({Experience_content:e.target.value})} placeholder="Write about each activity in the order you’ll do them"></textarea>  
                     <p className={this.state.Experience_content.length<200 ? "textpink" : ""}>{this.state.Experience_content.length > 200 ? this.state.Experience_content.length : 200-this.state.Experience_content.length} characters needed</p>
                     <button className={ this.state.Experience_content.length<200 ? "btnactive next" : " next"} disabled={ this.state.Experience_content.length<200 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Save & Continue</button>
@@ -1312,8 +1530,9 @@ class registerlist extends Component {
                                 <img src="./images/registerlist_4api.jpg" />
                             </li>
                             <li className="li3">
-                                <h5>About Warm house</h5>
-                                <p>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
                             </li>
                         </ul>
                     </div>
@@ -1449,8 +1668,9 @@ class registerlist extends Component {
                                 </div>
                             </li>
                             <li className="li3">
-                                <h5>About Warm house</h5>
-                                <p>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
                             </li>
                         </ul>
                     </div>
@@ -1484,9 +1704,36 @@ class registerlist extends Component {
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <div className={this.state.Prompttype_13 ? "show Prompt" : "hide Prompt"}>
+                        <div className="bj"></div>
+                        <div className="Prompt_content">
+                          <div className="boxleft">
+                              <h3>Tips</h3>
+                              <h6>List all the places</h6>
+                              <p>List the locations of all the experience activities, give participants some hints, so that they can understand why these places have their own advantages.</p>
+                              <h6>Do not include the address</h6>
+                              <p>Participants will see the exact address when booking, and remember to provide more information about this place so that participants can understand its uniqueness.</p>
+                          </div>
+                          <div className="boxright">
+                              <span className="close" onClick={(e)=>this.setState({Prompttype_13:false})}>×</span>
+                              <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
+                              <div className={this.state.Promptlist_13 == 1 ? "show lists" : "hide lists"}>
+                                <p>We are going to work in a mobile cabin that is rebuilt by the school bus, all of which are perpetual and a special experience for visitors.</p>
+                              </div>
+                              <div className={this.state.Promptlist_13 == 2 ? "show lists" : "hide lists"}>
+                                <p>We should go to Kloof Corner Ridge first to see the magnificent ridges along the cable station. But depending on the weather and the ability of the participants, we can also change the route. After taking a bath down the mountain, we can go to my favorite restaurant for a sumptuous dinner.</p>
+                              </div>
+                              <div className="listbottom">
+                                <p className="Left">Example {this.state.Promptlist_13} of 2</p>
+                                <p className="Right"><span onClick={(e)=>this.Promptpre(13)}>◀</span><span onClick={(e)=>this.Promptnext(13)}>▶</span></p>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
                     <h3>Add details about where you’ll be</h3>
                     <h5>Tell guests where you’ll go, why each location is special, or why you love it. It’s ok if it’s just one location.</h5>
-                    <p className="textpink"><img src="/images/photoi.png" />Tips and examples</p>
+                    <p className="textpink"  onClick={(e)=>this.setState({Prompttype_13:"true"})}><img src="/images/photoi.png" />Tips and examples</p>
                     <textarea onChange={(e)=>this.setState({position_information:e.target.value})} placeholder="Consider including special places guests can’t find or access on their own"></textarea>  
                     <p className={this.state.position_information.length<100 ? "textpink" : ""}>{this.state.position_information.length > 100 ? this.state.position_information.length : 100-this.state.position_information.length} characters needed</p>
                     <button className={ this.state.position_information.length<100 ? "btnactive next" : " next"} disabled={ this.state.position_information.length<100 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>next</button>
@@ -1534,8 +1781,9 @@ class registerlist extends Component {
                                 </div>
                             </li>
                             <li className="li3">
-                                <h5>About Warm house</h5>
-                                <p>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
                             </li>
                         </ul>
                     </div>
@@ -1544,7 +1792,7 @@ class registerlist extends Component {
             </div>
           }
 
-          { this.state.step === this.STEP.Step1 &&
+          { this.state.step === this.STEP.Step14 &&
             <div className="registerlist_4 registerlist_8 registerlist_14 row">
                 <div className="STEPhead">
                   <span className="bjpink"></span>
@@ -1580,7 +1828,7 @@ class registerlist extends Component {
                               <p>Let your personality shine through. Try ending with a fun fact or interesting personal detail to avoid sounding too formal.</p>
                           </div>
                           <div className="boxright">
-                              <span className="close" onClick={(e)=>this.setState({Prompttype_14:"false"})}>×</span>
+                              <span className="close" onClick={(e)=>this.setState({Prompttype_14:false})}>×</span>
                               <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
                               <div className={this.state.Promptlist_14 == 1 ? "show lists" : "hide lists"}>
                                 <h6>Refreshments</h6><p>Welcome to share your personal preferences. I will try to satisfy it!</p>
@@ -1594,7 +1842,10 @@ class registerlist extends Component {
                                 <h6>Travel to Rick 's Estate</h6><p>We will pick you up at Neptune 's Net restaurant and then go up the hill to Rick' s Estate.</p>
                                 <p>Digital cameras, telescopes, special interfaces and three legs.</p>
                               </div>
-                              <div className="listbottom"><p className="Left">Example {this.state.Promptlist_14} of 3</p><p className="Right"><span>◀</span><span onClick={(e)=>this.Promptlist(14)}>▶</span></p></div>
+                              <div className="listbottom">
+                                <p className="Left">Example {this.state.Promptlist_14} of 3</p>
+                                <p className="Right"><span onClick={(e)=>this.Promptpre(14)}>◀</span><span onClick={(e)=>this.Promptnext(14)}>▶</span></p>
+                              </div>
                           </div>
                         </div>
                     </div>
@@ -1614,9 +1865,9 @@ class registerlist extends Component {
                     <input onChange={(e)=>this.setState({Provide_content:e.target.value})} className={this.state.Content_provided == "Selection project" ? "hide" : "show"} type="text" placeholder={this.state.placeholder_provided} />
                     <div className={this.state.Provide_content == "" ? "hide":"show"}>
                       <p className={this.state.Provide_content.length <= 30 ? "":"textpink"}>{this.state.Provide_content.length <30 ? 30-this.state.Provide_content.length+" characters needed" : this.state.Provide_content.length-30+"characters exceed"}</p>
-                      <p className={this.state.add_item == 1 ? "hide textpink":"show textpink"} onClick={(e)=>this.setState({add_item:1})}>+ add another item</p>
+                      <p className={this.state.add_another == 1 ? "hide textpink":"show textpink"} onClick={(e)=>this.setState({add_another:1})}>+ add another item</p>
 
-                      <div className={this.state.add_item == 0 ? "hide":"show"}>
+                      <div className={this.state.add_another == 0 ? "hide":"show"}>
                         <h6 className="Item_ne">Item one<span className={this.state.Content_provided_1 == "Selection project" ? "hide textpink Right" : "show textpink Right"} onClick={(e)=>this.setState({Content_provided_1:"Selection project"})}>Delete</span></h6>
                         <div className="btn-group">
                           <button type="button" data-toggle="dropdown" >{this.state.Content_provided_1}<span>▼</span></button>
@@ -1683,8 +1934,112 @@ class registerlist extends Component {
                                 </div>
                             </li>
                             <li className="li3">
-                                <h5>About Warm house</h5>
-                                <p>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step15 &&
+            <div className="registerlist_4 registerlist_8 registerlist_15 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>What should guests bring with them?</h3>
+                    <h5>Think through everything a guest will need to have with them during the experience that you’re not already providing. This will be emailed to guests once they book.</h5>
+                    
+                    <h6>warm house</h6>
+                    <p>What should your guests bring?</p>
+                    {inputlistarr.map((item,index) => (
+                      <div className="inputlist">
+                        <input type="text" placeholder="Please Input project" value={item} onChange={(e)=>this.inputlistval(e,index)} />
+                        <span className={item == "" ? "hide" : "show"} onClick={(e)=>this.inputlistdel(e,index)} >×</span>
+                      </div>
+                    ))}
+                    <p className="textpink" onClick={(e)=>this.addinputlist(e)}>+ Add an item</p>
+
+                    <h6>Not providing anything for your guests?  </h6>
+                    <div className="check" onClick={(e) => {if(this.state.Not_providing ==0 )this.setState({Not_providing:1});else this.setState({Not_providing:0});}}>
+                      <p  className="Pinput">
+                          <img className={this.state.Not_providing ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      </p>
+                      <p className="divinput">I am not providing anything</p>
+                    </div>      
+                     
+                    <button className="next"  onClick={(e)=>this.nextstep(e)}>next</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />{this.state.Location_name == "" ? "Singapore" : this.state.Location_name}</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Experience_content == "" ? "" : "textactive"}>What we’ll do</h5>
+                                <p className={this.state.Experience_content == "" ? "" : "textactive"}>{this.state.Experience_content.length > 0 ? this.state.Experience_content : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
+                                <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
+                                <p className={this.state.position_information == "" ? "" : "textactive"}>{this.state.position_information.length > 0 ? this.state.position_information : "Tell your guests where you’ll be taking them for this experience."}</p>
+                            </li>
+                            <li className="li3">
+                                <h5>Notes</h5>
+                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                            </li>
+                            <li className="li3">
+                                <div className="apidiv">
+                                  <img src={this.state.API_img == "" ? "./images/registerlist_4api.jpg" : this.state.API_img} />
+                                  <p></p>
+                                  <div>
+                                    <span>▼</span>
+                                    <h6>Where we’ll meet</h6>
+                                    <p>9 Raffles place. singapore</p>
+                                  </div>
+                                </div>
+                            </li>
+                            <li className="li3">
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
                             </li>
                         </ul>
                     </div>

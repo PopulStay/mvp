@@ -2001,6 +2001,7 @@ h1,
 }
 .textpink{
   color: #f6416c !important;
+  cursor: pointer;
 }
 
 .pinkBorder{
