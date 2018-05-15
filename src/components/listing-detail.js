@@ -138,6 +138,12 @@ class ListingsDetail extends Component {
   
   }
 
+  loadOrdered(id){
+    houselistingService.getHouseInfoByID(id).then((data)=>{
+      console.log(data.bookedDate)
+    })
+  }
+
   handleBooking() {
     console.log(this.state.descriptioninfo)
     let unitsToBuy = 0;
