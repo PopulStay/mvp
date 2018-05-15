@@ -88,12 +88,15 @@ class registerlist extends Component {
         Book_understand:"",
         No_notes_additional:1,
         active_experience:0,
-        Minimum_agearr:[18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2],
-        Minimum_age:18,
+        Minimum_agearr:[18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1],
+        Minimum_age:"Please choose",
         Alcohol:0,
         bring_kids:0,
         verified_ID:0,
         Additional_requirements:"",
+        Maximum_group:"Please choose",
+        price_guest:0,
+        guest_num:1,
     };
 
   }
@@ -2348,6 +2351,152 @@ class registerlist extends Component {
                             </li>
                             <li className={this.state.Additional_requirements == "" && this.state.bring_kids == 0 && this.state.Alcohol == 0 ? "hide li3" : "show li3"}>
                                 <h5 className="textactive">Who can come</h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step19 &&
+            <div className="registerlist_4 registerlist_8  registerlist_18 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Maximum group size</h3>
+                    <h5>Think about the group size that works best for your experience. Should it be small and intimate? Is it fun with a large group? Please note that Airbnb has a one-guest minimum, which means that if only one person books your experience, you’ll still be expected to host.</h5>
+
+                    <div className="btn-group">
+                      <button type="button" data-toggle="dropdown">{this.state.Maximum_group}<span>▼</span></button>
+                      <ul className="dropdown-menu" role="menu">
+                        {Minimum_agearr.map(item => (
+                            <li><a onClick={(e) => this.setState({Maximum_group: item})}>{item}</a></li>
+                          ))}
+                      </ul>
+                    </div>
+
+                    <button className="next" onClick={(e)=>this.nextstep(e)}>Save & Continue</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />{this.state.Location_name == "" ? "Singapore" : this.state.Location_name}</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Experience_content == "" ? "" : "textactive"}>What we’ll do</h5>
+                                <p className={this.state.Experience_content == "" ? "" : "textactive"}>{this.state.Experience_content.length > 0 ? this.state.Experience_content : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
+                                <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
+                                <p className={this.state.position_information == "" ? "" : "textactive"}>{this.state.position_information.length > 0 ? this.state.position_information : "Tell your guests where you’ll be taking them for this experience."}</p>
+                            </li>
+                            <li className="li3">
+                                <h5 className={this.state.Book_understand == "" ? "" : "textactive"}>Notes</h5>
+                                <p className={this.state.Book_understand == "" ? "" : "textactive"}>{this.state.Book_understand.length > 0 ? this.state.Book_understand : "Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking"}</p>
+                            </li>
+                            <li className="li3">
+                                <div className="apidiv">
+                                  <img src={this.state.API_img == "" ? "./images/registerlist_4api.jpg" : this.state.API_img} />
+                                  <p></p>
+                                  <div>
+                                    <span>▼</span>
+                                    <h6>Where we’ll meet</h6>
+                                    <p>9 Raffles place. singapore</p>
+                                  </div>
+                                </div>
+                            </li>
+                            <li>
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                            </li>
+                            <li className={this.state.Additional_requirements == "" && this.state.bring_kids == 0 && this.state.Alcohol == 0 ? "hide li3" : "show li3"}>
+                                <h5 className="textactive">Who can come</h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step20 &&
+            <div className="registerlist_4 registerlist_20 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Set a price per guest</h3>
+                    <h5>The price of your experience is entirely up to you. Play with the calculator to see how much you’d earn depending on the number of guests. If you have questions, read up on tips for setting your price.</h5>
+
+                    <div className="price_guest">
+                      <span>SGD</span>
+                      <input type="text" placeholder="$" onChange={(e)=>this.setState({price_guest:e.target.value})} />
+                    </div>
+
+                    <button className={ this.state.price_guest == 0 ? "btnactive next" : " next"} disabled={ this.state.price_guest == 0 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>Save & Continue</button>
+                </div>
+
+                <div className="box1 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <h6>Pricing calculator</h6>
+                        <ul>
+                            <li>
+                                <p className="Left">Price per guest</p>
+                                <p className="Right">$ {this.state.price_guest == "" ? 0 : this.state.price_guest} SGD</p>
+                            </li>
+                            <li className="li2">
+                                <p className="Left">Number of guests</p>
+                                <p className="Right"><span className="add" onClick={(e)=>this.setState({guest_num:this.state.guest_num+1})}>▲</span>{this.state.guest_num}<span className="del" onClick={(e)=>{if(this.state.guest_num > 1 )this.setState({guest_num:this.state.guest_num - 1});else this.setState({guest_num:1});}}>▼</span></p>
+                            </li>
+                            <li>
+                                <p className="Left">You’d make</p>
+                                <p className="Right">$ {this.state.price_guest*0.8*this.state.guest_num} SGD</p>
                             </li>
                         </ul>
                     </div>

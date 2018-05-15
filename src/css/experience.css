@@ -1403,6 +1403,55 @@
 .registerlist_18 .check .divinput>span{
 	font-size: 1.6rem;
 }
-.registerlist_8 .box textarea{
+.registerlist_18 .box textarea{
 	height: 100px;
+}
+
+.registerlist_20 .price_guest{
+	width: 70%;
+	position: relative;
+}
+.registerlist_20 .price_guest span{
+	position: absolute;
+	top:50%;
+	left:3%;
+	transform: translate(0,-50%);
+	font-size: 1.6rem;
+	color: #4d4e4e;
+}
+.registerlist_20 .price_guest input{
+	padding: 0 5% 0 15%;
+	color: #4d4e4e;
+	height: 35px;
+}
+.registerlist_20 .box1 ul{
+	overflow: hidden;
+    font-family: RobotoThin; 
+    margin-top: 5%;
+}
+.registerlist_20 .box1 ul li{
+	overflow: hidden;
+	border-top: 1px solid #f6416c;
+	padding: 8% 0;
+}
+.registerlist_20 .box1 ul li:first-child{
+	border-top:none;
+}
+.registerlist_20 .box1 ul li>p{
+    font-size: 1.4rem;
+}
+.registerlist_20 .box1 ul li.li2>p.Right{
+	width: 30%;
+	text-align: center;
+}
+.registerlist_20 .box1 ul li span{
+	font-size: 1.6rem;
+	color:#f6416c;
+	cursor: pointer;
+}
+.registerlist_20 .box1 ul li span.add{
+	float: left;
+}
+.registerlist_20 .box1 ul li span.del{
+	float: right;
 }
