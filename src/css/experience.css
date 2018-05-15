@@ -468,7 +468,8 @@
 .registerlist_2 .btn-group button,
 .registerlist_3 .btn-group button,
 .registerlist_12 .box label .btn-group button,
-.registerlist_14 .btn-group button{
+.registerlist_14 .btn-group button,
+.registerlist_18 .btn-group button{
 	background: none;
 	border: 1px solid #606060;
 	border-radius: 0;
@@ -483,7 +484,8 @@
 .registerlist_2 .btn-group button span,
 .registerlist_3 .btn-group button span,
 .registerlist_12 .box label .btn-group button span,
-.registerlist_14 .btn-group button span{
+.registerlist_14 .btn-group button span,
+.registerlist_18 .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2.2rem;
@@ -492,7 +494,8 @@
 .registerlist_2 .dropdown-menu,
 .registerlist_3 .dropdown-menu,
 .registerlist_12 .dropdown-menu,
-.registerlist_14 .dropdown-menu{
+.registerlist_14 .dropdown-menu,
+.registerlist_18 .dropdown-menu{
   width: 100%;
   max-height: 300px;
   overflow: auto;
@@ -502,7 +505,8 @@
 .registerlist_2 .dropdown-menu a,
 .registerlist_3 .dropdown-menu a,
 .registerlist_12 .dropdown-menu a,
-.registerlist_14 .dropdown-menu a{
+.registerlist_14 .dropdown-menu a,
+.registerlist_18 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 3%;
@@ -518,7 +522,8 @@
 .registerlist_2 .dropdown-menu,
 .registerlist_3 .dropdown-menu,
 .registerlist_12 .dropdown-menu,
-.registerlist_14 .dropdown-menu{
+.registerlist_14 .dropdown-menu,
+.registerlist_18 .dropdown-menu{
 	padding: 0;
 	margin: 0;
 }
@@ -526,14 +531,16 @@
 .registerlist_2 .dropdown-menu li:first-child>a,
 .registerlist_3 .dropdown-menu li:first-child>a,
 .registerlist_12 .dropdown-menu li:first-child>a,
-.registerlist_14 .dropdown-menu li:first-child>a{
+.registerlist_14 .dropdown-menu li:first-child>a,
+.registerlist_18 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .introlist_3 .dropdown-menu a:hover,
 .registerlist_2 .dropdown-menu a:hover,
 .registerlist_3 .dropdown-menu a:hover,
 .registerlist_12 .dropdown-menu a:hover,
-.registerlist_14 .dropdown-menu a:hover{
+.registerlist_14 .dropdown-menu a:hover,
+.registerlist_18 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -725,7 +732,8 @@
 	padding: 0;
 }
 .registerlist_2 .btn-group button,
-.registerlist_14 .btn-group button{
+.registerlist_14 .btn-group button,
+.registerlist_18 .btn-group button{
 	height: 40px;
 }
 .registerlist_2 .box1 ul li{
@@ -761,7 +769,8 @@
 }
 
 
-.registerlist_3 .btn-group{
+.registerlist_3 .btn-group,
+.registerlist_18 .btn-group{
 	width: 70%;
 	padding: 0;
 }
@@ -781,7 +790,8 @@
 }
 .registerlist_3 .check,
 .registerlist_14 .check,
-.registerlist_15 .check{
+.registerlist_15 .check,
+.registerlist_18 .check{
     margin: 3% 0 0;
     overflow: hidden;
 }
@@ -792,7 +802,8 @@
 }
 .registerlist_3 .check .Pinput,
 .registerlist_14 .check .Pinput,
-.registerlist_15 .check .Pinput{
+.registerlist_15 .check .Pinput,
+.registerlist_18 .check .Pinput{
 	width: 20px;
 	height: 20px;
 	border-radius: 5px;
@@ -808,7 +819,8 @@
 }
 .registerlist_3 .Pinput img,
 .registerlist_14 .Pinput img,
-.registerlist_15 .Pinput img{
+.registerlist_15 .Pinput img,
+.registerlist_18 .Pinput img{
 	position: absolute;
 	width: 130%;
 	top:50%;
@@ -817,7 +829,8 @@
 }
 .registerlist_3 .check .divinput,
 .registerlist_14 .check .divinput,
-.registerlist_15 .check .divinput{
+.registerlist_15 .check .divinput,
+.registerlist_18 .check .divinput{
   float: right;
   width: 94%;
   font-size:1.6rem;
@@ -1165,13 +1178,15 @@
 	height: 150px;
 	border: 1px solid #f6416c;
 	padding: 2% ;
-	font-weight: 1.6rem;
+	font-size: 1.6rem;
     margin-top: 5%;
     font-weight: 300;
+    font-family: RobotoThin; 
 }
 .registerlist_12 .box h6,
 .registerlist_14 h6,
-.registerlist_15 h6{
+.registerlist_15 h6,
+.registerlist_18 h6{
 	font-size: 1.8rem;
 	margin-top: 5%;
 	font-weight: 500;
@@ -1376,4 +1391,18 @@
 	transform: translate(0,-50%);
 	cursor: pointer;
 	color:#f6416c;
+}
+
+.registerlist_17 h3{
+	margin-top: 10%;
+}
+.registerlist_17 button.next{
+	margin-top:30%;
+}
+.registerlist_18 h6,
+.registerlist_18 .check .divinput>span{
+	font-size: 1.6rem;
+}
+.registerlist_8 .box textarea{
+	height: 100px;
 }

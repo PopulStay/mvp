@@ -69,7 +69,7 @@ class registerlist extends Component {
         Content_providedarr:["food","Drink","Accommodation","Ticket","Traffic","Equipment","Snack"],
         Content_provided:"Selection project",
         Content_provided_1:"Selection project",
-        Not_providing:0,
+        Not_providing:1,
         placeholder_provided:"",
         Provide_content:"",
         Provide_content_1:"",
@@ -85,6 +85,15 @@ class registerlist extends Component {
         Promptlist_14:1,
         Prompttype_14:false,
         inputlistarr:[],
+        Book_understand:"",
+        No_notes_additional:1,
+        active_experience:0,
+        Minimum_agearr:[18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2],
+        Minimum_age:18,
+        Alcohol:0,
+        bring_kids:0,
+        verified_ID:0,
+        Additional_requirements:"",
     };
 
   }
@@ -481,6 +490,7 @@ class registerlist extends Component {
     const Countrysarr = this.state.Countrysarr;
     const Content_providedarr = this.state.Content_providedarr;
     const inputlistarr = this.state.inputlistarr;
+    const Minimum_agearr = this.state.Minimum_agearr;
 
     return (
       <div className="register">
@@ -1957,7 +1967,7 @@ class registerlist extends Component {
                   <span className="bjpink"></span>
                   <span className="bjpink"></span>
                   <span className="bjpink"></span>
-                  <span></span>
+                  <span className="bjpink"></span>
                   <span></span>
                   <ul>
                       <li className="textPink">Basics</li>
@@ -2040,6 +2050,304 @@ class registerlist extends Component {
                                 <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
                                 <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
                                 <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step16 &&
+            <div className="registerlist_4 registerlist_8 registerlist_15 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>What else do guests need to know before they book?</h3>
+                    <h5>Put yourself in a guest’s shoes. Some information may seem obvious, but be detailed so guests are over-prepared.</h5>
+                    
+                   <textarea onChange={(e)=>this.setState({Book_understand:e.target.value})} placeholder="Try  Addressing any concerns guests might have about booking your experience"></textarea>  
+                    <p className={this.state.Book_understand.length<200 ? "textpink" : ""}>{this.state.Book_understand.length > 200 ? this.state.Book_understand.length : 200-this.state.Book_understand.length} characters needed</p>
+
+                    <h6 className={this.state.Book_understand.length == 0 ? "show" : "hide"}>Is there nothing else guests should know? </h6>
+                    <div className={this.state.Book_understand.length == 0 ? "show check" : "hide check"}>
+                      <p  className="Pinput">
+                          <img className={this.state.No_notes_additional ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      </p>
+                      <p className="divinput">I have no additional notes for my guests </p>
+                    </div>      
+                     
+                    <button className={ this.state.Book_understand.length<200 ? "btnactive next" : " next"} disabled={ this.state.Book_understand.length<200 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>next</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />{this.state.Location_name == "" ? "Singapore" : this.state.Location_name}</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Experience_content == "" ? "" : "textactive"}>What we’ll do</h5>
+                                <p className={this.state.Experience_content == "" ? "" : "textactive"}>{this.state.Experience_content.length > 0 ? this.state.Experience_content : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
+                                <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
+                                <p className={this.state.position_information == "" ? "" : "textactive"}>{this.state.position_information.length > 0 ? this.state.position_information : "Tell your guests where you’ll be taking them for this experience."}</p>
+                            </li>
+                            <li className="li3">
+                                <h5 className={this.state.Book_understand == "" ? "" : "textactive"}>Notes</h5>
+                                <p className={this.state.Book_understand == "" ? "" : "textactive"}>{this.state.Book_understand.length > 0 ? this.state.Book_understand : "Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking"}</p>
+                            </li>
+                            <li className="li3">
+                                <div className="apidiv">
+                                  <img src={this.state.API_img == "" ? "./images/registerlist_4api.jpg" : this.state.API_img} />
+                                  <p></p>
+                                  <div>
+                                    <span>▼</span>
+                                    <h6>Where we’ll meet</h6>
+                                    <p>9 Raffles place. singapore</p>
+                                  </div>
+                                </div>
+                            </li>
+                            <li className="li3">
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step17 &&
+            <div className="registerlist_4 registerlist_17 row">
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Setting</h3>
+                    <h5>Add details like group size, price, default time, and more.</h5>
+                     
+                    <button className="next"  onClick={(e)=>this.nextstep(e)}>next</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />{this.state.Location_name == "" ? "Singapore" : this.state.Location_name}</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Experience_content == "" ? "" : "textactive"}>What we’ll do</h5>
+                                <p className={this.state.Experience_content == "" ? "" : "textactive"}>{this.state.Experience_content.length > 0 ? this.state.Experience_content : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
+                                <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
+                                <p className={this.state.position_information == "" ? "" : "textactive"}>{this.state.position_information.length > 0 ? this.state.position_information : "Tell your guests where you’ll be taking them for this experience."}</p>
+                            </li>
+                            <li className="li3">
+                                <h5 className={this.state.Book_understand == "" ? "" : "textactive"}>Notes</h5>
+                                <p className={this.state.Book_understand == "" ? "" : "textactive"}>{this.state.Book_understand.length > 0 ? this.state.Book_understand : "Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking"}</p>
+                            </li>
+                            <li className="li3">
+                                <div className="apidiv">
+                                  <img src={this.state.API_img == "" ? "./images/registerlist_4api.jpg" : this.state.API_img} />
+                                  <p></p>
+                                  <div>
+                                    <span>▼</span>
+                                    <h6>Where we’ll meet</h6>
+                                    <p>9 Raffles place. singapore</p>
+                                  </div>
+                                </div>
+                            </li>
+                            <li className="li3">
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+          }
+
+          { this.state.step === this.STEP.Step18 &&
+            <div className="registerlist_4 registerlist_8  registerlist_18 row">
+                <div className="STEPhead">
+                  <span className="bjpink"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul>
+                      <li className="textPink">Basics</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">About the experiences</li>
+                      <li className="glyphicon glyphicon-play textPink"></li>
+                      <li className="textPink">Settings</li>
+                      <li className="glyphicon glyphicon-play"></li>
+                      <li>Review & Submit</li>
+                  </ul>
+                </div>
+                <div className="box col-sm-7 col-md-7 col-lg-7">
+                    <h3>Who can attend your experience?</h3>
+                    <h5>Keep in mind that someone booking your experience might book spots for other guests. If there are strict requirements around age, skill level, or certifications, include them here.</h5>
+                    
+                    <h6>Alcohol</h6>
+                    <div className="check" onClick={(e) => {if(this.state.Alcohol ==0 )this.setState({Alcohol:1});else this.setState({Alcohol:0});}}>
+                      <p  className="Pinput">
+                          <img className={this.state.Alcohol ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      </p>
+                      <p className="divinput">My experience includes alcohol. Only guests that meet the leaal drinking age will be served</p>
+                    </div>  
+
+                    <h6>Minimum age</h6>
+                    <p>Set age limits for guests. Minors can only attend with their legal guardian.</p>
+
+                    <div className="btn-group">
+                      <button type="button" data-toggle="dropdown">{this.state.Minimum_age}<span>▼</span></button>
+                      <ul className="dropdown-menu" role="menu">
+                        {Minimum_agearr.map(item => (
+                            <li><a onClick={(e) => this.setState({Minimum_age: item})}>{item}</a></li>
+                          ))}
+                      </ul>
+                    </div>
+
+                    <div className="check" onClick={(e) => {if(this.state.bring_kids ==0 )this.setState({bring_kids:1});else this.setState({bring_kids:0});}}>
+                      <p  className="Pinput">
+                          <img className={this.state.bring_kids ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      </p>
+                      <p className="divinput">Parents can bring kids under 2 years </p>
+                    </div> 
+
+                    <h6>How active is your experience?</h6>
+                    <div className="radio" onClick={(e) => this.setState({active_experience: 1})}>
+                      <label className="text-muted"><p><span className={this.state.active_experience == 1 ?"show":"hide"}></span></p>Mostly seated</label>
+                    </div>
+                    <div className="radio" onClick={(e) => this.setState({active_experience: 2})}>
+                      <label className="text-muted"><p><span className={this.state.active_experience == 2 ?"show":"hide"}></span></p>Light (e.g. a little walking)</label>
+                    </div>
+                    <div className="radio" onClick={(e) => this.setState({active_experience: 3})}>
+                      <label className="text-muted"><p><span className={this.state.active_experience == 3 ?"show":"hide"}></span></p>Moderate (e.g. a bike ride on mostly flat road)</label>
+                    </div>
+                    <div className="radio" onClick={(e) => this.setState({active_experience: 4})}>
+                      <label className="text-muted"><p><span className={this.state.active_experience == 4 ?"show":"hide"}></span></p>High (e.g. physical movement lasting more than an hour)</label>
+                    </div>
+                    <div className="radio" onClick={(e) => this.setState({active_experience: 5})}>
+                      <label className="text-muted"><p><span className={this.state.active_experience == 5 ?"show":"hide"}></span></p>Strenuous (e.g. an uphill hike over rough terrain)</label>
+                    </div>
+
+                    <h6>Additional requirements</h6>
+                    <textarea onChange={(e)=>this.setState({Additional_requirements:e.target.value})} placeholder="E.g. Guests should have prior surfing experience, guest must have a scuba license, guests should be comfortable around dogs, etc."></textarea>  
+
+                    <h6>Require verified ID</h6>
+                    <p>The primary booker has to successfully complete verified ID in order for them and their guests to attend your experience.</p>
+                    <div className="check" onClick={(e) => {if(this.state.verified_ID ==0 )this.setState({verified_ID:1});else this.setState({verified_ID:0});}}>
+                      <p  className="Pinput">
+                          <img className={this.state.verified_ID ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                      </p>
+                      <p className="divinput">Require the booker to <span className="textpink">verify their ID</span></p>
+                    </div> 
+
+                    <button className={ this.state.active_experience == 0 ? "btnactive next" : " next"} disabled={ this.state.active_experience == 0 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>next</button>
+
+                </div>
+
+                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                    <div>
+                        <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
+                        <ul>
+                            <li className="li1"><p>{this.state.Experience_title == "" ? "Experience" : this.state.Experience_title}</p></li>
+                            <li className="li2">
+                                <p><img src="./images/registerlist_4location.png" />{this.state.Location_name == "" ? "Singapore" : this.state.Location_name}</p>
+                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                            </li>
+                            <li className={this.state.introduce == "" ? "hide" : "show"}>
+                                <h5  className={this.state.introduce == "" ? "" : "textactive"}><span>Hello!</span><p><img src="/images/experienceimg5.png" /></p></h5>
+                                <p className={this.state.introduce == "" ? "" : "textactive"}>{this.state.introduce.length > 0 ? this.state.introduce : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Experience_content == "" ? "" : "textactive"}>What we’ll do</h5>
+                                <p className={this.state.Experience_content == "" ? "" : "textactive"}>{this.state.Experience_content.length > 0 ? this.state.Experience_content : "Give an overview description of what your guests will be doing on this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.Provide_content == "" ? "" : "textactive"}>What I’ll provide</h5>
+                                <p className={this.state.Provide_content == "" ? "" : "textactive"}>{this.state.Provide_content.length > 0 ? this.state.Provide_content : "Let your guests know if you’ll be including anything for this experience."}</p>
+                                <p className={this.state.Provide_content_1 == "" ? "" : "textactive"}>{this.state.Provide_content_1.length > 0 ? this.state.Provide_content_1 : "Let your guests know if you’ll be including anything for this experience."}</p>
+                            </li>
+                            <li>
+                                <h5 className={this.state.position_information == "" ? "" : "textactive"}>Where we’ll be</h5>
+                                <p className={this.state.position_information == "" ? "" : "textactive"}>{this.state.position_information.length > 0 ? this.state.position_information : "Tell your guests where you’ll be taking them for this experience."}</p>
+                            </li>
+                            <li className="li3">
+                                <h5 className={this.state.Book_understand == "" ? "" : "textactive"}>Notes</h5>
+                                <p className={this.state.Book_understand == "" ? "" : "textactive"}>{this.state.Book_understand.length > 0 ? this.state.Book_understand : "Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking"}</p>
+                            </li>
+                            <li className="li3">
+                                <div className="apidiv">
+                                  <img src={this.state.API_img == "" ? "./images/registerlist_4api.jpg" : this.state.API_img} />
+                                  <p></p>
+                                  <div>
+                                    <span>▼</span>
+                                    <h6>Where we’ll meet</h6>
+                                    <p>9 Raffles place. singapore</p>
+                                  </div>
+                                </div>
+                            </li>
+                            <li>
+                                <h5 className={this.state.organization=="" ? "":"textactive"}>About Warm house</h5>
+                                <p className={this.state.organization=="" ? "":"textactive"}>{this.state.organization}</p>
+                                <p className={this.state.organization=="" ? "":"textactive"}>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                            </li>
+                            <li className={this.state.Additional_requirements == "" && this.state.bring_kids == 0 && this.state.Alcohol == 0 ? "hide li3" : "show li3"}>
+                                <h5 className="textactive">Who can come</h5>
                             </li>
                         </ul>
                     </div>
