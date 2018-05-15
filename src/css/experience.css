@@ -398,6 +398,7 @@
 	position: absolute;
 	bottom: 9%;
 	left: 10%;
+	cursor: pointer;
 }
 .introlist_1 .boxleft .box{
 	padding: 0 10%;
@@ -467,7 +468,8 @@
 .registerlist_2 .btn-group button,
 .registerlist_3 .btn-group button,
 .registerlist_12 .box label .btn-group button,
-.registerlist_14 .btn-group button{
+.registerlist_14 .btn-group button,
+.registerlist_18 .btn-group button{
 	background: none;
 	border: 1px solid #606060;
 	border-radius: 0;
@@ -482,7 +484,8 @@
 .registerlist_2 .btn-group button span,
 .registerlist_3 .btn-group button span,
 .registerlist_12 .box label .btn-group button span,
-.registerlist_14 .btn-group button span{
+.registerlist_14 .btn-group button span,
+.registerlist_18 .btn-group button span{
   float: right;
   color: #f6416c;
   font-size: 2.2rem;
@@ -491,7 +494,8 @@
 .registerlist_2 .dropdown-menu,
 .registerlist_3 .dropdown-menu,
 .registerlist_12 .dropdown-menu,
-.registerlist_14 .dropdown-menu{
+.registerlist_14 .dropdown-menu,
+.registerlist_18 .dropdown-menu{
   width: 100%;
   max-height: 300px;
   overflow: auto;
@@ -501,7 +505,8 @@
 .registerlist_2 .dropdown-menu a,
 .registerlist_3 .dropdown-menu a,
 .registerlist_12 .dropdown-menu a,
-.registerlist_14 .dropdown-menu a{
+.registerlist_14 .dropdown-menu a,
+.registerlist_18 .dropdown-menu a{
   width: 100%;
   text-align: center;
   padding: 2% 3%;
@@ -517,7 +522,8 @@
 .registerlist_2 .dropdown-menu,
 .registerlist_3 .dropdown-menu,
 .registerlist_12 .dropdown-menu,
-.registerlist_14 .dropdown-menu{
+.registerlist_14 .dropdown-menu,
+.registerlist_18 .dropdown-menu{
 	padding: 0;
 	margin: 0;
 }
@@ -525,14 +531,16 @@
 .registerlist_2 .dropdown-menu li:first-child>a,
 .registerlist_3 .dropdown-menu li:first-child>a,
 .registerlist_12 .dropdown-menu li:first-child>a,
-.registerlist_14 .dropdown-menu li:first-child>a{
+.registerlist_14 .dropdown-menu li:first-child>a,
+.registerlist_18 .dropdown-menu li:first-child>a{
   border-top: none;
 }
 .introlist_3 .dropdown-menu a:hover,
 .registerlist_2 .dropdown-menu a:hover,
 .registerlist_3 .dropdown-menu a:hover,
 .registerlist_12 .dropdown-menu a:hover,
-.registerlist_14 .dropdown-menu a:hover{
+.registerlist_14 .dropdown-menu a:hover,
+.registerlist_18 .dropdown-menu a:hover{
   background: #f6416c;
   color: #fff;
 }
@@ -598,6 +606,7 @@
 }
 .register .textPink{
 	color: #f6416c !important;
+	cursor: pointer;
 }
 .register_content{
 	padding: 0 8%;
@@ -620,6 +629,9 @@
 .register .STEPhead ul li.glyphicon-play{
 	font-size: 1.4rem;
 }
+.register_header{
+	width: 100%;
+}
 .register_header header{
 	padding: 0 5% 1% 6%;
 }
@@ -637,6 +649,7 @@
 	float: left;
 }
 .register_header ul li{
+	width: 15%;
 	color: #131c4e;
 }
 .register_header ul li button{
@@ -722,7 +735,8 @@
 	padding: 0;
 }
 .registerlist_2 .btn-group button,
-.registerlist_14 .btn-group button{
+.registerlist_14 .btn-group button,
+.registerlist_18 .btn-group button{
 	height: 40px;
 }
 .registerlist_2 .box1 ul li{
@@ -758,7 +772,8 @@
 }
 
 
-.registerlist_3 .btn-group{
+.registerlist_3 .btn-group,
+.registerlist_18 .btn-group{
 	width: 70%;
 	padding: 0;
 }
@@ -777,7 +792,10 @@
 	font-size: 1.4rem;
 }
 .registerlist_3 .check,
-.registerlist_14 .check{
+.registerlist_14 .check,
+.registerlist_15 .check,
+.registerlist_18 .check,
+.registerlist_24 .check{
     margin: 3% 0 0;
     overflow: hidden;
 }
@@ -787,7 +805,10 @@
 	cursor: pointer;
 }
 .registerlist_3 .check .Pinput,
-.registerlist_14 .check .Pinput{
+.registerlist_14 .check .Pinput,
+.registerlist_15 .check .Pinput,
+.registerlist_18 .check .Pinput,
+.registerlist_24 .check .Pinput{
 	width: 20px;
 	height: 20px;
 	border-radius: 5px;
@@ -802,7 +823,10 @@
 	position: relative;
 }
 .registerlist_3 .Pinput img,
-.registerlist_14 .Pinput img{
+.registerlist_14 .Pinput img,
+.registerlist_15 .Pinput img,
+.registerlist_18 .Pinput img,
+.registerlist_24 .Pinput img{
 	position: absolute;
 	width: 130%;
 	top:50%;
@@ -810,7 +834,10 @@
 	transform: translate(-50%,-50%);
 }
 .registerlist_3 .check .divinput,
-.registerlist_14 .check .divinput{
+.registerlist_14 .check .divinput,
+.registerlist_15 .check .divinput,
+.registerlist_18 .check .divinput,
+.registerlist_24 .check .divinput{
   float: right;
   width: 94%;
   font-size:1.6rem;
@@ -1158,12 +1185,15 @@
 	height: 150px;
 	border: 1px solid #f6416c;
 	padding: 2% ;
-	font-weight: 1.6rem;
+	font-size: 1.6rem;
     margin-top: 5%;
     font-weight: 300;
+    font-family: RobotoThin; 
 }
 .registerlist_12 .box h6,
-.registerlist_14 h6{
+.registerlist_14 h6,
+.registerlist_15 h6,
+.registerlist_18 h6{
 	font-size: 1.8rem;
 	margin-top: 5%;
 	font-weight: 500;
@@ -1317,6 +1347,9 @@
 	z-index: 100;
 	font-size: 4rem;
 }
+.Prompt .boxright .lists{
+	min-height: 130px;
+}
 .Prompt .boxright .lists>h6{
 	color: #fff;
 	font-size: 1.4rem;
@@ -1344,4 +1377,179 @@
 }
 .Prompt .boxright .listbottom span:first-child{
 	margin-right:100%;
+}
+
+.registerlist_15 .inputlist{
+	position: relative;
+	width: 70%;
+}
+.registerlist_15 .inputlist input{
+	width: 100%;
+	padding:0 10% 0 4%;
+}
+.registerlist_15 .inputlist input:focus{
+	border:1px solid #f6416c;
+}
+.registerlist_15 .inputlist span{
+	position: absolute;
+	font-size: 3rem;
+	right: 4%;
+	top:50%;
+	transform: translate(0,-50%);
+	cursor: pointer;
+	color:#f6416c;
+}
+
+.registerlist_17 h3,
+.registerlist_25 h3{
+	margin-top: 10%;
+}
+.registerlist_17 button.next{
+	margin-top:30%;
+}
+.registerlist_18 h6,
+.registerlist_18 .check .divinput>span{
+	font-size: 1.6rem;
+}
+.registerlist_18 .box textarea{
+	height: 100px;
+}
+
+.registerlist_20 .price_guest{
+	width: 70%;
+	position: relative;
+}
+.registerlist_20 .price_guest span{
+	position: absolute;
+	top:50%;
+	left:3%;
+	transform: translate(0,-50%);
+	font-size: 1.6rem;
+	color: #4d4e4e;
+}
+.registerlist_20 .price_guest input{
+	padding: 0 5% 0 15%;
+	color: #4d4e4e;
+	height: 35px;
+}
+.registerlist_20 .box1 ul{
+	overflow: hidden;
+    font-family: RobotoThin; 
+    margin-top: 5%;
+}
+.registerlist_20 .box1 ul li{
+	overflow: hidden;
+	border-top: 1px solid #f6416c;
+	padding: 8% 0;
+}
+.registerlist_20 .box1 ul li:first-child{
+	border-top:none;
+}
+.registerlist_20 .box1 ul li>p{
+    font-size: 1.4rem;
+}
+.registerlist_20 .box1 ul li.li2>p.Right{
+	width: 30%;
+	text-align: center;
+}
+.registerlist_20 .box1 ul li span{
+	font-size: 1.6rem;
+	color:#f6416c;
+	cursor: pointer;
+}
+.registerlist_20 .box1 ul li span.add{
+	float: left;
+}
+.registerlist_20 .box1 ul li span.del{
+	float: right;
+}
+.registerlist_22 .timediv>div{
+	width: 45%;
+}
+.registerlist_22 .timediv>p{
+	width: 10%;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	display: inline-block;
+	font-size: 1.8rem;
+}
+.registerlist_22 .dropdown-menu a{
+	padding: 2% 6%;
+}
+.registerlist_23 .daydiv{
+	height: 40px;
+	margin-top: 5%;
+}
+.registerlist_23 .box>p{
+	margin:2% 0 8%;
+}
+.registerlist_24 h6{
+	font-size: 1.6rem;
+	margin-top: 5%;
+}
+.registerlist_24 p,
+.registerlist_24 span.textpink,
+.registerlist_25 h5>span{
+	font-size: 1.6rem !important;
+}
+.registerlist_24 button.next,
+.registerlist_25 button.next{
+	margin:15% 0 0;
+}
+.registerlist_25 h5{
+	margin-top: 5%;
+}
+.registerlist_25 button.Right{
+	background: #fff;
+	border:1px solid #f6416c;
+	color: #f6416c;
+}
+.registerlist_25 button.Exit{
+	margin-right: 2%;
+}
+
+.registerlist_26 .register26_head{
+	overflow: hidden;
+}
+.registerlist_26 .register26_head button{
+	height: 40px;
+	border-radius: 0;
+	font-size: 2rem;
+	border:none;
+	cursor: pointer;
+	padding: 0 3%;
+	margin: 3%;
+	background: #fff;
+	border:1px solid #f6416c;
+	color: #f6416c;
+}
+.registerlist_26 .boxleft{
+	padding: 0;
+	position: relative;
+}
+.registerlist_26 .boxleft p{
+	font-size: 1.6rem;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color: #fff;
+	border-bottom: 12px solid #f6416c;
+	margin-bottom: 0;
+	padding:0 0 1% 5%; 
+}
+.registerlist_26 .boxright{
+	padding: 1% 5%;
+}
+.registerlist_26 .boxright button{
+	margin: 5% 5% 0 0;
+}
+.registerlist_26 .boxright button a{
+	color: #f6416c;
+	font-size: 2rem;
+}
+.registerlist_26 .boxright button:last-child{
+	background: #fff;
+	border:1px solid #f6416c;
+	color: #f6416c;
 }
