@@ -791,7 +791,8 @@
 .registerlist_3 .check,
 .registerlist_14 .check,
 .registerlist_15 .check,
-.registerlist_18 .check{
+.registerlist_18 .check,
+.registerlist_24 .check{
     margin: 3% 0 0;
     overflow: hidden;
 }
@@ -803,7 +804,8 @@
 .registerlist_3 .check .Pinput,
 .registerlist_14 .check .Pinput,
 .registerlist_15 .check .Pinput,
-.registerlist_18 .check .Pinput{
+.registerlist_18 .check .Pinput,
+.registerlist_24 .check .Pinput{
 	width: 20px;
 	height: 20px;
 	border-radius: 5px;
@@ -820,7 +822,8 @@
 .registerlist_3 .Pinput img,
 .registerlist_14 .Pinput img,
 .registerlist_15 .Pinput img,
-.registerlist_18 .Pinput img{
+.registerlist_18 .Pinput img,
+.registerlist_24 .Pinput img{
 	position: absolute;
 	width: 130%;
 	top:50%;
@@ -830,7 +833,8 @@
 .registerlist_3 .check .divinput,
 .registerlist_14 .check .divinput,
 .registerlist_15 .check .divinput,
-.registerlist_18 .check .divinput{
+.registerlist_18 .check .divinput,
+.registerlist_24 .check .divinput{
   float: right;
   width: 94%;
   font-size:1.6rem;
@@ -1454,4 +1458,36 @@
 }
 .registerlist_20 .box1 ul li span.del{
 	float: right;
+}
+.registerlist_22 .timediv>div{
+	width: 45%;
+}
+.registerlist_22 .timediv>p{
+	width: 10%;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	display: inline-block;
+	font-size: 1.8rem;
+}
+.registerlist_22 .dropdown-menu a{
+	padding: 2% 6%;
+}
+.registerlist_23 .daydiv{
+	height: 40px;
+	margin-top: 5%;
+}
+.registerlist_23 .box>p{
+	margin:2% 0 8%;
+}
+.registerlist_24 h6{
+	font-size: 1.6rem;
+	margin-top: 5%;
+}
+.registerlist_24 p,
+.registerlist_24 span.textpink{
+	font-size: 1.6rem !important;
+}
+.registerlist_24 button.next{
+	margin:15% 0 0;
 }
