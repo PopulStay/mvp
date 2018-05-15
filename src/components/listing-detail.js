@@ -126,6 +126,7 @@ class ListingsDetail extends Component {
   componentWillMount() {
     if (this.props.listingId) {
       this.loadListing();
+      this.loadOrdered(this.props.listingId);
     }
   
     if(window.address)
@@ -136,6 +137,14 @@ class ListingsDetail extends Component {
     }
  
   
+  }
+
+  loadOrdered = (id) =>{
+    houselistingService.getHouseInfoById(id).then((data)=>{
+          console.log(data.bookedDate);
+    });
+
+
   }
 
   handleBooking() {
