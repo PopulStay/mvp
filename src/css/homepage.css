@@ -160,9 +160,7 @@
 .listings-grid h1{
   margin-bottom: 2%;
 }
-.listing-card .photo {
-  width: 100%;
-  max-height: 200px;
+.listing-card .photo1 {
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
@@ -171,6 +169,17 @@
   border-radius: 3px;
   font-weight: bold;
   color: #131c4e;
+}
+.listing-card .photo{
+  overflow: hidden;
+  min-height: 200px;
+  position: relative;
+}
+.listing-card .photo img{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .listing-card .category{
   color: #f6416c;
@@ -305,6 +314,7 @@
   cursor: pointer;
 }
 .experiences_ul li:last-child{
+  width: auto;
   background: none;
   color: #131c4e;
   border-bottom: 1px solid #131c4e;

@@ -479,6 +479,7 @@ class registerlist extends Component {
             </header>
         </div>
         <div className="register_content">
+
           { this.state.step === this.STEP.Step1 &&
             <div className="registerlist_1 row">
                 <div className="STEPhead">
@@ -495,12 +496,15 @@ class registerlist extends Component {
                       <li>Review & Submit</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-12 col-md-7 col-lg-7">
                     <h3>Location</h3>
                     <h5>Which city will you host your experience in?</h5>
                     <input type="text" onChange={(e) => this.setState({location: e.target.value})} placeholder="Singapore, Singapore" />
                     <p>Great! Your city is supported. </p>
                     <button className={ this.state.location == "" ? "btnactive next" : " next"} disabled={ this.state.location == "" ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Next</button>
+                </div>
+                <div className="box1 col-sm-12 col-md-5 col-lg-5">
+                    
                 </div>
             </div>
           }

@@ -7764,7 +7764,7 @@ header li.Li4>a{
   color: #131c4e;
 }
 header li.Li5{
-  width: auto !important;
+  width: auto;
   color: #131c4e;
   margin-left: 2%;
 }
@@ -8235,7 +8235,7 @@ header .dropdown-menu a.dropdown-item1{
   border:none;
 }
 .tag-header .tag__item:first-child img{
-  margin-right: 10%;
+  margin-right: 2%;
 }
 .tag-header .tag__item.active {
   color: #131c4e;
