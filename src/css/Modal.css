@@ -38,18 +38,19 @@
   overflow: hidden;
 }
 .userBox h1{
-  margin-left: 2% !important;
+  margin-left: 0% !important;
   font-size: 3.4rem !important;
   margin-top: 0;
 }
 .userBox img{
   width: 90%;
   height: auto;
+  margin-top: 10%;
 }
 .userBox .userlist{
   font-family: RobotoThin; 
   font-size: 1.4rem;
-  margin-top: 3.8%;
+  margin-top: 2%;
 }
 .userBox .userlist>div{
   padding: 2% 0;
@@ -82,14 +83,16 @@
   width: 15%;
   text-align:center;
   color: #999;
+  font-family: RobotoThin; 
   padding: 1% 0 !important;
+  font-size: 1.6rem;
 }
 .GuestManagment tr,
 .HostManagment tr{
   border-bottom: 1px solid #aaa !important;
 }
 .userbtn>div{
-  padding: 3% 0;
+  padding: 2% 0;
 }
 .userbtn>div>button{
   background: none;
