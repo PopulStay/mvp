@@ -7,6 +7,9 @@ import web3Service from '../services/web3-service';
 import WalletClear from './walletClear';
 import WalletManage from './walletManage';
 import WalletGas from './walletGas';
+import WalletDeposit from './walletDeposit';
+import WalletWithdraw from './walletWithdraw';
+
 class GuestInfo extends React.Component {
   constructor() {
     super();
@@ -82,6 +85,8 @@ class GuestInfo extends React.Component {
               <WalletManage/>
               <WalletClear/>
               <WalletGas/>
+              <WalletDeposit/>
+              <WalletWithdraw/>
           </div>
       </div>
 

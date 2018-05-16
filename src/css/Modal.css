@@ -1,3 +1,27 @@
+.Signup,
+.modalcode,
+.PirvateKey,
+.Create,
+.Create1,
+.clear,
+.Gas,
+.Explainwhy,
+.Import,
+.deposit,
+.withdraw{
+  width: 370px;
+  background: #fff;
+  border-radius: 7px;
+  padding:2%;
+  position: absolute;
+  top:50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  border-radius: 20px;
+  transform: translate(-50%,-50%) !important;
+  border-radius: 25px !important;
+}
 .info h1,
 .HostManagment h1{
   border-left:2px solid #f6416c; 
@@ -64,9 +88,6 @@
 .HostManagment tr{
   border-bottom: 1px solid #aaa !important;
 }
-.userbtn{
-  margin-top: 4%;
-}
 .userbtn>div{
   padding: 3% 0;
 }
@@ -80,45 +101,31 @@
   background: #f6416c;
   color: #fff;
 }
-.Signup,
-.modalcode,
-.PirvateKey,
-.Create,
-.Create1,
-.clear,
-.Gas,
-.Explainwhy,
-.Import{
-  width: 370px;
-  background: #fff;
-  border-radius: 7px;
-  padding:2%;
-  position: absolute;
-  top:50% !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  border-radius: 20px;
-  transform: translate(-50%,-50%) !important;
-  border-radius: 25px !important;
-  font-family: RobotoBold; 
-}
 .Create h2,
 .Create1 h2,
 .PirvateKey h2,
 .clear h2,
 .Gas h2,
-.Import h2{
+.Import h2,
+.deposit h2,
+.withdraw h2{
   color: #f6416c;
   text-align: center;
   font-family: RobotoBold; 
 }
+h3{
+  word-wrap: break-word;
+  font-family: RobotoThin; 
+}
 .Create button{
   width: 100%;
 }
-.clear button{
+.clear button,
+.deposit button,
+.withdraw button{
   width: 20%;
   margin:0 15%;
+  font-size: 1.8rem;
 }
 .Gas button{
   width: 30%;
@@ -126,7 +133,9 @@
 }
 .Create1,
 .PirvateKey,
-.clear{
+.clear,
+.deposit,
+.withdraw{
   width: 60% !important;
 }
 .Gas label,
