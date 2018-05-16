@@ -30,6 +30,7 @@ class GuestInfo extends React.Component {
   }
   
   componentWillMount() {
+    console.log(window.address)
 
     this.setState( { account: window.address, id: window.address });
 

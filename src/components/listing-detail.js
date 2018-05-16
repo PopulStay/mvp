@@ -69,7 +69,8 @@ class ListingsDetail extends Component {
       ],
       ethBalance:0,
       modalIsOpen: false,
-      qrurl:""
+      qrurl:"",
+      DateLists:[],
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -141,18 +142,22 @@ class ListingsDetail extends Component {
   }
 
 
-  
-    
+  isDayBlocked(day){
+    var dayS = new Date(day).getTime();
+    var DateLists = this.state.DateLists;
+    for(var i=0;i<DateLists.length;i++){
+      if(dayS>=DateLists[i].start && dayS<=DateLists[i].end){
+        return dayS;
+      }
+    }
+  } 
       
 
 
   loadOrdered = (id) =>{
     houselistingService.getHouseInfoById(id).then((data)=>{
-          console.log(data.bookedDate);
+      this.setState({DateLists: data.bookedDate.data});
     });
-
-
-
   }
 
   handleBooking() {
@@ -541,6 +546,7 @@ class ListingsDetail extends Component {
                     endDateId="end_date"
                     onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
                     focusedInput={this.state.focusedInput}
+                    isDayBlocked={day=>this.isDayBlocked(day)}
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                   />
               }

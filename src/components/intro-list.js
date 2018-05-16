@@ -31,57 +31,14 @@ class introlist extends Component {
   componentWillMount() {
       this.setState({step:this.STEP.Step1});
   }
-  nextstep(){
-    if(this.state.step == this.STEP.Step1) {
-      this.setState({step:this.STEP.Step2});
-    }
-    if(this.state.step == this.STEP.Step2) {
-      this.setState({step:this.STEP.Step3});
-    }
-    if(this.state.step == this.STEP.Step3) {
-      this.setState({step:this.STEP.Step4});
-    }
-    if(this.state.step == this.STEP.Step4) {
-      this.setState({step:this.STEP.Step5});
-    }
-    if(this.state.step == this.STEP.Step5) {
-      this.setState({step:this.STEP.Step6});
-    }
-    if(this.state.step == this.STEP.Step6) {
-      this.setState({step:this.STEP.Step7});
-    }
-    if(this.state.step == this.STEP.Step7) {
-      this.setState({step:this.STEP.Step8});
-    }
-    if(this.state.step == this.STEP.Step8) {
-      this.setState({step:this.STEP.Step9});
-    }
+  nextstep(e){
+    this.setState({step:this.state.step+1});
   }
   prestep(e){
-    if(this.state.step == this.STEP.Step9) {
-      this.setState({step:this.STEP.Step8});
-    }
-    if(this.state.step == this.STEP.Step8) {
-      this.setState({step:this.STEP.Step7});
-    }
-    if(this.state.step == this.STEP.Step7) {
-      this.setState({step:this.STEP.Step6});
-    }
-    if(this.state.step == this.STEP.Step6) {
-      this.setState({step:this.STEP.Step5});
-    }
-    if(this.state.step == this.STEP.Step5) {
-      this.setState({step:this.STEP.Step4});
-    }
-    if(this.state.step == this.STEP.Step4) {
-      this.setState({step:this.STEP.Step3});
-    }
-    if(this.state.step == this.STEP.Step3) {
-      this.setState({step:this.STEP.Step2});
-    }
-    if(this.state.step == this.STEP.Step2) {
-      this.setState({step:this.STEP.Step1});
-    }
+    this.setState({step:this.state.step-1});
+  }
+  submit(e){
+    
   }
 
   render() {
@@ -366,7 +323,7 @@ class introlist extends Component {
                           </li>
                       </ul>
                   </div>
-                    <button className="next"><a  href="/Register">Create an experience</a></button>
+                    <button className="next" onClick={(e)=>this.submit(e)}>Create an experience</button>
                     <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
               </div>
               <div className="boxright">

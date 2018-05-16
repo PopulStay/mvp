@@ -108,9 +108,6 @@ class experienceintro extends Component {
                   <li className="Li3">
                     <a href="" className="btn button__Help">Help</a>
                   </li>
-                  <li className="Li4">
-                    <a href="" className="btn button__Help">Login</a>
-                  </li>
                   <li className="Li5">
                     <GuestRegister/>
                   </li>
@@ -122,7 +119,7 @@ class experienceintro extends Component {
               <h2>Host an experience on Populstay</h2>
               <p>Earn money leading people on activities you love.</p>
               <button className="btn1"><a href="/experiencelist">Get Started</a></button>
-              <button className="btn2">Learn more</button>
+              <button className="btn2"><a href="/Register">Learn more</a></button>
           </div>
         </div>
 
@@ -147,7 +144,7 @@ class experienceintro extends Component {
               </ul>
               <p className="text4">Introduce guests to the activities and places you're most passionate about. We'll help you design your experience step by step with plenty of resources along the way</p>
             </div>
-            <img className="col-sm-12 col-md-6 col-lg-6" src="../images/experienceimg2.png" />
+            <img className="Left" src="../images/experienceimg2.png" />
           </div>
 
           <div className="contentbox2">
