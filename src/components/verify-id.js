@@ -127,14 +127,14 @@ class VerifyID extends Component {
                         <img className={this.state.Photo_front ? "show" : "hide"} src={this.state.Photo_front} />
                         <input type="file" onChange={(e)=>this.uploadfront(e,1)} />
                       </div>
-                        <p>Add front</p>
+                        <p>Add front<input type="file" onChange={(e)=>this.uploadfront(e,1)} /></p>
                     </div> 
                     <div className="Right col-lg-6">
                       <div className="photodiv">
                         <img className={this.state.Photo_back ? "show" : "hide"} src={this.state.Photo_back} />
                         <input type="file"  onChange={(e)=>this.uploadfront(e,2)}/>
                       </div>
-                        <p>Add back</p>
+                        <p>Add back<input type="file"  onChange={(e)=>this.uploadfront(e,2)}/></p>
                     </div> 
                   </div> 
                   

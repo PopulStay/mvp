@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import GuestRegister from './guest-register';
+import guestService from '../services/guest-service';
+import web3Service from '../services/web3-service';
 
 class registerlist extends Component {
 
@@ -32,15 +34,18 @@ class registerlist extends Component {
             Step22:22,
             Step23:23,
             Step24:24,
+            Step25:25,
+            Step26:26,
     }
 
     this.state = {
         step: 0,
+        user:"",
         city:"Angola",
         work_experience:0,
         experience:"",
         hospitality:"",
-        language:["中国(简体)","English"],
+        language:["中文 (简体)","English","한국어","Deutsch","Français"],
         languagetext:"Choose language",
         experiencetype:["Art and design","fashion","entertainment","motion","Health care","Outdoors","Delicious food","Life","Culture","Music","Business affairs","Night life"],
         experiencetext1:"Select a category",
@@ -116,9 +121,13 @@ class registerlist extends Component {
         Terms_service:0,
     };
 
+    web3Service.loadWallet();
   }
   componentWillMount() {
       this.setState({step:this.STEP.Step1});
+      guestService.getGuesterInfo(window.address).then((data)=>{
+        this.setState({ user:data.user});
+      });
   }
   nextstep(e){
     this.setState({step:this.state.step+1});
@@ -459,7 +468,7 @@ class registerlist extends Component {
                       <a className="btn button__fill">Trips</a>
                     </li>
                     <li className="Li4">
-                      <a href="" className="btn button__Help">Login</a>
+                      <a href="" className="btn button__Help">Help</a>
                     </li>
                     <li className="Li5">
                       <GuestRegister/>
@@ -470,14 +479,14 @@ class registerlist extends Component {
             </header>
         </div>
         <div className="register_content">
-          { this.state.step === this.STEP.Step10 &&
+          { this.state.step === this.STEP.Step1 &&
             <div className="registerlist_1 row">
                 <div className="STEPhead">
                   <span className="bjpink"></span>
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>Basics</li>
                       <li className="glyphicon glyphicon-play"></li>
                       <li>About the experiences</li>
                       <li className="glyphicon glyphicon-play"></li>
@@ -503,7 +512,7 @@ class registerlist extends Component {
                   <span className="bjpink"></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>Basics</li>
                       <li className="glyphicon glyphicon-play"></li>
                       <li>About the experiences</li>
                       <li className="glyphicon glyphicon-play"></li>
@@ -564,7 +573,7 @@ class registerlist extends Component {
                   <span className="bjpink"></span>
                   <span className="bjpink"></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>Basics</li>
                       <li className="glyphicon glyphicon-play"></li>
                       <li>About the experiences</li>
                       <li className="glyphicon glyphicon-play"></li>
@@ -609,7 +618,7 @@ class registerlist extends Component {
                         <h3>Make sure you’re signed into the organization’s Airbnb  account</h3>
                         <p>To host a Social Impact experience, you’ll need to add the nonprofit’s bank account as a payout method. You may need to create a new Airbnb account if the organisation doesn’t already have one.</p>
                         <div className="userimg"><img src="../images/uesrimg.png" /></div>
-                        <span>Eric</span>
+                        <span>{this.state.user}</span>
 
                         <div className="check" onClick={(e) => {if(this.state.Login_type ==0 )this.setState({Login_type:1});else this.setState({Login_type:0}); if(this.state.next_type ==0 )this.setState({next_type:1});else this.setState({next_type:0});}} >
                           <p  className="Pinput">
@@ -2827,7 +2836,7 @@ class registerlist extends Component {
             </div>
           }
 
-          { this.state.step === this.STEP.Step1 &&
+          { this.state.step === this.STEP.Step26 &&
             <div className="registerlist_4 registerlist_26 row">
                 <div className="box col-sm-12 col-md-12 col-lg-12">
                   <div className="register26_head">
@@ -2835,7 +2844,7 @@ class registerlist extends Component {
                       <h3>Welcome backyour experience.</h3>
                       <h5>Keep track of and edit all your experiences. Happy hosting!</h5>
                     </div>
-                    <button className="Right" >New idea</button>
+                    <button className="Right" ><a href="/register">New idea</a></button>
                   </div>  
                   <div className="col-lg-4 boxleft">
                     <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
