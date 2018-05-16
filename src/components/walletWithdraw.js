@@ -55,7 +55,7 @@ class WalletWithdraw extends React.Component {
 
     <div>
 
-        <button className="btn btn-primary" onClick={this.openModal}>Deposit</button>
+        <button className="btn btn-primary" onClick={this.openModal}>Withdraw</button>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="withdraw">
