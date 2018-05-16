@@ -86,13 +86,13 @@ class Listingexperience extends Component {
             <div className="lunbo">
               <div className="pre glyphicon glyphicon-chevron-left" onClick={(e)=>this.prelist(e)}></div>
               <div className="content">
-                  {this.state.lists.map((item,index) => (
                     <div className="lists">
-                        <img src={item.img} />
-                        <p>{item.location}</p>
+                        {showListingsRows.map(row => (
+                          <div className="col-12 col-md-6 col-lg-3 listing-card">
+                          <ListingCard row={row}/>
+                          </div>
+                        ))}
                     </div>
-                    ))
-                  }
               </div>
               <div className="next glyphicon glyphicon-chevron-right" onClick={(e)=>this.nextlist(e)}></div>
             </div>

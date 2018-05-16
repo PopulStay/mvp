@@ -8,6 +8,7 @@ import ipfsService from '../services/ipfs-service';
 import Carousel from 'nuka-carousel';
 import Overlay from './overlay';
 import web3Service from '../services/web3-service';
+import guestService from '../services/guest-service';
 import Modal from 'react-modal';
 import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
@@ -41,19 +42,19 @@ class ListingsDetail extends Component {
     
     this.state = {
       category: "Loading...",
-      name: "Loading...",
+      user: "Loading...",
       price: 0,
       ethPrice:0,
       ipfsHash: null,
       lister: null,
       pictures: [],
-      step: this.STEP.VIEW,
+      step: this.STEP.PURCHASED,
       totalPrice: 0,
       slides:[],
       currentActive:0,
       descriptioninfo:{},
-      guests:['First Guests','Second Guests','Third Guests','Fourth Guests'],
-      guest: "Add customers",
+      guests:[1,2,3,4,5,6],
+      guest: 1,
       priceActive:1,
       neighbourhood:0,
       neighbourhoodurl:'../images/detail-content-map.png',
@@ -137,6 +138,10 @@ class ListingsDetail extends Component {
         this.setState({ ethBalance:data/this.CONST.weiToGwei});
       });
     }
+
+    guestService.getGuesterInfo(window.address).then((data)=>{
+      this.setState({ user:data.user});
+    });
  
   
   }
@@ -274,7 +279,7 @@ class ListingsDetail extends Component {
     const price = typeof this.state.price === 'string' ? 0 : this.state.price;
     const guestItems = [];
     this.state.guests.forEach((guest,index)=>{
-      guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest}</a></li>)
+      guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest} guests</a></li>)
     })
 
     const neighbourhoods = [];
@@ -306,28 +311,26 @@ class ListingsDetail extends Component {
           <br/>
           <button onClick={(e) => {this.closeModal(e)}} >Cancel</button>
         </div>  
-        </Modal>
+      </Modal>
 
        {this.state.step===this.STEP.METAMASK &&
           <Overlay imageUrl="/images/spinner-animation.svg">
-            Confirm transaction<br />
-            Press &ldquo;Submit&rdquo; in MetaMask window
+            <p>Confirm transaction</p>
+            <p>Press &ldquo;Submit&rdquo; in MetaMask window</p>
           </Overlay>
         }
 
         {this.state.step===this.STEP.PROCESSING &&
           <Overlay imageUrl="/images/spinner-animation.svg">
-            Processing your booking<br />
-            Please stand by...
+            <p>Processing your booking</p>
+            <p>Please stand by...</p>
           </Overlay>
         }
 
         {this.state.step===this.STEP.PURCHASED &&
           <Overlay imageUrl="/images/circular-check-button.svg">
-            Booking was successful.<br />
-            <a href="#" onClick={()=>window.location.reload()}>
-              Reload page
-            </a>
+            <p>Booking was successful.</p>
+            <button><a href="#" onClick={()=>window.location.reload()}>Reload page</a></button>
           </Overlay>
         }
 
@@ -361,7 +364,7 @@ class ListingsDetail extends Component {
             <img src={this.state.previewurl} alt="" />
           </div>
 
-          <h4>{this.state.name}</h4>
+          <h4>{this.state.user}</h4>
           <img className="BOX2img" src="../images/detail-list.png" alt="" />
         </div>
 
@@ -555,7 +558,7 @@ class ListingsDetail extends Component {
               <div className="detail-guest-div">
                 <p>Guest</p>
                 <div className="btn-group">
-                  <button type="button" data-toggle="dropdown" >{this.state.guest}<span>▼</span></button>
+                  <button type="button" data-toggle="dropdown" >{this.state.guest} guests<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
                     { guestItems }
                   </ul>
@@ -568,7 +571,7 @@ class ListingsDetail extends Component {
                       <span className = "LeftSpan"><b>￥</b>{this.state.descriptioninfo.price_perday}×{this.calcTotalPrice()}nights
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan"><b>￥</b>{this.state.descriptioninfo.price_perday * this.calcTotalPrice()}</span>
+                      <span className = "RightSpan"><b>￥</b>{this.state.descriptioninfo.price_perday * this.calcTotalPrice() * this.state.guest}</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">Special Offer 20% off
@@ -591,7 +594,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
-                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.state.descriptioninfo.price_perday * this.calcTotalPrice()-0+26}
+                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.calcTotalPrice()-0 < 1 ? 0 : this.state.descriptioninfo.price_perday * this.calcTotalPrice() * this.state.guest + 26 }
                       </span>
                     </li>
                 </ul>

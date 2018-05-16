@@ -48,12 +48,12 @@ class NavBar extends Component {
           <ul>
             <li className="Li1">
               <Link to="/create">
-                    <a className="btn button__fill">Become a Host</a>
+                    <a className="button__fill">Become a Host</a>
               </Link>
             </li>
             <li className="Li2">
               <Link to="/Intro">
-                    <a className="btn button__fill">Become an organiser</a>
+                    <a className="button__fill">Become an organiser</a>
               </Link>
             </li>
             <li className="Li4">
