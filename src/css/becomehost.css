@@ -171,7 +171,8 @@ h1,
 .Step3_21 p,
 .Step3_2 h3,
 .introlist_4 .radio label,
-.registerlist_18 .radio label{
+.registerlist_18 .radio label,
+.VerifyID_2 .radio label{
   font-family: RobotoThin; 
 }
 .container{
@@ -470,7 +471,8 @@ h1,
 .Step1_2 .radio label,
 .Step3_1 .radio label,
 .introlist .boxleft .box .radio label,
-.registerlist_18 .radio label{
+.registerlist_18 .radio label,
+.VerifyID_2 .radio label{
   font-size: 1.6rem;
   width: 100%;
   padding: 0;
@@ -480,7 +482,8 @@ h1,
 .Step3_1 .radio label p,
 .Step3_10 .radio p,
 .introlist .boxleft .box .radio p,
-.registerlist_18 .radio p{
+.registerlist_18 .radio p,
+.VerifyID_2 .radio p{
   display: inline-block;
   width: 18px;
   height: 18px;
@@ -494,7 +497,8 @@ h1,
 .Step3_1 .radio label p span,
 .Step3_10 .radio p span,
 .introlist .boxleft .box .radio label p span,
-.registerlist_18 .radio p span{
+.registerlist_18 .radio p span,
+.VerifyID_2 .radio p span{
   display: inline-block;
   position: absolute;
   top:50%;
