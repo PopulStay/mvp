@@ -6,6 +6,7 @@ const EthereumTx = require('ethereumjs-tx');
 
 var web_provider = process.env.WEB3_PROVIDER;
 var PPS_address = process.env.PPSAddress;
+var Populstay_Wallet = process.env.Populstay_Wallet;
 
 class PPSService {
   static instance
@@ -29,6 +30,48 @@ class PPSService {
   getBalance(address) {
        var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
        return contract.methods.balanceOf(address).call();
+  }
+
+
+  deposit(size){
+    return new Promise((resolve, reject) => {
+
+          var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
+          var dataobj = contract.methods.transfer( Populstay_Wallet , size ).encodeABI();
+
+          window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
+                     
+            var txData = {
+                          nonce    : window.web3.utils.toHex(txCount),
+                          gasLimit : window.web3.utils.toHex(4476768),
+                          gasPrice : window.web3.utils.toHex(window.gas), // 10 Gwei
+                          to       : PPS_address,
+                          from     : window.address, 
+                          data     : dataobj
+                        }
+
+            var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex');
+            var transaction =new EthereumTx(txData);
+            transaction.sign(pk);
+            var serializedTx = transaction.serialize().toString('hex');
+
+            var params = {};
+          
+            params.transactionData = '0x' + serializedTx;
+            params.id              = window.address;
+            params.balance         = size;
+
+            axios.post(process.env.Server_Address+'deposit', params)
+            .then(function (response) {
+            resolve(response.data.txhash);
+            })
+            .catch(function (error) {
+            console.error(error)
+            reject(error)
+            });
+                    
+          });
+      });
   }
 
   setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
@@ -79,14 +122,6 @@ class PPSService {
               console.error(error)
               reject(error)
               });
-
-              // window.web3.eth.sendSignedTransaction('0x' + serializedTx, function(err, res) {
-              //   if(err)
-              //   reject(err)
-              //   else
-              //   resolve(res);
-                  
-              // })
           });
       });
 

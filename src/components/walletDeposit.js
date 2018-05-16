@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
+import ppsService from '../services/pps-service';
 
 const customStyles = {
   content : {
@@ -20,27 +21,27 @@ class WalletDeposit extends React.Component {
 
     this.state = {
       modalIsOpen: false,
-      pirvatekey:""
+      pirvatekey:"",
+      PPS:0
     };
 
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.deposit = this.deposit.bind(this);
-
   }
-  deposit(){
+  deposit =()=> {
+
+    console.log("#########PPS#######",this.state.PPS);
+    ppsService.deposit(this.state.PPS);
+
    
   }
-  openModal() {
+  openModal =()=>{
     this.setState({modalIsOpen: true});
   }
 
-  afterOpenModal() {
+  afterOpenModal =()=> {
     this.subtitle.style.color = '#f00';
   }
 
-  closeModal() {
+  closeModal =()=> {
     this.setState({modalIsOpen: false});
   }
 
@@ -59,10 +60,14 @@ class WalletDeposit extends React.Component {
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="deposit">
-            <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
+            <h2 ref={subtitle => this.subtitle = subtitle}>Deposit PPS</h2>
             <br/>
-              <h3>Address:{window.address}</h3>
-              <h3>Private Key:{this.substring0x(window.privateKey)}</h3>
+
+          <div className="form-group">
+            <label>Token Size</label>
+            <input type="text"  className="form-control" placeholder="Input Size Of PPS you want to deposit" onChange={(e) => this.setState({PPS: e.target.value})} />
+          </div>
+
             <br/>
             <button className="btn btn-danger" onClick={this.deposit}>deposit</button>
             <button className="btn btn-primary" onClick={this.closeModal}>Cancel</button>
