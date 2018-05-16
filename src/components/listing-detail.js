@@ -29,6 +29,7 @@ class ListingsDetail extends Component {
     this.CONST = {
       weiToEther: 1000000000000000000,
       weiToGwei:1000000000
+      
     }
 
     this.STEP = {
@@ -96,7 +97,7 @@ class ListingsDetail extends Component {
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
         var roominfo = JSON.parse(result._roominfo);
-        this.setState({price:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice});
+        this.setState({price:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei});
         return ipfsService.getListing(ipfsHash)
     }).then((result)=>{
           var descriptioninfo = JSON.parse(result);
@@ -139,19 +140,19 @@ class ListingsDetail extends Component {
   
   }
 
-<<<<<<< HEAD
-  loadOrdered(id){
-    houselistingService.getHouseInfoByID(id).then((data)=>{
-      console.log(data.bookedDate)
-    })
-=======
+
+  
+    
+      
+
+
   loadOrdered = (id) =>{
     houselistingService.getHouseInfoById(id).then((data)=>{
           console.log(data.bookedDate);
     });
 
 
->>>>>>> 81dba2dcfbd50b0d8c6daa80a426c850e89d3806
+
   }
 
   handleBooking() {
