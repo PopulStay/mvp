@@ -526,7 +526,7 @@ class ListingsDetail extends Component {
           <div className="detail-price-div">
               
               <span className = "detail-price">
-                $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.state.priceActive == 1 ? this.state.price : this.state.ethPrice}
+                {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.state.priceActive == 1 ? this.state.price : this.state.ethPrice}
               </span>
               <span className = "detail-price-font">Daily Price</span>
               <p className="detail-price-xx">
@@ -568,33 +568,33 @@ class ListingsDetail extends Component {
               <div className ="details-totalprice-div">
                 <ul>
                     <li className="blueColor">
-                      <span className = "LeftSpan"><b>￥</b>{this.state.priceActive == 1 ? this.state.price : this.state.ethPrice}×{this.calcTotalPrice()}nights
+                      <span className = "LeftSpan"><b className="pricesize">{this.state.priceActive == 1 ? 'PPS' : 'ETH'} : </b>{this.state.priceActive == 1 ? this.state.price : this.state.ethPrice}×{this.calcTotalPrice()}nights
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan"><b>￥</b>{(this.state.priceActive == 1 ? this.state.price : this.state.ethPrice) * this.calcTotalPrice() * this.state.guest}</span>
+                      <span className = "RightSpan">{(this.state.priceActive == 1 ? this.state.price : this.state.ethPrice) * this.calcTotalPrice() * this.state.guest}</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">Special Offer 20% off
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan"><b>￥</b>0</span>
+                      <span className = "RightSpan">0</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">Long stay discount
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan"><b>￥</b>0</span>
+                      <span className = "RightSpan">0</span>
                     </li>
                     <li className="blueColor">
                       <span className = "LeftSpan">Cleaning fee
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan"><b>￥</b>26</span>
+                      <span className = "RightSpan">26</span>
                     </li>
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
-                        $ {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.calcTotalPrice()-0 < 1 ? 0 : (this.state.priceActive == 1 ? this.state.price : this.state.ethPrice) * this.calcTotalPrice() * this.state.guest + 26 }
+                        {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.calcTotalPrice()-0 < 1 ? 0 : (this.state.priceActive == 1 ? this.state.price : this.state.ethPrice) * this.calcTotalPrice() * this.state.guest + 26 }
                       </span>
                     </li>
                 </ul>

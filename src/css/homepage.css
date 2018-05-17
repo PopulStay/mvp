@@ -265,10 +265,10 @@
 .experience .content,
 .experienceintro_content .contentbox6 .box1 .content{
   position: relative;
-  width: 94%;
+  width: 92%;
   height: 150px;
   display: inline-block;
-  margin: 0 3%;
+  margin: 0 4%;
   overflow: hidden;
 }
 .experience .content .lists,
@@ -277,7 +277,7 @@
   position: relative;
   height: 150px;
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 10px 0 0;
 }
 .experience .content .lists img,
 .experienceintro_content .contentbox6 .box1 .content .lists img{
@@ -313,6 +313,10 @@
 .experience .content .lists .divxx{
   display: none;
 }
+.locationActive{
+  background: #f6416c !important;
+  color: #fff !important;
+}
 .experiences_ul{
   margin-bottom: 3%;
 }
@@ -320,9 +324,8 @@
   display: inline-block;
   background: #b2b2b2;
   color: #fff;
-  width: 8%;
   text-align: center;
-  padding: 0.3% 0;
+  padding: 0.3% 2%;
   margin-right:1%;
   font-size: 1.6rem;
   font-family: RobotoBold; 
@@ -335,19 +338,17 @@
   border-bottom: 1px solid #131c4e;
   font-family: RobotoThin; 
 }
+.ALL .All_experiences{
+  padding-right: 0;
+}
+
 .All_experiences{
   overflow: hidden;
   margin-bottom: 4%;
+  padding-right: 30px;
 }
 .All_experiences .listing-card{
   margin-bottom: 3%;
-}
-.All_experiences .listing-card:nth-child(1),
-.All_experiences .listing-card:nth-child(5n){
-  padding-left: 0;
-}
-.All_experiences .listing-card:nth-child(4n){
-  padding-right: 0;
 }
 .experience .listspan{
   text-align: center;

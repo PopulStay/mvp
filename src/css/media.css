@@ -52,6 +52,14 @@
 	}
 	/*listing-card  end*/
 
+	/*listing-experiences  start*/
+	.experience .content, 
+	.experienceintro_content .contentbox6 .box1 .content{
+		width: 86%;
+		margin: 0 7%;
+	}
+	/*listing-experiences  end*/
+
 }
 
 @media screen and (max-width: 980px){
@@ -343,4 +351,25 @@
 		margin-bottom: 3%;
 	}
 	/*becomehost  end*/
+
+	/*listing-experiences  start*/
+	.experience .content, 
+	.experienceintro_content .contentbox6 .box1 .content{
+		width: 70%;
+    	margin: 0 16%;
+	}
+	.experience .pre, 
+	.experience .next, 
+	.experienceintro_content .contentbox6 .box1 .pre, 
+	.experienceintro_content .contentbox6 .box1 .next{
+		width: 22px;
+	}
+	.experience .content .lists, 
+	.experienceintro_content .contentbox6 .box1 .content .lists{
+	}
+	.experiences_ul li{
+		width: 30%;
+		margin:1% 1.6%;
+	}
+	/*listing-experiences  end*/
 }
