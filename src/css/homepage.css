@@ -169,7 +169,7 @@
 }
 .listing-card .photo{
   overflow: hidden;
-  min-height: 200px;
+  min-height: 150px;
   position: relative;
 }
 .listing-card .photo img{

@@ -8218,6 +8218,11 @@ header .dropdown-menu a.dropdown-item1{
   padding: 14px 5%;
   background-color: #131c4e;
   color: #f6416c;
+  overflow: auto;
+}
+.tag-header>ul{
+  width:1275px ;
+  max-width: 1275px !important;
 }
 .tag-header li {
   display: inline-block;
@@ -8230,7 +8235,7 @@ header .dropdown-menu a.dropdown-item1{
   color: #131c4e;
 }
 .tag-header .tag__item {
-  margin: 0 10px;
+  margin: 0 0.9%;
   min-width: 128px;
   cursor: pointer;
 }
