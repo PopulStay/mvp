@@ -60,6 +60,9 @@
   font-size: 1.6rem;
   margin-right: 2%;
 }
+.userBox p{
+  display: inline-block;
+}
 .HostManagment h1{
   margin-left: -2%;
 }
@@ -85,6 +88,20 @@
   color: #999;
   font-family: RobotoThin; 
   padding: 1% 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.6rem;
+}
+.GuestManagment td p{
+  width: 100px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+.GuestManagment td span,
+.GuestManagment td a{
   font-size: 1.6rem;
 }
 .GuestManagment tr,

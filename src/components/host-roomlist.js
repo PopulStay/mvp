@@ -20,7 +20,6 @@ class HostRoomListRow extends Component {
 
 
   getHostRoomInfo(){
-    console.log(this.props.row);
     var roominfo = this.props.row.houseinfo;
     this.setState({
       state:this.props.row.state,
@@ -29,6 +28,8 @@ class HostRoomListRow extends Component {
       location:roominfo.location,
       beds:roominfo.beds});
    
+    console.log(this.props);
+    console.log(this.state);
   }
 
   componentWillMount() {

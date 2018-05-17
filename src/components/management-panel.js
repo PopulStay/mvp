@@ -24,7 +24,6 @@ class ManagementPanel extends Component {
       
 
       <GuestInfo/>
-      <br/><br/><br/><br/><br/><br/>
       <HostInfo/>
 
       </div>

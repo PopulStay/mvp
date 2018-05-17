@@ -137,8 +137,20 @@
 		padding: 2% 5% 1%;
 	}
 	/*footer  end*/
-}
 
+	/*info  start*/
+	.GuestManagment th, 
+	.HostManagment th{
+		font-size: 1.4rem !important;
+	}
+	.GuestManagment td, 
+	.HostManagment td,
+	.GuestManagment td span,
+	.GuestManagment td a{
+		font-size: 1.2rem !important;
+	}
+	/*info  end*/
+}
 
 @media screen and (max-width: 767px){
 	/*header  start*/
@@ -372,4 +384,48 @@
 		margin:1% 1.6%;
 	}
 	/*listing-experiences  end*/
+
+	/*listing-experiences  start*/
+	.userbtn>div{
+	    display: inline-block;
+	    margin: 0 2% 0 0;
+	}
+	/*listing-experiences  end*/
+
+	/*info  start*/
+	.userBox img{	
+		width: 40% !important;
+		margin: 0 30%;
+	}
+	.userBox .col-lg-7{
+		width: 100%;
+		margin: 0;
+	}
+	.userBox .col-lg-7>div{
+		text-align: center;
+	}
+	.userbtn>div{
+		width: 48% !important;
+	}
+	.userbtn>div>button{
+		width: 100%!important;
+	}
+	.GuestManagment, 
+	.HostManagment{
+		width: 100%!important;
+		margin-left: 0!important;
+	}
+	.GuestManagment th, .HostManagment th{
+		font-size: 1.2rem !important;
+	}
+	.GuestManagment td, .HostManagment td, .GuestManagment td span, .GuestManagment td a,.GuestManagment td p{
+		font-size: 1rem !important;
+	}
+	.HostManagment h1{
+		margin-left: 5% !important;
+	}
+	.GuestManagment td p{
+		width: 50px!important;
+	}
+	/*info  end*/
 }
