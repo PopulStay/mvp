@@ -4,6 +4,7 @@ import Pagination from 'react-js-pagination'
 import { withRouter } from 'react-router'
 import ListingCard from './listing-card'
 import { Link } from 'react-router-dom';
+import ipfsService from '../services/ipfs-service'
 
 class Listingexperience extends Component {
 
@@ -24,10 +25,17 @@ class Listingexperience extends Component {
         ],
       };
 
+      this.style = {
+        style_1:{width:"",left:""},
+        leftnum:0,
+        svl:true,
+      }
+
       console.log("#################search condition#######:",window.searchCondition);
   }
 
   componentWillMount() {
+
     this.handlePageChange = this.handlePageChange.bind(this);
     if( window.searchCondition.checkInDate )
     {
@@ -50,9 +58,14 @@ class Listingexperience extends Component {
     {
       this.setState({districtCodes:codes.data});
       var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
-           this.setState({ listingRows: data });
+          this.setState({ listingRows: data });
+          
+          var widthbox = this.state.listingRows.length*230*2;
+          this.setState({ style : this.style.style_1.width = widthbox+'px' });
       });
     });
+
+    
   }
 
   handlePageChange(pageNumber) {
@@ -60,16 +73,28 @@ class Listingexperience extends Component {
   }
 
   nextlist(e){
-    this.setState({state: this.state.lists.push(this.state.lists[0])});
-    this.setState({
-        lists: this.state.lists.filter((elem, i) => 0 != i)
-    });
+    var leftnum = this.style.leftnum;
+    var widthnum = parseInt(this.style.style_1.width);
+    leftnum = leftnum-230
+    if(widthnum/2+leftnum==0){
+      leftnum = 0;
+      this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
+    }else{
+      this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
+    }
   }
+
   prelist(e){
-    this.setState({state: this.state.lists.unshift(this.state.lists[this.state.lists.length-1])});
-    this.setState({
-        lists: this.state.lists.filter((elem, i) => this.state.lists.length-1 != i)
-    });
+    var leftnum = this.style.leftnum;
+    var widthnum = parseInt(this.style.style_1.width);
+    console.log(-widthnum/2)
+    if(leftnum==0){
+      leftnum = -widthnum/2+230
+      this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
+    }else{
+      leftnum = leftnum+230;
+      this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
+    }
   }
 
   render() {
@@ -86,13 +111,18 @@ class Listingexperience extends Component {
             <div className="lunbo">
               <div className="pre glyphicon glyphicon-chevron-left" onClick={(e)=>this.prelist(e)}></div>
               <div className="content">
-                    <div className="lists">
-                        {showListingsRows.map(row => (
-                          <div className="col-12 col-md-6 col-lg-3 listing-card">
-                          <ListingCard row={row}/>
-                          </div>
-                        ))}
-                    </div>
+                <div className="listdiv" style={this.style.style_1}>
+                    {showListingsRows.map(row => (
+                      <div className="lists">
+                        <ListingCard row={row}/>
+                      </div>
+                    ))}
+                    {showListingsRows.map(row => (
+                      <div className="lists">
+                        <ListingCard row={row}/>
+                      </div>
+                    ))}
+                  </div>
               </div>
               <div className="next glyphicon glyphicon-chevron-right" onClick={(e)=>this.nextlist(e)}></div>
             </div>
