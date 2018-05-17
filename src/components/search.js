@@ -95,14 +95,14 @@ class Search extends Component {
             <form action="">
                 <div className="row">
                     
-                    <div className="col-md-12 col-lg-10 col-sm-10 ">
+                    <div className="col-md-12 col-lg-12 col-sm-12 ">
 
-                        <div className="col-md-9 col-lg-9 index_box">
+                        <div className="col-md-8 col-lg-8 index_box">
                             <div className="col-md-12 col-lg-12 col-sm-12 guestsleft">
                                 <div className="form-group">
                                     <label className="col-sm-6 col-md-6 col-lg-6 ">Check in</label>
                                     <label className="col-sm-6 col-md-6 col-lg-6 ">Check out</label>
-                                    <DateRangePicker startDate={this.state.checkInDate} startDateId="start_date" endDate={this.state.checkOutDate} endDateId="end_date" onDatesChange={({ startDate, endDate })=> {this.setState({checkInDate: startDate, checkOutDate: endDate });window.searchCondition.checkOutDate = endDate;window.searchCondition.checkInDate = startDate;}} focusedInput={this.state.focusedInput} onFocusChange={focusedInput => this.setState({ focusedInput })} />
+                                    <DateRangePicker startDate={this.state.checkInDate} startDateId="start_date" endDate={this.state.checkOutDate} endDateId="end_date" onDatesChange={({ startDate, endDate })=> {this.setState({checkInDate: startDate, checkOutDate: endDate });window.searchCondition.checkOutDate = endDate;window.searchCondition.checkInDate = startDate;}} focusedInput={this.state.focusedInput} onFocusChange={focusedInput => this.setState({ focusedInput })} readOnly />
                                 </div>
                             </div>
 
@@ -147,9 +147,9 @@ class Search extends Component {
 
         <div className="container index_home">
             <h2>Homes around the world</h2>
-            <div className="overflow">
+            <div className="overflow row">
                   {showListingsRows.map(row => (
-                    <div className="col-12 col-md-6 col-lg-4 listing-card">
+                    <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
                     <ListingCard row={row}/>
                     </div>
                   ))}
@@ -161,9 +161,9 @@ class Search extends Component {
         <div className="container index_home">
             <h2>Experiences travellers love</h2>
             <p>Book activities led by local hosts on your next trip</p>
-            <div className="overflow">
+            <div className="overflow row">
                 {showListingsRows.map(row => (
-                  <div className="col-12 col-md-6 col-lg-4 listing-card">
+                  <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
                   <ListingCard row={row}/>
                   </div>
                 ))}

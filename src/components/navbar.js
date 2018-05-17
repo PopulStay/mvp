@@ -57,7 +57,7 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="Li4">
-              <a href="" className="btn button__Help">Help</a>
+              <a href="" className="button__Help">Help</a>
             </li>
             <li className="Li5">
               <GuestRegister/>

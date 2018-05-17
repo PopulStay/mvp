@@ -29,8 +29,8 @@
 	.index_box>div{
 		margin-bottom: 1%;
 	}
-	.index_content .search{
-		padding: 12% 0 7% 5%;
+	.form .index_content, .form .index_home{
+		width: 85%;
 	}
 
 }
@@ -39,14 +39,15 @@
 	.header{
 		padding: 4% 0% 4% 3%;
 	}
+	header li.Li1,
+	header li.Li2{
+	  	width: 28%;
+	}
 	/*header  end*/
 
 	/*home  start*/
 	.form .container{
 		width:85%;
-	}
-	.index_content .form__search{
-		width: 120%;
 	}
 	.form .container span.color-pink, .form .container h4{
 		margin: 2% 0 ;
@@ -55,9 +56,6 @@
 	.form .container h1{
 		font-size: 3rem;
 	}
-	.index_content .search{
-		padding: 0;
-	}
 	.form .index_home .listing-card:nth-child(even){
 	  padding-right: 0;
 	  padding-left: 15px;
@@ -65,6 +63,9 @@
 	.form .index_home .listing-card:nth-child(odd){
 	  padding-left: 0;
 	  padding-right: 15px;
+	}
+	.index_content .search{
+		margin: 0;
 	}
 	/*home  end*/
 
@@ -134,6 +135,9 @@
   	header li.Li3>a, header li.Li4>a{
   		padding: 0;
   	}
+  	header li.Li5{
+		margin-left: 0;
+	}
   	.navbar-nav{
 	    width: 100%;
 	    margin: 0;
@@ -173,6 +177,10 @@
   	}
   	header li.Li5 button{
   		border: none;
+  		padding: 0 8%;
+  	}
+  	.form .container > .row li{
+  		text-align: center;
   	}
   	.navbar-nav .navbar-collapse .navbar-brand{
     	display: none !important;
@@ -190,6 +198,7 @@
   		padding: 1.5% 3%;
   	}
   	.navbar-nav li a,.navbar-nav li button{
+  		font-weight: 100;
     	font-size: 1.8rem;
     	font-family: FiraSansBlack; 
   	}
@@ -198,6 +207,10 @@
   	}
   	.container{
   		max-width:100%;
+  	}
+  	.index_content .search{
+  		width: 100%;
+  		padding: 0;
   	}
 	/*header  end*/
 
@@ -222,9 +235,6 @@
 	.index_content .form__search{
 		width: 100%;
 	}
-	.index_content .search{
-		padding: 0;
-	}
 	.index_foot ul .litext1,
 	.index_foot ul li{
 		font-size: 1.4rem;
@@ -239,9 +249,13 @@
 	.form .index_home .listing-card{
 		padding: 0!important;
 	}
-	.form .row img{
+	.form .form__location img{
 		width: 80%;
     	margin: 0 10% 7%;
+	}
+	.form .DateRangePicker_picker{
+		width: 333px;
+		overflow: hidden;
 	}
 	/*home  end*/
 
