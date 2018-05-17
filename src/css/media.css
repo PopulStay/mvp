@@ -6,6 +6,20 @@
 	.navbar-collapse ul{
 	    width: 90%;
 	}
+	.tag-header ul{
+		width: 100%;
+		max-width: 100%;
+	}
+	.tag-header .tag__item{
+		width: 24.2%;
+		margin: 1% 1% 1% 0;
+	}
+	.tag-header .tag__item:first-child{
+		border:1px solid #f6416c;
+	}
+	.tag-header .tag__item:nth-child(4n){
+		margin-right: 0;
+	}
 	/*header  end*/
 	.rightbox{
 		padding:0;
@@ -32,8 +46,22 @@
 	.form .index_content, .form .index_home{
 		width: 85%;
 	}
+	/*listing-card  start*/
+	.listing-card .photo{
+		min-height: 200px;
+	}
+	/*listing-card  end*/
+
+	/*listing-experiences  start*/
+	.experience .content, 
+	.experienceintro_content .contentbox6 .box1 .content{
+		width: 86%;
+		margin: 0 7%;
+	}
+	/*listing-experiences  end*/
 
 }
+
 @media screen and (max-width: 980px){
 	/*header  start*/
 	.header{
@@ -42,6 +70,12 @@
 	header li.Li1,
 	header li.Li2{
 	  	width: 28%;
+	}
+	.tag-header .tag__item{
+		padding: 2px 0;
+	}
+	.tag-header .tag__item span{
+		font-size: 1.4rem;
 	}
 	/*header  end*/
 
@@ -179,6 +213,9 @@
   		border: none;
   		padding: 0 8%;
   	}
+  	.tag-header .tag__item{
+  		width: 49%;
+  	}
   	.form .container > .row li{
   		text-align: center;
   	}
@@ -259,6 +296,23 @@
 	}
 	/*home  end*/
 
+	/**/
+	.listings-grid{
+		margin: 0 5% 10%;
+	}
+	.listings-grid h1{
+		font-size: 2.6rem;
+	}
+	.tag-header .tag__item.active{
+		background: none;
+		border:1px solid #f6416c;
+		color: #f6416c;
+	}
+	.tag-header .tag__item.active span{
+		color: #f6416c;
+	}
+	/**/
+
 	/*becomehost  start*/
 	.container>div>div.row>div.col-lg-7{
 		padding: 0;
@@ -297,4 +351,25 @@
 		margin-bottom: 3%;
 	}
 	/*becomehost  end*/
+
+	/*listing-experiences  start*/
+	.experience .content, 
+	.experienceintro_content .contentbox6 .box1 .content{
+		width: 70%;
+    	margin: 0 16%;
+	}
+	.experience .pre, 
+	.experience .next, 
+	.experienceintro_content .contentbox6 .box1 .pre, 
+	.experienceintro_content .contentbox6 .box1 .next{
+		width: 22px;
+	}
+	.experience .content .lists, 
+	.experienceintro_content .contentbox6 .box1 .content .lists{
+	}
+	.experiences_ul li{
+		width: 30%;
+		margin:1% 1.6%;
+	}
+	/*listing-experiences  end*/
 }

@@ -40,12 +40,14 @@
   color:#f6416c;
   font-weight: bold;
   margin: 0;
+  font-family: RobotoBold; 
 }
 .L_box1 .text2{
   font-size: 3.4rem;
   color: #131c4e;
   font-weight: bold;
   margin-bottom:10%;
+  font-family: RobotoBold; 
 }
 .L_box1,.L_box1 .box1_list{
   padding: 0;
@@ -56,6 +58,7 @@
   color: #4d4e4e;
   width: 40%;
   font-size: 1.8rem;
+  font-family: RobotoThin; 
 }
 .L_box1 .box1_list p:nth-child(even){
   width: 55%;
@@ -99,6 +102,7 @@
   margin: 2% 0 0;
   font-size: 1.8rem;
   color: #4d4e4e;
+  font-family: RobotoThin; 
 }
 .More{
   color:#f6416c;
@@ -141,6 +145,7 @@
 .L_box5 p,.L_box6 p{
   font-size: 1.8rem;
   margin:3% 0 0;
+  font-family: RobotoThin; 
 }
 .L_box6 p span{
   color: #f6416c;
@@ -257,6 +262,7 @@
   border-bottom:  1px solid #131c4e;
   cursor: pointer;
   color: #f6416c;
+  font-family: RobotoBold; 
 }
 .detail-summary>ul>li:first-child{
   border-right:  1px solid #131c4e;
@@ -269,8 +275,8 @@
 .detail-price-font{
   font-size: 1.4rem;
   color: #131c4e;
-  font-weight: bold;
   margin-left: 2%;
+  font-family: RobotoBold; 
 }
 
 .detail-price{
@@ -314,8 +320,11 @@
   position: relative;
   font-size: 20px;
 }
+.details-totalprice-div ul li .pricesize{
+  font-size: 2rem;
+}
 .details-totalprice-div ul li span b{
-  font-size: 24px;
+  font-size: 1.2rem;
 }
 .details-totalprice-div ul li img{
   width: 18px;
@@ -401,10 +410,11 @@
 .Reviews>p,.Reviews>div{
   float: left;
   width: 33.3%;
+  font-family: RobotoBold; 
 }
 .Reviews>p,.neighbourhood>p{
   font-size: 3.4rem;
-  font-weight: bold;
+  font-family: RobotoBold; 
 }
 .Reviews>div{
   padding: 2% 0;
@@ -415,6 +425,9 @@
 .Reviews .input-group button span{
   font-size: 1.4rem;
   color: #888;
+}
+.Reviews .input-group{
+  font-family: RobotoThin; 
 }
 .ReviewsDiv{
   overflow: hidden;
@@ -435,6 +448,7 @@
   font-size: 1.8rem;
   color: #4d4e4e;
   margin: 2% 0;
+  font-family: RobotoThin; 
 }
 .ReviewsDiv li .divxx{
   float: right;
@@ -499,10 +513,12 @@
 .ReviewsGuest .GuestName div p:first-child{
   color: #4d4e4e;
   font-weight: 600;
+  font-family: RobotoBold; 
 }
 .ReviewsGuest .GuestName div p{
   margin: 0;
   font-size: 1.8rem;
+  font-family: RobotoThin; 
 }
 .neighbourhood>p,.neighbourhood ul{
   margin: 5% 0;
@@ -514,6 +530,7 @@
   color: #4d4e4e;
   font-size: 1.8rem;
   cursor: pointer;
+  font-weight: 600;
 }
 .neighbourhood ul li img{
   width: 25px;
@@ -550,7 +567,7 @@
   width: 400px;
   position: fixed;
   bottom: 5%;
-  right: 2%;
+  right: 3%;
   z-index: 99999;
   background: url(../images/video.png) no-repeat;
   background-size: 100% 100%;

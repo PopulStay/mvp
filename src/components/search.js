@@ -155,7 +155,7 @@ class Search extends Component {
                   ))}
             </div>
             <Link to="/all">
-            <h4>Show all (2000+)</h4>
+            <h4>Show all ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
             </Link>
         </div>
         <div className="container index_home">
@@ -169,7 +169,7 @@ class Search extends Component {
                 ))}
             </div>
             <Link to="/all">
-            <h4>Show all (2000+)</h4>
+            <h4>Show all ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
             </Link>
         </div>
     </div>

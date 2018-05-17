@@ -15,7 +15,6 @@ class Listingexperience extends Component {
         listingsPerPage: 8,
         districtCodes:[],
         curDistrictCodeIndex:0,
-        experienceList:1,
         lists:[
           {img:"../images/detail-carousel.jpg",location:"Tokyo1",price:200},
           {img:"../images/detail-carousel.jpg",location:"Tokyo2",price:200},
@@ -23,6 +22,7 @@ class Listingexperience extends Component {
           {img:"../images/detail-carousel.jpg",location:"Tokyo4",price:200},
           {img:"../images/detail-carousel.jpg",location:"Tokyo5",price:200}
         ],
+        locationtype:0,
       };
 
       this.style = {
@@ -60,7 +60,7 @@ class Listingexperience extends Component {
       var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
           this.setState({ listingRows: data });
           
-          var widthbox = this.state.listingRows.length*230*2;
+          var widthbox = this.state.listingRows.length*220*2;
           this.setState({ style : this.style.style_1.width = widthbox+'px' });
       });
     });
@@ -75,7 +75,7 @@ class Listingexperience extends Component {
   nextlist(e){
     var leftnum = this.style.leftnum;
     var widthnum = parseInt(this.style.style_1.width);
-    leftnum = leftnum-230
+    leftnum = leftnum-220
     if(widthnum/2+leftnum==0){
       leftnum = 0;
       this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
@@ -89,10 +89,10 @@ class Listingexperience extends Component {
     var widthnum = parseInt(this.style.style_1.width);
     console.log(-widthnum/2)
     if(leftnum==0){
-      leftnum = -widthnum/2+230
+      leftnum = -widthnum/2+220
       this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
     }else{
-      leftnum = leftnum+230;
+      leftnum = leftnum+220;
       this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
     }
   }
@@ -128,61 +128,21 @@ class Listingexperience extends Component {
             </div>
             <h2>All experiences</h2>
             <ul className="experiences_ul">
-                <li>Tokyo</li>
-                <li>Singapore</li>
-                <li>Seoul</li>
-                <li>Osaka</li>
-                <li>Bangkok</li>
+                <li className={this.state.locationtype == 1 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:1})}>Tokyo</li>
+                <li className={this.state.locationtype == 2 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:2})}>Singapore</li>
+                <li className={this.state.locationtype == 3 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:3})}>Seoul</li>
+                <li className={this.state.locationtype == 4 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:4})}>Osaka</li>
+                <li className={this.state.locationtype == 5 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:5})}>Bangkok</li>
                 <Link to="/all">
-                  <li>Show All (98+)</li>
+                  <li>Show All ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</li>
                 </Link>
             </ul>
-            <div className={this.state.experienceList == 1 ? "show All_experiences" : "hide All_experiences"}>
+            <div className="All_experiences row">
                 {showListingsRows.map(row => (
-                  <div className="col-12 col-md-6 col-lg-3 listing-card">
+                  <div className="col-12 col-md-4 col-lg-3 listing-card">
                   <ListingCard row={row}/>
                   </div>
                 ))}
-            </div>
-            <div className={this.state.experienceList == 2 ? "show All_experiences" : "hide All_experiences"}>
-              {this.state.lists.map((item,index) => (
-                  <div className="col-sm-12 col-md-6 col-lg-3 listing-card">
-                    <img className="photo" src={item.img} role="presentation" />
-                    <div className="category">Entire place (0.5 beds)</div>
-                    <div className="title">{item.location}</div>
-                    <div className="price">
-                        ￥{item.price} pps per night
-                    </div>
-                    <div className="divxx">
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <span>200</span> 
-                    </div>
-                  </div>
-                  ))
-                }
-            </div>
-            <div className={this.state.experienceList == 3 ? "show All_experiences" : "hide All_experiences"}>
-              {this.state.lists.map((item,index) => (
-                  <div className="col-sm-12 col-md-6 col-lg-3 listing-card">
-                    <img className="photo" src={item.img} role="presentation" />
-                    <div className="category">Entire place (0.5 beds)</div>
-                    <div className="title">{item.location}</div>
-                    <div className="price">
-                        ￥{item.price} pps per night
-                    </div>
-                    <div className="divxx">
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <img src="../images/detail-xx01.png" alt="" />
-                      <span>200</span> 
-                    </div>
-                  </div>
-                  ))
-                }
             </div>
             <div className="listspan">
             <Pagination
@@ -195,9 +155,6 @@ class Listingexperience extends Component {
               linkClass="page-link"
               hideDisabled="true"
             />
-              <span className={this.state.experienceList == 1 ? "active hide" : ""}  onClick={(e)=>this.setState({experienceList:1})}></span>
-              <span className={this.state.experienceList == 1 ? "active hide" : ""}  onClick={(e)=>this.setState({experienceList:2})}></span>
-              <span className={this.state.experienceList == 1 ? "active hide" : ""}  onClick={(e)=>this.setState({experienceList:3})}></span>
             </div>
         </div>
 

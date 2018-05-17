@@ -73,11 +73,11 @@ class Listingall extends Component {
    
     return (
 
-        <div className="container experience">
+        <div className="container experience ALL">
             <h2>All experiences</h2>
-            <div className={this.state.experienceList == 1 ? "show All_experiences" : "hide All_experiences"}>
+            <div className={this.state.experienceList == 1 ? "show All_experiences row" : "hide All_experiences row"}>
                 {showListingsRows.map(row => (
-                  <div className="col-12 col-md-6 col-lg-3 listing-card">
+                  <div className="col-sm-12 col-md-4 col-lg-3 listing-card">
                   <ListingCard row={row}/>
                   </div>
                 ))}
