@@ -48,7 +48,7 @@ class ListingsDetail extends Component {
       ipfsHash: null,
       lister: null,
       pictures: [],
-      step: this.STEP.PURCHASED,
+      step: this.STEP.VIEW,
       totalPrice: 0,
       slides:[],
       currentActive:0,

@@ -7793,6 +7793,10 @@ header li.Li2 .button__fill{
   border:none;
   font-family: RobotoThin; 
 }
+header li.Li1 .button__fill:hover,
+header li.Li2 .button__fill:hover{
+  color: #fff;
+}
 header li.Li5 button{
   border:1px solid #131c4e;
   padding: 2% 8%;
