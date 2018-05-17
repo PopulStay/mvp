@@ -26,11 +26,6 @@ class Wallet extends Component {
       clearModalIsOpen:false
     };
 
-    
-    // this.openModal = this.openModal.bind(this);
-    // this.afterOpenModal = this.afterOpenModal.bind(this);
-    // this.closeModal = this.closeModal.bind(this);
-    // this.import = this.import.bind(this);
     web3service.loadWallet();
 
   }

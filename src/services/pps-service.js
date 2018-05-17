@@ -63,7 +63,7 @@ class PPSService {
 
             axios.post(process.env.Server_Address+'deposit', params)
             .then(function (response) {
-            resolve(response.data.txhash);
+            resolve(response);
             })
             .catch(function (error) {
             console.error(error)
@@ -72,6 +72,20 @@ class PPSService {
                     
           });
       });
+  }
+
+  getDepositBalance(id){
+    
+      return new Promise((resolve, reject) => {
+            axios.get(process.env.Server_Address+'deposit/'+id)
+            .then(function (response) {
+            resolve(response);
+            })
+            .catch(function (error) {
+            console.error(error);
+            reject(error);
+            });
+          });
   }
 
   setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
