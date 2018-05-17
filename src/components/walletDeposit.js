@@ -21,18 +21,29 @@ class WalletDeposit extends React.Component {
 
     this.state = {
       modalIsOpen: false,
+      waitingModalIsOpen:false,
       pirvatekey:"",
       PPS:0
     };
 
   }
+
   deposit =()=> {
 
-    console.log("#########PPS#######",this.state.PPS);
-    ppsService.deposit(this.state.PPS);
+    this.closeModal();
+    this.openWaitModal();
 
-   
+    ppsService.deposit(this.state.PPS)
+    .then((res)=>{
+
+      ppsService.waitTransactionFinished(res.data[0].txhash)
+      .then((data)=>{
+         this.closeWaitModal();
+         //console.log("res.data[0].balance",res.data[0].balance);
+      });
+    });
   }
+
   openModal =()=>{
     this.setState({modalIsOpen: true});
   }
@@ -44,6 +55,23 @@ class WalletDeposit extends React.Component {
   closeModal =()=> {
     this.setState({modalIsOpen: false});
   }
+
+
+
+  openWaitModal =()=>{
+    this.setState({waitingModalIsOpen: true});
+  }
+
+  afterWaitOpenModal =()=> {
+    this.subtitle.style.color = '#f00';
+  }
+
+  closeWaitModal =()=> {
+    this.setState({waitingModalIsOpen: false});
+    this.props.onGetDepositBalance();
+  }
+
+
 
   substring0x = (str) => {
     str = str +"";
@@ -57,6 +85,7 @@ class WalletDeposit extends React.Component {
     <div>
 
         <button className="btn btn-primary" onClick={this.openModal}>Deposit</button>
+        
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="deposit">
@@ -73,8 +102,17 @@ class WalletDeposit extends React.Component {
             <button className="btn btn-primary" onClick={this.closeModal}>Cancel</button>
           </div>
         </Modal>
-      
 
+       <Modal isOpen={this.state.waitingModalIsOpen} onAfterOpen={this.afterWaitOpenModal} onRequestClose={this.closeWaitModal} style={customStyles} 
+        contentLabel="Wallet Message">
+          <div className="deposit">
+            <h2 ref={subtitle => this.subtitle = subtitle}>Depositing PPS,Please waiting</h2>
+            <br/>
+          <div className="form-group">
+           <p><i className="fa fa-spin fa-spinner"></i> Waiting...</p>
+          </div>
+          </div>
+        </Modal>
       </div>
     );
   }

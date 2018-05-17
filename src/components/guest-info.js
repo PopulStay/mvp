@@ -25,11 +25,14 @@ class GuestInfo extends React.Component {
       email:"",
       ppsBalance:"",
       ethBalance:"",
+      ppsDeposited:"",
       orderlist:[]
     };
+
+
   }
   
-  componentWillMount() {
+  componentDidMount() {
     console.log(window.address)
 
     this.setState( { account: window.address, id: window.address });
@@ -51,7 +54,16 @@ class GuestInfo extends React.Component {
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ user:data.user,phone:data.phone,email:data.email});
      });
+
+    this.onGetDepositBalance();
   
+  }
+
+  onGetDepositBalance = () =>{
+     ppsService.getDepositBalance(window.address)
+     .then((data)=>{
+        this.setState({ ppsDeposited : data.data.balance});
+     });
   }
    
 
@@ -78,15 +90,18 @@ class GuestInfo extends React.Component {
             <div className="col-sm-6 col-md-6 col-lg-6">
                <span>PPS balance:</span>{this.state.ppsBalance}
             </div>
-            <div className="col-sm-12 col-md-12 col-lg-12">
+            <div className="col-sm-6 col-md-6 col-lg-6">
                <span>ETH balance:</span>{this.state.ethBalance/this.CONST.weiToEther}
+            </div>
+            <div className="col-sm-6 col-md-6 col-lg-6">
+               <span>PPS deposited in Populstay:</span>{this.state.ppsDeposited}
             </div>
           </div>
           <div className="col-sm-3 col-md-3 col-lg-3 userbtn" >
               <WalletManage/>
               <WalletClear/>
               <WalletGas/>
-              <WalletDeposit/>
+              <WalletDeposit  onGetDepositBalance={this.onGetDepositBalance}/>
               <WalletWithdraw/>
           </div>
       </div>
