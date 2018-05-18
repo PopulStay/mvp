@@ -26,7 +26,8 @@ class GuestInfo extends React.Component {
       ppsBalance:"",
       ethBalance:"",
       ppsDeposited:"",
-      orderlist:[]
+      orderlist:[],
+      usdOrderList:[]
     };
 
 
@@ -54,6 +55,13 @@ class GuestInfo extends React.Component {
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ user:data.user,phone:data.phone,email:data.email});
      });
+
+    ppsService.getUsdOrderList(window.address).then((data)=>{
+      //这个地方获取数据！！
+      //state等于2的是没有生成智能合约的
+      //Guest Managment Panel 里面加一个没有生成智能合约的预定list。。。
+      console.log(data.data);
+    });
 
     this.onGetDepositBalance();
   
