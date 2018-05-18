@@ -43,8 +43,9 @@ class ListingsDetail extends Component {
     this.state = {
       category: "Loading...",
       user: "Loading...",
-      price: 0,
+      ppsPrice: 0,
       ethPrice:0,
+      usdPrice:100,
       ipfsHash: null,
       lister: null,
       pictures: [],
@@ -55,7 +56,9 @@ class ListingsDetail extends Component {
       descriptioninfo:{},
       guests:[1,2,3,4,5,6],
       guest: 1,
+      price:0,
       priceActive:1,
+      priceCurrency:"PPS",
       neighbourhood:0,
       neighbourhoodurl:'../images/detail-content-map.png',
       neighbourhoodlist:[
@@ -99,7 +102,7 @@ class ListingsDetail extends Component {
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
         var roominfo = JSON.parse(result._roominfo);
-        this.setState({price:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei});
+        this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei});
         return ipfsService.getListing(ipfsHash)
     }).then((result)=>{
           var descriptioninfo = JSON.parse(result);
@@ -135,13 +138,18 @@ class ListingsDetail extends Component {
     if(window.address)
     {
       web3Service.getETHBalance(window.address).then((data)=>{
-        this.setState({ ethBalance:data/this.CONST.weiToGwei});
+        this.setState({ ethBalance:data/this.CONST.weiToGwei,usdBalance:data/this.CONST.weiToGwei});
       });
     }
 
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ user:data.user});
     });
+    
+    ppsService.getUsdOrderList(window.address).then((data)=>{
+      console.log(data)
+    });
+
  
   
   }
@@ -177,14 +185,27 @@ class ListingsDetail extends Component {
 
     if( this.state.priceActive == 1 )
     {
-      promise =    ppsService.setPreOrder(          
-                                           this.state.lister,
-                                           this.state.price * unitsToBuy,
-                                           this.props.listingId, 
-                                           this.state.checkInDate.toDate().getTime(), 
-                                           this.state.checkOutDate.toDate().getTime(),
-                                           unitsToBuy
-                                          );
+      promise = ppsService.setPreOrder(          
+       this.state.lister,
+       this.state.ppsPrice * unitsToBuy,
+       this.props.listingId, 
+       this.state.checkInDate.toDate().getTime(), 
+       this.state.checkOutDate.toDate().getTime(),
+       unitsToBuy
+      );
+
+    } 
+    else if( this.state.priceActive == 2 )
+    {
+
+        promise = ppsService.setOrderByUSD(          
+           this.state.lister,
+           this.state.usdPrice * unitsToBuy,
+           this.props.listingId, 
+           this.state.checkInDate.toDate().getTime(), 
+           this.state.checkOutDate.toDate().getTime(),
+           unitsToBuy
+        );
 
     }else
     {
@@ -276,7 +297,7 @@ class ListingsDetail extends Component {
   }
 
   render() {
-    const price = typeof this.state.price === 'string' ? 0 : this.state.price;
+    const price = typeof this.state.ppsPrice === 'string' ? 0 : this.state.ppsPrice;
     const guestItems = [];
     this.state.guests.forEach((guest,index)=>{
       guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest} guests</a></li>)
@@ -519,14 +540,15 @@ class ListingsDetail extends Component {
       <div className=" col-sm-12 col-md-12 col-lg-5">
       <div className="detail-summary">
           <ul>
-              <li onClick={(e) => {this.setState({priceActive:1})}} className={this.state.priceActive == 1 ? 'active' : ''} >PPS</li>
-              <li onClick={(e) => {this.setState({priceActive:0})}} className={this.state.priceActive == 0 ? 'active' : ''}>ETH</li>
+              <li onClick={(e) => {this.setState({priceActive:1,priceCurrency:"PPS",price:this.state.ppsPrice})}} className={this.state.priceActive == 1 ? 'active' : ''} >PPS</li>
+              <li onClick={(e) => {this.setState({priceActive:0,priceCurrency:"ETH",price:this.state.ethPrice})}} className={this.state.priceActive == 0 ? 'active' : ''}>ETH</li>
+              <li onClick={(e) => {this.setState({priceActive:2,priceCurrency:"USD",price:this.state.usdPrice})}} className={this.state.priceActive == 2 ? 'active' : ''}>USD</li>
           </ul>
           
           <div className="detail-price-div">
               
               <span className = "detail-price">
-                {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.state.priceActive == 1 ? this.state.price : this.state.ethPrice}
+                {this.state.priceCurrency}: {this.state.price == 0 ? this.state.ppsPrice : this.state.price}
               </span>
               <span className = "detail-price-font">Daily Price</span>
               <p className="detail-price-xx">
@@ -568,10 +590,10 @@ class ListingsDetail extends Component {
               <div className ="details-totalprice-div">
                 <ul>
                     <li className="blueColor">
-                      <span className = "LeftSpan"><b className="pricesize">{this.state.priceActive == 1 ? 'PPS' : 'ETH'} : </b>{this.state.priceActive == 1 ? this.state.price : this.state.ethPrice}×{this.calcTotalPrice()}nights
+                      <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price}×{this.calcTotalPrice()}nights
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan">{(this.state.priceActive == 1 ? this.state.price : this.state.ethPrice) * this.calcTotalPrice() * this.state.guest}</span>
+                      <span className = "RightSpan">{(this.state.price) * this.calcTotalPrice() * this.state.guest}</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">Special Offer 20% off
@@ -594,7 +616,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
-                        {this.state.priceActive == 1 ? 'PPS' : 'ETH'}: {this.calcTotalPrice()-0 < 1 ? 0 : (this.state.priceActive == 1 ? this.state.price : this.state.ethPrice) * this.calcTotalPrice() * this.state.guest + 26 }
+                        {this.state.priceCurrency}: {this.calcTotalPrice()-0 < 1 ? 0 : this.state.price * this.calcTotalPrice() * this.state.guest + 26 }
                       </span>
                     </li>
                 </ul>

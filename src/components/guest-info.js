@@ -44,6 +44,7 @@ class GuestInfo extends React.Component {
 
     ppsService.getBalance(window.address).then((data)=>{
       this.setState({ ppsBalance:data});
+      console.log(data)
      });
 
     web3Service.getETHBalance(window.address).then((data)=>{

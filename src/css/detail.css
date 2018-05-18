@@ -255,7 +255,7 @@
 }
 .detail-summary>ul>li{
   display: inline-block;
-  width: 50%;
+  width: 33.3333%;
   text-align: center;
   padding: 1% 0;
   font-size: 3rem;
@@ -263,9 +263,10 @@
   cursor: pointer;
   color: #f6416c;
   font-family: RobotoBold; 
+  border-left:  1px solid #131c4e;
 }
 .detail-summary>ul>li:first-child{
-  border-right:  1px solid #131c4e;
+  border-left: none;
 }
 .detail-summary>ul>li.active{
   background: #f6416c;
