@@ -428,4 +428,21 @@
 		width: 50px!important;
 	}
 	/*info  end*/
+
+	/**/
+	.Signup,
+	.modalcode,
+	.PirvateKey,
+	.Create,
+	.Create1,
+	.clear,
+	.Gas,
+	.Explainwhy,
+	.Import,
+	.deposit,
+	.withdraw{
+		width: 90% !important;
+		padding: 3% !important;
+	}
+	/**/
 }

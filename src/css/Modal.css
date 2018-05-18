@@ -45,12 +45,12 @@
 .userBox img{
   width: 90%;
   height: auto;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 .userBox .userlist{
   font-family: RobotoThin; 
   font-size: 1.4rem;
-  margin-top: 2%;
+  margin-top: 1%;
 }
 .userBox .userlist>div{
   padding: 2% 0;
@@ -116,6 +116,7 @@
   border:1px solid #f6416c;
   width: 100px;
   border-radius: 0;
+  font-family: RobotoThin; 
 }
 .userbtn>div>button:hover{
   background: #f6416c;
@@ -133,6 +134,7 @@
   text-align: center;
   font-family: RobotoBold; 
   font-size: 2.2rem;
+  margin: 0;
 }
 .clear>div h3,
 .PirvateKey>div h3,
@@ -202,6 +204,11 @@
   font-size: 1.6rem;
   font-family: RobotoThin; 
   margin:0 0 8%;
+}
+.deposit .text2{
+  font-family: RobotoBold; 
+  font-size: 1.8rem;
+  text-align: center;
 }
 
 .ReactModal__Overlay{
