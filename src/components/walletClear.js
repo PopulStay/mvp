@@ -37,6 +37,7 @@ class WalletClear extends React.Component {
       window.privateKey       = null;
       reactLocalStorage.setObject('wallet', null);
       this.closeModal();
+      this.props.onLogOut();
 
   }
   openModal() {
@@ -67,7 +68,7 @@ class WalletClear extends React.Component {
 
     <div>
 
-        <button className="btn btn-primary" onClick={this.openModal}>Clear</button>
+        <button className="btn btn-primary" onClick={this.openModal}>LogOut</button>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="clear">
@@ -76,7 +77,7 @@ class WalletClear extends React.Component {
               <h3>Address:</h3>
               <p className="text1">{window.address}</p>
               <h3>Private Key:</h3>
-              <p className="text1">{window.privateKey}</p>
+              <p className="text1">{this.substring0x(window.privateKey)}</p>
             </div>  
             <button className="btn btn-danger Left" onClick={this.clear}>Clear</button>
             <button className="btn btn-primary Right" onClick={this.closeModal}>Cancel</button>

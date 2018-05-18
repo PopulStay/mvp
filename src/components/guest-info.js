@@ -4,7 +4,6 @@ import guestService from '../services/guest-service';
 import ppsService from '../services/pps-service';
 import GuestOrderRow from './guest-orderrow';
 import web3Service from '../services/web3-service';
-import WalletClear from './walletClear';
 import WalletManage from './walletManage';
 import WalletGas from './walletGas';
 import WalletDeposit from './walletDeposit';
@@ -113,7 +112,6 @@ class GuestInfo extends React.Component {
           </div>
           <div className="col-sm-12 col-md-2 col-lg-3 userbtn" >
               <WalletManage/>
-              <WalletClear/>
               <WalletGas/>
               <WalletDeposit  onGetDepositBalance={this.onGetDepositBalance}/>
               <WalletWithdraw/>

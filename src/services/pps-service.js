@@ -1,6 +1,7 @@
 import PopulStayToken from '../../build/contracts/PopulStayToken.json';
 import Web3 from 'web3';
 import axios from 'axios';
+import md5 from 'md5';
 const Buf = require('buffer/').Buffer ;
 const EthereumTx = require('ethereumjs-tx');
 
@@ -115,6 +116,7 @@ class PPSService {
      params.usdprice     = usd;
      params.guestaddress = window.address;
      params.houseinfoid  = uuid;
+     params.paymentcode  = md5(window.address);
 
      axios.post(process.env.Server_Address+'payment', params)
       .then(function (response) {
