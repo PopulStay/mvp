@@ -138,7 +138,7 @@ class Search extends Component {
                             <li className="liicon">•</li>
                             <a href="../"><li className="litext1">HOMES</li></a>
                             <li className="liicon">•</li>
-                            <li className="litext1">EXPERIENCE</li>
+                            <a href="/experience"><li className="litext1">EXPERIENCE</li></a>
                         </ul>
                     </div>
                 </div>

@@ -15,13 +15,6 @@ class Listingexperience extends Component {
         listingsPerPage: 8,
         districtCodes:[],
         curDistrictCodeIndex:0,
-        lists:[
-          {img:"../images/detail-carousel.jpg",location:"Tokyo1",price:200},
-          {img:"../images/detail-carousel.jpg",location:"Tokyo2",price:200},
-          {img:"../images/detail-carousel.jpg",location:"Tokyo3",price:200},
-          {img:"../images/detail-carousel.jpg",location:"Tokyo4",price:200},
-          {img:"../images/detail-carousel.jpg",location:"Tokyo5",price:200}
-        ],
         locationtype:0,
       };
 

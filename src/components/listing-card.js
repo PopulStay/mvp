@@ -51,8 +51,7 @@ class ListingCard extends Component {
   render() {
     return (
         <Link to={`/listing/${this.props.row.id}`}>
-          <div className="photo">
-              <img src={this.state.previewurl == '' ? '/images/registerlist_4.png' : this.state.previewurl} role="presentation" />
+          <div className="photo" style={this.state.previewurl == '' ? {backgroundImage:"url(/images/registerlist_4.png)"}:{backgroundImage:"url("+this.state.previewurl+")"}}>
           </div>
           <div className="category">{this.state.category} ({this.state.beds} beds)</div>
           <div className="title">{this.state.location}</div>

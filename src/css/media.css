@@ -58,6 +58,15 @@
 		width: 86%;
 		margin: 0 7%;
 	}
+	.experienceintro_content .contentbox>p{
+		padding: 0 2% !important;
+	}
+	.experienceintro_content .contentbox3>.box1 .text1{
+		padding: 3% 10% 0!important;
+	}
+	.experienceintro_content .contentbox3>.box2 .lists>div{
+		height: 260px!important;
+	}
 	/*listing-experiences  end*/
 
 }
@@ -150,6 +159,35 @@
 		font-size: 1.2rem !important;
 	}
 	/*info  end*/
+
+	/*listing-experiences  start*/
+	.experienceintro_content .contentbox>p{
+		padding: 0 2% !important;
+	}
+	.experienceintro_content .contentbox>h3, 
+	.experienceintro_content .contentbox1>h3{
+		top:10%;
+		right: 50%  !important;
+	}
+	.experienceintro_content .contentbox>p{
+		position: inherit !important;
+		line-height: 1.6;
+		margin-top: 3%;
+		font-size: 1.6rem!important;
+	}
+	.experienceintro_content .contentbox1>div .text1,
+	.experienceintro_content .contentbox3>.box1 .text1,
+	.experienceintro_content .contentbox1>div .text2, 
+	.experienceintro_content .contentbox1>div .text3, 
+	.experienceintro_content .contentbox3>.box1 .text2, 
+	.experienceintro_content .contentbox3>.box1 .text3,
+	.experienceintro_content .contentbox1>div .text4{
+		font-size: 1.6rem!important;
+	}
+	.experienceintro_content .contentbox3>.box2 .lists>div{
+		height: 180px;
+	}
+	/*listing-experiences  end*/
 }
 
 @media screen and (max-width: 767px){
@@ -365,6 +403,29 @@
 	/*becomehost  end*/
 
 	/*listing-experiences  start*/
+	.experienceintro_header .navbar-brand > img{
+		width: 30px !important;
+	}
+	.experienceintro_header .headbox h2{
+		font-size: 2.4rem !important;
+	}
+	.experienceintro_header .headbox p,
+	.experienceintro_header .headbox button.btn1, 
+	.experienceintro_header .headbox button.btn1 a,
+	.experienceintro_header .headbox button.btn2, 
+	.experienceintro_header .headbox button.btn2 a{
+		font-size: 1.4rem!important;
+	}
+	.experienceintro_header .headbox button{
+		width: 40%!important;
+	}
+	.experienceintro_header{
+		overflow: hidden;
+	}
+	.experienceintro_header>img{
+		width: 140%;
+		margin-left: -20%;	
+	}
 	.experience .content, 
 	.experienceintro_content .contentbox6 .box1 .content{
 		width: 70%;
@@ -376,6 +437,15 @@
 	.experienceintro_content .contentbox6 .box1 .next{
 		width: 22px;
 	}
+	.experienceintro_content .contentbox>h3, 
+	.experienceintro_content .contentbox1>h3{
+		top:10%;
+		right: 50%  !important;
+		font-size: 2.2rem !important;
+	}
+	.experienceintro_content .contentbox>p{
+		padding: 0 5% !important;
+	}
 	.experience .content .lists, 
 	.experienceintro_content .contentbox6 .box1 .content .lists{
 	}
@@ -383,13 +453,75 @@
 		width: 30%;
 		margin:1% 1.6%;
 	}
-	/*listing-experiences  end*/
-
-	/*listing-experiences  start*/
 	.userbtn>div{
 	    display: inline-block;
 	    margin: 0 2% 0 0;
 	}
+	.experienceintro_content .contentbox1>div .text1,
+	.experienceintro_content .contentbox3>.box1 .text1,
+	.experienceintro_content .contentbox3>.box2 .lists>p{
+		font-size: 1.6rem !important;
+	}
+	.experienceintro_content .contentbox1>div .text1, 
+	.experienceintro_content .contentbox3>.box1 .text1{
+		padding: 9% 10% 2%!important;
+		margin: 0!important;
+	}
+	.experienceintro_content .contentbox1>div .text2, 
+	.experienceintro_content .contentbox1>div .text3, 
+	.experienceintro_content .contentbox3>.box1 .text2, 
+	.experienceintro_content .contentbox3>.box1 .text3{
+		margin: 5% auto !important;
+	}
+	.experienceintro_content .contentbox1>div ul, .experienceintro_content .contentbox3>.box1 ul{
+		margin-bottom: 0 !important;
+	}
+	.experienceintro_content .contentbox1>img{
+		width: 100%!important;
+		height: auto !important;
+		position: initial !important;
+		margin-top: -50% !important;
+	}
+	.experienceintro_content .contentbox1>h3{
+		width: 50% !important;
+		top:auto !important;
+		left: 10% !important;
+		bottom: 10% !important;
+		font-size: 2.2rem  !important;
+	}
+	.experienceintro_content .contentbox2>h3{
+		font-size: 2.2rem  !important;
+	}
+	.experienceintro_content .contentbox2>p, 
+	.experienceintro_content .contentbox5 ul li p{
+		width: 90%!important;
+	}
+	.experienceintro_content .contentbox3>.box1 .text1{
+		padding: 0% 10% 0%!important;
+	}
+	.experienceintro_content .contentbox3>.box1{
+		width: 90%!important;
+	    left: 40%!important;	
+	}
+	.experienceintro_content .contentbox1>div .text1 span, 
+	.experienceintro_content .contentbox3>.box1 span{
+		font-size: 5rem!important;
+	}
+	.experienceintro_content .contentbox3>.box1 .text2, 
+	.experienceintro_content .contentbox3>.box1 .text3{
+		margin: 1% auto !important;
+	}
+	.experienceintro_content .contentbox3>img{
+		width: 100%!important;
+		height:auto!important;
+	}
+	.experienceintro_content .contentbox3>.box2{
+		margin: 5% 0% 0 !important;
+	}
+	.experienceintro_content .contentbox3>.box2 .lists{
+		padding: 0 5px;
+	}
+
 	/*listing-experiences  end*/
 
 	/*info  start*/
@@ -429,7 +561,7 @@
 	}
 	/*info  end*/
 
-	/**/
+	/*modal*/
 	.Signup,
 	.modalcode,
 	.PirvateKey,
@@ -444,5 +576,15 @@
 		width: 90% !important;
 		padding: 3% !important;
 	}
-	/**/
+	/*modal*/
+}
+
+
+@media screen and (max-width: 500px){
+	.experienceintro_content .contentbox3>.box1{
+		top:22% !important;
+	}
+	.experienceintro_content .contentbox3>.box2 .lists>div{
+		height: 150px!important;
+	}
 }
