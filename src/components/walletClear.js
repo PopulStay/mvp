@@ -51,6 +51,11 @@ class WalletClear extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+  copyclick(e){
+     var DataIndex = e.currentTarget.getAttribute('data-name');
+     document.execCommand("Copy");
+     console.log("已复制好，可贴粘。"); 
+  }
   substring0x = (str) => {
     str = str +"";
     return str.substring(2,str.length);
@@ -67,12 +72,14 @@ class WalletClear extends React.Component {
         contentLabel="Wallet Message">
           <div className="clear">
             <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
-            <br/>
-              <h3>Address:{window.address}</h3>
-              <h3>Private Key:{this.substring0x(window.privateKey)}</h3>
-            <br/>
-            <button className="btn btn-danger" onClick={this.clear}>Clear</button>
-            <button className="btn btn-primary" onClick={this.closeModal}>Cancel</button>
+            <div>
+              <h3>Address:</h3>
+              <p className="text1">{window.address}</p>
+              <h3>Private Key:</h3>
+              <p className="text1">{window.privateKey}</p>
+            </div>  
+            <button className="btn btn-danger Left" onClick={this.clear}>Clear</button>
+            <button className="btn btn-primary Right" onClick={this.closeModal}>Cancel</button>
           </div>
         </Modal>
       
