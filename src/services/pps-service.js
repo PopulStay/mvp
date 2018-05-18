@@ -88,6 +88,20 @@ class PPSService {
           });
   }
 
+  getUsdOrderList(guestaddress){
+    
+      return new Promise((resolve, reject) => {
+            axios.get(process.env.Server_Address+'book?state=2&guestaddress='+guestaddress)
+            .then(function (response) {
+            resolve(response);
+            })
+            .catch(function (error) {
+            console.error(error);
+            reject(error);
+            });
+          });
+  }
+
 
   setOrderByUSD( hostaddress, usd, uuid, from, to, days ){
     return new Promise((resolve, reject) => {
