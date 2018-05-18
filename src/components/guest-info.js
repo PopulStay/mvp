@@ -9,6 +9,8 @@ import WalletManage from './walletManage';
 import WalletGas from './walletGas';
 import WalletDeposit from './walletDeposit';
 import WalletWithdraw from './walletWithdraw';
+import { Link } from 'react-router-dom';
+import Timestamp from 'react-timestamp';
 
 class GuestInfo extends React.Component {
   constructor() {
@@ -41,6 +43,7 @@ class GuestInfo extends React.Component {
     guestService.getPreorderList(window.address).then((data)=>{
    
       this.setState({ orderlist:data});
+      console.log(this.state)
      });
 
     ppsService.getBalance(window.address).then((data)=>{
@@ -61,11 +64,13 @@ class GuestInfo extends React.Component {
       //这个地方获取没有生成智能合约的订单数据！！
       //state等于2的是没有生成智能合约的
       //Guest Managment Panel 里面加一个没有生成智能合约的预定list。。。
-      console.log(data.data);
+      this.setState({ usdOrderList:data.data});
+      console.log(this.state)
     });
 
     this.onGetDepositBalance();
-  
+
+
   }
 
   onGetDepositBalance = () =>{
@@ -137,11 +142,24 @@ class GuestInfo extends React.Component {
        {this.state.orderlist.map(account => (
             <GuestOrderRow account={account} key={account}/>
       ))}
+
+      {this.state.usdOrderList.map(item => (
+        <tr>
+            <td><p>{item.guestaddress}</p></td>
+            <td>{item.state}</td>
+            <td><Link to={`/listing/${item.houseinfoid}`}>Check</Link></td>
+            <td><Timestamp time={item.from.substring(0,10)} format='date'/></td>
+            <td><Timestamp time={item.to.substring(0,10)} format='date'/></td>
+            <td>{item.usdprice}{item.usdprice == 0 ? '' : '/USD'}</td>
+            { item.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
+            { item.status === '1' &&<td>Checked In</td>}
+            { item.state === '2' &&<td>Checked In</td>}
+        </tr>
+           
+      ))}
+  
     </tbody>
   </table>
-
-
-
 
 
 

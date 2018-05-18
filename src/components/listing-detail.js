@@ -45,7 +45,8 @@ class ListingsDetail extends Component {
       user: "Loading...",
       ppsPrice: 0,
       ethPrice:0,
-      usdPrice:100,
+      usdPrice:99,
+      Total_price:0,
       ipfsHash: null,
       lister: null,
       pictures: [],
@@ -72,6 +73,7 @@ class ListingsDetail extends Component {
           {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with Airbnb! Will definitely book this place again.'}
       ],
       ethBalance:0,
+      usddatalist:[],
       modalIsOpen: false,
       qrurl:"",
       DateLists:[],
@@ -138,16 +140,17 @@ class ListingsDetail extends Component {
     if(window.address)
     {
       web3Service.getETHBalance(window.address).then((data)=>{
-        this.setState({ ethBalance:data/this.CONST.weiToGwei,usdBalance:data/this.CONST.weiToGwei});
+        this.setState({ ethBalance:data/this.CONST.weiToGwei});
       });
     }
 
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ user:data.user});
     });
-    
+
     ppsService.getUsdOrderList(window.address).then((data)=>{
-      console.log(data)
+      
+      console.log(this.state)
     });
 
  
@@ -176,6 +179,12 @@ class ListingsDetail extends Component {
   handleBooking() {
     console.log(this.state.descriptioninfo)
     let unitsToBuy = 0;
+    if(this.state.price == 0){
+        var Total_price = this.state.ppsPrice * this.DateDays() + 26
+    }else{
+        var Total_price = this.state.price * this.DateDays() + 26
+    }
+
 
     if (this.state.checkInDate && this.state.checkOutDate) {
       unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
@@ -187,7 +196,7 @@ class ListingsDetail extends Component {
     {
       promise = ppsService.setPreOrder(          
        this.state.lister,
-       this.state.ppsPrice * unitsToBuy,
+       Total_price * unitsToBuy,
        this.props.listingId, 
        this.state.checkInDate.toDate().getTime(), 
        this.state.checkOutDate.toDate().getTime(),
@@ -200,20 +209,22 @@ class ListingsDetail extends Component {
 
         promise = ppsService.setOrderByUSD(          
            this.state.lister,
-           this.state.usdPrice * unitsToBuy,
+           Total_price * unitsToBuy,
            this.props.listingId, 
            this.state.checkInDate.toDate().getTime(), 
            this.state.checkOutDate.toDate().getTime(),
            unitsToBuy
         );
+        this.setState({step:this.STEP.PURCHASED})
+         return ;
 
     }else
     {
 
-      if( this.state.ethPrice * unitsToBuy > this.state.ethBalance )
+      if( Total_price * unitsToBuy > this.state.ethBalance )
       {
         var to    = window.address;
-        var value = this.state.ethPrice * unitsToBuy*this.CONST.weiToGwei;
+        var value = Total_price * unitsToBuy*this.CONST.weiToGwei;
         qr.toDataUrl({
             to    : window.address,
             value : value,
@@ -227,7 +238,7 @@ class ListingsDetail extends Component {
         this.closeModal();
         promise =    houselistingService.setPreOrderByETH(          
                                          this.state.lister,
-                                         this.state.ethPrice * unitsToBuy,
+                                         Total_price * unitsToBuy,
                                          this.props.listingId, 
                                          this.state.checkInDate.toDate().getTime(), 
                                          this.state.checkOutDate.toDate().getTime(),
@@ -240,7 +251,7 @@ class ListingsDetail extends Component {
       {
         promise =    houselistingService.setPreOrderByETH(          
                                          this.state.lister,
-                                         this.state.ethPrice * unitsToBuy,
+                                         Total_price * unitsToBuy,
                                          this.props.listingId, 
                                          this.state.checkInDate.toDate().getTime(), 
                                          this.state.checkOutDate.toDate().getTime(),
@@ -248,7 +259,6 @@ class ListingsDetail extends Component {
                                         );
       }
     }
-
  
     promise.then((transactionReceipt) => {
       console.log("Purchase request sent.")
@@ -264,12 +274,21 @@ class ListingsDetail extends Component {
     })
   }
 
-  calcTotalPrice() {
+  DateDays() {
     if (this.state.checkInDate && this.state.checkOutDate) {
       let days = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
       return days
     }
     return 0
+  }
+
+  calcTotalPrice() {
+    if(this.state.price == 0){
+      return this.state.ppsPrice * this.DateDays() + 26
+    }
+    else{
+      return this.state.price * this.DateDays() + 26
+    }
   }
 
   Guests(guest){
@@ -405,11 +424,11 @@ class ListingsDetail extends Component {
 
         <div className="L_box3">
           <h5>Amenities</h5>
-          <p className={ this.state.descriptioninfo.roomstuff_Shampoo==0 ?  'show' : 'hide' }><img src="../images/detail-img07.png" alt="" />Shampoo</p>
-          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==0 ?  'show' : 'hide' }><img src="../images/detail-img08.png" alt="" />Breakfast</p>
-          <p className={ this.state.descriptioninfo.roomstuff_TV==0 ?  'show' : 'hide' }><img src="../images/detail-img09.png" alt="" />TV</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==0 ?  'show' : 'hide' }><img src="../images/detail-img10.png" alt="" />Kitchen</p>
-          <p className={ this.state.descriptioninfo.roomstuff_aircondition==0 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Air conditioning</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Shampoo==1 ?  'show' : 'hide' }><img src="../images/detail-img07.png" alt="" />Shampoo</p>
+          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img08.png" alt="" />Breakfast</p>
+          <p className={ this.state.descriptioninfo.roomstuff_TV==1 ?  'show' : 'hide' }><img src="../images/detail-img09.png" alt="" />TV</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img10.png" alt="" />Kitchen</p>
+          <p className={ this.state.descriptioninfo.roomstuff_aircondition==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Air conditioning</p>
           <p><img src="../images/detail-img12.png" alt="" />WIFI</p>
         </div>
 
@@ -544,6 +563,7 @@ class ListingsDetail extends Component {
               <li onClick={(e) => {this.setState({priceActive:0,priceCurrency:"ETH",price:this.state.ethPrice})}} className={this.state.priceActive == 0 ? 'active' : ''}>ETH</li>
               <li onClick={(e) => {this.setState({priceActive:2,priceCurrency:"USD",price:this.state.usdPrice})}} className={this.state.priceActive == 2 ? 'active' : ''}>USD</li>
           </ul>
+
           
           <div className="detail-price-div">
               
@@ -590,10 +610,10 @@ class ListingsDetail extends Component {
               <div className ="details-totalprice-div">
                 <ul>
                     <li className="blueColor">
-                      <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price}×{this.calcTotalPrice()}nights
+                      <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}nights
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan">{(this.state.price) * this.calcTotalPrice() * this.state.guest}</span>
+                      <span className = "RightSpan">{(this.state.price) * this.DateDays() * this.state.guest}</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">Special Offer 20% off
@@ -616,7 +636,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan">Total Price</span>
                       <span className = "RightSpan">
-                        {this.state.priceCurrency}: {this.calcTotalPrice()-0 < 1 ? 0 : this.state.price * this.calcTotalPrice() * this.state.guest + 26 }
+                        {this.state.priceCurrency}: { this.calcTotalPrice()}
                       </span>
                     </li>
                 </ul>

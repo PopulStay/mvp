@@ -90,16 +90,14 @@ class WalletDeposit extends React.Component {
         contentLabel="Wallet Message">
           <div className="deposit">
             <h2 ref={subtitle => this.subtitle = subtitle}>Deposit PPS</h2>
-            <br/>
 
           <div className="form-group">
             <label>Token Size</label>
             <input type="text"  className="form-control" placeholder="Input Size Of PPS you want to deposit" onChange={(e) => this.setState({PPS: e.target.value})} />
           </div>
 
-            <br/>
-            <button className="btn btn-danger" onClick={this.deposit}>deposit</button>
-            <button className="btn btn-primary" onClick={this.closeModal}>Cancel</button>
+            <button className="btn btn-danger Left" onClick={this.deposit}>deposit</button>
+            <button className="btn btn-primary Right" onClick={this.closeModal}>Cancel</button>
           </div>
         </Modal>
 

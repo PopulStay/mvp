@@ -64,11 +64,13 @@ class WalletManage extends React.Component {
         contentLabel="Wallet Message">
         <div className="PirvateKey">
             <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
-            <br/>
-              <h3>Address:{window.address}</h3>
-              <h3>Private Key:{this.substring0x(window.privateKey)}</h3>
-            <br/>
-            <button className="btn btn-primary" onClick={this.closeModal}>Cancel</button>
+            <div>
+              <h3>Address:</h3>
+              <p className="text1">{window.address}</p>
+              <h3>Private Key:</h3>
+              <p className="text1">{window.privateKey}</p>
+            </div>  
+            <button className="btn btn-primary Right" onClick={this.closeModal}>Cancel</button>
           </div>
         </Modal>
       
