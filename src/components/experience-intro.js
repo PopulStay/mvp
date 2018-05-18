@@ -26,10 +26,9 @@ class experienceintro extends Component {
         ],
       };
 
-      console.log("#################search condition#######:",window.searchCondition);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.handlePageChange = this.handlePageChange.bind(this);
     if( window.searchCondition.checkInDate )
     {

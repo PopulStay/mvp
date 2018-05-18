@@ -16,10 +16,10 @@ class Listingall extends Component {
         experienceList:1,
       };
 
-      console.log("#################search condition#######:",window.searchCondition);
+      window.searchCondition = this.state;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.handlePageChange = this.handlePageChange.bind(this);
     if( window.searchCondition.checkInDate )
     {

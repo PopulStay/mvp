@@ -105,7 +105,7 @@ class GuestInfo extends React.Component {
                <span>PPS balance:</span><p>{this.state.ppsBalance}</p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6">
-               <span>ETH balance:</span><p>{(this.state.ethBalance/this.CONST.weiToEther-0).toFixed(5)}</p>
+               <span>ETH balance:</span><p>{this.state.ethBalance/this.CONST.weiToEther-0 == 0 ? '0' : (this.state.ethBalance/this.CONST.weiToEther-0).toFixed(5)}</p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6">
                <span>PPS deposited in Populstay:</span><p>{this.state.ppsDeposited}</p>

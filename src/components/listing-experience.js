@@ -30,11 +30,9 @@ class Listingexperience extends Component {
         leftnum:0,
         svl:true,
       }
-
-      console.log("#################search condition#######:",window.searchCondition);
   }
 
-  componentWillMount() {
+  componentDidMount() {
 
     this.handlePageChange = this.handlePageChange.bind(this);
     if( window.searchCondition.checkInDate )

@@ -107,7 +107,7 @@ class WalletDeposit extends React.Component {
             <h2 ref={subtitle => this.subtitle = subtitle}>Depositing PPS,Please waiting</h2>
             <br/>
           <div className="form-group">
-           <p><i className="fa fa-spin fa-spinner"></i> Waiting...</p>
+           <p className="text2"><i className="fa fa-spin fa-spinner"></i> Waiting...</p>
           </div>
           </div>
         </Modal>
