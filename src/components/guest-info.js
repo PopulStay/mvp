@@ -57,7 +57,7 @@ class GuestInfo extends React.Component {
      });
 
     ppsService.getUsdOrderList(window.address).then((data)=>{
-      //这个地方获取数据！！
+      //这个地方获取没有生成智能合约的订单数据！！
       //state等于2的是没有生成智能合约的
       //Guest Managment Panel 里面加一个没有生成智能合约的预定list。。。
       console.log(data.data);
