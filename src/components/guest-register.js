@@ -6,7 +6,6 @@ import guestService from '../services/guest-service';
 import Wallet from './wallet';
 import Web3 from 'web3';
 import web3service from '../services/web3-service';
-import WalletClear from './walletClear';
 
 
 const customStyles = {
@@ -96,9 +95,6 @@ class GuestRegister extends React.Component {
 
   }
 
-  onLogOut = () =>{
-    this.setState({ registered:false });
-  }
 
 
   render() {
@@ -111,7 +107,6 @@ class GuestRegister extends React.Component {
            <Link to="/managepanel">
           <button className="logoutButton float-right">Welcome！{this.state.user}<span></span></button>
           </Link>
-          <WalletClear onLogOut={this.onLogOut} />
           </div>
 
         }
