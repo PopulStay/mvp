@@ -88,8 +88,32 @@ class PPSService {
           });
   }
 
-  setPreOrder( hostaddress, totalTokens, uuid, from, to, days) {
-      
+
+  setOrderByUSD( hostaddress, usd, uuid, from, to, days ){
+    return new Promise((resolve, reject) => {
+     var params  = {};
+     params.from = from;
+     params.to   = to;
+     params.days = days;  
+     params.hostaddress  = hostaddress;
+     params.price        = 0;
+     params.ethprice     = 0;
+     params.usdprice     = usd;
+     params.guestaddress = window.address;
+     params.houseinfoid  = uuid;
+
+     axios.post(process.env.Server_Address+'payment', params)
+      .then(function (response) {
+      resolve(response.data);
+      })
+      .catch(function (error) {
+      console.error(error)
+      reject(error)
+      });
+    });
+  }
+
+  setPreOrder( hostaddress, totalTokens, uuid, from, to, days ) {
       return new Promise((resolve, reject) => {
        var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
        var dataobj= contract.methods.approveAndCall(
