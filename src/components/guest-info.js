@@ -74,30 +74,30 @@ class GuestInfo extends React.Component {
 
       <div className="userBox row">
           <h1 className="col-sm-12 col-md-12 col-lg-12">Hello!{this.state.user}</h1>
-          <div className="col-sm-2 col-md-2 col-lg-2">
+          <div className="col-sm-12 col-md-2 col-lg-2">
             <img src="../images/uesrimg.png" />
           </div>
-          <div className="col-sm-6 col-md-6 col-lg-6 userlist">
-            <div className="col-sm-6 col-md-6 col-lg-6">
-              <span>username:</span>{this.state.user}
+          <div className="col-sm-12 col-md-8 col-lg-7 userlist row">
+            <div className="col-sm-12 col-md-6 col-lg-6">
+              <span>username:</span><p>{this.state.user}</p>
             </div>
-            <div className="col-sm-6 col-md-6 col-lg-6">
-               <span>phone:</span>{this.state.phone}
+            <div className="col-sm-12 col-md-6 col-lg-6">
+               <span>phone:</span><p>{this.state.phone}</p>
             </div>
-            <div className="col-sm-6 col-md-6 col-lg-6">
-               <span>email:</span>{this.state.email}
+            <div className="col-sm-12 col-md-6 col-lg-6">
+               <span>email:</span><p>{this.state.email}</p>
             </div>
-            <div className="col-sm-6 col-md-6 col-lg-6">
-               <span>PPS balance:</span>{this.state.ppsBalance}
+            <div className="col-sm-12 col-md-6 col-lg-6">
+               <span>PPS balance:</span><p>{this.state.ppsBalance}</p>
             </div>
-            <div className="col-sm-6 col-md-6 col-lg-6">
-               <span>ETH balance:</span>{this.state.ethBalance/this.CONST.weiToEther}
+            <div className="col-sm-12 col-md-6 col-lg-6">
+               <span>ETH balance:</span><p>{(this.state.ethBalance/this.CONST.weiToEther-0).toFixed(5)}</p>
             </div>
-            <div className="col-sm-6 col-md-6 col-lg-6">
-               <span>PPS deposited in Populstay:</span>{this.state.ppsDeposited}
+            <div className="col-sm-12 col-md-6 col-lg-6">
+               <span>PPS deposited in Populstay:</span><p>{this.state.ppsDeposited}</p>
             </div>
           </div>
-          <div className="col-sm-3 col-md-3 col-lg-3 userbtn" >
+          <div className="col-sm-12 col-md-2 col-lg-3 userbtn" >
               <WalletManage/>
               <WalletClear/>
               <WalletGas/>
@@ -115,9 +115,9 @@ class GuestInfo extends React.Component {
     <table className="table GuestManagment">
     <thead>
       <tr>
-        <th>Contract Address</th>
+        <th>Address</th>
         <th>Status</th>
-        <th>House Information</th>
+        <th>Information</th>
         <th>From</th>
         <th>To</th>
         <th>Price</th>

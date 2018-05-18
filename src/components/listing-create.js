@@ -160,8 +160,9 @@ class ListingCreate extends Component {
             roomstuff_AreaCode:86,
             selectedPictures:[],
             Currency:"PPS",
-            price_perday:99,
-            ETHprice_perday:99,
+            price_perday:0,
+            ETHprice_perday:0,
+            USDprice_perday:0,
             maxprice_perday:0,
             minprice_perday:0,
             Explainwhy:"",
@@ -952,7 +953,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-6 col-lg-6  col-sm-12">
@@ -3421,7 +3422,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step3_12 &&
+          this.state.step === this.STEP.Step1_1 &&
           <div className="becomehost-2 container">
           <div className="row Step3_12">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
@@ -3456,7 +3457,14 @@ class ListingCreate extends Component {
 
                   <div className="btn-group col-lg-12 boxdiv">
                     <img className="becomehost__info" src="./images/step3_12img1.png" alt="" />
-                    <input type="number" className={this.state.price_perday < 10 || this.state.price_perday >= 13272000 ? "form-control inputActive" : "form-control"} onChange={(e) => {if(this.state.Currency == "PPS") this.setState({price_perday:e.target.value,ETHprice_perday:(0.00001*e.target.value)});else this.setState({ETHprice_perday:e.target.value,price_perday:(100000*e.target.value)});}} />
+                    <input type="number" className={this.state.price_perday < 10 || this.state.price_perday >= 13272000 ? "form-control inputActive" : "form-control"} onChange={(e) => {
+                      if(this.state.Currency == "PPS"){
+                        this.setState({price_perday:e.target.value,ETHprice_perday:(0.00001*e.target.value),USDprice_perday:(0.01*e.target.value)});
+                      }else if(this.state.Currency == "ETH"){
+                        this.setState({ETHprice_perday:e.target.value,price_perday:(100000*e.target.value),USDprice_perday:(1000*e.target.value)});
+                      } else{
+                        this.setState({USDprice_perday:e.target.value,ETHprice_perday:(1000*e.target.value),price_perday:(100*e.target.value)});
+                      } }} />
                   </div>
                   <p className={this.state.price_perday < 10 || this.state.price_perday >= 13272000 ? "textpink show" : "hide"}>Please use a base price of at least 10PPS but no more than 13,272,000PPS</p>
                 </div>
@@ -3474,6 +3482,7 @@ class ListingCreate extends Component {
                     <ul className="dropdown-menu" role="menu">
                       <li onClick={(e) => this.setState({Currency:"PPS"})}><a>PPS</a></li> 
                       <li onClick={(e) => this.setState({Currency:"ETH"})}><a>ETH</a></li> 
+                      <li onClick={(e) => this.setState({Currency:"USD"})}><a>USD</a></li> 
                     </ul>
                   </div>
                 </div>

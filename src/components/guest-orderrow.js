@@ -22,7 +22,7 @@ class GuestOrderRow extends Component {
 
 
   getPreOrderInfo(){
-  
+
    
     orderService.getPreOrderInfo( this.props.account)
     .then((result) => {
@@ -69,7 +69,8 @@ class GuestOrderRow extends Component {
      if(this.props.account)
      {
       this.getPreOrderInfo();
-     }
+            }
+
 
    
   }
@@ -78,11 +79,12 @@ class GuestOrderRow extends Component {
 
     return (
        <tr>
-        <td>{this.props.account}</td>
+        <td><p>{this.props.account}</p></td>
         <td>{this.state.status}</td>
         <td><Link to={`/listing/${this.state.houseInformation}`}>Check</Link></td>
         <td><Timestamp time={this.state.from} format='date'/></td>
-        <td><Timestamp time={this.state.to} format='date'/></td>
+        <td><Timestamp time={this.state.from} format='date'/></td>
+        <td>{this.state.price}</td>
         { this.state.price    != '0' &&<td>{this.state.price}/PPS</td> }
         { this.state.ethPrice != '0' &&<td>{this.state.ethPrice/1000000000}/ETH</td> }
         { this.state.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
