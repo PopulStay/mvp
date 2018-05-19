@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import houselistingService from '../services/houseinfolist-service'
 import Pagination from 'react-js-pagination'
 import ListingCard from './listing-card'
+import WalletClear from './walletClear';
 
 
 class experienceintro extends Component {
@@ -89,6 +90,10 @@ class experienceintro extends Component {
     }
   }
 
+  onLogOut = () =>{
+    this.setState({ registered:false });
+  }
+
 
 
   render() {
@@ -123,6 +128,9 @@ class experienceintro extends Component {
                   </li>
                   <li className="Li3">
                     <a href="" className="btn button__Help">Help</a>
+                  </li>
+                  <li className="Li4">
+                    <WalletClear onLogOut={this.onLogOut} />
                   </li>
                   <li className="Li5">
                     <GuestRegister/>
@@ -295,7 +303,7 @@ class experienceintro extends Component {
             <div className="box2">
                 <div className={this.state.experienceList == 1 ? "show All_experiences" : "hide All_experiences"}>
                     {showListingsRows.map(row => (
-                      <div className="col-12 col-md-6 col-lg-3 listing-card">
+                      <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 listing-card">
                       <ListingCard row={row}/>
                       </div>
                     ))}

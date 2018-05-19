@@ -130,7 +130,7 @@ class Listingexperience extends Component {
             </ul>
             <div className="All_experiences row">
                 {showListingsRows.map(row => (
-                  <div className="col-12 col-md-4 col-lg-3 listing-card">
+                  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 listing-card">
                   <ListingCard row={row}/>
                   </div>
                 ))}

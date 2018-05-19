@@ -66,7 +66,7 @@ class NavBar extends Component {
               <a href="" className="button__Help">Help</a>
             </li>
             <li className="Li4">
-            <WalletClear onLogOut={this.onLogOut} />
+              <WalletClear onLogOut={this.onLogOut} />
             </li>
             <li className="Li5">
               <GuestRegister/>

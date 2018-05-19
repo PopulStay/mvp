@@ -1103,7 +1103,8 @@ h1,
   box-shadow:none;
   border:none;
 }
-.Step2_2 .modal-body{
+.Step2_2 .modal-body,
+.registerlist_6 .modal-body{
   text-align: center;
 }
 .Step2_2 .modal-footer,

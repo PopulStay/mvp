@@ -3,6 +3,7 @@ import { withRouter } from 'react-router'
 import GuestRegister from './guest-register';
 import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
+import AvatarEditor from 'react-avatar-editor';
 
 class registerlist extends Component {
 
@@ -119,6 +120,13 @@ class registerlist extends Component {
         Cancel_experience:0,
         Comply_law:0,
         Terms_service:0,
+        canvasW:800,
+        canvasH:500,
+        canvasRotate:0,
+        canvasScale:1,
+        editor:0,
+        photosindex:0,
+        modalimg:'',
     };
 
     web3Service.loadWallet();
@@ -165,65 +173,28 @@ class registerlist extends Component {
     console.log(this.state.photolist.length)
   }
 
-  modalPictures(e){
+  modalPictures(index,e){
+    var modalBody=document.getElementById("modalBody");
+    console.log(modalBody.height)
     this.setState({
-          state:this.state.modalimg = this.state.Experience_Pictures
+          state:this.state.modalimg = this.state.Experience_Pictures,
+          canvasW:modalBody.width,
+          canvasH:modalBody.height,
+          photosindex:index
     });
-    console.log(this.state.Experience_Pictures)
-    console.log(this.state.modalimg)
-    var c=document.getElementById("myCanvas");
-    var canvas=c.getContext("2d");
-    canvas.clearRect(0,0,c.width,c.height);
-    var img=new Image()
-    img.src=this.state.Experience_Pictures;
-    canvas.drawImage(img,0,0,c.width,c.height);
   }
 
-   RotatePictures(e){
-      var c=document.getElementById("myCanvas");
-      var canvas=c.getContext("2d");
-      var img=new Image();
-      img.src=this.state.modalimg;
-      canvas.drawImage(img,0,0,c.width,c.height);
-      var x = c.width/2; 
-      var y = c.height/2;
-      canvas.clearRect(0,0,c.width,c.height);
-      canvas.translate(x,y);
-      canvas.rotate((Math.PI/180)*90);
-      canvas.translate(-x,-y);
-      canvas.drawImage(img,0,0,c.width,c.height);
+  onClickSave = () => {
+    if (this.state.editor) {
+      const canvas = this.state.editor.getImage()
+      const canvasScaled = this.state.editor.getImageScaledToCanvas();
+      this.setState({state:this.state.Experience_Pictures = canvasScaled.toDataURL("image/png")})
+      console.log(this.state.Experience_Pictures)
     }
+  }
 
-    rangePictures(scale){
-      var c=document.getElementById("myCanvas");
-      var canvas=c.getContext("2d");
-      var img=new Image();
-      img.src=this.state.modalimg;
-      canvas.drawImage(img,0,0,c.width,c.height);
-      var imageWidth = c.width*scale;
-      var imageHeight = c.height*scale;
-      canvas.clearRect(0,0,c.width,c.height);
-      var x = c.width/2 - imageWidth/2;
-      var y = c.height/2 - imageHeight/2;
-      canvas.drawImage(img,x,y,imageWidth,imageHeight);
-    }
+  setEditorRef = (editor) => this.state.editor = editor
 
-    BrightnessPictures(e){
-      var c=document.getElementById("myCanvas");
-      var canvas=c.getContext("2d");
-      var img=new Image();
-      img.src=this.state.modalimg;
-      canvas.drawImage(img,0,0,c.width,c.height);
-      var imgData=canvas.getImageData(0,0,c.width,c.height);
-      console.log(imgData.data[0])
-      for (var i=0;i<imgData.data.length;i+=4)
-        {
-        imgData.data[i+0]+=e;
-        imgData.data[i+1]+=e+20;
-        imgData.data[i+2]+=e+20;
-        }
-      canvas.putImageData(imgData,0,0);
-    }
     delphoto(e,index){
       this.setState({
             photolist: this.state.photolist.filter((elem, i) => index != i)
@@ -839,24 +810,32 @@ class registerlist extends Component {
                         <button className="Upload"><img src="../images/registerlist_btnimg.png" />Upload cover photo<input type="file" onChange={(e)=>this.fileChangedHandler(e)}/></button>
                     </div>
 
-                    <div className="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div className="modal-dialog">
-                        <div className="modal-content">
-                            <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3>Adjust the cover photo</h3>
-                          <div className="modal-body">
-                          <canvas id="myCanvas" className="canvas"></canvas>
+                   <div className="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                      <div className="modal-content">
+                          <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <div className="modal-body" id="modalBody" ref='modalBody'>
+                           <AvatarEditor
+                              ref = {this.setEditorRef}
+                              image={this.state.modalimg}
+                              width={800}
+                              height={500}
+                              border={[50,0,50,0]}
+                              color={[0, 0, 0, 0.6]}
+                              scale={this.state.canvasScale}
+                              rotate={this.state.canvasRotate}
+                            />
                           </div>
-                          <div className="modal-footer">
+                          <div className="modal-footer"vz>
                             <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
                                 <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />Crop</li>
                                 <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />Adjust Brightness</li>
-                                <li onClick={(e) => this.RotatePictures(e)}><img src="../images/Rotate.png" />Rotate</li>
+                                <li onClick={(e) => this.setState({canvasRotate:this.state.canvasRotate+90})}><img src="../images/Rotate.png" />Rotate</li>
                             </ul>
                             <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
                                 <li  className={this.state.modalset == 1 ? "show" : "hide"}>
                                     <p>Zoom</p>
-                                    <input type="range" onChange={(e)=>this.rangePictures(e.target.value)} name="points"  step="0.01" min="1" max="3" />
+                                    <input type="range" onChange={(e)=>this.setState({canvasScale:e.target.value})} name="points"  step="0.01" min="0.5" max="2" />
                                 </li>
                                 <li  className={this.state.modalset == 2 ? "show" : "hide"}>
                                     <p>Brightness</p>
@@ -869,7 +848,7 @@ class registerlist extends Component {
                             </ul>
                             <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">Cancel</button>
                             <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >Complete</button>
-                            <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} type="button" data-dismiss="modal" aria-hidden="true">Save and Replace</button>
+                            <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} data-dismiss="modal" aria-hidden="true" type="button" onClick={(e)=>this.onClickSave(e)}>Save and Replace</button>
                           </div>
                         </div>
                       </div>

@@ -817,7 +817,7 @@ class ListingCreate extends Component {
 
     modalPictures(index,e){
       var modalBody=document.getElementById("modalBody");
-      console.log(modalBody.height)
+      console.log(modalBody.width)
       this.setState({
             state:this.state.modalimg = this.state.selectedPictures[index].imagePreviewUrl,
             canvasW:modalBody.width,
@@ -928,7 +928,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_10 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-6 col-lg-6  col-sm-12">
@@ -1877,7 +1877,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step2_2 &&
           <div className="becomehost-2 container">
           <div className="row Step2_2">
             <div className="col-md-12 col-lg-12 col-sm-12">
@@ -1906,7 +1906,7 @@ class ListingCreate extends Component {
               <div className="photos">
                   {this.state.selectedPictures.map((file,index) => (
                     <div className="photosimg" >
-                      <img className="img-thumbnail" id="modalBody"  data-toggle="modal" data-target="#myModal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
+                      <img className="img-thumbnail"  data-toggle="modal" data-target="#myModal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
                       <span  className="glyphicon glyphicon-trash" onClick={this.deletePictures.bind(this,index)} ></span>
                     </div>
                     ))
@@ -1921,12 +1921,12 @@ class ListingCreate extends Component {
                 <div className="modal-dialog">
                   <div className="modal-content">
                       <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <div className="modal-body">
+                    <div className="modal-body" id="modalBody" ref='modalBody'>
                     <AvatarEditor
                         ref = {this.setEditorRef}
                         image={this.state.modalimg}
                         width={700}
-                        height={530}
+                        height={500}
                         border={[50,0,50,0]}
                         color={[0, 0, 0, 0.6]}
                         scale={this.state.canvasScale}
