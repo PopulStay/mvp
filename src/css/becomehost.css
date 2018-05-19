@@ -1103,14 +1103,13 @@ h1,
   box-shadow:none;
   border:none;
 }
-.Step2_2 .modal-body,
-.registerlist_6 .modal-body{
-  height:540px;
+.Step2_2 .modal-body{
+  text-align: center;
 }
 .Step2_2 .modal-footer,
 .registerlist_6 .modal-footer{
   border:none;
-  height: 100px;
+  height: 80px;
   padding: 0;
 }
 .Step2_2 .modal-footer button,
@@ -1165,6 +1164,9 @@ h1,
   margin: -1% 0;
   cursor: pointer;
 }
+.Step2_2 .modal-footer .Brightness input{
+  height: 40px;
+}
 .Step2_2 .modal-footer .Cancel,
 .registerlist_6 .modal-footer .Cancel{
   border:1px solid #f6416c;
@@ -1180,6 +1182,7 @@ h1,
 .Step2_2 .Brightness>li,
 .registerlist_6 .Brightness>li{
   overflow: hidden;
+  margin-left: 5%;
 }
 .Step2_2 .Brightness>li p,
 .registerlist_6 .Brightness>li p{
@@ -1235,11 +1238,6 @@ h1,
 }
 .Step2_2 .photos h4 p{
   font-size: 6rem;
-}
-.Step2_2 .canvas,
-.registerlist_6 .canvas{
-  width: 100%;
-  height: 100%;
 }
 /*Step2_2 end*/
 .Step2_3 textarea{

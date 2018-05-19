@@ -7758,6 +7758,7 @@ header li.Li3,
 header li.Li4{
   width: 10%;
   color: #131c4e;
+  cursor: pointer;
 }
 header li.Li3>a,
 header li.Li4>a{

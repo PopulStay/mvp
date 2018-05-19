@@ -65,13 +65,12 @@
 		padding: 3% 10% 0!important;
 	}
 	.experienceintro_content .contentbox3>.box2 .lists>div{
-		height: 260px!important;
+		height: 260px;
 	}
 	/*listing-experiences  end*/
-
 }
 
-@media screen and (max-width: 980px){
+@media screen and (max-width: 992px){
 	/*header  start*/
 	.header{
 		padding: 4% 0% 4% 3%;
@@ -97,19 +96,9 @@
 		font-size: 1.8rem;
 	}
 	.form .container h1{
-		font-size: 3rem;
+		font-size: 4rem;
 	}
-	.form .index_home .listing-card:nth-child(even){
-	  padding-right: 0;
-	  padding-left: 15px;
-	}
-	.form .index_home .listing-card:nth-child(odd){
-	  padding-left: 0;
-	  padding-right: 15px;
-	}
-	.index_content .search{
-		margin: 0;
-	}
+	
 	/*home  end*/
 
 	/*becomehost  start*/
@@ -190,7 +179,7 @@
 	/*listing-experiences  end*/
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 768px){
 	/*header  start*/
 	header .navBtn{
 	    position: absolute;
@@ -298,6 +287,7 @@
   	.index_content .search{
   		width: 100%;
   		padding: 0;
+  		margin-left: 5%;
   	}
 	/*header  end*/
 
@@ -310,15 +300,18 @@
 		width: 50%;
 	}
 	.index_content .DateInput{
-		width: 50%;
-		margin-right: 0;
+		width: 43%;
+		margin-right: 7%;
 	}
 	.index_box,
 	.index_box>div{
 		padding: 0;
+		float: left;
 	}
-	.index_content .guestsnum .form-group,
 	.index_content .guestsnum:last-child .form-group,
+	.index_content .guestsnum .form-group{
+	  width: 85%;
+	}
 	.index_content .form__search{
 		width: 100%;
 	}
@@ -333,9 +326,6 @@
 		font-size: 2rem;
 		margin:0 0 5%;
 	}
-	.form .index_home .listing-card{
-		padding: 0!important;
-	}
 	.form .form__location img{
 		width: 80%;
     	margin: 0 10% 7%;
@@ -343,6 +333,14 @@
 	.form .DateRangePicker_picker{
 		width: 333px;
 		overflow: hidden;
+	}
+	.form .index_home .listing-card:nth-child(even){
+	  padding-right: 0;
+	  padding-left: 15px;
+	}
+	.form .index_home .listing-card:nth-child(odd){
+	  padding-left: 0;
+	  padding-right: 15px;
 	}
 	/*home  end*/
 
@@ -579,12 +577,19 @@
 	/*modal*/
 }
 
-
 @media screen and (max-width: 500px){
+	/*home start*/
+	.form .index_home .listing-card{
+		padding: 0 !important;
+	}
+	/*home end*/
+
+	/*experience start*/
 	.experienceintro_content .contentbox3>.box1{
 		top:22% !important;
 	}
 	.experienceintro_content .contentbox3>.box2 .lists>div{
 		height: 150px!important;
 	}
+	/*experience end*/
 }
