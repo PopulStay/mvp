@@ -61,6 +61,10 @@ text-decoration:none;
 	color:#fff;
 	background: none;
 }
+.experienceintro_header .navBtn{
+	color:#fff;
+	border:1px solid #fff;
+}
 .experienceintro_content .contentbox,
 .experienceintro_content .contentbox1,
 .experienceintro_content .contentbox2,
@@ -162,11 +166,9 @@ text-decoration:none;
 	background: #e9bec7;
 	display: inline-block;
 	margin: 0 1.5%;
+	cursor: pointer;
 }
-.experienceintro_content .contentbox1>div ul li:first-child,
-.experienceintro_content .contentbox3>.box1 ul li:first-child{
-	background: #f5426c;
-}
+
 .experienceintro_content .contentbox1>div .text4{
 	width: 80%;
     margin:10% auto;
@@ -226,7 +228,33 @@ text-decoration:none;
 .experienceintro_content .contentbox3>.box2 .lists>p{
 	font-size: 1.8rem;
 	margin: 6% 0 5%;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+	overflow: hidden;
 }
+.experienceintro_content .contentbox3>.box2 .lists>div{
+	height: 400px;
+	background-size: cover !important;
+	background-position: 50% 50% !important;
+	background-repeat: no-repeat !important;
+} 
+.experienceintro_content .contentbox3>.box2 div.img1{
+	background: url(../images/Walter_Wang.jpg);
+}
+.experienceintro_content .contentbox3>.box2 div.img2{
+	background: url(../images/Xinpeng_Cai.jpg);
+}
+.experienceintro_content .contentbox3>.box2 div.img3{
+	background: url(../images/Ling_Jun.jpg);
+}
+.experienceintro_content .contentbox3>.box2 div.img4{
+	background: url(../images/Brain_Lin.jpg);
+}
+.experienceintro_content .contentbox3>.box2 div.img5{
+	background: url(../images/Tamir_Wu.jpg);
+}
+
 
 .experienceintro_content .contentbox4>.box1{
 	width: 100%;
@@ -265,7 +293,7 @@ text-decoration:none;
    	margin: 7% 0;
 }
 .experienceintro_content .contentbox4>.box2 .lists>div{
-	width: 85%;
+	width: 80%;
 	display: inline-block;
 	float: right;
 	color: #fff;

@@ -73,22 +73,22 @@ class Search extends Component {
             <span className="color-pink text-bold">PopulStay-Superior Guest Experience & Maximized Owner Profit</span>
             <h4>Choose your city !</h4>
             <ul className="form__location row">
-                <li className="col-md-2 col-lg-2 col-sm-6 active" data-name="Tokyo"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-md-2 col-lg-2 col-sm-4 active" data-name="Tokyo"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "Tokyo" ? "../images/location-13_1.png" : "../images/location-13.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-6" data-name="New York"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-md-2 col-lg-2 col-sm-4" data-name="New York"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "New York" ? "../images/location-14_1.png" : "../images/location-14.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-6" data-name="Shanghai"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-md-2 col-lg-2 col-sm-4" data-name="Shanghai"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "Shanghai" ? "../images/location-15_1.png" : "../images/location-15.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-6" data-name="London"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-md-2 col-lg-2 col-sm-4" data-name="London"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "London" ? "../images/location-16_1.png" : "../images/location-16.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-6" data-name="Paris"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-md-2 col-lg-2 col-sm-4" data-name="Paris"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "Paris" ? "../images/location-17_1.png" : "../images/location-17.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-6" data-name="Singapore"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-md-2 col-lg-2 col-sm-4" data-name="Singapore"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "Singapore" ? "../images/location-18_1.png" : "../images/location-18.png"} alt="" />
                 </li>
             </ul>
@@ -97,7 +97,7 @@ class Search extends Component {
                     
                     <div className="col-md-12 col-lg-12 col-sm-12 ">
 
-                        <div className="col-md-8 col-lg-8 index_box">
+                        <div className=" col-sm-8 col-md-8 col-lg-8 index_box">
                             <div className="col-md-12 col-lg-12 col-sm-12 guestsleft">
                                 <div className="form-group">
                                     <label className="col-sm-6 col-md-6 col-lg-6 ">Check in</label>
@@ -106,7 +106,7 @@ class Search extends Component {
                                 </div>
                             </div>
 
-                            <div className="col-md-6 col-lg-6 col-sm-6 guestsnum">
+                            <div className="col-md-6 col-lg-6 col-sm-6 guestsnum Left">
                                 <div className="form-group">
                                     <label>Adults</label>
                                     <input type="number" className="form-control input-lg" onChange={(e)=> window.searchCondition.place = e.target.value } />
@@ -114,7 +114,7 @@ class Search extends Component {
                             </div>
                       
 
-                            <div className="col-md-6 col-lg-6 col-sm-6 guestsnum">
+                            <div className="col-md-6 col-lg-6 col-sm-6 guestsnum Right">
                                 <div className="form-group">
                                     <label>Childen</label>
                                     <input type="number" className="form-control input-lg" onChange={(e)=> window.searchCondition.guests = e.target.value }/>
@@ -123,7 +123,7 @@ class Search extends Component {
 
                         </div>
 
-                        <div className="search  col-md-3  col-lg-3">
+                        <div className="search  col-sm-3  col-md-3  col-lg-3">
                             <Link to="/home">
                             <a href="#" className="btn button__fill btn-lg form__search">
                                 <img src="../images/search_home.png" />
@@ -138,7 +138,7 @@ class Search extends Component {
                             <li className="liicon">•</li>
                             <a href="../"><li className="litext1">HOMES</li></a>
                             <li className="liicon">•</li>
-                            <li className="litext1">EXPERIENCE</li>
+                            <a href="/experience"><li className="litext1">EXPERIENCE</li></a>
                         </ul>
                     </div>
                 </div>
@@ -149,7 +149,7 @@ class Search extends Component {
             <h2>Homes around the world</h2>
             <div className="overflow row">
                   {showListingsRows.map(row => (
-                    <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
+                    <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 listing-card">
                     <ListingCard row={row}/>
                     </div>
                   ))}
@@ -163,7 +163,7 @@ class Search extends Component {
             <p>Book activities led by local hosts on your next trip</p>
             <div className="overflow row">
                 {showListingsRows.map(row => (
-                  <div className="col-sm-12 col-md-6 col-lg-4 listing-card">
+                  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 listing-card">
                   <ListingCard row={row}/>
                   </div>
                 ))}

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import GuestRegister from './guest-register';
 import HostRegister from './host-register';
 import { DateRangePicker } from 'react-dates';
+import WalletClear from './walletClear';
 import '../css/main.css'
 import '../css/search.css'
 
@@ -19,12 +20,17 @@ class NavBar extends Component {
         guests:null,
         place:null,
         locationName:"Tokyo",
+        registered:false
       };
       window.searchCondition = this.state;
   }
   locationName(e){
     var DataName = e.currentTarget.getAttribute('data-name');
     this.setState({state: this.state.locationName = DataName});
+  }
+
+  onLogOut = () =>{
+    this.setState({ registered:false });
   }
 
   render() {
@@ -58,6 +64,9 @@ class NavBar extends Component {
             </li>
             <li className="Li4">
               <a href="" className="button__Help">Help</a>
+            </li>
+            <li className="Li4">
+              <WalletClear onLogOut={this.onLogOut} />
             </li>
             <li className="Li5">
               <GuestRegister/>

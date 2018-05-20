@@ -15,13 +15,6 @@ class Listingexperience extends Component {
         listingsPerPage: 8,
         districtCodes:[],
         curDistrictCodeIndex:0,
-        lists:[
-          {img:"../images/detail-carousel.jpg",location:"Tokyo1",price:200},
-          {img:"../images/detail-carousel.jpg",location:"Tokyo2",price:200},
-          {img:"../images/detail-carousel.jpg",location:"Tokyo3",price:200},
-          {img:"../images/detail-carousel.jpg",location:"Tokyo4",price:200},
-          {img:"../images/detail-carousel.jpg",location:"Tokyo5",price:200}
-        ],
         locationtype:0,
       };
 
@@ -137,7 +130,7 @@ class Listingexperience extends Component {
             </ul>
             <div className="All_experiences row">
                 {showListingsRows.map(row => (
-                  <div className="col-12 col-md-4 col-lg-3 listing-card">
+                  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 listing-card">
                   <ListingCard row={row}/>
                   </div>
                 ))}

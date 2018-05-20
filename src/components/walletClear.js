@@ -68,7 +68,7 @@ class WalletClear extends React.Component {
 
     <div>
 
-        <button className="btn btn-primary" onClick={this.openModal}>LogOut</button>
+        <a onClick={this.openModal}>LogOut</a>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="clear">
