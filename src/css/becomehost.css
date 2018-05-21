@@ -196,7 +196,8 @@ h1,
   padding: 0;
 }
 .Step1_1 .form-group button,
-.Step1_1 .form-control{
+.Step1_1 .form-control,
+.Step1_1 .dropdown-menu{
   width: 90%  !important;
 }
 .Step1_1 .form-group1{

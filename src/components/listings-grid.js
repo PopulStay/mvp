@@ -56,6 +56,9 @@ class ListingsGrid extends Component {
     const showListingsRows = this.state.listingRows.slice(
       this.state.listingsPerPage * (activePage-1),
       this.state.listingsPerPage * (activePage))
+
+    const position = { longitude: 120, latitude: 32 }
+
     return (
 
       <div className="listings-grid">
@@ -64,7 +67,7 @@ class ListingsGrid extends Component {
           <div className="col-lg-8">
             <div className="row">          
               {showListingsRows.map(row => (
-                <div className="col-12 col-md-6 col-lg-4 listing-card">
+                <div className="col-sm-6 col-md-4 col-lg-4 listing-card">
                 <ListingCard row={row}/>
                 </div>
               ))}

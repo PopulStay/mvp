@@ -24,45 +24,45 @@ class ListingCreate extends Component {
         super(props)
 
         this.STEP = {
-            Step1_1: 1.01,
-            Step1_2: 1.02,
-            Step1_3: 1.03,
-            Step1_4: 1.04,
-            Step1_5: 1.05,
-            Step1_6: 1.06,
-            Step1_7: 1.07,
-            Step1_8: 1.08,
-            Step1_9: 1.09,
-            Step1_10: 2,
-            Step2_1: 2.01,
-            Step2_2: 2.02,
-            Step2_3: 2.03,
-            Step2_4: 2.04,
-            Step2_5: 2.05,
-            Step2_6: 2.06,
-            Step3_1: 3.01,
-            Step3_2: 3.02,
-            Step3_3: 3.03,
-            Step3_4: 3.04,
-            Step3_5: 3.05,
-            Step3_6: 3.06,
-            Step3_7: 3.07,
-            Step3_8: 3.08,
-            Step3_9: 3.09,
-            Step3_10: 4,
-            Step3_11: 3.11,
-            Step3_12: 3.12,
-            Step3_13: 3.13,
-            Step3_14: 3.14,
-            Step3_15: 3.15,
-            Step3_16: 3.16,
-            Step3_17: 3.17,
-            Step3_18: 3.18,
-            Step3_19: 3.19,
-            Step3_20: 3.20,
-            Step3_21: 3.21,
-            PROCESSING: 6,
-            SUCCESS: 7,
+            Step1_1: 1,
+            Step1_2: 2,
+            Step1_3: 3,
+            Step1_4: 4,
+            Step1_5: 5,
+            Step1_6: 6,
+            Step1_7: 7,
+            Step1_8: 8,
+            Step1_9: 9,
+            Step1_10:10,
+            Step2_1: 11,
+            Step2_2: 12,
+            Step2_3: 13,
+            Step2_4: 14,
+            Step2_5: 15,
+            Step2_6: 16,
+            Step3_1: 17,
+            Step3_2: 18,
+            Step3_3: 19,
+            Step3_4: 20,
+            Step3_5: 21,
+            Step3_6: 22,
+            Step3_7: 23,
+            Step3_8: 24,
+            Step3_9: 25,
+            Step3_10: 26,
+            Step3_11: 27,
+            Step3_12: 28,
+            Step3_13: 29,
+            Step3_14: 30,
+            Step3_15: 31,
+            Step3_16: 32,
+            Step3_17: 33,
+            Step3_18: 34,
+            Step3_19: 35,
+            Step3_20: 36,
+            Step3_21: 37,
+            PROCESSING:404,
+            SUCCESS:200,
 
         }
 
@@ -190,7 +190,7 @@ class ListingCreate extends Component {
             Categorys:['Whole house','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
             Check_in_time:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
-            homeorhotels:['Home','hotel','Other'],
+            homeorhotels:['apartment','Single house','Subsidiary unit','Characteristic house','Breakfast and Breakfast','The Inn Boutique and other types'],
             types:['Single room','double room','family suite','business suite'],
             guestshaves:['Entire place'],
             Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
@@ -314,46 +314,7 @@ class ListingCreate extends Component {
     }
 
     nextStep() {
-      console.log(this.state);
-      if(this.state.step == this.STEP.Step1_1)
-      {
-        if(this.state.roomtype_location == ''){
-          this.setState({step:this.STEP.Step1_1});
-        }else{
-          this.setState({step:this.STEP.Step1_2});
-        }
-      }
-      
-      if(this.state.step == this.STEP.Step1_2)
-      {
-        this.setState({step:this.STEP.Step1_3});
-      }
-      if(this.state.step == this.STEP.Step1_3)
-      {
-        this.setState({step:this.STEP.Step1_4});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_4)
-      {
-        this.setState({step:this.STEP.Step1_5});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_5)
-      {
-        this.setState({step:this.STEP.Step1_6});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_6)
-      {
-        this.setState({step:this.STEP.Step1_8});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_7)
-      {
-        this.setState({step:this.STEP.Step1_8});
-        console.log(this.state);
-      }
-
+      this.setState({step:this.state.step+1});
       if(this.state.step == this.STEP.Step1_8)
       {
         if(this.state.roomstuff_smartpincode == 1){
@@ -370,340 +331,23 @@ class ListingCreate extends Component {
             this.setState({step:this.STEP.Step1_9});
         }
       }
-      if(this.state.step == this.STEP.Step1_9)
-      {
-        this.setState({step:this.STEP.Step1_10});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_10)
-      {
-        this.setState({step:this.STEP.Step2_1});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_1)
-      {
-        this.setState({step:this.STEP.Step2_2});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_2)
-      {
-        this.setState({step:this.STEP.Step2_3});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_3)
-      {
-        this.setState({step:this.STEP.Step2_4});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_4)
-      {
-        this.setState({step:this.STEP.Step2_5});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_5)
-      {
-        this.setState({step:this.STEP.Step2_6});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_6)
-      {
-        this.setState({step:this.STEP.Step3_1});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_1)
-      {
-        this.setState({step:this.STEP.Step3_2});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_2)
-      {
-        this.setState({step:this.STEP.Step3_3});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_3)
-      {
-        this.setState({step:this.STEP.Step3_4});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_4)
-      {
-        this.setState({step:this.STEP.Step3_5});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_5)
-      {
-        if(this.state.roomstuff_Closet_drwers == 1){
-          this.setState({step:this.STEP.Step3_6});
-        }
-        
-      }
-      if(this.state.step == this.STEP.Step3_6)
-      {
-        this.setState({step:this.STEP.Step3_7});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_7)
-      {
-        this.setState({step:this.STEP.Step3_8});
-        console.log(this.state);
-      }
+      
       if(this.state.step == this.STEP.Step3_8)
       {
         this.setState({step:this.STEP.Step3_10});
         console.log(this.state);
       }
-      if(this.state.step == this.STEP.Step3_9)
-      {
-        this.setState({step:this.STEP.Step3_10});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_10)
-      {
-        this.setState({step:this.STEP.Step3_11});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_11)
-      {
-        this.setState({step:this.STEP.Step3_12});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_12)
-      {
-        this.setState({step:this.STEP.Step3_14});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_13)
-      {
-        this.setState({step:this.STEP.Step3_14});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_14)
-      {
-        this.setState({step:this.STEP.Step3_15});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_15)
-      {
-        this.setState({step:this.STEP.Step3_16});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_16)
-      {
-        this.setState({step:this.STEP.Step3_17});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_17)
-      {
-        this.setState({step:this.STEP.Step3_18});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_18)
-      {
-        this.setState({step:this.STEP.Step3_19});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_19)
-      {
-        this.setState({step:this.STEP.Step3_20});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_20)
-      {
-        this.setState({step:this.STEP.Step3_21});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_21)
-      {
-        this.setState({step:this.STEP.SUCCESS});
-        console.log(this.state);
-      }
-      
 
     }
 
     preStep(){
-      console.log(this.state);
-      if(this.state.step == this.STEP.Step1_2)
-      {
-        this.setState({step:this.STEP.Step1_1});
-      }
-      if(this.state.step == this.STEP.Step1_3)
-      {
-        this.setState({state:this.state.roomdescription_forguestorhost=2}); 
-        this.setState({step:this.STEP.Step1_2});
-        console.log(this.state);
-      }
-       if(this.state.step == this.STEP.Step1_4)
-      {
-        this.setState({step:this.STEP.Step1_3});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_5)
-      {
-        this.setState({step:this.STEP.Step1_4});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_6)
-      {
-        this.setState({step:this.STEP.Step1_5});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_7)
-      {
-        this.setState({step:this.STEP.Step1_6});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_8)
-      {
-        this.setState({step:this.STEP.Step1_6});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_9)
-      {
-        this.setState({step:this.STEP.Step1_8});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step1_10)
-      {
-        this.setState({step:this.STEP.Step1_9});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_1)
-      {
-        this.setState({step:this.STEP.Step1_10});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_2)
-      {
-        this.setState({step:this.STEP.Step2_1});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_3)
-      {
-        this.setState({step:this.STEP.Step2_2});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_4)
-      {
-        this.setState({step:this.STEP.Step2_3});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_5)
-      {
-        this.setState({step:this.STEP.Step2_4});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step2_6)
-      {
-        this.setState({step:this.STEP.Step2_5});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_1)
-      {
-        this.setState({step:this.STEP.Step2_6});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_2)
-      {
-        this.setState({step:this.STEP.Step3_1});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_3)
-      {
-        this.setState({step:this.STEP.Step3_2});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_4)
-      {
-        this.setState({step:this.STEP.Step3_3});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_5)
-      {
-        this.setState({step:this.STEP.Step3_4});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_6)
-      {
-        this.setState({step:this.STEP.Step3_5});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_7)
-      {
-        this.setState({step:this.STEP.Step3_6});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_8)
-      {
-        this.setState({step:this.STEP.Step3_7});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_9)
-      {
-        this.setState({step:this.STEP.Step3_8});
-        console.log(this.state);
-      }
+      this.setState({step:this.state.step-1});
+     
       if(this.state.step == this.STEP.Step3_10)
       {
         this.setState({step:this.STEP.Step3_8});
         console.log(this.state);
       }
-      if(this.state.step == this.STEP.Step3_11)
-      {
-        this.setState({step:this.STEP.Step3_10});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_12)
-      {
-        this.setState({step:this.STEP.Step3_11});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_13)
-      {
-        this.setState({step:this.STEP.Step3_12});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_14)
-      {
-        this.setState({step:this.STEP.Step3_12});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_15)
-      {
-        this.setState({step:this.STEP.Step3_14});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_16)
-      {
-        this.setState({step:this.STEP.Step3_15});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_17)
-      {
-        this.setState({step:this.STEP.Step3_16});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_18)
-      {
-        this.setState({step:this.STEP.Step3_17});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_19)
-      {
-        this.setState({step:this.STEP.Step3_18});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_20)
-      {
-        this.setState({step:this.STEP.Step3_19});
-        console.log(this.state);
-      }
-      if(this.state.step == this.STEP.Step3_21)
-      {
-        this.setState({step:this.STEP.Step3_20});
-        console.log(this.state);
-      }
-
 
        if(this.state.step == this.STEP.SUCCESS)
       {
@@ -727,42 +371,6 @@ class ListingCreate extends Component {
             });
     }
    
-    Categorys(Category){
-      this.setState({roomtype_category: Category});
-    }
-    step1guests(step1guest){
-      this.setState({roomtype_guests: step1guest});
-    }
-    homeorhotels(homeorhotel){
-      this.setState({roomdescription_homeorhotel: homeorhotel});
-    }
-    types(type){
-      this.setState({roomdescription_type: type});
-    }
-    guestshaves(guestshave){
-      this.setState({roomdescription_guests_have: guestshave});
-    }
-    Countrys(Country){
-      this.setState({roomstuff_Country: Country});
-    }
-    AreaCodes(AreaCode){
-      this.setState({roomstuff_AreaCode: AreaCode});
-    }
-    step1guests(step1guest){
-      this.setState({roomtype_guests: step1guest});
-    }
-    Howoften_guests(Howoften){
-      this.setState({Howoften_guests: Howoften});
-    }
-    Howoften_From(From){
-      this.setState({Howoften_From: From});
-    }
-    Howoften_To(To){
-      this.setState({Howoften_To: To});
-    }
-    advance_book(book){
-      this.setState({advance_book: book});
-    }
 
 
 
@@ -840,9 +448,11 @@ class ListingCreate extends Component {
 
   
     AdditionalRules(e){
-      this.setState({state: this.state.AdditionalRules.push(this.state.RulesIpt)});
-      this.setState({state: this.state.RulesIpt=""});
       e.preventDefault();
+      if(this.state.RulesIpt != ''){
+        this.setState({state: this.state.AdditionalRules.push(this.state.RulesIpt)});
+        this.setState({state: this.state.RulesIpt=""});
+      }
     }
 
     deleteRules(index,e){
@@ -880,48 +490,6 @@ class ListingCreate extends Component {
 
   render() {
 
-    const Categoryarr = [];
-    this.state.Categorys.forEach((Category,index)=>{
-      Categoryarr.push(<li><a onClick={this.Categorys.bind(this,Category)} >{Category}</a></li>)
-    })
-    const step1guestsarr = [];
-    this.state.step1guests.forEach((step1guest,index)=>{
-      step1guestsarr.push(<li><a onClick={this.step1guests.bind(this,step1guest)} >for {step1guest} guests</a></li>)
-    })
-    const homeorhotelarr = [];
-    this.state.homeorhotels.forEach((homeorhotel,index)=>{
-      homeorhotelarr.push(<li><a onClick={this.homeorhotels.bind(this,homeorhotel)} >{homeorhotel}</a></li>)
-    })
-    const typearr = [];
-    this.state.types.forEach((type,index)=>{
-      typearr.push(<li><a onClick={this.types.bind(this,type)} >{type}</a></li>)
-    })
-    const guestshavearr = [];
-    this.state.guestshaves.forEach((guestshave,index)=>{
-      guestshavearr.push(<li><a onClick={this.guestshaves.bind(this,guestshave)} >{guestshave}</a></li>)
-    })
-    const Countryarr = [];
-    this.state.Countrys.forEach((Country,index)=>{
-      Countryarr.push(<li><a onClick={this.Countrys.bind(this,Country)} >{Country}</a></li>)
-    })
-    const AreaCodearr = [];
-    this.state.AreaCodes.forEach((AreaCode,index)=>{
-      AreaCodearr.push(<li><a onClick={this.AreaCodes.bind(this,AreaCode)} >{AreaCode}</a></li>)
-    })
-    const Howoften_Fromarr = [];
-    this.state.Check_in_time.forEach((From,index)=>{
-      Howoften_Fromarr.push(<li><a onClick={this.Howoften_From.bind(this,From)} >{From}</a></li>)
-    })
-    const Howoften_Toarr = [];
-    this.state.Check_in_time.forEach((To,index)=>{
-      Howoften_Toarr.push(<li><a onClick={this.Howoften_To.bind(this,To)} >{To}</a></li>)
-    })
-    const advance_bookarr = [];
-    this.state.advance_books.forEach((book,index)=>{
-      advance_bookarr.push(<li><a onClick={this.advance_book.bind(this,book)} >{book}</a></li>)
-    })
-
-
 
     
     
@@ -950,7 +518,10 @@ class ListingCreate extends Component {
                         <div className="btn-group col-md-12">
                           <button type="button" data-toggle="dropdown">{this.state.roomtype_category}<span>▼</span></button>
                           <ul className="dropdown-menu" role="menu">
-                            { Categoryarr }
+                            {this.state.Categorys.map((item,index) => (
+                                <li><a onClick={(e)=>this.setState({roomtype_category:item})} >{item}</a></li>
+                              ))
+                            }
                           </ul>
                         </div>
                     </div>
@@ -960,7 +531,10 @@ class ListingCreate extends Component {
                         <div className="btn-group col-md-12">
                           <button type="button" data-toggle="dropdown">for {this.state.roomtype_guests} guests<span>▼</span></button>
                           <ul className="dropdown-menu" role="menu">
-                            { step1guestsarr } 
+                            {this.state.step1guests.map((item,index) => (
+                                <li><a onClick={(e)=>this.setState({roomtype_guests:item})} >{item}</a></li>
+                              ))
+                            }
                           </ul>
                         </div>
                     </div>
@@ -1014,8 +588,11 @@ class ListingCreate extends Component {
               <div className="form-group">    
                 <div className="btn-group col-md-12">
                   <button type="button" data-toggle="dropdown">{this.state.roomdescription_homeorhotel}<span>▼</span></button>
-                  <ul className="dropdown-menu" role="menu">
-                    { homeorhotelarr } 
+                  <ul className="dropdown-menu" role="menu"> 
+                    {this.state.homeorhotels.map((item,index) => (
+                        <li><a onClick={(e)=>this.setState({roomdescription_homeorhotel:item})} >{item}</a></li>
+                      ))
+                    }
                   </ul>
                 </div>
               </div>
@@ -1026,7 +603,10 @@ class ListingCreate extends Component {
                 <div className="btn-group col-md-12">
                   <button type="button" data-toggle="dropdown">{this.state.roomdescription_type}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
-                    { typearr } 
+                    {this.state.types.map((item,index) => (
+                        <li><a onClick={(e)=>this.setState({roomdescription_type:item})} >{item}</a></li>
+                      ))
+                    }
                   </ul>
                 </div>
               </div>
@@ -1039,7 +619,10 @@ class ListingCreate extends Component {
                     <div className="btn-group col-md-12">
                       <button type="button" data-toggle="dropdown">{this.state.roomdescription_guests_have}<span>▼</span></button>
                       <ul className="dropdown-menu" role="menu">
-                        { guestshavearr } 
+                        {this.state.guestshaves.map((item,index) => (
+                            <li><a onClick={(e)=>this.setState({roomdescription_guests_have:item})} >{item}</a></li>
+                          ))
+                        }
                       </ul>
                     </div>
                   </div>
@@ -1271,7 +854,10 @@ class ListingCreate extends Component {
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.roomstuff_Country}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      { Countryarr } 
+                      {this.state.Countrys.map((item,index) => (
+                          <li><a onClick={(e)=>this.setState({roomstuff_Country:item})} >{item}</a></li>
+                        ))
+                      }
                     </ul>
                   </div>
                 </div>
@@ -2128,7 +1714,10 @@ class ListingCreate extends Component {
                 <div className="btn-group col-md-12 phonecode">
                   <span data-toggle="dropdown">+{this.state.roomstuff_AreaCode}</span>
                   <ul className="dropdown-menu" role="menu">
-                    { AreaCodearr } 
+                    {this.state.AreaCodes.map((item,index) => (
+                        <li><a onClick={(e)=>this.setState({roomstuff_AreaCode:item})} >{item}</a></li>
+                      ))
+                    }
                   </ul>
                 </div>
                 
@@ -3018,7 +2607,10 @@ class ListingCreate extends Component {
                     <h5>From:</h5>
                     <button type="button" data-toggle="dropdown">{this.state.Howoften_From}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      { Howoften_Fromarr } 
+                      {this.state.Howoften_Froms.map((item,index) => (
+                          <li><a onClick={(e)=>this.setState({Howoften_From:item})} >{item}</a></li>
+                        ))
+                      }
                     </ul>
                   </div>
 
@@ -3026,7 +2618,10 @@ class ListingCreate extends Component {
                     <h5>To:</h5>
                     <button type="button" data-toggle="dropdown" disabled={this.state.Howoften_From == "flexible" ? "disabled" : "" } > {this.state.Howoften_From == "flexible" ? "flexible": this.state.Howoften_To }<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      { Howoften_Toarr } 
+                      {this.state.Howoften_Tos.map((item,index) => (
+                          <li><a onClick={(e)=>this.setState({Howoften_To:item})} >{item}</a></li>
+                        ))
+                      }
                     </ul>
                   </div>
                 </div>
@@ -3111,7 +2706,10 @@ class ListingCreate extends Component {
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.advance_book}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      { advance_bookarr } 
+                      {this.state.advance_books.map((item,index) => (
+                          <li><a onClick={(e)=>this.setState({advance_book:item})} >{item}</a></li>
+                        ))
+                      }
                     </ul>
                   </div>
                 </div>
@@ -3217,20 +2815,8 @@ class ListingCreate extends Component {
                     <p>{this.state.Date_Months}</p>
                     <h2>{this.state.Date_year}</h2>
                   </div>
-                  <div className="col-md-12 table">
-                      <ul>
-                        <li className="th">SUN</li>
-                        <li className="th">MON</li>
-                        <li className="th">TUE</li>
-                        <li className="th">WED</li>
-                        <li className="th">liUH</li>
-                        <li className="th">FRI</li>
-                        <li className="th">SAT</li>
-                        {this.state.Date_List.map(item => (
-                        <li>{item}</li>
-                         ))}
-                      </ul>
-                      
+                  <div className="col-md-12">
+                      <DateRangePicker startDate={this.state.checkInDate} startDateId="start_date" endDate={this.state.checkOutDate} endDateId="end_date" onDatesChange={({ startDate, endDate })=> {this.setState({checkInDate: startDate, checkOutDate: endDate });window.searchCondition.checkOutDate = endDate;window.searchCondition.checkInDate = startDate;}} focusedInput={this.state.focusedInput} onFocusChange={focusedInput => this.setState({ focusedInput })} readOnly />                      
                   </div>
                 </div>
                 <div className="col-lg-1 nextDate">▶</div>
