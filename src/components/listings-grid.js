@@ -3,6 +3,7 @@ import houselistingService from '../services/houseinfolist-service'
 import Pagination from 'react-js-pagination'
 import { withRouter } from 'react-router'
 import ListingCard from './listing-card'
+import BaiduMap from './BaiduMap'
 
 class ListingsGrid extends Component {
 
@@ -15,10 +16,11 @@ class ListingsGrid extends Component {
         curDistrictCodeIndex:0
       };
 
-      console.log("#################search condition#######:",window.searchCondition);
   }
 
   componentWillMount() {
+    
+
     this.handlePageChange = this.handlePageChange.bind(this);
     if( window.searchCondition.checkInDate )
     {
@@ -59,15 +61,16 @@ class ListingsGrid extends Component {
 
     const position = { longitude: 120, latitude: 32 }
 
+
     return (
 
       <div className="listings-grid">
         <h1>Homes around the world</h1>
         <div className="row">
-          <div className="col-lg-8">
+          <div className="col-md-8 col-lg-8">
             <div className="row">          
               {showListingsRows.map(row => (
-                <div className="col-sm-6 col-md-4 col-lg-4 listing-card">
+                <div className="col-sm-6 col-md-6 col-lg-4 listing-card">
                 <ListingCard row={row}/>
                 </div>
               ))}
@@ -83,8 +86,8 @@ class ListingsGrid extends Component {
               hideDisabled="true"
             />
           </div>
-          <div className="col-lg-4">
-           <img className="img-thumbnail" src="./images/search-map.jpg" role="presentation" />
+          <div className="col-md-4 col-lg-4">
+            <BaiduMap />
           </div>
         </div>
         
