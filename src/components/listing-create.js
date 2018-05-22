@@ -931,7 +931,7 @@ class ListingCreate extends Component {
               <p>191A Rivervale Drive #11-1318,Singapore,541189,Singapore</p>
               
               <div className="Map">
-                <BaiduMap />
+                <img src="./images/search-map.jpg" />
               </div>
 
 
