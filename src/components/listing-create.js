@@ -160,7 +160,7 @@ class ListingCreate extends Component {
             Not_safe:0,
             anytime_Checkin:0,
             NO_shoes:0,
-            roomstuff_AreaCode:86,
+            roomstuff_AreaCode:"China",
             selectedPictures:[],
             Currency:"PPS",
             price_perday:0,
@@ -497,7 +497,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-6 col-lg-6  col-sm-12">
@@ -1694,7 +1694,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step2_5 &&
+          this.state.step === this.STEP.Step1_1 &&
           <div className="becomehost-2 container">
           <div className="row Step2_5">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
@@ -1713,9 +1713,9 @@ class ListingCreate extends Component {
                 <div className="phoneimg"><img className="becomehost__info" src="./images/phoneimg.png" alt=""/></div>
 
                 <div className="btn-group col-md-12 phonecode">
-                  <span data-toggle="dropdown">+{this.state.roomstuff_AreaCode}</span>
+                  <span data-toggle="dropdown">{this.state.roomstuff_AreaCode}</span>
                   <ul className="dropdown-menu" role="menu">
-                    {this.state.AreaCodes.map((item,index) => (
+                    {this.state.Countrys.map((item,index) => (
                         <li><a onClick={(e)=>this.setState({roomstuff_AreaCode:item})} >{item}</a></li>
                       ))
                     }

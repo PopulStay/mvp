@@ -27,6 +27,7 @@ class GuestRegister extends React.Component {
       id:"",
       user:"",
       password:"",
+      Verify_password:"",
       account:"",
       phone:"",
       email:"",
@@ -161,6 +162,11 @@ class GuestRegister extends React.Component {
                 </div>
 
                 <div className="form-group">
+                  <label>Verify password</label>
+                  <input type="password" className="form-control" placeholder="Password" onChange={(e) => this.setState({Verify_password: e.target.value})}/>
+                </div>
+
+                <div className="form-group">
                   <label>Phone</label>
                   <input type="number" className="form-control" placeholder="Phone" onChange={(e) => this.phonenumber(e.target.value)}/>
                 </div>
@@ -173,7 +179,7 @@ class GuestRegister extends React.Component {
 
                 </div>
                 <br/>
-                <img className={this.state.user == "" || this.state.password.length < 6  || this.state.phoneactive == 0 || this.state.emailactive == 0 ? 'closeok closeactive' : 'closeok'} src="../images/ok.png" onClick={this.register} />
+                <img className={this.state.user == "" || this.state.password.length < 6 || this.state.Verify_password != this.state.password  || this.state.phoneactive == 0 || this.state.emailactive == 0 ? 'closeok closeactive' : 'closeok'} src="../images/ok.png" onClick={this.register} />
                 <button className="btn btn-primary closecancel" onClick={this.closeModal}>cancel</button>
               </div>
             </Modal>
