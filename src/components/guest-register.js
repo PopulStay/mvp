@@ -63,6 +63,7 @@ class GuestRegister extends React.Component {
 
   openModal() {
     this.setState({modalIsOpen: true});
+    this.props.onLogOut(false);
   }
 
   afterOpenModal() {
@@ -72,6 +73,7 @@ class GuestRegister extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
+    this.props.onLogOut(false);
   }
 
   loadUserData = () =>{
@@ -102,7 +104,7 @@ class GuestRegister extends React.Component {
 
     <div>
 
-         {this.state.registered === true  && 
+         {this.state.registered === true &&  this.props.clicklogout ===false  && 
           <div>
            <Link to="/managepanel">
           <button className="logoutButton float-right">Welcome！{this.state.user}<span></span></button>
@@ -111,7 +113,7 @@ class GuestRegister extends React.Component {
 
         }
 
-         {this.state.registered === false &&<button className="button__outline" onClick={this.openModal}>Sign up</button>}
+         { (this.state.registered === false || this.props.clicklogout ===true ) &&<button className="button__outline" onClick={this.openModal}>Sign up</button>}
          <div className="registermodal">
             <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
             contentLabel="Example Modal">
@@ -131,7 +133,8 @@ class GuestRegister extends React.Component {
 
                 <div className="form-group">
                   <label>Wallet Account</label>
-                  <input type="text"  className="form-control" placeholder="Wallet Account" value={this.state.account} disabled/>
+                  <input type="text"  className="form-control" placeholder="Wallet Account" 
+                  value={this.props.clicklogout == true ? this.setState({account:""}) : this.state.account} disabled/>
                 </div>
 
                 <div className="form-group">
