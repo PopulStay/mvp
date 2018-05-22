@@ -1315,13 +1315,12 @@ h1,
   cursor: pointer;
 }
 .Step2_5 .stepbox .phonecode span{
-  font-size: 2rem;
-  position: absolute;
-  top:50%;
-  right: 0;
-  transform: translate(0%,-50%);
+  font-size: 1.6rem;
   border-right:1px solid #f6416c;
-  padding-right: 35%; 
+  height: 100%;
+  display: inline-block;
+  line-height: 45px;
+  padding: 0 10%;
 }
 .Step2_5 .stepbox input{
   width: 55%;
@@ -1337,6 +1336,9 @@ h1,
   top:50%;
   right: 4%;
   transform: translate(0%,-50%);
+}
+.Step2_5 .dropdown-menu li{
+  overflow: hidden;
 }
 .Step2_5 .dropdown-menu a{
   text-align: center;

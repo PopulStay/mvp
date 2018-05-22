@@ -8,7 +8,8 @@
 .Explainwhy,
 .Import,
 .deposit,
-.withdraw{
+.withdraw,
+.Sign{
   width: 410px;
   background: #fff;
   border-radius: 7px;
@@ -129,7 +130,8 @@
 .Gas h2,
 .Import h2,
 .deposit h2,
-.withdraw h2{
+.withdraw h2,
+.Sign h2{
   color: #f6416c !important;
   text-align: center;
   font-family: RobotoBold; 
@@ -139,17 +141,21 @@
 .clear>div h3,
 .PirvateKey>div h3,
 .Gas>.form-group>label,
-.deposit>.form-group>label{
-  font-family: RobotoBold; 
+.deposit>.form-group>label,
+.Sign>.form-group>label,
+.Create h3,
+.Import>.form-group>label{
   margin:2% 0;
   display: inline-block;
   font-size: 1.8rem;
+  line-height: 1.4;
 }
 .clear>div,
 .PirvateKey>div,
-.Create1>div{
+.Create1>div,
+.Import>div{
   padding:0 3%;
-  margin: 0 auto 4%;
+  margin: 0 auto;
   overflow: hidden;
 }
 .clear>div .text1,
@@ -167,17 +173,23 @@
 .clear button,
 .PirvateKey button,
 .Gas button,
-.deposit button{
+.deposit button,
+.Sign button,
+.Create button,
+.Create1 button,
+.Import button{
   width: 30%;
-  padding: 0.5% 0;
-  margin: 0 5%;
+  padding: 1% 0;
+  margin: 5% 5% 0;
   font-size: 1.8rem;
   font-family: RobotoBold; 
   border:1px solid #f6416c;
 }
 .clear button.Left,
 .Gas button.Left,
-.deposit button.Left{
+.deposit button.Left,
+.Sign button.Left,
+.Import button.Left{
   color:#f6416c;
   background: #fff;
 }
@@ -185,7 +197,10 @@
 .Gas button.Right,
 .deposit button.Right,
 .PirvateKey button,
-.Create1 button{
+.Create1 button,
+.Sign button.Right,
+.Create button.Right,
+.Import button.Right{
   background:#f6416c;
   color: #fff;
 }
@@ -199,15 +214,21 @@
 .Create1 button,
 .PirvateKey button{
   width: 100%;
-  margin: 0;
+  margin:5% 0 0;
 }
 .Gas>.form-group>input,
-.deposit>.form-group>input{
+.deposit>.form-group>input,
+.Sign>.form-group>input,
+.Import>.form-group>input{
   border:1px solid #f6416c;
   height: 35px;
   font-size: 1.6rem;
   font-family: RobotoThin; 
   margin:0 0 8%;
+}
+.Sign>.form1>input,
+.Import>.form-group>input{
+  margin-bottom:0%; 
 }
 .deposit .text2{
   font-family: RobotoBold; 
@@ -234,6 +255,12 @@
   border-radius: 6px;
   font-size: 1.6rem;
   text-align: left;
+  height: 35px;
+}
+.Signup button span{
+  float: right;
+  color: #f6416c;
+  font-size: 1.8rem;
 }
 .Signup .dropdown-menu{
   width: 80%;
@@ -263,7 +290,7 @@
   padding: 0;
 }
 .Signup input{
-  height:40px;
+  height:35px;
   border:1px solid #ababab;
   border-radius: 6px;
   font-family: RobotoThin; 
@@ -272,10 +299,8 @@
   font-size: 1.6rem;
   color: #f6416c;
 }
-.Signup .dropdown span{
-  color: #151b4e;
-  margin-left: 10%;
-  font-size: 1.8rem;
+.Signup .form-group{
+  margin-bottom: 10px;
 }
 .Signup .form-group label{
   color: #f6416c;
@@ -322,4 +347,7 @@
   line-height: auto;
   font-size: 1.6rem;
   padding: 0 auto!important;
+}
+.closeactive{
+  opacity: 0.5;
 }

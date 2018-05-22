@@ -87,17 +87,16 @@ class Wallet extends Component {
 
 
 
-
+  closeClearInfoModal=()=> {
+    this.setState({clearModalIsOpen: false});
+  }
   openClearInfoModal=()=>{
     this.setState({clearModalIsOpen: true});
   }
+ 
 
   afterOpenClearInfoModal=()=> {
     this.subtitle.style.color = '#f00';
-  }
-
-  closeClearInfoModal=()=> {
-    this.setState({clearModalIsOpen: false});
   }
 
   substring0x = (str) => {
@@ -166,8 +165,6 @@ class Wallet extends Component {
             <button className="btn btn-primary Right" onClick={this.closeClearInfoModal}>Cancel</button>
           </div>
         </Modal>
-
-
 
 
 
