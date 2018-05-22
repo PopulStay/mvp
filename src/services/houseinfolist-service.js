@@ -143,14 +143,15 @@ class HouseInfoListingService {
               params.guests          = formListing.roombasics_guestsnumber;
               params.place           = formListing.roomtype_location;
               params.ethprice        = parseFloat(formListing.ETHprice_perday)*1000000000;
+              params.profile         = { previewImage : formListing.selectedPictures[0].imagePreviewUrl };
 
               axios.post(process.env.Server_Address+'HouseInformation', params)
               .then(function (response) {
-              resolve(response.data.txhash);
+                resolve(response.data.txhash);
               })
               .catch(function (error) {
               console.error(error)
-              reject(error)
+                reject(error)
               });
           });
       });
