@@ -104,11 +104,13 @@ class WalletCreate extends React.Component {
         contentLabel="CreateModal">
         <div className="Create1">
           <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
-          <br/>
-          <h3>Address:{window.address}</h3>
-          <h3>Pirvate Key:{this.substring0x(window.privateKey)}</h3>
-          <br/>
-          <button className="btn btn-danger" onClick={this.closeModal}>Close</button>
+          <div>
+            <h3>Address:</h3>
+            <p className="text1">{window.address}</p>
+            <h3>Private Key:</h3>
+            <p className="text1">{this.substring0x(window.privateKey)}</p>
+          </div>
+          <button className="btn btn-danger Left" onClick={this.closeModal}>Close</button>
         </div>  
         </Modal>
 

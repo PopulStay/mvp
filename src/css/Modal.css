@@ -146,13 +146,15 @@
   font-size: 1.8rem;
 }
 .clear>div,
-.PirvateKey>div{
+.PirvateKey>div,
+.Create1>div{
   padding:0 3%;
   margin: 0 auto 4%;
   overflow: hidden;
 }
 .clear>div .text1,
-.PirvateKey>div .text1{
+.PirvateKey>div .text1,
+.Create1>div .text1{
   font-family: RobotoThin; 
   display: inline-block;
   word-break: break-all;
@@ -182,7 +184,8 @@
 .clear button.Right,
 .Gas button.Right,
 .deposit button.Right,
-.PirvateKey button{
+.PirvateKey button,
+.Create1 button{
   background:#f6416c;
   color: #fff;
 }
@@ -193,6 +196,7 @@
   border:1px solid #f6416c;
 }
 .Create button,
+.Create1 button,
 .PirvateKey button{
   width: 100%;
   margin: 0;

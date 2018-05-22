@@ -69,7 +69,13 @@ class NavBar extends Component {
               <WalletClear onLogOut={this.onLogOut} />
             </li>
             <li className="Li5">
+
               <GuestRegister clicklogout={this.state.clicklogout}  onLogOut={this.onLogOut} />
+
+          
+            
+    
+
             </li>
           </ul>
         </div>

@@ -10,7 +10,7 @@ class Listingall extends Component {
     super(props);
       this.state = {
         listingRows: [],
-        listingsPerPage: 8,
+        listingsPerPage: 20,
         districtCodes:[],
         curDistrictCodeIndex:0,
         experienceList:1,
