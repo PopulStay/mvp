@@ -65,6 +65,10 @@ class WalletClear extends React.Component {
       'addressshow': window.addressshow});
       this.setState({modalinOpen:false,registered:true});
       this.props.onLogOut(false);
+
+
+
+
   }
 
 
