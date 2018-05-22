@@ -94,6 +94,13 @@
   white-space: nowrap;
   font-size: 1.6rem;
 }
+.GuestManagment td button{
+  background: #f6416c;
+  border:1px solid #f6416c;
+  color:#fff;
+  line-height: 0;
+  height: 30px;
+}
 .GuestManagment td p{
   width: 100px;
   overflow: hidden;
