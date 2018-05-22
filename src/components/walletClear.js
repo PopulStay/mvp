@@ -28,6 +28,7 @@ class WalletClear extends React.Component {
       Username:'',
       Password:'',
       address:"",
+      clicklogout:'',
     };
 
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -62,9 +63,11 @@ class WalletClear extends React.Component {
       {'address': window.address,
       'privateKey': window.privateKey,
       'addressshow': window.addressshow});
-      this.setState({modalinOpen:false});
-
+      this.setState({modalinOpen:false,registered:true});
+      this.props.onLogOut(false);
   }
+
+
 
   afterOpenModal() {
     this.subtitle.style.color = '#f00';
