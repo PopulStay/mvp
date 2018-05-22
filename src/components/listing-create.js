@@ -162,6 +162,7 @@ class ListingCreate extends Component {
             NO_shoes:0,
             roomstuff_AreaCode:"China",
             selectedPictures:[],
+            firstPictures:"",
             Currency:"PPS",
             price_perday:0,
             ETHprice_perday:0,
@@ -299,6 +300,8 @@ class ListingCreate extends Component {
           }
 
         reader.readAsDataURL(file)
+        
+        this.setState({firstPictures:this.state.selectedPictures[0].imagePreviewUrl});
     }
 
     deletePictures(index,e){
@@ -315,6 +318,7 @@ class ListingCreate extends Component {
     }
 
     nextStep() {
+        console.log(this.state);
       this.setState({step:this.state.step+1});
       if(this.state.step == this.STEP.Step1_8)
       {
@@ -497,7 +501,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_100 &&
+        { this.state.step === this.STEP.Step1_1 &&
 
             <div className="row Step1_1">
               <div className="col-md-6 col-lg-6  col-sm-12">
@@ -1694,7 +1698,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step1_1 &&
+          this.state.step === this.STEP.Step2_5 &&
           <div className="becomehost-2 container">
           <div className="row Step2_5">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
