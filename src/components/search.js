@@ -17,7 +17,7 @@ class Search extends Component {
         place:null,
         locationName:"Tokyo",
         listingRows: [],
-        listingsPerPage: 8,
+        listingsPerPage: 9,
         districtCodes:[],
         curDistrictCodeIndex:0
       };

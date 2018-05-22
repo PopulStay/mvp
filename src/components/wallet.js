@@ -156,12 +156,14 @@ class Wallet extends Component {
         contentLabel="Wallet Message">
           <div className="clear">
             <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
-            <br/>
-              <h3>Address:{window.address}</h3>
-              <h3>Private Key:{this.substring0x(window.privateKey)}</h3>
-            <br/>
-            <button className="btn btn-danger" onClick={this.clear}>Clear</button>
-            <button className="btn btn-primary" onClick={this.closeClearInfoModal}>Cancel</button>
+            <div>
+              <h3>Address:</h3>
+              <p className="text1">{window.address}</p>
+              <h3>Private Key:</h3>
+              <p className="text1">{this.substring0x(window.privateKey)}</p>
+            </div>  
+            <button className="btn btn-danger Left" onClick={this.clear}>Clear</button>
+            <button className="btn btn-primary Right" onClick={this.closeClearInfoModal}>Cancel</button>
           </div>
         </Modal>
 

@@ -103,12 +103,7 @@ class GuestRegister extends React.Component {
     <div>
 
          {this.state.registered === true  && 
-          <div>
-           <Link to="/managepanel">
           <button className="logoutButton float-right">Welcome！{this.state.user}<span></span></button>
-          </Link>
-          </div>
-
         }
 
          {this.state.registered === false &&<button className="button__outline" onClick={this.openModal}>Sign up</button>}

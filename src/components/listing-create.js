@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import hostService from '../services/host-service';
 import { DateRangePicker } from 'react-dates';
 import AvatarEditor from 'react-avatar-editor';
+import BaiduMap from './BaiduMap';
 
 const customStyles = {
   content : {
@@ -926,7 +927,7 @@ class ListingCreate extends Component {
               <p>191A Rivervale Drive #11-1318,Singapore,541189,Singapore</p>
               
               <div className="Map">
-                <img className="becomehost__info" src="./images/Map.jpg" alt=""/>
+                <BaiduMap />
               </div>
 
 

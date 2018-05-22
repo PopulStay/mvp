@@ -69,7 +69,9 @@ class NavBar extends Component {
               <WalletClear onLogOut={this.onLogOut} />
             </li>
             <li className="Li5">
-              <GuestRegister/>
+              <Link to="/managepanel">
+                <GuestRegister/>
+              </Link>
             </li>
           </ul>
         </div>
