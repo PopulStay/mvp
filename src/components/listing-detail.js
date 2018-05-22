@@ -388,8 +388,8 @@ class ListingsDetail extends Component {
       <div className="row">
       <div className="col-sm-12 col-md-12 col-lg-7">
         <div className="L_box1 col-sm-8 col-md-9">
-          <p className="text1">ENTIRE VILA - VEDADO</p>
-          <p className="text2">PlacetedelVedado</p>
+          <p className="text1">{this.state.descriptioninfo.roomtype_category}</p>
+          <p className="text2">{this.state.descriptioninfo.roomdescription_title}</p>
           <div className="box1_list col-lg-9">
             <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} guests</p>
             <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} bedroom</p>
@@ -419,8 +419,8 @@ class ListingsDetail extends Component {
           </div>
         </div>
 
-        <div className="L_TEXT1">A quiet neighborhood in private estate, only 5 minutes walk away from MRT/train station. 10 mins from Airport Walking distance to Singapore Expo,Chang Business Park and new University.</div>
-        <p className="More">Read more<span>▼</span></p>
+        <div className="L_TEXT1">{this.state.descriptioninfo.roomdescription_description}</div>
+        <p className="More hide">Read more<span>▼</span></p>
 
         <div className="L_box3">
           <h5>Amenities</h5>
@@ -429,10 +429,28 @@ class ListingsDetail extends Component {
           <p className={ this.state.descriptioninfo.roomstuff_TV==1 ?  'show' : 'hide' }><img src="../images/detail-img09.png" alt="" />TV</p>
           <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img10.png" alt="" />Kitchen</p>
           <p className={ this.state.descriptioninfo.roomstuff_aircondition==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Air conditioning</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Closet/drawers</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Heat==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Heat</p>
+          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Breakfast,coffe,tea</p>
+          <p className={ this.state.descriptioninfo.roomstuff_desk_workspace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Desk/workspace</p>
+          <p className={ this.state.descriptioninfo.roomstuff_fireplace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Fireplace</p>
+          <p className={ this.state.descriptioninfo.roomstuff_iron==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Iron</p>
+          <p className={ this.state.descriptioninfo.roomstuff_hairdryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Hair dryer</p>
+          <p className={ this.state.descriptioninfo.roomstuff_petsinhouse==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Pets in the house</p>
+          <p className={ this.state.descriptioninfo.roomstuff_private_entrance==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Private entrance</p>
+          <p className={ this.state.descriptioninfo.roomstuff_smoke_detector==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Smoke detector</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Pool==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Pool</p>
+          <p className={ this.state.descriptioninfo.roomstuff_kitchen==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />kitchen</p>
+          <p className={ this.state.descriptioninfo.roomstuff_washer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Laundry - washer</p>
+          <p className={ this.state.descriptioninfo.roomstuff_dryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Laundry - dryer</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Park==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Park</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Lift==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Lift</p>
+          <p className={ this.state.descriptioninfo.roomstuff_HotTub==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Hot tub</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Gym==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Gym</p>
           <p><img src="../images/detail-img12.png" alt="" />WIFI</p>
         </div>
 
-        <p className="More">Show all amenities<span>▼</span></p>
+        <p className="More hide">Show all amenities<span>▼</span></p>
         <div className="L_box4">
             <h5>Sleeping arr 7 amenities</h5>
             <img src="../images/detail-img06.png" alt="" />
@@ -444,14 +462,14 @@ class ListingsDetail extends Component {
             <p>Check out by 12PM(noon)</p>
         </div>
 
-        <p className="More">Dead all rules<span>▼</span></p>
+        <p className="More hide">Dead all rules<span>▼</span></p>
         <div className="L_box6">
             <h5>Cancellations</h5>
             <p>Strict</p>
             <p>Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati...<span>Read more</span></p>
         </div>
         
-        <p className="More box6_More">Get details</p>
+        <p className="More box6_More hide">Get details</p>
 
         <div className="Reviews">
             <p>{this.state.neighbourhoodlist.length} Reviews</p>

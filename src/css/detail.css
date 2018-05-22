@@ -103,6 +103,8 @@
   font-size: 1.8rem;
   color: #4d4e4e;
   font-family: RobotoThin; 
+  padding: 0 0 5%;
+  border-bottom:1.5px solid #c5c5c5; 
 }
 .More{
   color:#f6416c;
@@ -118,6 +120,8 @@
 }
 .L_box3{
   overflow: hidden;
+  padding: 0 0 5%;
+  border-bottom:1.5px solid #c5c5c5; 
 }
 .L_box3 h5,.L_box4 h5,.L_box5 h5,.L_box6 h5{
   font-weight: bold; 
@@ -141,11 +145,17 @@
 }
 .L_box5{
   border-top:1.5px solid #c5c5c5; 
+  padding: 0 0 5%;
+  border-bottom:1.5px solid #c5c5c5; 
 }
 .L_box5 p,.L_box6 p{
   font-size: 1.8rem;
   margin:3% 0 0;
   font-family: RobotoThin; 
+}
+.L_box6{
+  padding: 0 0 5%;
+  border-bottom:1.5px solid #c5c5c5; 
 }
 .L_box6 p span{
   color: #f6416c;
