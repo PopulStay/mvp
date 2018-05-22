@@ -85,6 +85,7 @@ class GuestRegister extends React.Component {
       this.setState({ user:data.user });
      });
   }
+
   onAccountChange = (address) =>{
     this.setState({account:address});
      guestService.getGuesterInfo(window.address).then((data)=>{
@@ -124,7 +125,8 @@ class GuestRegister extends React.Component {
     <div>
 
 
-         {this.state.registered === true &&  this.props.clicklogout ===false  && 
+        {
+          this.state.registered === true &&  this.props.clicklogout ===false  && 
            
           <button className="logoutButton float-right"><Link to="/managepanel">Welcome！{this.state.user}<span></span></Link></button>
           
