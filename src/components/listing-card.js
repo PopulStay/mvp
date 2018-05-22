@@ -34,12 +34,14 @@ class ListingCard extends Component {
       location:roominfo.location,
       beds:roominfo.beds
     });
-    ipfsService.getListing(ipfsHash)
+    console.log(new Date())
+    ipfsService.getListing(ipfsHash)    
         .then((result)=>{
           var descriptioninfo = JSON.parse(result);
          this.setState({descriptioninfo:descriptioninfo});
          if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
          {
+          console.log(new Date())
           this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
           console.log(this.state.previewurl);
          }
