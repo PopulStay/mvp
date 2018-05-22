@@ -110,7 +110,7 @@ class WalletCreate extends React.Component {
             <h3>Private Key:</h3>
             <p className="text1">{this.substring0x(window.privateKey)}</p>
           </div>
-          <button className="btn btn-danger Left" onClick={this.closeModal}>Close</button>
+          <button className="btn btn-danger Right" onClick={this.closeModal}>Close</button>
         </div>  
         </Modal>
 
@@ -122,7 +122,7 @@ class WalletCreate extends React.Component {
           <br/>
           <h3>Please clear your account , then you can create new account!</h3>
           <br/>
-          <button className="btn btn-danger" onClick={this.closeInfoModal}>Close</button>
+          <button className="btn btn-danger Right" onClick={this.closeInfoModal}>Close</button>
         </div>  
         </Modal>
       

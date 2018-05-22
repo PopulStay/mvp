@@ -26,10 +26,13 @@ class GuestRegister extends React.Component {
       modalIsOpen: false,
       id:"",
       user:"",
+      password:"",
       account:"",
       phone:"",
       email:"",
-      registered:false
+      registered:false,
+      phoneactive:0,
+      emailactive:0,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -82,7 +85,6 @@ class GuestRegister extends React.Component {
       this.setState({ registered:true });
       this.setState({ user:data.user });
      });
-
   }
   onAccountChange = (address) =>{
     this.setState({account:address});
@@ -97,6 +99,24 @@ class GuestRegister extends React.Component {
 
   }
 
+  phonenumber(e){
+    this.setState({state:this.state.phone=e});
+    var rephone = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+    if(e.length != "" && rephone.test(e)){
+      this.setState({state: this.state.phoneactive=1});
+    }else{
+      this.setState({state: this.state.phoneactive=0});
+    }
+  }
+  email(e){
+    this.setState({state:this.state.email=e});
+    var rephone = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    if(e.length != "" && rephone.test(e)){
+      this.setState({state: this.state.emailactive=1});
+    }else{
+      this.setState({state: this.state.emailactive=0});
+    }
+  }
 
 
   render() {
@@ -106,11 +126,9 @@ class GuestRegister extends React.Component {
 
 
          {this.state.registered === true &&  this.props.clicklogout ===false  && 
-          <div>
-           <Link to="/managepanel">
-          <button className="logoutButton float-right">Welcome！{this.state.user}<span></span></button>
-          </Link>
-          </div>
+           
+          <button className="logoutButton float-right"><Link to="/managepanel">Welcome！{this.state.user}<span></span></Link></button>
+          
         }
 
          { (this.state.registered === false || this.props.clicklogout ===true ) &&<button className="button__outline" onClick={this.openModal}>Sign up</button>}
@@ -127,30 +145,35 @@ class GuestRegister extends React.Component {
                 <br/>
 
                 <div className="form-group">
-                  <label>User</label>
-                  <input type="text" className="form-control" placeholder="User name" onChange={(e) => this.setState({user: e.target.value})}/>
-                </div>
-
-                <div className="form-group">
                   <label>Wallet Account</label>
                   <input type="text"  className="form-control" placeholder="Wallet Account" 
                   value={this.props.clicklogout == true ? this.setState({account:""}) : this.state.account} disabled/>
                 </div>
 
                 <div className="form-group">
+                  <label>User</label>
+                  <input type="text" className="form-control" placeholder="User name" onChange={(e) => this.setState({user: e.target.value})}/>
+                </div>
+
+                <div className="form-group">
+                  <label>Password</label>
+                  <input type="password" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})}/>
+                </div>
+
+                <div className="form-group">
                   <label>Phone</label>
-                  <input type="number" className="form-control" placeholder="Phone" onChange={(e) => this.setState({phone: e.target.value})}/>
+                  <input type="number" className="form-control" placeholder="Phone" onChange={(e) => this.phonenumber(e.target.value)}/>
                 </div>
 
                 <div className="form-group">
                   <label >Email address</label>
-                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  onChange={(e) => this.setState({email: e.target.value})}/>
+                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  onChange={(e) => this.email(e.target.value)}/>
                   <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
-                </div>
 
+                </div>
                 <br/>
-                <img className="closeok" src="../images/ok.png" onClick={this.register} />
+                <img className={this.state.user == "" || this.state.password.length < 6  || this.state.phoneactive == 0 || this.state.emailactive == 0 ? 'closeok closeactive' : 'closeok'} src="../images/ok.png" onClick={this.register} />
                 <button className="btn btn-primary closecancel" onClick={this.closeModal}>cancel</button>
               </div>
             </Modal>

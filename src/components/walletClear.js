@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
+import guestService from '../services/guest-service';
+import web3Service from '../services/web3-service';
 
 const customStyles = {
   content : {
@@ -19,14 +21,23 @@ class WalletClear extends React.Component {
     super();
 
     this.state = {
-      modalIsOpen: false,
-      pirvatekey:""
+      modaloutOpen: false,
+      pirvatekey:"",
+      registered:false,
+      modalinOpen: false,
+      Username:'',
+      Password:'',
     };
 
-    this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
     this.clear = this.clear.bind(this);
+
+    web3Service.loadWallet();
+  }
+  componentWillMount() {
+    guestService.getGuesterInfo(window.address).then((data)=>{
+      this.setState({ registered:true });
+    });
 
   }
   clear(){
@@ -36,31 +47,24 @@ class WalletClear extends React.Component {
       window.addressShow      = null;
       window.privateKey       = null;
       reactLocalStorage.setObject('wallet', null);
-      this.closeModal();
+      this.setState({modaloutOpen:false});
       this.props.onLogOut(true);
 
   }
-  openModal() {
-    this.setState({modalIsOpen: true});
+
+  Signin(){
+
   }
 
   afterOpenModal() {
     this.subtitle.style.color = '#f00';
   }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
-  copyclick(e){
-     var DataIndex = e.currentTarget.getAttribute('data-name');
-     document.execCommand("Copy");
-     console.log("已复制好，可贴粘。"); 
-  }
   substring0x = (str) => {
     str = str +"";
     return str.substring(2,str.length);
   }
+
+    
 
 
   render() {
@@ -68,9 +72,15 @@ class WalletClear extends React.Component {
 
     <div>
 
-        <a onClick={this.openModal}>LogOut</a>
-        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
-        contentLabel="Wallet Message">
+        {this.state.registered === true &&  this.props.clicklogout ===false  && 
+          <a onClick={(e) => this.setState({modaloutOpen:true})}>LogOut</a>
+        }
+
+        {(this.state.registered === false || this.props.clicklogout ===true ) &&
+          <a onClick={(e) => this.setState({modalinOpen:true})}>LogIn</a>
+        }
+
+        <Modal isOpen={this.state.modaloutOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Wallet Message">
           <div className="clear">
             <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
             <div>
@@ -80,7 +90,27 @@ class WalletClear extends React.Component {
               <p className="text1">{this.substring0x(window.privateKey)}</p>
             </div>  
             <button className="btn btn-danger Left" onClick={this.clear}>Clear</button>
-            <button className="btn btn-primary Right" onClick={this.closeModal}>Cancel</button>
+            <button className="btn btn-primary Right"  onClick={(e) => this.setState({modaloutOpen:false})}>Cancel</button>
+          </div>
+        </Modal>
+
+        <Modal isOpen={this.state.modalinOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Wallet Message">
+          <div className="Sign">
+            <h2 ref={subtitle => this.subtitle = subtitle}>Login</h2>
+
+            <div className="form-group form1">
+              <label>User name</label>
+              <input type="text"  className="form-control" placeholder="Enter user name" onChange={(e) => this.setState({Username: e.target.value})} />
+            </div>
+
+            <div className="form-group">
+              <label>Password</label>
+              <input type="Password"  className="form-control" placeholder="Enter pass word" onChange={(e) => this.setState({Password: e.target.value})} />
+            </div>
+
+            <button className="btn btn-danger Left" onClick={this.Signin}>Login</button>
+            <button className="btn btn-primary Right" onClick={(e) => this.setState({modalinOpen:false})}>Cancel</button>
+
           </div>
         </Modal>
       
