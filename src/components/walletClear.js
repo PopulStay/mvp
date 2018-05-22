@@ -17,8 +17,8 @@ const customStyles = {
 
 
 class WalletClear extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
 
     this.state = {
       modaloutOpen: false,
@@ -27,6 +27,7 @@ class WalletClear extends React.Component {
       modalinOpen: false,
       Username:'',
       Password:'',
+      address:"",
     };
 
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -52,7 +53,16 @@ class WalletClear extends React.Component {
 
   }
 
-  Signin(){
+  import=()=>{
+      var obj=window.web3.eth.accounts.wallet.add( "0x" + this.state.pirvatekey );
+      window.address          = obj.address;
+      window.addressShow      = obj.address.substring(0,10)+"...";
+      window.privateKey       = "0x" + this.state.pirvatekey;
+       reactLocalStorage.setObject('wallet', 
+      {'address': window.address,
+      'privateKey': window.privateKey,
+      'addressshow': window.addressshow});
+      this.setState({modalinOpen:false});
 
   }
 
@@ -95,22 +105,16 @@ class WalletClear extends React.Component {
         </Modal>
 
         <Modal isOpen={this.state.modalinOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Wallet Message">
-          <div className="Sign">
-            <h2 ref={subtitle => this.subtitle = subtitle}>Login</h2>
-
-            <div className="form-group form1">
-              <label>User name</label>
-              <input type="text"  className="form-control" placeholder="Enter user name" onChange={(e) => this.setState({Username: e.target.value})} />
-            </div>
-
+          <div className="Import">
+          <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
+          <br/>
             <div className="form-group">
-              <label>Password</label>
-              <input type="Password"  className="form-control" placeholder="Enter pass word" onChange={(e) => this.setState({Password: e.target.value})} />
-            </div>
-
-            <button className="btn btn-danger Left" onClick={this.Signin}>Login</button>
-            <button className="btn btn-primary Right" onClick={(e) => this.setState({modalinOpen:false})}>Cancel</button>
-
+            <label>Private Key</label>
+            <input type="text"  className="form-control" placeholder="Wallet Account" onChange={(e) => this.setState({pirvatekey: e.target.value})} />
+          </div>
+          <br/>
+          <button className="btn btn-danger Left" onClick={this.import}>Import</button>
+          <button className="btn btn-primary Right " onClick={(e) => this.setState({modalinOpen:false})}>Cancel</button>
           </div>
         </Modal>
       
