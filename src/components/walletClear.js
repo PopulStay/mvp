@@ -37,7 +37,7 @@ class WalletClear extends React.Component {
       window.privateKey       = null;
       reactLocalStorage.setObject('wallet', null);
       this.closeModal();
-      this.props.onLogOut();
+      this.props.onLogOut(true);
 
   }
   openModal() {

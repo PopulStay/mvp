@@ -20,7 +20,7 @@ class NavBar extends Component {
         guests:null,
         place:null,
         locationName:"Tokyo",
-        registered:false
+        clicklogout:false
       };
       window.searchCondition = this.state;
   }
@@ -29,8 +29,8 @@ class NavBar extends Component {
     this.setState({state: this.state.locationName = DataName});
   }
 
-  onLogOut = () =>{
-    this.setState({ registered:false });
+  onLogOut = (value) =>{
+    this.setState({ clicklogout:value });
   }
 
   render() {
@@ -69,9 +69,7 @@ class NavBar extends Component {
               <WalletClear onLogOut={this.onLogOut} />
             </li>
             <li className="Li5">
-              <Link to="/managepanel">
-                <GuestRegister/>
-              </Link>
+              <GuestRegister clicklogout={this.state.clicklogout}  onLogOut={this.onLogOut} />
             </li>
           </ul>
         </div>

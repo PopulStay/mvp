@@ -65,6 +65,7 @@
     "nuka-carousel": "^4.1.0",
     "pure-react-carousel": "^1.12.1",
     "react": "^15.6.2",
+    "react-avatar-editor": "^11.0.2",
     "react-dates": "^16.6.1",
     "react-dom": "^15.6.2",
     "react-flip-move": "^3.0.1",

@@ -75,7 +75,7 @@ class ListingCreate extends Component {
         
 
         this.state = {
-            step: 1,
+            step: 0,
             roomtype_category:"Entire place",
             roomtype_guests:1,
             roomtype_location:"Hong Kong",
