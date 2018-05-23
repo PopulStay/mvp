@@ -716,8 +716,9 @@
   margin-left: 3%;
   margin-top: 2%;
 }
-.agora_remote{
-  height: 280px !important;
+#agora_remote{
+  width: 100% !important;
+  height: 100% !important;
   overflow: hidden;
 }
 .video #agora_remote>div:first-child>video{

@@ -257,6 +257,7 @@
 
 .ReactModal__Overlay{
  background: rgba(179, 54, 99, 0.9) !important;
+ z-index: 9999;
 }
 .Signup img.close{
   width: 15px;
