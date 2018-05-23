@@ -624,10 +624,12 @@
 .video h6 span.Answer{
   color: #f6416c;
   border-bottom: 1px solid #f6416c;
+  cursor: pointer;
 }
 .video h6 span.Decline{
   color: #151b4e;
   border-bottom: 1px solid #151b4e;
+  cursor: pointer;
 }
 .video>ul{
   max-height: 200px;
@@ -724,12 +726,11 @@
   transform:translate(-50%,0);
   background: url(../images/video.png) no-repeat;
   background-size: 100% 100%;
-  padding: 2%;
 }
 .video span.close{
   position: fixed;
   top: 13%;
-  right: 28%;
+  right: 34%;
   font-size: 3rem;
   color: #fff;
   opacity: 0.5;
@@ -739,12 +740,13 @@
 }
 .video #agora_remote>div:first-child>video{
   position: inherit !important;
-  width: 100% !important;
-  height: 100% !important;
+  width: 485px !important;
+  height: 350px !important;
   top: 0 !important;
   left: 0 !important;
   bottom: 0 !important;
   right: 0 !important;
+  margin: 15px;
 }
 .video #agora_remote>div{
   background: none!important;

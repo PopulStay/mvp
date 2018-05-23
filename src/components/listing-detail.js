@@ -29,7 +29,8 @@ class ListingsDetail extends Component {
 
     this.CONST = {
       weiToEther: 1000000000000000000,
-      weiToGwei:1000000000
+      weiToGwei:1000000000,
+      weiToUSD:1000000,
       
     }
 
@@ -45,7 +46,7 @@ class ListingsDetail extends Component {
       user: "Loading...",
       ppsPrice: 0,
       ethPrice:0,
-      usdPrice:99,
+      usdPrice:0,
       Total_price:0,
       ipfsHash: null,
       lister: null,
@@ -104,7 +105,7 @@ class ListingsDetail extends Component {
     houselistingService.getHouseInfoDetail(this.props.listingId)
     .then((result) => {
         var roominfo = JSON.parse(result._roominfo);
-        this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei});
+        this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
         return ipfsService.getListing(ipfsHash)
     }).then((result)=>{
           var descriptioninfo = JSON.parse(result);
