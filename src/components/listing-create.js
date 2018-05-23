@@ -225,6 +225,7 @@ class ListingCreate extends Component {
             canvasScale:1,
             editor:0,
             photosindex:0,
+            modalsubmit:false,
             
 
         }
@@ -266,6 +267,7 @@ class ListingCreate extends Component {
     }
 
     submit(){
+      this.setState({modalsubmit:true});
          houselistingService.submitListing(this.state)
           .then((tx) => {
             console.log(this.state)
@@ -277,7 +279,8 @@ class ListingCreate extends Component {
           })
           .then((blockNumber) => {
               this.setState({
-                  step: this.STEP.SUCCESS
+                  step: this.STEP.SUCCESS,
+                  modalsubmit:false
               });
           })
           .catch((error) => {
@@ -3557,6 +3560,14 @@ class ListingCreate extends Component {
 
                
              </div>
+             <Modal isOpen={this.state.modalsubmit} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+              contentLabel="Example Modal">
+                <div className="submit">
+                    <h2>Processing your booking</h2>
+                    <br/>
+                    <h2>Please stand by<span className="glyphicon glyphicon-refresh"></span></h2>
+                </div>
+              </Modal>
 
              <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
                   <img className="stepbg" src="../images/step3_18img.png" alt=""/>
@@ -3609,6 +3620,13 @@ class ListingCreate extends Component {
             <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.submit}>Publish listing</button>
 
           </div>
+          <Modal isOpen={this.state.modalsubmit} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+          contentLabel="Example Modal">
+            <div className="submit">
+                <h2>Processing your booking</h2>
+                <h2>Please stand by...</h2>
+            </div>
+          </Modal>
           <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
               <img className="stepbg" src="../images/step3_18img.png" alt=""/>
               <div className="Preview">
