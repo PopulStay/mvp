@@ -611,6 +611,7 @@ class ListingsDetail extends Component {
                     focusedInput={this.state.focusedInput}
                     isDayBlocked={day=>this.isDayBlocked(day)}
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
+                    readOnly
                   />
               }
               </div>

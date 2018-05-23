@@ -268,6 +268,7 @@ class ListingCreate extends Component {
     submit(){
          houselistingService.submitListing(this.state)
           .then((tx) => {
+            console.log(this.state)
               this.setState({
                   step: this.STEP.PROCESSING
               });
