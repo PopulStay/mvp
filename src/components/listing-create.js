@@ -226,6 +226,7 @@ class ListingCreate extends Component {
             editor:0,
             photosindex:0,
             modalsubmit:false,
+            PicturesSize:"",
             
 
         }
@@ -248,7 +249,6 @@ class ListingCreate extends Component {
         this.deletePictures = this.deletePictures.bind(this);
         this.submit = this.submit.bind(this);
         this.openModal = this.openModal.bind(this);
-        this.afterOpenModal = this.afterOpenModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.deleteRules = this.deleteRules.bind(this);
 
@@ -258,9 +258,6 @@ class ListingCreate extends Component {
       this.setState({modalIsOpen: true});
     }
 
-    afterOpenModal() {
-      this.subtitle.style.color = '#f00';
-    }
 
     closeModal() {
       this.setState({modalIsOpen: false});
@@ -284,6 +281,7 @@ class ListingCreate extends Component {
               });
           })
           .catch((error) => {
+              console.log(error)
           })
     }
 
@@ -295,17 +293,25 @@ class ListingCreate extends Component {
         let reader = new FileReader();
         let file = event.target.files[0];
 
-          reader.onloadend = () => {
-            files.push({
-              file: file,
-              imagePreviewUrl: reader.result
-            });
-            this.setState({selectedPictures:files});
-          }
-
-        reader.readAsDataURL(file)
+        var imgsize = (file.size/1024).toFixed(2); 
+        console.log(imgsize)
+        if(imgsize<600){
+            reader.onloadend = () => {
+              files.push({
+                file: file,
+                imagePreviewUrl: reader.result
+              });
+              this.setState({selectedPictures:files});
+            }
+          reader.readAsDataURL(file)
+          this.setState({
+              firstPictures:this.state.selectedPictures[0].imagePreviewUrl,
+              PicturesSize:''
+          });
+        }else{
+          this.setState({PicturesSize:'The picture must not exceed 600KB'})
+        }
         
-        this.setState({firstPictures:this.state.selectedPictures[0].imagePreviewUrl});
     }
 
     deletePictures(index,e){
@@ -1511,6 +1517,7 @@ class ListingCreate extends Component {
                     <input className="btn btn-default btn-lg bg-pink color-white Fileipt" type="file" onChange={(e)=>this.fileChangedHandler(e)}/>
                  </div>
               </div>
+              <p className="textpink">{this.state.PicturesSize}</p>
 
               <div className="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
@@ -2117,7 +2124,7 @@ class ListingCreate extends Component {
                   <p className="textpink" onClick={(e) => {this.openModal(e)}} >Explain why</p>
                 </div>
 
-                <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+                <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} 
                 contentLabel="Wallet Message">
                 <div className="Explainwhy">
                   <span className="close" onClick={(e) => {this.closeModal(e)}}>×</span>
@@ -3560,10 +3567,10 @@ class ListingCreate extends Component {
 
                
              </div>
-             <Modal isOpen={this.state.modalsubmit} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+             <Modal isOpen={this.state.modalsubmit} onRequestClose={this.closeModal} style={customStyles} 
               contentLabel="Example Modal">
                 <div className="submit">
-                    <h2>Processing your booking</h2>
+                    <h2>Processing your submit</h2>
                     <br/>
                     <h2>Please stand by<span className="glyphicon glyphicon-refresh"></span></h2>
                 </div>
@@ -3620,11 +3627,11 @@ class ListingCreate extends Component {
             <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.submit}>Publish listing</button>
 
           </div>
-          <Modal isOpen={this.state.modalsubmit} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+          <Modal isOpen={this.state.modalsubmit} onRequestClose={this.closeModal} style={customStyles} 
           contentLabel="Example Modal">
             <div className="submit">
-                <h2>Processing your booking</h2>
-                <h2>Please stand by...</h2>
+                <h2>Processing your submit</h2>
+                <h2>Please stand by<span className="glyphicon glyphicon-refresh"></span></h2>
             </div>
           </Modal>
           <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
