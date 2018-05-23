@@ -38,7 +38,11 @@ class Video extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props.listingId);
+    window.io.socket=window.io.sails.connect();
+  }
+
+    componentDidMount() {
+     
      houselistingService.getHouseInfoDetail(this.props.listingId)
      .then((result) => {
         this.setState({host:result._owner});
@@ -48,6 +52,8 @@ class Video extends Component {
   }
 
   componentWillUnmount () {
+
+
     this.client && this.client.unpublish(this.localStream)
     this.localStream && this.localStream.close()
     this.client && this.client.leave(() => {
