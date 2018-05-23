@@ -34,21 +34,26 @@ class ListingCard extends Component {
       location:roominfo.location,
       beds:roominfo.beds
     });
-    console.log(new Date())
-    ipfsService.getListing(ipfsHash)    
-        .then((result)=>{
-          var descriptioninfo = JSON.parse(result);
-         this.setState({descriptioninfo:descriptioninfo});
-         if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
-         {
-          console.log(new Date())
-          this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
-          console.log(this.state.previewurl);
-         }
 
-    }).catch((error) => {
-      console.error(error);
-    });
+    if( this.props.row.profile )
+    {
+      this.setState({previewurl: this.props.row.profile.previewImage });
+    }
+    //console.log(new Date())
+    // ipfsService.getListing(ipfsHash)    
+    //     .then((result)=>{
+    //       var descriptioninfo = JSON.parse(result);
+    //      this.setState({descriptioninfo:descriptioninfo});
+    //      if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
+    //      {
+    //       console.log(new Date())
+    //       this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
+    //       console.log(this.state.previewurl);
+    //      }
+
+    // }).catch((error) => {
+    //   console.error(error);
+    // });
   }
   render() {
     return (
