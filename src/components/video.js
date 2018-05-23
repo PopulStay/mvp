@@ -48,8 +48,6 @@ class Video extends Component {
   }
 
   componentWillUnmount () {
-
-
     this.client && this.client.unpublish(this.localStream)
     this.localStream && this.localStream.close()
     this.client && this.client.leave(() => {
