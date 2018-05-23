@@ -50,6 +50,7 @@ class Video extends Component {
        Current_user:0,
        Time:"",
        modalIsOpen:false,
+       videobox:0,
     }
 
       web3Service.loadWallet();
@@ -229,7 +230,7 @@ class Video extends Component {
 
 
   videoCall = () =>{
-
+    this.setState({videobox:1})
     if( window.AgoraRTC)
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
@@ -240,8 +241,6 @@ class Video extends Component {
         this.videoJoin();
       });
     }
-
-
   }
 
   videoJoin = () =>{
@@ -394,7 +393,6 @@ class Video extends Component {
       console.log("Subscribe remote stream successfully: " + stream.getId())
       console.log(evt)
       stream.play('agora_remote');
-      this.setState({modalIsOpen:true})
     })
 
     rt.client.on("stream-removed", function (evt) {
@@ -433,10 +431,8 @@ class Video extends Component {
               {this.state.Current_user === 1 && 
                 <div className={this.state.modalIsOpen == true ? "video hide" : "video show"}>
 
-                  <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
-                    contentLabel="Example Modal">
-                        <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
-                    </Modal>
+                    <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
+                    <span className={this.state.videobox == 1 ? "close show" : "close hide" }>×</span>
 
 
                     <h4><span className="spantype"></span>
