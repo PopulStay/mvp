@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import { merge } from 'lodash';
 import {AGORA_APP_ID} from '../agora.config';
 import houselistingService from '../services/houseinfolist-service';
+import guestService from '../services/guest-service';
+import web3Service from '../services/web3-service';
+import Modal from 'react-modal';
+
+const customStyles = {
+  content : {
+    top                   : '30%',
+    left                  : '20%',
+    right                 : '20%',
+    bottom                : '30%'
+  }
+};
+
 
 class Video extends Component {
 
@@ -17,8 +30,9 @@ class Video extends Component {
       }
 
     this.state = {
-      readyState   : false,
-      attendeeMode : {
+       user:"",
+       readyState   : false,
+       attendeeMode : {
                       audioOnly : 'audio-only',
                       audience   : 'audience'
                      },
@@ -32,13 +46,21 @@ class Video extends Component {
        videoCalling:false,
        connectionCode:"",
        agora_remotetype:0,
-       guestAddress:""
+       guestAddress:"",
+       Current_user:0,
+       Time:"",
+       modalIsOpen:false,
+       videobox:0,
     }
-      
+
+      web3Service.loadWallet();
   }
 
   componentWillMount() {
     window.io.socket=window.io.sails.connect();
+     guestService.getGuesterInfo(window.address).then((data)=>{
+        this.setState({ user:data.user});
+      });
   }
 
     componentDidMount() {
@@ -47,8 +69,14 @@ class Video extends Component {
      .then((result) => {
         this.setState({host:result._owner});
         this.handleEvent();
+
+        if(window.address == this.state.host){
+          this.setState({Current_user:1});
+        }else{
+          this.setState({Current_user:0});
+        }
+       
      });
-    
   }
 
   componentWillUnmount () {
@@ -67,6 +95,7 @@ class Video extends Component {
 
 //sending message and online control
   handleEnterMessage =()=>{
+    console.log(window.address)
      if( window.address == this.state.host )
      {
         window.io.socket.get("/messages/tellguest?text="+this.state.text+"&host="+this.state.host+"&guest="+this.state.connectguest, 
@@ -201,7 +230,7 @@ class Video extends Component {
 
 
   videoCall = () =>{
-
+    this.setState({videobox:1})
     if( window.AgoraRTC)
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
@@ -212,8 +241,6 @@ class Video extends Component {
         this.videoJoin();
       });
     }
-
-
   }
 
   videoJoin = () =>{
@@ -377,39 +404,93 @@ class Video extends Component {
     })
   }
 
+   afterOpenModal=()=> {
+    this.subtitle.style.color = '#f00';
+  }
+
+  closeModal=()=> {
+    this.setState({modalIsOpen: false});
+  }
+
+
+  openInfoModal=()=>{
+    this.setState({infoModalIsOpen: true});
+  }
+
+  afterOpenInfoModal=()=> {
+    this.subtitle.style.color = '#f00';
+  }
+
 
   render() {
 
     return (  
-              <div className="video">
+
+            <div>
+
+              {this.state.Current_user === 1 && 
+                <div className={this.state.modalIsOpen == true ? "video hide" : "video show"}>
+
+                    <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
+                    <span className={this.state.videobox == 1 ? "close show" : "close hide" }>×</span>
+
+
+                    <h4><span className="spantype"></span>
+                      <p>{this.state.user}<br/>
+                          <span className={this.state.online ? "spanshow" : "hide"}>Host on line</span>
+                          <span className={!this.state.online ? "spanshow" : "hide"}>Host off line</span>
+                          <span className={this.state.readyState ? "spanshow" : "hide"}>&nbsp;&nbsp;in Talking</span>
+                      </p>
+                    </h4>
+                     <ul>
+                        {this.state.messagearr.map((item,index) => (
+                            <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
+                              <img  className={item.index == 0 ? "show videorightimg" : "hide videorightimg"} src="../images/becomehost-triangle.png" />
+                              <img  className={item.index == 1 ? "show videoleftimg" : "hide videoleftimg"} src="../images/becomehost-triangle1.png" />
+                            </li>
+                          ))
+                        }
+                     </ul>
+                     <h6 className={this.state.videoCalling || this.state.agora_remotetype == 1 ? "show" : "hide"}><p>Video call</p><a onClick={this.answerVideo}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
+                     <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><a onClick={this.answerAudio}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
+                     <p className="text2"></p>
+                     <div className="videobtn">
+                        <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
+                        <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
+                        <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
+                     </div>
+                </div>
+              }
+              {this.state.Current_user === 0 && 
+                <div className="video">
                   <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
-                  <h4>
-                    <span className="spantype"></span>
-                    <p>host’s name<br/>
-                        <span className={this.state.online ? "spanshow" : "hide"}>Host on line</span>
-                        <span className={!this.state.online ? "spanshow" : "hide"}>Host off line</span>
-                        <span className={this.state.readyState ? "spanshow" : "hide"}>&nbsp;&nbsp;in Talking</span>
-                    </p>
-                  </h4>
-                   <ul>
-                      {this.state.messagearr.map((item,index) => (
-                          <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
-                            <img  className={item.index == 0 ? "show videorightimg" : "hide videorightimg"} src="../images/becomehost-triangle.png" />
-                            <img  className={item.index == 1 ? "show videoleftimg" : "hide videoleftimg"} src="../images/becomehost-triangle1.png" />
-                          </li>
-                        ))
-                      }
-                   </ul>
-                   <h6 className={this.state.videoCalling || this.state.agora_remotetype == 1 ? "show" : "hide"}><p>Video call</p><a onClick={this.answerVideo}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
-                   <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><a onClick={this.answerAudio}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
-                   <p className="text2"></p>
-                   <div className="videobtn">
-                      <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
-                      <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
-                      <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
-                   </div>
-                  </div>
-            )
+                    <h4><span className="spantype"></span>
+                      <p>{this.state.user}<br/>
+                          <span className={this.state.online ? "spanshow" : "hide"}>Host on line</span>
+                          <span className={!this.state.online ? "spanshow" : "hide"}>Host off line</span>
+                          <span className={this.state.readyState ? "spanshow" : "hide"}>&nbsp;&nbsp;in Talking</span>
+                      </p>
+                    </h4>
+                     <ul>
+                        {this.state.messagearr.map((item,index) => (
+                            <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
+                              <img  className={item.index == 0 ? "show videorightimg" : "hide videorightimg"} src="../images/becomehost-triangle.png" />
+                              <img  className={item.index == 1 ? "show videoleftimg" : "hide videoleftimg"} src="../images/becomehost-triangle1.png" />
+                            </li>
+                          ))
+                        }
+                     </ul>
+                     <p className="text2"></p>
+                     <div className="videobtn">
+                        <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
+                        <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
+                        <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
+                     </div>
+                </div>
+              }
+
+             </div> 
+      )
   }
 }
 
