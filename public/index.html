@@ -1,19 +1,12 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://server.populStay.com/js/dependencies/sails.io.js"></script>
-<script type="text/javascript">
- io.sails.url = 'https://server.populstay.com/';
-</script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-   
+
     <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -24,49 +17,71 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>PopulStay Demo DApp</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="root"></div>
 
-  <script type="text/javascript">
-    /* Google Analytics */
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script type="text/javascript">
+        /* Google Analytics */
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-106384880-1', 'auto');
-    ga('send', 'pageview');
+        ga('create', 'UA-106384880-1', 'auto');
+        ga('send', 'pageview');
 
-    /* FB pixel */
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1637426076553052');
-    fbq('track', 'PageView');
+        /* FB pixel */
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1637426076553052');
+        fbq('track', 'PageView');
 
-    /* <![CDATA[ */
-    var google_conversion_id = 825554032;
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-    /* ]]> */
-  </script>
+        /* <![CDATA[ */
+        var google_conversion_id = 825554032;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+</body>
 
-  <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-  </script>
-  <noscript>
-  <div style="display:inline;">
-  <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/825554032/?guid=ON&amp;script=0"/>
-  </div>
-  </noscript>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1637426076553052&ev=PageView&noscript=1"/></noscript>
-  <script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-2.1.0.js"></script>
-  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=cLxM2n0SnKLdPMbZRjxAeFKT6PQ8ddep"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://server.populstay.com/js/dependencies/sails.io.js" autoConnect="false" environment="production"></script>
+<script type="text/javascript">
+    io.sails.url = 'https://server.populstay.com/';
+</script>
+<script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-2.1.0.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=cLxM2n0SnKLdPMbZRjxAeFKT6PQ8ddep"></script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+<div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/825554032/?guid=ON&amp;script=0"/></div>
+</noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1637426076553052&ev=PageView&noscript=1"/></noscript>
 
-  </body>
 </html>
