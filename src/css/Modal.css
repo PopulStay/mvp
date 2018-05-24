@@ -232,7 +232,8 @@
 .Sign button,
 .Create button,
 .Create1 button,
-.Import button{
+.Import button,
+.withdraw button{
   width: 30%;
   padding: 1% 0;
   margin: 6% 5% 0;
@@ -244,7 +245,8 @@
 .Gas button.Left,
 .deposit button.Left,
 .Sign button.Left,
-.Import button.Left{
+.Import button.Left,
+.withdraw button.Left{
   color:#f6416c;
   background: #fff;
 }
@@ -255,9 +257,11 @@
 .Create1 button,
 .Sign button.Right,
 .Create button.Right,
-.Import button.Right{
+.Import button.Right,
+.withdraw button.Right{
   background:#f6416c;
   color: #fff;
+  border:none;
 }
 .clear button:hover,
 .PirvateKey button:hover{
@@ -271,17 +275,11 @@
   width: 100%;
   margin:6% 0 0;
 }
-.Gas>.form-group,
-.deposit>.form-group,
-.Sign>.form-group,
-.Import>.form-group{
-  width: 90%;
-  margin: 0 auto;
-}
 .Gas>.form-group>input,
 .deposit>.form-group>input,
 .Sign>.form-group>input,
-.Import>.form-group>input{
+.Import>.form-group>input,
+.withdraw .submitbox input{
   border:1px solid #f6416c;
   height: 35px;
   font-size: 1.6rem;
@@ -409,4 +407,34 @@
 }
 .closeactive{
   opacity: 0.5;
+}
+.withdraw{
+  width: 550px;
+}
+.withdraw table tr{
+  width: 100%;
+}
+.withdraw table tr,
+.withdraw table th{
+  text-align: center;
+  font-size: 1.6rem;
+}
+.withdraw .submitbox{
+  width: 100%;
+  margin: 0;
+}
+.withdraw .submitbox label{
+  font-size: 1.8rem;
+}
+.withdraw table tr td:last-child{
+  width: 30%;
+}
+.withdraw table td button{
+  width: 48%;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.withdraw button{
+  width:35%;
+  margin-top: 3%;
 }
