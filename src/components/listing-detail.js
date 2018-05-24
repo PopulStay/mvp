@@ -391,8 +391,7 @@ class ListingsDetail extends Component {
       <div className="carousel-slider">
       <Carousel>
        {this.state.slides.map(slide => (
-        <div className="carousel-inner item">
-        <img src={slide.imgageUrl}  />
+        <div className="carousel-inner item" style={{backgroundImage:"url("+slide.imgageUrl+")"}}>
         </div>
          ))}
       </Carousel>

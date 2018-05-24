@@ -7157,11 +7157,12 @@ button.close {
   height: 600px !important;
   position: relative;
 }
-.carousel-inner,
-.slider .slider-list img{
+.carousel-inner{
   width: 100%;
-  height: 100%;
-  margin-top: -10%;
+  height: 600px;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
