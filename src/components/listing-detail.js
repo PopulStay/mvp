@@ -177,6 +177,11 @@ class ListingsDetail extends Component {
 
   loadOrdered = (id) =>{
       houselistingService.getHouseInfoById(id).then((data)=>{
+        if(data)
+        {
+          this.state.slide.push(data.profile.previewImage);
+        }
+
         if(data.bookedDate != undefined ){
             this.setState({DateLists: data.bookedDate.data});
         }
