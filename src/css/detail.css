@@ -718,25 +718,30 @@
   margin-left: 3%;
   margin-top: 2%;
 }
-#agora_remote{
-  overflow: hidden;
+.video .videobox{
   position: fixed;
   top:10%;
   left:50%;
   transform:translate(-50%,0);
+}
+#agora_remote{
+  overflow: hidden;
   background: url(../images/video.png) no-repeat;
   background-size: 100% 100%;
 }
-.video span.close{
-  position: fixed;
-  top: 13%;
-  right: 34%;
-  font-size: 3rem;
+.video span.glyphicon{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 80%;
+  right: 46%;
+  font-size: 2rem;
+  border-radius: 50%;
   color: #fff;
-  opacity: 0.5;
-}
-.video span.close:hover{
-  opacity: 1;
+  background: #f6416c;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
 }
 .video #agora_remote>div:first-child>video{
   position: inherit !important;

@@ -431,9 +431,10 @@ class Video extends Component {
               {this.state.Current_user === 1 && 
                 <div className={this.state.modalIsOpen == true ? "video hide" : "video show"}>
 
+                  <div className="videobox">  
                     <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
-                    <span className={this.state.videobox == 1 ? "close show" : "close hide" }>×</span>
-
+                    <span className={this.state.videobox == 1 ? "glyphicon glyphicon-earphone show" : "glyphicon glyphicon-earphone hide" }></span>
+                  </div>  
 
                     <h4><span className="spantype"></span>
                       <p>{this.state.user}<br/>
