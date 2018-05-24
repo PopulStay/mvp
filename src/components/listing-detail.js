@@ -172,9 +172,11 @@ class ListingsDetail extends Component {
 
 
   loadOrdered = (id) =>{
-    houselistingService.getHouseInfoById(id).then((data)=>{
-      this.setState({DateLists: data.bookedDate.data});
-    });
+      houselistingService.getHouseInfoById(id).then((data)=>{
+        if(data.bookedDate != undefined ){
+            this.setState({DateLists: data.bookedDate.data});
+        }
+      });
   }
 
   handleBooking() {

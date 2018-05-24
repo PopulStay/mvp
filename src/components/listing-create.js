@@ -76,7 +76,7 @@ class ListingCreate extends Component {
 
         this.state = {
             step: 0,
-            roomtype_category:"Entire place",
+            roomtype_category:"Whole house",
             roomtype_guests:1,
             roomtype_location:"Hong Kong",
             roomdescription_homeorhotel:"Please choose",
@@ -193,6 +193,14 @@ class ListingCreate extends Component {
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
             Check_in_time:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             homeorhotels:['apartment','Single house','Subsidiary unit','Characteristic house','Breakfast and Breakfast','The Inn Boutique and other types'],
+            homeotypes:[
+                ["Apartment type residence","A common apartment","Cuban family hotel","Loft","Hotel style apartment"],
+                ['A complete set of single house','Bungalow','Log cabin','Cuban family hotel','Holiday wooden house','Village hut','Greeks','Italy Damm','cupola','Primary residence acupoint','Agritainment','A ship’s house','Thatched cottage','Lighthouse','South Korean boarding house','Anglo French shepherd’s hut','Miniature house','Villas','Italy Truro rock top round house','Villa'],
+                ['Guest Room','Guest suite','Agritainment'],
+                ['The Barn','ship','Bus','Camping car / RV','Camping area','Castle','Cave','cupola','Primary residence acupoint','Agritainment','A ship’s house','Thatched cottage','Ice house','Islands','Lighthouse','South Korean boarding house','aircraft','Anglo French shepherd’s hut','Tent','Miniature house','tepee','Train','Tree House','Windmill house','Mongolian Yurts'],
+                ['Breakfast and Breakfast','Cuban family hotel','Agritainment','Taiwan Lodge','Natural Hostel','ryokan'],
+                ['The Inn Boutique','The Residence Hotel','India antiquities Hotel','Hostel','Hotel','Natural Hostel','Resort','Hotel style apartment']
+            ],
             types:['Single room','double room','family suite','business suite'],
             guestshaves:['Entire place'],
             Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
@@ -227,8 +235,7 @@ class ListingCreate extends Component {
             photosindex:0,
             modalsubmit:false,
             PicturesSize:"",
-            
-
+            National_name:["Angola-安哥拉-0244","Afghanistan-阿富汗-93","Albania-阿尔巴尼亚-335","Algeria-阿尔及利亚-213","Andorra-安道尔共和国-376","Anguilla-安圭拉岛-1254","Antigua and Barbuda-安提瓜和巴布达-1268","Argentina-阿根廷-54","Armenia-亚美尼亚-374","Ascension-阿森松-247","Australia-澳大利亚-61","Austria-奥地利-43","Azerbaijan-阿塞拜疆-994","Bahamas-巴哈马-1242","Bahrain-巴林-973","Bangladesh-孟加拉国-880","Barbados-巴巴多斯-1246","Belarus-白俄罗斯-375","Belgium-比利时-32","Belize-伯利兹-501","Benin-贝宁-229","Bermuda Is-百慕大群岛-1441","Bolivia-玻利维亚-591","Botswana-博茨瓦纳-267","Brazil-巴西-55","Brunei-文莱-673","Bulgaria-保加利亚-359","Burkina Faso-布基纳法索-226","Burma-缅甸-95","Burundi-布隆迪-257","Cameroon-喀麦隆-237","Canada-加拿大-1","Cayman Is-开曼群岛-1345","Central African Republic-中非共和国-236","Chad-乍得-235","Chile-智利-56","China-中国-86","Colombia-哥伦比亚-57","Congo-刚果-242","Cook Is-库克群岛-682","Costa Rica-哥斯达黎加-506","Cuba-古巴-53","Cyprus-塞浦路斯-357","Czech Republic-捷克-420","Denmark-丹麦-45","Djibouti-吉布提-253","Dominica Rep-多米尼加共和国-1890","Ecuador-厄瓜多尔-593","Egypt-埃及-20","EI Salvador-萨尔瓦多-503","Estonia-爱沙尼亚-372","Ethiopia-埃塞俄比亚-251","Fiji-斐济-679","Finland-芬兰-358","France-法国-33","French Guiana-法属圭亚那-594","French Polynesia-法属玻利尼西亚-689","Gabon-加蓬-241","Gambia-冈比亚-220","Georgia-格鲁吉亚-995","Germany-德国-49","Ghana-加纳-233","Gibraltar-直布罗陀-350","Greece-希腊-30","Grenada-格林纳达-1809","Guam-关岛-1671","Guatemala-危地马拉-502","Guinea-几内亚-224","Guyana-圭亚那-592","Haiti-海地-509","Honduras-洪都拉斯-504","Hongkong-香港-852","Hungary-匈牙利-36","Iceland-冰岛-354","India-印度-91","Indonesia-印度尼西亚-62","Iran-伊朗-98","Iraq-伊拉克-964","Ireland-爱尔兰-353","Israel-以色列-972","Italy-意大利-39","Ivory Coast-科特迪瓦-225","Jamaica-牙买加-1876","Japan-日本-81","Jordan-约旦-962","Kampuchea (Cambodia )-柬埔寨-855","Kazakstan-哈萨克斯坦-327","Kenya-肯尼亚-254","Korea-韩国-82","Kuwait-科威特-965","Kyrgyzstan-吉尔吉斯坦-331","Laos-老挝-856","Latvia-拉脱维亚-371","Lebanon-黎巴嫩-961","Lesotho-莱索托-266","Liberia-利比里亚-231","Libya-利比亚-218","Liechtenstein-列支敦士登--423","Lithuania-立陶宛-370","Luxembourg-卢森堡-352","Macao-澳门-853","Madagascar-马达加斯加-261","Malawi-马拉维-265","Malaysia-马来西亚-60","Maldives-马尔代夫-960","Mali-马里-223","Malta-马耳他-356","Mariana Is-马里亚那群岛-1670","Martinique-马提尼克-596","Mauritius-毛里求斯-230","Mexico-墨西哥-52","Moldova-摩尔多瓦-373","Monaco-摩纳哥-377","Mongolia-蒙古-976","Montserrat Is-蒙特塞拉特岛-1664","Morocco-摩洛哥-212","Mozambique-莫桑比克-258","Namibia-纳米比亚-264","Nauru-瑙鲁-674","Nepal-尼泊尔-977","Netheriands Antilles-荷属安的列斯-599","Netherlands-荷兰-31","New Zealand-新西兰-64","Nicaragua-尼加拉瓜-505","Niger-尼日尔-227","Nigeria-尼日利亚-234","North Korea-朝鲜-850","Norway-挪威-47","Oman-阿曼-968","Pakistan-巴基斯坦-92","Panama-巴拿马-507","Papua New Cuinea-巴布亚新几内亚-675","Paraguay-巴拉圭-595","Peru-秘鲁-51","Philippines-菲律宾-63","Poland-波兰-48","Portugal-葡萄牙-351","Puerto Rico-波多黎各-1787","Qatar-卡塔尔-974","Reunion-留尼旺-262","Romania-罗马尼亚-40","Russia-俄罗斯-7","Saint Lueia-圣卢西亚-1758","Saint Vincent-圣文森特岛-1784","Samoa Eastern-东萨摩亚(美)-684","Samoa Western-西萨摩亚-685","San Marino-圣马力诺-378","Sao Tome and Principe-圣多美和普林西比-239","Saudi Arabia-沙特阿拉伯-966","Senegal-塞内加尔-221","Seychelles-塞舌尔-248","Sierra Leone-塞拉利昂-232","Singapore-新加坡-65","Slovakia-斯洛伐克-421","Slovenia-斯洛文尼亚-386","Solomon Is-所罗门群岛-677","Somali-索马里-252","South Africa-南非-27","Spain-西班牙-34","SriLanka-斯里兰卡-94","St.Lucia-圣卢西亚-1758","St.Vincent-圣文森特-1784","Sudan-苏丹-249","Suriname-苏里南-597","Swaziland-斯威士兰-268","Sweden-瑞典-46","Switzerland-瑞士-41","Syria-叙利亚-963","Taiwan-台湾省-886","Tajikstan-塔吉克斯坦-992","Tanzania-坦桑尼亚-255","Thailand-泰国-66","Togo-多哥-228","Tonga-汤加-676","Trinidad and Tobago-特立尼达和多巴哥-1809","Tunisia-突尼斯-216","Turkey-土耳其-90","Turkmenistan-土库曼斯坦-993","Uganda-乌干达-256","Ukraine-乌克兰-380","United Arab Emirates-阿拉伯联合酋长国-971","United Kiongdom-英国-44","United States of America-美国-1","Uruguay-乌拉圭-598","Uzbekistan-乌兹别克斯坦-233","Venezuela-委内瑞拉-58","Vietnam-越南-84","Yemen-也门-967","Yugoslavia-南斯拉夫-381","Zimbabwe-津巴布韦-263","Zaire-扎伊尔-243","Zambia-赞比亚-260"],
         }
         this.DETA={
             current_year : 1,
@@ -511,7 +518,7 @@ class ListingCreate extends Component {
     return (
       <div className="becomehost-1 container">
 
-        { this.state.step === this.STEP.Step1_1 &&
+        { this.state.step === this.STEP.Step1_100 &&
 
             <div className="row Step1_1">
               <div className="col-md-6 col-lg-6  col-sm-12">
@@ -547,7 +554,7 @@ class ListingCreate extends Component {
                           <button type="button" data-toggle="dropdown">for {this.state.roomtype_guests} guests<span>▼</span></button>
                           <ul className="dropdown-menu" role="menu">
                             {this.state.step1guests.map((item,index) => (
-                                <li><a onClick={(e)=>this.setState({roomtype_guests:item})} >{item}</a></li>
+                                <li><a onClick={(e)=>this.setState({roomtype_guests:item})} >for {item} guests</a></li>
                               ))
                             }
                           </ul>
@@ -1709,7 +1716,7 @@ class ListingCreate extends Component {
         }
 
         {
-          this.state.step === this.STEP.Step2_5 &&
+          this.state.step === this.STEP.Step1_1 &&
           <div className="becomehost-2 container">
           <div className="row Step2_5">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
@@ -1730,7 +1737,7 @@ class ListingCreate extends Component {
                 <div className="btn-group col-md-12 phonecode">
                   <span data-toggle="dropdown">{this.state.roomstuff_AreaCode}</span>
                   <ul className="dropdown-menu" role="menu">
-                    {this.state.Countrys.map((item,index) => (
+                    {this.state.National_name.map((item,index) => (
                         <li><a onClick={(e)=>this.setState({roomstuff_AreaCode:item})} >{item}</a></li>
                       ))
                     }
