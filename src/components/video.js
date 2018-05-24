@@ -57,7 +57,7 @@ class Video extends Component {
   }
 
   componentWillMount() {
-    window.io.socket=window.io.sails.connect();
+    
      guestService.getGuesterInfo(window.address).then((data)=>{
         this.setState({ user:data.user});
       });
@@ -95,6 +95,7 @@ class Video extends Component {
 
 //sending message and online control
   handleEnterMessage =()=>{
+
     console.log(window.address)
      if( window.address == this.state.host )
      {
@@ -122,6 +123,7 @@ class Video extends Component {
   }
 
   handleEvent =()=>{
+        window.io.socket=window.io.sails.connect();
         window.io.socket.get('/messages/join?account='+window.address+'&host='+this.state.host,(data, jwRes) =>{
         console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
         
