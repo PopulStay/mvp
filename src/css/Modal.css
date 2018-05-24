@@ -131,11 +131,16 @@
   font-size: 1.6rem;
 }
 .GuestManagment td button{
-  background: #f6416c;
+  background: #fff;
   border:1px solid #f6416c;
-  color:#fff;
+  color:#f6416c;
   line-height: 0;
   height: 30px;
+}
+.GuestManagment td button:hover{
+  border:1px solid #f6416c;
+  color:#fff;
+  background: #f6416c;
 }
 .GuestManagment td p{
   width: 100px;
@@ -410,6 +415,10 @@
 }
 .withdraw{
   width: 600px;
+}
+.withdraw table{
+  max-height: 300px;
+  overflow: hidden;
 }
 .withdraw table tr{
   width: 100%;
