@@ -36,9 +36,11 @@ class WalletWithdraw extends React.Component {
   }
 
   componentDidMount() {
-     ppsService.getBalance(window.address).then((data)=>{
+    this.setState({ Address: window.address });
+
+    ppsService.getBalance(window.address).then((data)=>{
       this.setState({ ppsBalance:data});
-     });
+    });
   }
 
   Submit(){
