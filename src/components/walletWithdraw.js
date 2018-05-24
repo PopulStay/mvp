@@ -25,7 +25,7 @@ class WalletWithdraw extends React.Component {
       Address:"",
       Size:1,
       withdrawlist:[],
-      ppsBalance:"",
+      ppsBalance:0,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -42,7 +42,6 @@ class WalletWithdraw extends React.Component {
       this.setState({ ppsBalance:data});
     });
   }
-
   Submit(){
     if(this.state.Address != "" || this.state.Size >1){
       var withdrawlist = this.state.withdrawlist;
@@ -50,7 +49,7 @@ class WalletWithdraw extends React.Component {
           Address:this.state.Address,
           Size:this.state.Size
       })
-      this.setState({withdrawlist:withdrawlist,Address:"",Size:1})
+      this.setState({withdrawlist:withdrawlist,Address:window.address,Size:1})
     }
   }
   openModal() {
@@ -75,11 +74,12 @@ class WalletWithdraw extends React.Component {
           withdrawlist: this.state.withdrawlist.filter((elem, i) => index != i)
     });
   }
+
   Size(e){
-    if (e.target.value<this.state.ppsBalance){
-      this.setState({Size:e.target.value})
-    }else{
+    if (Number(e.target.value) >= Number(this.state.ppsBalance)){
       this.setState({Size:this.state.ppsBalance})
+    }else{
+      this.setState({Size:e.target.value})
     }
   }
 
@@ -103,10 +103,10 @@ class WalletWithdraw extends React.Component {
               </tr>
               {this.state.withdrawlist.map((item,index) => (
                 <tr>
-                  <td>{item.Address}</td>
-                  <td>{item.Size}</td>
-                  <td>{index}</td>
-                  <td><button className="Left">Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
+                  <td className="td1"><input type="text" value={item.Address} readonly /></td>
+                  <td className="td2"><p>{item.Size}</p></td>
+                  <td className="td3"><p></p></td>
+                  <td className="td4"><button className="Left">Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
                 </tr>  
                 ))
               }

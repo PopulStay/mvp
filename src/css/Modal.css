@@ -409,7 +409,7 @@
   opacity: 0.5;
 }
 .withdraw{
-  width: 550px;
+  width: 600px;
 }
 .withdraw table tr{
   width: 100%;
@@ -426,8 +426,25 @@
 .withdraw .submitbox label{
   font-size: 1.8rem;
 }
-.withdraw table tr td:last-child{
+.withdraw table tr td.td4{
   width: 30%;
+}
+.withdraw table td.td1,
+.withdraw table td.td2,
+.withdraw table td.td3{
+  width: 24%;
+}
+.withdraw table td.td2 p,
+.withdraw table td.td3 p{
+  width: 110px;
+  overflow: hidden;
+  font-size: 1.6rem;
+}
+.withdraw table td input{
+  outline:none;
+  border:none;
+  width: 90%;
+  font-size: 1.6rem;
 }
 .withdraw table td button{
   width: 48%;
