@@ -26,6 +26,7 @@ class WalletWithdraw extends React.Component {
       Size:1,
       withdrawlist:[],
       ppsBalance:0,
+      statetype:'To be audited'
     };
 
     this.openModal = this.openModal.bind(this);
@@ -94,23 +95,27 @@ class WalletWithdraw extends React.Component {
         contentLabel="Wallet Message">
           <div className="withdraw">
             <h2 ref={subtitle => this.subtitle = subtitle}>Withdraw PPS</h2>
-            <table className={this.state.withdrawlist.length == 0 ? "hide table" : "table" }>
-              <tr>
-                  <th>Address</th>
-                  <th>Size</th>
-                  <th>TX</th>
-                  <th>operation</th>
-              </tr>
-              {this.state.withdrawlist.map((item,index) => (
+            <div className="tablebox">
+              <table className={this.state.withdrawlist.length == 0 ? "hide table" : "table" }>
                 <tr>
-                  <td className="td1"><input type="text" value={item.Address} readonly /></td>
-                  <td className="td2"><p>{item.Size}</p></td>
-                  <td className="td3"><p></p></td>
-                  <td className="td4"><button className="Left">Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
-                </tr>  
-                ))
-              }
-            </table>
+                    <th>Address</th>
+                    <th>Size</th>
+                    <th>TX</th>
+                    <th>Status</th>
+                    <th>Operation</th>
+                </tr>
+                {this.state.withdrawlist.map((item,index) => (
+                  <tr>
+                    <td className="td1"><input type="text" value={item.Address} readonly /></td>
+                    <td className="td2"><p>{item.Size}</p></td>
+                    <td className="td3"><p></p></td>
+                    <td className="td4"><p>{this.state.statetype}</p></td>
+                    <td className="td5"><button className="Left">Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
+                  </tr>  
+                  ))
+                }
+              </table>
+            </div>
             <div className="row submitbox">
                 <div className="form-group col-lg-6">
                   <label>Address</label>
