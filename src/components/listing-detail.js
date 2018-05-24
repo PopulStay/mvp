@@ -149,16 +149,14 @@ class ListingsDetail extends Component {
       });
     }
 
-    guestService.getGuesterInfo(window.address).then((data)=>{
-      this.setState({ user:data.user});
-    });
-
-    ppsService.getUsdOrderList(window.address).then((data)=>{
-      
-      console.log(this.state)
-    });
-
- 
+    if(window.data){
+      this.setState({ user:window.data.user});
+    }else{
+      guestService.getGuesterInfo(window.address).then((data)=>{
+        this.setState({ user:data.user});
+        window.data = data;
+      });
+    }
   
   }
 

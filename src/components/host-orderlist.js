@@ -16,11 +16,15 @@ class HostOrderList extends React.Component {
   
   componentWillMount() {
  
-          this.setState( { account: window.address, id: window.address });
-          
-          hostService.getHostOrderAddress(window.address).then((data)=>{
-            this.setState({ orderlist:data});
-           });
+      this.setState( { account: window.address, id: window.address });
+      if(window.data){
+        this.setState({ orderlist:window.data});
+      }else{
+        hostService.getHostOrderAddress(window.address).then((data)=>{
+          this.setState({ orderlist:data});
+          window.data = data;
+        });
+      }
   }
    
 

@@ -22,22 +22,31 @@ class GuestOrderRow extends Component {
 
 
   getPreOrderInfo(){
-
-   
-    orderService.getPreOrderInfo( this.props.account)
-    .then((result) => {
+    if(window.result){
         this.setState({
-          houseInformation:result._houseinfo,
-          status:result._status,
-          from:result._from.substring(0,10),
-          to:result._to.substring(0,10),
-          price:result._price,
-          ethPrice:result._ethPrice
+          houseInformation:window.result._houseinfo,
+          status:window.result._status,
+          from:window.result._from.substring(0,10),
+          to:window.result._to.substring(0,10),
+          price:window.result._price,
+          ethPrice:window.result._ethPrice
         });
-    }).catch((error) => {
-      console.error(error);
-    });
-
+    }else{
+        orderService.getPreOrderInfo( this.props.account)
+        .then((result) => {
+            this.setState({
+              houseInformation:result._houseinfo,
+              status:result._status,
+              from:result._from.substring(0,10),
+              to:result._to.substring(0,10),
+              price:result._price,
+              ethPrice:result._ethPrice
+            });
+            window.result = result;
+        }).catch((error) => {
+          console.error(error);
+        });
+  }
   }
 
 
@@ -69,7 +78,7 @@ class GuestOrderRow extends Component {
      if(this.props.account)
      {
       this.getPreOrderInfo();
-            }
+     }
 
 
    
