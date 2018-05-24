@@ -31,6 +31,7 @@ class GuestRegister extends React.Component {
       email:"",
       registered:false,
       emailactive:0,
+      Prompt:"",
     };
 
     this.openModal = this.openModal.bind(this);
@@ -106,6 +107,18 @@ class GuestRegister extends React.Component {
       this.setState({state: this.state.emailactive=0});
     }
   }
+  Prompt(){
+      var rephone = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+      if(this.state.user == "" || this.state.account == ""){
+        return "Consummate user information"
+      }else if(this.state.email.length == 0){
+          return "Please enter the mailbox"
+      }else if(!rephone.test(this.state.email)){
+          return "Incorrect mailbox format"
+      }else{
+        return "We'll never share your email with anyone else."
+      }
+  }
 
 
   render() {
@@ -153,7 +166,7 @@ class GuestRegister extends React.Component {
                 <div className="form-group">
                   <label >Email address</label>
                   <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  onChange={(e) => this.email(e.target.value)}/>
-                  <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                  <small id="emailHelp" className="form-text text-muted">{this.Prompt()}</small>
                 </div>
 
                 </div>
