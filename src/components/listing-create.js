@@ -7,7 +7,6 @@ import Modal from 'react-modal';
 import hostService from '../services/host-service';
 import { DateRangePicker } from 'react-dates';
 import AvatarEditor from 'react-avatar-editor';
-import BaiduMap from './BaiduMap';
 
 const customStyles = {
   content : {

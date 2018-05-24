@@ -3,7 +3,6 @@ import houselistingService from '../services/houseinfolist-service'
 import Pagination from 'react-js-pagination'
 import { withRouter } from 'react-router'
 import ListingCard from './listing-card'
-import BaiduMap from './BaiduMap'
 
 class ListingsGrid extends Component {
 
@@ -17,7 +16,6 @@ class ListingsGrid extends Component {
       };
 
   }
-
   componentWillMount() {
     
 
@@ -87,7 +85,7 @@ class ListingsGrid extends Component {
             />
           </div>
           <div className="col-md-4 col-lg-4">
-            <BaiduMap />
+            <img src="./images/search-map.jpg" />
           </div>
         </div>
         
