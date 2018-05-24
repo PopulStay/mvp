@@ -28,7 +28,8 @@ class GuestInfo extends React.Component {
       ethBalance:"",
       ppsDeposited:"",
       orderlist:[],
-      usdOrderList:[]
+      usdOrderList:[],
+      userPictures:"",
     };
 
 
@@ -79,6 +80,18 @@ class GuestInfo extends React.Component {
      });
   }
    
+  fileChangedHandler(event){
+    event.preventDefault();
+    var files = this.state.userPictures;
+    let reader = new FileReader();
+    let file = event.target.files[0];
+
+      reader.onloadend = () => {
+      console.log(reader.result)
+        this.setState({userPictures:reader.result});
+      }
+    reader.readAsDataURL(file)
+  }
 
   render() {
     return (
@@ -88,7 +101,11 @@ class GuestInfo extends React.Component {
       <div className="userBox row">
           <h1 className="col-sm-12 col-md-12 col-lg-12">Hello!{this.state.user}</h1>
           <div className="col-sm-12 col-md-2 col-lg-2">
-            <img src="../images/uesrimg.png" />
+            <div className="userPhoto">
+                <img src={this.state.userPictures == "" ? "../images/uesrimg.png" : this.state.userPictures} />
+                <input type="file" onChange={(e)=>this.fileChangedHandler(e)} />
+                <p><span>Revise the head image</span></p>
+            </div>
           </div>
           <div className="col-sm-12 col-md-8 col-lg-7 userlist row">
             <div className="col-sm-12 col-md-6 col-lg-6">
