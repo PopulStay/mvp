@@ -20,7 +20,9 @@ class WalletWithdraw extends React.Component {
 
     this.state = {
       modalIsOpen: false,
-      pirvatekey:""
+      pirvatekey:"",
+      Address:"",
+      Size:""
     };
 
     this.openModal = this.openModal.bind(this);
@@ -58,14 +60,16 @@ class WalletWithdraw extends React.Component {
         <button className="btn btn-primary" onClick={this.openModal}>Withdraw</button>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
-          <div className="clear">
-            <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
-            <div>
-              <h3>Address:</h3>
-              <p className="text1">{window.address}</p>
-              <h3>Private Key:</h3>
-              <p className="text1">{window.privateKey}</p>
-            </div>  
+          <div className="deposit">
+            <h2 ref={subtitle => this.subtitle = subtitle}>withdraw PPS</h2>
+            <div className="form-group">
+              <label>Size</label>
+              <input type="number"  className="form-control" placeholder="Input Size" onChange={(e) => this.setState({Size: e.target.value})} />
+            </div>
+            <div className="form-group">
+              <label>Address</label>
+              <input type="text"  className="form-control" placeholder="Input Address" onChange={(e) => this.setState({Address: e.target.value})} />
+            </div>
             <button className="btn btn-danger Left" onClick={this.withdraw}>withdraw</button>
             <button className="btn btn-primary Right" onClick={this.closeModal}>Cancel</button>
           </div>

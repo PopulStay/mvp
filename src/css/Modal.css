@@ -145,7 +145,7 @@
   text-align: center;
   font-family: RobotoBold; 
   font-size: 2.2rem;
-  margin: 0;
+  margin: 0 0 3%;
 }
 .submit span.glyphicon-refresh{
   font-size: 2rem;
@@ -188,6 +188,7 @@
   border:none;
   background: none;
   outline:none;
+  margin: 0;
 }
 .clear button,
 .PirvateKey button,
@@ -199,7 +200,7 @@
 .Import button{
   width: 30%;
   padding: 1% 0;
-  margin: 5% 5% 0;
+  margin: 6% 5% 0;
   font-size: 1.8rem;
   font-family: RobotoBold; 
   border:1px solid #f6416c;
@@ -233,7 +234,14 @@
 .Create1 button,
 .PirvateKey button{
   width: 100%;
-  margin:5% 0 0;
+  margin:6% 0 0;
+}
+.Gas>.form-group,
+.deposit>.form-group,
+.Sign>.form-group,
+.Import>.form-group{
+  width: 90%;
+  margin: 0 auto;
 }
 .Gas>.form-group>input,
 .deposit>.form-group>input,
@@ -243,10 +251,6 @@
   height: 35px;
   font-size: 1.6rem;
   font-family: RobotoThin; 
-  margin:0 0 8%;
-}
-.Sign>.form1>input,
-.Import>.form-group>input{
   margin-bottom:0%; 
 }
 .deposit .text2{
