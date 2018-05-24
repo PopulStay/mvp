@@ -45,19 +45,41 @@ class Listingexperience extends Component {
     }
 
 
-    houselistingService.getDistrictCodes().then((codes)=>
+    if(window.codes)
     {
-      this.setState({districtCodes:codes.data});
-      var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
-          this.setState({ listingRows: data });
-          
-          var widthbox = this.state.listingRows.length*220*2;
-          this.setState({ style : this.style.style_1.width = widthbox+'px' });
+      this.setListingRows(window.codes,from,to,guests,place);
+    }else{
+      houselistingService.getDistrictCodes().then((codes)=>
+      {
+        window.codes = codes; 
+        this.setListingRows(codes,from,to,guests,place);
       });
-    });
+    }
+    
+
 
     
+    
   }
+
+   setListingRows =(codes,from,to,guests,place) =>{
+      this.setState({districtCodes:codes.data});
+
+      if( window.listingRows ){  
+          this.setState({ listingRows: window.listingRows });
+          var widthbox = this.state.listingRows.length*220*2;
+          this.setState({ style : this.style.style_1.width = widthbox+'px' });
+      }else{
+          var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
+          this.setState({ listingRows: data });
+          var widthbox = this.state.listingRows.length*220*2;
+          this.setState({ style : this.style.style_1.width = widthbox+'px' });
+          window.listingRows = data;
+        });
+     }
+
+   }
+
 
   handlePageChange(pageNumber) {
     this.props.history.push(`/page/${pageNumber}`)
