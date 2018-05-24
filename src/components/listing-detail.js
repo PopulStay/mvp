@@ -102,40 +102,44 @@ class ListingsDetail extends Component {
 
   loadListing() {
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
-    houselistingService.getHouseInfoDetail(this.props.listingId)
-    .then((result) => {
-        var roominfo = JSON.parse(result._roominfo);
-        this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
-        return ipfsService.getListing(ipfsHash)
-    }).then((result)=>{
-          var descriptioninfo = JSON.parse(result);
-         this.setState({descriptioninfo:descriptioninfo});
-         if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
-         {
-          this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
-          var slideArray = this.state.slides;
+    var slideArray = this.state.slides;
 
-          for(var i =0;i < descriptioninfo.selectedPictures.length;i++)
-          {
-            var slide ={};
-            slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
-            slideArray.push(slide);
-          }
+        houselistingService.getHouseInfoDetail(this.props.listingId)
+        .then((result) => {
+            var roominfo = JSON.parse(result._roominfo);
+            this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
+            //slideArray.push();
 
-          this.setState({slides:slideArray});
-          console.log(this.state);
-         }
+            return ipfsService.getListing(ipfsHash)
+        }).then((result)=>{
+              var descriptioninfo = JSON.parse(result);
+             this.setState({descriptioninfo:descriptioninfo});
+             if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
+             {
+              this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
 
-    }).catch((error) => {
-      console.error(error);
-    });
+              for(var i =1 ;i < descriptioninfo.selectedPictures.length;i++)
+              {
+                var slide ={};
+                slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
+                slideArray.push(slide);
+              }
+
+              this.setState({slides:slideArray});
+              console.log(this.state);
+             }
+
+        }).catch((error) => {
+          console.error(error);
+        });
   }
   
 
   componentWillMount() {
     if (this.props.listingId) {
-      this.loadListing();
       this.loadOrdered(this.props.listingId);
+      this.loadListing();
+     
     }
   
     if(window.address)
@@ -173,6 +177,13 @@ class ListingsDetail extends Component {
 
   loadOrdered = (id) =>{
       houselistingService.getHouseInfoById(id).then((data)=>{
+        if(data)
+        {
+          var slide ={};
+          slide.imgageUrl = data.profile.previewImage;
+          this.state.slides.push(slide);
+        }
+
         if(data.bookedDate != undefined ){
             this.setState({DateLists: data.bookedDate.data});
         }
