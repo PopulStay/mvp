@@ -38,13 +38,30 @@ class Listingall extends Component {
     }
 
 
-    houselistingService.getDistrictCodes().then((codes)=>
+    if(window.codes)
     {
-      this.setState({districtCodes:codes.data});
-      var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
-           this.setState({ listingRows: data });
+      this.setListingRows(window.codes,from,to,guests,place);
+    }else{
+      houselistingService.getDistrictCodes().then((codes)=>
+      {
+        window.codes = codes; 
+        this.setListingRows(codes,from,to,guests,place);
       });
-    });
+    }
+  }
+
+  setListingRows =(codes,from,to,guests,place) =>{
+    this.setState({districtCodes:codes.data});
+      if( window.listingRows )
+      {
+         this.setState({ listingRows: window.listingRows });
+         
+      }else{
+          var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
+          this.setState({ listingRows: data });
+          window.listingRows = data;
+      });
+      }
   }
 
   handlePageChange(pageNumber) {
