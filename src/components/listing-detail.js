@@ -118,7 +118,7 @@ class ListingsDetail extends Component {
              {
               this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
 
-              for(var i =0 ;i < descriptioninfo.selectedPictures.length;i++)
+              for(var i =1 ;i < descriptioninfo.selectedPictures.length;i++)
               {
                 var slide ={};
                 slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
@@ -179,7 +179,9 @@ class ListingsDetail extends Component {
       houselistingService.getHouseInfoById(id).then((data)=>{
         if(data)
         {
-          this.state.slide.push(data.profile.previewImage);
+          var slide ={};
+          slide.imgageUrl = data.profile.previewImage;
+          this.state.slides.push(slide);
         }
 
         if(data.bookedDate != undefined ){
