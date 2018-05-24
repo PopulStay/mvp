@@ -45,9 +45,44 @@
   margin-top: 0;
 }
 .userBox img{
-  width: 90%;
   height: auto;
-  margin-top: 3%;
+}
+.userBox .userPhoto{
+  width: 90%;
+  position: relative;
+}
+.userBox .userPhoto:hover p{
+  display: block;
+}
+.userBox .userPhoto input{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0;
+}
+.userBox .userPhoto p{
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  position: absolute;
+  top:0;
+  left: 0;
+  cursor: pointer;
+  text-align: center;
+  display: none;
+}
+.userBox .userPhoto p span{
+  width: 70%;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 2rem;
 }
 .userBox .userlist{
   font-family: RobotoThin; 
@@ -145,7 +180,7 @@
   text-align: center;
   font-family: RobotoBold; 
   font-size: 2.2rem;
-  margin: 0;
+  margin: 0 0 3%;
 }
 .submit span.glyphicon-refresh{
   font-size: 2rem;
@@ -188,6 +223,7 @@
   border:none;
   background: none;
   outline:none;
+  margin: 0;
 }
 .clear button,
 .PirvateKey button,
@@ -199,7 +235,7 @@
 .Import button{
   width: 30%;
   padding: 1% 0;
-  margin: 5% 5% 0;
+  margin: 6% 5% 0;
   font-size: 1.8rem;
   font-family: RobotoBold; 
   border:1px solid #f6416c;
@@ -233,7 +269,14 @@
 .Create1 button,
 .PirvateKey button{
   width: 100%;
-  margin:5% 0 0;
+  margin:6% 0 0;
+}
+.Gas>.form-group,
+.deposit>.form-group,
+.Sign>.form-group,
+.Import>.form-group{
+  width: 90%;
+  margin: 0 auto;
 }
 .Gas>.form-group>input,
 .deposit>.form-group>input,
@@ -243,10 +286,6 @@
   height: 35px;
   font-size: 1.6rem;
   font-family: RobotoThin; 
-  margin:0 0 8%;
-}
-.Sign>.form1>input,
-.Import>.form-group>input{
   margin-bottom:0%; 
 }
 .deposit .text2{

@@ -30,8 +30,8 @@ class GuestRegister extends React.Component {
       phone:"",
       email:"",
       registered:false,
-      phoneactive:0,
       emailactive:0,
+      Prompt:"",
     };
 
     this.openModal = this.openModal.bind(this);
@@ -98,16 +98,6 @@ class GuestRegister extends React.Component {
      });
 
   }
-
-  phonenumber(e){
-    this.setState({state:this.state.phone=e});
-    var rephone = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
-    if(e.length != "" && rephone.test(e)){
-      this.setState({state: this.state.phoneactive=1});
-    }else{
-      this.setState({state: this.state.phoneactive=0});
-    }
-  }
   email(e){
     this.setState({state:this.state.email=e});
     var rephone = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
@@ -116,6 +106,18 @@ class GuestRegister extends React.Component {
     }else{
       this.setState({state: this.state.emailactive=0});
     }
+  }
+  Prompt(){
+      var rephone = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+      if(this.state.user == "" || this.state.account == ""){
+        return "Consummate user information"
+      }else if(this.state.email.length == 0){
+          return "Please enter the mailbox"
+      }else if(!rephone.test(this.state.email)){
+          return "Incorrect mailbox format"
+      }else{
+        return "We'll never share your email with anyone else."
+      }
   }
 
 
@@ -158,18 +160,18 @@ class GuestRegister extends React.Component {
 
                 <div className="form-group">
                   <label>Phone</label>
-                  <input type="number" className="form-control" placeholder="Phone" onChange={(e) => this.phonenumber(e.target.value)}/>
+                  <input type="number" className="form-control" placeholder="Phone" onChange={(e) => this.setState({phone:e.target.value})}/>
                 </div>
 
                 <div className="form-group">
                   <label >Email address</label>
                   <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  onChange={(e) => this.email(e.target.value)}/>
-                  <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                  <small id="emailHelp" className="form-text text-muted">{this.Prompt()}</small>
                 </div>
 
                 </div>
                 <br/>
-                <img className={this.state.user == "" || this.state.phoneactive == 0 || this.state.emailactive == 0 ? 'closeok closeactive' : 'closeok'} src="../images/ok.png" onClick={this.register} />
+                <img className={this.state.account == "" || this.state.user == "" || this.state.emailactive == 0 ? 'closeok closeactive' : 'closeok'} src="../images/ok.png" onClick={this.register} />
                 <button className="btn btn-primary closecancel" onClick={this.closeModal}>cancel</button>
               </div>
             </Modal>

@@ -1313,14 +1313,14 @@ h1,
   position: relative;
   padding: 0;
   cursor: pointer;
+  border-right:1px solid #f6416c;
+  text-align: center;
 }
 .Step2_5 .stepbox .phonecode span{
   font-size: 1.6rem;
-  border-right:1px solid #f6416c;
   height: 100%;
   display: inline-block;
   line-height: 45px;
-  padding: 0 10%;
 }
 .Step2_5 .stepbox input{
   width: 55%;
