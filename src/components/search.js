@@ -19,7 +19,9 @@ class Search extends Component {
         listingRows: [],
         listingsPerPage: 6,
         districtCodes:[],
-        curDistrictCodeIndex:0
+        curDistrictCodeIndex:0,
+        Progress:0,
+        Progresshide:0,
       };
       window.searchCondition = this.state;
   }
@@ -54,23 +56,42 @@ class Search extends Component {
       {
         window.codes = codes; 
         this.setListingRows(codes,from,to,guests,place);
+        this.setState({Progress:this.state.Progress+35})
       });
     }
   }
   
   setListingRows =(codes,from,to,guests,place) =>{
+      this.setState({Progress:this.state.Progress+35})
     this.setState({districtCodes:codes.data});
       if( window.listingRows )
       {
          this.setState({ listingRows: window.listingRows });
-         
+         this.setState({Progress:this.state.Progress+35})
+         if (this.state.Progress>=100) {
+            this.timerID = setTimeout(
+              () => this.setState({Progresshide:1}),
+              1000
+            );
+          }
       }else{
           var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
-          this.setState({ listingRows: data });
-          window.listingRows = data;
-      });
+              this.setState({ listingRows: data });
+              this.setState({Progress:this.state.Progress+35})
+
+              window.listingRows = data;
+              this.setState({Progress:this.state.Progress+35});
+              
+              if (this.state.Progress>=100) {
+                this.timerID = setTimeout(
+                  () => this.setState({Progresshide:1}),
+                  1000
+                );
+              }
+          });
       }
   }
+
 
   handlePageChange(pageNumber) {
     this.props.history.push(`/page/${pageNumber}`)
@@ -84,6 +105,7 @@ class Search extends Component {
 
     return (
       <div className="form">
+        <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
         <div className="container index_content">
             <h1>Find dream homes and experiences  on PopulStay</h1>
             <span className="color-pink text-bold">PopulStay-Superior Guest Experience & Maximized Owner Profit</span>

@@ -78,6 +78,8 @@ class ListingsDetail extends Component {
       modalIsOpen: false,
       qrurl:"",
       DateLists:[],
+      Progress:0,
+      Progresshide:0,
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -110,6 +112,7 @@ class ListingsDetail extends Component {
             this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
             //slideArray.push();
 
+          this.setState({Progress:this.state.Progress+35})
             return ipfsService.getListing(ipfsHash)
         }).then((result)=>{
               var descriptioninfo = JSON.parse(result);
@@ -117,17 +120,27 @@ class ListingsDetail extends Component {
              if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
              {
               this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
+              this.setState({Progress:this.state.Progress+35})
 
               for(var i =1 ;i < descriptioninfo.selectedPictures.length;i++)
               {
                 var slide ={};
                 slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
                 slideArray.push(slide);
+                this.setState({Progress:this.state.Progress+35})
+
+                if (this.state.Progress>100) {
+                this.timerID = setTimeout(
+                  () => this.setState({Progresshide:1}),
+                  1000
+                );
+              }
               }
 
               this.setState({slides:slideArray});
-              console.log(this.state);
              }
+
+
 
         }).catch((error) => {
           console.error(error);
@@ -396,6 +409,7 @@ class ListingsDetail extends Component {
       </div>
 
       <div className="detail-content container">
+        <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
       <div className="row">
       <div className="col-sm-12 col-md-12 col-lg-7">
         <div className="L_box1 col-sm-8 col-md-9">
