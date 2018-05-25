@@ -112,7 +112,13 @@ class ListingsDetail extends Component {
             this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
             //slideArray.push();
 
-          this.setState({Progress:this.state.Progress+35})
+          this.setState({Progress:this.state.Progress+50})
+          if (this.state.Progress>=100) {
+                  this.timerID = setTimeout(
+                    () => this.setState({Progresshide:1}),
+                    1000
+                  );
+                }
             return ipfsService.getListing(ipfsHash)
         }).then((result)=>{
               var descriptioninfo = JSON.parse(result);
@@ -120,21 +126,27 @@ class ListingsDetail extends Component {
              if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
              {
               this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
-              this.setState({Progress:this.state.Progress+35})
+              this.setState({Progress:this.state.Progress+50})
+              if (this.state.Progress>=100) {
+                  this.timerID = setTimeout(
+                    () => this.setState({Progresshide:1}),
+                    1000
+                  );
+                }
 
               for(var i =1 ;i < descriptioninfo.selectedPictures.length;i++)
               {
                 var slide ={};
                 slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
                 slideArray.push(slide);
-                this.setState({Progress:this.state.Progress+35})
+                this.setState({Progress:this.state.Progress+50})
 
-                if (this.state.Progress>100) {
-                this.timerID = setTimeout(
-                  () => this.setState({Progresshide:1}),
-                  1000
-                );
-              }
+                if (this.state.Progress>=100) {
+                  this.timerID = setTimeout(
+                    () => this.setState({Progresshide:1}),
+                    1000
+                  );
+                }
               }
 
               this.setState({slides:slideArray});
