@@ -17,6 +17,7 @@ function getClientEnvironment(publicUrl) {
       'RentHouseListingAddress':JSON.stringify("0x0b920e9d29e81d829bcdd6cc3a782f4389bdda31"),
       'PPSAddress':JSON.stringify("0x901c5be5768798217fd4ceefecc0c4e6c38ec684"),
       'Server_Address':JSON.stringify("https://server.populstay.com/"),
+      'Socket_Server':JSON.stringify("https://server.populstay.com/"),
       'Populstay_Wallet':JSON.stringify("0xB421ca5420dC2D6F0bf868c52ad1ff8614E68788"),
       'WEB3_PROVIDER':JSON.stringify("https://kovan.infura.io/FrDFhx3FbezOwQJjQv9T")
     });

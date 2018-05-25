@@ -5,6 +5,7 @@ import houselistingService from '../services/houseinfolist-service';
 import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
 import Modal from 'react-modal';
+const socketServer = process.env.Socket_Server;
 
 const customStyles = {
   content : {
@@ -51,6 +52,7 @@ class Video extends Component {
        Time:"",
        modalIsOpen:false,
        videobox:0,
+       socketid:""
     }
 
       web3Service.loadWallet();
@@ -69,11 +71,13 @@ class Video extends Component {
      .then((result) => {
         this.setState({host:result._owner});
         this.handleEvent();
+
         if(window.address == this.state.host){
           this.setState({Current_user:1});
         }else{
           this.setState({Current_user:0});
         }
+       
      });
   }
 
@@ -121,6 +125,7 @@ class Video extends Component {
   }
 
   handleEvent =()=>{
+        window.io.sails.url = socketServer;
         window.io.socket=window.io.sails.connect();
         window.io.socket.get('/messages/join?account='+window.address+'&host='+this.state.host,(data, jwRes) =>{
         console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
@@ -169,6 +174,7 @@ class Video extends Component {
 
        window.io.socket.on('answerconnection'+window.address,  (data)=> {
           console.log("######################connection ",data);
+          this.setState({socketid:data.socketid});
           if(data.type == 'audio')
           {
             this.audioJoin();
@@ -224,7 +230,10 @@ class Video extends Component {
   answerVideo = () =>{
       this.videoCall();
       window.io.socket.get('/messages/answerconnection?type=video&account='+this.state.guestAddress+'&host='+window.address,
-      (data, jwRes)=>{});
+      (data, jwRes)=>{
+        this.setState({socketid:data.socketid});
+
+      });
   }
 
 
@@ -312,7 +321,9 @@ class Video extends Component {
 
       this.audioCall();
       window.io.socket.get('/messages/answerconnection?type=audio&account='+this.state.guestAddress+'&host='+window.address,
-      (data, jwRes)=>{});
+      (data, jwRes)=>{
+        this.setState({socketid:data.socketid});
+      });
   }
 
   audioCall = () =>{
@@ -328,6 +339,21 @@ class Video extends Component {
       });
     }
   }
+
+  leave =()=> {
+   console.log( '/messages/leave?socketid='+this.state.socketid );
+      window.io.socket.get('/messages/leave?socketid='+this.state.socketid,
+      (data, jwRes)=>{
+        this.setState({socketid:data.socketid});
+      });
+
+
+      this.client.leave(function () {
+      console.log("Leavel channel successfully");
+      }, function (err) {
+      console.log("Leave channel failed");
+      });
+}
 
   audioJoin = () =>{
 
@@ -491,7 +517,7 @@ class Video extends Component {
                         <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
                         <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                      </div>
-                   </div>
+                </div>
               }
 
              </div> 
