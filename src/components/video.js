@@ -70,13 +70,11 @@ class Video extends Component {
      .then((result) => {
         this.setState({host:result._owner});
         this.handleEvent();
-
         if(window.address == this.state.host){
           this.setState({Current_user:1});
         }else{
           this.setState({Current_user:0});
         }
-       
      });
   }
 
@@ -248,6 +246,7 @@ class Video extends Component {
   }
 
   videoJoin = () =>{
+        this.setState({videobox:1})
             this.client.join(null, this.state.connectionCode, null, (uid) => {
             console.log("User " + uid + " join channel successfully");
             console.log('At ' + new Date().toLocaleTimeString());
@@ -467,8 +466,11 @@ class Video extends Component {
                 </div>
               }
               {this.state.Current_user === 0 && 
-                <div className="video">
+                <div className={this.state.modalIsOpen == true ? "video hide" : "video show"}>
+                <div className="videobox">
                   <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
+                  <span className={this.state.videobox == 1 ? "glyphicon glyphicon-earphone show" : "glyphicon glyphicon-earphone hide" }></span>
+                </div>
                     <h4><span className="spantype"></span>
                       <p>{this.state.user}<br/>
                           <span className={this.state.online ? "spanshow" : "hide"}>Host on line</span>
@@ -491,7 +493,7 @@ class Video extends Component {
                         <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
                         <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                      </div>
-                </div>
+                   </div>
               }
 
              </div> 
