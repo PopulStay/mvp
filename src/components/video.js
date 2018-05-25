@@ -5,6 +5,7 @@ import houselistingService from '../services/houseinfolist-service';
 import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
 import Modal from 'react-modal';
+const socketServer = process.env.Socket_Server;
 
 const customStyles = {
   content : {
@@ -123,6 +124,7 @@ class Video extends Component {
   }
 
   handleEvent =()=>{
+        window.io.sails.url = socketServer;
         window.io.socket=window.io.sails.connect();
         window.io.socket.get('/messages/join?account='+window.address+'&host='+this.state.host,(data, jwRes) =>{
         console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
