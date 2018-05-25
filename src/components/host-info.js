@@ -25,14 +25,10 @@ class HostInfo extends React.Component {
   componentWillMount() {
     this.setState( { account: window.address, id:  window.address });
 
-    if(window.data){
-      this.setState({ roomInfoList:window.data});
-    }else{
       hostService.getHouseListing( window.address).then((data)=>{
         this.setState({ roomInfoList:data});
         window.data = data;
        });
-    }
 
     if(window.data){
         this.setState({ ppsBalance:window.data});
