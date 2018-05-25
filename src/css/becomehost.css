@@ -1380,15 +1380,18 @@ h1,
 /*Step3_1 end*/
 .Step3_2 .check,
 .Step3_2 .check1,
-.Step3_5 .check{
+.Step3_5 .check,
+div.Strainer_Home_Type .checkbox{
   margin: 1% 0;
   height: 45px;
 }
-.Step3_2 .check .divinput{
+.Step3_2 .check .divinput,
+div.Strainer_Home_Type .checkbox .divinput{
   float: left;
   width: 85%;
 }
-.Step3_2 .check .Pinput{
+.Step3_2 .check .Pinput,
+div.Strainer_Home_Type .checkbox .Pinput{
   float: right;
   margin-left: 2%;
 }

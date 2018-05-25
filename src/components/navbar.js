@@ -286,7 +286,7 @@ class NavBar extends Component {
                     <p className="Right"></p>
                 </div>
                 <div className="operation">
-                    <p className="cancel Left" onClick={(e)=>this.setState({Strainer_Guests:false})}>cancel</p>
+                    <p className="cancel Left" onClick={(e)=>this.setState({Strainer_token:false})}>cancel</p>
                     <p className="confirm Left" onClick={(e)=>this.confirm(e)}>confirm</p>
                     <p className="Reset Right" onClick={(e)=>this.setState({Adult:1,children:0,Baby:0})}>Reset</p>
                 </div>
@@ -294,7 +294,38 @@ class NavBar extends Component {
         </li>
         <li className="tag__item"><span className="Strainerspan" data-Strainer="Strainer_Home_Type" onClick={(e)=>this.Strainer(e)}>Home Type</span>
             <div className={this.state.Strainer_Home_Type ? "Strainer_Home_Type show" : "Strainer_Home_Type hide"}>
-                <h1>Home Type Strainer</h1>
+                <div  className="checkbox" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
+                  <p className="Pinput" >
+                    <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <div className="divinput">
+                    <p>Essentials</p>
+                    <p>Towels,bed sheets,soap,toilet paper,and pillows</p>
+                  </div>
+                </div>
+                <div className="checkbox">
+                    <div className="input">
+                      <input type="checkbox" />
+                    </div>
+                    <div className="text">
+                      <p>Whole house</p>
+                      <p>Enjoy the whole house</p>
+                    </div>
+                </div>
+                <div className="checkbox">
+                    <div className="input">
+                      <input type="checkbox" />
+                    </div>
+                    <div className="text">
+                      <p>Whole house</p>
+                      <p>Enjoy the whole house</p>
+                    </div>
+                </div>
+                <div className="operation">
+                    <p className="cancel Left" onClick={(e)=>this.setState({Strainer_token:false})}>cancel</p>
+                    <p className="confirm Left" onClick={(e)=>this.confirm(e)}>confirm</p>
+                    <p className="Reset Right" onClick={(e)=>this.setState({Adult:1,children:0,Baby:0})}>Reset</p>
+                </div>
             </div>
         </li>
         <li className="tag__item"><span className="Strainerspan" data-Strainer="Strainer_Price" onClick={(e)=>this.Strainer(e)}>Price</span>
