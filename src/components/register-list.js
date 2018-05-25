@@ -133,9 +133,14 @@ class registerlist extends Component {
   }
   componentWillMount() {
       this.setState({step:this.STEP.Step1});
-      guestService.getGuesterInfo(window.address).then((data)=>{
-        this.setState({ user:data.user});
-      });
+      if(window.data){
+          this.setState({ user:window.data.user});
+      }else{
+          guestService.getGuesterInfo(window.address).then((data)=>{
+            this.setState({ user:data.user});
+            window.data = data;
+          });
+      }
   }
   nextstep(e){
     this.setState({step:this.state.step+1});

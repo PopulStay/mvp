@@ -14,7 +14,9 @@ class ListingCard extends Component {
       ipfsHash: null,
       lister: null,
       descriptioninfo:{},
-      previewurl:""
+      previewurl:"",
+      Progress:0,
+      Progresshide:0,
     }
   }
 
@@ -26,7 +28,13 @@ class ListingCard extends Component {
     //     this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds});
     //     return 
     var roominfo = this.props.row.houseinfo;
-    console.log(this.props)
+    if(roominfo){
+      this.setState({Progress:this.state.Progress+100})
+      this.timerID = setTimeout(
+        () => this.setState({Progresshide:1}),
+        1000
+      );
+    }
     this.setState(
     {
       price:this.props.row.price,
@@ -34,11 +42,12 @@ class ListingCard extends Component {
       location:roominfo.location,
       beds:roominfo.beds
     });
-
+      
     if( this.props.row.profile )
     {
       this.setState({previewurl: this.props.row.profile.previewImage });
     }
+    
     //console.log(new Date())
     // ipfsService.getListing(ipfsHash)    
     //     .then((result)=>{
@@ -58,6 +67,7 @@ class ListingCard extends Component {
   render() {
     return (
         <Link to={`/listing/${this.props.row.id}`}>
+          <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
           <div className="photo" style={this.state.previewurl == '' ? {backgroundImage:"url(/images/registerlist_4.png)"}:{backgroundImage:"url("+this.state.previewurl+")"}}>
           </div>
           <div className="category">{this.state.category} ({this.state.beds} beds)</div>

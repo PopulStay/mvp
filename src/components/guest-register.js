@@ -49,7 +49,6 @@ class GuestRegister extends React.Component {
   }
    
   register(){
-   console.log(this.state);
     var register={};
     register.id      = window.address;
     register.user    = this.state.user;
@@ -80,12 +79,17 @@ class GuestRegister extends React.Component {
 
   loadUserData = () =>{
     this.setState( { account: window.address, id: window.address});
+    if(window.data){
+      this.setState({ registered:true });
+      this.setState({ user:window.data.user });
+    }
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ registered:true });
       this.setState({ user:data.user });
+      window.data = data;
      });
   }
-
+  
   onAccountChange = (address) =>{
     this.setState({account:address});
      guestService.getGuesterInfo(window.address).then((data)=>{

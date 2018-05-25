@@ -261,12 +261,11 @@
 .PirvateKey button,
 .Create1 button,
 .Sign button.Right,
-.Create button.Right,
+.Create button,
 .Import button.Right,
 .withdraw button.Right{
   background:#f6416c;
   color: #fff;
-  border:none;
 }
 .clear button:hover,
 .PirvateKey button:hover{
@@ -414,11 +413,11 @@
   opacity: 0.5;
 }
 .withdraw{
-  width: 600px;
+  width: 750px;
 }
-.withdraw table{
+.withdraw .tablebox{
   max-height: 300px;
-  overflow: hidden;
+  overflow: auto;
 }
 .withdraw table tr{
   width: 100%;
@@ -435,16 +434,18 @@
 .withdraw .submitbox label{
   font-size: 1.8rem;
 }
-.withdraw table tr td.td4{
-  width: 30%;
+.withdraw table tr td.td5{
+  width: 35%;
 }
 .withdraw table td.td1,
 .withdraw table td.td2,
-.withdraw table td.td3{
-  width: 24%;
+.withdraw table td.td3,
+.withdraw table td.td4{
+  width: 20%;
 }
 .withdraw table td.td2 p,
-.withdraw table td.td3 p{
+.withdraw table td.td3 p,
+.withdraw table td.td4 p{
   width: 110px;
   overflow: hidden;
   font-size: 1.6rem;
@@ -459,6 +460,7 @@
   width: 48%;
   font-size: 1.2rem;
   margin: 0;
+  padding: 3% 0;
 }
 .withdraw button{
   width:35%;

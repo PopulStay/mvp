@@ -64,10 +64,9 @@ class experienceintro extends Component {
     this.setState({districtCodes:codes.data});
       if( window.listingRows )
       {
-         var widthbox = this.state.listingRows.length*220*2;
-         this.setState({ listingRows: window.listingRows });
-         this.setState({ style : this.style.style_1.width = widthbox+'px' });
-         
+           var widthbox = this.state.listingRows.length*220*2;
+           this.setState({ listingRows: window.listingRows });
+           this.setState({ style : this.style.style_1.width = widthbox+'px' });
       }else{
           var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
           this.setState({ listingRows: data });

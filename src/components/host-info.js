@@ -23,18 +23,22 @@ class HostInfo extends React.Component {
   }
   
   componentWillMount() {
-
     this.setState( { account: window.address, id:  window.address });
 
-    hostService.getHouseListing( window.address).then((data)=>{
+      hostService.getHouseListing( window.address).then((data)=>{
+        this.setState({ roomInfoList:data});
+        window.data = data;
+       });
 
-      this.setState({ roomInfoList:data});
-     });
+    if(window.data){
+        this.setState({ ppsBalance:window.data});
+    }else{
+        ppsService.getBalance( window.address).then((data)=>{
+          this.setState({ ppsBalance:data});
+            window.data = data;
+        });
+    }
 
-    ppsService.getBalance( window.address).then((data)=>{
-      console.log(data);
-      this.setState({ ppsBalance:data});
-     });
   }
    
 
