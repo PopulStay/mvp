@@ -235,10 +235,11 @@ class HouseInfoListingService {
 
 
 
-  getHouseId(districtCode,from,to,guests){
+  getHouseId(districtCode,from,to,guests,place){
 
     return new Promise((resolve, reject) => {
-      axios.get(process.env.Server_Address+'HouseInformation?guests='+guests
+      axios.get(process.env.Server_Address+'HouseInformation?place='+place
+                                                          +'&guests='+guests
                                                           +'&to='+to
                                                           +'&from='+from
                                                           +'&districeCode='+districtCode)

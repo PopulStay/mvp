@@ -12,7 +12,9 @@ class ListingsGrid extends Component {
         listingRows: [],
         listingsPerPage: 12,
         districtCodes:[],
-        curDistrictCodeIndex:0
+        curDistrictCodeIndex:0,
+        Progress:0,
+        Progresshide:0,
       };
 
   }
@@ -25,7 +27,8 @@ class ListingsGrid extends Component {
         url[i] = url[i].split("=");
         var from = url[0][1];
         var to = url[1][1];
-        var guests = Number(url[2][1])+Number(url[3][1]);
+        var guests = url[2][1];
+        var place = url[3][1];
     }
 
     // if( window.searchCondition.checkInDate )
@@ -47,19 +50,19 @@ class ListingsGrid extends Component {
 
     if(window.codes)
     {
-      this.setListingRows(window.codes,from,to,guests);
+      this.setListingRows(window.codes,from,to,guests,place);
     }else{
       houselistingService.getDistrictCodes().then((codes)=>
       {
         window.codes = codes; 
-        this.setListingRows(codes,from,to,guests);
+        this.setListingRows(codes,from,to,guests,place);
       });
     }
   }
 
-  setListingRows =(codes,from,to,guests) =>{
+  setListingRows =(codes,from,to,guests,place) =>{
       this.setState({districtCodes:codes.data});
-      var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests).then((data)=>{
+      var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
       this.setState({ listingRows: data });
     });
   }
@@ -81,6 +84,7 @@ class ListingsGrid extends Component {
     return (
 
       <div className="listings-grid">
+        <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
         <h1>Homes around the world</h1>
         <div className="row">
           <div className="col-md-8 col-lg-8">
