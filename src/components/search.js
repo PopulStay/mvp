@@ -31,38 +31,17 @@ class Search extends Component {
   }
 
    componentDidMount() {
-    this.handlePageChange = this.handlePageChange.bind(this);
-    if( window.searchCondition.checkInDate )
-    {
-      var from   = window.searchCondition.checkInDate.toDate().getTime();
-    }
-
-    if( window.searchCondition.checkOutDate )
-    {
-      var to = window.searchCondition.checkOutDate.toDate().getTime();
-    }
-
-    if( window.searchCondition )
-    {
-      var guests = window.searchCondition.guests;
-      var place  = window.searchCondition.place;      
-    }
-
-    if(window.codes)
-    {
-      this.setListingRows(window.codes,from,to,guests,place);
-    }else{
       houselistingService.getDistrictCodes().then((codes)=>
       {
-        window.codes = codes; 
-        this.setListingRows(codes,from,to,guests,place);
+       
+        this.setListingRows(codes);
         this.setState({Progress:this.state.Progress+35})
       });
-    }
+   
   }
   
-  setListingRows =(codes,from,to,guests,place) =>{
-      this.setState({Progress:this.state.Progress+35})
+  setListingRows =(codes) =>{
+    this.setState({Progress:this.state.Progress+35})
     this.setState({districtCodes:codes.data});
       if( window.listingRows )
       {
