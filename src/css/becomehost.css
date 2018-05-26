@@ -667,7 +667,8 @@ h1,
 .Step3_2 .Pinput,
 .Step3_2 .check1 .Pinput,
 .Step3_5 .check .Pinput,
-.Step3_21 .Pinput{
+.Step3_21 .Pinput,
+div.Strainer_Home_Type .checkbox .Pinput{
   width: 20px;
   height: 20px;
   border-radius: 5px;
@@ -694,7 +695,8 @@ h1,
 .Step3_2 .divinput,
 .Step3_2 .check1 .divinput,
 .Step3_5 .check .divinput,
-.Step3_21 .divinput{
+.Step3_21 .divinput,
+div.Strainer_Home_Type .checkbox .divinput{
   float: right;
   width: 94%;
   font-size:1.6rem;
@@ -1385,13 +1387,11 @@ div.Strainer_Home_Type .checkbox{
   margin: 1% 0;
   height: 45px;
 }
-.Step3_2 .check .divinput,
-div.Strainer_Home_Type .checkbox .divinput{
+.Step3_2 .check .divinput{
   float: left;
   width: 85%;
 }
-.Step3_2 .check .Pinput,
-div.Strainer_Home_Type .checkbox .Pinput{
+.Step3_2 .check .Pinput{
   float: right;
   margin-left: 2%;
 }
