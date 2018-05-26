@@ -42,6 +42,7 @@ class Search extends Component {
         this.setListingRows(codes);
         this.setState({Progress:this.state.Progress+35})
       });
+      this.setURL();
   }
 
   setURL =()=>{
