@@ -217,6 +217,10 @@ class Video extends Component {
     window.io.socket.get('/messages/connection?type=video&account='+window.address+'&host='+this.state.host,
       (data, jwRes)=>
       {
+        if(data.error)
+        {
+          alert(data.error);
+        }
         this.setState({connectionCode:data.connection});
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
         this.client.init( this.constant.appId ,()=>{
