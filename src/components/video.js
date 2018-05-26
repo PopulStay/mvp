@@ -239,7 +239,6 @@ class Video extends Component {
 
 
   videoCall = () =>{
-    this.setState({videobox:1})
     if( window.AgoraRTC)
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
@@ -253,7 +252,6 @@ class Video extends Component {
   }
 
   videoJoin = () =>{
-        this.setState({videobox:1})
             this.client.join(null, this.state.connectionCode, null, (uid) => {
             console.log("User " + uid + " join channel successfully");
             console.log('At ' + new Date().toLocaleTimeString());
@@ -280,7 +278,7 @@ class Video extends Component {
                 console.log("Publish local stream successfully");
              });
 
-            this.setState({ readyState: true , videoCalling: false });
+            this.setState({ readyState: true , videoCalling: false,videobox:1 });
         },
           err => {
             console.log("getUserMedia failed", err);
@@ -353,6 +351,7 @@ class Video extends Component {
       }, function (err) {
       console.log("Leave channel failed");
       });
+      this.setState({videobox:0})
 }
 
   audioJoin = () =>{
