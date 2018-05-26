@@ -70,7 +70,7 @@ class Listingexperience extends Component {
           var widthbox = this.state.listingRows.length*220*2;
           this.setState({ style : this.style.style_1.width = widthbox+'px' });
       }else{
-          var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
+          var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
           this.setState({ listingRows: data });
           var widthbox = this.state.listingRows.length*220*2;
           this.setState({ style : this.style.style_1.width = widthbox+'px' });

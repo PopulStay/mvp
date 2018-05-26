@@ -57,7 +57,7 @@ class Listingall extends Component {
          this.setState({ listingRows: window.listingRows });
          
       }else{
-          var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
+          var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
           this.setState({ listingRows: data });
           window.listingRows = data;
       });

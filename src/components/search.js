@@ -75,7 +75,7 @@ class Search extends Component {
             );
           }
       }else{
-          var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
+          var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
               this.setState({ listingRows: data });
               this.setState({Progress:this.state.Progress+35})
 
