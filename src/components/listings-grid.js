@@ -17,41 +17,49 @@ class ListingsGrid extends Component {
 
   }
   componentWillMount() {
-    
-
     this.handlePageChange = this.handlePageChange.bind(this);
-    if( window.searchCondition.checkInDate )
-    {
-      var from   = window.searchCondition.checkInDate.toDate().getTime();
+
+    var windowUrl = window.location.href;
+    var url = windowUrl.split("&");
+    for(var i = 0;i<url.length;i++){
+        url[i] = url[i].split("=");
+        var from = url[0][1];
+        var to = url[1][1];
+        var guests = Number(url[2][1])+Number(url[3][1]);
     }
 
-    if( window.searchCondition.checkOutDate )
-    {
-      var to = window.searchCondition.checkOutDate.toDate().getTime();
-    }
+    // if( window.searchCondition.checkInDate )
+    // {
+    //   var from   = window.searchCondition.checkInDate.toDate().getTime();
+    // }
 
-    if( window.searchCondition )
-    {
-      var guests = window.searchCondition.guests;
-      var place  = window.searchCondition.place;      
-    }
+    // if( window.searchCondition.checkOutDate )
+    // {
+    //   var to = window.searchCondition.checkOutDate.toDate().getTime();
+    // }
+
+    // if( window.searchCondition )
+    // {
+    //   var guests = window.searchCondition.guests;
+    //   var place  = window.searchCondition.place;      
+    // }
 
 
     if(window.codes)
     {
-      this.setListingRows(window.codes,from,to,guests,place);
+      this.setListingRows(window.codes,from,to,guests);
     }else{
       houselistingService.getDistrictCodes().then((codes)=>
       {
         window.codes = codes; 
-        this.setListingRows(codes,from,to,guests,place);
+        this.setListingRows(codes,from,to,guests);
       });
     }
   }
 
-  setListingRows =(codes,from,to,guests,place) =>{
+  setListingRows =(codes,from,to,guests) =>{
       this.setState({districtCodes:codes.data});
-      var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests,place).then((data)=>{
+      var uuids = houselistingService.getHouseId(codes.data[0].id,from,to,guests).then((data)=>{
       this.setState({ listingRows: data });
     });
   }

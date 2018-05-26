@@ -22,22 +22,37 @@ class Search extends Component {
         curDistrictCodeIndex:0,
         Progress:0,
         Progresshide:0,
+        Childen:0,
+        Adults:1,
+        url:""
       };
-      window.searchCondition = this.state;
+
   }
+
+  
   locationName(e){
     var DataName = e.currentTarget.getAttribute('data-name');
     this.setState({state: this.state.locationName = DataName});
   }
 
-   componentDidMount() {
+  componentDidMount() {
       houselistingService.getDistrictCodes().then((codes)=>
       {
        
         this.setListingRows(codes);
         this.setState({Progress:this.state.Progress+35})
       });
-   
+  }
+
+  setURL =()=>{
+      if(this.state.checkInDate && this.state.checkOutDate )
+      {
+        var checkOutDate = this.state.checkOutDate.toDate().getTime();
+        var checkInDate = this.state.checkInDate.toDate().getTime();
+        }
+
+        var url = "/home/search?checkInDate="+checkInDate+"&checkOutDate="+checkInDate+"&Adults="+this.state.Adults+"&Childen="+this.state.Childen
+        this.setState({url:url});
   }
   
   setListingRows =(codes) =>{
@@ -126,7 +141,7 @@ class Search extends Component {
                             <div className="col-md-6 col-lg-6 col-sm-6 guestsnum Left">
                                 <div className="form-group">
                                     <label>Adults</label>
-                                    <input type="number" className="form-control input-lg" onChange={(e)=> window.searchCondition.place = e.target.value } />
+                                    <input type="number" className="form-control input-lg" onChange={(e)=> this.setState({Adults: e.target.value}) } />
                                 </div>
                             </div>
                       
@@ -134,15 +149,15 @@ class Search extends Component {
                             <div className="col-md-6 col-lg-6 col-sm-6 guestsnum Right">
                                 <div className="form-group">
                                     <label>Childen</label>
-                                    <input type="number" className="form-control input-lg" onChange={(e)=> window.searchCondition.guests = e.target.value }/>
+                                    <input type="number" className="form-control input-lg" onChange={(e)=> this.setState({Childen: e.target.value}) }/>
                                 </div>
                             </div>
 
                         </div>
 
                         <div className="search  col-sm-3  col-md-3  col-lg-3">
-                            <Link to="/home">
-                            <a href="#" className="btn button__fill btn-lg form__search">
+                            <Link to={this.state.url}  >
+                            <a onClick={this.setURL} href="#" className="btn button__fill btn-lg form__search">
                                 <img src="../images/search_home.png" />
                             </a>
                             </Link>

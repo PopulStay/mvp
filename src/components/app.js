@@ -142,7 +142,7 @@ const App = () => (
     <ScrollToTop>
         <div>
           <Route exact path="/" component={SearchPage}/>
-          <Route exact path="/home" component={HomePage}/>
+          <Route exact path="/home/:search" component={HomePage}/>
           <Route path="/page/:activePage" component={HomePage}/>
           <Route path="/listing/:listingId" component={ListingDetailPage}/>
           <Route path="/create" component={CreateListingPage}/>
