@@ -55,7 +55,7 @@ class Search extends Component {
       houselistingService.getDistrictCodes().then((codes)=>
       {
         window.codes = codes; 
-        this.setListingRows(codes, , , , );
+        this.setListingRows(codes,from,to,guests,place);
         this.setState({Progress:this.state.Progress+35})
       });
     }
