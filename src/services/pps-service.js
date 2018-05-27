@@ -89,6 +89,39 @@ class PPSService {
           });
   }
 
+ getWithdrawInfo(account){
+    
+      return new Promise((resolve, reject) => {
+            axios.get(process.env.Server_Address+'withdraw?account='+account)
+            .then(function (response) {
+            resolve(response);
+            })
+            .catch(function (error) {
+            console.error(error);
+            reject(error);
+            });
+          });
+  }
+
+  applyWithdraw(account,size){
+      var params = {};
+      params.size    = size;
+      params.account = account;
+      params.id      = window.address+"timestamp"+new Date().getTime();
+
+    
+      return new Promise((resolve, reject) => {
+            axios.post(process.env.Server_Address+'withdraw',params)
+            .then(function (response) {
+            resolve(response);
+            })
+            .catch(function (error) {
+            console.error(error);
+            reject(error);
+            });
+          });
+  }
+
   getUsdOrderList(guestaddress){
     
       return new Promise((resolve, reject) => {
