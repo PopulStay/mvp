@@ -442,6 +442,8 @@
 .withdraw table td.td3,
 .withdraw table td.td4{
   width: 20%;
+  color: #999;
+  font-family: RobotoThin; 
 }
 .withdraw table td.td2 p,
 .withdraw table td.td3 p,
@@ -449,6 +451,7 @@
   width: 110px;
   overflow: hidden;
   font-size: 1.6rem;
+  margin: 0;
 }
 .withdraw table td input{
   outline:none;
@@ -457,10 +460,11 @@
   font-size: 1.6rem;
 }
 .withdraw table td button{
-  width: 48%;
+  width:48%;
   font-size: 1.2rem;
   margin: 0;
   padding: 3% 0;
+  font-family: RobotoThin; 
 }
 .withdraw button{
   width:35%;

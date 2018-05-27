@@ -3058,7 +3058,7 @@ class ListingCreate extends Component {
                       }else if(this.state.Currency == "ETH"){
                         this.setState({ETHprice_perday:e.target.value,price_perday:(100000*e.target.value),USDprice_perday:(1000*e.target.value)});
                       } else{
-                        this.setState({USDprice_perday:e.target.value,ETHprice_perday:(1000*e.target.value),price_perday:(100*e.target.value)});
+                        this.setState({USDprice_perday:e.target.value,ETHprice_perday:(0.001*e.target.value),price_perday:(100*e.target.value)});
                       } }} />
                   </div>
                   <p className={this.state.price_perday < 10 || this.state.price_perday >= 13272000000 ? "textpink show" : "hide"}>Please use a base price of at least 10PPS but no more than 13,272,000,000PPS</p>
