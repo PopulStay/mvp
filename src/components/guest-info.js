@@ -65,7 +65,7 @@ class GuestInfo extends React.Component {
       //state等于2的是没有生成智能合约的
       //Guest Managment Panel 里面加一个没有生成智能合约的预定list。。。
       this.setState({ usdOrderList:data.data});
-      console.log(this.state)
+      console.log(this.state.usdOrderList)
     });
 
     this.onGetDepositBalance();
@@ -160,12 +160,12 @@ class GuestInfo extends React.Component {
 
       {this.state.usdOrderList.map(item => (
         <tr>
-            <td><p>NAN</p></td>
+            <td><p><a href={"listing/"+item.houseinfoid}>{item.houseinfoid}</a></p></td>
             <td>{item.state}</td>
             <td><Link to={`/listing/${item.houseinfoid}`}>Check</Link></td>
             <td><Timestamp time={item.from.substring(0,10)} format='date'/></td>
             <td><Timestamp time={item.to.substring(0,10)} format='date'/></td>
-            <td>{item.usdprice}{item.usdprice == 0 ? '' : '/USD'}</td>
+            <td>{Number(item.usdprice).toFixed(3)}{item.usdprice == 0 ? '' : '/USD'}</td>
             { item.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
             { item.status === '1' &&<td>Checked In</td>}
             { item.state === '2' &&<td>Checked In</td>}
