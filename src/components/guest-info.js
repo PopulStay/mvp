@@ -107,7 +107,7 @@ class GuestInfo extends React.Component {
                 <p><span>Revise the head image</span></p>
             </div>
           </div>
-          <div className="col-sm-12 col-md-8 col-lg-7 userlist row">
+          <div className="col-sm-12 col-md-8 col-lg-6 userlist row">
             <div className="col-sm-12 col-md-6 col-lg-6">
               <span>username:</span><p>{this.state.user}</p>
             </div>
