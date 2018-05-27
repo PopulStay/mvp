@@ -19,6 +19,7 @@ class experienceintro extends Component {
         curDistrictCodeIndex:0,
         experienceList:1,
         introduce:0,
+        clicklogout:false,
       };
 
       this.style = {
@@ -36,6 +37,10 @@ class experienceintro extends Component {
       {
         this.setListingRows(codes);
       });
+  }
+
+  onLogOut = (value) =>{
+    this.setState({ clicklogout:value });
   }
 
   setListingRows =(codes) =>{
@@ -124,10 +129,10 @@ class experienceintro extends Component {
                     <a href="" className="btn button__Help">Help</a>
                   </li>
                   <li className="Li4">
-                    <WalletClear onLogOut={this.onLogOut} />
+                    <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />
                   </li>
                   <li className="Li5">
-                    <GuestRegister/>
+                    <GuestRegister clicklogout={this.state.clicklogout}  onLogOut={this.onLogOut} />
                   </li>
                 </ul>
               </div>

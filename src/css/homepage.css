@@ -44,8 +44,12 @@
 .form .container > .row {
   padding: 4% 0;
 }
+.index_content .DateRangePicker{
+  width: 100%;
+}
 .index_content .DateInput_input,
 .index_content .guestsnum input{
+  width: 200px;
   color: #43424a;
   border:1px solid #737474;
   border-radius: 5px;
@@ -68,8 +72,10 @@
   width: 0%;
 }
 .index_content .DateInput{
-  width: 40%;
-  margin-right: 10%;
+  width: 50%;
+}
+.index_content .DateInput:last-child{
+  float: right;
 }
 .index_box>div{
   margin-bottom: 3%;
@@ -81,6 +87,7 @@
   display: block;
 }
 .index_content .DateRangePickerInput{
+  width: 100%;
   padding: 0;
 }
 .index_content .form__search{

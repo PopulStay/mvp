@@ -17,8 +17,8 @@
  	font-family: RobotoThin; 
 }
 .experienceintro_header header li{
-	width: 15%;
-	margin-left: 0;
+	width: auto;
+	margin-left: 10%;
 }
 .experienceintro_header .navbar-collapse ul{
 	text-align: right;
