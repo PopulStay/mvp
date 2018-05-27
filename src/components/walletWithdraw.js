@@ -42,6 +42,16 @@ class WalletWithdraw extends React.Component {
     ppsService.getBalance(window.address).then((data)=>{
       this.setState({ ppsBalance:data});
     });
+     ///////////////王艳这里是申请提币情报的API//////////////////////
+    ppsService.getWithdrawInfo(window.address).then((data)=>{
+      console.log(data);
+      //state 0 申请提币
+      //state 1 提币中
+      //state 2 完成提币
+      //state -1 提币失败
+
+    });
+     ///////////////王艳这里是申请提币情报的API//////////////////////
   }
   Submit(){
     if(this.state.Address != "" || this.state.Size >1){
@@ -50,7 +60,12 @@ class WalletWithdraw extends React.Component {
           Address:this.state.Address,
           Size:this.state.Size
       })
+      ///////////////王艳这里是申请提币的API//////////////////////
+      ppsService.applyWithdraw(this.state.Address,this.state.Size);
+      ////////////////////////////////////////////////////////
+
       this.setState({withdrawlist:withdrawlist,Address:window.address,Size:1})
+
     }
   }
   openModal() {
