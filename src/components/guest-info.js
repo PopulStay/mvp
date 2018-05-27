@@ -160,7 +160,7 @@ class GuestInfo extends React.Component {
 
       {this.state.usdOrderList.map(item => (
         <tr>
-            <td><p>{item.guestaddress}</p></td>
+            <td><p>NAN</p></td>
             <td>{item.state}</td>
             <td><Link to={`/listing/${item.houseinfoid}`}>Check</Link></td>
             <td><Timestamp time={item.from.substring(0,10)} format='date'/></td>

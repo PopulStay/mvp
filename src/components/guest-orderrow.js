@@ -13,7 +13,8 @@ class GuestOrderRow extends Component {
       from:"Loading",
       to:"Loading",
       price:"Loading",
-      ethPrice:"Loading"
+      ethPrice:"Loading",
+      url:""
 
     }
 
@@ -40,7 +41,8 @@ class GuestOrderRow extends Component {
               from:result._from.substring(0,10),
               to:result._to.substring(0,10),
               price:result._price,
-              ethPrice:result._ethPrice
+              ethPrice:result._ethPrice,
+              url:"https://kovan.etherscan.io/address/"+this.props.account
             });
             window.result = result;
         }).catch((error) => {
@@ -88,7 +90,7 @@ class GuestOrderRow extends Component {
 
     return (
        <tr>
-        <td><p>{this.props.account}</p></td>
+        <td><p><a href={this.state.url}>{this.props.account}</a></p></td>
         <td>{this.state.status}</td>
         <td><Link to={`/listing/${this.state.houseInformation}`}>Check</Link></td>
         <td><Timestamp time={this.state.from} format='date'/></td>
