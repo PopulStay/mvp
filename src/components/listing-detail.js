@@ -122,6 +122,7 @@ class ListingsDetail extends Component {
             return ipfsService.getListing(ipfsHash)
         }).then((result)=>{
               var descriptioninfo = JSON.parse(result);
+          console.log(descriptioninfo)
              this.setState({descriptioninfo:descriptioninfo});
              if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
              {
@@ -190,8 +191,9 @@ class ListingsDetail extends Component {
     var dayS = new Date(day).getTime();
     var DateLists = this.state.DateLists;
     for(var i=0;i<DateLists.length;i++){
-      if(dayS>=DateLists[i].start && dayS<=DateLists[i].end){
-        return dayS;
+      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end+43200000){
+        console.log(new Date(dayS));
+        return new Date(dayS);
       }
     }
   } 

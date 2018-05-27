@@ -13,8 +13,8 @@ class Search extends Component {
       this.state = {
         checkInDate: 0,
         checkOutDate: 0,
-        guests:1,
-        location:"Tokyo",
+        guests:2,
+        location:"Shanghai",
         locationName:"Tokyo",
         listingRows: [],
         listingsPerPage: 6,
