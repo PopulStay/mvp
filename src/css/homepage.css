@@ -313,6 +313,8 @@
 .experienceintro_content .contentbox6 .box1 .content .listdiv{
   position: absolute;
   width: 2400px;
+  left: 0;
+  transition: left 0.5s;
 }
 .experience .content .lists .photo,
 .experienceintro_content .contentbox6 .box1 .content .photo{

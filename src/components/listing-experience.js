@@ -12,10 +12,10 @@ class Listingexperience extends Component {
     super(props);
       this.state = {
         listingRows: [],
-        listingsPerPage: 8,
+        lunlistingRows:[],
         districtCodes:[],
         curDistrictCodeIndex:0,
-        locationtype:0,
+        locationtype:"",
       };
 
       this.style = {
@@ -40,17 +40,23 @@ class Listingexperience extends Component {
       this.setState({districtCodes:codes.data});
 
       if( window.listingRows ){  
-          this.setState({ listingRows: window.listingRows });
-          var widthbox = this.state.listingRows.length*220*2;
+          this.setState({ listingRows: window.listingRows,lunlistingRows: window.listingRows});
+          var widthbox = this.state.listingRows.length*220;
           this.setState({ style : this.style.style_1.width = widthbox+'px' });
       }else{
           var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
-          this.setState({ listingRows: data });
-          var widthbox = this.state.listingRows.length*220*2;
+          this.setState({ listingRows: data ,lunlistingRows: data});
+          var widthbox = this.state.listingRows.length*220;
           this.setState({ style : this.style.style_1.width = widthbox+'px' });
           window.listingRows = data;
         });
      }
+
+     this.setState({Progress:this.state.Progress+100})
+      this.timerID = setTimeout(
+        () => this.setState({Progresshide:1}),
+        1000
+      );
 
    }
 
@@ -62,8 +68,8 @@ class Listingexperience extends Component {
   nextlist(e){
     var leftnum = this.style.leftnum;
     var widthnum = parseInt(this.style.style_1.width);
-    leftnum = leftnum-220
-    if(widthnum/2+leftnum==0){
+    leftnum = leftnum-220;
+    if(widthnum+leftnum==widthnum/2){
       leftnum = 0;
       this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
     }else{
@@ -74,9 +80,8 @@ class Listingexperience extends Component {
   prelist(e){
     var leftnum = this.style.leftnum;
     var widthnum = parseInt(this.style.style_1.width);
-    console.log(-widthnum/2)
     if(leftnum==0){
-      leftnum = -widthnum/2+220
+      leftnum = -widthnum/2
       this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
     }else{
       leftnum = leftnum+220;
@@ -84,27 +89,31 @@ class Listingexperience extends Component {
     }
   }
 
+  locationtype(e){
+    var DataIndex = e.currentTarget.getAttribute('data-type');
+    this.setState({locationtype:DataIndex})
+    houselistingService.getlocationtype(DataIndex).then((data)=>
+    {
+      this.setState({listingRows:data});
+      console.log(this.state.listingRows);
+    });
+  }
+
   render() {
 
     const activePage = this.props.match.params.activePage || 1;
-    const showListingsRows = this.state.listingRows.slice(
-      this.state.listingsPerPage * (activePage-1),
-      this.state.listingsPerPage * (activePage))
+    const showListingsRows = this.state.listingRows;
    
     return (
 
         <div className="container experience">
+        <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
             <h2>Explore Experiences</h2>
             <div className="lunbo">
               <div className="pre glyphicon glyphicon-chevron-left" onClick={(e)=>this.prelist(e)}></div>
               <div className="content">
                 <div className="listdiv" style={this.style.style_1}>
-                    {showListingsRows.map(row => (
-                      <div className="lists">
-                        <ListingCard row={row}/>
-                      </div>
-                    ))}
-                    {showListingsRows.map(row => (
+                    {this.state.lunlistingRows.map(row => (
                       <div className="lists">
                         <ListingCard row={row}/>
                       </div>
@@ -115,33 +124,38 @@ class Listingexperience extends Component {
             </div>
             <h2>All experiences</h2>
             <ul className="experiences_ul">
-                <li className={this.state.locationtype == 1 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:1})}>Tokyo</li>
-                <li className={this.state.locationtype == 2 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:2})}>Singapore</li>
-                <li className={this.state.locationtype == 3 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:3})}>Seoul</li>
-                <li className={this.state.locationtype == 4 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:4})}>Osaka</li>
-                <li className={this.state.locationtype == 5 ? "locationActive" : ""} onClick={(e)=>this.setState({locationtype:5})}>Bangkok</li>
+                <li className={this.state.locationtype == "Tokyo" ? "locationActive" : ""} data-type="Tokyo" onClick={(e)=>this.locationtype(e)}>TOKYO</li>
+                <li className={this.state.locationtype == "NEW YORK" ? "locationActive" : ""} data-type="NEW YORK" onClick={(e)=>this.locationtype(e)}>NEW YORK</li>
+                <li className={this.state.locationtype == "SHANGHAI" ? "locationActive" : ""} data-type="SHANGHAI" onClick={(e)=>this.locationtype(e)}>SHANGHAI</li>
+                <li className={this.state.locationtype == "LONDON" ? "locationActive" : ""} data-type="LONDON" onClick={(e)=>this.locationtype(e)}>LONDON</li>
+                <li className={this.state.locationtype == "PARIS" ? "locationActive" : ""} data-type="PARIS" onClick={(e)=>this.locationtype(e)}>PARIS</li>
+                <li className={this.state.locationtype == "SINGAPORE" ? "locationActive" : ""} data-type="SINGAPORE" onClick={(e)=>this.locationtype(e)}>SINGAPORE</li>
                 <Link to="/all">
                   <li>Show All ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</li>
                 </Link>
             </ul>
             <div className="All_experiences row">
-                {showListingsRows.map(row => (
+                {showListingsRows.map(item => (
                   <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 listing-card">
-                  <ListingCard row={row}/>
+                      <Link to={`/listing/${item.id}`}>
+                        <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
+                        <div className="photo" style={!item.profile.previewImage ? {backgroundImage:"url(/images/registerlist_4.png)"}:{backgroundImage:"url("+item.profile.previewImage+")"}}>
+                        </div>
+                        <div className="category">{item.houseinfo.category} ({item.houseinfo.beds} beds)</div>
+                        <div className="title">{item.houseinfo.location}</div>
+                        <div className="price">
+                            ￥{Number(item.price).toLocaleString(undefined, {minimumFractionDigits: 3})} pps per night
+                        </div>
+                        <div className="divxx">
+                          <img src="../images/detail-xx01.png" alt="" />
+                          <img src="../images/detail-xx01.png" alt="" />
+                          <img src="../images/detail-xx01.png" alt="" />
+                          <img src="../images/detail-xx01.png" alt="" />
+                          <span>200</span> 
+                        </div>
+                      </Link>
                   </div>
                 ))}
-            </div>
-            <div className="listspan">
-            <Pagination
-              activePage={activePage}
-              itemsCountPerPage={this.state.listingsPerPage}
-              totalItemsCount={this.state.listingRows.length}
-              pageRangeDisplayed={5}
-              onChange={this.handlePageChange}
-              itemClass="page-item"
-              linkClass="page-link"
-              hideDisabled="true"
-            />
             </div>
         </div>
 

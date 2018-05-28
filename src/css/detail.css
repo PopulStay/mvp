@@ -585,7 +585,7 @@
   padding:0.8%;
   border-radius: 10px;
 }
-.video .spantype{
+.video h4>span{
   display: inline-block;
   width: 10px;
   height:10px;
@@ -594,6 +594,9 @@
   float: left;
   margin-right: 2%;
   margin-top: 1%;
+}
+.video h4>span.spantype{
+  background: #f6416c; 
 }
 .video h4{
   overflow: hidden;
@@ -604,9 +607,70 @@
   margin: 0;
   float: left;
 }
+.video h4 button{
+  width: 40px;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 20px;
+  border: 1px solid #f6416c;
+  position: relative;
+  background: #f5f5f5;
+  margin-left: 3%;
+}
+.video h4 button span{
+  width: 30px;
+  height: 21px;
+  line-height: 21px;
+  text-align: center;
+  background: #fff;
+  border-radius: 20px;
+  position: absolute;
+  top: -0.5px;
+  left: -1px;
+  border: 1px solid #f6416c;
+  font-size: 1.4rem;
+  color: #f6416c;
+}
+.video h4 button.btnType{
+  background: #f6416c;
+}
+.video h4 button span.spanType{
+  left: auto;
+  right: -1px;
+  transition: left 0.5s;
+}
+.video h4>h6.narrow,
+.video h4>h6.enlarge{
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  float: right;
+  margin: 0;
+  cursor: pointer;
+}
+.video h4>h6.narrow{
+  width: 10px;
+  height: 1px;
+  border-top: 1px solid #000;
+  margin-top: 4px;
+  margin-right: 5%;
+  padding-bottom: 5px;
+}
+.video>p{
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+}
+.video h4>h6.enlarge{
+  width: 10px;
+  height: 10px;
+  border:1px solid #000;
+}
+
 .video h4 p span{
   font-family: RobotoThin; 
   font-size: 1.2rem;
+  display: none;
 }
 .video h6{
   text-align: center;
@@ -631,7 +695,7 @@
   border-bottom: 1px solid #151b4e;
   cursor: pointer;
 }
-.video>ul{
+.video ul{
   max-height: 200px;
   overflow: auto;
   padding: 0 2%;
