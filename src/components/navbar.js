@@ -24,6 +24,7 @@ class NavBar extends Component {
         Adult:1,
         children:0,
         Baby:0,
+        Citys:["TOKYO","NEW YORK","SHANGHAI","LONDON","PARIS","SINGAPORE"],
         language:['English','Français','Deutsch','日本語','Italiano','Русский','Español','中文','العربية','Hindi','Português','Türkçe','Bahasa Indonesia','Nederlands','한국어','Bengali','ภาษาไทย','Punjabi','Ελληνικά','Sign Language','עברית','Polski','Bahasa Malaysia','Tagalog','Dansk','Svenska','Norsk','Suomi','Čeština','Magyar','українська'],
         Facilities:['Kitchen','Shampoo','Heating','Air conditioner','Washing machine','Dryer','Wireless network','breakfast','Indoor fireplace','Doorbell / building interphone','Guard','Coat hanger','Iron','Hair drier','Desk / work area','Television','Baby bed','High foot chair for children','Check in','smoke detector','Carbon Monoxide Alarm'],
         Facilities1:['Free parking space','Gym','Massage bathtub','Swimming Pool'],
@@ -31,6 +32,7 @@ class NavBar extends Component {
         Characteristic:['Agritainment','Primary residence acupoint','Cuban family hotel','Castle','Tent','Miniature house','Tree House','Train','Natural Hostel','Ship','A ship’s house','Thatched cottage','Camping area','Camping car / RV'],
         Rules:['Suitable for hosting activities','Allowed to carry a pet','Allow smoking'],
         Code_house:['Suitable for hosting activities','Allowed to carry a pet','Allow smoking'],
+        Citys_type:0,
       };
       window.searchCondition = this.state;
   }
@@ -217,7 +219,26 @@ class NavBar extends Component {
         <li className="tag__item"><a href="/experience"><img src="../../images/Experience.png" alt=""/><span>Experience</span></a></li>
         <li className="tag__item"><span className="location-tag Strainerspan" data-Strainer="Strainer_City" onClick={(e)=>this.Strainer(e)}>New York</span>
             <div className={this.state.Strainer_City ? "Strainer_City show" : "Strainer_City hide"}>
-                <h1>City Strainer</h1>
+                <div className="Strainer_Home_Type">
+                    <div>
+                      {this.state.Citys.map((item,index) => (
+                          <div  className="checkbox col-lg-6" onClick={(e) => this.setState({Citys_type:{index}})}>
+                            <p className="Pinput" >
+                              <img className={this.state.Citys_type == {index} ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                            </p>
+                            <div className="divinput">
+                              <p>{item}</p>
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                </div>
+                <div className="operation">
+                    <p className="cancel Left" onClick={(e)=>this.setState({Strainer_Guests:false})}>cancel</p>
+                    <p className="confirm Left" onClick={(e)=>this.confirm(e)}>confirm</p>
+                    <p className="Reset Right" onClick={(e)=>this.setState({Adult:1,children:0,Baby:0})}>Reset</p>
+                </div>
             </div>
         </li>
         <li className={this.state.Strainer_Time ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_Time" onClick={(e)=>this.Strainer(e)}>4th - 8th March</span>

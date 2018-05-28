@@ -8584,6 +8584,14 @@ header .navBtn{
 .tag-header .tag__item>div .operation{
   margin-bottom: 5%;
 } 
+div.Strainer_City .checkbox{
+  padding: 0;
+  height: 25px !important;
+}
+div.Strainer_City .checkbox .divinput{
+  width: 80% !important;
+  float: right !important;
+}
 div.Strainer_Guests ul,
 div.Strainer_More .Bedroom ul{
   width: 100%;
@@ -8617,6 +8625,7 @@ div.Strainer_More ul li p>span.text{
   text-align: center;
   width: 75%;
 }
+div.Strainer_Home_Type>div,
 div.Strainer_Guests .operation,
 div.Strainer_token .operation,
 div.Strainer_Home_Type .checkbox,
@@ -8628,6 +8637,7 @@ div.Strainer_More .checkbox,
 div.Strainer_More .language>div{
   overflow: hidden;
 }
+div.Strainer_City .operation p,
 div.Strainer_Guests .operation p,
 div.Strainer_token .operation p,
 div.Strainer_Home_Type .operation p,

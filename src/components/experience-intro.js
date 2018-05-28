@@ -47,14 +47,14 @@ class experienceintro extends Component {
     this.setState({districtCodes:codes.data});
       if( window.listingRows )
       {
-           var widthbox = this.state.listingRows.length*220*2;
+           var widthbox = this.state.listingRows.length*220;
            this.setState({ listingRows: window.listingRows });
            this.setState({ style : this.style.style_1.width = widthbox+'px' });
       }else{
           var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
           this.setState({ listingRows: data });
           window.listingRows = data;
-          var widthbox = this.state.listingRows.length*220*2;
+          var widthbox = this.state.listingRows.length*220;
           this.setState({ style : this.style.style_1.width = widthbox+'px' });
       });
       }
@@ -67,8 +67,8 @@ class experienceintro extends Component {
   nextlist(e){
     var leftnum = this.style.leftnum;
     var widthnum = parseInt(this.style.style_1.width);
-    leftnum = leftnum-220
-    if(widthnum/2+leftnum==0){
+    leftnum = leftnum-220;
+    if(widthnum+leftnum==widthnum/2){
       leftnum = 0;
       this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
     }else{
@@ -80,7 +80,7 @@ class experienceintro extends Component {
     var leftnum = this.style.leftnum;
     var widthnum = parseInt(this.style.style_1.width);
     if(leftnum==0){
-      leftnum = -widthnum/2+220
+      leftnum = -widthnum/2
       this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
     }else{
       leftnum = leftnum+220;
@@ -96,9 +96,7 @@ class experienceintro extends Component {
 
   render() {
     const activePage = this.props.match.params.activePage || 1;
-    const showListingsRows = this.state.listingRows.slice(
-      this.state.listingsPerPage * (activePage-1),
-      this.state.listingsPerPage * (activePage))
+    const showListingsRows = this.state.listingRows;
 
 
     return (
@@ -284,11 +282,6 @@ class experienceintro extends Component {
                 <div className="pre glyphicon glyphicon-chevron-left" onClick={(e)=>this.prelist(e)}></div>
                 <div className="content">
                     <div className="listdiv" style={this.style.style_1}>
-                    {showListingsRows.map(row => (
-                      <div className="lists">
-                        <ListingCard row={row}/>
-                      </div>
-                    ))}
                     {showListingsRows.map(row => (
                       <div className="lists">
                         <ListingCard row={row}/>
