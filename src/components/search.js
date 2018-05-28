@@ -13,7 +13,7 @@ class Search extends Component {
       this.state = {
         checkInDate: 0,
         checkOutDate: 0,
-        guests:2,
+        guests:1,
         location:"Shanghai",
         locationName:"Tokyo",
         listingRows: [],

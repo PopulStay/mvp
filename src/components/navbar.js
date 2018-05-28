@@ -213,7 +213,7 @@ class NavBar extends Component {
     {!this.props.hideTagHeader &&
       <div className="tag-header Strainerbox">
         <ul className="tag container">
-        <li className="tag__item"><a href="/experience"><img src="./images/Experience.png" alt=""/><span>Experience</span></a></li>
+        <li className="tag__item"><a href="/experience"><img src="../../images/Experience.png" alt=""/><span>Experience</span></a></li>
         <li className="tag__item"><span className="location-tag Strainerspan" data-Strainer="Strainer_City" onClick={(e)=>this.Strainer(e)}>New York</span>
             <div className={this.state.Strainer_City ? "Strainer_City show" : "Strainer_City hide"}>
                 <h1>City Strainer</h1>
@@ -242,7 +242,7 @@ class NavBar extends Component {
                 </div>
             </div>
         </li>
-        <li className={this.state.Strainer_token ? "tag__item active" : "tag__item"}><img src="./images/pps.png" alt=""/> <span data-Strainer="Strainer_token" onClick={(e)=>this.Strainer(e)}>Support PPS token</span>
+        <li className={this.state.Strainer_token ? "tag__item active" : "tag__item"}><img src="../../images/pps.png" alt=""/> <span data-Strainer="Strainer_token" onClick={(e)=>this.Strainer(e)}>Support PPS token</span>
             <div className={this.state.Strainer_token ? "Strainer_token show" : "Strainer_token hide"}>
                 <p className="text1"><span>PPS</span>60-<span>PPS</span>5000</p>
                 <p className="text1">The average price per night is PPS385.</p>

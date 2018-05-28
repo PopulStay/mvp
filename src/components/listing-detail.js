@@ -109,7 +109,7 @@ class ListingsDetail extends Component {
         houselistingService.getHouseInfoDetail(this.props.listingId)
         .then((result) => {
             var roominfo = JSON.parse(result._roominfo);
-            this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
+            this.setState({ppsPrice:Number(result._price).toFixed(3),category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:(result._ethPrice/this.CONST.weiToGwei).toFixed(3),usdPrice:(result._ethPrice/this.CONST.weiToUSD).toFixed(3)});
             //slideArray.push();
 
           this.setState({Progress:this.state.Progress+50})

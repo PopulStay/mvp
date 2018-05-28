@@ -107,7 +107,7 @@ class ListingsGrid extends Component {
             />
           </div>
           <div className="col-md-4 col-lg-4">
-            <img src="./images/search-map.jpg" />
+            <img src="../../images/search-map.jpg" />
           </div>
         </div>
         
