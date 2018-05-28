@@ -188,9 +188,6 @@ class HouseInfoListingService {
     });
   }
 
-
-
-  }
   
   getlocationtype(account){
     return new Promise((resolve, reject) => {

@@ -1,6 +1,5 @@
 import axios from 'axios';
 const ipfsAPI = require('ipfs-api');
-const MapCache = require('map-cache');
 
 class IpfsService {
   static instance
@@ -24,10 +23,7 @@ class IpfsService {
     //     console.error(error)
     //   }
     // })
-    IpfsService.instance = this
-
-    // Caching
-    this.mapCache = new MapCache()
+    IpfsService.instance = this;
   }
 
   submitListing(formListingJson) {
@@ -85,10 +81,7 @@ class IpfsService {
   getListingFromIpfs(ipfsHashStr){
 
     return new Promise((resolve, reject) => {
-      if (this.mapCache.has(ipfsHashStr)) {
-        resolve(this.mapCache.get(ipfsHashStr))
-      }
-      // Get from IPFS network
+     
       this.ipfs.files.cat(ipfsHashStr, (err, stream) => {
         if (err) {
           console.error(err)
@@ -102,7 +95,6 @@ class IpfsService {
           reject("Got ipfs cat stream err:" + err)
         })
         stream.on('end', () => {
-          this.mapCache.set(ipfsHashStr, res)
           resolve(res)
         })
       });
@@ -122,7 +114,8 @@ class IpfsService {
         this.setIPFSInfo(content).then((res)=>{
           console.log(res);
         });
-        resolve(res);
+        
+        resolve(JSON.parse(res));
     });
 
   }   
@@ -130,11 +123,16 @@ class IpfsService {
   getListing(ipfsHashStr) {
 
     return new Promise((resolve, reject) => {
+
+    
+
      this.getIPFSInfo(ipfsHashStr).then((res)=>{
       console.log("###########ipfsHashStr###############:",res);
-      if(res && res.data && res.data.content)
+      if(res && res.data )
       {
-        resolve(res.data.content);
+        resolve(res.data);
+
+         
       }else
       {
        this.getFromIPFSAndCache(ipfsHashStr,resolve);
