@@ -1,4 +1,5 @@
-const ipfsAPI = require('ipfs-api')
+import axios from 'axios';
+const ipfsAPI = require('ipfs-api');
 const MapCache = require('map-cache');
 
 class IpfsService {
@@ -53,9 +54,37 @@ class IpfsService {
     })
   }
 
-  getListing(ipfsHashStr) {
+ getIPFSInfo(id) {
+      return new Promise((resolve, reject) => {
+        axios.get(process.env.Server_Address+'ipfs/'+id)
+        .then((response)=> {
+          resolve(response);
+        })
+        .catch(function (error) {
+          reject(error);
+        });
+    });
+  }
+
+  setIPFSInfo(content)
+  {
+        return new Promise((resolve, reject) => {
+          axios.post(process.env.Server_Address+'ipfs', content)
+          .then(function (response) {
+            resolve(response);
+          })
+          .catch(function (error) {
+            console.error(error);
+            reject(error);
+          });
+        });
+
+
+  }
+  
+  getListingFromIpfs(ipfsHashStr){
+
     return new Promise((resolve, reject) => {
-      // Check for cache hit
       if (this.mapCache.has(ipfsHashStr)) {
         resolve(this.mapCache.get(ipfsHashStr))
       }
@@ -76,9 +105,47 @@ class IpfsService {
           this.mapCache.set(ipfsHashStr, res)
           resolve(res)
         })
-      })
-    })
+      });
+    });
+
+
   }
+
+
+
+  getFromIPFSAndCache(ipfsHashStr,resolve)
+  {
+    this.getListingFromIpfs(ipfsHashStr).then((res)=>{
+        var content = {};
+        content.id      = ipfsHashStr;
+        content.content = res;
+        this.setIPFSInfo(content).then((res)=>{
+          console.log(res);
+        });
+        resolve(res);
+    });
+
+  }   
+
+  getListing(ipfsHashStr) {
+
+    return new Promise((resolve, reject) => {
+     this.getIPFSInfo(ipfsHashStr).then((res)=>{
+      console.log("###########ipfsHashStr###############:",res);
+      if(res && res.data && res.data.content)
+      {
+        resolve(res.data.content);
+      }else
+      {
+       this.getFromIPFSAndCache(ipfsHashStr,resolve);
+      }
+      
+    }).catch( (error)=> {
+      this.getFromIPFSAndCache(ipfsHashStr,resolve);
+    });
+  })
+}
+
 
   gatewayUrlForHash(ipfsHashStr) {
     return (`${this.ipfsProtocol}://${this.ipfsDomain}:` +

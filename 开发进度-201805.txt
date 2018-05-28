@@ -76,6 +76,26 @@
 
 
 
+5-28
+1)存币返回结果
+2）网页加载速度，进一步加强；2   wang ding
+3）网页tag的过滤器；1  wang   --40%
+4）发布房源的进度保存，采用localstorage，wallet.js有sample，保存state； 1 wang 
+5）profile的头像上传；2。  wang ding
+6）取币 ；1 ding wang --40%
+9）checkin,checkout的检索 url的问题； bugfix 1 wang
+10）真实的地图功能；  2 wang
+11）help页面； 1 chrite  wang ding
+12)用户页面需要双击才能进入。 1: wang
+13) 地图功能。2 wang
+16）URL长度问题； ding
+17）房源的主图片的突出；wang
+18）语言的问题； wang
+19）聊天做成悬浮框； wang
+20）instant booking ／booking 问题； ？待定
+22）订单详细页面的增加。ding。wang
+23) 缓存IPFS上内容 ding
+
 
 
 
