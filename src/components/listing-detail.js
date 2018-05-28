@@ -122,7 +122,7 @@ class ListingsDetail extends Component {
         
               return ipfsService.getListing(ipfsHash)
         }).then((result)=>{
-              var descriptioninfo = JSON.parse(result);
+              var descriptioninfo = result;
           console.log(descriptioninfo)
              this.setState({descriptioninfo:descriptioninfo});
              if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
