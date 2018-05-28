@@ -190,6 +190,18 @@ class HouseInfoListingService {
 
 
   }
+  
+  getlocationtype(account){
+    return new Promise((resolve, reject) => {
+        axios.get(process.env.Server_Address+'HouseInformation?place='+account)
+        .then((response)=> {
+          resolve(response.data);
+        })
+        .catch(function (error) {
+          reject(error);
+        });
+    });
+  }
 
 
   getGuestPreorderList(account) {
