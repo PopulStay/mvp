@@ -25,7 +25,7 @@ class WalletWithdraw extends React.Component {
       Address:"",
       Size:1,
       withdrawlist:[],
-      ppsBalance:0,
+      ppsDeposited:0,
       statetype:'To be audited'
     };
 
@@ -33,43 +33,71 @@ class WalletWithdraw extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.delelist = this.delelist.bind(this);
+    this.Withdraw = this.Withdraw.bind(this);
+
 
   }
 
   componentDidMount() {
     this.setState({ Address: window.address });
 
-    ppsService.getBalance(window.address).then((data)=>{
-      this.setState({ ppsBalance:data});
-    });
-     ///////////////王艳这里是申请提币情报的API//////////////////////
-    ppsService.getWithdrawInfo(window.address).then((data)=>{
-      console.log(data);
-      //state 0 申请提币
-      //state 1 提币中
-      //state 2 完成提币
-      //state -1 提币失败
+    ppsService.getDepositBalance(window.address)
+     .then((data)=>{
+        this.setState({ ppsDeposited : data.data.balance});
+     });
+    
+    this.withdrawlist();
 
-    });
-     ///////////////王艳这里是申请提币情报的API//////////////////////
   }
+
+  withdrawlist(){
+    ppsService.getWithdrawInfo(window.address).then((data)=>{
+      console.log(data.data);
+      this.setState({withdrawlist:data.data})
+    });
+  }
+
   Submit(){
     if(this.state.Address != "" || this.state.Size >1){
       var withdrawlist = this.state.withdrawlist;
       withdrawlist.push({
-          Address:this.state.Address,
-          Size:this.state.Size
+          account:this.state.Address,
+          size:this.state.Size,
+          state:0,
+          id:'...',
       })
-      ///////////////王艳这里是申请提币的API//////////////////////
-      ppsService.applyWithdraw(this.state.Address,this.state.Size);
-      ////////////////////////////////////////////////////////
-
       this.setState({withdrawlist:withdrawlist,Address:window.address,Size:1})
+      ppsService.applyWithdraw(this.state.Address,this.state.Size);
 
     }
+    this.timerID = setTimeout(
+      () => this.withdrawlist(),
+      1000
+    );
+    
   }
+
+  delelist(index){
+    this.setState({
+        withdrawlist: this.state.withdrawlist.filter((elem, i) => index != i)
+    });
+
+    var deleId = this.state.withdrawlist[index].id;
+    ppsService.deleWithdraw(deleId).then((data)=>{
+      console.log(data);
+    });
+
+
+  }
+
+  Withdraw(index){
+
+  }
+
   openModal() {
     this.setState({modalIsOpen: true});
+
+    this.withdrawlist();
   }
 
   afterOpenModal() {
@@ -85,15 +113,10 @@ class WalletWithdraw extends React.Component {
     return str.substring(2,str.length);
   }
 
-  delelist(index){
-    this.setState({
-          withdrawlist: this.state.withdrawlist.filter((elem, i) => index != i)
-    });
-  }
 
   Size(e){
-    if (Number(e.target.value) >= Number(this.state.ppsBalance)){
-      this.setState({Size:this.state.ppsBalance})
+    if (Number(e.target.value) >= Number(this.state.ppsDeposited)){
+      this.setState({Size:this.state.ppsDeposited})
     }else{
       this.setState({Size:e.target.value})
     }
@@ -121,11 +144,16 @@ class WalletWithdraw extends React.Component {
                 </tr>
                 {this.state.withdrawlist.map((item,index) => (
                   <tr>
-                    <td className="td1"><input type="text" value={item.Address} readonly /></td>
-                    <td className="td2"><p>{item.Size}</p></td>
-                    <td className="td3"><p></p></td>
-                    <td className="td4"><p>{this.state.statetype}</p></td>
-                    <td className="td5"><button className="Left">Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
+                    <td className="td1"><input type="text" value={item.account} readonly /></td>
+                    <td className="td2">{item.size}</td>
+                    <td className="td3"><input type="text" value={item.id} readonly /></td>
+                    <td className="td4">
+                        {item.state == 0 ? "Apply for money" : ""}
+                        {item.state == 1 ? "In the coin" : ""}
+                        {item.state == 2 ? "Finish the coin" : ""}
+                        {item.state == -1 ? "Currency failure" : ""}
+                    </td>
+                    <td className="td5"><button className="Left"  onClick={this.Withdraw.bind(this,index)} >Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
                   </tr>  
                   ))
                 }

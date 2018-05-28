@@ -122,6 +122,19 @@ class PPSService {
           });
   }
 
+  deleWithdraw(deleId){
+    return new Promise((resolve, reject) => {
+            axios.delete(process.env.Server_Address+'withdraw?id='+deleId)
+            .then(function (response) {
+            resolve(response);
+            })
+            .catch(function (error) {
+            console.error(error);
+            reject(error);
+            });
+          });
+  }
+
   getUsdOrderList(guestaddress){
     
       return new Promise((resolve, reject) => {

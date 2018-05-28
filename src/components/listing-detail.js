@@ -109,7 +109,7 @@ class ListingsDetail extends Component {
         houselistingService.getHouseInfoDetail(this.props.listingId)
         .then((result) => {
             var roominfo = JSON.parse(result._roominfo);
-            this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
+            this.setState({ppsPrice:Number(result._price).toFixed(3),category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:(result._ethPrice/this.CONST.weiToGwei).toFixed(3),usdPrice:(result._ethPrice/this.CONST.weiToUSD).toFixed(3)});
             //slideArray.push();
 
           this.setState({Progress:this.state.Progress+50})
@@ -122,6 +122,7 @@ class ListingsDetail extends Component {
             return ipfsService.getListing(ipfsHash)
         }).then((result)=>{
               var descriptioninfo = JSON.parse(result);
+          console.log(descriptioninfo)
              this.setState({descriptioninfo:descriptioninfo});
              if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
              {
@@ -190,8 +191,9 @@ class ListingsDetail extends Component {
     var dayS = new Date(day).getTime();
     var DateLists = this.state.DateLists;
     for(var i=0;i<DateLists.length;i++){
-      if(dayS>=DateLists[i].start && dayS<=DateLists[i].end){
-        return dayS;
+      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end+43200000){
+        console.log(new Date(dayS));
+        return new Date(dayS);
       }
     }
   } 

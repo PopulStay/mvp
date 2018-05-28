@@ -142,7 +142,8 @@ class HouseInfoListingService {
               params.hostAddress     = window.address;
               params.guests          = formListing.roombasics_guestsnumber;
               params.place           = formListing.roomtype_location;
-              params.ethprice        = parseFloat(formListing.ETHprice_perday)*1000000000;
+              params.ethprice        = formListing.ETHprice_perday;
+              params.usdprice        = formListing.USDprice_perday;
               params.profile         = { previewImage : formListing.selectedPictures[0].imagePreviewUrl };
 
               axios.post(process.env.Server_Address+'HouseInformation', params)
@@ -239,7 +240,7 @@ class HouseInfoListingService {
 
     return new Promise((resolve, reject) => {
       axios.get(process.env.Server_Address+'HouseInformation?place='+place
-                                                          +'&guests='+guests
+                                                          +'&guests>='+guests
                                                           +'&to='+to
                                                           +'&from='+from
                                                           +'&districeCode='+districtCode)

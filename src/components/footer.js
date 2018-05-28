@@ -51,7 +51,7 @@ class Footer extends Component {
 
 
 
-                <div className="dropdown"><button type="button" className="text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div>JPY</div><span className="caret"></span></button>
+                <div className="dropdown"><button type="button" className="text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div>USD</div><span className="caret"></span></button>
                     <ul className="dropdown-menu" aria-labelledby="dLabel">
                         <li></li>
                     </ul>

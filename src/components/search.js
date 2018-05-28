@@ -14,7 +14,7 @@ class Search extends Component {
         checkInDate: 0,
         checkOutDate: 0,
         guests:1,
-        location:"Tokyo",
+        location:"Shanghai",
         locationName:"Tokyo",
         listingRows: [],
         listingsPerPage: 6,
