@@ -54,7 +54,7 @@ class Video extends Component {
        videobox:0,
        socketid:"",
        narrow:true,
-       enlarge:false
+       enlarge:false,
     }
 
       web3Service.loadWallet();
@@ -468,13 +468,13 @@ class Video extends Component {
                     <span  onClick={this.leave} className={this.state.videobox == 1 ? "glyphicon glyphicon-earphone show" : "glyphicon glyphicon-earphone hide" }></span>
                   </div>  
 
-                    <h4><span className="spantype"></span>
+                    <h4><span className={!this.state.online ? "spantype" : ""}></span>
                       <p>{this.state.user}
                           <span className={this.state.online ? "spanshow" : "hide"}>Host on line</span>
                           <span className={!this.state.online ? "spanshow" : "hide"}>Host off line</span>
                           <span className={this.state.readyState ? "spanshow" : "hide"}>&nbsp;&nbsp;in Talking</span>
                       </p>
-                      <button className={this.state.online ? "btnType" : ""}><span className={this.state.online ? "spanType" : ""}>{this.state.online ? "on" : "off"}</span></button>
+                      <button className={this.state.online ? "btnType" : ""} onClick={(e)=>{if(this.state.online)this.setState({online:false});else this.setState({online:true});}}><span className={this.state.online ? "spanType" : ""}>{this.state.online ? "on" : "off"}</span></button>
 
                       <h6 className="enlarge" onClick={(e)=>{if(this.state.enlarge)this.setState({enlarge:false});else this.setState({enlarge:true});}}></h6> 
                       <h6 className="narrow" onClick={(e)=>this.setState({narrow:false,enlarge:false})}></h6>
@@ -501,20 +501,24 @@ class Video extends Component {
                 </div>
               }
               {this.state.Current_user === 0 && 
-                <div className={this.state.modalIsOpen == true ? "video hide" : "video show"}>
-                <div className="videobox">
-                  <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
-                  <span   onClick={this.leave}  className={this.state.videobox == 1 ? "glyphicon glyphicon-earphone show" : "glyphicon glyphicon-earphone hide" }></span>
-                </div>
-                    <h4><span className="spantype"></span>
-                      <p>{this.state.user}<br/>
+                <div className={this.state.modalIsOpen == true ? "video hide" : "video show"} style={{width:!this.state.narrow? "auto" : "",bottom:this.state.enlarge? "50%":"",right:this.state.enlarge? "50%":"",transform: this.state.enlarge? "translate(50%,50%)":""}}>
+                <div className={this.state.narrow ? "" : "hide"}>
+                  <div className="videobox">
+                    <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
+                    <span   onClick={this.leave}  className={this.state.videobox == 1 ? "glyphicon glyphicon-earphone show" : "glyphicon glyphicon-earphone hide" }></span>
+                  </div>
+                    <h4><span className={!this.state.online ? "spantype" : ""}></span>
+                      <p>{this.state.user}
                           <span className={this.state.online ? "spanshow" : "hide"}>Host on line</span>
                           <span className={!this.state.online ? "spanshow" : "hide"}>Host off line</span>
                           <span className={this.state.readyState ? "spanshow" : "hide"}>&nbsp;&nbsp;in Talking</span>
                       </p>
-                      <button className={!this.state.online ? "" : "btnType"}><span className={!this.state.online ? "" : "spanType"}>{!this.state.online ? "off" : "on"}</span></button>
+                      <button className={this.state.online ? "btnType" : ""} onClick={(e)=>{if(this.state.online)this.setState({online:false});else this.setState({online:true});}}><span className={this.state.online ? "spanType" : ""}>{this.state.online ? "on" : "off"}</span></button>
+
+                      <h6 className="enlarge" onClick={(e)=>{if(this.state.enlarge)this.setState({enlarge:false});else this.setState({enlarge:true});}}></h6> 
+                      <h6 className="narrow" onClick={(e)=>this.setState({narrow:false,enlarge:false})}></h6>
                     </h4>
-                     <ul>
+                     <ul  style={{height:this.state.enlarge? "300px":""}}>
                         {this.state.messagearr.map((item,index) => (
                             <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
                               <img  className={item.index == 0 ? "show videorightimg" : "hide videorightimg"} src="../images/becomehost-triangle.png" />
@@ -529,6 +533,8 @@ class Video extends Component {
                         <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
                         <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                      </div>
+                  </div>
+                  <p className={!this.state.narrow ? "show" : "hide"}  onClick={(e)=>this.setState({narrow:true})}>Contact the landlord</p>
                 </div>
               }
 
