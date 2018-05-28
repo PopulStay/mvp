@@ -98,7 +98,9 @@
 	.form .container h1{
 		font-size: 4rem;
 	}
-	
+	.index_content .DateInput_input, .index_content .guestsnum input{
+		width: 150px;
+	}
 	/*home  end*/
 
 	/*becomehost  start*/
@@ -285,13 +287,22 @@
   		max-width:100%;
   	}
   	.index_content .search{
-  		width: 100%;
-  		padding: 0;
-  		margin-left: 5%;
+  		width: 50%;
+  		padding: 0 ;
+  		margin:3% 25% 0;
   	}
 	/*header  end*/
 
 	/*home  start*/
+	.form .container h1{
+		font-size: 3rem;
+	}
+	.footer_ul{
+		margin-left:0px;
+	}
+	.footer__dropdown{
+		width: 50%;
+	}
 	.form .container{
 		background:none;
 		padding:3% 0;
@@ -299,28 +310,41 @@
 	.form label{
 		width: 50%;
 	}
+	.form label.Right,
+	.index_content .guestsnum:last-child{
+		padding-left:4%;
+	}
 	.index_content .DateInput{
-		width: 43%;
-		margin-right: 7%;
+		width: 46%;
+	}
+	.index_content .DateInput_input, .index_content .guestsnum input{
+		width: 100%;
 	}
 	.index_box,
 	.index_box>div{
 		padding: 0;
 		float: left;
 	}
-	.index_content .guestsnum:last-child .form-group,
 	.index_content .guestsnum .form-group{
-	  width: 85%;
+	  width: 92%;
 	}
-	.index_content .form__search{
+	.index_content .form__search,
+	.index_content .guestsnum:last-child .form-group{
 		width: 100%;
 	}
 	.index_foot ul .litext1,
 	.index_foot ul li{
-		font-size: 1.4rem;
+		font-size: 1.6rem;
 	}
 	.index_foot{
 		margin: 5% 0;
+		padding: 0;
+	}
+	.index_foot ul .liimg{
+		width: 8%;
+	}
+	.index_foot ul .liimg img{
+		top:0;
 	}
 	.form .index_home h2{
 		font-size: 2rem;
@@ -362,6 +386,9 @@
 	/**/
 
 	/*becomehost  start*/
+	.becomehost-1.container .STEPhead{
+		margin-top: 5%;
+	}
 	.container>div>div.row>div.col-lg-7{
 		padding: 0;
 	}
@@ -524,8 +551,7 @@
 
 	/*info  start*/
 	.userBox img{	
-		width: 40% !important;
-		margin: 0 30%;
+		position: initial;
 	}
 	.userBox .col-lg-7{
 		width: 100%;
@@ -540,6 +566,10 @@
 	.userbtn>div>button{
 		width: 100%!important;
 	}
+	.GuestManagment td button{
+		padding: 6px;
+		height: 15px;
+	}
 	.GuestManagment, 
 	.HostManagment{
 		width: 100%!important;
@@ -547,6 +577,10 @@
 	}
 	.GuestManagment th, .HostManagment th{
 		font-size: 1.2rem !important;
+	}
+	.GuestManagment th:last-child,
+	.GuestManagment td:last-child{
+		display: none;
 	}
 	.GuestManagment td, .HostManagment td, .GuestManagment td span, .GuestManagment td a,.GuestManagment td p{
 		font-size: 1rem !important;
@@ -573,8 +607,27 @@
 	.withdraw{
 		width: 90% !important;
 		padding: 3% !important;
+		border-radius: 8px !important;
 	}
 	/*modal*/
+
+	/**/
+	.footer__dropdown .btn-group{
+		width: 150px;
+	}
+	.footer__dropdown .btn-group .dropdown-menu li a{
+		padding: 5% 10%
+	}
+	.footer__dropdown .btn-group .dropdown-menu li a img{
+		margin: 1.5% 15% 0 0;
+	}
+	.footer__copyright{
+		font-size: 1.2rem;
+	}
+	.footer .social li .social__icon{
+		width: 20px;
+	}
+	/**/
 }
 
 @media screen and (max-width: 500px){

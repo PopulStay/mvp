@@ -104,22 +104,22 @@ class Search extends Component {
             <span className="color-pink text-bold">PopulStay-Superior Guest Experience & Maximized Owner Profit</span>
             <h4>Choose your city !</h4>
             <ul className="form__location row">
-                <li className="col-md-2 col-lg-2 col-sm-4 active" data-name="Tokyo"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4 active" data-name="Tokyo"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "Tokyo" ? "../images/location-13_1.png" : "../images/location-13.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-4" data-name="New York"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="New York"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "New York" ? "../images/location-14_1.png" : "../images/location-14.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-4" data-name="Shanghai"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="Shanghai"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "Shanghai" ? "../images/location-15_1.png" : "../images/location-15.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-4" data-name="London"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="London"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "London" ? "../images/location-16_1.png" : "../images/location-16.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-4" data-name="Paris"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="Paris"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "Paris" ? "../images/location-17_1.png" : "../images/location-17.png"} alt="" />
                 </li>
-                <li className="col-md-2 col-lg-2 col-sm-4" data-name="Singapore"  onClick={(e)=>this.locationName(e)}>
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="Singapore"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "Singapore" ? "../images/location-18_1.png" : "../images/location-18.png"} alt="" />
                 </li>
             </ul>
@@ -132,12 +132,12 @@ class Search extends Component {
                             <div className="col-md-12 col-lg-12 col-sm-12 guestsleft">
                                 <div className="form-group">
                                     <label className="col-sm-6 col-md-6 col-lg-6 ">Check in</label>
-                                    <label className="col-sm-6 col-md-6 col-lg-6 ">Check out</label>
+                                    <label className="col-sm-6 col-md-6 col-lg-6 Right">Check out</label>
                                     <DateRangePicker startDate={this.state.checkInDate} startDateId="start_date" endDate={this.state.checkOutDate} endDateId="end_date" onDatesChange={({ startDate, endDate })=> {this.setState({checkInDate: startDate, checkOutDate: endDate });window.searchCondition.checkOutDate = endDate;window.searchCondition.checkInDate = startDate;}} focusedInput={this.state.focusedInput} onFocusChange={focusedInput => this.setState({ focusedInput })} readOnly />
                                 </div>
                             </div>
 
-                            <div className="col-md-6 col-lg-6 col-sm-6 guestsnum Left">
+                            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 guestsnum Left">
                                 <div className="form-group">
                                     <label>guests</label>
                                     <input type="number" className="form-control input-lg" value={this.state.guests} onChange={(e)=> this.setState({guests: e.target.value}) } />
@@ -145,7 +145,7 @@ class Search extends Component {
                             </div>
                       
 
-                            <div className="col-md-6 col-lg-6 col-sm-6 guestsnum Right">
+                            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 guestsnum Right">
                                 <div className="form-group">
                                     <label>location</label>
                                     <input type="text" className="form-control input-lg" value={this.state.location} onChange={(e)=> this.setState({location: e.target.value}) }/>
