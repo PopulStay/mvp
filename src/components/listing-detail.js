@@ -119,7 +119,8 @@ class ListingsDetail extends Component {
                     1000
                   );
                 }
-            return ipfsService.getListing(ipfsHash)
+        
+              return ipfsService.getListing(ipfsHash)
         }).then((result)=>{
               var descriptioninfo = JSON.parse(result);
           console.log(descriptioninfo)
@@ -135,7 +136,7 @@ class ListingsDetail extends Component {
                   );
                 }
 
-              for(var i =1 ;i < descriptioninfo.selectedPictures.length;i++)
+              for(var i =0 ;i < descriptioninfo.selectedPictures.length;i++)
               {
                 var slide ={};
                 slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
@@ -163,7 +164,7 @@ class ListingsDetail extends Component {
 
   componentWillMount() {
     if (this.props.listingId) {
-      this.loadOrdered(this.props.listingId);
+      //this.loadOrdered(this.props.listingId);
       this.loadListing();
      
     }
@@ -200,20 +201,20 @@ class ListingsDetail extends Component {
       
 
 
-  loadOrdered = (id) =>{
-      houselistingService.getHouseInfoById(id).then((data)=>{
-        if(data)
-        {
-          var slide ={};
-          slide.imgageUrl = data.profile.previewImage;
-          this.state.slides.push(slide);
-        }
+  // loadOrdered = (id) =>{
+  //     houselistingService.getHouseInfoById(id).then((data)=>{
+  //       if(data)
+  //       {
+  //         var slide ={};
+  //         slide.imgageUrl = data.profile.previewImage;
+  //         this.state.slides.push(slide);
+  //       }
 
-        if(data.bookedDate != undefined ){
-            this.setState({DateLists: data.bookedDate.data});
-        }
-      });
-  }
+  //       if(data.bookedDate != undefined ){
+  //           this.setState({DateLists: data.bookedDate.data});
+  //       }
+  //     });
+  // }
 
   handleBooking() {
     console.log(this.state.descriptioninfo)

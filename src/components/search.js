@@ -14,7 +14,7 @@ class Search extends Component {
         checkInDate: 0,
         checkOutDate: 0,
         guests:1,
-        location:"Shanghai",
+        location:"Tokyo",
         locationName:"Tokyo",
         listingRows: [],
         listingsPerPage: 6,
@@ -42,7 +42,7 @@ class Search extends Component {
       });
   }
 
-  setURL =()=>{
+  setURL =()=> {
       if(this.state.checkInDate && this.state.checkOutDate )
       {
         var checkOutDate = this.state.checkOutDate.toDate().getTime();

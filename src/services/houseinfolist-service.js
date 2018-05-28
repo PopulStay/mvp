@@ -186,10 +186,9 @@ class HouseInfoListingService {
           reject(error);
         });
     });
-
-
-
   }
+
+
 
 
   getGuestPreorderList(account) {
