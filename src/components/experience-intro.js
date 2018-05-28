@@ -79,7 +79,6 @@ class experienceintro extends Component {
   prelist(e){
     var leftnum = this.style.leftnum;
     var widthnum = parseInt(this.style.style_1.width);
-    console.log(-widthnum/2)
     if(leftnum==0){
       leftnum = -widthnum/2+220
       this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });

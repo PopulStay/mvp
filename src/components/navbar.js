@@ -30,6 +30,7 @@ class NavBar extends Component {
         Source_type:['A complete set of single house','Apartment type residence','Breakfast and Breakfast','The Inn Boutique','Loft','Village hut','Villa','Guest Room','Guest suite','Log cabin','Bungalow','Holiday wooden house','Resort','Hostel','Villas','Hotel'],
         Characteristic:['Agritainment','Primary residence acupoint','Cuban family hotel','Castle','Tent','Miniature house','Tree House','Train','Natural Hostel','Ship','A ship’s house','Thatched cottage','Camping area','Camping car / RV'],
         Rules:['Suitable for hosting activities','Allowed to carry a pet','Allow smoking'],
+        Code_house:['Suitable for hosting activities','Allowed to carry a pet','Allow smoking'],
       };
       window.searchCondition = this.state;
   }
@@ -338,6 +339,98 @@ class NavBar extends Component {
                     <p className="optionsclose optionsActive"><span className="optionsActivespan"><img src="../images/registerlist_dui.png" /></span></p>
                     <p className="optionsclose optionsclose1 optionsActive"><span className="optionsActivespan"><img src="../images/registerlist_dui.png" /></span></p>
                 </div>
+
+                <div className="Strainer_Home_Type language">
+                    <h6>Facilities</h6>
+                    <div>
+                      {this.state.Facilities.map((item,index) => (
+                          <div  className="checkbox col-lg-6" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
+                            <p className="Pinput" >
+                              <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                            </p>
+                            <div className="divinput">
+                              <p>{item}</p>
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                    <p className="textpink">Display all the facilities</p>
+                </div>
+                
+                <div className="Strainer_Home_Type language">
+                    <h6>Facilities</h6>
+                    <div>
+                      {this.state.Facilities1.map((item,index) => (
+                          <div  className="checkbox col-lg-6" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
+                            <p className="Pinput" >
+                              <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                            </p>
+                            <div className="divinput">
+                              <p>{item}</p>
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                    <p className="textpink">Display all the facilities</p>
+                </div>
+
+                <div className="Strainer_Home_Type language">
+                    <h6>Source type</h6>
+                    <div>
+                      {this.state.Source_type.map((item,index) => (
+                          <div  className="checkbox col-lg-6" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
+                            <p className="Pinput" >
+                              <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                            </p>
+                            <div className="divinput">
+                              <p>{item}</p>
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                    <p className="textpink">Display all the source types</p>
+                </div>
+
+                <div className="Strainer_Home_Type language">
+                    <h6>Characteristic house</h6>
+                    <div>
+                      {this.state.Characteristic.map((item,index) => (
+                          <div  className="checkbox col-lg-6" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
+                            <p className="Pinput" >
+                              <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                            </p>
+                            <div className="divinput">
+                              <p>{item}</p>
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                    <p className="textpink">Display all the features of the house</p>
+                </div>
+
+                <div className="Strainer_Home_Type language">
+                    <h6>Code of the house</h6>
+                    <div>
+                      {this.state.Code_house.map((item,index) => (
+                          <div  className="checkbox col-lg-6" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
+                            <p className="Pinput" >
+                              <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                            </p>
+                            <div className="divinput">
+                              <p>{item}</p>
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                    <p className="textpink">Show all the rules of the house</p>
+                </div>
+
+
                 <div className="Strainer_Home_Type language">
                     <h6>Landlord language</h6>
                     <div>
@@ -356,80 +449,9 @@ class NavBar extends Component {
                     <p className="textpink">Show all the languages that the landlord can use</p>
                 </div>
 
-                <div className="Strainer_Home_Type language">
-                    <h6>Facilities</h6>
-                    <div>
-                      {this.state.Facilities.map((item,index) => (
-                          <div  className="checkbox col-lg-6" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
-                            <p className="Pinput" >
-                              <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                            </p>
-                            <div className="divinput">
-                              <p>{item}</p>
-                            </div>
-                          </div>
-                        ))
-                      }
-                    </div>
-                    <p className="textpink">Show all the languages that the landlord can use</p>
-                </div>
-
-                <div className="Strainer_Home_Type language">
-                    <h6>Facilities</h6>
-                    <div>
-                      {this.state.Facilities1.map((item,index) => (
-                          <div  className="checkbox col-lg-6" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
-                            <p className="Pinput" >
-                              <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                            </p>
-                            <div className="divinput">
-                              <p>{item}</p>
-                            </div>
-                          </div>
-                        ))
-                      }
-                    </div>
-                    <p className="textpink">Show all the languages that the landlord can use</p>
-                </div>
-
-                <div className="Strainer_Home_Type language">
-                    <h6>Source type</h6>
-                    <div>
-                      {this.state.Source_type.map((item,index) => (
-                          <div  className="checkbox col-lg-6" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
-                            <p className="Pinput" >
-                              <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                            </p>
-                            <div className="divinput">
-                              <p>{item}</p>
-                            </div>
-                          </div>
-                        ))
-                      }
-                    </div>
-                    <p className="textpink">Show all the languages that the landlord can use</p>
-                </div>
-
-                <div className="Strainer_Home_Type language">
-                    <h6>Characteristic house</h6>
-                    <div>
-                      {this.state.Characteristic.map((item,index) => (
-                          <div  className="checkbox col-lg-6" onClick={(e) => {if(this.state.roomstuff_Essentials ==0 )this.setState({roomstuff_Essentials:1});else this.setState({roomstuff_Essentials:0});}}>
-                            <p className="Pinput" >
-                              <img className={this.state.roomstuff_Essentials ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
-                            </p>
-                            <div className="divinput">
-                              <p>{item}</p>
-                            </div>
-                          </div>
-                        ))
-                      }
-                    </div>
-                    <p className="textpink">Show all the languages that the landlord can use</p>
-                </div>
-
                 <div className="foot">
-                    <button></button>
+                    <span onClick={(e)=>this.setState({Strainer_More:false})}>Cancel</span>
+                    <button onClick={(e)=>this.setState({Strainer_More:false})}>House</button>
                 </div>
             </div>
         </li>
