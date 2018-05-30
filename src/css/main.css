@@ -7991,6 +7991,13 @@ header .dropdown-menu a.dropdown-item1{
   font-family: RobotoThin; 
   border-bottom: 1px solid #aaa;
 }
+.footer__dropdown .btn-group .dropdown-menu li:first-child{
+  background:rgb(226, 226, 226) !important;
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 5% 0;
+  font-family: RobotoThin; 
+}
 .footer__dropdown .btn-group .dropdown-menu li:last-child a{
   border-bottom: none;
 }

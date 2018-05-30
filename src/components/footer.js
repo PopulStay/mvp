@@ -11,16 +11,16 @@ class Footer extends Component {
         guests:null,
         place:null,
         locationName:"Tokyo",
-        Country:'America',
+        Country:'English',
         CountryImg:'../images/America.png',
         CountryCurrency:'USD',
         CountryList:[
-            {img:'../images/America.png',Country:'America',currency:'USD'},
-            {img:'../images/China.png',Country:'China',currency:'CNY'},
-            {img:'../images/Japan.png',Country:'Japan',currency:'JPY'},
-            {img:'../images/France.png',Country:'France',currency:'EUR'},
-            {img:'../images/Britain.png',Country:'Britain',currency:'GBP'},
-            {img:'../images/Hongkong.png',Country:'Hongkong',currency:'HKD'}
+            {img:'../images/America.png',Country:'English',currency:'USD'},
+            {img:'../images/China.png',Country:'中文 (简体)',currency:'CNY'},
+            {img:'../images/Hongkong.png',Country:'中文 (繁體)',currency:'HKD'},
+            {img:'../images/Japan.png',Country:'Japanese',currency:'JPY'},
+            {img:'../images/France.png',Country:'French',currency:'EUR'},
+            {img:'../images/Britain.png',Country:'English',currency:'GBP'}
         ],
       };
       window.searchCondition = this.state;
@@ -51,6 +51,7 @@ class Footer extends Component {
                 <div className="btn-group col-md-12">
                   <button type="button" data-toggle="dropdown"><img src={this.state.CountryImg} />{this.state.Country}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
+                        <li>Used  language</li>
                     {this.state.CountryList.map((item,index) => (
                         <li><a onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} ><img src={item.img} />{item.Country}</a></li>
                       ))
@@ -60,6 +61,7 @@ class Footer extends Component {
                 <div className="btn-group col-md-12">
                   <button type="button" data-toggle="dropdown">{this.state.CountryCurrency}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
+                        <li>Used  currency</li>
                     {this.state.CountryList.map((item,index) => (
                         <li><a onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} >{item.currency}</a></li>
                       ))
