@@ -46,26 +46,25 @@ class HostInfo extends React.Component {
     return (
       <div className="HostManagment">
       <h1>Host Managment Panel</h1>
-
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Beds</th>
-              <th>Location</th>
-              <th>Price</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-           {this.state.roomInfoList.map(row => (
-                  <HostRoomList row={row}/>
-            ))}
-           
-          </tbody>
-        </table>
-      
-
+        <div className="overflowAuto">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Beds</th>
+                <th>Location</th>
+                <th>Price</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+             {this.state.roomInfoList.map(row => (
+                    <HostRoomList row={row}/>
+              ))}
+             
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }

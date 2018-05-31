@@ -139,45 +139,43 @@ class GuestInfo extends React.Component {
 
 
 
-      <h1>Guest Managment Panel</h1>
-      
-    <table className="table GuestManagment">
-    <thead>
-      <tr>
-        <th>Address</th>
-        <th>Status</th>
-        <th>Information</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Price</th>
-        <th>Check In</th>
-      </tr>
-    </thead>
-    <tbody>
-       {this.state.orderlist.map(account => (
-            <GuestOrderRow account={account} key={account}/>
-      ))}
+      <div className="GuestManagment">
+        <h1>Guest Managment Panel</h1>
+        <div className="overflowAuto">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Information</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Price</th>
+                <th>Check In</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.orderlist.map(account => (
+                    <GuestOrderRow account={account} key={account}/>
+              ))}
 
-      {this.state.usdOrderList.map(item => (
-        <tr>
-            <td><p><a href={"listing/"+item.houseinfoid}>{item.houseinfoid}</a></p></td>
-            <td>{item.state}</td>
-            <td><Link to={`/listing/${item.houseinfoid}`}>Check</Link></td>
-            <td><Timestamp time={item.from.substring(0,10)} format='date'/></td>
-            <td><Timestamp time={item.to.substring(0,10)} format='date'/></td>
-            <td>{Number(item.usdprice).toFixed(3)}{item.usdprice == 0 ? '' : '/USD'}</td>
-            { item.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
-            { item.status === '1' &&<td>Checked In</td>}
-            { item.state === '2' &&<td>Checked In</td>}
-        </tr>
-           
-      ))}
-  
-    </tbody>
-  </table>
-
-
-
+              {this.state.usdOrderList.map(item => (
+                <tr>
+                    <td><p><a href={"listing/"+item.houseinfoid}>{item.houseinfoid}</a></p></td>
+                    <td>{item.state}</td>
+                    <td><Link to={`/listing/${item.houseinfoid}`}>Check</Link></td>
+                    <td><Timestamp time={item.from.substring(0,10)} format='date'/></td>
+                    <td><Timestamp time={item.to.substring(0,10)} format='date'/></td>
+                    <td>{Number(item.usdprice).toFixed(3)}{item.usdprice == 0 ? '' : '/USD'}</td>
+                    { item.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
+                    { item.status === '1' &&<td>Checked In</td>}
+                    { item.state === '2' &&<td>Checked In</td>}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        </div>
       </div>
     );
   }
