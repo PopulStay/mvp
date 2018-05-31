@@ -21,6 +21,7 @@ import Experienceintro from './experience-intro.js'
 import Itrolist from './intro-list.js'
 import Registerlist from './register-list.js'
 import Verifyid from './verify-id.js'
+import Helpbox from './helpbox.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -110,6 +111,14 @@ const all = (props) => (
   </Layout>
 )
 
+const HELPBOX = (props) => (
+  <Layout {...props}  hideTagHeader={true}>
+    <div className="container">
+      <Helpbox />
+    </div>
+  </Layout>
+)
+
 
 const Intro = (props) => (
   <Layout {...props}  hideTagHeader="NO">
@@ -154,6 +163,7 @@ const App = () => (
           <Route exact path="/experiencelist" component={experiencelist}/>
           <Route exact path="/Register" component={Register}/>
           <Route exact path="/VerifyID" component={VerifyID}/>
+          <Route exact path="/help" component={HELPBOX}/>
         </div>
     </ScrollToTop>
   </Router>
