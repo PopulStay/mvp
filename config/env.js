@@ -19,7 +19,8 @@ function getClientEnvironment(publicUrl) {
       'Server_Address':JSON.stringify("https://server.populstay.com/"),
       'Socket_Server':JSON.stringify("https://server.populstay.com/"),
       'Populstay_Wallet':JSON.stringify("0xB421ca5420dC2D6F0bf868c52ad1ff8614E68788"),
-      'WEB3_PROVIDER':JSON.stringify("https://kovan.infura.io/FrDFhx3FbezOwQJjQv9T")
+      'WEB3_PROVIDER':JSON.stringify("https://kovan.infura.io/FrDFhx3FbezOwQJjQv9T"),
+      'Withdraw_fee':JSON.stringify("0.01")
     });
     
   return {'process.env': processEnv};

@@ -8,6 +8,7 @@ const EthereumTx = require('ethereumjs-tx');
 var web_provider = process.env.WEB3_PROVIDER;
 var PPS_address = process.env.PPSAddress;
 var Populstay_Wallet = process.env.Populstay_Wallet;
+var fee = window.web3.utils.toWei(process.env.Withdraw_fee);
 
 class PPSService {
   static instance
@@ -103,23 +104,42 @@ class PPSService {
           });
   }
 
+
   applyWithdraw(account,size){
       var params = {};
       params.size    = size;
       params.account = account;
       params.id      = window.address+"timestamp"+new Date().getTime();
-
     
       return new Promise((resolve, reject) => {
+          
+      window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
+                     
+            var txData = {
+                          nonce    : window.web3.utils.toHex(txCount),
+                          gasLimit : window.web3.utils.toHex(4476768),
+                          gasPrice : window.web3.utils.toHex(window.gas), // 10 Gwei
+                          to       : Populstay_Wallet,
+                          from     : window.address, 
+                          value    : parseInt(fee)
+                        }
+
+            var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex');
+            var transaction =new EthereumTx(txData);
+            transaction.sign(pk);
+            var serializedTx = transaction.serialize().toString('hex');
+            params.applyTransactionData = '0x' + serializedTx;
+
             axios.post(process.env.Server_Address+'withdraw',params)
             .then(function (response) {
-            resolve(response);
+              resolve(response);
             })
             .catch(function (error) {
-            console.error(error);
-            reject(error);
-            });
-          });
+              console.error(error);
+              reject(error);
+            });            
+        });
+    });   
   }
 
   deleWithdraw(deleId){
