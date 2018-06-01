@@ -8295,15 +8295,11 @@ header .dropdown-menu a.dropdown-item1{
 }
 .tag-header .tag__item {
   margin: 0 0.9%;
-  min-width: 128px;
   cursor: pointer;
 }
 .tag-header .tag__item:first-child {
   margin-left: 0;
   border:none;
-}
-.tag-header .tag__item:first-child img{
-  margin-right: 2%;
 }
 .tag-header .tag__item.active {
   color: #131c4e;
@@ -8633,7 +8629,7 @@ header .navBtn{
   background-size: 100% 100%;
   z-index: 999;
   color: #151b4e;
-  padding: 15%;
+  padding: 20px;
   font-family: RobotoThin; 
 }
 .tag-header .tag__item>div .operation{
@@ -8659,7 +8655,7 @@ div.Strainer_More .Bedroom ul li{
   line-height: 65px;
 }
 div.Strainer_Guests ul li p small{
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   margin-left: 5%;
 }
 div.Strainer_Guests ul li p.text-left,
@@ -8680,9 +8676,9 @@ div.Strainer_More ul li p>span.text{
   text-align: center;
   width: 75%;
 }
+div.Strainer_City .operation,
 div.Strainer_Home_Type>div,
 div.Strainer_Guests .operation,
-div.Strainer_token .operation,
 div.Strainer_Home_Type .checkbox,
 div.Strainer_Home_Type .operation,
 div.Strainer_Price .operation,
@@ -8694,7 +8690,6 @@ div.Strainer_More .language>div{
 }
 div.Strainer_City .operation p,
 div.Strainer_Guests .operation p,
-div.Strainer_token .operation p,
 div.Strainer_Home_Type .operation p,
 div.Strainer_Price .operation p,
 div.Strainer_More .operation p{
@@ -8702,61 +8697,47 @@ div.Strainer_More .operation p{
   margin: 0 5%;
   cursor: pointer;
 }
-div.Strainer_token p span,
 div.Strainer_Price p span{
   font-size: 1.8rem;
   margin-top: -1%;
 }
-div.Strainer_token p,
 div.Strainer_Price p{
   font-size: 1.8rem;
 }
-div.Strainer_token p,
-div.Strainer_token .tokenbj,
 div.Strainer_Price p,
 div.Strainer_Price .tokenbj{
   text-align: left;
 }
-div.Strainer_token .tokenbj,
 div.Strainer_Price .tokenbj{
   margin: 8% 5% 0;
 }
-div.Strainer_token .tokenbj p,
 div.Strainer_Price .tokenbj p{
   width: 6px;
   display: inline-block;
   background:rgba(118,118,118,0.5);
   margin: 0;
 }
-div.Strainer_token .range p.content,
-div.Strainer_Price .range p.content{
-  height:5px;
-  background:rgba(118,118,118,0.5);
+.tag__item span{
+  top:30%;
 }
-div.Strainer_token .range,
-div.Strainer_Price .range{
-  position: relative;
+div.Strainer_Price .input-range__slider{
+  width: 15px;
+  height: 15px;
+  background: #ef438d;
+  border:1px solid #ef438d;
 }
-div.Strainer_token .range p.Left,
-div.Strainer_token .range p.Right,
-div.Strainer_Price .range p.Right{
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background:rgba(118,118,118);
-  position: absolute;
-  top:50%;
-  transform: translate(0,-50%);
+div.Strainer_Price .input-range__track{
+  height: 0.4em;
 }
-div.Strainer_token .range p.Right,
-div.Strainer_Price .range p.Right{
-  right:0;
+div.Strainer_Price .input-range__track--active{
+  background: #ef438d;
 }
-div.Strainer_token p.text1,
+div.Strainer_Price .input-range__label{
+  display: none;
+}
 div.Strainer_Price p.text1{
   font-family: RobotoThin; 
 }
-div.Strainer_token .operation,
 div.Strainer_Home_Type .operation,
 div.Strainer_Price .operation{
   margin-top: 30px;
