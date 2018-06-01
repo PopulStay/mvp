@@ -103,6 +103,7 @@ class ListingsDetail extends Component {
 
 
   loadListing() {
+    console.log(this.props)
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
     var slideArray = this.state.slides;
 
