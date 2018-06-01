@@ -14,6 +14,7 @@ const customStyles = {
     bottom                : '30%'
   }
 };
+
 class Wallet extends Component {
 
   constructor(props) {

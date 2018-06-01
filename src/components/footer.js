@@ -11,6 +11,17 @@ class Footer extends Component {
         guests:null,
         place:null,
         locationName:"Tokyo",
+        Country:'English',
+        CountryImg:'../images/America.png',
+        CountryCurrency:'USD',
+        CountryList:[
+            {img:'../images/America.png',Country:'English',currency:'USD'},
+            {img:'../images/China.png',Country:'中文 (简体)',currency:'CNY'},
+            {img:'../images/Hongkong.png',Country:'中文 (繁體)',currency:'HKD'},
+            {img:'../images/Japan.png',Country:'Japanese',currency:'JPY'},
+            {img:'../images/France.png',Country:'French',currency:'EUR'},
+            {img:'../images/Britain.png',Country:'English',currency:'GBP'}
+        ],
       };
       window.searchCondition = this.state;
   }
@@ -37,24 +48,25 @@ class Footer extends Component {
                 </ul>
             </div>
             <div className="footer__dropdown pull-right">
-                <div className="dropdown">
-
-                    <button type="button" className="text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div>English</div>
-                    <span className="caret"></span>
-                    </button>
-
-                    <ul className="dropdown-menu" aria-labelledby="dLabel">
-                        <li></li>
-                    </ul>
+                <div className="btn-group col-md-12">
+                  <button type="button" data-toggle="dropdown"><img src={this.state.CountryImg} />{this.state.Country}<span>▼</span></button>
+                  <ul className="dropdown-menu" role="menu">
+                        <li>Used  language</li>
+                    {this.state.CountryList.map((item,index) => (
+                        <li><a onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} ><img src={item.img} />{item.Country}</a></li>
+                      ))
+                    }
+                  </ul>
                 </div>
-
-
-
-                <div className="dropdown"><button type="button" className="text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div>USD</div><span className="caret"></span></button>
-                    <ul className="dropdown-menu" aria-labelledby="dLabel">
-                        <li></li>
-                    </ul>
+                <div className="btn-group col-md-12">
+                  <button type="button" data-toggle="dropdown">{this.state.CountryCurrency}<span>▼</span></button>
+                  <ul className="dropdown-menu" role="menu">
+                        <li>Used  currency</li>
+                    {this.state.CountryList.map((item,index) => (
+                        <li><a onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} >{item.currency}</a></li>
+                      ))
+                    }
+                  </ul>
                 </div>
             </div>
         </div>

@@ -200,7 +200,7 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="Li4">
-              <a href="" className="button__Help">Help</a>
+              <a href="/help" className="button__Help">Help</a>
             </li>
             <li className="Li4">
               <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />

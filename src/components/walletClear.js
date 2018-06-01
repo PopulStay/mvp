@@ -86,11 +86,11 @@ class WalletClear extends React.Component {
     <div>
 
         {this.state.registered === true &&  this.props.clicklogout ===false  && 
-          <a onClick={(e) => this.setState({modaloutOpen:true})}>LogOut</a>
+          <a onClick={(e) => this.setState({modaloutOpen:true})}>Log out</a>
         }
 
         {(this.state.registered === false || this.props.clicklogout ===true ) &&
-          <a onClick={(e) => this.setState({modalinOpen:true})}>LogIn</a>
+          <a onClick={(e) => this.setState({modalinOpen:true})}>Log in</a>
         }
 
         <Modal isOpen={this.state.modaloutOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Wallet Message">

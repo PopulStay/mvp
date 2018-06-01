@@ -107,6 +107,7 @@
 .userBox p{
   display: inline-block;
 }
+.GuestManagment h1,
 .HostManagment h1{
   margin-left: -2%;
 }
@@ -114,6 +115,12 @@
 .HostManagment{
   width: 86%;
   margin-left: 7%;
+  margin-bottom: 4%;
+  position: relative;
+}
+.overflowAuto{
+  max-height: 500px;
+  overflow: auto;
 }
 .GuestManagment th,
 .HostManagment th{
