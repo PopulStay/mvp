@@ -110,7 +110,6 @@ class PPSService {
       params.size    = size;
       params.account = account;
       params.id      = window.address+"timestamp"+new Date().getTime();
-    
       return new Promise((resolve, reject) => {
           
       window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
@@ -139,7 +138,8 @@ class PPSService {
               reject(error);
             });            
         });
-    });   
+    });      
+ 
   }
 
   deleWithdraw(deleId){
