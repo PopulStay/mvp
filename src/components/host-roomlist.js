@@ -27,9 +27,6 @@ class HostRoomListRow extends Component {
       category:roominfo.category,
       location:roominfo.location,
       beds:roominfo.beds});
-   
-    console.log(this.props);
-    console.log(this.state);
   }
 
   componentWillMount() {
