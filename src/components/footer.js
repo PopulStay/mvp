@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {reactLocalStorage} from 'reactjs-localstorage';
+
+const locales = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 
 class Footer extends Component {
 
@@ -15,19 +22,66 @@ class Footer extends Component {
         CountryImg:'../images/America.png',
         CountryCurrency:'USD',
         CountryList:[
-            {img:'../images/America.png',Country:'English',currency:'USD'},
-            {img:'../images/China.png',Country:'中文 (简体)',currency:'CNY'},
-            {img:'../images/Hongkong.png',Country:'中文 (繁體)',currency:'HKD'},
-            {img:'../images/Japan.png',Country:'Japanese',currency:'JPY'},
-            {img:'../images/France.png',Country:'French',currency:'EUR'},
-            {img:'../images/Britain.png',Country:'English',currency:'GBP'}
+            {img:'../images/America.png',Country:'English',currency:'USD',language:'en_US'},
+            {img:'../images/China.png',Country:'中文 (简体)',currency:'CNY',language:'zh_CN'}
+            // {img:'../images/Hongkong.png',Country:'中文 (繁體)',currency:'HKD',language:''},
+            // {img:'../images/Japan.png',Country:'Japanese',currency:'JPY',language:''},
+            // {img:'../images/France.png',Country:'French',currency:'EUR',language:''},
+            // {img:'../images/Britain.png',Country:'English',currency:'GBP',language:''}
         ],
+        language:'en_US',
       };
       window.searchCondition = this.state;
+
+
+
   }
+
+
+  componentWillMount(){
+        if(!JSON.parse(localStorage.getItem('languagelist')) && !localStorage.getItem('Country')){
+            var language = this.state.language;
+
+            for (var item in locales) {
+                if(item == language){
+                    var languagelist = locales[item];
+                }
+            }
+
+            localStorage.setItem('Country',this.state.Country);
+            localStorage.setItem('Countryimg',this.state.CountryImg);
+            localStorage.setItem('languagelist', JSON.stringify( languagelist));
+        }else{
+            this.setState({Country:localStorage.getItem('Country'),CountryImg:localStorage.getItem('Countryimg')});
+        }
+  }
+
+
+
+
   locationName(e){
     var DataName = e.currentTarget.getAttribute('data-name');
     this.setState({state: this.state.locationName = DataName});
+  }
+
+  languageCookie(e){
+    var language = e.currentTarget.getAttribute('data-language');
+    var Country = e.currentTarget.getAttribute('data-Country');
+    var Countryimg = e.currentTarget.getAttribute('data-Countryimg');
+
+
+    this.setState({language:language});
+   
+    for (var item in locales) {
+        if(item == language){
+            var languagelist = locales[item];
+        }
+    }
+
+    localStorage.setItem('Country',Country);
+    localStorage.setItem('Countryimg',Countryimg);
+    localStorage.setItem('languagelist', JSON.stringify( languagelist));
+
   }
     render() {
     
@@ -41,10 +95,10 @@ class Footer extends Component {
             <div className="footer_ul">
                 <ul>
                     <Link to="/create">
-                        <li>Become a Host</li>
+                        <li>{JSON.parse(localStorage.getItem('languagelist')).Become_a_Host}</li>
                     </Link>
-                    <li>Help Center</li>
-                    <li>About Populstay</li>
+                    <li>{JSON.parse(localStorage.getItem('languagelist')).Help_Center}</li>
+                    <li>{JSON.parse(localStorage.getItem('languagelist')).About_Populstay}</li>
                 </ul>
             </div>
             <div className="footer__dropdown pull-right">
@@ -53,7 +107,7 @@ class Footer extends Component {
                   <ul className="dropdown-menu" role="menu">
                         <li>Used  language</li>
                     {this.state.CountryList.map((item,index) => (
-                        <li><a onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} ><img src={item.img} />{item.Country}</a></li>
+                        <li data-language={item.language} data-Country={item.Country} data-Countryimg={item.img} onClick={(e)=>this.languageCookie(e)}><a  onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} ><img src={item.img} />{item.Country}</a></li>
                       ))
                     }
                   </ul>
@@ -63,7 +117,7 @@ class Footer extends Component {
                   <ul className="dropdown-menu" role="menu">
                         <li>Used  currency</li>
                     {this.state.CountryList.map((item,index) => (
-                        <li><a onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} >{item.currency}</a></li>
+                        <li><a data-language={item.language} onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} >{item.currency}</a></li>
                       ))
                     }
                   </ul>

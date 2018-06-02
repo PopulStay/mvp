@@ -7982,7 +7982,6 @@ header .dropdown-menu a.dropdown-item1{
 .footer__dropdown .btn-group .dropdown-menu{
   width: 100%;
   left: 0;
-  transform: translate3d(0px, -268px, 0px) !important;
 }
 .footer__dropdown .btn-group .dropdown-menu li a{
   padding: 5% 5%;

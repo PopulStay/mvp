@@ -9,8 +9,6 @@ import WalletClear from './walletClear';
 import '../css/main.css';
 import '../css/search.css';
 import tagService from '../services/tag-service';
-import InputRange from 'react-input-range';
-import InputRangecss from 'react-input-range/lib/css/index.css';
 
 class NavBar extends Component {
 
