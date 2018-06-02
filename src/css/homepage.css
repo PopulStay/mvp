@@ -240,6 +240,10 @@
 .experience{
   padding: 0 5%;
 }
+.experience h1{
+  text-align: center;
+  color: #ef438d;
+}
 .experience h2{
   font-size: 2.4rem;
   color: #151b4e;
