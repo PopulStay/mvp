@@ -6,6 +6,11 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 const customStyles = {
   content : {
     top                   : '30%',
@@ -29,6 +34,10 @@ class WalletClear extends React.Component {
       Password:'',
       address:"",
       clicklogout:'',
+      Country:'English',
+      CountryImg:'../images/America.png',
+      language:'en_US',
+      languagelist:{},
     };
 
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -37,6 +46,35 @@ class WalletClear extends React.Component {
     web3Service.loadWallet();
   }
   componentWillMount() {
+    if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
+        var languageActive = this.state.language;
+
+        for (var item in localeList) {
+            if(item == languageActive){
+                var languagelist = localeList[item];
+            }
+        }
+            this.setState({state:this.state.languagelist=languagelist})
+
+        localStorage.setItem('Country',this.state.Country);
+        localStorage.setItem('Countryimg',this.state.CountryImg);
+        localStorage.setItem('language', languageActive);
+    }else{
+        var languageActive = localStorage.getItem('language')
+        for (var item in localeList) {
+            if(item == languageActive){
+                var languagelist = localeList[item];
+            }
+        }
+        this.setState({
+            language:localStorage.getItem('language'),
+            Country:localStorage.getItem('Country'),
+            CountryImg:localStorage.getItem('Countryimg'),
+            state:this.state.languagelist=languagelist
+        });
+    }
+
+
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ registered:true });
     });
@@ -81,16 +119,17 @@ class WalletClear extends React.Component {
 
 
   render() {
+        const language = this.state.languagelist;
     return (
 
     <div>
 
         {this.state.registered === true &&  this.props.clicklogout ===false  && 
-          <a onClick={(e) => this.setState({modaloutOpen:true})}>Log out</a>
+          <a onClick={(e) => this.setState({modaloutOpen:true})}>{language.Log_out}</a>
         }
 
         {(this.state.registered === false || this.props.clicklogout ===true ) &&
-          <a onClick={(e) => this.setState({modalinOpen:true})}>Log in</a>
+          <a onClick={(e) => this.setState({modalinOpen:true})}>{language.Log_in}</a>
         }
 
         <Modal isOpen={this.state.modaloutOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Wallet Message">

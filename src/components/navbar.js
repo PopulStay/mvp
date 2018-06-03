@@ -10,6 +10,11 @@ import '../css/main.css';
 import '../css/search.css';
 import tagService from '../services/tag-service';
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 class NavBar extends Component {
 
   constructor(props) {
@@ -21,8 +26,45 @@ class NavBar extends Component {
         place:null,
         locationName:"Tokyo",
         clicklogout:false,
+        Country:'English',
+        CountryImg:'../images/America.png',
+        language:'en_US',
+        languagelist:{},
       };
       window.searchCondition = this.state;
+  }
+
+  componentDidMount(){
+
+        if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
+            var languageActive = this.state.language;
+
+            for (var item in localeList) {
+                if(item == languageActive){
+                    var languagelist = localeList[item];
+                }
+            }
+                this.setState({state:this.state.languagelist=languagelist})
+
+            localStorage.setItem('Country',this.state.Country);
+            localStorage.setItem('Countryimg',this.state.CountryImg);
+            localStorage.setItem('language', languageActive);
+        }else{
+            var languageActive = localStorage.getItem('language')
+            for (var item in localeList) {
+                if(item == languageActive){
+                    var languagelist = localeList[item];
+                }
+            }
+            this.setState({
+                language:localStorage.getItem('language'),
+                Country:localStorage.getItem('Country'),
+                CountryImg:localStorage.getItem('Countryimg'),
+                state:this.state.languagelist=languagelist
+            });
+        }
+
+
   }
 
 
@@ -38,6 +80,7 @@ class NavBar extends Component {
 
 
   render() {
+        const language = this.state.languagelist;
     
   return (
 
@@ -58,16 +101,16 @@ class NavBar extends Component {
           <ul>
             <li className="Li1">
               <Link to="/create">
-                    <a className="button__fill">Become a Host</a>
+                    <a className="button__fill">{language.Become_a_Host}</a>
               </Link>
             </li>
             <li className="Li2">
               <Link to="/Intro">
-                    <a className="button__fill">Become an organiser</a>
+                    <a className="button__fill">{language.Become_an_organiser}</a>
               </Link>
             </li>
             <li className="Li4">
-              <a href="/help" className="button__Help">Help</a>
+              <a href="/help" className="button__Help">{language.Help}</a>
             </li>
             <li className="Li4">
               <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />

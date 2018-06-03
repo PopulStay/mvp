@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {reactLocalStorage} from 'reactjs-localstorage';
 
-const locales = {
+const localeList = {
   "en_US": require('../locale/en_US.js'),
   "zh_CN": require('../locale/zh_CN.js'),
 };
@@ -30,6 +30,7 @@ class Footer extends Component {
             // {img:'../images/Britain.png',Country:'English',currency:'GBP',language:''}
         ],
         language:'en_US',
+        languagelist:{},
       };
       window.searchCondition = this.state;
 
@@ -38,22 +39,37 @@ class Footer extends Component {
   }
 
 
-  componentWillMount(){
-        if(!JSON.parse(localStorage.getItem('languagelist')) && !localStorage.getItem('Country')){
-            var language = this.state.language;
+  componentDidMount(){
 
-            for (var item in locales) {
-                if(item == language){
-                    var languagelist = locales[item];
+        if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
+            var languageActive = this.state.language;
+
+            for (var item in localeList) {
+                if(item == languageActive){
+                    var languagelist = localeList[item];
                 }
             }
+                this.setState({state:this.state.languagelist=languagelist})
 
             localStorage.setItem('Country',this.state.Country);
             localStorage.setItem('Countryimg',this.state.CountryImg);
-            localStorage.setItem('languagelist', JSON.stringify( languagelist));
+            localStorage.setItem('language', languageActive);
         }else{
-            this.setState({Country:localStorage.getItem('Country'),CountryImg:localStorage.getItem('Countryimg')});
+            var languageActive = localStorage.getItem('language')
+            for (var item in localeList) {
+                if(item == languageActive){
+                    var languagelist = localeList[item];
+                }
+            }
+            this.setState({
+                language:localStorage.getItem('language'),
+                Country:localStorage.getItem('Country'),
+                CountryImg:localStorage.getItem('Countryimg'),
+                state:this.state.languagelist=languagelist
+            });
         }
+
+
   }
 
 
@@ -69,21 +85,24 @@ class Footer extends Component {
     var Country = e.currentTarget.getAttribute('data-Country');
     var Countryimg = e.currentTarget.getAttribute('data-Countryimg');
 
-
     this.setState({language:language});
    
-    for (var item in locales) {
+    for (var item in localeList) {
         if(item == language){
-            var languagelist = locales[item];
+            var languagelist = localeList[item];
         }
     }
 
     localStorage.setItem('Country',Country);
     localStorage.setItem('Countryimg',Countryimg);
-    localStorage.setItem('languagelist', JSON.stringify( languagelist));
+    localStorage.setItem('language',language);
+
+    window.location.reload();
 
   }
     render() {
+
+        const language = this.state.languagelist;
     
     return (
 
@@ -95,10 +114,10 @@ class Footer extends Component {
             <div className="footer_ul">
                 <ul>
                     <Link to="/create">
-                        <li>{JSON.parse(localStorage.getItem('languagelist')).Become_a_Host}</li>
+                        <li>{language.Become_a_Host}</li>
                     </Link>
-                    <li>{JSON.parse(localStorage.getItem('languagelist')).Help_Center}</li>
-                    <li>{JSON.parse(localStorage.getItem('languagelist')).About_Populstay}</li>
+                    <li>{language.Help_Center}</li>
+                    <li>{language.About_Populstay}</li>
                 </ul>
             </div>
             <div className="footer__dropdown pull-right">
