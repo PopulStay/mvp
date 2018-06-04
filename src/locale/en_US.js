@@ -1,9 +1,9 @@
-// navbar
+// navbar--------------------------------------------------------------------------------------------
 export const Help = 'Help';
 export const Log_out = 'Log out';
 export const Log_in = 'Log in';
 
-// search
+// search--------------------------------------------------------------------------------------------
 export const Find_dream_homes_and_experiences_on_PopulStay = 'Find dream homes and experiences on PopulStay';
 export const PopulStay_Superior_Guest_Experience_Maximized_Owner_Profit = 'PopulStay-Superior Guest Experience & Maximized Owner Profit';
 export const Choose_your_city = 'Choose your city !';
@@ -22,7 +22,7 @@ export const Experiences_travellers_love = 'Experiences travellers love';
 export const Book_activities_led_by_local_hosts_on_your_next_trip = 'Book activities led by local hosts on your next trip';
 export const Tokyo = 'Tokyo';
 
-//listing-detail
+//listing-detail--------------------------------------------------------------------------------------------
 export const bedroom = 'bedroom';
 export const bed = 'bed';
 export const private_bath = 'private bath';
@@ -85,7 +85,66 @@ export const You_wont_be_charged_yet = 'You won’t be charged yet';
 export const Message_Me = 'Message Me';
 export const Contact_the_landlord = 'Contact the landlord';
 
-//guest-register
+//listing-create--------------------------------------------------------------------------------------------
+//Step1
+export const Step = 'Step';
+export const Hi = 'Hi';
+export const Lets_get_started_listing_your_space = "Let's get started listing your space!";
+export const Whats_kind_of_place_do_you_have = "What's kind of place do you have?";
+export const For_example_Qingdao = 'For example: Qingdao';
+export const Continue = 'Continue';
+export const Listing_for_a_month = 'Listing for a month';
+export const insert_your_advised_earning = 'insert your advised earning';
+export const value = 'value';
+//Step2
+export const Please_choose = 'Please choose';
+export const apartment = 'Apartment'; 
+export const Single_house = 'Single house';
+export const Subsidiary_unit = 'Subsidiary unit';
+export const Characteristic_house = 'Characteristic house';
+export const Breakfast_and_Breakfast = 'Breakfast and Breakfast';
+export const The_Inn_Boutique_and_other_types = 'The Inn Boutique and other types';
+export const Single_room = 'Single room';
+export const double_room = 'double room';
+export const family_suite = 'family suite';
+export const business_suite = 'business suite';
+export const Start_with_the_basics = 'Start with the basics';
+export const What_kind_of_room_do_you_listing = 'What kind of room do you listing?';
+export const Is_this_listing_a_home_hotel_or_something_else = 'Is this listing a home,hotel,or something else?';
+export const What_type_is_it = 'What type is it?';
+export const What_guests_will_have = 'What guests will have?';
+export const Is_this_setup_dedicated_a_guest_space = 'Is this setup dedicated a guest space?';
+export const Yes_its_primarily_set_up_for_guests = "Yes,it's primarily set up for guests";
+export const No_I_keep_my_personal_belongings_here = 'No,I keep my personal belongings here';
+export const Back = 'Back';
+export const Next = 'Next';
+export const Entire_place = 'Entire place';
+export const Entire_place_presentation = 'Guest have the whole place to themselves.This usually includes a bedroom,a bathroom,and a kitchen.';
+export const Private_room = 'Private room';
+export const Private_room_presentation = 'Guest have their own private room for sleeping. Other areas could be shared.';
+export const Shared_room = 'Shared room';
+export const Shared_room_presentation = 'Guest sleep in a bedrooom or common area that could be shared with others.';
+//Step3
+export const How_many_guests_can_your_place_accommodate = 'How many guests can your place accommodate?';
+export const Number_of_guests = 'Number of guests';
+export const How_many_bedrooms_can_guests_use = 'How many bedrooms can guests use?';
+export const How_many_beds_can_guests_have = 'How many beds can guests have';
+export const Sleeping_arrangments = 'Sleeping arrangments';
+export const Common_space = 'Common space';
+export const beds = 'beds';
+export const Add_beds = 'Add beds';
+export const The_number_and_type = 'The number and type of beds you have determines how many guests can stay comfortably.';
+export const Sleeping_arrangements_help_guests = 'Sleeping arrangements help guests understand what the sleeping arrangements are like.';
+
+
+
+
+
+
+
+
+
+//guest-register--------------------------------------------------------------------------------------------
 export const Sign_up = 'Sign up';
 export const Welcome = 'Welcome！';
 export const Guest_Register = 'Guest Register';
@@ -101,7 +160,7 @@ export const Please_enter_the_mailbox = 'Please enter the mailbox';
 export const Incorrect_mailbox_format = 'Incorrect mailbox format';
 export const Well_never_share_your_email_with_anyone_else = "We'll never share your email with anyone else";
 
-//wallet
+//wallet--------------------------------------------------------------------------------------------
 export const Create_Or_Import_Wallet = 'Create Or Import Wallet';
 export const Import = 'Import';
 export const Clear = 'Clear';
@@ -112,10 +171,10 @@ export const Please_clear_your_account_then_you_can_import_new_account = 'Please
 export const Close = 'Close';
 export const Address = 'Address';
 
-//create
+//create--------------------------------------------------------------------------------------------
 export const Create = 'Create';
 
-//listing-all
+//listing-all--------------------------------------------------------------------------------------------
 export const All_experiences = 'All experiences';
 export const Experience = 'Experience';
 export const Confirm = 'Confirm';
@@ -135,7 +194,7 @@ export const Share_Room = 'Share Room';
 export const A_joint_space_such_as_a_public_Lounge = 'A joint space, such as a public Lounge.';
 export const The_average_price_per_night_is_PPS10000 = 'The average price per night is PPS10000.';
 
-//listing-experience
+//listing-experience--------------------------------------------------------------------------------------------
 export const Explore_Experiences = '探索经验';
 export const TOKYO = '东京';
 export const NEW_YORK = '纽约';
@@ -144,7 +203,7 @@ export const LONDON = '伦敦';
 export const PARIS = '巴黎';
 export const SINGAPORE = '新加坡';
 
-//experience-intro
+//experience-intro--------------------------------------------------------------------------------------------
 export const Wishlist = 'Wishlist';
 export const Trips = 'Trips';
 export const Host_an_experience_on_Populstay = 'Host an experience on Populstay';
@@ -191,7 +250,7 @@ export const Do_i_need_a_business_license = 'Do i need a business license?';
 export const Depending_on_activities_involved = "Depending on activities involved, certain experiences may require a business license. Make sure to check local laws in your area to determine which licenses may be required for your experience, especially if there is food, alcohol, or transportation involved.";
 export const Show_more = 'Show more';
 
-//guest-info
+//guest-info--------------------------------------------------------------------------------------------
 export const Hello = 'Hello';
 export const Revise_the_head_image = 'Revise the head image';
 export const PPS_balance = 'PPS balance';
@@ -204,12 +263,12 @@ export const From = 'From';
 export const To = 'To';
 export const Price = 'Price';
 
-//host-info
+//host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = 'Host Managment Panel';
 export const Category = 'Category';
 export const Beds = 'Beds';
 
-//wallet
+//wallet--------------------------------------------------------------------------------------------
 export const Export = 'wallet';
 export const Gas = 'Gas';
 export const Gas_Price = 'Gas Price';
@@ -226,7 +285,7 @@ export const Wallet_Size = 'Wallet Size';
 export const Submit = 'Submit';
 
 
-// footer
+// footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = 'Become a Host';
 export const Help_Center = 'Help_Center';
 export const About_Populstay = 'About_Populstay';

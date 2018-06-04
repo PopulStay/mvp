@@ -1,9 +1,9 @@
-// navbar
+// navbar--------------------------------------------------------------------------------------------
 export const Help = '帮助';
 export const Log_out = '退出登录';
 export const Log_in = '登录';
 
-// search
+// search--------------------------------------------------------------------------------------------
 export const Find_dream_homes_and_experiences_on_PopulStay = '在PopulStay找到梦想家园和体验';
 export const PopulStay_Superior_Guest_Experience_Maximized_Owner_Profit = 'PopulStay-高级客户体验和所有者利益最大化';
 export const Choose_your_city = '选择你的城市！';
@@ -22,7 +22,7 @@ export const Experiences_travellers_love = '体验旅客的爱';
 export const Book_activities_led_by_local_hosts_on_your_next_trip = '在下次旅行中当主人预订活动';
 export const Tokyo = '东京';
 
-//listing-detail
+//listing-detail--------------------------------------------------------------------------------------------
 export const bedroom = '卧室';
 export const bed = '床';
 export const private_bath = '私人浴室';
@@ -85,8 +85,62 @@ export const You_wont_be_charged_yet = '您暂时不会被收费';
 export const Message_Me = '给我发短信';
 export const Contact_the_landlord = '联系房东';
 
+//listing-create--------------------------------------------------------------------------------------------
+//Step1
+export const Step = '步骤';
+export const Hi = '你好';
+export const Lets_get_started_listing_your_space = '开始发布您的房源吧！';
+export const Whats_kind_of_place_do_you_have = '您打算发布什么样的房源？';
+export const For_example_Qingdao = '例如：青岛';
+export const Continue = '继续';
+export const Listing_for_a_month = '出租房源一个月';
+export const insert_your_advised_earning = '我们估计可以';
+export const value = '挣';
+//Step2
+export const Please_choose = '请选择';
+export const apartment = '公寓'; 
+export const Single_house = '单身的房子';
+export const Subsidiary_unit = '附属单位';
+export const Characteristic_house = '特色的房子';
+export const Breakfast_and_Breakfast = '早餐和早餐';
+export const The_Inn_Boutique_and_other_types = '酒店精品店和其他类型';
+export const Single_room = '单人房';
+export const double_room = '双人间';
+export const family_suite = '家庭套房';
+export const business_suite = '商务套房';
+export const Start_with_the_basics = '先填写基本信息';
+export const What_kind_of_room_do_you_listing = '您打算发布什么类型的房源？';
+export const Is_this_listing_a_home_hotel_or_something_else = '此房源是否是房源，酒店或其他？';
+export const What_type_is_it = '它是什么类型？';
+export const What_guests_will_have = '客人会有什么？';
+export const Is_this_setup_dedicated_a_guest_space = '这里是仅供房客使用的空间吗？';
+export const Yes_its_primarily_set_up_for_guests = '是的，这是专为房客设置的';
+export const No_I_keep_my_personal_belongings_here = '不是，我有个人物品存放在这里';
+export const Back = '返回';
+export const Next = '下一步';
+export const Entire_place = '整个房源';
+export const Entire_place_presentation = '房客可独享整个房源。此类房源通常包括卧室、卫生间及厨房。';
+export const Private_room = '独立房间';
+export const Private_room_presentation = '房客有自己的独立卧室，其他区域则与他人合用。';
+export const Shared_room = '合住房间';
+export const Shared_room_presentation = '房客住在与他人合用的卧室或公共区域内。';
+//Step3
+export const How_many_guests_can_your_place_accommodate = '您的房源可以住几位房客？';
+export const Number_of_guests = '房客人数';
+export const How_many_bedrooms_can_guests_use = '有几个卧室？';
+export const How_many_beds_can_guests_have = '有几张床？';
+export const Sleeping_arrangments = '睡觉安排';
+export const Common_space = '合用空间';
+export const beds = '床';
+export const Add_beds = '添加床铺';
+export const The_number_and_type = '床的数量和种类决定了多少位房客可以舒适地在房源內住宿。';
+export const Sleeping_arrangements_help_guests = '床型信息可以帮助房客了解如何安排就寝。';
 
-//guest-register
+
+
+
+
+//guest-register--------------------------------------------------------------------------------------------
 export const Sign_up = '注册';
 export const Welcome = '欢迎！';
 export const Guest_Register = '用户注册';
@@ -102,7 +156,7 @@ export const Please_enter_the_mailbox = '请输入邮箱';
 export const Incorrect_mailbox_format = '邮箱格式不正确';
 export const Well_never_share_your_email_with_anyone_else = '我们永远不会与其他人分享你的电子邮件';
 
-//wallet
+//wallet--------------------------------------------------------------------------------------------
 export const Create_Or_Import_Wallet = '创建或导入钱包';
 export const Import = '输入';
 export const Clear = '清除';
@@ -113,10 +167,10 @@ export const Please_clear_your_account_then_you_can_import_new_account = '请清
 export const Close = '关闭';
 export const Address = '地址';
 
-//create
+//create--------------------------------------------------------------------------------------------
 export const Create = '创建';
 
-//listing-all
+//listing-all--------------------------------------------------------------------------------------------
 export const All_experiences = '全部体验';
 export const Experience = '体验';
 export const Confirm = '确认';
@@ -136,7 +190,7 @@ export const Share_Room = '合住房间';
 export const A_joint_space_such_as_a_public_Lounge = '入住合用空间，如公共休息室';
 export const The_average_price_per_night_is_PPS10000 = '平均每晚价格为PPS10000。';
 
-//listing-experience
+//listing-experience--------------------------------------------------------------------------------------------
 export const Explore_Experiences = '探索经验';
 export const TOKYO = '东京';
 export const NEW_YORK = '纽约';
@@ -146,7 +200,7 @@ export const PARIS = '巴黎';
 export const SINGAPORE = '新加坡';
 
 
-//experience-intro
+//experience-intro--------------------------------------------------------------------------------------------
 export const Wishlist = '愿望清单';
 export const Trips = '旅行';
 export const Host_an_experience_on_Populstay = '主持Populstay的体验';
@@ -193,7 +247,7 @@ export const Do_i_need_a_business_license = '我需要营业执照吗？';
 export const Depending_on_activities_involved = '根据所涉及的活动，某些经验可能需要营业执照。 请务必查看您所在地区的当地法律，以确定您的体验可能需要哪些许可证，尤其是涉及食物，酒精或交通工具时。';
 export const Show_more = '展示更多';
 
-//guest-info
+//guest-info--------------------------------------------------------------------------------------------
 export const Hello = '你好';
 export const Revise_the_head_image = '修改头像';
 export const PPS_balance = 'PPS余额';
@@ -206,12 +260,12 @@ export const From = '从';
 export const To = '至';
 export const Price = '价格';
 
-//host-info
+//host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = '房东管理面板';
 export const Category = '类别';
 export const Beds = '床';
 
-//wallet
+//wallet--------------------------------------------------------------------------------------------
 export const Export = '出口';
 export const Gas = '交易费';
 export const Gas_Price = '交易费价格';
@@ -227,8 +281,8 @@ export const Operation = '操作';
 export const Wallet_Size = '提取数量';
 export const Submit = '提交';
 
-// footer
-export const Become_a_Host = '成为主人';
+// footer--------------------------------------------------------------------------------------------
+export const Become_a_Host = '成为房东';
 export const Help_Center = '帮助中心';
 export const About_Populstay = '关于Populstay';
 export const Become_an_organiser = '成为组织者';

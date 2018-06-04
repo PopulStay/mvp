@@ -8,6 +8,8 @@ import hostService from '../services/host-service';
 import { DateRangePicker } from 'react-dates';
 import AvatarEditor from 'react-avatar-editor';
 import {reactLocalStorage} from 'reactjs-localstorage';
+import guestService from '../services/guest-service';
+import Housestep1 from './house-step1';
 
 const localeList = {
   "en_US": require('../locale/en_US.js'),
@@ -81,9 +83,9 @@ class ListingCreate extends Component {
 
         this.state = {
             step: 1,
-            roomtype_category:"Whole house",
+            roomtype_category:"",
             roomtype_guests:1,
-            roomtype_location:"Hong Kong",
+            roomtype_location:"",
             roomdescription_homeorhotel:"Please choose",
             roomdescription_type:"Please choose",
             roomdescription_guests_have:"Please choose",
@@ -193,7 +195,7 @@ class ListingCreate extends Component {
             hours_respond:0,
             discount_Weekly:0,
             discount_Monthly:0,
-            user: {user:'Loading...'},
+            user:'Loading...',
             Categorys:['Whole house','Private Room','Share Room'],
             step1guests:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],
             Check_in_time:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
@@ -277,17 +279,43 @@ class ListingCreate extends Component {
                 var languagelist = localeList[item];
             }
         }
-        this.setState({
-            state:this.state.languagelist=languagelist
+        guestService.getGuesterInfo(window.address).then((data)=>{
+          this.setState({ user:data.user});
         });
 
         this.setState({
+            state:this.state.languagelist=languagelist,
             account: window.address,
-            id: window.address
+            id: window.address,
+            state:this.state.roomtype_category=this.state.languagelist.Whole_house,
+            Categorys:[this.state.languagelist.Whole_house,this.state.languagelist.Private_Room,this.state.languagelist.Share_Room],
+            state:this.state.roomtype_location=this.state.languagelist.TOKYO,
+            state:this.state.roomdescription_homeorhotel=this.state.languagelist.Please_choose,
+            state:this.state.roomdescription_type=this.state.languagelist.Please_choose,
+            state:this.state.roomdescription_guests_have=this.state.languagelist.Please_choose,
+            homeorhotels:[
+                this.state.languagelist.apartment,
+                this.state.languagelist.Single_house,
+                this.state.languagelist.Subsidiary_unit,
+                this.state.languagelist.Characteristic_house,
+                this.state.languagelist.Breakfast_and_Breakfast,
+                this.state.languagelist.The_Inn_Boutique_and_other_types
+            ],
+            types:[
+                this.state.languagelist.Single_room,
+                this.state.languagelist.double_room,
+                this.state.languagelist.family_suite,
+                this.state.languagelist.business_suite
+            ],
+            guestshaves:[
+                this.state.languagelist.Entire_place,
+                this.state.languagelist.Private_room,
+                this.state.languagelist.Shared_room
+            ]
         });
+
 
         var listStorage =  JSON.parse(sessionStorage.getItem('test'));
-        console.log(listStorage)
         if(listStorage){
             this.setState({
                 'step':listStorage.step,
@@ -435,10 +463,18 @@ class ListingCreate extends Component {
         }
     }
 
+    house_step1 = (obj1,obj2,obj3,obj4) =>{
+        this.setState({
+            step: obj1,
+            roomtype_category:obj2,
+            roomtype_guests:obj3,
+            roomtype_location:obj4,
+        });
+    }
+
     openModal() {
       this.setState({modalIsOpen: true});
     }
-
 
     closeModal() {
       this.setState({modalIsOpen: false});
@@ -684,71 +720,7 @@ class ListingCreate extends Component {
 
         { this.state.step === this.STEP.Step1_1 &&
 
-            <div className="row Step1_1">
-              <div className="col-md-6 col-lg-6  col-sm-12">
-                  <div className="STEPhead">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <p>Step 1</p>
-                  </div>
-                  <h1>{language.Hi},{this.state.user.user}!,Let's get started listing your space</h1>
-
-                  <h2>What's kind of place do you have?</h2>
-
-                  <div className="box1">
-                    <div className="col-md-6 form-group">
-                        <div className="btn-group col-md-12">
-                          <button type="button" data-toggle="dropdown">{this.state.roomtype_category}<span>▼</span></button>
-                          <ul className="dropdown-menu" role="menu">
-                            {this.state.Categorys.map((item,index) => (
-                                <li><a onClick={(e)=>this.setState({roomtype_category:item})} >{item}</a></li>
-                              ))
-                            }
-                          </ul>
-                        </div>
-                    </div>
-
-
-                    <div className="col-md-6 form-group">
-                        <div className="btn-group col-md-12">
-                          <button type="button" data-toggle="dropdown">for {this.state.roomtype_guests} guests<span>▼</span></button>
-                          <ul className="dropdown-menu" role="menu">
-                            {this.state.step1guests.map((item,index) => (
-                                <li><a onClick={(e)=>this.setState({roomtype_guests:item})} >for {item} guests</a></li>
-                              ))
-                            }
-                          </ul>
-                        </div>
-                    </div>
-                  </div>
-
-
-                  <div className="form-group form-group1 col-md-6">
-                    <div className="locatedBox">
-                      <input type="text" placeholder="For example: Qingdao"  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
-                    </div>
-                  </div>
-
-                  <div className="STEPBTN">
-                      <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.nextStep}>Continue</button>
-                  </div>
-                  
-                  <div className="stepfoot">
-                      <img className="stepbg" src="../images/details_page-25_1.png" alt=""/>
-                      <p>Listing for a month</p>
-                      <h4>insert your advised earning : S$ <span>2018</span><b>/pps value:46700<img className="stepbg" src="../images/details_page-22.png" alt=""/></b></h4>
-
-                      
-                  </div>
-              </div>
-              <div className="col-md-5 col-lg-4 col-md-push-2 col-sm-12 rightbj">
-                  <img className="stepbg rightimg" src="../images/becomehost-step1_1.png" alt=""/>
-              </div>
-          </div>
+           <Housestep1 house_step1={this.house_step1} />
         }
 
         {
@@ -763,13 +735,13 @@ class ListingCreate extends Component {
               <span></span>
               <span></span>
               <span></span>
-              <p>Step 1: Start with the basics</p>
+              <p>{language.Step} 1: {language.Start_with_the_basics}</p>
             </div>
 
-              <h1>What kind of room do you listing?</h1>
+              <h1>{language.What_kind_of_room_do_you_listing}</h1>
 
              <div className="box"> 
-              <h2>Is this listing a home,hotel,or something else? </h2>
+              <h2>{language.Is_this_listing_a_home_hotel_or_something_else}</h2>
 
               <div className="form-group">    
                 <div className="btn-group col-md-12">
@@ -784,7 +756,7 @@ class ListingCreate extends Component {
               </div>
                 
               <div className={this.state.roomdescription_homeorhotel == 'Please choose' ? 'hide':'show'}>  
-              <h2>What type is it? </h2>
+              <h2>{language.What_type_is_it}</h2>
               <div className="form-group">    
                 <div className="btn-group col-md-12">
                   <button type="button" data-toggle="dropdown">{this.state.roomdescription_type}<span>▼</span></button>
@@ -799,7 +771,7 @@ class ListingCreate extends Component {
               </div>
 
               <div className={this.state.roomdescription_type == 'Please choose' ? 'hide':'show'}>
-                  <h2>What guests will have? </h2>
+                  <h2>{language.What_guests_will_have}</h2>
                   <div className="form-group">    
                     
                     <div className="btn-group col-md-12">
@@ -813,31 +785,31 @@ class ListingCreate extends Component {
                     </div>
                   </div>
 
-                   <h2>Is this setup dedicated a guest space?</h2>
+                   <h2>{language.Is_this_setup_dedicated_a_guest_space}</h2>
 
                    <div className="radio" onClick={(e) => this.setState({roomdescription_forguestorhost: 0})}>
-                      <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 0 ?"show":"hide"}></span></p>Yes,it's primarily set up for guests</label>
+                      <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 0 ?"show":"hide"}></span></p>{language.Yes_its_primarily_set_up_for_guests}</label>
                     </div>
                     <div className="radio" onClick={(e) => this.setState({roomdescription_forguestorhost: 1})}>
-                      <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 1 ?"show":"hide"}></span></p>No,I keep my personal belongings here</label>
+                      <label className="text-muted"><p><span className={this.state.roomdescription_forguestorhost == 1 ?"show":"hide"}></span></p>{language.No_I_keep_my_personal_belongings_here}</label>
                     </div>
                     
                 </div>
                 </div>
             <div className="STEPBTN">
-              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button className={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "Right" : "buttonActive Right"} disabled={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "" : "disabled"} onClick={this.nextStep}>Next</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+              <button className={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "Right" : "buttonActive Right"} disabled={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "" : "disabled"} onClick={this.nextStep}>{language.Next}</button>
             </div>
              </div>
              <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
                 <div className={ this.state.roomdescription_forguestorhost == 0 || this.state.roomdescription_forguestorhost == 1 ? "show" : "hide"}>
                   <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                  <h6>Entire place</h6>
-                  <p>Guest have the whole place to themselves.This usually includes a bedroom,a bathroom,and a kitchen</p>
-                  <h6>Private room</h6>
-                  <p>Guest have their own private room for sleeping. Other areas could be shared.</p>
-                  <h6>Shared room</h6>
-                  <p>Guest sleep in a bedrooom or common area that could be shared with others.</p>
+                  <h6>{language.Entire_place}</h6>
+                  <p>{language.Entire_place_presentation}</p>
+                  <h6>{language.Private_room}</h6>
+                  <p>{language.Private_room_presentation}</p>
+                  <h6>{language.Shared_room}</h6>
+                  <p>{language.Shared_room_presentation}</p>
                 </div>
              </div>
              </div>
@@ -857,12 +829,12 @@ class ListingCreate extends Component {
               <span></span>
               <span></span>
               <span></span>
-              <p>Step 1: Start with the basics</p>
+              <p>{language.Step} 1: {language.Start_with_the_basics}</p>
             </div>
-              <h1>How many guests can your place accommodate?</h1>
+              <h1>{language.How_many_guests_can_your_place_accommodate}</h1>
 
                   <div className="col-md-12 form-group">
-                      <label>Number of guests*</label>
+                      <label>{language.Number_of_guests}*</label>
                       <div className="btn-group col-md-4">
                         <button type="button" className="guestBtn">
                           <span className={this.state.roombasics_guestsnumber == 1 ? "btnjia spanActive" : "btnjia"} onClick={(e)=>this.guestsnumber(e)} data-name="jia">▲</span>
@@ -873,7 +845,7 @@ class ListingCreate extends Component {
                   </div>
 
                    <div className="col-md-12 form-group">
-                      <label>How many bedrooms can guests use?</label>
+                      <label>{language.How_many_bedrooms_can_guests_use}</label>
                       <div className="btn-group col-md-7">
                         <button type="button" className="guestBtn">
                           <span className={this.state.roombasics_guestbeds == 1 ? "btnjia spanActive" : "btnjia"} onClick={(e)=>this.guestbeds(e)} data-name="jia">▲</span>
@@ -884,7 +856,7 @@ class ListingCreate extends Component {
                   </div>
 
                   <div className="col-md-12 form-group">
-                      <label>How many beds can guests have*</label>
+                      <label>{language.How_many_beds_can_guests_have}*</label>
                       <div className="btn-group col-md-4">
                         <button type="button" className="guestBtn">
                           <span className={this.state.roombasics_totalguests == 1 ? "btnjia spanActive" : "btnjia"} onClick={(e)=>this.totalguests(e)} data-name="jia">▲</span>
@@ -899,28 +871,28 @@ class ListingCreate extends Component {
                   <div className="col-md-12 form-group">
                     
                   
-                  <h3 className="text-muted">Sleeping arrangments</h3>
+                  <h3 className="text-muted">{language.Sleeping_arrangments}</h3>
                       <div className="step3box">
                         <div className="divLeft">
-                         <h3 className="text-muted">Common space <b>{this.state.roombasics_commonspacebeds}</b> beds</h3>
+                         <h3 className="text-muted">{language.Common_space}<b>{this.state.roombasics_commonspacebeds}</b> {language.beds}</h3>
                         </div>
 
                         <div className="divRight">
-                         <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.addCommonSpaceBeds}>Add beds</button>
+                         <button className="btn btn-default btn-lg bg-pink color-white" onClick={this.addCommonSpaceBeds}>{language.Add_beds}</button>
                         </div>
                       </div>
 
                  <div className="STEPBTN">
-                    <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                    <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                    <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                    <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
                   </div>
                   </div>
           </div>
           <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
               <div>
                 <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                <p>The number and type of beds you have determines how many guests can stay comfortably.</p>
-                <p>Sleeping arrangements help guests understand what the sleeping arrangements are like.</p>
+                <p>{language.The_number_and_type}</p>
+                <p>{language.Sleeping_arrangements_help_guests}</p>
               </div>
           </div>
           </div>
@@ -1390,7 +1362,7 @@ class ListingCreate extends Component {
           <div className="becomehost-2 container">
           <div className="row Step1_10">
           <div className="col-md-7 col-lg-7 col-sm-12">
-          <h1>Great process {this.state.user.user}!</h1>
+          <h1>Great process {this.state.user}!</h1>
           <h3>Now let's get some details about your place so you can publish your listings </h3>
           <div className="change">
               <div>
@@ -1944,7 +1916,7 @@ class ListingCreate extends Component {
           <div className="becomehost-5 container">
           <div className="row Step1_10">
           <div className="col-md-6 col-lg-7 col-sm-6">
-          <h1>Great process {this.state.user.user}!</h1>
+          <h1>Great process {this.state.user}!</h1>
           <h3>Now let's get some details about your place so you can publish your listings </h3>
           <div className="change">
               <div>
