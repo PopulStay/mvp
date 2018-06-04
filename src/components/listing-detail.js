@@ -380,7 +380,7 @@ class ListingsDetail extends Component {
     const price = typeof this.state.ppsPrice === 'string' ? 0 : this.state.ppsPrice;
     const guestItems = [];
     this.state.guests.forEach((guest,index)=>{
-      guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest} guests</a></li>)
+      guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest} {language.guests}</a></li>)
     })
 
     const neighbourhoods = [];
@@ -518,22 +518,22 @@ class ListingsDetail extends Component {
         </div>
 
         <div className="L_box5">
-            <h5>House Rules</h5>
+            <h5>{language.House_Rules}</h5>
             <p>Check-in is anytime after 2PM</p>
             <p>Check out by 12PM(noon)</p>
         </div>
 
         <p className="More hide">Dead all rules<span>▼</span></p>
         <div className="L_box6">
-            <h5>Cancellations</h5>
+            <h5>{language.Cancellations}</h5>
             <p>Strict</p>
             <p>Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati...<span>Read more</span></p>
         </div>
         
-        <p className="More box6_More hide">Get details</p>
+        <p className="More box6_More hide">{language.Get_details}</p>
 
         <div className="Reviews">
-            <p>{this.state.neighbourhoodlist.length} Reviews</p>
+            <p>{this.state.neighbourhoodlist.length} {language.Reviews}</p>
             <div className="divxx">
               <img src="../images/detail-xx01.png" alt="" />
               <img src="../images/detail-xx01.png" alt="" />
@@ -547,14 +547,14 @@ class ListingsDetail extends Component {
                   <span className="glyphicon glyphicon-search"></span>
                 </button>
               </span>
-              <input type="text" className="form-control" placeholder="Search Reviews" />
+              <input type="text" className="form-control" placeholder={language.Search_Reviews} />
             </div>
         </div>
 
         <div className="ReviewsDiv">
             <ul>
                 <li>
-                  <p>Accuracy</p>
+                  <p>{language.Accuracy}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -564,7 +564,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Location</p>
+                  <p>{language.Location}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -574,7 +574,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Communication</p>
+                  <p>{language.Communication}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -584,7 +584,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Check In</p>
+                  <p>{language.heck_In}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -594,7 +594,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Cleanliness</p>
+                  <p>{language.Cleanliness}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -604,7 +604,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Value</p>
+                  <p>{language.Value}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -623,15 +623,15 @@ class ListingsDetail extends Component {
         </div>
 
         <div className="neighbourhood">
-            <p>See the neighbourhood</p>
+            <p>{language.See_the_neighbourhood}</p>
             <img src={this.state.neighbourhoodurl} alt="" />
             <ul>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='1'><img src="../images/transport.png" alt="" /> Public Transit</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='2'><img src="../images/res.png" alt="" /> Restaurant</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='3'><img src="../images/pps.png" alt="" /> PPS Enabled</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='4'><img src="../images/shop.png" alt="" /> Shopping Center</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='5'><img src="../images/museum.png" alt="" /> Souvenir Shop</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='6'><img src="../images/guide.png" alt="" />Guide</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='1'><img src="../images/transport.png" alt="" /> {language.Public_Transit}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='2'><img src="../images/res.png" alt="" /> {language.Restaurant}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='3'><img src="../images/pps.png" alt="" /> {language.PPS_Enabled}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='4'><img src="../images/shop.png" alt="" /> {language.Shopping_Center}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='5'><img src="../images/museum.png" alt="" /> {language.Souvenir_Shop}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='6'><img src="../images/guide.png" alt="" />{language.Guide}</li>
             </ul>
         </div>
       </div>
@@ -649,7 +649,7 @@ class ListingsDetail extends Component {
               <span className = "detail-price">
                 {this.state.priceCurrency}: {this.state.price == 0 ? this.state.ppsPrice : this.state.price}
               </span>
-              <span className = "detail-price-font">Daily Price</span>
+              <span className = "detail-price-font">{language.Daily_Price}</span>
               <p className="detail-price-xx">
                 <img src="../images/detail-xx01.png" alt="" />
                 <img src="../images/detail-xx01.png" alt="" />
@@ -665,8 +665,8 @@ class ListingsDetail extends Component {
                     startDate={this.state.checkInDate}
                     startDateId="start_date"
                     endDate={this.state.checkOutDate}
-                    startDatePlaceholderText="Check In"
-                    endDatePlaceholderText="Check Out"
+                    startDatePlaceholderText={language.Check_In}
+                    endDatePlaceholderText={language.Check_Out}
                     endDateId="end_date"
                     onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
                     focusedInput={this.state.focusedInput}
@@ -678,9 +678,9 @@ class ListingsDetail extends Component {
               </div>
 
               <div className="detail-guest-div">
-                <p>Guest</p>
+                <p>{language.Guest}</p>
                 <div className="btn-group">
-                  <button type="button" data-toggle="dropdown" >{this.state.guest} guests<span>▼</span></button>
+                  <button type="button" data-toggle="dropdown" >{this.state.guest} {language.guests}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
                     { guestItems }
                   </ul>
@@ -690,31 +690,31 @@ class ListingsDetail extends Component {
               <div className ="details-totalprice-div">
                 <ul>
                     <li className="blueColor">
-                      <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}nights
+                      <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}{language.nights}
                           <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">{(this.state.price) * this.DateDays() * this.state.guest}</span>
                     </li>
                     <li className="pinkColor">
-                      <span className = "LeftSpan">Special Offer 20% off
+                      <span className = "LeftSpan">{language.Special_Offer_20_off}
                           <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">0</span>
                     </li>
                     <li className="pinkColor">
-                      <span className = "LeftSpan">Long stay discount
+                      <span className = "LeftSpan">{language.Long_stay_discount}
                           <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">0</span>
                     </li>
                     <li className="blueColor">
-                      <span className = "LeftSpan">Cleaning fee
+                      <span className = "LeftSpan">{language.Cleaning_fee}
                           <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">26</span>
                     </li>
                     <li className="blueColor">
-                      <span className = "LeftSpan">Total Price</span>
+                      <span className = "LeftSpan">{language.Total_Price}</span>
                       <span className = "RightSpan">
                         {this.state.priceCurrency}: { this.calcTotalPrice()}
                       </span>
@@ -732,12 +732,12 @@ class ListingsDetail extends Component {
                       disabled={!this.props.listingId || !this.state.checkInDate || !this.state.checkOutDate}
                       onMouseDown={e => e.preventDefault()}
                       >
-                        Book
+                        {language.Book}
                     </button>
                 }    
 
             
-             <h4 className="text-center">You won’t be changed yet</h4>
+             <h4 className="text-center">{language.You_wont_be_charged_yet}</h4>
              </div>
 
         </div>

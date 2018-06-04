@@ -43,6 +43,7 @@ class WalletClear extends React.Component {
 
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.clear = this.clear.bind(this);
+    this.import = this.import.bind(this);
 
     web3Service.loadWallet();
   }
@@ -95,7 +96,7 @@ class WalletClear extends React.Component {
 
   }
 
-  import=()=>{
+  import(){
       var obj=window.web3.eth.accounts.wallet.add( "0x" + this.state.pirvatekey );
       window.address          = obj.address;
       window.addressShow      = obj.address.substring(0,10)+"...";

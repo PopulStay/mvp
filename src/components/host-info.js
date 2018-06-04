@@ -5,6 +5,10 @@ import ppsService from '../services/pps-service';
 import HostRoomList from './host-roomlist';
 import { Link } from 'react-router-dom'
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
 
 class HostInfo extends React.Component {
   constructor() {
@@ -18,11 +22,23 @@ class HostInfo extends React.Component {
       email:"",
       address:"",
       ppsBalance:"",
-      roomInfoList:[]
+      roomInfoList:[],
+      languagelist:{},
     };
   }
   
   componentWillMount() {
+    var languageActive = localStorage.getItem('language')
+    for (var item in localeList) {
+        if(item == languageActive){
+            var languagelist = localeList[item];
+        }
+    }
+    this.setState({
+        state:this.state.languagelist=languagelist
+    });
+
+
     this.setState( { account: window.address, id:  window.address });
 
       hostService.getHouseListing( window.address).then((data)=>{
@@ -43,18 +59,19 @@ class HostInfo extends React.Component {
    
 
   render() {
+      const language = this.state.languagelist;
     return (
       <div className="HostManagment">
-      <h1>Host Managment Panel</h1>
+      <h1>{language.Host_Managment_Panel}</h1>
         <div className="overflowAuto">
           <table className="table">
             <thead>
               <tr>
-                <th>Category</th>
-                <th>Beds</th>
-                <th>Location</th>
-                <th>Price</th>
-                <th>Status</th>
+                <th>{language.Category}</th>
+                <th>{language.Beds}</th>
+                <th>{language.Location}</th>
+                <th>{language.Price}</th>
+                <th>{language.Status}</th>
               </tr>
             </thead>
             <tbody>

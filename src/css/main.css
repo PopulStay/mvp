@@ -8736,6 +8736,15 @@ div.Strainer_Price .input-range__label{
 }
 div.Strainer_Price p.text1{
   font-family: RobotoThin; 
+  margin:0 3%;
+}
+div.Strainer_Price .input-range{
+  width: 80%;
+  margin:0 auto;
+  position: absolute;
+  margin-top: -3%;
+  left:50%;
+  transform: translate(-50%,0);
 }
 div.Strainer_Home_Type .operation,
 div.Strainer_Price .operation{

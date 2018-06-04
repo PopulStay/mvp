@@ -12,6 +12,11 @@ import WalletWithdraw from './walletWithdraw';
 import { Link } from 'react-router-dom';
 import Timestamp from 'react-timestamp';
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 class GuestInfo extends React.Component {
   constructor() {
     super();
@@ -31,13 +36,24 @@ class GuestInfo extends React.Component {
       orderlist:[],
       usdOrderList:[],
       userPictures:"",
+      languagelist:{},
     };
 
 
   }
   
   componentDidMount() {
-    console.log(window.address)
+    var languageActive = localStorage.getItem('language')
+    for (var item in localeList) {
+        if(item == languageActive){
+            var languagelist = localeList[item];
+        }
+    }
+    this.setState({
+        state:this.state.languagelist=languagelist
+    });
+
+
 
     this.setState( { account: window.address, id: window.address });
 
@@ -95,37 +111,38 @@ class GuestInfo extends React.Component {
   }
 
   render() {
+      const language = this.state.languagelist;
     return (
 
       <div className="info">
 
       <div className="userBox row">
-          <h1 className="col-sm-12 col-md-12 col-lg-12">Hello!{this.state.user}</h1>
+          <h1 className="col-sm-12 col-md-12 col-lg-12">{language.Hello}!{this.state.user}</h1>
           <div className="col-sm-12 col-md-2 col-lg-2">
             <div className="userPhoto">
                 <img src={this.state.userPictures == "" ? "../images/uesrimg.png" : this.state.userPictures} />
                 <input type="file" onChange={(e)=>this.fileChangedHandler(e)} />
-                <p><span>Revise the head image</span></p>
+                <p><span>{language.Revise_the_head_image}</span></p>
             </div>
           </div>
           <div className="col-sm-12 col-md-8 col-lg-6 userlist row">
             <div className="col-sm-12 col-md-6 col-lg-6">
-              <span>username:</span><p>{this.state.user}</p>
+              <span>{language.User_name}:</span><p>{this.state.user}</p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6">
-               <span>phone:</span><p>{this.state.phone}</p>
+               <span>{language.Phone}:</span><p>{this.state.phone}</p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6">
-               <span>email:</span><p>{this.state.email}</p>
+               <span>{language.Email}:</span><p>{this.state.email}</p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6">
-               <span>PPS balance:</span><p>{this.state.ppsBalance}</p>
+               <span>{language.PPS_balance}:</span><p>{this.state.ppsBalance}</p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6">
-               <span>ETH balance:</span><p>{this.state.ethBalance/this.CONST.weiToEther-0 == 0 ? '0' : (this.state.ethBalance/this.CONST.weiToEther-0).toFixed(5)}</p>
+               <span>{language.ETH_balance}:</span><p>{this.state.ethBalance/this.CONST.weiToEther-0 == 0 ? '0' : (this.state.ethBalance/this.CONST.weiToEther-0).toFixed(5)}</p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6">
-               <span>PPS deposited in Populstay:</span><p>{this.state.ppsDeposited}</p>
+               <span>{language.PPS_deposited_in_Populstay}:</span><p>{this.state.ppsDeposited}</p>
             </div>
           </div>
           <div className="col-sm-12 col-md-2 col-lg-3 userbtn" >
@@ -141,18 +158,18 @@ class GuestInfo extends React.Component {
 
 
       <div className="GuestManagment">
-        <h1>Guest Managment Panel</h1>
+        <h1>{language.Guest_Managment_Panel}</h1>
         <div className="overflowAuto">
           <table className="table">
             <thead>
               <tr>
-                <th>Address</th>
-                <th>Status</th>
-                <th>Information</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Price</th>
-                <th>Check In</th>
+                <th>{language.Address}</th>
+                <th>{language.Status}</th>
+                <th>{language.Information}</th>
+                <th>{language.From}</th>
+                <th>{language.To}</th>
+                <th>{language.Price}</th>
+                <th>{language.Check_in}</th>
               </tr>
             </thead>
             <tbody>

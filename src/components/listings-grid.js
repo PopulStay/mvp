@@ -4,6 +4,11 @@ import Pagination from 'react-js-pagination'
 import { withRouter } from 'react-router'
 import ListingCard from './listing-card'
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 class ListingsGrid extends Component {
 
   constructor(props, context) {
@@ -15,10 +20,22 @@ class ListingsGrid extends Component {
         curDistrictCodeIndex:0,
         Progress:0,
         Progresshide:0,
+        languagelist:{},
       };
 
   }
   componentWillMount() {
+    var languageActive = localStorage.getItem('language')
+    for (var item in localeList) {
+        if(item == languageActive){
+            var languagelist = localeList[item];
+        }
+    }
+    this.setState({
+        state:this.state.languagelist=languagelist
+    });
+
+
     this.handlePageChange = this.handlePageChange.bind(this);
 
     var windowUrl = window.location.href;
@@ -79,13 +96,14 @@ class ListingsGrid extends Component {
       this.state.listingsPerPage * (activePage))
 
     const position = { longitude: 120, latitude: 32 }
+    const language = this.state.languagelist;
 
 
     return (
 
       <div className="listings-grid">
         <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
-        <h1>Homes around the world</h1>
+        <h1>{language.Homes_around_the_world}</h1>
         <div className="row">
           <div className="col-md-8 col-lg-8">
             <div className="row">          

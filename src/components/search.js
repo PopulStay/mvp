@@ -153,7 +153,19 @@ class Search extends Component {
                                 <div className="form-group">
                                     <label className="col-sm-6 col-md-6 col-lg-6 ">{language.Check_in}</label>
                                     <label className="col-sm-6 col-md-6 col-lg-6 Right">{language.Check_out}</label>
-                                    <DateRangePicker startDate={this.state.checkInDate} startDateId='start date' endDate={this.state.checkOutDate} endDateId='end date' onDatesChange={({ startDate, endDate })=> {this.setState({checkInDate: startDate, checkOutDate: endDate });window.searchCondition.checkOutDate = endDate;window.searchCondition.checkInDate = startDate;}} focusedInput={this.state.focusedInput} onFocusChange={focusedInput => this.setState({ focusedInput })} readOnly />
+                                    <DateRangePicker 
+                                      startDatePlaceholderText={language.start_date}
+                                      endDatePlaceholderText={language.end_date}
+                                      startDate={this.state.checkInDate} 
+                                      startDateId='start date' 
+                                      endDate={this.state.checkOutDate} 
+                                      endDateId='end date' 
+                                      onDatesChange={({ startDate, endDate })=> {this.setState({checkInDate: startDate, checkOutDate: endDate });
+                                      window.searchCondition.checkOutDate = endDate;window.searchCondition.checkInDate = startDate;}} 
+                                      focusedInput={this.state.focusedInput} 
+                                      onFocusChange={focusedInput => this.setState({ focusedInput })} 
+                                      readOnly 
+                                    />
                                 </div>
                             </div>
 
