@@ -27,9 +27,6 @@ class Search extends Component {
         Progress:0,
         Progresshide:0,
         url:"",
-        Country:'English',
-        CountryImg:'../images/America.png',
-        language:'en_US',
         languagelist:{},
       };
 
@@ -42,20 +39,7 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
-        var languageActive = this.state.language;
 
-        for (var item in localeList) {
-            if(item == languageActive){
-                var languagelist = localeList[item];
-            }
-        }
-            this.setState({state:this.state.languagelist=languagelist})
-
-        localStorage.setItem('Country',this.state.Country);
-        localStorage.setItem('Countryimg',this.state.CountryImg);
-        localStorage.setItem('language', languageActive);
-    }else{
         var languageActive = localStorage.getItem('language')
         for (var item in localeList) {
             if(item == languageActive){
@@ -63,12 +47,11 @@ class Search extends Component {
             }
         }
         this.setState({
-            language:localStorage.getItem('language'),
-            Country:localStorage.getItem('Country'),
-            CountryImg:localStorage.getItem('Countryimg'),
             state:this.state.languagelist=languagelist
         });
-    }
+
+         console.log(this.state.languagelist.Tokyo)
+        this.setState({state: this.state.location = this.state.languagelist.Tokyo});
 
       houselistingService.getDistrictCodes().then((codes)=>
       {

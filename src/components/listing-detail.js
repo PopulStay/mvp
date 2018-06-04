@@ -12,6 +12,13 @@ import guestService from '../services/guest-service';
 import Modal from 'react-modal';
 import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
+
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
+
 const qr = new EthereumQRPlugin();
 const customStyles = {
   content : {
@@ -80,6 +87,7 @@ class ListingsDetail extends Component {
       DateLists:[],
       Progress:0,
       Progresshide:0,
+      languagelist:{},
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -164,6 +172,17 @@ class ListingsDetail extends Component {
   
 
   componentWillMount() {
+    var languageActive = localStorage.getItem('language')
+    for (var item in localeList) {
+        if(item == languageActive){
+            var languagelist = localeList[item];
+        }
+    }
+    this.setState({
+        state:this.state.languagelist=languagelist
+    });
+
+
     if (this.props.listingId) {
       //this.loadOrdered(this.props.listingId);
       this.loadListing();
@@ -357,6 +376,7 @@ class ListingsDetail extends Component {
   }
 
   render() {
+    const language = this.state.languagelist;
     const price = typeof this.state.ppsPrice === 'string' ? 0 : this.state.ppsPrice;
     const guestItems = [];
     this.state.guests.forEach((guest,index)=>{
@@ -432,10 +452,10 @@ class ListingsDetail extends Component {
           <p className="text1">{this.state.descriptioninfo.roomtype_category}</p>
           <p className="text2">{this.state.descriptioninfo.roomdescription_title}</p>
           <div className="box1_list col-lg-9">
-            <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} guests</p>
-            <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} bedroom</p>
-            <p><img src="../images/detail-img05.png" alt="" />{this.state.beds} bed</p>
-            <p><img src="../images/detail-img03.png" alt="" />{this.state.pictures.length} private bath</p>
+            <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} {language.guests}</p>
+            <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} {language.bedroom}</p>
+            <p><img src="../images/detail-img05.png" alt="" />{this.state.beds} {language.bed}</p>
+            <p><img src="../images/detail-img03.png" alt="" />{this.state.pictures.length} {language.private_bath}</p>
           </div>
         </div>
 
@@ -453,47 +473,47 @@ class ListingsDetail extends Component {
           <p className="text1">ENTIRE VILA - VEDADO</p>
           <p className="text2">PlacetedelVedado</p>
           <div className="box1_list col-lg-9">
-            <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} guests</p>
-            <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} bedroom</p>
-            <p><img src="../images/detail-img05.png" alt="" />{this.state.beds} bed</p>
-            <p><img src="../images/detail-img03.png" alt="" />{this.state.pictures.length} private bath</p>
+            <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} {language.guests}</p>
+            <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} {language.bedroom}</p>
+            <p><img src="../images/detail-img05.png" alt="" />{this.state.beds} {language.bed}</p>
+            <p><img src="../images/detail-img03.png" alt="" />{this.state.pictures.length} {language.private_bath}</p>
           </div>
         </div>
 
         <div className="L_TEXT1">{this.state.descriptioninfo.roomdescription_description}</div>
-        <p className="More hide">Read more<span>▼</span></p>
+        <p className="More hide">{language.Read_more}<span>▼</span></p>
 
         <div className="L_box3">
-          <h5>Amenities</h5>
-          <p className={ this.state.descriptioninfo.roomstuff_Shampoo==1 ?  'show' : 'hide' }><img src="../images/detail-img07.png" alt="" />Shampoo</p>
-          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img08.png" alt="" />Breakfast</p>
-          <p className={ this.state.descriptioninfo.roomstuff_TV==1 ?  'show' : 'hide' }><img src="../images/detail-img09.png" alt="" />TV</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img10.png" alt="" />Kitchen</p>
-          <p className={ this.state.descriptioninfo.roomstuff_aircondition==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Air conditioning</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Closet/drawers</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Heat==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Heat</p>
-          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Breakfast,coffe,tea</p>
-          <p className={ this.state.descriptioninfo.roomstuff_desk_workspace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Desk/workspace</p>
-          <p className={ this.state.descriptioninfo.roomstuff_fireplace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Fireplace</p>
-          <p className={ this.state.descriptioninfo.roomstuff_iron==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Iron</p>
-          <p className={ this.state.descriptioninfo.roomstuff_hairdryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Hair dryer</p>
-          <p className={ this.state.descriptioninfo.roomstuff_petsinhouse==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Pets in the house</p>
-          <p className={ this.state.descriptioninfo.roomstuff_private_entrance==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Private entrance</p>
-          <p className={ this.state.descriptioninfo.roomstuff_smoke_detector==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Smoke detector</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Pool==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Pool</p>
-          <p className={ this.state.descriptioninfo.roomstuff_kitchen==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />kitchen</p>
-          <p className={ this.state.descriptioninfo.roomstuff_washer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Laundry - washer</p>
-          <p className={ this.state.descriptioninfo.roomstuff_dryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Laundry - dryer</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Park==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Park</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Lift==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Lift</p>
-          <p className={ this.state.descriptioninfo.roomstuff_HotTub==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Hot tub</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Gym==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Gym</p>
-          <p><img src="../images/detail-img12.png" alt="" />WIFI</p>
+          <h5>{language.Amenities}</h5>
+          <p className={ this.state.descriptioninfo.roomstuff_Shampoo==1 ?  'show' : 'hide' }><img src="../images/detail-img07.png" alt="" />{language.Shampoo}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img08.png" alt="" />{language.Breakfast}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_TV==1 ?  'show' : 'hide' }><img src="../images/detail-img09.png" alt="" />{language.TV}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img10.png" alt="" />{language.Kitchen}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_aircondition==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Air_conditioning}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Closet_drawers}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Heat==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Heat}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Breakfast_coffe_tea}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_desk_workspace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Desk_workspace}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_fireplace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Fireplace}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_iron==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Iron}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_hairdryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Hair_dryer}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_petsinhouse==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Pets_in_the_house}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_private_entrance==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Private_entrance}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_smoke_detector==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Smoke_detector}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Pool==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Pool}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_kitchen==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.kitchen}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_washer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Laundry_washer}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_dryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Laundry_dryer}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Park==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Park}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Lift==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Lift}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_HotTub==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Hot_tub}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Gym==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Gym}</p>
+          <p><img src="../images/detail-img12.png" alt="" />{language.WIFI}</p>
         </div>
 
-        <p className="More hide">Show all amenities<span>▼</span></p>
+        <p className="More hide">{language.Show_all_amenities}<span>▼</span></p>
         <div className="L_box4">
-            <h5>Sleeping arr 7 amenities</h5>
+            <h5>{language.Sleeping_arr_7_amenities}</h5>
             <img src="../images/detail-img06.png" alt="" />
         </div>
 

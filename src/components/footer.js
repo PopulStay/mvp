@@ -40,21 +40,6 @@ class Footer extends Component {
 
 
   componentDidMount(){
-
-        if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
-            var languageActive = this.state.language;
-
-            for (var item in localeList) {
-                if(item == languageActive){
-                    var languagelist = localeList[item];
-                }
-            }
-                this.setState({state:this.state.languagelist=languagelist})
-
-            localStorage.setItem('Country',this.state.Country);
-            localStorage.setItem('Countryimg',this.state.CountryImg);
-            localStorage.setItem('language', languageActive);
-        }else{
             var languageActive = localStorage.getItem('language')
             for (var item in localeList) {
                 if(item == languageActive){
@@ -64,12 +49,10 @@ class Footer extends Component {
             this.setState({
                 language:localStorage.getItem('language'),
                 Country:localStorage.getItem('Country'),
+                CountryCurrency:localStorage.getItem('Currency'),
                 CountryImg:localStorage.getItem('Countryimg'),
                 state:this.state.languagelist=languagelist
             });
-        }
-
-
   }
 
 
@@ -83,6 +66,7 @@ class Footer extends Component {
   languageCookie(e){
     var language = e.currentTarget.getAttribute('data-language');
     var Country = e.currentTarget.getAttribute('data-Country');
+    var Currency = e.currentTarget.getAttribute('data-Currency');
     var Countryimg = e.currentTarget.getAttribute('data-Countryimg');
 
     this.setState({language:language});
@@ -94,6 +78,7 @@ class Footer extends Component {
     }
 
     localStorage.setItem('Country',Country);
+    localStorage.setItem('Currency',Currency);
     localStorage.setItem('Countryimg',Countryimg);
     localStorage.setItem('language',language);
 
@@ -126,7 +111,7 @@ class Footer extends Component {
                   <ul className="dropdown-menu" role="menu">
                         <li>Used  language</li>
                     {this.state.CountryList.map((item,index) => (
-                        <li data-language={item.language} data-Country={item.Country} data-Countryimg={item.img} onClick={(e)=>this.languageCookie(e)}><a  onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} ><img src={item.img} />{item.Country}</a></li>
+                        <li data-currency={item.currency} data-language={item.language} data-Country={item.Country} data-Countryimg={item.img} onClick={(e)=>this.languageCookie(e)}><a  onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} ><img src={item.img} />{item.Country}</a></li>
                       ))
                     }
                   </ul>
@@ -136,7 +121,7 @@ class Footer extends Component {
                   <ul className="dropdown-menu" role="menu">
                         <li>Used  currency</li>
                     {this.state.CountryList.map((item,index) => (
-                        <li><a data-language={item.language} onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} >{item.currency}</a></li>
+                        <li data-currency={item.currency} data-language={item.language} data-Country={item.Country} data-Countryimg={item.img} onClick={(e)=>this.languageCookie(e)}><a data-language={item.language} onClick={(e)=>this.setState({Country:item.Country,CountryImg:item.img,CountryCurrency:item.currency})} >{item.currency}</a></li>
                       ))
                     }
                   </ul>

@@ -26,30 +26,12 @@ class NavBar extends Component {
         place:null,
         locationName:"Tokyo",
         clicklogout:false,
-        Country:'English',
-        CountryImg:'../images/America.png',
-        language:'en_US',
         languagelist:{},
       };
       window.searchCondition = this.state;
   }
 
   componentDidMount(){
-
-        if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
-            var languageActive = this.state.language;
-
-            for (var item in localeList) {
-                if(item == languageActive){
-                    var languagelist = localeList[item];
-                }
-            }
-                this.setState({state:this.state.languagelist=languagelist})
-
-            localStorage.setItem('Country',this.state.Country);
-            localStorage.setItem('Countryimg',this.state.CountryImg);
-            localStorage.setItem('language', languageActive);
-        }else{
             var languageActive = localStorage.getItem('language')
             for (var item in localeList) {
                 if(item == languageActive){
@@ -59,12 +41,10 @@ class NavBar extends Component {
             this.setState({
                 language:localStorage.getItem('language'),
                 Country:localStorage.getItem('Country'),
+                Country:localStorage.getItem('CountryCurrency'),
                 CountryImg:localStorage.getItem('Countryimg'),
                 state:this.state.languagelist=languagelist
             });
-        }
-
-
   }
 
 

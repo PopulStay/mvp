@@ -36,6 +36,7 @@ class WalletClear extends React.Component {
       clicklogout:'',
       Country:'English',
       CountryImg:'../images/America.png',
+      CountryCurrency:'USD',
       language:'en_US',
       languagelist:{},
     };
@@ -46,33 +47,35 @@ class WalletClear extends React.Component {
     web3Service.loadWallet();
   }
   componentWillMount() {
-    if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
-        var languageActive = this.state.language;
+        if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
+            var languageActive = this.state.language;
 
-        for (var item in localeList) {
-            if(item == languageActive){
-                var languagelist = localeList[item];
+            for (var item in localeList) {
+                if(item == languageActive){
+                    var languagelist = localeList[item];
+                }
             }
-        }
-            this.setState({state:this.state.languagelist=languagelist})
+                this.setState({state:this.state.languagelist=languagelist})
 
-        localStorage.setItem('Country',this.state.Country);
-        localStorage.setItem('Countryimg',this.state.CountryImg);
-        localStorage.setItem('language', languageActive);
-    }else{
-        var languageActive = localStorage.getItem('language')
-        for (var item in localeList) {
-            if(item == languageActive){
-                var languagelist = localeList[item];
+            localStorage.setItem('Country',this.state.Country);
+            localStorage.setItem('Currency',this.state.CountryCurrency);
+            localStorage.setItem('Countryimg',this.state.CountryImg);
+            localStorage.setItem('language', languageActive);
+        }else{
+            var languageActive = localStorage.getItem('language')
+            for (var item in localeList) {
+                if(item == languageActive){
+                    var languagelist = localeList[item];
+                }
             }
+            this.setState({
+                language:localStorage.getItem('language'),
+                Country:localStorage.getItem('Country'),
+                CountryCurrency:localStorage.getItem('Currency'),
+                CountryImg:localStorage.getItem('Countryimg'),
+                state:this.state.languagelist=languagelist
+            });
         }
-        this.setState({
-            language:localStorage.getItem('language'),
-            Country:localStorage.getItem('Country'),
-            CountryImg:localStorage.getItem('Countryimg'),
-            state:this.state.languagelist=languagelist
-        });
-    }
 
 
     guestService.getGuesterInfo(window.address).then((data)=>{
@@ -134,29 +137,29 @@ class WalletClear extends React.Component {
 
         <Modal isOpen={this.state.modaloutOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Wallet Message">
           <div className="clear">
-            <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
+            <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
             <div>
-              <h3>Address:</h3>
+              <h3>{language.Address}</h3>
               <p className="text1">{window.address}</p>
-              <h3>Private Key:</h3>
+              <h3>{language.Private_Key}</h3>
               <p className="text1">{this.substring0x(window.privateKey)}</p>
             </div>  
-            <button className="btn btn-danger Left" onClick={this.clear}>Clear</button>
-            <button className="btn btn-primary Right"  onClick={(e) => this.setState({modaloutOpen:false})}>Cancel</button>
+            <button className="btn btn-danger Left" onClick={this.clear}>{language.Clear}</button>
+            <button className="btn btn-primary Right"  onClick={(e) => this.setState({modaloutOpen:false})}>{language.Cancel}</button>
           </div>
         </Modal>
 
         <Modal isOpen={this.state.modalinOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Wallet Message">
           <div className="Import">
-          <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
           <br/>
             <div className="form-group">
-            <label>Private Key</label>
-            <input type="text"  className="form-control" placeholder="Wallet Account" onChange={(e) => this.setState({pirvatekey: e.target.value})} />
+            <label>{language.Private_Key}</label>
+            <input type="text"  className="form-control" placeholder={language.Wallet_Account} onChange={(e) => this.setState({pirvatekey: e.target.value})} />
           </div>
           <br/>
-          <button className="btn btn-danger Left" onClick={this.import}>Import</button>
-          <button className="btn btn-primary Right " onClick={(e) => this.setState({modalinOpen:false})}>Cancel</button>
+          <button className="btn btn-danger Left" onClick={this.import}>{language.Import}</button>
+          <button className="btn btn-primary Right " onClick={(e) => this.setState({modalinOpen:false})}>{language.Cancel}</button>
           </div>
         </Modal>
       

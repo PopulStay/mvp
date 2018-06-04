@@ -36,9 +36,6 @@ class GuestRegister extends React.Component {
       registered:false,
       emailactive:0,
       Prompt:"",
-      Country:'English',
-      CountryImg:'../images/America.png',
-      language:'en_US',
       languagelist:{},
     };
 
@@ -51,21 +48,6 @@ class GuestRegister extends React.Component {
   }
 
   componentWillMount() {
-
-    if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
-        var languageActive = this.state.language;
-
-        for (var item in localeList) {
-            if(item == languageActive){
-                var languagelist = localeList[item];
-            }
-        }
-            this.setState({state:this.state.languagelist=languagelist})
-
-        localStorage.setItem('Country',this.state.Country);
-        localStorage.setItem('Countryimg',this.state.CountryImg);
-        localStorage.setItem('language', languageActive);
-    }else{
         var languageActive = localStorage.getItem('language')
         for (var item in localeList) {
             if(item == languageActive){
@@ -73,17 +55,10 @@ class GuestRegister extends React.Component {
             }
         }
         this.setState({
-            language:localStorage.getItem('language'),
-            Country:localStorage.getItem('Country'),
-            CountryImg:localStorage.getItem('Countryimg'),
             state:this.state.languagelist=languagelist
         });
-    }
-
 
     this.loadUserData();
-  
- 
   }
    
   register(){

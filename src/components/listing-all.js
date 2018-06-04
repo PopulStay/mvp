@@ -15,6 +15,11 @@ import houselistingService from '../services/houseinfolist-service';
 import Pagination from 'react-js-pagination';
 import ListingCard from './listing-card';
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 
 class Listingall extends Component {
 
@@ -45,11 +50,23 @@ class Listingall extends Component {
         curDistrictCodeIndex:0,
         experienceList:1,
         listingtype:0,
+        languagelist:{},
       };
       window.searchCondition = this.state;
   }
 
   componentDidMount() {
+
+    var languageActive = localStorage.getItem('language')
+    for (var item in localeList) {
+        if(item == languageActive){
+            var languagelist = localeList[item];
+        }
+    }
+    this.setState({
+        state:this.state.languagelist=languagelist
+    });
+
     this.handlePageChange = this.handlePageChange.bind(this);
     
       houselistingService.getDistrictCodes().then((codes)=>
@@ -297,6 +314,7 @@ class Listingall extends Component {
 
   render() {
     const showListingsRows = this.state.listingRows;
+    const language = this.state.languagelist;
     
   return (
 
@@ -304,7 +322,7 @@ class Listingall extends Component {
           {!this.props.hideTagHeader &&
             <div className="tag-header Strainerbox">
               <ul className="tag container">
-              <li className="tag__item"><a href="/experience"><img src="../../images/Experience.png" alt=""/><span>Experience</span></a></li>
+              <li className="tag__item"><a href="/experience"><img src="../../images/Experience.png" alt=""/><span>{language.Experience}</span></a></li>
               <li className="tag__item"><span className="location-tag Strainerspan" data-Strainer="Strainer_City" onClick={(e)=>this.Strainer(e)}>{this.state.Citys_type}</span>
                   <div className={this.state.Strainer_City ? "Strainer_City show" : "Strainer_City hide"}>
                       <div className="Strainer_Home_Type">
@@ -552,7 +570,7 @@ class Listingall extends Component {
           }
           <div className="container experience ALL" onClick={(e)=>this.taghide()}>
             <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
-                <h2>All experiences</h2>
+                <h2>{language.All_experiences}</h2>
                 <div className={this.state.experienceList == 1 ? "show All_experiences row" : "hide All_experiences row"}>
                     {showListingsRows.map(item => (
                       <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 listing-card">

@@ -30,9 +30,6 @@ class Wallet extends Component {
       modalIsOpen:false,
       infoModalIsOpen:false,
       clearModalIsOpen:false,
-      Country:'English',
-      CountryImg:'../images/America.png',
-      language:'en_US',
       languagelist:{},
     };
 
@@ -41,21 +38,6 @@ class Wallet extends Component {
   }
 
   componentWillMount(){
-
-        if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
-            var languageActive = this.state.language;
-
-            for (var item in localeList) {
-                if(item == languageActive){
-                    var languagelist = localeList[item];
-                }
-            }
-                this.setState({state:this.state.languagelist=languagelist})
-
-            localStorage.setItem('Country',this.state.Country);
-            localStorage.setItem('Countryimg',this.state.CountryImg);
-            localStorage.setItem('language', languageActive);
-        }else{
             var languageActive = localStorage.getItem('language')
             for (var item in localeList) {
                 if(item == languageActive){
@@ -68,8 +50,6 @@ class Wallet extends Component {
                 CountryImg:localStorage.getItem('Countryimg'),
                 state:this.state.languagelist=languagelist
             });
-        }
-
   }
 
   import=()=>{

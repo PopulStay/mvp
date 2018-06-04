@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 
 // Components
+import NavBar from './navbar'
 import ScrollToTop from './scroll-to-top.js'
 import Listings from './listings-grid.js'
 import ListingDetail from './listing-detail.js'
@@ -12,7 +13,6 @@ import ListingCreate from './listing-create.js'
 import ManagementPanel from './management-panel.js'
 import HostOrder from './host-orderlist.js'
 import Footer from './footer'
-import NavBar from './navbar'
 import Overlay from './overlay'
 import Search from './search.js'
 import Listingexperience from './listing-experience.js'

@@ -21,6 +21,37 @@ export const Show_all = '显示全部';
 export const Experiences_travellers_love = '体验旅客的爱';
 export const Book_activities_led_by_local_hosts_on_your_next_trip = '在下次旅行中当主人预订活动';
 
+//listing-detail
+export const bedroom = '卧室';
+export const bed = '床';
+export const private_bath = '私人浴室';
+export const Read_more = '更多';
+export const Amenities = '设施';
+export const Shampoo = '洗发水';
+export const Breakfast = '早餐';
+export const TV = '电视';
+export const Kitchen = '厨房';
+export const Air_conditioning = '空调';
+export const Closet_drawers = '衣柜/抽屉';
+export const Heat = '加热器';
+export const Breakfast_coffe_tea = '早餐/咖啡/茶';
+export const Desk_workspace = '书桌/工作空间';
+export const Fireplace = '壁炉';
+export const Iron = '熨斗';
+export const Hair_dryer = '吹风机';
+export const Pets_in_the_house = '宠物在房子里';
+export const Private_entrance = '私人入口';
+export const Smoke_detector = '烟雾探测器';
+export const Pool = '游泳';
+export const Laundry_washer = '洗衣机';
+export const Laundry_dryer = '洗衣干燥机';
+export const Park = '公园';
+export const Lift = '电梯';
+export const Hot_tub = '热水浴池';
+export const Gym = '健身房';
+export const WIFI = '无线';
+export const Show_all_amenities = '展示所有设施';
+export const Sleeping_arr_7_amenities = '睡觉ARR 7设施';
 
 //guest-register
 export const Sign_up = '注册';
@@ -37,6 +68,7 @@ export const Consummate_user_information = '完善用户信息';
 export const Please_enter_the_mailbox = '请输入邮箱';
 export const Incorrect_mailbox_format = '邮箱格式不正确';
 export const Well_never_share_your_email_with_anyone_else = '我们永远不会与其他人分享你的电子邮件';
+export const Tokyo = '东京';
 
 //wallet
 export const Create_Or_Import_Wallet = '创建或导入钱包';
@@ -51,6 +83,10 @@ export const Address = '地址';
 
 //create
 export const Create = '创建';
+
+//all
+export const All_experiences = '全部体验';
+export const Experience = '体验';
 
 // footer
 export const Become_a_Host = '成为主人';
