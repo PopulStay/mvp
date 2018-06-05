@@ -204,11 +204,12 @@
   font-size: 2.2rem;
   margin: 0 0 3%;
 }
+.deposit span.glyphicon-refresh,
 .submit span.glyphicon-refresh{
   font-size: 2rem;
   margin-left: 2%;
   animation:refresh 1s infinite;
-  -webkit-animation:refresh 1s infinite; /* Safari 和 Chrome */
+  -webkit-animation:refresh 1s infinite linear; /* Safari 和 Chrome */
 }
 @keyframes refresh{
 0% {transform: rotate(0deg);}

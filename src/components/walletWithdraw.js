@@ -69,9 +69,14 @@ class WalletWithdraw extends React.Component {
 
   withdrawlist(){
     ppsService.getWithdrawInfo(window.address).then((data)=>{
-      console.log(data.data);
+      console.log(data.data)
+      //开始申请提币，state是0
+      //完成了向populstay转账0.01个eth，state是1
+      //然后完成审核，向以太链提交申请，以太链正在挖矿，state是2
+      //结束取币是3
       this.setState({withdrawlist:data.data})
     });
+    this.props.onGetDepositBalance();
   }
 
   Submit(){
@@ -85,11 +90,11 @@ class WalletWithdraw extends React.Component {
       })
       this.setState({withdrawlist:withdrawlist,Address:window.address,Size:1})
       ppsService.applyWithdraw(this.state.Address,this.state.Size);
-
+      this.props.onGetDepositBalance();
     }
     this.timerID = setTimeout(
       () => this.withdrawlist(),
-      1000
+      2000
     );
     
   }
@@ -166,10 +171,11 @@ class WalletWithdraw extends React.Component {
                     <td className="td2">{item.size}</td>
                     <td className="td3"><input type="text" value={item.id} readonly /></td>
                     <td className="td4">
-                        {item.state == 0 ? "Apply for money" : ""}
-                        {item.state == 1 ? "In the coin" : ""}
-                        {item.state == 2 ? "Finish the coin" : ""}
-                        {item.state == -1 ? "Currency failure" : ""}
+                        {item.state == 0 ? language.state0 : ""}
+                        {item.state == 1 ? language.state1 : ""}
+                        {item.state == 2 ? language.state2 : ""}
+                        {item.state == 3 ? language.state3 : ""}
+                        {item.state == -1 ? language.state-1 : ""}
                     </td>
                     <td className="td5"><button className="Left"  onClick={this.Withdraw.bind(this,index)} >Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
                   </tr>  

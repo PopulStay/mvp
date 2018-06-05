@@ -135,8 +135,13 @@ export const beds = 'beds';
 export const Add_beds = 'Add beds';
 export const The_number_and_type = 'The number and type of beds you have determines how many guests can stay comfortably.';
 export const Sleeping_arrangements_help_guests = 'Sleeping arrangements help guests understand what the sleeping arrangements are like.';
-
-
+//Step4
+export const Bathrooms = 'Bathrooms';
+export const Number_of_bathrooms = 'Number of bathrooms';
+export const Bathrooms_presentation = 'If you have a toilet separate from the shower,count it as a 0.5 bathroom.';
+//Step5
+export const Wheres_your_place_located = 'Where’s your place located?';
+export const located_presentation = 'Your exact address will only be shared with confirmed guests.';
 
 
 
@@ -283,6 +288,11 @@ export const TX = 'TX';
 export const Operation = 'Operation';
 export const Wallet_Size = 'Wallet Size';
 export const Submit = 'Submit';
+export const state0 = 'Apply for money';
+export const state1 = 'In the coin';
+export const state2 = 'Finish the coin';
+export const state3 = 'Completed';
+export const state_1 = 'Currency failure';
 
 
 // footer--------------------------------------------------------------------------------------------

@@ -57,7 +57,6 @@ class WalletDeposit extends React.Component {
       ppsService.waitTransactionFinished(res.data[0].txhash)
       .then((data)=>{
          this.closeWaitModal();
-         //console.log("res.data[0].balance",res.data[0].balance);
       });
     });
   }
@@ -123,10 +122,10 @@ class WalletDeposit extends React.Component {
        <Modal isOpen={this.state.waitingModalIsOpen} onAfterOpen={this.afterWaitOpenModal} onRequestClose={this.closeWaitModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="deposit">
-            <h2 ref={subtitle => this.subtitle = subtitle}>Depositing PPS,Please waiting</h2>
+            <h2 ref={subtitle => this.subtitle = subtitle}>Depositing PPS, please wait</h2>
             <br/>
           <div className="form-group">
-           <p className="text2"><i className="fa fa-spin fa-spinner"></i> Waiting...</p>
+           <p className="text2"><span className="glyphicon glyphicon-refresh"></span></p>
           </div>
           </div>
         </Modal>

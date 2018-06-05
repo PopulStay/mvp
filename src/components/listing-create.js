@@ -874,7 +874,7 @@ class ListingCreate extends Component {
                   <h3 className="text-muted">{language.Sleeping_arrangments}</h3>
                       <div className="step3box">
                         <div className="divLeft">
-                         <h3 className="text-muted">{language.Common_space}<b>{this.state.roombasics_commonspacebeds}</b> {language.beds}</h3>
+                         <h3 className="text-muted">{language.Common_space} <b>{this.state.roombasics_commonspacebeds}</b> {language.beds}</h3>
                         </div>
 
                         <div className="divRight">
@@ -911,13 +911,13 @@ class ListingCreate extends Component {
               <span></span>
               <span></span>
               <span></span>
-              <p>Step 1: Start with the basics</p>
+              <p>{language.Step} 1: {language.Start_with_the_basics}</p>
             </div>
 
-              <h1>Bathrooms</h1>
+              <h1>{language.Bathrooms}</h1>
 
               <div className="box">
-              <h2>Number of bathrooms</h2>
+              <h2>{language.Number_of_bathrooms}</h2>
               <div className="btn-group col-md-5">
                 <button type="button" className="guestBtn">
                   <span className={this.state.roombasics_guestbedrooms == 0.5 ? "btnjia spanActive" : "btnjia"} onClick={(e)=>this.guestbedrooms(e)} data-name="jia">▲</span>
@@ -930,8 +930,8 @@ class ListingCreate extends Component {
 
              
             <div className="STEPBTN">
-              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
             </div>
              
              </div>
@@ -939,7 +939,7 @@ class ListingCreate extends Component {
              <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>If you have a toilet separate from the shower,count it as a 0.5 bathroom.</p>
+                    <p>{language.Bathrooms_presentation}</p>
                 </div>
              </div>
              </div>
@@ -959,20 +959,20 @@ class ListingCreate extends Component {
               <span className="bjpink"></span>
               <span></span>
               <span></span>
-              <p>Step 1: Start with the basics</p>
+              <p>{language.Step} 1: {language.Start_with_the_basics}</p>
             </div>
 
-              <h1>Where’s your place located?</h1>
+              <h1>{language.Wheres_your_place_located}</h1>
               <div className="box">
               <div className="btn-group col-md-9 step5box">
                 <img className="becomehost__info" src="./images/located.png" alt=""/>
-                <input type="text" placeholder="For example: Qingdao"  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
+                <input type="text" placeholder={language.For_example_Qingdao}  className={this.state.roomtype_location == '' ? 'form-control pinkBorder' : 'form-control'} onChange={(e) => this.setState({roomtype_location: e.target.value})} value={this.state.roomtype_location}/>
               </div>
               </div>
              
             <div className="STEPBTN">
-              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
             </div>
              
              </div>
@@ -980,7 +980,7 @@ class ListingCreate extends Component {
              <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Your exact address will only be shared with confirmed guests.</p>
+                    <p>{language.located_presentation}</p>
                     <img className="img1 " src="./images/locatedimg.png" alt=""/>
                 </div>
              </div>

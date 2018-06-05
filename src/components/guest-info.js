@@ -93,6 +93,7 @@ class GuestInfo extends React.Component {
   onGetDepositBalance = () =>{
      ppsService.getDepositBalance(window.address)
      .then((data)=>{
+      console.log(data.data.balance)
         this.setState({ ppsDeposited : data.data.balance});
      });
   }
@@ -149,7 +150,7 @@ class GuestInfo extends React.Component {
               <WalletManage/>
               <WalletGas/>
               <WalletDeposit  onGetDepositBalance={this.onGetDepositBalance}/>
-              <WalletWithdraw/>
+              <WalletWithdraw  onGetDepositBalance={this.onGetDepositBalance}/>
           </div>
       </div>
 

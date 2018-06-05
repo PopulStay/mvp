@@ -135,8 +135,13 @@ export const beds = '床';
 export const Add_beds = '添加床铺';
 export const The_number_and_type = '床的数量和种类决定了多少位房客可以舒适地在房源內住宿。';
 export const Sleeping_arrangements_help_guests = '床型信息可以帮助房客了解如何安排就寝。';
-
-
+//Step4
+export const Bathrooms = '卫生间';
+export const Number_of_bathrooms = '浴室数量';
+export const Bathrooms_presentation = '如果您有一个独立于淋浴间的厕所，那就把它算作0.5个卫生间。';
+//Step5
+export const Wheres_your_place_located = '您的房源位于什么地方？';
+export const located_presentation = '我们只会和已确认预订的房客分享您的具体地址。';
 
 
 
@@ -280,6 +285,12 @@ export const TX = 'TX';
 export const Operation = '操作';
 export const Wallet_Size = '提取数量';
 export const Submit = '提交';
+export const state0 = '申请提币';
+export const state1 = '在申请中';
+export const state2 = '完成审核';
+export const state3 = '交易成功';
+export const state_1 = '提币失败';
+
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = '成为房东';
