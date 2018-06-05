@@ -294,7 +294,7 @@
 .Create button,
 .Create1 button,
 .PirvateKey button,
-.deposit .center button{
+.deposit button.center{
   width: 100%;
   margin:6% 0 0;
 }
