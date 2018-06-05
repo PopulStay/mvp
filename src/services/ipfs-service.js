@@ -41,7 +41,6 @@ class IpfsService {
         const file = response[0]
         const ipfsHashStr = file.hash
         if (ipfsHashStr) {
-          this.mapCache.set(ipfsHashStr, formListingJson)
           resolve(ipfsHashStr)
         } else {
           reject('Failure to submit listing to IPFS')

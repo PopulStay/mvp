@@ -145,6 +145,8 @@ class HouseInfoListingService {
               params.ethprice        = formListing.ETHprice_perday;
               params.usdprice        = formListing.USDprice_perday;
               params.profile         = { previewImage : formListing.selectedPictures[0].imagePreviewUrl };
+              params.generateSmartContract = formListing.generate_smart_contract;
+              params.roominfo        = roominfo;
 
               axios.post(process.env.Server_Address+'HouseInformation', params)
               .then(function (response) {
@@ -272,6 +274,19 @@ class HouseInfoListingService {
   getHouseInfoDetail(uuid){
      var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address)
      return contract.methods.getHouseInfo(uuid).call();
+ }
+
+
+   getHouseInfoDetailFromDB(uuid){
+      return new Promise((resolve, reject) => {
+      axios.get(process.env.Server_Address+'HouseInformation/'+uuid)
+      .then((response)=> {
+        resolve(response.data);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
+    })
  }
 
 

@@ -112,7 +112,46 @@ class ListingsDetail extends Component {
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
     var slideArray = this.state.slides;
 
-        houselistingService.getHouseInfoDetail(this.props.listingId)
+    houselistingService.getHouseInfoDetailFromDB(this.props.listingId).then((data)=>{
+
+      this.processLoadHouseInfo(ipfsHash,slideArray,data);
+      
+    })
+  }
+
+  processLoadHouseInfo = (ipfsHash,slideArray,data)=>{
+
+    var houseInfoDetailPromise ;
+
+
+    if(data.generateSmartContract ==0 || data.generateSmartContract=="0" )
+    {
+       //without smart contract
+        var roominfo = data.roominfo;
+        this.setState({ppsPrice:Number(data.price).toFixed(3),
+          category:roominfo.category,
+          location:roominfo.location,
+          beds:roominfo.beds,
+          lister:data.hostAddress,
+          ethPrice:(data.ethprice/this.CONST.weiToGwei).toFixed(3),
+          usdPrice: data.usdprice});
+            //slideArray.push();
+
+          this.setState({Progress:this.state.Progress+50})
+          if (this.state.Progress>=100) {
+                  this.timerID = setTimeout(
+                    () => this.setState({Progresshide:1}),
+                    1000
+                  );
+                }
+        
+         houseInfoDetailPromise = ipfsService.getListing(ipfsHash);
+    }
+    else if (data.generateSmartContract ==1 || data.generateSmartContract=="1" )
+    {
+      
+         //with smart contract 
+      houseInfoDetailPromise =  houselistingService.getHouseInfoDetail(this.props.listingId)
         .then((result) => {
             var roominfo = JSON.parse(result._roominfo);
             this.setState({ppsPrice:Number(result._price).toFixed(3),category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:(result._ethPrice/this.CONST.weiToGwei).toFixed(3),usdPrice:(result._ethPrice/this.CONST.weiToUSD).toFixed(3)});
@@ -127,7 +166,17 @@ class ListingsDetail extends Component {
                 }
         
               return ipfsService.getListing(ipfsHash)
-        }).then((result)=>{
+        });
+    }else
+    {
+      alert("error");
+      return ;
+    }
+
+     
+
+
+        houseInfoDetailPromise.then((result)=>{
               var descriptioninfo = result;
           console.log(descriptioninfo)
              this.setState({descriptioninfo:descriptioninfo});
@@ -165,6 +214,8 @@ class ListingsDetail extends Component {
         }).catch((error) => {
           console.error(error);
         });
+
+
   }
   
 
