@@ -194,10 +194,30 @@ jerry：  21）上传android的基础版本；jerry  优先级：1
 29） IPFS的内容发布，不用智能合约。Eric 1
 30） PPS的二维码支付。 Eric。1
 31） 调查安卓的Web3js用法。Eric， Jerry。2
+32）搜索功能的bug
 
 
 
-
+6-6
+2）网页加载速度，进一步加强；  往window.sessionStorage缓存数据！  eric yan   优先级：3
+5）profile的头像上传；  yan ding。 优先级：2
+6）取币 ； ding yan --80%  优先级：2
+8）真实的地图功能；   yan  优先级：3
+9）help页面；  chrite  yan eric。优先级：3
+11) 地图功能； yan    优先级：3 
+12）URL长度问题； ding  优先级：3
+13）房源的主图片的突出；yan。优先级：3
+14）语言的问题； yan  优先级：1  -70%
+16）instant booking ／booking 问题； ？待定
+17）订单详细页面的增加；eric yan  优先级：1
+23) 搜索页画面；jerry 优先级：2
+24）主页画面；jerry 优先级：2
+25）搜索页画面； jerry 优先级：2
+26）提币完成后，存在平台的数量没有减少；  eric 优先级：2 
+27） withdraw的前端UI；  yan。优先级：1
+28） WBS的生成。jerry Eric 1
+31） 调查安卓的Web3js用法。Eric， Jerry。2
+32）搜索功能的bug  Eric 1
 
 
 
