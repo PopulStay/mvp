@@ -4,9 +4,21 @@ const localeList = {
 };
 
 class LanguageService {
+  
+    static instance
+
+    constructor() 
+    {
+        if (LanguageService.instance) {
+          return LanguageService.instance
+        }
+
+        LanguageService.instance = this;  
+    }
+
     language(){
 		window.localeList = localeList;
-      	if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
+      	if(!  (  localStorage.getItem('language') && localStorage.getItem('Country') ) ) {
             window.languageActive = 'en_US';
 
             for (var item1 in localeList) {
