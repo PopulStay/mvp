@@ -243,6 +243,8 @@ class ListingCreate extends Component {
             Howoften_Froms:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             Howoften_Tos:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             languagelist:{},
+            generate_smart_contract:0
+
 
         }
         this.DETA={
@@ -3697,6 +3699,21 @@ class ListingCreate extends Component {
           <div className="row Step3_18">
             <div className="col-md-8 col-lg-7 col-sm-8 ">
               <h1>You’re ready to publish!</h1>
+
+              <h3>Do you want to generate Smart Contract</h3>
+             
+             <div className="row">
+               
+              <div className="col-lg-1" onClick={(e) => {if(this.state.generate_smart_contract ==0 )this.setState({generate_smart_contract:1});else this.setState({generate_smart_contract:0});}}>
+                  <p  className="Pinput">
+                      <img className={this.state.generate_smart_contract ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
+                  </p>
+                  <p className="divinput">Generate Smart Contract</p>
+                </div>
+             </div>
+
+
+
 
               <div className="box col-md-12">
                 <p>You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.</p>
