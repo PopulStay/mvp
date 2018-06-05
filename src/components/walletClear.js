@@ -5,11 +5,8 @@ import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
 
 const customStyles = {
   content : {
@@ -34,10 +31,6 @@ class WalletClear extends React.Component {
       Password:'',
       address:"",
       clicklogout:'',
-      Country:'English',
-      CountryImg:'../images/America.png',
-      CountryCurrency:'USD',
-      language:'en_US',
       languagelist:{},
     };
 
@@ -46,39 +39,10 @@ class WalletClear extends React.Component {
     this.import = this.import.bind(this);
 
     web3Service.loadWallet();
+    languageService.language();
   }
   componentWillMount() {
-        if(!localStorage.getItem('language') && !localStorage.getItem('Country')){
-            var languageActive = this.state.language;
-
-            for (var item in localeList) {
-                if(item == languageActive){
-                    var languagelist = localeList[item];
-                }
-            }
-                this.setState({state:this.state.languagelist=languagelist})
-
-            localStorage.setItem('Country',this.state.Country);
-            localStorage.setItem('Currency',this.state.CountryCurrency);
-            localStorage.setItem('Countryimg',this.state.CountryImg);
-            localStorage.setItem('language', languageActive);
-        }else{
-            var languageActive = localStorage.getItem('language')
-            for (var item in localeList) {
-                if(item == languageActive){
-                    var languagelist = localeList[item];
-                }
-            }
-            this.setState({
-                language:localStorage.getItem('language'),
-                Country:localStorage.getItem('Country'),
-                CountryCurrency:localStorage.getItem('Currency'),
-                CountryImg:localStorage.getItem('Countryimg'),
-                state:this.state.languagelist=languagelist
-            });
-        }
-
-
+    this.setState({ languagelist:window.languagelist });
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ registered:true });
     });

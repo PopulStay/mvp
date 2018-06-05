@@ -9,11 +9,7 @@ import WalletClear from './walletClear';
 import '../css/main.css';
 import '../css/search.css';
 import tagService from '../services/tag-service';
-
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
+import languageService from '../services/language-service';
 
 class NavBar extends Component {
 
@@ -29,22 +25,11 @@ class NavBar extends Component {
         languagelist:{},
       };
       window.searchCondition = this.state;
+      languageService.language();
   }
 
   componentDidMount(){
-            var languageActive = localStorage.getItem('language')
-            for (var item in localeList) {
-                if(item == languageActive){
-                    var languagelist = localeList[item];
-                }
-            }
-            this.setState({
-                language:localStorage.getItem('language'),
-                Country:localStorage.getItem('Country'),
-                Country:localStorage.getItem('CountryCurrency'),
-                CountryImg:localStorage.getItem('Countryimg'),
-                state:this.state.languagelist=languagelist
-            });
+    this.setState({ languagelist:window.languagelist });
   }
 
 

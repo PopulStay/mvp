@@ -4,11 +4,8 @@ import { DateRangePicker } from 'react-dates';
 import houselistingService from '../services/houseinfolist-service'
 import { withRouter } from 'react-router'
 import ListingCard from './listing-card'
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
 
 class Search extends Component {
 
@@ -29,7 +26,7 @@ class Search extends Component {
         url:"",
         languagelist:{},
       };
-
+    languageService.language();
   }
 
   
@@ -40,18 +37,8 @@ class Search extends Component {
 
   componentDidMount() {
 
-        var languageActive = localStorage.getItem('language')
-        for (var item in localeList) {
-            if(item == languageActive){
-                var languagelist = localeList[item];
-            }
-        }
-        this.setState({
-            state:this.state.languagelist=languagelist
-        });
-
-         console.log(this.state.languagelist.Tokyo)
-        this.setState({state: this.state.location = this.state.languagelist.Tokyo});
+    this.setState({ languagelist:window.languagelist });
+      this.setState({state: this.state.location = this.state.languagelist.Tokyo});
 
       houselistingService.getDistrictCodes().then((codes)=>
       {

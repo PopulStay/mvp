@@ -10,11 +10,8 @@ import AvatarEditor from 'react-avatar-editor';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import guestService from '../services/guest-service';
 import Housestep1 from './house-step1';
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
 
 const customStyles = {
   content : {
@@ -270,21 +267,13 @@ class ListingCreate extends Component {
         this.closeModal = this.closeModal.bind(this);
         this.deleteRules = this.deleteRules.bind(this);
 
+        languageService.language();
     }
 
     componentWillMount() {
-        var languageActive = localStorage.getItem('language')
-        for (var item in localeList) {
-            if(item == languageActive){
-                var languagelist = localeList[item];
-            }
-        }
-        guestService.getGuesterInfo(window.address).then((data)=>{
-          this.setState({ user:data.user});
-        });
-
+        
         this.setState({
-            state:this.state.languagelist=languagelist,
+            state:this.state.languagelist=window.languagelist,
             account: window.address,
             id: window.address,
             state:this.state.roomtype_category=this.state.languagelist.Whole_house,
@@ -1001,14 +990,14 @@ class ListingCreate extends Component {
               <span className="bjpink"></span>
               <span></span>
               <span></span>
-              <p>Step 1: Start with the basics</p>
+              <p>{language.Step} 1: {language.Start_with_the_basics}</p>
             </div>
 
-              <h1>Where’s your place located?</h1>
+              <h1>{language.Wheres_your_place_located}</h1>
               
               <div className="Stepbox">
                 <div className="col-md-12 col-lg-12 Step1_6box">
-                  <h2>Country / Region</h2>
+                  <h2>{language.Country} / {language.Region}</h2>
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.roomstuff_Country}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
@@ -1021,22 +1010,22 @@ class ListingCreate extends Component {
                 </div>
 
                 <div className="col-md-12 col-lg-12 Step1_6box">
-                  <h2>Street Address<span>e.g. Blk 35 Mandalay Road</span></h2>
+                  <h2>{language.Street_Address}<span>{language.eg_Blk_35_Mandalay_Road}</span></h2>
                   <input onChange={(e) => this.setState({roomstuff_Street: e.target.value})} value={this.state.roomstuff_Street}  type="text" />
                 </div>
 
                 <div className="col-md-12 col-lg-12 Step1_6box">
-                  <h2>Apt,Suite. (optional)<span>e.g. # 13–37 Mandalay Towers </span></h2>
+                  <h2>{language.Apt_Suite_optional}<span>{language.eg1337_Mandalay_Towers} </span></h2>
                   <input onChange={(e) => this.setState({roomstuff_Apt: e.target.value})} value={this.state.roomstuff_Apt}   type="text" />
                 </div>
 
                 <div className="col-md-12 col-lg-12 Step1_6box">
                   <div className="col-md-12 col-lg-6 Step1_6box">
-                    <h2>City<span>e.g. Singapore</span></h2>
+                    <h2>{language.City}<span>{language.eg_Singapore}</span></h2>
                     <input  onChange={(e) => this.setState({roomstuff_City: e.target.value})} value={this.state.roomstuff_City}   type="text" />
                   </div>
                   <div className=" col-md-12 col-lg-6 Step1_6box right">
-                    <h2>ZIP Code<span>e.g. 308215</span></h2>
+                    <h2>{language.ZIP_Code}<span>{language.eg_308215}</span></h2>
                     <input  onChange={(e) => this.setState({roomstuff_ZIPCode: e.target.value})} value={this.state.roomstuff_ZIPCode}  type="text" />
                   </div>
                 </div>
@@ -1046,8 +1035,8 @@ class ListingCreate extends Component {
 
 
             <div className="STEPBTN">
-              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button  className={ this.state.roomstuff_Street == "" || this.state.roomstuff_Apt == "" || this.state.roomstuff_City == "" || this.state.roomstuff_ZIPCode == ""  ? "buttonActive Right" : "Right"} disabled={ this.state.roomstuff_Street == "" || this.state.roomstuff_Apt == "" || this.state.roomstuff_City == "" || this.state.roomstuff_ZIPCode == "" ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+              <button  className={ this.state.roomstuff_Street == "" || this.state.roomstuff_Apt == "" || this.state.roomstuff_City == "" || this.state.roomstuff_ZIPCode == ""  ? "buttonActive Right" : "Right"} disabled={ this.state.roomstuff_Street == "" || this.state.roomstuff_Apt == "" || this.state.roomstuff_City == "" || this.state.roomstuff_ZIPCode == "" ? "disabled" : ""} onClick={this.nextStep}>{language.Next}</button>
             </div>
              
              </div>
@@ -1055,7 +1044,7 @@ class ListingCreate extends Component {
              <div className="col-md-5 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Your exact address will only be shared with confirmed guests.</p>
+                    <p>{language.located_presentation}</p>
                     <img className="img1 " src="./images/locatedimg.png" alt=""/>
                 </div>
              </div>

@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {reactLocalStorage} from 'reactjs-localstorage';
-
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
-
+import languageService from '../services/language-service';
 
 class Footer extends Component {
 
@@ -33,26 +28,20 @@ class Footer extends Component {
         languagelist:{},
       };
       window.searchCondition = this.state;
-
-
-
+        languageService.language();
   }
 
 
   componentDidMount(){
-            var languageActive = localStorage.getItem('language')
-            for (var item in localeList) {
-                if(item == languageActive){
-                    var languagelist = localeList[item];
-                }
-            }
-            this.setState({
-                language:localStorage.getItem('language'),
-                Country:localStorage.getItem('Country'),
-                CountryCurrency:localStorage.getItem('Currency'),
-                CountryImg:localStorage.getItem('Countryimg'),
-                state:this.state.languagelist=languagelist
-            });
+    this.setState({ languagelist:window.languagelist });
+           
+    this.setState({
+        language:localStorage.getItem('language'),
+        Country:localStorage.getItem('Country'),
+        CountryCurrency:localStorage.getItem('Currency'),
+        CountryImg:localStorage.getItem('Countryimg'),
+        state:this.state.languagelist=window.languagelist
+    });
   }
 
 
@@ -71,11 +60,12 @@ class Footer extends Component {
 
     this.setState({language:language});
    
-    for (var item in localeList) {
+    for (var item in window.localeList) {
         if(item == language){
-            var languagelist = localeList[item];
+            var languagelist = window.localeList[item];
         }
     }
+    this.setState({ languagelist:languagelist });
 
     localStorage.setItem('Country',Country);
     localStorage.setItem('Currency',Currency);

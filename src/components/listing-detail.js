@@ -12,11 +12,7 @@ import guestService from '../services/guest-service';
 import Modal from 'react-modal';
 import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
-
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
+import languageService from '../services/language-service';
 
 
 const qr = new EthereumQRPlugin();
@@ -94,6 +90,7 @@ class ListingsDetail extends Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
 
+    languageService.language();
   }
 
   openModal() {
@@ -172,15 +169,7 @@ class ListingsDetail extends Component {
   
 
   componentWillMount() {
-    var languageActive = localStorage.getItem('language')
-    for (var item in localeList) {
-        if(item == languageActive){
-            var languagelist = localeList[item];
-        }
-    }
-    this.setState({
-        state:this.state.languagelist=languagelist
-    });
+    this.setState({ languagelist:window.languagelist });
 
 
     if (this.props.listingId) {

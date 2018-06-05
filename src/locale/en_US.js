@@ -142,7 +142,17 @@ export const Bathrooms_presentation = 'If you have a toilet separate from the sh
 //Step5
 export const Wheres_your_place_located = 'Where’s your place located?';
 export const located_presentation = 'Your exact address will only be shared with confirmed guests.';
-
+//Step6
+export const Country = 'Country';
+export const Region = 'Region';
+export const Street_Address = 'Street Address';
+export const eg_Blk_35_Mandalay_Road = 'e.g. Blk 35 Mandalay Road';
+export const Apt_Suite_optional = 'Apt,Suite. (optional)';
+export const eg1337_Mandalay_Towers = 'e.g. # 13–37 Mandalay Towers';
+export const City = 'City';
+export const eg_Singapore = 'e.g. Singapore';
+export const ZIP_Code = 'ZIP Code';
+export const eg_308215 = 'e.g. 308215';
 
 
 

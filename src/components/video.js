@@ -5,11 +5,8 @@ import houselistingService from '../services/houseinfolist-service';
 import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
 import Modal from 'react-modal';
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
 
 const socketServer = process.env.Socket_Server;
 
@@ -65,19 +62,11 @@ class Video extends Component {
     }
 
       web3Service.loadWallet();
+      languageService.language();
   }
 
   componentWillMount() {
-    var languageActive = localStorage.getItem('language')
-    for (var item in localeList) {
-        if(item == languageActive){
-            var languagelist = localeList[item];
-        }
-    }
-    this.setState({
-        state:this.state.languagelist=languagelist
-    });
-    
+    this.setState({ languagelist:window.languagelist });
      guestService.getGuesterInfo(window.address).then((data)=>{
         this.setState({ user:data.user});
       });

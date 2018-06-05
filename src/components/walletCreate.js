@@ -3,11 +3,8 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
 
 const customStyles = {
   content : {
@@ -39,19 +36,11 @@ class WalletCreate extends React.Component {
 
     this.create = this.create.bind(this);
     
+    languageService.language();
   }
 
   componentWillMount(){
-            var languageActive = localStorage.getItem('language')
-            for (var item in localeList) {
-                if(item == languageActive){
-                    var languagelist = localeList[item];
-                }
-            }
-            this.setState({
-                state:this.state.languagelist=languagelist
-            });
-
+    this.setState({ languagelist:window.languagelist });
   }
 
   create(){

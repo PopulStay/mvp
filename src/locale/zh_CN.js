@@ -5,7 +5,7 @@ export const Log_in = '登录';
 
 // search--------------------------------------------------------------------------------------------
 export const Find_dream_homes_and_experiences_on_PopulStay = '在PopulStay找到梦想家园和体验';
-export const PopulStay_Superior_Guest_Experience_Maximized_Owner_Profit = 'PopulStay-高级客户体验和所有者利益最大化';
+export const PopulStay_Superior_Guest_Experience_Maximized_Owner_Profit = 'PopulStay-高级宾客体验和最大化所有者利润';
 export const Choose_your_city = '选择你的城市！';
 export const Check_in = '入住';
 export const Check_out = '退房';
@@ -142,6 +142,17 @@ export const Bathrooms_presentation = '如果您有一个独立于淋浴间的�
 //Step5
 export const Wheres_your_place_located = '您的房源位于什么地方？';
 export const located_presentation = '我们只会和已确认预订的房客分享您的具体地址。';
+//Step6
+export const Country = '国家';
+export const Region = '地区';
+export const Street_Address = '具体地址';
+export const eg_Blk_35_Mandalay_Road = '例如 Blk 35曼德勒路';
+export const Apt_Suite_optional = '小区名或街道名';
+export const eg1337_Mandalay_Towers = '例如 ＃13-37曼德勒塔';
+export const City = '城市';
+export const eg_Singapore = '例如:新加坡';
+export const ZIP_Code = '邮政编码';
+export const eg_308215 = '例如:308215';
 
 
 

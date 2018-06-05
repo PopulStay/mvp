@@ -6,11 +6,9 @@ import ListingCard from './listing-card'
 import { Link } from 'react-router-dom';
 import ipfsService from '../services/ipfs-service'
 import InputRange from 'react-input-range';
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
+
 
 class Listingexperience extends Component {
 
@@ -52,19 +50,11 @@ class Listingexperience extends Component {
         svl:true,
       }
       window.searchCondition = this.state;
+      languageService.language();
   }
 
   componentDidMount() {
-    var languageActive = localStorage.getItem('language')
-    for (var item in localeList) {
-        if(item == languageActive){
-            var languagelist = localeList[item];
-        }
-    }
-    this.setState({
-        state:this.state.languagelist=languagelist
-    });
-
+    this.setState({ languagelist:window.languagelist });
 
     this.handlePageChange = this.handlePageChange.bind(this);
     

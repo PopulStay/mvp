@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
-
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
+import languageService from '../services/language-service';
 
 const customStyles = {
   content : {
@@ -33,18 +29,11 @@ class WalletGas extends React.Component {
     this.afterOpenInfoModal = this.afterOpenInfoModal.bind(this);
     this.closeInfoModal = this.closeInfoModal.bind(this);
 
+    languageService.language();
   }
 
   componentDidMount() {
-        var languageActive = localStorage.getItem('language')
-        for (var item in localeList) {
-            if(item == languageActive){
-                var languagelist = localeList[item];
-            }
-        }
-        this.setState({
-            state:this.state.languagelist=languagelist
-        });
+    this.setState({ languagelist:window.languagelist });
   }
 
   openInfoModal() {
