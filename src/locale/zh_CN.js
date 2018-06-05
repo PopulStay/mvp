@@ -33,19 +33,19 @@ export const Breakfast = '早餐';
 export const TV = '电视';
 export const Kitchen = '厨房';
 export const Air_conditioning = '空调';
-export const Closet_drawers = '衣柜/抽屉';
-export const Heat = '加热器';
-export const Breakfast_coffe_tea = '早餐/咖啡/茶';
-export const Desk_workspace = '书桌/工作空间';
+export const Closet_drawers = '壁橱/抽屉';
+export const Heat = '暖气';
+export const Breakfast_coffe_tea = '早餐、咖啡、茶';
+export const Desk_workspace = '书桌/工作区';
 export const Fireplace = '壁炉';
 export const Iron = '熨斗';
 export const Hair_dryer = '吹风机';
-export const Pets_in_the_house = '宠物在房子里';
-export const Private_entrance = '私人入口';
+export const Pets_in_the_house = '允许携带宠物';
+export const Private_entrance = '独立入口';
 export const Smoke_detector = '烟雾探测器';
-export const Pool = '游泳';
+export const Pool = '游泳池';
 export const Laundry_washer = '洗衣机';
-export const Laundry_dryer = '洗衣干燥机';
+export const Laundry_dryer = '干衣机';
 export const Park = '公园';
 export const Lift = '电梯';
 export const Hot_tub = '热水浴池';
@@ -88,6 +88,7 @@ export const Contact_the_landlord = '联系房东';
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
 export const Step = '步骤';
+export const Categorys = ['整个房源','独立房间','合住房间'];
 export const Hi = '你好';
 export const Lets_get_started_listing_your_space = '开始发布您的房源吧！';
 export const Whats_kind_of_place_do_you_have = '您打算发布什么样的房源？';
@@ -98,16 +99,8 @@ export const insert_your_advised_earning = '我们估计可以';
 export const value = '挣';
 //Step2
 export const Please_choose = '请选择';
-export const apartment = '公寓'; 
-export const Single_house = '单身的房子';
-export const Subsidiary_unit = '附属单位';
-export const Characteristic_house = '特色的房子';
-export const Breakfast_and_Breakfast = '早餐和早餐';
-export const The_Inn_Boutique_and_other_types = '酒店精品店和其他类型';
-export const Single_room = '单人房';
-export const double_room = '双人间';
-export const family_suite = '家庭套房';
-export const business_suite = '商务套房';
+export const homeorhotels = ['公寓','单身的房子','附属单位','特色的房子','酒店精品店和其他类型'];
+export const types = ['单人房','双人间','家庭套房','商务套房'];
 export const Start_with_the_basics = '先填写基本信息';
 export const What_kind_of_room_do_you_listing = '您打算发布什么类型的房源？';
 export const Is_this_listing_a_home_hotel_or_something_else = '此房源是否是房源，酒店或其他？';
@@ -153,6 +146,47 @@ export const City = '城市';
 export const eg_Singapore = '例如:新加坡';
 export const ZIP_Code = '邮政编码';
 export const eg_308215 = '例如:308215';
+export const roomstuff_Country = '中国';
+export const Countrys = ["安哥拉","阿富汗","阿尔巴尼亚","阿尔及利亚","安道尔共和国","安圭拉岛","安提瓜和巴布达","阿根廷","亚美尼亚","阿森松","澳大利亚","奥地利","阿塞拜疆","巴哈马","巴林","孟加拉国","巴巴多斯","白俄罗斯","比利时","伯利兹","贝宁","百慕大群岛","玻利维亚","博茨瓦纳","巴西","文莱","保加利亚","布基纳法索","缅甸","布隆迪","喀麦隆","加拿大","开曼群岛","中非共和国","乍得","智利","中国","哥伦比亚","刚果","库克群岛","哥斯达黎加","古巴","塞浦路斯","捷克","丹麦","吉布提","多米尼加共和国","厄瓜多尔","埃及","萨尔瓦多","爱沙尼亚","埃塞俄比亚","斐济","芬兰","法国","法属圭亚那","法属玻利尼西亚","加蓬","冈比亚","格鲁吉亚","德国","加纳","直布罗陀","希腊","格林纳达","关岛","危地马拉","几内亚","圭亚那","海地","洪都拉斯","香港","匈牙利","冰岛","印度","印度尼西亚","伊朗","伊拉克","爱尔兰","以色列","意大利","科特迪瓦","牙买加","日本","约旦","柬埔寨","哈萨克斯坦","肯尼亚","韩国","科威特","吉尔吉斯坦","老挝","拉脱维亚","黎巴嫩","莱索托","利比里亚","利比亚","列支敦士登","立陶宛","卢森堡","澳门","马达加斯加","马拉维","马来西亚","马尔代夫","马里","马耳他","马里亚那群岛","马提尼克","毛里求斯","墨西哥","摩尔多瓦","摩纳哥","蒙古","蒙特塞拉特岛","摩洛哥","莫桑比克","纳米比亚","瑙鲁","尼泊尔","荷属安的列斯","荷兰","新西兰","尼加拉瓜","尼日尔","尼日利亚","朝鲜","挪威","阿曼","巴基斯坦","巴拿马","巴布亚新几内亚","巴拉圭","秘鲁","菲律宾","波兰","葡萄牙","波多黎各","卡塔尔","留尼旺","罗马尼亚","俄罗斯","圣卢西亚","圣文森特岛","东萨摩亚","西萨摩亚","圣马力诺","圣多美和普林西比","沙特阿拉伯","塞内加尔","塞舌尔","塞拉利昂","新加坡","斯洛伐克","斯洛文尼亚","所罗门群岛","索马里","南非","西班牙","斯里兰卡","圣卢西亚","圣文森特","苏丹","苏里南","斯威士兰","瑞典","瑞士","叙利亚","台湾省","塔吉克斯坦","坦桑尼亚","泰国","多哥","汤加","特立尼达和多巴哥","突尼斯","土耳其","土库曼斯坦","乌干达","乌克兰","阿拉伯联合酋长国","英国","美国","乌拉圭","乌兹别克斯坦","委内瑞拉","越南","也门","南斯拉夫","津巴布韦","扎伊尔","赞比亚"];
+//Step7
+export const Is_the_pin_in_the_right_place = '针是否在正确的位置？';
+export const If_needed_you_can_drag_the_pin_to_adjust_its_location = '如果需要，您可以拖动该针脚来调整其位置。只有经过确认的客人才会看到这一点，所以他们知道如何到达您的位置。';
+//Step8
+export const What_amenities_do_you_offer = '您提供的便利设施有哪些？';
+export const Essentials = '生活必需品';
+export const Towels_bed_sheets_soap_toilet_paper_and_pillows = '毛巾、床单、香皂、卫生纸和枕头';
+export const Safety_amenities = '安全设施';
+export const Smart_pin_code = '智能PIN码';
+export const Insert_your_password = '输入您的密码';
+export const ConFirm_your_password = '确认您的密码';
+export const Provide_the_essentials_helps_guests_feel_at_home_in_your_place = '我们建议您提供必要的设施和用品，让房客有如在家中的感觉。';
+export const Some_hosts_provide_breakfast_or_just_coffee_and_tea = '有的房东会提供早餐，有的只提供咖啡和茶。这些虽然都不是必须的，但有的时候能起到锦上添花的作用，让房客觉得自己受到了欢迎。';
+//Step9
+export const kitchen = '厨房';
+export const HouseStep9 = '列出的空间应该位于房源范围内。请不要包括不属于您房源的洗衣房或者附近其他地方。如果邻居同意的话，您可以将游泳池、按摩浴池或其他公用空间包括进去。';
+//Step10
+export const Great_process = '伟大的过程';
+export const Now_lets_get_some_details = '现在让我们来了解一下您的位置的一些细节，以便您可以发布您的物品';
+export const Bedrooms_beds_amenities_and_more = '例如床、浴室和便利设施等等';
+export const change = '更改';
+export const Set_the_sence = '展示您的空间';
+export const photos_short_description_title = '上传照片，并向潜在房客介绍您的房源';
+export const Get_ready_for_guests = '做好准备接待房客';
+export const Booking_settings_calendar_price = '决定价格、预订设置和日历';
+export const The_3rd_Party_service_provided_by_host = '房东提供的第三方服务';
+export const Home_Rapair = '上门维修';
+export const Marketing_Brand = '营销品牌';
+export const Photoshooting = '拍照片';
+export const Interior_Design = '室内设计';
+export const Cleaning_Washing = '清洗';
+export const We_recommend = '我们推荐';
+export const Shop1 = '商店';
+export const Home_Fix = '房源-修复';
+export const Contact_No = '联系方式';
+export const Email_Address = '电子邮件地址';
+export const Reference = '参考';
+
+
 
 
 

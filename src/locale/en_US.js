@@ -88,6 +88,7 @@ export const Contact_the_landlord = 'Contact the landlord';
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
 export const Step = 'Step';
+export const Categorys = ['Entire place','Private room','Shared room'];
 export const Hi = 'Hi';
 export const Lets_get_started_listing_your_space = "Let's get started listing your space!";
 export const Whats_kind_of_place_do_you_have = "What's kind of place do you have?";
@@ -98,16 +99,8 @@ export const insert_your_advised_earning = 'insert your advised earning';
 export const value = 'value';
 //Step2
 export const Please_choose = 'Please choose';
-export const apartment = 'Apartment'; 
-export const Single_house = 'Single house';
-export const Subsidiary_unit = 'Subsidiary unit';
-export const Characteristic_house = 'Characteristic house';
-export const Breakfast_and_Breakfast = 'Breakfast and Breakfast';
-export const The_Inn_Boutique_and_other_types = 'The Inn Boutique and other types';
-export const Single_room = 'Single room';
-export const double_room = 'double room';
-export const family_suite = 'family suite';
-export const business_suite = 'business suite';
+export const homeorhotels = ['Apartment','Single house','Subsidiary unit','Characteristic house','The Inn Boutique and other types'];
+export const types = ['Single room','double room','family suite','business suite'];
 export const Start_with_the_basics = 'Start with the basics';
 export const What_kind_of_room_do_you_listing = 'What kind of room do you listing?';
 export const Is_this_listing_a_home_hotel_or_something_else = 'Is this listing a home,hotel,or something else?';
@@ -153,7 +146,45 @@ export const City = 'City';
 export const eg_Singapore = 'e.g. Singapore';
 export const ZIP_Code = 'ZIP Code';
 export const eg_308215 = 'e.g. 308215';
-
+export const roomstuff_Country = 'Angola';
+export const Countrys = ["Angola","Afghanistan","Albania","Algeria","Andorra","Anguilla","Antigua and Barbuda","Argentina","Armenia","Ascension","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda Is","Bolivia","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burma","Burundi","Cameroon","Canada","Cayman Is","Central African Republic","Chad","Chile","China","Colombia","Congo","Cook Is","Costa Rica","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica Rep","Ecuador","Egypt","EI Salvador","Estonia","Ethiopia","Fiji","Finland","France","French Guiana","French Polynesia","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Grenada","Guam","Guatemala","Guinea","Guyana","Haiti","Honduras","Hongkong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Ivory Coast","Jamaica","Japan","Jordan","Kampuchea (Cambodia)","Kazakstan","Kenya","Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macao","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mariana Is","Martinique","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montserrat Is","Morocco","Mozambique","Namibia","Nauru","Nepal","Netheriands Antilles","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Panama","Papua New Cuinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Saint Lueia","Saint Vincent","Samoa Eastern","Samoa Western","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Is","Somali","South Africa","Spain","SriLanka","St.Lucia","St.Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikstan","Tanzania","Thailand","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kiongdom","United States of America","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Yugoslavia","Zimbabwe","Zaire","Zambia"];
+//Step7
+export const Is_the_pin_in_the_right_place = 'Is the pin in the right place?';
+export const If_needed_you_can_drag_the_pin_to_adjust_its_location = 'If needed,you can drag the pin to adjust its location. Only confirmed guests will see this,so they know how to get to your place.';
+//Step8
+export const What_amenities_do_you_offer = 'What amenities do you offer?';
+export const Essentials = 'Essentials';
+export const Towels_bed_sheets_soap_toilet_paper_and_pillows = 'Towels,bed sheets,soap,toilet paper,and pillows';
+export const Safety_amenities = 'Safety amenities';
+export const Smart_pin_code = 'Smart pin code';
+export const Insert_your_password = 'Insert your password';
+export const ConFirm_your_password = 'ConFirm your password';
+export const Provide_the_essentials_helps_guests_feel_at_home_in_your_place = 'Provide the essentials helps guests feel at home in your place.';
+export const Some_hosts_provide_breakfast_or_just_coffee_and_tea = 'Some hosts provide breakfast,or just coffee and tea. None of there things arerequired,but sometimes they add a nice touch to help guests feel welcome.';
+//Step9
+export const kitchen = '厨房';
+export const HouseStep9 = '列出的空间应该位于房源范围内。请不要包括不属于您房源的洗衣房或者附近其他地方。如果邻居同意的话，您可以将游泳池、按摩浴池或其他公用空间包括进去。';
+//Step10
+export const Great_process = 'Great process';
+export const Now_lets_get_some_details = "Now let's get some details about your place so you can publish your listings";
+export const Bedrooms_beds_amenities_and_more = 'Bedrooms,beds,amenities,and more';
+export const change = 'change';
+export const Set_the_sence = 'Set the sence';
+export const photos_short_description_title = 'photos,short description,title';
+export const Get_ready_for_guests = 'Get ready for guests';
+export const Booking_settings_calendar_price = 'Booking settings,calendar,price';
+export const The_3rd_Party_service_provided_by_host = 'The 3rd Party service provided by host';
+export const Home_Rapair = 'Home Rapair';
+export const Marketing_Brand = 'Marketing Brand';
+export const Photoshooting = 'Photoshooting';
+export const Interior_Design = 'Interior Design';
+export const Cleaning_Washing = 'Cleaning Washing';
+export const We_recommend = 'We recommend';
+export const Shop1 = 'Shop1';
+export const Home_Fix = 'Home-Fix';
+export const Contact_No = 'Contact No';
+export const Email_Address = 'Email Address';
+export const Reference = 'Reference';
 
 
 
@@ -210,13 +241,13 @@ export const A_joint_space_such_as_a_public_Lounge = 'A joint space, such as a p
 export const The_average_price_per_night_is_PPS10000 = 'The average price per night is PPS10000.';
 
 //listing-experience--------------------------------------------------------------------------------------------
-export const Explore_Experiences = '探索经验';
-export const TOKYO = '东京';
-export const NEW_YORK = '纽约';
-export const SHANGHAI = '上海';
-export const LONDON = '伦敦';
-export const PARIS = '巴黎';
-export const SINGAPORE = '新加坡';
+export const Explore_Experiences = 'Explore Experiences';
+export const TOKYO = 'TOKYO';
+export const NEW_YORK = 'NEW YORK';
+export const SHANGHAI = 'SHANGHAI';
+export const LONDON = 'LONDON';
+export const PARIS = 'PARIS';
+export const SINGAPORE = 'SINGAPORE';
 
 //experience-intro--------------------------------------------------------------------------------------------
 export const Wishlist = 'Wishlist';

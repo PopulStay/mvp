@@ -111,7 +111,7 @@ class WalletDeposit extends React.Component {
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="deposit">
-            <img className="photo" src={this.state.qrurl}  />
+            <img className="photoClick" src={this.state.qrurl} onClick={(e)=>this.setState({modalcode:true,modalIsOpen:false})} />
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Deposit_PPS}</h2>
 
           <div className="form-group">
@@ -120,7 +120,7 @@ class WalletDeposit extends React.Component {
           </div>
 
             <button className="btn btn-danger Left" onClick={this.deposit}>{language.Deposit}</button>
-            <button className="btn btn-primary Right" onClick={this.closeModal}>{language.Cancel}</button>
+            <button className="btn btn-primary Right" onClick={(e)=>this.setState({modalcode:true})}>{language.Cancel}</button>
           </div>
         </Modal>
 
@@ -129,9 +129,7 @@ class WalletDeposit extends React.Component {
           <div className="deposit">
             <img className="photo" src={this.state.qrurl}  />
             <p className="text2">{window.address}</p>
-
-            <button className="btn btn-danger Left" onClick={this.deposit}>{language.Deposit}</button>
-            <button className="btn btn-primary Right" onClick={this.closeModal}>{language.Cancel}</button>
+            <button className="btn btn-primary center" onClick={(e)=>this.setState({modalcode:false})}>{language.Cancel}</button>
           </div>
         </Modal>
 
