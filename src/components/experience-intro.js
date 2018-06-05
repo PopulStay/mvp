@@ -6,12 +6,7 @@ import houselistingService from '../services/houseinfolist-service'
 import Pagination from 'react-js-pagination'
 import ListingCard from './listing-card'
 import WalletClear from './walletClear';
-
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
-
+import languageService from '../services/language-service';
 
 class experienceintro extends Component {
 
@@ -34,18 +29,11 @@ class experienceintro extends Component {
         svl:true,
       }
 
+    languageService.language();
   }
 
   componentDidMount() {
-    var languageActive = localStorage.getItem('language')
-    for (var item in localeList) {
-        if(item == languageActive){
-            var languagelist = localeList[item];
-        }
-    }
-    this.setState({
-        state:this.state.languagelist=languagelist
-    });
+    this.setState({ languagelist:window.languagelist });
 
 
     this.handlePageChange = this.handlePageChange.bind(this);

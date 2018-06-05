@@ -6,11 +6,8 @@ import guestService from '../services/guest-service';
 import Wallet from './wallet';
 import Web3 from 'web3';
 import web3service from '../services/web3-service';
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
 
 const customStyles = {
   content : {
@@ -44,19 +41,12 @@ class GuestRegister extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.register   = this.register.bind(this);
     web3service.loadWallet();
+    languageService.language();
 
   }
 
   componentWillMount() {
-        var languageActive = localStorage.getItem('language')
-        for (var item in localeList) {
-            if(item == languageActive){
-                var languagelist = localeList[item];
-            }
-        }
-        this.setState({
-            state:this.state.languagelist=languagelist
-        });
+    this.setState({ languagelist:window.languagelist });
 
     this.loadUserData();
   }

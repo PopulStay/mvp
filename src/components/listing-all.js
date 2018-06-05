@@ -14,11 +14,8 @@ import InputRangecss from 'react-input-range/lib/css/index.css';
 import houselistingService from '../services/houseinfolist-service';
 import Pagination from 'react-js-pagination';
 import ListingCard from './listing-card';
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
 
 
 class Listingall extends Component {
@@ -53,19 +50,12 @@ class Listingall extends Component {
         languagelist:{},
       };
       window.searchCondition = this.state;
+      languageService.language();
   }
 
   componentDidMount() {
 
-    var languageActive = localStorage.getItem('language')
-    for (var item in localeList) {
-        if(item == languageActive){
-            var languagelist = localeList[item];
-        }
-    }
-    this.setState({
-        state:this.state.languagelist=languagelist
-    });
+    this.setState({ languagelist:window.languagelist });
 
     this.handlePageChange = this.handlePageChange.bind(this);
     

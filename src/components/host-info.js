@@ -4,11 +4,8 @@ import hostService from '../services/host-service';
 import ppsService from '../services/pps-service';
 import HostRoomList from './host-roomlist';
 import { Link } from 'react-router-dom'
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
 
 class HostInfo extends React.Component {
   constructor() {
@@ -25,18 +22,11 @@ class HostInfo extends React.Component {
       roomInfoList:[],
       languagelist:{},
     };
+    languageService.language();
   }
   
   componentWillMount() {
-    var languageActive = localStorage.getItem('language')
-    for (var item in localeList) {
-        if(item == languageActive){
-            var languagelist = localeList[item];
-        }
-    }
-    this.setState({
-        state:this.state.languagelist=languagelist
-    });
+    this.setState({ languagelist:window.languagelist });
 
 
     this.setState( { account: window.address, id:  window.address });

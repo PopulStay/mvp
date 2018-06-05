@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import ppsService from '../services/pps-service';
+import EthereumQRPlugin from 'ethereum-qr-code';
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
+const qr = new EthereumQRPlugin();
 
 const customStyles = {
   content : {
@@ -26,24 +25,29 @@ class WalletDeposit extends React.Component {
 
     this.state = {
       modalIsOpen: false,
+      modalcode:false,
       waitingModalIsOpen:false,
       pirvatekey:"",
       PPS:0,
       languagelist:{},
+      qrurl:""
     };
 
+    languageService.language();
   }
 
   componentDidMount() {
-        var languageActive = localStorage.getItem('language')
-        for (var item in localeList) {
-            if(item == languageActive){
-                var languagelist = localeList[item];
-            }
-        }
-        this.setState({
-            state:this.state.languagelist=languagelist
-        });
+    this.setState({ languagelist:window.languagelist });
+    this.loadQrCode();
+  }
+
+  loadQrCode =()=>{
+        qr.toDataUrl({
+            to    : window.address,
+            gas   : window.gas
+        }).then((qrCodeDataUri)=>{
+        this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
+        })
   }
 
   deposit =()=> {
@@ -107,12 +111,24 @@ class WalletDeposit extends React.Component {
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="deposit">
+            <img className="photo" src={this.state.qrurl}  />
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Deposit_PPS}</h2>
 
           <div className="form-group">
             <label>{language.Token_Size}</label>
             <input type="text"  className="form-control" placeholder={language.Input_Size_Of_PPS_you_want_to_deposit} onChange={(e) => this.setState({PPS: e.target.value})} />
           </div>
+
+            <button className="btn btn-danger Left" onClick={this.deposit}>{language.Deposit}</button>
+            <button className="btn btn-primary Right" onClick={this.closeModal}>{language.Cancel}</button>
+          </div>
+        </Modal>
+
+        <Modal isOpen={this.state.modalcode} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+        contentLabel="Wallet Message">
+          <div className="deposit">
+            <img className="photo" src={this.state.qrurl}  />
+            <p className="text2">{window.address}</p>
 
             <button className="btn btn-danger Left" onClick={this.deposit}>{language.Deposit}</button>
             <button className="btn btn-primary Right" onClick={this.closeModal}>{language.Cancel}</button>
@@ -129,6 +145,7 @@ class WalletDeposit extends React.Component {
           </div>
           </div>
         </Modal>
+
       </div>
     );
   }

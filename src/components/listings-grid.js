@@ -3,11 +3,7 @@ import houselistingService from '../services/houseinfolist-service'
 import Pagination from 'react-js-pagination'
 import { withRouter } from 'react-router'
 import ListingCard from './listing-card'
-
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
+import languageService from '../services/language-service';
 
 class ListingsGrid extends Component {
 
@@ -23,17 +19,10 @@ class ListingsGrid extends Component {
         languagelist:{},
       };
 
+    languageService.language();
   }
   componentWillMount() {
-    var languageActive = localStorage.getItem('language')
-    for (var item in localeList) {
-        if(item == languageActive){
-            var languagelist = localeList[item];
-        }
-    }
-    this.setState({
-        state:this.state.languagelist=languagelist
-    });
+    this.setState({ languagelist:window.languagelist });
 
 
     this.handlePageChange = this.handlePageChange.bind(this);

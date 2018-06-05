@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
-
+import languageService from '../services/language-service';
 
 class House_step1 extends Component {
 
@@ -22,31 +17,18 @@ class House_step1 extends Component {
 
     this.nextStep = this.nextStep.bind(this);
 
-
+    languageService.language();
   }
 
   componentWillMount(){
-      var languageActive = localStorage.getItem('language')
-      for (var item in localeList) {
-          if(item == languageActive){
-              var languagelist = localeList[item];
-          }
-      }
-      this.setState({
-          language:localStorage.getItem('language'),
-          Country:localStorage.getItem('Country'),
-          CountryImg:localStorage.getItem('Countryimg'),
-          state:this.state.languagelist=languagelist
-      });
-
-      this.setState({
-          state:this.state.languagelist=languagelist,
-          account: window.address,
-          id: window.address,
-          state:this.state.roomtype_category=this.state.languagelist.Whole_house,
-          Categorys:[this.state.languagelist.Whole_house,this.state.languagelist.Private_Room,this.state.languagelist.Share_Room],
-          state:this.state.roomtype_location=this.state.languagelist.TOKYO
-      });
+    this.setState({
+        state:this.state.languagelist=window.languagelist,
+        account: window.address,
+        id: window.address,
+        state:this.state.roomtype_category=this.state.languagelist.Whole_house,
+        Categorys:[this.state.languagelist.Whole_house,this.state.languagelist.Private_Room,this.state.languagelist.Share_Room],
+        state:this.state.roomtype_location=this.state.languagelist.TOKYO
+    });
   }
 
   nextStep=()=>{

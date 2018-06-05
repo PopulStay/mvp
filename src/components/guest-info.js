@@ -11,13 +11,8 @@ import WalletDeposit from './walletDeposit';
 import WalletWithdraw from './walletWithdraw';
 import { Link } from 'react-router-dom';
 import Timestamp from 'react-timestamp';
-import EthereumQRPlugin from 'ethereum-qr-code';
-const qr = new EthereumQRPlugin();
+import languageService from '../services/language-service';
 
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
 
 class GuestInfo extends React.Component {
   constructor() {
@@ -38,35 +33,17 @@ class GuestInfo extends React.Component {
       orderlist:[],
       usdOrderList:[],
       userPictures:"",
-
       languagelist:{},
-
-      qrurl:""
-
     };
 
 
+    languageService.language();
   }
 
-  loadQrCode =()=>{
-        qr.toDataUrl({
-            to    : window.address,
-            gas   : window.gas
-        }).then((qrCodeDataUri)=>{
-        this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
-        })
-  }
+
   
   componentDidMount() {
-    var languageActive = localStorage.getItem('language')
-    for (var item in localeList) {
-        if(item == languageActive){
-            var languagelist = localeList[item];
-        }
-    }
-    this.setState({
-        state:this.state.languagelist=languagelist
-    });
+    this.setState({ languagelist:window.languagelist });
 
 
 
@@ -102,7 +79,6 @@ class GuestInfo extends React.Component {
 
     this.onGetDepositBalance();
 
-    this.loadQrCode();
 
 
   }
@@ -171,13 +147,6 @@ class GuestInfo extends React.Component {
           </div>
          
       </div>
-  
-       <div className="row">
-       <div className="col-sm-12 col-md-2 col-lg-3" >
-             <img className="photo" src={this.state.qrurl}  />
-             <p>{window.address}</p>
-        </div>
-        </div>
 
       <div className="GuestManagment">
         <h1>{language.Guest_Managment_Panel}</h1>

@@ -308,10 +308,17 @@
   font-family: RobotoThin; 
   margin-bottom:0%; 
 }
+.deposit .photo{
+  width: 30px;
+  position: absolute;
+  right: 0;
+  top:0;
+}
 .deposit .text2{
   font-family: RobotoBold; 
   font-size: 1.8rem;
   text-align: center;
+  word-break:break-word;
 }
 
 .ReactModal__Overlay{
