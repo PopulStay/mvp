@@ -189,7 +189,7 @@ jerry：  21）上传android的基础版本；jerry  优先级：1
 24）主页画面；jerry 优先级：2
 25）搜索页画面； jerry 优先级：2
 26）提币完成后，存在平台的数量没有减少；  eric 优先级：2 
-27）withdraw的前端UI；  yan。优先级：1
+27） withdraw的前端UI；  yan。优先级：1
 28） WBS的生成。jerry Eric 1
 29） IPFS的内容发布，不用智能合约。Eric 1
 30） PPS的二维码支付。 Eric。1
