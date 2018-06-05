@@ -293,7 +293,8 @@
 }
 .Create button,
 .Create1 button,
-.PirvateKey button{
+.PirvateKey button,
+.deposit .center button{
   width: 100%;
   margin:6% 0 0;
 }
@@ -308,7 +309,7 @@
   font-family: RobotoThin; 
   margin-bottom:0%; 
 }
-.deposit .photo{
+.deposit .photoClick{
   width: 30px;
   position: absolute;
   right: 0;
@@ -320,7 +321,6 @@
   text-align: center;
   word-break:break-word;
 }
-
 .ReactModal__Overlay{
  background: rgba(179, 54, 99, 0.9) !important;
  z-index: 9999;

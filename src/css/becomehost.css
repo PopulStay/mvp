@@ -1,8 +1,3 @@
-#allmap{
-  width: 100%;
-  min-height: 500px;
-}
-
 
 @font-face { 
   font-family: RobotoRegular; 
@@ -651,10 +646,11 @@ h1,
   font-size: 1.8rem;
   margin: 5% 0;
 }
-.Step1_7 p{
+.Step1_7 p.text1{
   font-size: 1.6rem;
 }
 .Step1_7 .Map{
+  width: 80%;
   margin: 5% 0;
 }
 /*Step1_7 end*/
