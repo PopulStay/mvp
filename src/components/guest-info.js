@@ -11,6 +11,8 @@ import WalletDeposit from './walletDeposit';
 import WalletWithdraw from './walletWithdraw';
 import { Link } from 'react-router-dom';
 import Timestamp from 'react-timestamp';
+import EthereumQRPlugin from 'ethereum-qr-code';
+const qr = new EthereumQRPlugin();
 
 class GuestInfo extends React.Component {
   constructor() {
@@ -31,9 +33,19 @@ class GuestInfo extends React.Component {
       orderlist:[],
       usdOrderList:[],
       userPictures:"",
+      qrurl:""
     };
 
 
+  }
+
+  loadQrCode =()=>{
+        qr.toDataUrl({
+            to    : window.address,
+            gas   : window.gas
+        }).then((qrCodeDataUri)=>{
+        this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
+        })
   }
   
   componentDidMount() {
@@ -70,6 +82,8 @@ class GuestInfo extends React.Component {
     });
 
     this.onGetDepositBalance();
+
+    this.loadQrCode();
 
 
   }
@@ -134,11 +148,15 @@ class GuestInfo extends React.Component {
               <WalletDeposit  onGetDepositBalance={this.onGetDepositBalance}/>
               <WalletWithdraw/>
           </div>
+         
       </div>
-
-
-
-
+  
+       <div className="row">
+       <div className="col-sm-12 col-md-2 col-lg-3" >
+             <img className="photo" src={this.state.qrurl}  />
+             <p>{window.address}</p>
+        </div>
+        </div>
 
       <div className="GuestManagment">
         <h1>Guest Managment Panel</h1>
