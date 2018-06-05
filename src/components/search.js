@@ -5,6 +5,10 @@ import houselistingService from '../services/houseinfolist-service'
 import { withRouter } from 'react-router'
 import ListingCard from './listing-card'
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
 
 class Search extends Component {
 
@@ -22,7 +26,8 @@ class Search extends Component {
         curDistrictCodeIndex:0,
         Progress:0,
         Progresshide:0,
-        url:""
+        url:"",
+        languagelist:{},
       };
 
   }
@@ -34,6 +39,20 @@ class Search extends Component {
   }
 
   componentDidMount() {
+
+        var languageActive = localStorage.getItem('language')
+        for (var item in localeList) {
+            if(item == languageActive){
+                var languagelist = localeList[item];
+            }
+        }
+        this.setState({
+            state:this.state.languagelist=languagelist
+        });
+
+         console.log(this.state.languagelist.Tokyo)
+        this.setState({state: this.state.location = this.state.languagelist.Tokyo});
+
       houselistingService.getDistrictCodes().then((codes)=>
       {
        
@@ -91,7 +110,8 @@ class Search extends Component {
   }
 
   render() {
-       const activePage = this.props.match.params.activePage || 1;
+      const language = this.state.languagelist;
+      const activePage = this.props.match.params.activePage || 1;
       const showListingsRows = this.state.listingRows.slice(
       this.state.listingsPerPage * (activePage-1),
       this.state.listingsPerPage * (activePage))
@@ -100,9 +120,9 @@ class Search extends Component {
       <div className="form">
         <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
         <div className="container index_content">
-            <h1>Find dream homes and experiences  on PopulStay</h1>
-            <span className="color-pink text-bold">PopulStay-Superior Guest Experience & Maximized Owner Profit</span>
-            <h4>Choose your city !</h4>
+            <h1>{language.Find_dream_homes_and_experiences_on_PopulStay}</h1>
+            <span className="color-pink text-bold">{language.PopulStay_Superior_Guest_Experience_Maximized_Owner_Profit}</span>
+            <h4>{language.Choose_your_city}</h4>
             <ul className="form__location row">
                 <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4 active" data-name="Tokyo"  onClick={(e)=>this.locationName(e)}>
                     <img src={this.state.locationName != "Tokyo" ? "../images/location-13_1.png" : "../images/location-13.png"} alt="" />
@@ -131,15 +151,27 @@ class Search extends Component {
                         <div className=" col-sm-8 col-md-8 col-lg-8 index_box">
                             <div className="col-md-12 col-lg-12 col-sm-12 guestsleft">
                                 <div className="form-group">
-                                    <label className="col-sm-6 col-md-6 col-lg-6 ">Check in</label>
-                                    <label className="col-sm-6 col-md-6 col-lg-6 Right">Check out</label>
-                                    <DateRangePicker startDate={this.state.checkInDate} startDateId="start_date" endDate={this.state.checkOutDate} endDateId="end_date" onDatesChange={({ startDate, endDate })=> {this.setState({checkInDate: startDate, checkOutDate: endDate });window.searchCondition.checkOutDate = endDate;window.searchCondition.checkInDate = startDate;}} focusedInput={this.state.focusedInput} onFocusChange={focusedInput => this.setState({ focusedInput })} readOnly />
+                                    <label className="col-sm-6 col-md-6 col-lg-6 ">{language.Check_in}</label>
+                                    <label className="col-sm-6 col-md-6 col-lg-6 Right">{language.Check_out}</label>
+                                    <DateRangePicker 
+                                      startDatePlaceholderText={language.start_date}
+                                      endDatePlaceholderText={language.end_date}
+                                      startDate={this.state.checkInDate} 
+                                      startDateId='start date' 
+                                      endDate={this.state.checkOutDate} 
+                                      endDateId='end date' 
+                                      onDatesChange={({ startDate, endDate })=> {this.setState({checkInDate: startDate, checkOutDate: endDate });
+                                      window.searchCondition.checkOutDate = endDate;window.searchCondition.checkInDate = startDate;}} 
+                                      focusedInput={this.state.focusedInput} 
+                                      onFocusChange={focusedInput => this.setState({ focusedInput })} 
+                                      readOnly 
+                                    />
                                 </div>
                             </div>
 
                             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 guestsnum Left">
                                 <div className="form-group">
-                                    <label>guests</label>
+                                    <label>{language.guests}</label>
                                     <input type="number" className="form-control input-lg" value={this.state.guests} onChange={(e)=> this.setState({guests: e.target.value}) } />
                                 </div>
                             </div>
@@ -147,7 +179,7 @@ class Search extends Component {
 
                             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 guestsnum Right">
                                 <div className="form-group">
-                                    <label>location</label>
+                                    <label>{language.location}</label>
                                     <input type="text" className="form-control input-lg" value={this.state.location} onChange={(e)=> this.setState({location: e.target.value}) }/>
                                 </div>
                             </div>
@@ -163,11 +195,11 @@ class Search extends Component {
                     <div className="col-lg-12 index_foot">
                         <ul>
                             <li className="liimg"><img src="../images/img_home.png" /></li>
-                            <li className="litext">Find dream</li>
+                            <li className="litext">{language.Find_dream}</li>
                             <li className="liicon">•</li>
-                            <a href="../"><li className="litext1">HOMES</li></a>
+                            <a href="../"><li className="litext1">{language.HOMES}</li></a>
                             <li className="liicon">•</li>
-                            <a href="/experience"><li className="litext1">EXPERIENCE</li></a>
+                            <a href="/experience"><li className="litext1">{language.EXPERIENCE}</li></a>
                         </ul>
                     </div>
                 </div>
@@ -175,7 +207,7 @@ class Search extends Component {
         </div>
 
         <div className="container index_home">
-            <h2>Homes around the world</h2>
+            <h2>{language.Homes_around_the_world}</h2>
             <div className="overflow row">
                   {showListingsRows.map(row => (
                     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 listing-card">
@@ -184,12 +216,12 @@ class Search extends Component {
                   ))}
             </div>
             <Link to="/all">
-            <h4>Show all ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
+            <h4>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
             </Link>
         </div>
         <div className="container index_home">
-            <h2>Experiences travellers love</h2>
-            <p>Book activities led by local hosts on your next trip</p>
+            <h2>{language.Experiences_travellers_love}</h2>
+            <p>{language.Book_activities_led_by_local_hosts_on_your_next_trip}</p>
             <div className="overflow row">
                 {showListingsRows.map(row => (
                   <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 listing-card">
@@ -198,7 +230,7 @@ class Search extends Component {
                 ))}
             </div>
             <Link to="/all">
-            <h4>Show all ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
+            <h4>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
             </Link>
         </div>
     </div>

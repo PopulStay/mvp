@@ -7,6 +7,10 @@ import Wallet from './wallet';
 import Web3 from 'web3';
 import web3service from '../services/web3-service';
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
 
 const customStyles = {
   content : {
@@ -32,6 +36,7 @@ class GuestRegister extends React.Component {
       registered:false,
       emailactive:0,
       Prompt:"",
+      languagelist:{},
     };
 
     this.openModal = this.openModal.bind(this);
@@ -43,9 +48,17 @@ class GuestRegister extends React.Component {
   }
 
   componentWillMount() {
+        var languageActive = localStorage.getItem('language')
+        for (var item in localeList) {
+            if(item == languageActive){
+                var languagelist = localeList[item];
+            }
+        }
+        this.setState({
+            state:this.state.languagelist=languagelist
+        });
+
     this.loadUserData();
-  
- 
   }
    
   register(){
@@ -114,18 +127,19 @@ class GuestRegister extends React.Component {
   Prompt(){
       var rephone = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
       if(this.state.user == "" || this.state.account == ""){
-        return "Consummate user information"
+        return this.state.languagelist.Consummate_user_information
       }else if(this.state.email.length == 0){
-          return "Please enter the mailbox"
+          return this.state.languagelist.Please_enter_the_mailbox
       }else if(!rephone.test(this.state.email)){
-          return "Incorrect mailbox format"
+          return this.state.languagelist.Incorrect_mailbox_format
       }else{
-        return "We'll never share your email with anyone else."
+        return this.state.languagelist.Well_never_share_your_email_with_anyone_else
       }
   }
 
 
   render() {
+        const language = this.state.languagelist;
     return (
 
     <div>
@@ -134,17 +148,17 @@ class GuestRegister extends React.Component {
         {
           this.state.registered === true &&  this.props.clicklogout ===false  && 
            
-          <button onClick={(e) => window.location.href="/managepanel"} className="logoutButton float-right"><Link to="/managepanel">Welcome！{this.state.user}<span></span></Link></button>
+          <button onClick={(e) => window.location.href="/managepanel"} className="logoutButton float-right"><Link to="/managepanel">{language.Welcome}{this.state.user}<span></span></Link></button>
           
         }
 
-         { (this.state.registered === false || this.props.clicklogout ===true ) &&<button className="button__outline" onClick={this.openModal}>Sign up</button>}
+         { (this.state.registered === false || this.props.clicklogout ===true ) &&<button className="button__outline" onClick={this.openModal}>{language.Sign_up}</button>}
          <div className="registermodal">
             <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
             contentLabel="Example Modal">
             <div className="Signup">
                 <img className="close" onClick={this.closeModal} src="../images/closezi.png" />
-                <h2 ref={subtitle => this.subtitle = subtitle}>Guest Register</h2>
+                <h2 ref={subtitle => this.subtitle = subtitle}>{language.Guest_Register}</h2>
                 <br/>
                 <div>
 
@@ -152,31 +166,31 @@ class GuestRegister extends React.Component {
                 <br/>
 
                 <div className="form-group">
-                  <label>Wallet Account</label>
-                  <input type="text"  className="form-control" placeholder="Wallet Account" 
+                  <label>{language.Wallet_Account}</label>
+                  <input type="text"  className="form-control" placeholder={language.Wallet_Account} 
                   value={this.props.clicklogout == true ? this.setState({account:""}) : this.state.account} disabled/>
                 </div>
 
                 <div className="form-group">
-                  <label>User</label>
-                  <input type="text" className="form-control" placeholder="User name" onChange={(e) => this.setState({user: e.target.value})}/>
+                  <label>{language.User}</label>
+                  <input type="text" className="form-control" placeholder={language.User_name} onChange={(e) => this.setState({user: e.target.value})}/>
                 </div>
 
                 <div className="form-group">
-                  <label>Phone</label>
-                  <input type="number" className="form-control" placeholder="Phone" onChange={(e) => this.setState({phone:e.target.value})}/>
+                  <label>{language.Phone}</label>
+                  <input type="number" className="form-control" placeholder={language.Phone} onChange={(e) => this.setState({phone:e.target.value})}/>
                 </div>
 
                 <div className="form-group">
-                  <label >Email address</label>
-                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  onChange={(e) => this.email(e.target.value)}/>
+                  <label >{language.Email}</label>
+                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={language.Enter_email}  onChange={(e) => this.email(e.target.value)}/>
                   <small id="emailHelp" className="form-text text-muted">{this.Prompt()}</small>
                 </div>
 
                 </div>
                 <br/>
                 <img className={this.state.account == "" || this.state.user == "" || this.state.emailactive == 0 ? 'closeok closeactive' : 'closeok'} src="../images/ok.png" onClick={this.register} />
-                <button className="btn btn-primary closecancel" onClick={this.closeModal}>cancel</button>
+                <button className="btn btn-primary closecancel" onClick={this.closeModal}>{language.Cancel}</button>
               </div>
             </Modal>
         </div>

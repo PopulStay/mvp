@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 const customStyles = {
   content : {
     top                   : '30%',
@@ -19,7 +24,8 @@ class WalletManage extends React.Component {
 
     this.state = {
       modalIsOpen: false,
-      pirvatekey:""
+      pirvatekey:"",
+      languagelist:{},
     };
 
     this.openModal = this.openModal.bind(this);
@@ -28,6 +34,19 @@ class WalletManage extends React.Component {
     this.import = this.import.bind(this);
 
   }
+
+  componentDidMount() {
+        var languageActive = localStorage.getItem('language')
+        for (var item in localeList) {
+            if(item == languageActive){
+                var languagelist = localeList[item];
+            }
+        }
+        this.setState({
+            state:this.state.languagelist=languagelist
+        });
+  }
+
   import(){
     // console.log("pirvatekey:",this.state.pirvatekey);
     //   var obj=window.web3.eth.accounts.wallet.add(this.state.pirvatekey);
@@ -55,22 +74,23 @@ class WalletManage extends React.Component {
   }
 
   render() {
+      const language = this.state.languagelist;
     return (
 
     <div>
 
-        <button className="btn btn-danger" onClick={this.openModal}>Export</button>
+        <button className="btn btn-danger" onClick={this.openModal}>{language.Export}</button>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
         <div className="PirvateKey">
-            <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
+            <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
             <div>
-              <h3>Address:</h3>
+              <h3>{language.Address}:</h3>
               <p className="text1">{window.address}</p>
-              <h3>Private Key:</h3>
+              <h3>{language.Private_Key}:</h3>
               <p className="text1">{window.privateKey}</p>
             </div>  
-            <button className="btn btn-primary Right" onClick={this.closeModal}>Cancel</button>
+            <button className="btn btn-primary Right" onClick={this.closeModal}>{language.Cancel}</button>
           </div>
         </Modal>
       

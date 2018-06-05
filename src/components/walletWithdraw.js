@@ -5,6 +5,11 @@ import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import ppsService from '../services/pps-service';
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 const customStyles = {
   content : {
     top                   : '30%',
@@ -26,7 +31,8 @@ class WalletWithdraw extends React.Component {
       Size:1,
       withdrawlist:[],
       ppsDeposited:0,
-      statetype:'To be audited'
+      statetype:'To be audited',
+      languagelist:{},
     };
 
     this.openModal = this.openModal.bind(this);
@@ -39,6 +45,17 @@ class WalletWithdraw extends React.Component {
   }
 
   componentDidMount() {
+    var languageActive = localStorage.getItem('language')
+    for (var item in localeList) {
+        if(item == languageActive){
+            var languagelist = localeList[item];
+        }
+    }
+    this.setState({
+        state:this.state.languagelist=languagelist
+    });
+
+
     this.setState({ Address: window.address });
 
     ppsService.getDepositBalance(window.address)
@@ -52,9 +69,14 @@ class WalletWithdraw extends React.Component {
 
   withdrawlist(){
     ppsService.getWithdrawInfo(window.address).then((data)=>{
-      console.log(data.data);
+      console.log(data.data)
+      //开始申请提币，state是0
+      //完成了向populstay转账0.01个eth，state是1
+      //然后完成审核，向以太链提交申请，以太链正在挖矿，state是2
+      //结束取币是3
       this.setState({withdrawlist:data.data})
     });
+    this.props.onGetDepositBalance();
   }
 
   Submit(){
@@ -68,11 +90,11 @@ class WalletWithdraw extends React.Component {
       })
       this.setState({withdrawlist:withdrawlist,Address:window.address,Size:1})
       ppsService.applyWithdraw(this.state.Address,this.state.Size);
-
+      this.props.onGetDepositBalance();
     }
     this.timerID = setTimeout(
       () => this.withdrawlist(),
-      1000
+      2000
     );
     
   }
@@ -124,23 +146,24 @@ class WalletWithdraw extends React.Component {
 
 
   render() {
+      const language = this.state.languagelist;
     return (
 
     <div>
 
-        <button className="btn btn-primary" onClick={this.openModal}>Withdraw</button>
+        <button className="btn btn-primary" onClick={this.openModal}>{language.Withdraw}</button>
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="withdraw">
-            <h2 ref={subtitle => this.subtitle = subtitle}>Withdraw PPS</h2>
+            <h2 ref={subtitle => this.subtitle = subtitle}>{language.Withdraw_PPS}</h2>
             <div className="tablebox">
               <table className={this.state.withdrawlist.length == 0 ? "hide table" : "table" }>
                 <tr>
-                    <th>Address</th>
-                    <th>Size</th>
-                    <th>TX</th>
-                    <th>Status</th>
-                    <th>Operation</th>
+                    <th>{language.Address}</th>
+                    <th>{language.Size}</th>
+                    <th>{language.TX}</th>
+                    <th>{language.Status}</th>
+                    <th>{language.Operation}</th>
                 </tr>
                 {this.state.withdrawlist.map((item,index) => (
                   <tr>
@@ -148,10 +171,11 @@ class WalletWithdraw extends React.Component {
                     <td className="td2">{item.size}</td>
                     <td className="td3"><input type="text" value={item.id} readonly /></td>
                     <td className="td4">
-                        {item.state == 0 ? "Apply for money" : ""}
-                        {item.state == 1 ? "In the coin" : ""}
-                        {item.state == 2 ? "Finish the coin" : ""}
-                        {item.state == -1 ? "Currency failure" : ""}
+                        {item.state == 0 ? language.state0 : ""}
+                        {item.state == 1 ? language.state1 : ""}
+                        {item.state == 2 ? language.state2 : ""}
+                        {item.state == 3 ? language.state3 : ""}
+                        {item.state == -1 ? language.state-1 : ""}
                     </td>
                     <td className="td5"><button className="Left"  onClick={this.Withdraw.bind(this,index)} >Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
                   </tr>  
@@ -161,16 +185,16 @@ class WalletWithdraw extends React.Component {
             </div>
             <div className="row submitbox">
                 <div className="form-group col-lg-6">
-                  <label>Address</label>
-                  <input type="text"  className="form-control" placeholder="Wallet Account" value={this.state.Address} onChange={(e) => this.setState({Address: e.target.value})} />
+                  <label>{language.Address}</label>
+                  <input type="text"  className="form-control" placeholder={language.Wallet_Account} value={this.state.Address} onChange={(e) => this.setState({Address: e.target.value})} />
                 </div>
                 <div className="form-group col-lg-6">
-                  <label>Size</label>
-                  <input type="number"  className="form-control" placeholder="Wallet Size" value={this.state.Size} onChange={(e) => this.Size(e)} />
+                  <label>{language.Size}</label>
+                  <input type="number"  className="form-control" placeholder={language.Wallet_Size} value={this.state.Size} onChange={(e) => this.Size(e)} />
                 </div>
             </div>
-            <button className="Left" onClick={(e)=>this.Submit(e)}>Submit</button>
-            <button className="Right" onClick={this.closeModal}>Cancel</button>
+            <button className="Left" onClick={(e)=>this.Submit(e)}>{language.Submit}</button>
+            <button className="Right" onClick={this.closeModal}>{language.Cancel}</button>
           </div>
         </Modal>
       

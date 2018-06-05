@@ -15,6 +15,11 @@ import houselistingService from '../services/houseinfolist-service';
 import Pagination from 'react-js-pagination';
 import ListingCard from './listing-card';
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 
 class Listingall extends Component {
 
@@ -45,11 +50,23 @@ class Listingall extends Component {
         curDistrictCodeIndex:0,
         experienceList:1,
         listingtype:0,
+        languagelist:{},
       };
       window.searchCondition = this.state;
   }
 
   componentDidMount() {
+
+    var languageActive = localStorage.getItem('language')
+    for (var item in localeList) {
+        if(item == languageActive){
+            var languagelist = localeList[item];
+        }
+    }
+    this.setState({
+        state:this.state.languagelist=languagelist
+    });
+
     this.handlePageChange = this.handlePageChange.bind(this);
     
       houselistingService.getDistrictCodes().then((codes)=>
@@ -297,6 +314,7 @@ class Listingall extends Component {
 
   render() {
     const showListingsRows = this.state.listingRows;
+    const language = this.state.languagelist;
     
   return (
 
@@ -304,7 +322,7 @@ class Listingall extends Component {
           {!this.props.hideTagHeader &&
             <div className="tag-header Strainerbox">
               <ul className="tag container">
-              <li className="tag__item"><a href="/experience"><img src="../../images/Experience.png" alt=""/><span>Experience</span></a></li>
+              <li className="tag__item"><a href="/experience"><img src="../../images/Experience.png" alt=""/><span>{language.Experience}</span></a></li>
               <li className="tag__item"><span className="location-tag Strainerspan" data-Strainer="Strainer_City" onClick={(e)=>this.Strainer(e)}>{this.state.Citys_type}</span>
                   <div className={this.state.Strainer_City ? "Strainer_City show" : "Strainer_City hide"}>
                       <div className="Strainer_Home_Type">
@@ -323,29 +341,29 @@ class Listingall extends Component {
                           </div>
                       </div>
                       <div className="operation">
-                          <p className="cancel Left" onClick={(e)=>this.setState({Strainer_City:false,Citys_type:'City'})}>cancel</p>
-                          <p className="confirm Left" data-Strainer="Strainer_City" onClick={(e)=>this.TagSelect(e)}>confirm</p>
-                          <p className="Reset Right" data-Strainer="Strainer_City" onClick={(e)=>this.TagRemove(e)}>Reset</p>
+                          <p className="cancel Left" onClick={(e)=>this.setState({Strainer_City:false,Citys_type:'City'})}>{language.Cancel}</p>
+                          <p className="confirm Left" data-Strainer="Strainer_City" onClick={(e)=>this.TagSelect(e)}>{language.Confirm}</p>
+                          <p className="Reset Right" data-Strainer="Strainer_City" onClick={(e)=>this.TagRemove(e)}>{language.Reset}</p>
                       </div>
                   </div>
               </li>
               <li className={this.state.Strainer_Time ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_Time" onClick={(e)=>this.Strainer(e)}>4th - 8th March</span>
               </li>
-              <li className={this.state.Strainer_Guests ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_Guests" onClick={(e)=>this.Strainer(e)}>{Number(this.state.Adult) + Number(this.state.children) + Number(this.state.Baby)} Adults</span>
+              <li className={this.state.Strainer_Guests ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_Guests" onClick={(e)=>this.Strainer(e)}>{Number(this.state.Adult) + Number(this.state.children) + Number(this.state.Baby)} {language.Adults}</span>
                   <div className={this.state.Strainer_Guests ? "Strainer_Guests show" : "Strainer_Guests hide"}>
                       <ul>
-                          <li><p className="col-lg-6 text-left">Adult</p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Adult:this.state.Adult > 1 ? this.state.Adult-1 : this.state.Adult})}>◀</span><span className="text">{this.state.Adult}</span><span className="Right" onClick={(e)=>this.setState({Adult:this.state.Adult >= 16 ? 16 : this.state.Adult+1})}>▶</span></p></li>
-                          <li><p className="col-lg-6 text-left text1">children<small>2-12 years old</small></p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({children:this.state.children > 0 ? this.state.children-1 : this.state.children})}>◀</span><span className="text">{this.state.children}</span><span className="Right" onClick={(e)=>this.setState({children:this.state.children >= 5 ? 5 : this.state.children+1})}>▶</span></p></li>
-                          <li><p className="col-lg-6 text-left text1">Baby<small>Under 2 years of age</small></p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Baby:this.state.Baby > 0 ? this.state.Baby-1 : this.state.Baby})}>◀</span><span className="text">{this.state.Baby}</span><span className="Right" onClick={(e)=>this.setState({Baby:this.state.Baby >= 5 ? 5 : this.state.Baby+1})}>▶</span></p></li>
+                          <li><p className="col-lg-6 text-left">{language.Adult}</p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Adult:this.state.Adult > 1 ? this.state.Adult-1 : this.state.Adult})}>◀</span><span className="text">{this.state.Adult}</span><span className="Right" onClick={(e)=>this.setState({Adult:this.state.Adult >= 16 ? 16 : this.state.Adult+1})}>▶</span></p></li>
+                          <li><p className="col-lg-6 text-left text1">{language.children}<small>{language.years_old}</small></p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({children:this.state.children > 0 ? this.state.children-1 : this.state.children})}>◀</span><span className="text">{this.state.children}</span><span className="Right" onClick={(e)=>this.setState({children:this.state.children >= 5 ? 5 : this.state.children+1})}>▶</span></p></li>
+                          <li><p className="col-lg-6 text-left text1">{language.Baby}<small>{language.Under_2_years_of_age}</small></p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Baby:this.state.Baby > 0 ? this.state.Baby-1 : this.state.Baby})}>◀</span><span className="text">{this.state.Baby}</span><span className="Right" onClick={(e)=>this.setState({Baby:this.state.Baby >= 5 ? 5 : this.state.Baby+1})}>▶</span></p></li>
                       </ul>
                       <div className="operation">
-                          <p className="cancel Left" onClick={(e)=>this.setState({Strainer_Guests:false})}>cancel</p>
-                          <p className="confirm Left" data-Strainer="Strainer_Guests" onClick={(e)=>this.TagSelect(e)}>confirm</p>
-                          <p className="Reset Right" data-Strainer="Strainer_Guests" onClick={(e)=>this.TagRemove(e)}>Reset</p>
+                          <p className="cancel Left" onClick={(e)=>this.setState({Strainer_Guests:false})}>{language.Cancel}</p>
+                          <p className="confirm Left" data-Strainer="Strainer_Guests" onClick={(e)=>this.TagSelect(e)}>{language.Confirm}</p>
+                          <p className="Reset Right" data-Strainer="Strainer_Guests" onClick={(e)=>this.TagRemove(e)}>{language.Reset}</p>
                       </div>
                   </div>
               </li>
-              <li className={this.state.Strainer_token ? "tag__item active" : "tag__item"}><img src="../../images/pps.png" alt=""/> <span data-Strainer="Strainer_token" onClick={(e)=>this.Strainer(e)}>Support PPS token</span>
+              <li className={this.state.Strainer_token ? "tag__item active" : "tag__item"}><img src="../../images/pps.png" alt=""/> <span data-Strainer="Strainer_token" onClick={(e)=>this.Strainer(e)}>{language.Support_PPS_token}</span>
               </li>
               <li className={this.state.Strainer_Home_Type ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_Home_Type" onClick={(e)=>this.Strainer(e)}>{this.state.Home_Type}</span>
                   <div className={this.state.Strainer_Home_Type ? "Strainer_Home_Type show" : "Strainer_Home_Type hide"}>
@@ -354,8 +372,8 @@ class Listingall extends Component {
                           <img className={this.state.Home_Type == 'Whole house' ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                         </p>
                         <div className="divinput">
-                          <p>Whole house</p>
-                          <p>Private Room</p>
+                          <p>{language.Whole_house}</p>
+                          <p>{language.Enjoy_the_entire_listing}</p>
                         </div>
                       </div>
                       <div  className="checkbox" onClick={(e) => this.setState({Home_Type:'Private Room'})}>
@@ -363,8 +381,8 @@ class Listingall extends Component {
                           <img className={this.state.Home_Type == 'Private Room' ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                         </p>
                         <div className="divinput">
-                          <p>Private Room</p>
-                          <p>Have your own separate room and share some public space.</p>
+                          <p>{language.Private_Room}</p>
+                          <p>{language.Have_your_own_separate_room_and_share_some_public_space}</p>
                         </div>
                       </div>
                       <div  className="checkbox" onClick={(e) => this.setState({Home_Type:'Share Room'})}>
@@ -372,28 +390,28 @@ class Listingall extends Component {
                           <img className={this.state.Home_Type == 'Share Room' ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                         </p>
                         <div className="divinput">
-                          <p>Share Room</p>
-                          <p>A joint space, such as a public Lounge.</p>
+                          <p>{language.Share_Room}</p>
+                          <p>{language.A_joint_space_such_as_a_public_Lounge}</p>
                         </div>
                       </div>
                       <div className="operation">
-                          <p className="cancel Left" onClick={(e)=>this.setState({Strainer_token:false})}>cancel</p>
-                          <p className="confirm Left" data-Strainer="Strainer_Home_Type" onClick={(e)=>this.TagSelect(e)}>confirm</p>
-                          <p className="Reset Right" data-Strainer="Strainer_Home_Type" onClick={(e)=>this.TagRemove(e)}>Reset</p>
+                          <p className="cancel Left" onClick={(e)=>this.setState({Strainer_token:false})}>{language.Cancel}</p>
+                          <p className="confirm Left" data-Strainer="Strainer_Home_Type" onClick={(e)=>this.TagSelect(e)}>{language.Confirm}</p>
+                          <p className="Reset Right" data-Strainer="Strainer_Home_Type" onClick={(e)=>this.TagRemove(e)}>{language.Reset}</p>
                       </div>
                   </div>
               </li>
               <li className={this.state.Strainer_Price ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_Price" onClick={(e)=>this.Strainer(e)}>{this.state.Price}</span>
                   <div className={this.state.Strainer_Price ? "Strainer_Price show" : "Strainer_Price hide"}>
                       <p className="text1"><span>PPS</span>{this.state.Pricemin}-<span>PPS</span>{this.state.Pricemax}</p>
-                      <p className="text1">The average price per night is PPS385.</p>
+                      <p className="text1">{language.The_average_price_per_night_is_PPS10000}</p>
                       <div className="tokenbj"><p style={{height: 6+"px"}}></p><p style={{height: 9+"px"}}></p><p style={{height: 8+"px"}}></p><p style={{height: 13+"px"}}></p><p style={{height: 32+"px"}}></p><p style={{height: 38+"px"}}></p><p style={{height: 25+"px"}}></p><p style={{height: 34+"px"}}></p><p style={{height: 48+"px"}}></p><p style={{height: 51+"px"}}></p><p style={{height: 60+"px"}}></p><p style={{height: 64+"px"}}></p><p style={{height: 59+"px"}}></p><p style={{height: 45+"px"}}></p><p style={{height: 36+"px"}}></p><p style={{height: 38+"px"}}></p><p style={{height: 27+"px"}}></p><p style={{height: 25+"px"}}></p><p style={{height: 16+"px"}}></p><p style={{height: 16+"px"}}></p><p style={{height: 10+"px"}}></p><p style={{height: 5+"px"}}></p><p style={{height: 6+"px"}}></p><p style={{height: 3+"px"}}></p><p style={{height: 1+"px"}}></p><p style={{height: 3+"px"}}></p><p style={{height: 2+"px"}}></p><p style={{height: 3+"px"}}></p><p style={{height: 2+"px"}}></p><p style={{height: 1+"px"}}></p><p style={{height: 2+"px"}}></p><p style={{height: 3+"px"}}></p><p style={{height: 2+"px"}}></p><p style={{height: 1+"px"}}></p><p style={{height: 2+"px"}}></p><p style={{height: 3+"px"}}></p><p style={{height: 2+"px"}}></p><p style={{height: 1+"px"}}></p>
                       </div>
                       <InputRange maxValue={1000000} minValue={10000} value={{min: this.state.Pricemin, max: this.state.Pricemax}} onChange={value=>this.setState({ Pricemin : value.min,Pricemax : value.max })} />
                       <div className="operation">
-                          <p className="cancel Left" onClick={(e)=>this.setState({Strainer_token:false})}>cancel</p>
-                          <p className="confirm Left" data-Strainer="Strainer_Price" onClick={(e)=>this.TagSelect(e)}>confirm</p>
-                          <p className="Reset Right" data-Strainer="Strainer_Price" onClick={(e)=>this.TagRemove(e)}>Reset</p>
+                          <p className="cancel Left" onClick={(e)=>this.setState({Strainer_token:false})}>{language.Cancel}</p>
+                          <p className="confirm Left" data-Strainer="Strainer_Price" onClick={(e)=>this.TagSelect(e)}>{language.Confirm}</p>
+                          <p className="Reset Right" data-Strainer="Strainer_Price" onClick={(e)=>this.TagRemove(e)}>{language.Reset}</p>
                       </div>
                   </div>
               </li>
@@ -552,7 +570,7 @@ class Listingall extends Component {
           }
           <div className="container experience ALL" onClick={(e)=>this.taghide()}>
             <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
-                <h2>All experiences</h2>
+                <h2>{language.All_experiences}</h2>
                 <div className={this.state.experienceList == 1 ? "show All_experiences row" : "hide All_experiences row"}>
                     {showListingsRows.map(item => (
                       <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 listing-card">

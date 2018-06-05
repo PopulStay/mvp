@@ -6,6 +6,11 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import web3service from '../services/web3-service'
 import WalletClear from './walletClear';
 
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 const customStyles = {
   content : {
     top                   : '30%',
@@ -24,11 +29,27 @@ class Wallet extends Component {
       address:"",
       modalIsOpen:false,
       infoModalIsOpen:false,
-      clearModalIsOpen:false
+      clearModalIsOpen:false,
+      languagelist:{},
     };
 
     web3service.loadWallet();
 
+  }
+
+  componentWillMount(){
+            var languageActive = localStorage.getItem('language')
+            for (var item in localeList) {
+                if(item == languageActive){
+                    var languagelist = localeList[item];
+                }
+            }
+            this.setState({
+                language:localStorage.getItem('language'),
+                Country:localStorage.getItem('Country'),
+                CountryImg:localStorage.getItem('Countryimg'),
+                state:this.state.languagelist=languagelist
+            });
   }
 
   import=()=>{
@@ -110,17 +131,19 @@ class Wallet extends Component {
 
   render() {
 
+        const language = this.state.languagelist;
+
     return (
       <div>
             <div className="dropdown">
               <button className="button__outline" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Create Or Import Wallet<span>▼</span>
+                          {language.Create_Or_Import_Wallet}<span>▼</span>
               </button>            
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
   
                 <a className="dropdown-item dropdown-item1"><Create onAccountChange={this.props.onAccountChange}/></a>
-                <a className="dropdown-item" onClick={this.openModal}>Import</a>
-                <a className="dropdown-item" onClick={this.openClearInfoModal}>Clear</a>
+                <a className="dropdown-item" onClick={this.openModal}>{language.Import}</a>
+                <a className="dropdown-item" onClick={this.openClearInfoModal}>{language.Clear}</a>
               </div>
             </div>
 
@@ -129,41 +152,41 @@ class Wallet extends Component {
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Example Modal">
           <div className="Import">
-          <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
           <br/>
             <div className="form-group">
-            <label>Private Key</label>
-            <input type="text"  className="form-control" placeholder="Wallet Account" onChange={(e) => this.setState({pirvatekey: e.target.value})} />
+            <label>{language.Private_Key}</label>
+            <input type="text"  className="form-control" placeholder={language.Wallet_Account} onChange={(e) => this.setState({pirvatekey: e.target.value})} />
           </div>
           <br/>
-          <button className="btn btn-danger Left" onClick={this.import}>Import</button>
-          <button className="btn btn-primary Right " onClick={this.closeModal}>Cancel</button>
+          <button className="btn btn-danger Left" onClick={this.import}>{language.Import}</button>
+          <button className="btn btn-primary Right " onClick={this.closeModal}>{language.Cancel}</button>
           </div>
         </Modal>
 
         <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} style={customStyles} 
         contentLabel="InfoModal">
         <div className="Create">
-          <h2 ref={subtitle => this.subtitle = subtitle}>Please clear your account!</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_clear_your_account}</h2>
           <br/>
-          <h3>Please clear your account , then you can import new account!</h3>
+          <h3>{language.Please_clear_your_account_then_you_can_import_new_account}</h3>
           <br/>
-          <button className="btn btn-danger" onClick={this.closeInfoModal}>Close</button>
+          <button className="btn btn-danger" onClick={this.closeInfoModal}>{language.Close}</button>
         </div>  
         </Modal>
 
         <Modal isOpen={this.state.clearModalIsOpen} onAfterOpen={this.afterOpenClearInfoModal} onRequestClose={this.closeClearInfoModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="clear">
-            <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
+            <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
             <div>
-              <h3>Address:</h3>
+              <h3>{language.Address}</h3>
               <p className="text1">{window.address}</p>
-              <h3>Private Key:</h3>
+              <h3>{language.Private_Key}</h3>
               <p className="text1">{this.substring0x(window.privateKey)}</p>
             </div>  
-            <button className="btn btn-danger Left" onClick={this.clear}>Clear</button>
-            <button className="btn btn-primary Right" onClick={this.closeClearInfoModal}>Cancel</button>
+            <button className="btn btn-danger Left" onClick={this.clear}>{language.Clear}</button>
+            <button className="btn btn-primary Right" onClick={this.closeClearInfoModal}>{language.Cancel}</button>
           </div>
         </Modal>
 

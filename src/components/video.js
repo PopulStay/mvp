@@ -5,6 +5,12 @@ import houselistingService from '../services/houseinfolist-service';
 import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
 import Modal from 'react-modal';
+
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
 const socketServer = process.env.Socket_Server;
 
 const customStyles = {
@@ -55,12 +61,22 @@ class Video extends Component {
        socketid:"",
        narrow:true,
        enlarge:false,
+       languagelist:{},
     }
 
       web3Service.loadWallet();
   }
 
   componentWillMount() {
+    var languageActive = localStorage.getItem('language')
+    for (var item in localeList) {
+        if(item == languageActive){
+            var languagelist = localeList[item];
+        }
+    }
+    this.setState({
+        state:this.state.languagelist=languagelist
+    });
     
      guestService.getGuesterInfo(window.address).then((data)=>{
         this.setState({ user:data.user});
@@ -456,6 +472,7 @@ class Video extends Component {
 
   render() {
 
+    const language = this.state.languagelist;
     return (  
 
             <div>
@@ -492,12 +509,12 @@ class Video extends Component {
                      <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><a onClick={this.answerAudio}><span className="Answer">Answer</span></a> or <span className="Decline">Decline</span></h6>
                      <p className="text2"></p>
                      <div className="videobtn">
-                        <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
+                        <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder={language.Message_Me}/>
                         <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
                         <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                      </div>
                   </div>
-                  <p className={!this.state.narrow ? "show" : "hide"}  onClick={(e)=>this.setState({narrow:true})}>Contact the landlord</p>
+                  <p className={!this.state.narrow ? "show" : "hide"}  onClick={(e)=>this.setState({narrow:true})}>{language.Contact_the_landlord}</p>
                 </div>
               }
               {this.state.Current_user === 0 && 
@@ -529,12 +546,12 @@ class Video extends Component {
                      </ul>
                      <p className="text2"></p>
                      <div className="videobtn">
-                        <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
+                        <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder={language.Message_Me}/>
                         <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
                         <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
                      </div>
                   </div>
-                  <p className={!this.state.narrow ? "show" : "hide"}  onClick={(e)=>this.setState({narrow:true})}>Contact the landlord</p>
+                  <p className={!this.state.narrow ? "show" : "hide"}  onClick={(e)=>this.setState({narrow:true})}>{language.Contact_the_landlord}</p>
                 </div>
               }
 

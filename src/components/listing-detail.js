@@ -12,6 +12,13 @@ import guestService from '../services/guest-service';
 import Modal from 'react-modal';
 import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
+
+const localeList = {
+  "en_US": require('../locale/en_US.js'),
+  "zh_CN": require('../locale/zh_CN.js'),
+};
+
+
 const qr = new EthereumQRPlugin();
 const customStyles = {
   content : {
@@ -80,6 +87,7 @@ class ListingsDetail extends Component {
       DateLists:[],
       Progress:0,
       Progresshide:0,
+      languagelist:{},
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -164,6 +172,17 @@ class ListingsDetail extends Component {
   
 
   componentWillMount() {
+    var languageActive = localStorage.getItem('language')
+    for (var item in localeList) {
+        if(item == languageActive){
+            var languagelist = localeList[item];
+        }
+    }
+    this.setState({
+        state:this.state.languagelist=languagelist
+    });
+
+
     if (this.props.listingId) {
       //this.loadOrdered(this.props.listingId);
       this.loadListing();
@@ -357,10 +376,11 @@ class ListingsDetail extends Component {
   }
 
   render() {
+    const language = this.state.languagelist;
     const price = typeof this.state.ppsPrice === 'string' ? 0 : this.state.ppsPrice;
     const guestItems = [];
     this.state.guests.forEach((guest,index)=>{
-      guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest} guests</a></li>)
+      guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest} {language.guests}</a></li>)
     })
 
     const neighbourhoods = [];
@@ -432,10 +452,10 @@ class ListingsDetail extends Component {
           <p className="text1">{this.state.descriptioninfo.roomtype_category}</p>
           <p className="text2">{this.state.descriptioninfo.roomdescription_title}</p>
           <div className="box1_list col-lg-9">
-            <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} guests</p>
-            <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} bedroom</p>
-            <p><img src="../images/detail-img05.png" alt="" />{this.state.beds} bed</p>
-            <p><img src="../images/detail-img03.png" alt="" />{this.state.pictures.length} private bath</p>
+            <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} {language.guests}</p>
+            <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} {language.bedroom}</p>
+            <p><img src="../images/detail-img05.png" alt="" />{this.state.beds} {language.bed}</p>
+            <p><img src="../images/detail-img03.png" alt="" />{this.state.pictures.length} {language.private_bath}</p>
           </div>
         </div>
 
@@ -453,67 +473,67 @@ class ListingsDetail extends Component {
           <p className="text1">ENTIRE VILA - VEDADO</p>
           <p className="text2">PlacetedelVedado</p>
           <div className="box1_list col-lg-9">
-            <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} guests</p>
-            <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} bedroom</p>
-            <p><img src="../images/detail-img05.png" alt="" />{this.state.beds} bed</p>
-            <p><img src="../images/detail-img03.png" alt="" />{this.state.pictures.length} private bath</p>
+            <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} {language.guests}</p>
+            <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} {language.bedroom}</p>
+            <p><img src="../images/detail-img05.png" alt="" />{this.state.beds} {language.bed}</p>
+            <p><img src="../images/detail-img03.png" alt="" />{this.state.pictures.length} {language.private_bath}</p>
           </div>
         </div>
 
         <div className="L_TEXT1">{this.state.descriptioninfo.roomdescription_description}</div>
-        <p className="More hide">Read more<span>▼</span></p>
+        <p className="More hide">{language.Read_more}<span>▼</span></p>
 
         <div className="L_box3">
-          <h5>Amenities</h5>
-          <p className={ this.state.descriptioninfo.roomstuff_Shampoo==1 ?  'show' : 'hide' }><img src="../images/detail-img07.png" alt="" />Shampoo</p>
-          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img08.png" alt="" />Breakfast</p>
-          <p className={ this.state.descriptioninfo.roomstuff_TV==1 ?  'show' : 'hide' }><img src="../images/detail-img09.png" alt="" />TV</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img10.png" alt="" />Kitchen</p>
-          <p className={ this.state.descriptioninfo.roomstuff_aircondition==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Air conditioning</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Closet/drawers</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Heat==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Heat</p>
-          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Breakfast,coffe,tea</p>
-          <p className={ this.state.descriptioninfo.roomstuff_desk_workspace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Desk/workspace</p>
-          <p className={ this.state.descriptioninfo.roomstuff_fireplace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Fireplace</p>
-          <p className={ this.state.descriptioninfo.roomstuff_iron==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Iron</p>
-          <p className={ this.state.descriptioninfo.roomstuff_hairdryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Hair dryer</p>
-          <p className={ this.state.descriptioninfo.roomstuff_petsinhouse==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Pets in the house</p>
-          <p className={ this.state.descriptioninfo.roomstuff_private_entrance==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Private entrance</p>
-          <p className={ this.state.descriptioninfo.roomstuff_smoke_detector==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Smoke detector</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Pool==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Pool</p>
-          <p className={ this.state.descriptioninfo.roomstuff_kitchen==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />kitchen</p>
-          <p className={ this.state.descriptioninfo.roomstuff_washer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Laundry - washer</p>
-          <p className={ this.state.descriptioninfo.roomstuff_dryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Laundry - dryer</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Park==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Park</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Lift==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Lift</p>
-          <p className={ this.state.descriptioninfo.roomstuff_HotTub==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Hot tub</p>
-          <p className={ this.state.descriptioninfo.roomstuff_Gym==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />Gym</p>
-          <p><img src="../images/detail-img12.png" alt="" />WIFI</p>
+          <h5>{language.Amenities}</h5>
+          <p className={ this.state.descriptioninfo.roomstuff_Shampoo==1 ?  'show' : 'hide' }><img src="../images/detail-img07.png" alt="" />{language.Shampoo}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img08.png" alt="" />{language.Breakfast}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_TV==1 ?  'show' : 'hide' }><img src="../images/detail-img09.png" alt="" />{language.TV}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img10.png" alt="" />{language.Kitchen}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_aircondition==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Air_conditioning}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Closet_drwers==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Closet_drawers}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Heat==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Heat}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_breakfastcoffetea==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Breakfast_coffe_tea}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_desk_workspace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Desk_workspace}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_fireplace==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Fireplace}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_iron==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Iron}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_hairdryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Hair_dryer}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_petsinhouse==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Pets_in_the_house}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_private_entrance==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Private_entrance}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_smoke_detector==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Smoke_detector}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Pool==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Pool}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_kitchen==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.kitchen}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_washer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Laundry_washer}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_dryer==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Laundry_dryer}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Park==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Park}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Lift==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Lift}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_HotTub==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Hot_tub}</p>
+          <p className={ this.state.descriptioninfo.roomstuff_Gym==1 ?  'show' : 'hide' }><img src="../images/detail-img11.png" alt="" />{language.Gym}</p>
+          <p><img src="../images/detail-img12.png" alt="" />{language.WIFI}</p>
         </div>
 
-        <p className="More hide">Show all amenities<span>▼</span></p>
+        <p className="More hide">{language.Show_all_amenities}<span>▼</span></p>
         <div className="L_box4">
-            <h5>Sleeping arr 7 amenities</h5>
+            <h5>{language.Sleeping_arr_7_amenities}</h5>
             <img src="../images/detail-img06.png" alt="" />
         </div>
 
         <div className="L_box5">
-            <h5>House Rules</h5>
+            <h5>{language.House_Rules}</h5>
             <p>Check-in is anytime after 2PM</p>
             <p>Check out by 12PM(noon)</p>
         </div>
 
         <p className="More hide">Dead all rules<span>▼</span></p>
         <div className="L_box6">
-            <h5>Cancellations</h5>
+            <h5>{language.Cancellations}</h5>
             <p>Strict</p>
             <p>Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati...<span>Read more</span></p>
         </div>
         
-        <p className="More box6_More hide">Get details</p>
+        <p className="More box6_More hide">{language.Get_details}</p>
 
         <div className="Reviews">
-            <p>{this.state.neighbourhoodlist.length} Reviews</p>
+            <p>{this.state.neighbourhoodlist.length} {language.Reviews}</p>
             <div className="divxx">
               <img src="../images/detail-xx01.png" alt="" />
               <img src="../images/detail-xx01.png" alt="" />
@@ -527,14 +547,14 @@ class ListingsDetail extends Component {
                   <span className="glyphicon glyphicon-search"></span>
                 </button>
               </span>
-              <input type="text" className="form-control" placeholder="Search Reviews" />
+              <input type="text" className="form-control" placeholder={language.Search_Reviews} />
             </div>
         </div>
 
         <div className="ReviewsDiv">
             <ul>
                 <li>
-                  <p>Accuracy</p>
+                  <p>{language.Accuracy}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -544,7 +564,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Location</p>
+                  <p>{language.Location}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -554,7 +574,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Communication</p>
+                  <p>{language.Communication}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -564,7 +584,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Check In</p>
+                  <p>{language.heck_In}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -574,7 +594,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Cleanliness</p>
+                  <p>{language.Cleanliness}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -584,7 +604,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>Value</p>
+                  <p>{language.Value}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -603,15 +623,15 @@ class ListingsDetail extends Component {
         </div>
 
         <div className="neighbourhood">
-            <p>See the neighbourhood</p>
+            <p>{language.See_the_neighbourhood}</p>
             <img src={this.state.neighbourhoodurl} alt="" />
             <ul>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='1'><img src="../images/transport.png" alt="" /> Public Transit</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='2'><img src="../images/res.png" alt="" /> Restaurant</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='3'><img src="../images/pps.png" alt="" /> PPS Enabled</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='4'><img src="../images/shop.png" alt="" /> Shopping Center</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='5'><img src="../images/museum.png" alt="" /> Souvenir Shop</li>
-                <li onClick={(e)=>this.neighbourhood(e)} data-index='6'><img src="../images/guide.png" alt="" />Guide</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='1'><img src="../images/transport.png" alt="" /> {language.Public_Transit}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='2'><img src="../images/res.png" alt="" /> {language.Restaurant}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='3'><img src="../images/pps.png" alt="" /> {language.PPS_Enabled}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='4'><img src="../images/shop.png" alt="" /> {language.Shopping_Center}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='5'><img src="../images/museum.png" alt="" /> {language.Souvenir_Shop}</li>
+                <li onClick={(e)=>this.neighbourhood(e)} data-index='6'><img src="../images/guide.png" alt="" />{language.Guide}</li>
             </ul>
         </div>
       </div>
@@ -629,7 +649,7 @@ class ListingsDetail extends Component {
               <span className = "detail-price">
                 {this.state.priceCurrency}: {this.state.price == 0 ? this.state.ppsPrice : this.state.price}
               </span>
-              <span className = "detail-price-font">Daily Price</span>
+              <span className = "detail-price-font">{language.Daily_Price}</span>
               <p className="detail-price-xx">
                 <img src="../images/detail-xx01.png" alt="" />
                 <img src="../images/detail-xx01.png" alt="" />
@@ -645,8 +665,8 @@ class ListingsDetail extends Component {
                     startDate={this.state.checkInDate}
                     startDateId="start_date"
                     endDate={this.state.checkOutDate}
-                    startDatePlaceholderText="Check In"
-                    endDatePlaceholderText="Check Out"
+                    startDatePlaceholderText={language.Check_In}
+                    endDatePlaceholderText={language.Check_Out}
                     endDateId="end_date"
                     onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
                     focusedInput={this.state.focusedInput}
@@ -658,9 +678,9 @@ class ListingsDetail extends Component {
               </div>
 
               <div className="detail-guest-div">
-                <p>Guest</p>
+                <p>{language.Guest}</p>
                 <div className="btn-group">
-                  <button type="button" data-toggle="dropdown" >{this.state.guest} guests<span>▼</span></button>
+                  <button type="button" data-toggle="dropdown" >{this.state.guest} {language.guests}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
                     { guestItems }
                   </ul>
@@ -670,31 +690,31 @@ class ListingsDetail extends Component {
               <div className ="details-totalprice-div">
                 <ul>
                     <li className="blueColor">
-                      <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}nights
+                      <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}{language.nights}
                           <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">{(this.state.price) * this.DateDays() * this.state.guest}</span>
                     </li>
                     <li className="pinkColor">
-                      <span className = "LeftSpan">Special Offer 20% off
+                      <span className = "LeftSpan">{language.Special_Offer_20_off}
                           <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">0</span>
                     </li>
                     <li className="pinkColor">
-                      <span className = "LeftSpan">Long stay discount
+                      <span className = "LeftSpan">{language.Long_stay_discount}
                           <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">0</span>
                     </li>
                     <li className="blueColor">
-                      <span className = "LeftSpan">Cleaning fee
+                      <span className = "LeftSpan">{language.Cleaning_fee}
                           <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">26</span>
                     </li>
                     <li className="blueColor">
-                      <span className = "LeftSpan">Total Price</span>
+                      <span className = "LeftSpan">{language.Total_Price}</span>
                       <span className = "RightSpan">
                         {this.state.priceCurrency}: { this.calcTotalPrice()}
                       </span>
@@ -712,12 +732,12 @@ class ListingsDetail extends Component {
                       disabled={!this.props.listingId || !this.state.checkInDate || !this.state.checkOutDate}
                       onMouseDown={e => e.preventDefault()}
                       >
-                        Book
+                        {language.Book}
                     </button>
                 }    
 
             
-             <h4 className="text-center">You won’t be changed yet</h4>
+             <h4 className="text-center">{language.You_wont_be_charged_yet}</h4>
              </div>
 
         </div>

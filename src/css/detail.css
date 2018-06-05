@@ -308,7 +308,9 @@
   width: 15px;
   margin-right: 1%;
 }
-
+.DateInput_input__readOnly{
+  text-align: center !important;
+}
 
 .details-daterange-div{
   background-color: #131c4e;
