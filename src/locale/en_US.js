@@ -349,6 +349,68 @@ export const Price_is_fixed = 'Price is fixed';
 export const Set_a_base_price = 'Set a base price. PopulStay gives you price tips that you can accept or ignore.';
 export const The_right_price_can_change = "The right price can change as the number of searches for listings like yours goes up and down. Whichever price option you choose, you'li get tips to help you set prices for your listing";
 export const RECOMMENDED = 'RECOMMENDED';
+//Step28
+export const Price_your_space = 'Price your space';
+export const Increase_your_chances_of_getting_booked = 'Increase your chances of getting booked';
+export const Set_up_Smart_Pricing_to_automatically = 'Set up Smart Pricing to automatically keep your nightly prices competitive as demand in your area changes.';
+export const Set_up_the_same_base_price_for_each_night = 'Set up the same base price for each night';
+export const Base_Price = 'Base Price';
+export const If_you_turn_Smart_Pricing_off_for_a_night_this_will_be_your_default_price = 'If you turn Smart Pricing off for a night,this will be your default price';
+export const Please_use_a_base_price_of_at_least_10PPS_but_no_more_than = 'Please use a base price of at least 10PPS but no more than 13,272,000,000PPS';
+export const Tips_are_based_on_your_listings_qualities_nearby_prices_and_demand = 'Tips are based on your listing’s qualities, nearby prices and demand';
+export const Currency = 'Currency';
+export const Start_with_a_lower_price_to_attract_bookings = 'Start with a lower price to attract bookings';
+export const New_hosts_start_with_a_lower_price_to_attract = 'New hosts start with a lower price to attract their first few bookings. Hosts who set prices within 5% of price tips are nearly 4x more likely to get booked';
+//Step29
+export const Set_up_Smart_Pricing = 'Set up Smart Pricing';
+export const Minimum_price = 'Minimum price';
+export const To_help_you_get_booked = 'To help you get booked, your price will move closer to this when demand is low';
+export const Maximum_price = 'Maximum price';
+export const To_help_you_earn_more = 'To help you earn more, your price will move closer to this when demand is high';
+export const The_highest_price_should_not_be_lower = 'The highest price should not be lower than the lowest price.';
+export const If_you_turn_Smart_Pricing = 'If you turn Smart Pricing off for a night,this will be your default price';
+export const Youre_always_in_control_of_your_nightly_price = 'You’re always in control of your nightly price. By continuing, you agree to turn on Smart Pricing. You can change this later in settings.';
+export const I_dont_want_my_price_to_adjust_with_demand = 'I don’t want my price to adjust with demand';
+export const Increase_bookings_when_demand_is_low = 'Increase bookings when demand is low';
+export const Smart_Pricing_can_automatically = 'Smart Pricing can automatically adjust your nightly price as demand changes based on factors like popular local events, seasonality and weekend vs. weekdays.';
+export const Thu = 'Thu';
+export const Fri = 'Fri';
+export const Sat = 'Sat';
+export const For_example_on_a_day_where_few_people = 'For example, on a day where few people are looking at your space, we’ll drop the price to attract more guests to book with you.';
+export const Youre_in_control = 'You’re in control';
+export const When_you_turn_on_competitive_pricing = 'When you turn on competitive pricing, you set the range you’re willing to charge each night. You can always turn off competitive pricing for specific days in your calendar.';
+//Step30
+export const Something_special_for_your_first_guests = 'Something special for your first guests';
+export const Offer_off_to_your_first_guests = 'Offer 20% off to your first guests';
+export const The_first_3_guests_who_book_your_place = 'The first 3 guests who book your place will get 20% off their stay. This special offer can attract new guests, and help you get the 3 reviews you need for a star rating.';
+export const Dont_add_a_special_offer = 'Don’t add a special offer';
+export const Once_you_publish_your_listing = 'Once you publish your listing, you won’t be able to add this offer.';
+export const Why_add_a_special_offer = 'Why add a special offer？';
+export const This_will_help_attract_your_first_guests = 'This will help attract your first guests, and help get your first reviews. Once you get 3 reviews, you’ll get a star rating in search results, which will help your listing stand out. New listings that get booked and reviewed in the first month appear more often in search results and get an average of 3.6x more bookings in their first 3 months';
+export const Well_share_your_offer = 'We’ll share your offer';
+export const Well_let_guests_who_are_searching = 'We’ll let guests who are searching in your area know that they can save 20% if they book your home. This can help get more eyes on your listing, but only the first 3 guests who book will be eligible for the offer.';
+export const First_guests_can_claim_your_offer = 'First 3 guests can claim your offer';
+export const The_offer_will_be_available_to_3_guests = 'The offer will be available to 3 guests. That way, you can get 3 reviews and your star rating. After 3 guests have claimed your offer, it won’t be valid anymore. If no one claims the offer, it’ll automatically expire after 30 days.';
+//Step31
+export const Length_of_stay_prices = 'Length-of-stay prices';
+export const Weekly_discount = 'Weekly discount';
+export const Encourage_travellers_to_book_longer_stays_by_offering_a_discount = 'Encourage travellers to book longer stays by offering a discount.';
+export const Travellers_searching_for_stays_longer = 'Travellers searching for stays longer than a week typically book listings with discounts.';
+export const Monthly_discount = 'Monthly discount';
+export const of_travellers_staying_longer_than = '68% of travellers staying longer than one month book listings with discounts greater than 20%.';
+export const Discount_for_longer_stays = 'Discount for longer stays';
+export const To_encourage_longer_stays = 'To encourage longer stays, some hosts set a weekly or monthly discount. If you want your listing to appear in searches for reservations of 28 nights or more, set a monthly discount.';
+export const Weekly_discounts_will_apply = 'Weekly discounts will apply to any reservation of 7 to 27 nights.';
+//Step32
+export const Based_on_your_settings__heres_what_you_could_expect = 'Based on your settings, here’s what you could expect';
+export const Youre_available_to_host_starting = 'You’re available to host starting ';
+export const Lou_is_planning_her_trip_and_thinks_your_listing_is_perfect = 'Lou is planning her trip and thinks your listing is perfect.';
+export const Guests_who_meet_PopulStay_requirements = 'Guests who meet PopulStay requirements can instantly book.';
+export const In_addition_to_meeting_guest_requirements = 'In addition to meeting guest requirements, Lou agrees to your House Rules.';
+export const Guests_send_a_message_with_their_booking_confirmation = 'Guests send a message with their booking confirmation.';
+export const Lou_says_shell_be_in_town_for_work_and_shed_love_to_stay_with_you = 'Lou says she’ll be in town for work and she’d love to stay with you.';
+export const Welcome_guests_to_your_space = 'Welcome guests to your space!';
+export const Before_Lou_arrives = 'Before Lou arrives, coordinate details like check-in time and key exchange.';
 
 
 

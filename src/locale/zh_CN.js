@@ -4,8 +4,8 @@ export const Log_out = '退出登录';
 export const Log_in = '登录';
 
 // search--------------------------------------------------------------------------------------------
-export const Find_dream_homes_and_experiences_on_PopulStay = '在PopulStay找到梦想家园和体验';
-export const PopulStay_Superior_Guest_Experience_Maximized_Owner_Profit = 'PopulStay-高级宾客体验和最大化所有者利润';
+export const Find_dream_homes_and_experiences_on_PopulStay = '在潮箱找到梦想家园和体验';
+export const PopulStay_Superior_Guest_Experience_Maximized_Owner_Profit = '潮箱-高级宾客体验和最大化所有者利润';
 export const Choose_your_city = '选择你的城市！';
 export const Check_in = '入住';
 export const Check_out = '退房';
@@ -349,8 +349,88 @@ export const Price_is_fixed = '价格是固定的';
 export const Set_a_base_price = '设定基准价格。潮箱为您提供您可以接受或忽略的价格提示。';
 export const The_right_price_can_change = '正确的价格可以随着搜索像你的搜索数量的增加和减少而改变。无论您选择哪种价格选项，您都会收到提示，帮助您为商家信息设置价格';
 export const RECOMMENDED = '推荐';
-
-
+//Step28
+export const Price_your_space = '为房源定价';
+export const Increase_your_chances_of_getting_booked = '增加您的房源获得预订的机会';
+export const Set_up_Smart_Pricing_to_automatically = '开启智能定价，让房源每晚价格随您所在地区的需求变化而自动调整，保持最佳竞争力。';
+export const Set_up_the_same_base_price_for_each_night = '为每晚设置相同的基本价格';
+export const Base_Price = '基础价格';
+export const If_you_turn_Smart_Pricing_off_for_a_night_this_will_be_your_default_price = '如果某天您关闭了智能定价，基础价格将是当天房源的默认价格';
+export const Please_use_a_base_price_of_at_least_10PPS_but_no_more_than = '请使用至少10PPS但不超过1327.20000PPS的底价';
+export const Tips_are_based_on_your_listings_qualities_nearby_prices_and_demand = '小窍门是基于你的房源的质量，附近的价格和需求';
+export const Currency = '货币';
+export const Start_with_a_lower_price_to_attract_bookings = '开始时把价格定低一些，以便吸引房客预订';
+export const New_hosts_start_with_a_lower_price_to_attract = '新房东通常会设定一个较低的价格来吸引头几笔预订。把房源价格定在定价小窍门推荐价格上下5%范围内的房东获得预订的几率要高出差不多4倍。';
+//Step29
+export const Set_up_Smart_Pricing = '设置智能定价';
+export const Minimum_price = '最低价格';
+export const To_help_you_get_booked = '为了帮助您获得预订，当需求低时，您的价格将更接近此';
+export const Maximum_price = '最高价格';
+export const To_help_you_earn_more = '为了帮助您获得更多收入，当需求很高时，您的价格将更接近于此';
+export const The_highest_price_should_not_be_lower = '最高价格不应低于最低价格。';
+export const If_you_turn_Smart_Pricing = '如果某天您关闭了智能定价，基础价格将是当天房源的默认价格';
+export const Youre_always_in_control_of_your_nightly_price = '您始终可以完全掌控房源每晚价格的定价。继续操作即代表您同意开启智能定价功能，开启后可以在设置中进行更改。';
+export const I_dont_want_my_price_to_adjust_with_demand = '我不想让房价自动更新';
+export const Increase_bookings_when_demand_is_low = '开始时把价格定低一些，以便吸引房客预订';
+export const Smart_Pricing_can_automatically = '智能定价可根据需求的变化自动调整您的夜间价格，例如流行的本地活动，季节性，周末与平日等因素。';
+export const Thu = '周四';
+export const Fri = '周五';
+export const Sat = '周六';
+export const For_example_on_a_day_where_few_people = '例如，在很少人看到您的空间的那一天，我们会降低价格以吸引更多的客人与您一起预订。';
+export const Youre_in_control = '你在控制';
+export const When_you_turn_on_competitive_pricing = '当您开启有竞争力的价格时，您可以设定每晚您愿意收取的范围。 您可以随时关闭日历中特定日期的竞争价格。';
+//Step30
+export const Something_special_for_your_first_guests = '为您的首批房客提供优惠';
+export const Offer_off_to_your_first_guests = '为第一批房客提供20%的折扣';
+export const The_first_3_guests_who_book_your_place = '预订您房源的前3名房客将获得20%的住宿优惠。此特别优惠可以吸引新房客，帮助您获得3条评价，进而获得星级评分。';
+export const Dont_add_a_special_offer = '不添加特别优惠 ';
+export const Once_you_publish_your_listing = '发布房源后，您便无法再添加此优惠。';
+export const Why_add_a_special_offer = '为什么要添加特别优惠？';
+export const This_will_help_attract_your_first_guests = '这样可以帮您吸引到首批房客，从而获得首批评价。在您获得3个评价之后，房源在搜索结果中便会显示星级评分，让您的房源脱颖而出。上线首月就收到预订和评价的新房源出现在搜索结果中的几率更高，前三个月的平均预订量是其他新房源的3.6倍。';
+export const Well_share_your_offer = '我们将与房客分享您的特别优惠';
+export const Well_let_guests_who_are_searching = '我们会通知搜索您所在地区房源的房客，预订您的房源可立减20%。此优惠可以吸引更多房客浏览您的房源，但只有预订房源的前3名房客可以享受此优惠。';
+export const First_guests_can_claim_your_offer = '前3位房客可领取您的优惠';
+export const The_offer_will_be_available_to_3_guests = '预订您房源的前3名房客将可以享受此优惠，这可以帮助您获得3条评价，进而获得星级评分。当有3名房客使用此优惠后，优惠将不再有效。如果30后还没有人使用优惠，优惠将自动失效。';
+//Step31
+export const Length_of_stay_prices = '长租价格';
+export const Weekly_discount = '周租折扣';
+export const Encourage_travellers_to_book_longer_stays_by_offering_a_discount = '通过提供折扣来鼓励房客预订更长时间的住宿。 ';
+export const Travellers_searching_for_stays_longer = '搜索住宿时间超过一周的旅客通常会以折扣预订房源。';
+export const Monthly_discount = '月租折扣';
+export const of_travellers_staying_longer_than = '68％的旅客入住时间超过一个月，预订折扣超过20％。';
+export const Discount_for_longer_stays = '长期住宿享受的折扣';
+export const To_encourage_longer_stays = '为了鼓励房客延长住宿时间，有些房东会设置每周或每月折扣。如果您希望您的房源出现在28晚或以上的预订的搜索中，请设置一个每月折扣。';
+export const Weekly_discounts_will_apply = '周租折扣将会应用于7至27晚的所有预订。';
+//Step32
+export const Based_on_your_settings__heres_what_you_could_expect = '根据您的设置，以下是接受预订的过程';
+export const Youre_available_to_host_starting = '起您可以接待房客';
+export const Lou_is_planning_her_trip_and_thinks_your_listing_is_perfect = 'Lou正在计划她的旅程，而且觉得您的房源非常合适。';
+export const Guests_who_meet_PopulStay_requirements = '达到潮箱要求的房客可以即时预订。';
+export const In_addition_to_meeting_guest_requirements = 'Lou除了符合房客要求外，还同意您的房屋守则。';
+export const Guests_send_a_message_with_their_booking_confirmation = '房客把他们的预订确认发过来。';
+export const Lou_says_shell_be_in_town_for_work_and_shed_love_to_stay_with_you = 'Lou表示她是来出差的，希望能入住您的房源。';
+export const Welcome_guests_to_your_space = '欢迎房客来到您的房源！';
+export const Before_Lou_arrives = '在Lou到达之前，和她协调诸如入住时间和钥匙交接等事宜。';
+//Step33
+export const Your_local_laws_and_taxes = '您的当地法律和税费';
+export const Make_sure_you_familiarise = '确保熟悉当地相关法律以及';
+export const PopulStays_Nondiscrimination_Policy = '潮箱的非歧视政策。';
+export const Please_educate_yourself_about_the_laws = '在列出您的房源之前，请先了解您所在辖区的法律。';
+export const Most_cities_have_rules_covering_homesharing = '大多数城市都制定了住房共享方面的法律法规，许多地区还可能制定具体的法规和条例（如区划规范、建筑规范、许可规范或税收规范等）。在大多数地区，发布房源或接待房客之前，您必须先登记、获得许可证或执照。您可能还要负责汇缴特定的税费。在有些地区，短期租赁可能被完全禁止。';
+export const Since_you_are_responsible_for_your_own_decision = '大多数城市都有规定覆盖住房共享的规定，具体的代码和条例可以出现在许多地方（如分区，建筑，许可或税收代码）。 在大多数地方，您必须先注册，获得许可证或获得许可证，然后才能列出财产或接受客人。 您也可能负责收取和汇出某些税款。 在一些地方，短期租赁可能会被完全禁止。';
+export const By_accepting_our_Terms = '由于您对自己的决定负责列出或预订，您应该在潮箱上市之前熟悉适用的规则。 为了帮助您入门，我们在“您的城市法”下提供了一些有用的资源。';
+//Step34
+export const Youre_ready_to_publish = '你准备好发布！';
+export const Do_you_want_to_generate_Smart_Contract = '你想生成智能合约吗？';
+export const Generate_Smart_Contract = '生成智能合约';
+export const Youll_be_able_to_welcome_your_first = '从2018年8月1日开始，您将可以欢迎第一位客人。如果您想更新日历或家庭规则，您可以在点击发布后轻松完成所有操作。';
+export const Publish_listing = '发布列表';
+export const Edit_Listing = '编辑列表';
+export const Place_name = '地名';
+export const Preview = '预览';
+//Step35
+export const Processing_your_submit = '处理您的提交';
+export const Please_stand_by = '请等待';
 
 
 
@@ -420,12 +500,12 @@ export const SINGAPORE = '新加坡';
 //experience-intro--------------------------------------------------------------------------------------------
 export const Wishlist = '愿望清单';
 export const Trips = '旅行';
-export const Host_an_experience_on_Populstay = '主持Populstay的体验';
+export const Host_an_experience_on_Populstay = '主持潮箱的体验';
 export const Earn_money_leading_people_on_activities_you_love = '赚取金钱领先的人对你喜爱的活动.';
 export const Get_Started = '开始使用';
 export const Learn_more = '学到更多';
-export const What_are_Populsaty_Experiences = '什么是Populsaty体验？';
-export const Populstay_Experiences_are_activities = 'Populstay Experiences是由鼓舞人心的当地人设计和领导的活动。 他们超越了典型的旅游或课程，让客人沉浸在每个主人的独特世界中。 这是任何人都可以分享自己的兴趣，技能或专业知识而无需额外空间的机会。';
+export const What_are_Populsaty_Experiences = '什么是潮箱体验？';
+export const 潮箱_Experiences_are_activities = '潮箱体验是由鼓舞人心的当地人设计和领导的活动。 他们超越了典型的旅游或课程，让客人沉浸在每个主人的独特世界中。 这是任何人都可以分享自己的兴趣，技能或专业知识而无需额外空间的机会。';
 export const Some_guests_are_now_writing = '有些客人现在正在写信并将明信片寄给世界各地的笔友，包括我在内！';
 export const Jena = '创建';
 export const Hosts_Postcard_Scavenger_Hunt_in_Oaklan = '在奥克兰举办明信片清道夫狩猎活动';
@@ -438,7 +518,7 @@ export const This_experience_is_made_possible = 'Tonie在爱尔兰的LGBTQ历史
 export const Darragh = 'Darragh';
 export const Guest_on_An_Untold_Story_in_Dublin = '在都柏林一个无尽的故事中的客人';
 export const Walter_Wang = '王跃';
-export const Walter_Wang_introduction = '新加坡国立大学计算机生物学创始人兼首席执行官，新加坡电信第一本地数据科学家，5年Airbnb业主经验，2年Airbnb智能门锁合作供应商，设计产品智能钥匙盒荣获德国IF工业设计 奖励，公司价值超过1亿美元。 Audemars Pigeut以房东的经验为主，让他看到连锁店技术可以解决现有的家居平台痛点，选择放弃千万股份事业的高峰期，全部在区块连锁社区，做更大，更多 有意义的事情，PopulStay潮汐箱的创建。';
+export const Walter_Wang_introduction = '新加坡国立大学计算机生物学创始人兼首席执行官，新加坡电信第一本地数据科学家，5年Airbnb业主经验，2年Airbnb智能门锁合作供应商，设计产品智能钥匙盒荣获德国IF工业设计 奖励，公司价值超过1亿美元。 Audemars Pigeut以房东的经验为主，让他看到连锁店技术可以解决现有的家居平台痛点，选择放弃千万股份事业的高峰期，全部在区块连锁社区，做更大，更多 有意义的事情，潮箱的创建。';
 export const Xinpeng_Cai = '蔡新朋';
 export const Xinpeng_Cai_introduction = '联合创始人兼首席运营官，澳大利亚斯文伯恩研究所（Sven Bourne Institute），企业管理学士，连续10名企业家，他们加入了赢创，领导了2000万欧元的供应链启动，并实现了每年2500万欧元的个人护理产品销售额 ，并于2015年成立了Wielan Pte Ltd.。创始人兼首席执行官凌军的创始人兼首席经济学家是科技创始人和创始人，中国社会科学院的产业经济学专家正在阅读 上海交通大学高级金融学院博士和工商管理硕士。 他已经由复兴组织太平洋保险和绿城集团创立。 房地产业有着广泛的社会科学和资源，目前负责中国的融资和战略规划。';
 export const Ling_Jun = '凌骏';
@@ -450,9 +530,9 @@ export const Tamir_Wu_introduction = '合作创始人和市场业务拓展了上
 export const Meet_the_host_community = '认识东道社区';
 export const Host_are_chefs_artists = '主持人是厨师，艺术家和其他知情的当地人，他们可以让客人访问他们通常无法自己找到的活动和场所。 他们让每个人都感到受欢迎，并帮助团队中的人们彼此联系';
 export const How_to_get_started = '如何开始';
-export const Heres_a_brief_overview = '以下简要介绍一下在Populstay举办体验的过程';
+export const Heres_a_brief_overview = '以下简要介绍一下在潮箱举办体验的过程';
 export const Learn_what_were_looking_for = '了解我们在寻找什么';
-export const Review_our_quality_standards = '查看我们的质量标准，看看您的体验是否适合Populstay。';
+export const Review_our_quality_standards = '查看我们的质量标准，看看您的体验是否适合潮箱。';
 export const Create_a_page_with_descriptions = '创建一个包含说明，照片，视频和其他详细信息的页面。';
 export const If_your_experience_meets = '如果您的体验符合我们的质量标准，您可以开始托管。';
 export const Frequently_asked_questions = '经常问的问题';
@@ -507,5 +587,5 @@ export const state_1 = '提币失败';
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = '成为房东';
 export const Help_Center = '帮助中心';
-export const About_Populstay = '关于Populstay';
+export const About_Populstay = '关于潮箱';
 export const Become_an_organiser = '成为组织者';

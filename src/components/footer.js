@@ -72,6 +72,9 @@ class Footer extends Component {
     localStorage.setItem('Countryimg',Countryimg);
     localStorage.setItem('language',language);
 
+    sessionStorage.removeItem('step');
+    sessionStorage.removeItem('test');
+
     window.location.reload();
 
   }

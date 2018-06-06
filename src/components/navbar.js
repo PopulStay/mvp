@@ -66,16 +66,18 @@ class NavBar extends Component {
           <ul>
             <li className="Li1">
               <Link to="/create">
-                    <a className="button__fill">{language.Become_a_Host}</a>
+                    {language.Become_a_Host}
               </Link>
             </li>
             <li className="Li2">
               <Link to="/Intro">
-                    <a className="button__fill">{language.Become_an_organiser}</a>
+                    {language.Become_an_organiser}
               </Link>
             </li>
             <li className="Li4">
-              <a href="/help" className="button__Help">{language.Help}</a>
+              <Link to="/Intro">
+                    {language.Help} 
+              </Link>
             </li>
             <li className="Li4">
               <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />

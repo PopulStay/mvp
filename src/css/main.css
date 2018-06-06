@@ -7746,19 +7746,17 @@ button {
 header ul {
   margin:3% 0 2%;
 }
-
+header li.Li1{
+  margin-left: 0%;
+}
 header li {
   vertical-align: middle;
   display: inline-block;
   text-align: center;
-}
-header li.Li1,
-header li.Li2{
-  width: 25%;
+  margin-left: 5%;
 }
 header li.Li3,
 header li.Li4{
-  width: 10%;
   color: #131c4e;
   cursor: pointer;
 }
@@ -7768,7 +7766,6 @@ header li.Li4>a{
 }
 header li.Li5{
   color: #131c4e;
-  margin-left: 3%;
 }
 header li.Li5 button a{
   color: #131c4e;
@@ -7776,27 +7773,27 @@ header li.Li5 button a{
 header button {
   min-width: 124px;
 }
-header li.Li1 .button__fill{
+header li.Li1>a,
+header li.Li2>a{
+  display: block;
   border-radius: 50px;
-  padding: 2% 7%;
   color: #fff;
+  font-family: RobotoThin; 
+  border:none;
+}
+header li.Li1>a{
+  padding: 2% 50px;
   background: -webkit-linear-gradient(left, #2b2051 , #762d5b); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(right, #2b2051, #762d5b); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(right, #2b2051, #762d5b); /* Firefox 3.6 - 15 */
   background: linear-gradient(to right, #2b2051 , #762d5b);
-  border:none;
-  font-family: RobotoThin; 
 }
-header li.Li2 .button__fill{
-  border-radius: 50px;
-  padding: 2% 7%;
-  color: #fff;
+header li.Li2>a{
+  padding: 2% 40px;
   background: -webkit-linear-gradient(left, #8a305e , #e9406a); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(right, #8a305e, #e9406a); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(right, #8a305e, #e9406a); /* Firefox 3.6 - 15 */
   background: linear-gradient(to right, #8a305e , #e9406a);
-  border:none;
-  font-family: RobotoThin; 
 }
 header li.Li1 .button__fill:hover,
 header li.Li2 .button__fill:hover{
