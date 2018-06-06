@@ -274,6 +274,47 @@ export const Weapons_on_property = '房源内有武器';
 export const Dangerous_animals_on_property = '房源内有危险动物';
 export const In_addition_to_PopulStays_requirements = '除了符合爱彼迎的要求外，房客还必须同意您的所有房屋守则才能预订住宿。';
 export const If_youre_ever_uncomfortable_with_a_reservation = '如果某个预订让您觉得不安心，您可以在旅程开始前或住宿期间取消预订而免受处罚。';
+//Step19
+export const Review_PopulStay_guest_requirements = '潮箱对房客的要求';
+export const Review = '查看';
+export const A_message_about_the_guests_trip = '就他们的旅程给房东发消息';
+export const Your_additional_requirements = '您的其他要求';
+export const Your_House_Rules = '您的房屋守则';
+export const Checkin_time_for_last_minute_trips = '临时预订的入住时间';
+export const Edit = '编辑';
+export const Submit_a_government_issued_ID_to_PopulStay = '向潮箱提交政府颁发的身份证';
+export const Not_safe_or_suitable_for_children = '不安全或不适合儿童（2-12岁）';
+export const Checkin_is_anytime_after_3PM = '入住时间为下午3点以后';
+export const NO_shoes_in_the_house = '没有鞋子在房子里';
+export const Guests_will_only_be_able_to_book = '房客必须符合所有这些要求并同意您的房屋守则才能即时预订。';
+//Step20
+export const Heres_how_guests_will_book_with_you = '房客将通过下列方式预订您的房源';
+export const Qualified_guests_find_your_listing = '符合条件的房客才会找到您的房源';
+export const Anyone_who_wants_to_book_with = '任何想要预订您的房源的人都需要确认联系方式，提供付款信息，并告诉您他们的旅程。';
+export const You_set_controls_for_who_can_book = '谁可以预订由您规定';
+export const To_book_available_dates_without_having = '要在不需要发送请求的情况下预订可订日期，房客必须同意您的规则，并满足您设定的所有要求。';
+export const I_want_to_review_every_request = '我想审核每一个预订申请';
+export const Once_a_guest_books_you_get_notified = '房客预订后，您将收到通知';
+export const Youll_immediately_get_a_confirmation = '您会立即收到确认电子邮件，其中包含了旅行目的、抵达时间、同行人员等信息。';
+export const In_the_rare_case_there_are_issues = '如果在极少数情况下出现问题，潮箱将为您提供以下保障：24小时中文客服、PPS5,000,000房东保障金计划、当您对某笔预订不放心时取消预订可免受处罚。';
+export const Set_rules_for_who_can_book_instantly = '为可以立即预订的人设定规则';
+//Step21
+export const Successful_hosting_starts = '成功的托管以精确的日历开始';
+export const Guests_will_book_available_days_instantly = '客人将立即预订可用日期。只有在您的日历和可用性设置保持最新状态时才能进行托管。';
+export const Cancelling_disrupts_guests_plans = '取消会破坏客人的计划。如果您因日历不准确而取消预订，则需要支付罚金，并且其他人无法预订日期。';
+export const Got_it_Ill_keep_my_calendar_up_to_date = '得到它了！我会保持日历更新。';
+//Step22
+export const Lets_get_started_with_a_couple_questions = '先来回答几个问题吧';
+export const Have_you_rented_out_your_place_before = '您是否有出租房源的经验？';
+export const Im_a_novice_in_this_respect = '这方面我是新手';
+export const I_have_a_renting_experience = '我有出租经验';
+export const How_often_do_you_want_to_have_guests = '您希望多久接待一次房客？';
+export const Not_sure_yet = '还不确定';
+export const Part_of_the_time = '部分时间';
+export const As_much_as_possible = '尽可能多点';
+export const Based_on_your_responses = '根据您的回复，我们可以为您推荐具体的可租状态设置。';
+//Step23
+
 
 
 

@@ -2427,44 +2427,44 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Review PopulStay guest requirements</h1>
+              <h1>{language.Review_PopulStay_guest_requirements}</h1>
 
 
               <div className="box col-md-12">
-                <h3>All PopulStay guests must provide:<span className="textpink" >Review</span></h3>
+                <h3>{language.All_PopulStay_guests_must_provide}:<span className="textpink" >{language.Review}</span></h3>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>{language.Email_address}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmedphone ==0 )this.setState({roomdescription_Confirmedphone:1});else this.setState({roomdescription_Confirmedphone:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>Confirmed phone number</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>{language.Confirmed_phone_number}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.Payment_information ==0 )this.setState({Payment_information:1});else this.setState({Payment_information:0});}} >
-                  <label className="text-muted"><p><span className={this.state.Payment_information == 1 ?"show":"hide"}></span></p>Payment information</label>
+                  <label className="text-muted"><p><span className={this.state.Payment_information == 1 ?"show":"hide"}></span></p>{language.Payment_information}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.guest_message ==0 )this.setState({guest_message:1});else this.setState({guest_message:0});}} >
-                  <label className="text-muted"><p><span className={this.state.guest_message == 1 ?"show":"hide"}></span></p>A message about the guest’s trip</label>
+                  <label className="text-muted"><p><span className={this.state.guest_message == 1 ?"show":"hide"}></span></p>{language.A_message_about_the_guests_trip}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.last_time ==0 )this.setState({last_time:1});else this.setState({last_time:0});}} >
-                  <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>Check-in time for last minute trips</label>
+                  <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>{language.Checkin_time_for_last_minute_trips}</label>
                 </div>
 
-                <h3>Your additional requirements<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>Edit</span></h3>
+                <h3>{language.Your_additional_requirements}<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>{language.Edit}</span></h3>
                 <div className="radio"  onClick={(e) => {if(this.state.governmentissued_ID ==0 )this.setState({governmentissued_ID:1});else this.setState({governmentissued_ID:0});}}>
-                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to PopulStay</label>
+                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>{language.Submit_a_government_issued_ID_to_PopulStay}</label>
                 </div>
 
-                <h3>Your House Rules<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>Edit</span></h3>
+                <h3>{language.Your_House_Rules}<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>{language.Edit}</span></h3>
                 <div className="radio" onClick={(e) => {if(this.state.Not_safe ==0 )this.setState({Not_safe:1});else this.setState({Not_safe:0});}} >
-                  <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>Not safe or suitable for children (2-12 years)</label>
+                  <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>{language.Not_safe_or_suitable_for_children}</label>
                 </div>
                 <div className="radio"  onClick={(e) => {if(this.state.anytime_Checkin ==0 )this.setState({anytime_Checkin:1});else this.setState({anytime_Checkin:0});}} >
-                  <label className="text-muted"><p><span className={this.state.anytime_Checkin == 1 ?"show":"hide"}></span></p>Check-in is anytime after 3PM</label>
+                  <label className="text-muted"><p><span className={this.state.anytime_Checkin == 1 ?"show":"hide"}></span></p>{language.Checkin_is_anytime_after_3PM}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.NO_shoes ==0 )this.setState({NO_shoes:1});else this.setState({NO_shoes:0});}} >
-                  <label className="text-muted"><p><span className={this.state.NO_shoes == 1 ?"show":"hide"}></span></p>NO shoes in the house</label>
+                  <label className="text-muted"><p><span className={this.state.NO_shoes == 1 ?"show":"hide"}></span></p>{language.NO_shoes_in_the_house}</label>
                 </div>
 
               </div>
@@ -2474,8 +2474,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2483,7 +2483,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Guests will only be able to book instantly with you if they meet all these requirements and agree to your House Rules. </p>
+                    <p>{language.Guests_will_only_be_able_to_book}</p>
                 </div>
              </div>
     
@@ -2513,10 +2513,10 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Here’s how guests will book with you</h1>
+              <h1>{language.Heres_how_guests_will_book_with_you}</h1>
 
 
               <div className="box col-md-12">
@@ -2525,8 +2525,8 @@ class ListingCreate extends Component {
                     <img src="../images/step3_4img1.png" />
                   </div>
                   <div className="col-lg-9 pull-right">
-                    <h3>Qualified guests find your listing</h3>
-                    <p>Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.</p>
+                    <h3>{language.Qualified_guests_find_your_listing}</h3>
+                    <p>{language.Anyone_who_wants_to_book_with}</p>
                   </div>
                 </div>
                 <div className="boxdiv">
@@ -2534,9 +2534,9 @@ class ListingCreate extends Component {
                     <img src="../images/step3_4img2.png" />
                   </div>
                   <div className="col-lg-9 pull-right">
-                    <h3>You set controls for who can book</h3>
-                    <p>To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.</p>
-                    <p className="textpink">I want to review every request</p>
+                    <h3>{language.You_set_controls_for_who_can_book}</h3>
+                    <p>{language.To_book_available_dates_without_having}</p>
+                    <p className="textpink">{language.I_want_to_review_every_request}</p>
                   </div>
                 </div>
                 <div className="boxdiv">
@@ -2544,8 +2544,8 @@ class ListingCreate extends Component {
                     <img src="../images/step3_4img3.png" />
                   </div>
                   <div className="col-lg-9 pull-right">
-                    <h3>Once a guest books, you get notified</h3>
-                    <p>You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.</p>
+                    <h3>{language.Once_a_guest_books_you_get_notified}</h3>
+                    <p>{language.Youll_immediately_get_a_confirmation}</p>
                   </div>
                 </div>
               </div>
@@ -2553,8 +2553,8 @@ class ListingCreate extends Component {
               
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2562,8 +2562,8 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
-                    <p>In the rare case there are issues. PopulStay has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
-                    <h5>Set rules for who can book instantly</h5>
+                    <p>{language.In_the_rare_case_there_are_issues}</p>
+                    <h5>{language.Set_rules_for_who_can_book_instantly}</h5>
                 </div>
              </div>
     
@@ -2593,21 +2593,21 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Successful hosting starts with an accurate calendar</h1>
+              <h1>{language.Successful_hosting_starts}</h1>
 
 
               <div className="box col-md-12">
-                <p>Guests will book available days instantly. Only get booked when you can host by keeping your calendar and availability settings up-to-date.</p>
-                <p>Cancelling disrupts guests’ plans. If you cancel because your calendar is inaccurate, you’ll be charged a penalty fee and the dates won’t be available for anyone else to book.</p>
+                <p>{language.Guests_will_book_available_days_instantly}</p>
+                <p>{language.Cancelling_disrupts_guests_plans}</p>
 
                 <div className="check"  onClick={(e) => {if(this.state.roomstuff_Closet_drwers ==0 )this.setState({roomstuff_Closet_drwers:1});else this.setState({roomstuff_Closet_drwers:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_Closet_drwers ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Got it! I’ll keep my calendar up to date.</p> 
+                  <p className="divinput">{language.Got_it_Ill_keep_my_calendar_up_to_date}</p> 
                 </div>
               </div>
 
@@ -2616,8 +2616,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button  className={ this.state.roomstuff_Closet_drwers ==0 ? "buttonActive Right" : "Right"} disabled={ this.state.roomstuff_Closet_drwers ==0 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button  className={ this.state.roomstuff_Closet_drwers ==0 ? "buttonActive Right" : "Right"} disabled={ this.state.roomstuff_Closet_drwers ==0 ? "disabled" : ""} onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2649,32 +2649,32 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Let’s get started with a couple questions</h1>
+              <h1>{language.Lets_get_started_with_a_couple_questions}</h1>
 
 
               <div className="box col-md-12">
 
-                <h3>Have you rented out your place before?</h3>
+                <h3>{language.Have_you_rented_out_your_place_before}</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.question_rented}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>I'm a novice in this respect</a></li>
-                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>I have a renting experience</a></li>
+                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>{language.Im_a_novice_in_this_respect}</a></li>
+                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>{language.I_have_a_renting_experience}</a></li>
                     </ul>
                   </div>
                 </div>
-                <h3>How often do you want to have guests?</h3>
+                <h3>{language.How_often_do_you_want_to_have_guests}</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.Howoften_guests}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>Not sure yet</a></li>
-                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>Part of the time</a></li>
-                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>As much as possible</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>{language.Not_sure_yet}</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>{language.Part_of_the_time}</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>{language.As_much_as_possible}</a></li>
                     </ul>
                   </div>
                 </div>
@@ -2682,8 +2682,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2692,7 +2692,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
-                    <p>Based on your responses, we can  recommend specific availability settings for you.</p>
+                    <p>{language.Based_on_your_responses}</p>
                 </div>
              </div>
              

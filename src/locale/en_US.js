@@ -274,6 +274,45 @@ export const Weapons_on_property = 'Weapons on property';
 export const Dangerous_animals_on_property = 'Dangerous animals on property';
 export const In_addition_to_PopulStays_requirements = 'In addition to PopulStay’s requirements, guests must agree to all your House Rules before they book.';
 export const If_youre_ever_uncomfortable_with_a_reservation = 'If you’re ever uncomfortable with a reservation, you can cancel penalty-free before or during a trip.';
+//Step19
+export const Review_PopulStay_guest_requirements = 'Review PopulStay guest requirements';
+export const Review = 'Review';
+export const A_message_about_the_guests_trip = 'A message about the guest’s trip';
+export const Your_additional_requirements = 'Your additional requirements';
+export const Your_House_Rules = 'Your House Rules';
+export const Checkin_time_for_last_minute_trips = 'Check-in time for last minute trips';
+export const Edit = 'Edit';
+export const Submit_a_government_issued_ID_to_PopulStay = 'Submit a government-issued ID to PopulStay';
+export const Not_safe_or_suitable_for_children = 'Not safe or suitable for children (2-12 years)';
+export const Checkin_is_anytime_after_3PM = 'Check-in is anytime after 3PM';
+export const NO_shoes_in_the_house = 'NO shoes in the house';
+export const Guests_will_only_be_able_to_book = 'Guests will only be able to book instantly with you if they meet all these requirements and agree to your House Rules.';
+//Step20
+export const Heres_how_guests_will_book_with_you = 'Here’s how guests will book with you';
+export const Qualified_guests_find_your_listing = 'Qualified guests find your listing';
+export const Anyone_who_wants_to_book_with = 'Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.';
+export const You_set_controls_for_who_can_book = 'You set controls for who can book';
+export const To_book_available_dates_without_having = 'To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.';
+export const I_want_to_review_every_request = 'I want to review every request';
+export const Once_a_guest_books_you_get_notified = 'Once a guest books, you get notified';
+export const Youll_immediately_get_a_confirmation = 'You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.';
+export const In_the_rare_case_there_are_issues = "In the rare case there are issues. PopulStay has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation";
+export const Set_rules_for_who_can_book_instantly = 'Set rules for who can book instantly';
+//Step21
+export const Successful_hosting_starts = 'Successful hosting starts with an accurate calendar';
+export const Guests_will_book_available_days_instantly = 'Guests will book available days instantly. Only get booked when you can host by keeping your calendar and availability settings up-to-date.';
+export const Cancelling_disrupts_guests_plans = 'Cancelling disrupts guests’ plans. If you cancel because your calendar is inaccurate, you’ll be charged a penalty fee and the dates won’t be available for anyone else to book.';
+export const Got_it_Ill_keep_my_calendar_up_to_date = "Got it! I’ll keep my calendar up to date.";
+//Step22
+export const Lets_get_started_with_a_couple_questions = 'Let’s get started with a couple questions';
+export const Have_you_rented_out_your_place_before = 'Have you rented out your place before?';
+export const Im_a_novice_in_this_respect = "I'm a novice in this respect";
+export const I_have_a_renting_experience = 'I have a renting experience';
+export const How_often_do_you_want_to_have_guests = 'How often do you want to have guests?';
+export const Not_sure_yet = 'Not sure yet';
+export const Part_of_the_time = 'Part of the time';
+export const As_much_as_possible = 'As much as possible';
+export const Based_on_your_responses = 'Based on your responses, we can recommend specific availability settings for you.';
 
 
 
