@@ -96,7 +96,7 @@ class GuestInfo extends React.Component {
   onGetDepositBalance = () =>{
      ppsService.getDepositBalance(window.address)
      .then((data)=>{
-      console.log(data.data.balance)
+        console.log(data.data.balance)
         this.setState({ ppsDeposited : data.data.balance});
      });
   }

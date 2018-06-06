@@ -109,7 +109,8 @@ h1,
 .Step3_13 .rightbox ul li p,
 .Step3_6 .rightbox1>div>.date span,
 .Step3_9 .box span,
-.Step3_9 .box table tr td{
+.Step3_9 .box table tr td,
+.Step2_1 .photos .photosipt>h3>button{
   font-family: RobotoBold; 
 }
 .cursor{
@@ -1070,6 +1071,27 @@ div.Strainer_Home_Type .checkbox .divinput{
   width: 300px;
   padding: 3%;
   z-index: 1;
+}
+.Step2_1 .photos .photosipt>h3{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 7rem;
+  text-align: center;
+  margin:0;
+  background: #fff;
+}
+.Step2_1 .photos .photosipt>h3>p{
+  font-size: 3rem;
+}
+.Step2_1 .photos .photosipt>h3>button{
+  font-size: 3rem;
+  background: linear-gradient(to right, #e9406a ,#2b2051);
+  border:none;
+  border-radius: 0;
+  color: #fff;
+  padding: 8px 70px;
 }
 .Step2_2 .photos .photosimg,.Step2_2 .photos .photosipt{
   width: 31.1%;

@@ -185,8 +185,15 @@ export const Home_Fix = '房源-修复';
 export const Contact_No = '联系方式';
 export const Email_Address = '电子邮件地址';
 export const Reference = '参考';
-
-
+//Step11
+export const Set_the_scene = '设置场景';
+export const Show_travellers_what_your_space_looks_like = '向旅客展示你的空间';
+export const Many_hosts_have_at_least_8photos = '很多房东至少有8张照片。您一开始可以只放一张照片，之后再回来添加。展示所有房客能使用的空间的照片，让房客对在您的房源住宿有更直观的体验。';
+export const Make_sure_the_room_is_well_lit = '确保房间明亮，或者选择在白天拍摄。';
+export const Sometimes_shooting_from_a_corner = '有的时候从角落拍摄，而不是正面拍摄，可能会有更好的效果。';
+export const Drag_and_Drop = '拖放';
+export const OR = '或者';
+export const Browse = '浏览';
 
 
 
@@ -333,7 +340,7 @@ export const Submit = '提交';
 export const state0 = '申请提币';
 export const state1 = '在申请中';
 export const state2 = '完成审核';
-export const state3 = '交易成功';
+export const state3 = '申请成功';
 export const state_1 = '提币失败';
 
 

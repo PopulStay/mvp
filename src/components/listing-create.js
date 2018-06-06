@@ -273,6 +273,14 @@ class ListingCreate extends Component {
     }
 
     componentWillMount() {
+
+        guestService.getGuesterInfo(window.address).then((data)=>{
+          if(data)
+            {
+                console.log(data.user)
+                this.setState({ user:data.user });
+            }
+        });
         
         this.setState({
             state:this.state.languagelist=window.languagelist,
@@ -1038,7 +1046,6 @@ class ListingCreate extends Component {
              </div>
              </div>
              </div>
-
         }
 
         {
@@ -1560,10 +1567,10 @@ class ListingCreate extends Component {
               <span className="bjpink"></span>
               <span></span>
               <span></span>
-              <p>Step 2: Set the scene</p>
+              <p>{language.Step} 2: {language.Set_the_scene}</p>
             </div>
 
-               <h1>Show travellers what your space looks like
+               <h1>{language.Show_travellers_what_your_space_looks_like}
                 <img src="../images/photoi.png" onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}/>
               </h1>
 
@@ -1571,24 +1578,24 @@ class ListingCreate extends Component {
                   <span onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}>×</span>
                   <ul>
                       <img src="../images/step2_2.png" />
-                      <li>Many hosts have at least 8 photos. You can start with just one photo and come back later to add more. Including photos of all the spaces a guest can use helps guests imagine staying at your place.</li>
+                      <li>{language.Many_hosts_have_at_least_8photos}</li>
                       <img src="../images/step2_1.png" />
-                      <li>Make sure the room is well-lit. Or take photos during daylight hours.</li>
-                      <li>Sometimes shooting from a corner (instead of straight-on) gives you a better shot.</li>
+                      <li>{language.Make_sure_the_room_is_well_lit}</li>
+                      <li>{language.Sometimes_shooting_from_a_corner}</li>
                   </ul>
               </div>
               
               <div className="photos" onChange={(e) => this.setState({step:this.STEP.Step2_2})}>
                  <div className="photosipt">
+                    <h3>{language.Drag_and_Drop}<p>{language.OR}</p><button>{language.Browse}</button></h3>
                     <img src="../images/addphoto.png" alt=""/>
                     <input className="btn btn-default btn-lg bg-pink color-white Fileipt" type="file" onChange={this.fileChangedHandler}/>
                  </div>
               </div>
-
              
             <div className="STEPBTN">
-              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
             </div>
              
              </div>

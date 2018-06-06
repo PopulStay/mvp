@@ -91,15 +91,11 @@ class WalletWithdraw extends React.Component {
     });
 
     var deleId = this.state.withdrawlist[index].id;
-    ppsService.deleWithdraw(deleId).then((data)=>{
-      console.log(data);
-    });
-
-
+    ppsService.deleWithdraw(deleId);
   }
 
   Withdraw(index){
-
+    console.log(this.state.withdrawlist[index].size)
   }
 
   openModal() {

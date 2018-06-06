@@ -185,8 +185,15 @@ export const Home_Fix = 'Home-Fix';
 export const Contact_No = 'Contact No';
 export const Email_Address = 'Email Address';
 export const Reference = 'Reference';
-
-
+//Step11
+export const Set_the_scene = 'Set the scene';
+export const Show_travellers_what_your_space_looks_like = 'Show travellers what your space looks like';
+export const Many_hosts_have_at_least_8photos = 'Many hosts have at least 8 photos. You can start with just one photo and come back later to add more. Including photos of all the spaces a guest can use helps guests imagine staying at your place.';
+export const Make_sure_the_room_is_well_lit = 'Make sure the room is well-lit. Or take photos during daylight hours.';
+export const Sometimes_shooting_from_a_corner = 'Sometimes shooting from a corner (instead of straight-on) gives you a better shot.';
+export const Drag_and_Drop = 'Drag and Drop';
+export const OR = 'OR';
+export const Browse = 'Browse';
 
 
 
@@ -332,7 +339,7 @@ export const Submit = 'Submit';
 export const state0 = 'Apply for money';
 export const state1 = 'In the coin';
 export const state2 = 'Finish the coin';
-export const state3 = 'Completed';
+export const state3 = 'Successful application';
 export const state_1 = 'Currency failure';
 
 
