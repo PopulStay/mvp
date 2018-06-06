@@ -194,6 +194,18 @@ export const Sometimes_shooting_from_a_corner = '有的时候从角落拍摄，�
 export const Drag_and_Drop = '拖放';
 export const OR = '或者';
 export const Browse = '浏览';
+//Step12
+export const Crop = '修剪';
+export const Adjust_Brightness = '调整亮度';
+export const Rotate = '旋转';
+export const Zoom = '放大';
+export const Brightness = '亮度';
+export const Contrast_Ratio = '对比度';
+export const Complete = '完成';
+export const Save_and_Replace = '保存并替换';
+
+
+
 
 
 

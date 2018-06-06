@@ -929,7 +929,6 @@ class ListingCreate extends Component {
              </div>
              </div>
              </div>
-
         }
 
         {
@@ -971,7 +970,6 @@ class ListingCreate extends Component {
              </div>
              </div>
              </div>
-
         }
 
         {
@@ -1613,10 +1611,10 @@ class ListingCreate extends Component {
               <span className="bjpink"></span>
               <span></span>
               <span></span>
-              <p>Step 2: Set the scene</p>
+              <p>{language.Step} 2: {language.Set_the_scene}</p>
             </div>
 
-              <h1>Show travellers what your space looks like
+              <h1>{language.Show_travellers_what_your_space_looks_like}
                 <img src="../images/photoi.png" onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}/>
               </h1>
 
@@ -1624,10 +1622,10 @@ class ListingCreate extends Component {
                   <span onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}>×</span>
                   <ul>
                       <img src="../images/step2_2.png" />
-                      <li>Many hosts have at least 8 photos. You can start with just one photo and come back later to add more. Including photos of all the spaces a guest can use helps guests imagine staying at your place.</li>
+                      <li>{language.Many_hosts_have_at_least_8photos}</li>
                       <img src="../images/step2_1.png" />
-                      <li>Make sure the room is well-lit. Or take photos during daylight hours.</li>
-                      <li>Sometimes shooting from a corner (instead of straight-on) gives you a better shot.</li>
+                      <li>{language.Make_sure_the_room_is_well_lit}</li>
+                      <li>{language.Sometimes_shooting_from_a_corner}</li>
                   </ul>
               </div>
               
@@ -1662,29 +1660,29 @@ class ListingCreate extends Component {
                         rotate={this.state.canvasRotate}
                       />
                     </div>
-                    <div className="modal-footer"vz>
+                    <div className="modal-footer" >
                       <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
-                          <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />Crop</li>
-                          <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />Adjust Brightness</li>
-                          <li onClick={(e) => this.setState({canvasRotate:this.state.canvasRotate+90})}><img src="../images/Rotate.png" />Rotate</li>
+                          <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />{language.Crop}</li>
+                          <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />{language.Adjust_Brightness}</li>
+                          <li onClick={(e) => this.setState({canvasRotate:this.state.canvasRotate+90})}><img src="../images/Rotate.png" />{language.Rotate}</li>
                       </ul>
                       <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
                           <li  className={this.state.modalset == 1 ? "show" : "hide"}>
-                              <p>Zoom</p>
+                              <p>{language.Zoom}</p>
                               <input type="range" onChange={(e)=>this.setState({canvasScale:e.target.value})} name="points"  step="0.01" min="0.5" max="2" />
                           </li>
                           <li  className={this.state.modalset == 2 ? "show" : "hide"}>
-                              <p>Brightness</p>
+                              <p>{language.Brightness}</p>
                               <input type="range" onChange={(e)=>this.BrightnessPictures(e.target.value)} name="points" step="0.01" min="-1" max="1" />
                           </li>
                           <li  className={this.state.modalset == 2 ? "show" : "hide"}>
-                              <p>Contrast Ratio</p>
+                              <p>{language.Contrast_Ratio}</p>
                               <input type="range" name="points" step="0.02" min="1" max="3" />
                           </li>
                       </ul>
-                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">Cancel</button>
-                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >Complete</button>
-                      <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} data-dismiss="modal" aria-hidden="true" type="button" onClick={(e)=>this.onClickSave(e)}>Save and Replace</button>
+                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">{language.Cancel}</button>
+                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >{language.Complete}</button>
+                      <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} data-dismiss="modal" aria-hidden="true" type="button" onClick={(e)=>this.onClickSave(e)}>{language.Save_and_Replace}</button>
                     </div>
                   </div>
                 </div>
@@ -1693,8 +1691,8 @@ class ListingCreate extends Component {
 
              
             <div className="STEPBTN">
-              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
             </div>
              
              </div>
