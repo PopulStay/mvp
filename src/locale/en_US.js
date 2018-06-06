@@ -223,12 +223,69 @@ export const How_to_get_around_optional = 'How to get around (optional)';
 export const Your_summary_description = 'Your summary description is meant to be a brief overview of your place that guests read before they get into the details.';
 export const You_can_also_use_your_description = 'You can also use your description to remind guests that people from all backgrounds are welcome in your home.';
 //Step14
-export const Name_your_place = '为您的房源起个名字';
-export const Listing_title = '房源名称';
-export const Singapore_Home_with_a_View = '新加坡看得见风景的房子';
+export const Name_your_place = 'Name your place';
+export const Listing_title = 'Listing title';
+export const Singapore_Home_with_a_View = 'Singapore Home with a View';
 //Step15
 export const Add_your_mobile_number = 'Add your mobile number';
 export const Only_confirmed_guests_get_your_phone_number = 'Only confirmed guests get your phone number. This helps guests contact you quickly if needed.';
+//Step16
+export const Photos_short_description_title = 'Photos short description title';
+//Step17
+export const Review_PopulStays_guest_requirements = 'Review PopulStay’s guest requirements';
+export const All_PopulStay_guests_must_provide = 'All PopulStay guests must provide:';
+export const Email_address = 'Email address';
+export const Confirmed_phone_number = 'Confirmed phone number';
+export const Payment_information = 'Payment information';
+export const Before_booking_your_home_each_guest_must = 'Before booking your home, each guest must:';
+export const Agree_to_your_House_Rules = 'Agree to your House Rules';
+export const Message_you_about_their_trip = 'Message you about their trip';
+export const Let_you_know_how_many_guests_are_coming = 'Let you know how many guests are coming';
+export const Confirm_their_checkin_time_if_theyre_arriving_within2days = 'Confirm their check-in time if they’re arriving within 2 days';
+export const Add_additional_requirements = 'Add additional requirements';
+export const governmentissued_ID_submitted_to_PopulStay = 'government-issued ID submitted to PopulStay';
+export const Recommended_by_other_hosts_and_have_no_negative_reviews = 'Recommended by other hosts and have no negative reviews';
+export const More_requirements_can_mean_fewer_reservations = 'More requirements can mean fewer reservations.';
+export const You_need_to_feel_confident_with_every_reservation = 'You need to feel confident with every reservation. That’s why we require certain information from every guest before they can book.';
+//Step18
+export const Set_house_rules_for_your_guests = 'Set house rules for your guests';
+export const Suitable_for_children = 'Suitable for children (2-12 years)';
+export const You_can_say_your_listing = 'You can say your listing isn’t suitable for infants or children if there are features that are dangerous for children or there’s a risk of property damage. If you decide to restrict guests with infants or children from booking, add an explanation so guests can understand why your listing isn’t suitable for their trip.';
+export const Explain_why_your_listing = 'Explain why your listing isn’t suitable for children';
+export const What_features_of_your = 'What features of your space might be dangerous to children or easily damaged?';
+export const Done = 'Done';
+export const You_can_limit_guests_from_bringing_pets = 'You can limit guests from bringing pets, but assistance animals—for example, seeing eye dogs—aren’t considered pets. You have to reasonably accommodate reservations where a guest might bring an assistance animal, even if your listing or House Rules state “no pets.”Learn more';
+export const Suitable_for_infants = 'Suitable for infants (Under 2 years)';
+export const Suitable_for_pets = 'Suitable for pets';
+export const Smoking_allowed = 'Smoking allowed';
+export const Events_or_parties_allowed = 'Events or parties allowed';
+export const Additional_rules = 'Additional rules';
+export const Quiet_hours_No_shoes_in_the_house = 'Quiet hours? No shoes in the house?';
+export const Add = 'Add';
+export const Details_guests_must_know_about_your_home = 'Details guests must know about your home';
+export const Must_climb_stairs = 'Must climb stairs';
+export const Potential_for_noise = 'Potential for noise';
+export const Pets_live_on_property = 'Pet(s) live on property';
+export const No_parking_on_property = 'No parking on property';
+export const Some_spaces_are_shared = 'Some spaces are shared';
+export const Amenity_limitations = 'Amenity limitations';
+export const D_Survellance_or_recording_devices_on_property = 'D Survellance or recording devices on property';
+export const Weapons_on_property = 'Weapons on property';
+export const Dangerous_animals_on_property = 'Dangerous animals on property';
+export const In_addition_to_PopulStays_requirements = 'In addition to PopulStay’s requirements, guests must agree to all your House Rules before they book.';
+export const If_youre_ever_uncomfortable_with_a_reservation = 'If you’re ever uncomfortable with a reservation, you can cancel penalty-free before or during a trip.';
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //guest-register--------------------------------------------------------------------------------------------

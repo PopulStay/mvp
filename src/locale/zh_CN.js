@@ -229,6 +229,51 @@ export const Singapore_Home_with_a_View = '新加坡看得见风景的房子';
 //Step15
 export const Add_your_mobile_number = '添加您的手机号码';
 export const Only_confirmed_guests_get_your_phone_number = '只有经确认的客人才能获得您的电话 如有需要，这可以帮助客人快速联系您。';
+//Step16
+export const Photos_short_description_title = '照片、简短描述、标题';
+//Step17
+export const Review_PopulStays_guest_requirements = '潮箱对房客的要求';
+export const All_PopulStay_guests_must_provide = '所有潮箱房客都必须在预订前提交：';
+export const Email_address = '电子邮件地址';
+export const Confirmed_phone_number = '已确认的手机号';
+export const Payment_information = '付款信息';
+export const Before_booking_your_home_each_guest_must = '房客必须完成以下步骤才能预订：';
+export const Agree_to_your_House_Rules = '同意您的房屋守则';
+export const Message_you_about_their_trip = '发消息向您大致介绍他们的旅程';
+export const Let_you_know_how_many_guests_are_coming = '告知您即将入住的房客人数';
+export const Confirm_their_checkin_time_if_theyre_arriving_within2days = '对于2天内就要入住的预订，房客须确认入住时间';
+export const Add_additional_requirements = '添加更多对房客的要求';
+export const governmentissued_ID_submitted_to_PopulStay = '已向潮箱提交身份证明材料';
+export const Recommended_by_other_hosts_and_have_no_negative_reviews = '获得其他房东推荐，且没有负面评价';
+export const More_requirements_can_mean_fewer_reservations = '要求越多，可能预订就会越少';
+export const You_need_to_feel_confident_with_every_reservation = '您需要对每项预订都有信心，这就是为什么我们需要每位客人的某些信息';
+//Step18
+export const Set_house_rules_for_your_guests = '为房客制定房屋守则';
+export const Suitable_for_children = '适合儿童（2-12岁）';
+export const You_can_say_your_listing = '如果您的房源存在可能会对儿童构成危险或易于损坏的设施或物品，您可以说明您的房源不适合婴儿或儿童。如果您决定不让带有婴儿或儿童的房客预订，请说明原因，以便房客理解您的房源为什么不适合他们。';
+export const Explain_why_your_listing = '解释为什么您的房源不适合儿童';
+export const What_features_of_your = '你的空间的哪些特征可能会对儿童造成危险或易于损坏？';
+export const Done = '完成';
+export const You_can_limit_guests_from_bringing_pets = '您可以限制房客携带宠物，但协助性动物（如导盲犬）不被视为宠物。即使您的房源页面或《房源守则》明确说明“不允许携带宠物”，您也需要合理接待可能会携带协助性宠物入住的房客。';
+export const Suitable_for_infants = '适合婴幼儿（2岁以下）';
+export const Suitable_for_pets = '适合携带宠物入住';
+export const Smoking_allowed = '允许吸烟';
+export const Events_or_parties_allowed = '允许举办活动或聚会';
+export const Additional_rules = '其他规则';
+export const Quiet_hours_No_shoes_in_the_house = '某些时间需保持安静？室内不能穿鞋？';
+export const Add = '添加';
+export const Details_guests_must_know_about_your_home = '对于您的房源，房客必须了解的信息';
+export const Must_climb_stairs = '需爬楼梯';
+export const Potential_for_noise = '可能会有噪音';
+export const Pets_live_on_property = '房源里养有宠物';
+export const No_parking_on_property = '房源里不能停车';
+export const Some_spaces_are_shared = '有共用区域';
+export const Amenity_limitations = '便利设施缺陷';
+export const D_Survellance_or_recording_devices_on_property = '房源内有监控或记录设备';
+export const Weapons_on_property = '房源内有武器';
+export const Dangerous_animals_on_property = '房源内有危险动物';
+export const In_addition_to_PopulStays_requirements = '除了符合爱彼迎的要求外，房客还必须同意您的所有房屋守则才能预订住宿。';
+export const If_youre_ever_uncomfortable_with_a_reservation = '如果某个预订让您觉得不安心，您可以在旅程开始前或住宿期间取消预订而免受处罚。';
 
 
 

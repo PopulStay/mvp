@@ -938,7 +938,7 @@ div.Strainer_Home_Type .checkbox .divinput{
 }
 .Step1_10 .Shopitem>div>span{
   font-size: 1.6rem;
-  padding: 2%;
+  padding: 2% 0;
   display: inline-block;
   text-align: left;
 }
