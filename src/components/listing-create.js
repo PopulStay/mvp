@@ -174,12 +174,12 @@ class ListingCreate extends Component {
             maxprice_perday:0,
             minprice_perday:0,
             Explainwhy:"",
-            question_rented:"Please choose",
-            Howoften_guests:"Please choose",
-            notice_arrives:"Please choose",
-            Howoften_From:"select a time",
-            Howoften_To:"select a time",
-            advance_book:"Non reservations",
+            question_rented:"",
+            Howoften_guests:"",
+            notice_arrives:"",
+            Howoften_From:"",
+            Howoften_To:"",
+            advance_book:"",
             Price_demand:0,
             Price_fixed:0,
             first_guests_20:0,
@@ -209,10 +209,9 @@ class ListingCreate extends Component {
             guestshaves:['Entire place'],
             Countrys:[],
             Months:["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC","JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"],
-            advance_books:["Anytime","3 months","6 months","9 months","A year","Non reservations"],
+            advance_books:[],
             PasswordActibve:1,
             Step3_13Actibve:1,
-            AreaCodes:[86,81,82,83],
             Rapair:1,
             scene:1,
             modalset:0,
@@ -240,8 +239,8 @@ class ListingCreate extends Component {
             modalsubmit:false,
             PicturesSize:"",
             National_name:["0244","93","335","213","376","1254","1268","54","374","247","61","43","994","1242","973","880","1246","375","32","501","229","1441","591","267","55","673","359","226","95","257","237","1","1345","236","235","56","86","57","242","682","506","53","357","420","45","253","1890","593","20","503","372","251","679","358","33","594","689","241","220","995","49","233","350","30","1809","1671","502","224","592","509","504","852","36","354","91","62","98","964","353","972","39","225","1876","81","962","855","327","254","82","965","331","856","371","961","266","231","218","423","370","352","853","261","265","60","960","223","356","1670","596","230","52","373","377","976","1664","212","258","264","674","977","599","31","64","505","227","234","850","47","968","92","507","675","595","51","63","48","351","1787","974","262","40","7","1758","1784","684","685","378","239","966","221","248","232","65","421","386","677","252","27","34","94","1758","1784","249","597","268","46","41","963","886","992","255","66","228","676","1809","216","90","993","256","380","971","44","1","598","233","58","84","967","381","263","243","260"],
-            Howoften_Froms:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
-            Howoften_Tos:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
+            Howoften_Froms:[],
+            Howoften_Tos:[],
             languagelist:{},
             generate_smart_contract:0
 
@@ -286,19 +285,29 @@ class ListingCreate extends Component {
             state:this.state.languagelist=window.languagelist,
             account: window.address,
             id: window.address,
-            state:this.state.roomtype_category=this.state.languagelist.Whole_house,
+            roomtype_category:this.state.languagelist.Whole_house,
             Categorys:this.state.languagelist.Categorys,
             Categorys:[this.state.languagelist.Whole_house,this.state.languagelist.Private_Room,this.state.languagelist.Share_Room],
-            state:this.state.roomtype_location=this.state.languagelist.TOKYO,
-            state:this.state.roomdescription_homeorhotel=this.state.languagelist.Please_choose,
-            state:this.state.roomdescription_type=this.state.languagelist.Please_choose,
-            state:this.state.roomdescription_guests_have=this.state.languagelist.Please_choose,
+            roomtype_location:this.state.languagelist.TOKYO,
+            roomdescription_homeorhotel:this.state.languagelist.Please_choose,
+            roomdescription_type:this.state.languagelist.Please_choose,
+            roomdescription_guests_have:this.state.languagelist.Please_choose,
             homeorhotels:this.state.languagelist.homeorhotels,
             types:this.state.languagelist.types,
             guestshaves:this.state.languagelist.Categorys,
-            state:this.state.roomstuff_Country=this.state.languagelist.roomstuff_Country,
-            Countrys:this.state.languagelist.Countrys
+            roomstuff_Country:this.state.languagelist.roomstuff_Country,
+            Countrys:this.state.languagelist.Countrys,
+            question_rented:this.state.languagelist.Please_choose,
+            Howoften_guests:this.state.languagelist.Please_choose,
+            notice_arrives:this.state.languagelist.Please_choose,
+            Howoften_From:this.state.languagelist.select_a_time,
+            Howoften_To:this.state.languagelist.select_a_time,
+            advance_book:this.state.languagelist.Non_reservations,
+            Howoften_Froms:this.state.languagelist.Howoften_Times,
+            Howoften_Tos:this.state.languagelist.Howoften_Times,
+            advance_books:this.state.languagelist.advance_books,
         });
+        console.log(this.state.languagelist.select_a_time)
 
 
         var listStorage =  JSON.parse(sessionStorage.getItem('test'));
@@ -673,7 +682,7 @@ class ListingCreate extends Component {
     }
     current(){
       var D = new Date();
-      if(this.state.advance_book=="Anytime"){
+      if(this.state.advance_book==this.state.languagelist.advance_books[0]){
         return D.getFullYear()+3
       }else if(this.state.advance_book=="A year"){
         return D.getFullYear()
@@ -2246,7 +2255,7 @@ class ListingCreate extends Component {
                   <p  className="Pinput">
                       <img className={this.state.rules_children ==0 ? 'show' : 'hide'} src="../images/checkcuo.png" alt=""/>
                   </p>
-                  <p className="textpink" onClick={(e) => {this.openModal(e)}} >Explain why</p>
+                  <p className="textpink" onClick={(e) => {this.openModal(e)}} >{language.Explain_why}</p>
                 </div>
 
                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} 
@@ -2720,32 +2729,32 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>How much notice do you need before a guest arrives?</h1>
+              <h1>{language.How_much_notice_do_you_need_before_a_guest_arrives}</h1>
 
 
               <div className="box col-md-12">
 
-                <h3>Have you rented out your place before?</h3>
+                <h3>{language.Have_you_rented_out_your_place_before}</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.notice_arrives}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>Same day</a></li>
-                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>1 days</a></li>
-                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>2 days</a></li>
-                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>3 days</a></li>
-                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>7 days</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>{language.Same_day}</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>{language.onedays}</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>{language.twodays}</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>{language.threedays}</a></li>
+                      <li><a onClick={(e)=>this.setState({notice_arrives:this.Getcontent(e)})}>{language.sevendays}</a></li>
                     </ul>
                   </div>
                 </div>
-                <h5><b className="textpink">Tip:</b> At least 2 days’ notice can help you plan for a guest’s arrival, but you might miss out on last-minute trips.</h5>
-                <h3 className="textpink" onClick={(e)=>this.setState({guests_check:true})}>When can guests check in?</h3>
+                <h5><b className="textpink">{language.Tip}:</b> {language.At_least2_days_notice_can_help}</h5>
+                <h3 className="textpink" onClick={(e)=>this.setState({guests_check:true})}>{language.When_can_guests_checkin}</h3>
                 <div className={this.state.guests_check == true?"form-group form-group1 show":"form-group form-group1 hide"}>    
                   <div className="btn-group col-md-6">
-                    <h5>From:</h5>
+                    <h5>{language.From}:</h5>
                     <button type="button" data-toggle="dropdown">{this.state.Howoften_From}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
                       {this.state.Howoften_Froms.map((item,index) => (
@@ -2756,7 +2765,7 @@ class ListingCreate extends Component {
                   </div>
 
                   <div className="btn-group col-md-6">
-                    <h5>To:</h5>
+                    <h5>{language.To}:</h5>
                     <button type="button" data-toggle="dropdown" disabled={this.state.Howoften_From == "flexible" ? "disabled" : "" } > {this.state.Howoften_From == "flexible" ? "flexible": this.state.Howoften_To }<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
                       {this.state.Howoften_Tos.map((item,index) => (
@@ -2770,43 +2779,43 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
 
 
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox1">
-                 <div className={this.state.notice_arrives == "Please choose" ? "hide" : ""}>
-                    <p>Today</p>
+                 <div className={this.state.notice_arrives == language.Please_choose ? "hide" : ""}>
+                    <p>{language.Today}</p>
                     <div className="date">
-                      <img className="becomehost__info" src={this.state.notice_arrives == "Same day" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
-                      <span className={this.state.notice_arrives == "Same day" ? "textpink" : ""}>{new Date().getDate()}</span>
+                      <img className="becomehost__info" src={this.state.notice_arrives == language.Same_day ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == language.Same_day ? "textpink" : ""}>{new Date().getDate()}</span>
                     </div>
-                    <div className={this.state.notice_arrives == "Same day" ? "hide date" : "date"}>
-                      <img className="becomehost__info" src={this.state.notice_arrives == "1 days" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
-                      <span className={this.state.notice_arrives == "1 days" ? "textpink" : ""}>{new Date().getDate()+1}</span>
+                    <div className={this.state.notice_arrives == language.Same_day ? "hide date" : "date"}>
+                      <img className="becomehost__info" src={this.state.notice_arrives == language.onedays ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == language.onedays ? "textpink" : ""}>{new Date().getDate()+1}</span>
                     </div>
-                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" ? "hide date" : "date"}>
-                      <img className="becomehost__info" src={this.state.notice_arrives == "2 days" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
-                      <span className={this.state.notice_arrives == "2 days" ? "textpink" : ""}>{new Date().getDate()+2}</span>
+                    <div className={this.state.notice_arrives == language.Same_day || this.state.notice_arrives == language.onedays ? "hide date" : "date"}>
+                      <img className="becomehost__info" src={this.state.notice_arrives == language.twodays ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == language.twodays ? "textpink" : ""}>{new Date().getDate()+2}</span>
                     </div>
-                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" || this.state.notice_arrives == "2 days" ? "hide date" : "date"}>
-                      <img className="becomehost__info" src={this.state.notice_arrives == "3 days" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
-                      <span className={this.state.notice_arrives == "3 days" ? "textpink" : ""}>{new Date().getDate()+3}</span>
+                    <div className={this.state.notice_arrives == language.Same_day || this.state.notice_arrives == language.onedays || this.state.notice_arrives == language.twodays ? "hide date" : "date"}>
+                      <img className="becomehost__info" src={this.state.notice_arrives == language.threedays ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == language.threedays ? "textpink" : ""}>{new Date().getDate()+3}</span>
                     </div>
-                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" || this.state.notice_arrives == "2 days" || this.state.notice_arrives == "3 days" ? "hide date" : "date"}>
+                    <div className={this.state.notice_arrives == language.Same_day || this.state.notice_arrives == language.onedays || this.state.notice_arrives == language.twodays || this.state.notice_arrives == language.threedays ? "hide date" : "date"}>
                       <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
                       <span>{new Date().getDate()+4}</span>
                     </div>
-                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" || this.state.notice_arrives == "2 days" || this.state.notice_arrives == "3 days" ? "hide date" : "date"}>
+                    <div className={this.state.notice_arrives == language.Same_day || this.state.notice_arrives == language.onedays || this.state.notice_arrives == language.twodays || this.state.notice_arrives == language.threedays ? "hide date" : "date"}>
                       <img className="becomehost__info" src="./images/step3_7img1.png" alt=""/>
                       <span>{new Date().getDate()+5}</span>
                     </div>
-                    <div className={this.state.notice_arrives == "Same day" || this.state.notice_arrives == "1 days" || this.state.notice_arrives == "2 days" || this.state.notice_arrives == "3 days" ? "hide date" : "date"}>
-                      <img className="becomehost__info" src={this.state.notice_arrives == "7 days" ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
-                      <span className={this.state.notice_arrives == "7 days" ? "textpink" : ""}>{new Date().getDate()+6}</span>
+                    <div className={this.state.notice_arrives == language.Same_day || this.state.notice_arrives == language.onedays || this.state.notice_arrives == language.twodays || this.state.notice_arrives == language.threedays ? "hide date" : "date"}>
+                      <img className="becomehost__info" src={this.state.notice_arrives == language.sevendays ? "./images/step3_7img2.png" : "./images/step3_7img1.png"} alt=""/>
+                      <span className={this.state.notice_arrives == language.sevendays ? "textpink" : ""}>{new Date().getDate()+6}</span>
                     </div>
                 </div>
              </div>
@@ -2835,10 +2844,10 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>How far in advance can guests book?</h1>
+              <h1>{language.How_far_in_advance_can_guests_book}</h1>
 
 
               <div className="box col-md-12">
@@ -2854,13 +2863,13 @@ class ListingCreate extends Component {
                     </ul>
                   </div>
                 </div>
-                <h5><b className="textpink">Tip:</b>Avoid cancelling or declining guests by only  unblocking dates you can host.</h5>
+                <h5><b className="textpink">{language.Tip}:</b>{language.Avoid_cancelling_or_declining_guests}</h5>
               </div>
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2871,50 +2880,50 @@ class ListingCreate extends Component {
                     <div className={this.state.advance_book == "A year" ? "hide date" : "modalshow date"}>
                       <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
                       <span>
-                            {this.state.advance_book != "A year" && this.state.advance_book != "Anytime"  ? this.state.Months[new Date().getMonth()-2] : ""}
-                            {this.state.advance_book == "Anytime" ? new Date().getFullYear()+1 : ""}
+                            {this.state.advance_book != "A year" && this.state.advance_book != language.advance_books[0]  ? this.state.Months[new Date().getMonth()-2] : ""}
+                            {this.state.advance_book == language.advance_books[0] ? new Date().getFullYear()+1 : ""}
                             {this.state.advance_book == "A year" ? new Date().getFullYear()-2 : ""}
                       </span>
                     </div>
                     <div className="date">
                       <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
                       <span>
-                            {this.state.advance_book != "A year" && this.state.advance_book != "Anytime" ? this.state.Months[new Date().getMonth()-1] : ""}
-                            {this.state.advance_book == "Anytime" ? new Date().getFullYear()+2 : ""}
+                            {this.state.advance_book != "A year" && this.state.advance_book != language.advance_books[0] ? this.state.Months[new Date().getMonth()-1] : ""}
+                            {this.state.advance_book == language.advance_books[0] ? new Date().getFullYear()+2 : ""}
                             {this.state.advance_book == "A year" ? new Date().getFullYear()-1 : ""}
                       </span>
                     </div>
                     <div className="date">
-                      <img className="becomehost__info" src={this.state.advance_book == "9 months" || this.state.advance_book == "6 months" ? "./images/step3_8img1.png" : "./images/step3_8img2.png"} alt=""/>
-                      <span className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months" ? "" : "textpink"}>{this.current()}</span>
+                      <img className="becomehost__info" src={this.state.advance_book == language.advance_books[3] || this.state.advance_book == language.advance_books[2] ? "./images/step3_8img1.png" : "./images/step3_8img2.png"} alt=""/>
+                      <span className={this.state.advance_book == language.advance_books[3] || this.state.advance_book == language.advance_books[2] ? "" : "textpink"}>{this.current()}</span>
                     </div>
 
 
-                    <div className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months"  ? "modalshow date" : "hide date"}>
+                    <div className={this.state.advance_book == language.advance_books[3] || this.state.advance_book == language.advance_books[2]  ? "modalshow date" : "hide date"}>
                       <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
                       <span>{this.state.Months[new Date().getMonth()+1]}</span>
                     </div>
-                    <div className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months"  ? "modalshow date" : "hide date"}>
+                    <div className={this.state.advance_book == language.advance_books[3] || this.state.advance_book == language.advance_books[2]  ? "modalshow date" : "hide date"}>
                       <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
                       <span>{this.state.Months[new Date().getMonth()+2]}</span>
                     </div>
-                    <div className={this.state.advance_book == "9 months" || this.state.advance_book == "6 months"  ? "modalshow date" : "hide date"}>
-                      <img className="becomehost__info" src={this.state.advance_book == "6 months" ? "./images/step3_8img2.png" : "./images/step3_8img1.png"} alt=""/>
-                      <span className={this.state.advance_book == "6 months" ? "textpink" : "" } >{this.state.Months[new Date().getMonth()+3]}</span>
+                    <div className={this.state.advance_book == language.advance_books[3] || this.state.advance_book == language.advance_books[2]  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src={this.state.advance_book == language.advance_books[2] ? "./images/step3_8img2.png" : "./images/step3_8img1.png"} alt=""/>
+                      <span className={this.state.advance_book == language.advance_books[2] ? "textpink" : "" } >{this.state.Months[new Date().getMonth()+3]}</span>
                     </div>
 
 
-                    <div className={this.state.advance_book == "9 months"  ? "modalshow date" : "hide date"}>
+                    <div className={this.state.advance_book == language.advance_books[3]  ? "modalshow date" : "hide date"}>
                       <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
                       <span>{this.state.Months[new Date().getMonth()+4]}</span>
                     </div>
-                    <div className={this.state.advance_book == "9 months"  ? "modalshow date" : "hide date"}>
+                    <div className={this.state.advance_book == language.advance_books[3]  ? "modalshow date" : "hide date"}>
                       <img className="becomehost__info" src="./images/step3_8img1.png" alt=""/>
                       <span>{this.state.Months[new Date().getMonth()+5]}</span>
                     </div>
-                    <div className={this.state.advance_book == "9 months"  ? "modalshow date" : "hide date"}>
-                      <img className="becomehost__info" src={this.state.advance_book == "9 months" ? "./images/step3_8img2.png" : "./images/step3_8img1.png"} alt=""/>
-                      <span className={this.state.advance_book == "9 months" ? "textpink" : "" }>{this.state.Months[new Date().getMonth()+6]}</span>
+                    <div className={this.state.advance_book == language.advance_books[3]  ? "modalshow date" : "hide date"}>
+                      <img className="becomehost__info" src={this.state.advance_book == language.advance_books[3] ? "./images/step3_8img2.png" : "./images/step3_8img1.png"} alt=""/>
+                      <span className={this.state.advance_book == language.advance_books[3] ? "textpink" : "" }>{this.state.Months[new Date().getMonth()+6]}</span>
                     </div>
                 </div>
              </div>
@@ -2999,10 +3008,10 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Let’s talk pricing essentials</h1>
+              <h1>{language.Lets_talk_pricing_essentials}</h1>
 
 
               <div className="box col-md-12">
@@ -3011,8 +3020,8 @@ class ListingCreate extends Component {
                     <img  src="../images/step3_10img3.png" />
                   </div>
                   <div className="col-lg-9 pull-right">
-                    <h3>Start by choosing a price range</h3>
-                    <p>Factor in things like your location, what you offer as a host, and anything extra that makes your home unique, like a pool table.</p>
+                    <h3>{language.Start_by_choosing_a_price_range}</h3>
+                    <p>{language.Factor_in_things_like_your_location}</p>
                   </div>
                 </div>
                 <div className="boxdiv">
@@ -3020,8 +3029,8 @@ class ListingCreate extends Component {
                     <img  src="../images/step3_10img2.png" />
                   </div>
                   <div className="col-lg-9 pull-right">
-                    <h3>Demand changes, your price should too</h3>
-                    <p>Take advantage of high demand during local events and popular times of the year. During low demand, you might want to lower your price to attract more guests, just like hotels do.</p>
+                    <h3>{language.Demand_changes_your_price_should_too}</h3>
+                    <p>{language.Take_advantage_of_high_demand}</p>
                   </div>
                 </div>
                 <div className="boxdiv">
@@ -3029,8 +3038,8 @@ class ListingCreate extends Component {
                     <img  src="../images/step3_10img.png" />
                   </div>
                   <div className="col-lg-9 pull-right">
-                    <h3>We’re here to help</h3>
-                    <p>We offer tools to help you do both of these—Smart Pricing will look at demand in your area and help you set the right price for every night.</p>
+                    <h3>{language.Were_here_to_help}</h3>
+                    <p>{language.We_offer_tools_to_help_you}</p>
                   </div>
                 </div>
               </div>
@@ -3039,8 +3048,8 @@ class ListingCreate extends Component {
               
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -3048,7 +3057,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <h6>39%</h6>
-                    <p>Hosts who use Smart Pricing earn an average of 39% more than hosts who don’t. You can set up Smart Pricing next.</p>
+                    <p>{language.Hosts_who_use_Smart_Pricing_earn_an_average}</p>
                 </div>
              </div>
     
@@ -3078,10 +3087,10 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>How do you want to set your price?</h1>
+              <h1>{language.How_do_you_want_to_set_your_price}</h1>
 
               <div className="box col-md-12">
                 <div className="boxdiv" onClick={(e) => {if(this.state.Price_demand == 0 )this.setState({Price_demand:1});else this.setState({Price_demand:0});}} >
@@ -3089,9 +3098,9 @@ class ListingCreate extends Component {
                     <img  src="../images/step3_11img1.png" />
                   </div>
                   <div className="col-lg-8 content">
-                    <h3>Price adapts to demand</h3>
-                    <p>You tell Smart Pricing to automatically adjust your price to match demand, but only within a price range that you</p>
-                    <span>RECOMMENDED</span>
+                    <h3>{language.Price_adapts_to_demand}</h3>
+                    <p>{language.You_tell_Smart_Pricing_to_automatically}</p>
+                    <span>{language.RECOMMENDED}</span>
                   </div>
                   <div className="col-lg-1 radio">
                     <p><span className={this.state.Price_demand == 1 ?"show":"hide"}></span></p>
@@ -3102,8 +3111,8 @@ class ListingCreate extends Component {
                     <img  src="../images/step3_11img2.png" />
                   </div>
                   <div className="col-lg-8 content">
-                    <h3>Price is fixed</h3>
-                    <p>Set a base price. PopulStay gives you price tips that you can accept or ignore.</p>
+                    <h3>{language.Price_is_fixed}</h3>
+                    <p>{language.Set_a_base_price}</p>
                   </div>
                   <div className="col-lg-1 radio">
                     <p><span className={this.state.Price_fixed == 1 ?"show":"hide"}></span></p>
@@ -3113,16 +3122,16 @@ class ListingCreate extends Component {
 
               
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
 
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
-                 <div>
+                <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>The right price can change as the number of searches for listings like yours goes up and down. Whichever price option you choose, you'li get tips to help you set prices for your listing</p>
+                    <p>{language.The_right_price_can_change}</p>
                 </div>
              </div>
     
