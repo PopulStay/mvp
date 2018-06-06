@@ -239,7 +239,7 @@ class ListingCreate extends Component {
             photosindex:0,
             modalsubmit:false,
             PicturesSize:"",
-            National_name:["Angola-安哥拉-0244","Afghanistan-阿富汗-93","Albania-阿尔巴尼亚-335","Algeria-阿尔及利亚-213","Andorra-安道尔共和国-376","Anguilla-安圭拉岛-1254","Antigua and Barbuda-安提瓜和巴布达-1268","Argentina-阿根廷-54","Armenia-亚美尼亚-374","Ascension-阿森松-247","Australia-澳大利亚-61","Austria-奥地利-43","Azerbaijan-阿塞拜疆-994","Bahamas-巴哈马-1242","Bahrain-巴林-973","Bangladesh-孟加拉国-880","Barbados-巴巴多斯-1246","Belarus-白俄罗斯-375","Belgium-比利时-32","Belize-伯利兹-501","Benin-贝宁-229","Bermuda Is-百慕大群岛-1441","Bolivia-玻利维亚-591","Botswana-博茨瓦纳-267","Brazil-巴西-55","Brunei-文莱-673","Bulgaria-保加利亚-359","Burkina Faso-布基纳法索-226","Burma-缅甸-95","Burundi-布隆迪-257","Cameroon-喀麦隆-237","Canada-加拿大-1","Cayman Is-开曼群岛-1345","Central African Republic-中非共和国-236","Chad-乍得-235","Chile-智利-56","China-中国-86","Colombia-哥伦比亚-57","Congo-刚果-242","Cook Is-库克群岛-682","Costa Rica-哥斯达黎加-506","Cuba-古巴-53","Cyprus-塞浦路斯-357","Czech Republic-捷克-420","Denmark-丹麦-45","Djibouti-吉布提-253","Dominica Rep-多米尼加共和国-1890","Ecuador-厄瓜多尔-593","Egypt-埃及-20","EI Salvador-萨尔瓦多-503","Estonia-爱沙尼亚-372","Ethiopia-埃塞俄比亚-251","Fiji-斐济-679","Finland-芬兰-358","France-法国-33","French Guiana-法属圭亚那-594","French Polynesia-法属玻利尼西亚-689","Gabon-加蓬-241","Gambia-冈比亚-220","Georgia-格鲁吉亚-995","Germany-德国-49","Ghana-加纳-233","Gibraltar-直布罗陀-350","Greece-希腊-30","Grenada-格林纳达-1809","Guam-关岛-1671","Guatemala-危地马拉-502","Guinea-几内亚-224","Guyana-圭亚那-592","Haiti-海地-509","Honduras-洪都拉斯-504","Hongkong-香港-852","Hungary-匈牙利-36","Iceland-冰岛-354","India-印度-91","Indonesia-印度尼西亚-62","Iran-伊朗-98","Iraq-伊拉克-964","Ireland-爱尔兰-353","Israel-以色列-972","Italy-意大利-39","Ivory Coast-科特迪瓦-225","Jamaica-牙买加-1876","Japan-日本-81","Jordan-约旦-962","Kampuchea (Cambodia )-柬埔寨-855","Kazakstan-哈萨克斯坦-327","Kenya-肯尼亚-254","Korea-韩国-82","Kuwait-科威特-965","Kyrgyzstan-吉尔吉斯坦-331","Laos-老挝-856","Latvia-拉脱维亚-371","Lebanon-黎巴嫩-961","Lesotho-莱索托-266","Liberia-利比里亚-231","Libya-利比亚-218","Liechtenstein-列支敦士登--423","Lithuania-立陶宛-370","Luxembourg-卢森堡-352","Macao-澳门-853","Madagascar-马达加斯加-261","Malawi-马拉维-265","Malaysia-马来西亚-60","Maldives-马尔代夫-960","Mali-马里-223","Malta-马耳他-356","Mariana Is-马里亚那群岛-1670","Martinique-马提尼克-596","Mauritius-毛里求斯-230","Mexico-墨西哥-52","Moldova-摩尔多瓦-373","Monaco-摩纳哥-377","Mongolia-蒙古-976","Montserrat Is-蒙特塞拉特岛-1664","Morocco-摩洛哥-212","Mozambique-莫桑比克-258","Namibia-纳米比亚-264","Nauru-瑙鲁-674","Nepal-尼泊尔-977","Netheriands Antilles-荷属安的列斯-599","Netherlands-荷兰-31","New Zealand-新西兰-64","Nicaragua-尼加拉瓜-505","Niger-尼日尔-227","Nigeria-尼日利亚-234","North Korea-朝鲜-850","Norway-挪威-47","Oman-阿曼-968","Pakistan-巴基斯坦-92","Panama-巴拿马-507","Papua New Cuinea-巴布亚新几内亚-675","Paraguay-巴拉圭-595","Peru-秘鲁-51","Philippines-菲律宾-63","Poland-波兰-48","Portugal-葡萄牙-351","Puerto Rico-波多黎各-1787","Qatar-卡塔尔-974","Reunion-留尼旺-262","Romania-罗马尼亚-40","Russia-俄罗斯-7","Saint Lueia-圣卢西亚-1758","Saint Vincent-圣文森特岛-1784","Samoa Eastern-东萨摩亚(美)-684","Samoa Western-西萨摩亚-685","San Marino-圣马力诺-378","Sao Tome and Principe-圣多美和普林西比-239","Saudi Arabia-沙特阿拉伯-966","Senegal-塞内加尔-221","Seychelles-塞舌尔-248","Sierra Leone-塞拉利昂-232","Singapore-新加坡-65","Slovakia-斯洛伐克-421","Slovenia-斯洛文尼亚-386","Solomon Is-所罗门群岛-677","Somali-索马里-252","South Africa-南非-27","Spain-西班牙-34","SriLanka-斯里兰卡-94","St.Lucia-圣卢西亚-1758","St.Vincent-圣文森特-1784","Sudan-苏丹-249","Suriname-苏里南-597","Swaziland-斯威士兰-268","Sweden-瑞典-46","Switzerland-瑞士-41","Syria-叙利亚-963","Taiwan-台湾省-886","Tajikstan-塔吉克斯坦-992","Tanzania-坦桑尼亚-255","Thailand-泰国-66","Togo-多哥-228","Tonga-汤加-676","Trinidad and Tobago-特立尼达和多巴哥-1809","Tunisia-突尼斯-216","Turkey-土耳其-90","Turkmenistan-土库曼斯坦-993","Uganda-乌干达-256","Ukraine-乌克兰-380","United Arab Emirates-阿拉伯联合酋长国-971","United Kiongdom-英国-44","United States of America-美国-1","Uruguay-乌拉圭-598","Uzbekistan-乌兹别克斯坦-233","Venezuela-委内瑞拉-58","Vietnam-越南-84","Yemen-也门-967","Yugoslavia-南斯拉夫-381","Zimbabwe-津巴布韦-263","Zaire-扎伊尔-243","Zambia-赞比亚-260"],
+            National_name:["0244","93","335","213","376","1254","1268","54","374","247","61","43","994","1242","973","880","1246","375","32","501","229","1441","591","267","55","673","359","226","95","257","237","1","1345","236","235","56","86","57","242","682","506","53","357","420","45","253","1890","593","20","503","372","251","679","358","33","594","689","241","220","995","49","233","350","30","1809","1671","502","224","592","509","504","852","36","354","91","62","98","964","353","972","39","225","1876","81","962","855","327","254","82","965","331","856","371","961","266","231","218","423","370","352","853","261","265","60","960","223","356","1670","596","230","52","373","377","976","1664","212","258","264","674","977","599","31","64","505","227","234","850","47","968","92","507","675","595","51","63","48","351","1787","974","262","40","7","1758","1784","684","685","378","239","966","221","248","232","65","421","386","677","252","27","34","94","1758","1784","249","597","268","46","41","963","886","992","255","66","228","676","1809","216","90","993","256","380","971","44","1","598","233","58","84","967","381","263","243","260"],
             Howoften_Froms:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             Howoften_Tos:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             languagelist:{},
@@ -273,6 +273,14 @@ class ListingCreate extends Component {
     }
 
     componentWillMount() {
+
+        guestService.getGuesterInfo(window.address).then((data)=>{
+          if(data)
+            {
+                console.log(data.user)
+                this.setState({ user:data.user });
+            }
+        });
         
         this.setState({
             state:this.state.languagelist=window.languagelist,
@@ -921,7 +929,6 @@ class ListingCreate extends Component {
              </div>
              </div>
              </div>
-
         }
 
         {
@@ -963,7 +970,6 @@ class ListingCreate extends Component {
              </div>
              </div>
              </div>
-
         }
 
         {
@@ -1038,7 +1044,6 @@ class ListingCreate extends Component {
              </div>
              </div>
              </div>
-
         }
 
         {
@@ -1560,10 +1565,10 @@ class ListingCreate extends Component {
               <span className="bjpink"></span>
               <span></span>
               <span></span>
-              <p>Step 2: Set the scene</p>
+              <p>{language.Step} 2: {language.Set_the_scene}</p>
             </div>
 
-               <h1>Show travellers what your space looks like
+               <h1>{language.Show_travellers_what_your_space_looks_like}
                 <img src="../images/photoi.png" onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}/>
               </h1>
 
@@ -1571,24 +1576,24 @@ class ListingCreate extends Component {
                   <span onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}>×</span>
                   <ul>
                       <img src="../images/step2_2.png" />
-                      <li>Many hosts have at least 8 photos. You can start with just one photo and come back later to add more. Including photos of all the spaces a guest can use helps guests imagine staying at your place.</li>
+                      <li>{language.Many_hosts_have_at_least_8photos}</li>
                       <img src="../images/step2_1.png" />
-                      <li>Make sure the room is well-lit. Or take photos during daylight hours.</li>
-                      <li>Sometimes shooting from a corner (instead of straight-on) gives you a better shot.</li>
+                      <li>{language.Make_sure_the_room_is_well_lit}</li>
+                      <li>{language.Sometimes_shooting_from_a_corner}</li>
                   </ul>
               </div>
               
               <div className="photos" onChange={(e) => this.setState({step:this.STEP.Step2_2})}>
                  <div className="photosipt">
+                    <h3>{language.Drag_and_Drop}<p>{language.OR}</p><button>{language.Browse}</button></h3>
                     <img src="../images/addphoto.png" alt=""/>
                     <input className="btn btn-default btn-lg bg-pink color-white Fileipt" type="file" onChange={this.fileChangedHandler}/>
                  </div>
               </div>
-
              
             <div className="STEPBTN">
-              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
             </div>
              
              </div>
@@ -1606,10 +1611,10 @@ class ListingCreate extends Component {
               <span className="bjpink"></span>
               <span></span>
               <span></span>
-              <p>Step 2: Set the scene</p>
+              <p>{language.Step} 2: {language.Set_the_scene}</p>
             </div>
 
-              <h1>Show travellers what your space looks like
+              <h1>{language.Show_travellers_what_your_space_looks_like}
                 <img src="../images/photoi.png" onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}/>
               </h1>
 
@@ -1617,10 +1622,10 @@ class ListingCreate extends Component {
                   <span onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}>×</span>
                   <ul>
                       <img src="../images/step2_2.png" />
-                      <li>Many hosts have at least 8 photos. You can start with just one photo and come back later to add more. Including photos of all the spaces a guest can use helps guests imagine staying at your place.</li>
+                      <li>{language.Many_hosts_have_at_least_8photos}</li>
                       <img src="../images/step2_1.png" />
-                      <li>Make sure the room is well-lit. Or take photos during daylight hours.</li>
-                      <li>Sometimes shooting from a corner (instead of straight-on) gives you a better shot.</li>
+                      <li>{language.Make_sure_the_room_is_well_lit}</li>
+                      <li>{language.Sometimes_shooting_from_a_corner}</li>
                   </ul>
               </div>
               
@@ -1655,29 +1660,29 @@ class ListingCreate extends Component {
                         rotate={this.state.canvasRotate}
                       />
                     </div>
-                    <div className="modal-footer"vz>
+                    <div className="modal-footer" >
                       <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
-                          <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />Crop</li>
-                          <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />Adjust Brightness</li>
-                          <li onClick={(e) => this.setState({canvasRotate:this.state.canvasRotate+90})}><img src="../images/Rotate.png" />Rotate</li>
+                          <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />{language.Crop}</li>
+                          <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />{language.Adjust_Brightness}</li>
+                          <li onClick={(e) => this.setState({canvasRotate:this.state.canvasRotate+90})}><img src="../images/Rotate.png" />{language.Rotate}</li>
                       </ul>
                       <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
                           <li  className={this.state.modalset == 1 ? "show" : "hide"}>
-                              <p>Zoom</p>
+                              <p>{language.Zoom}</p>
                               <input type="range" onChange={(e)=>this.setState({canvasScale:e.target.value})} name="points"  step="0.01" min="0.5" max="2" />
                           </li>
                           <li  className={this.state.modalset == 2 ? "show" : "hide"}>
-                              <p>Brightness</p>
+                              <p>{language.Brightness}</p>
                               <input type="range" onChange={(e)=>this.BrightnessPictures(e.target.value)} name="points" step="0.01" min="-1" max="1" />
                           </li>
                           <li  className={this.state.modalset == 2 ? "show" : "hide"}>
-                              <p>Contrast Ratio</p>
+                              <p>{language.Contrast_Ratio}</p>
                               <input type="range" name="points" step="0.02" min="1" max="3" />
                           </li>
                       </ul>
-                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">Cancel</button>
-                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >Complete</button>
-                      <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} data-dismiss="modal" aria-hidden="true" type="button" onClick={(e)=>this.onClickSave(e)}>Save and Replace</button>
+                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">{language.Cancel}</button>
+                      <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >{language.Complete}</button>
+                      <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} data-dismiss="modal" aria-hidden="true" type="button" onClick={(e)=>this.onClickSave(e)}>{language.Save_and_Replace}</button>
                     </div>
                   </div>
                 </div>
@@ -1686,8 +1691,8 @@ class ListingCreate extends Component {
 
              
             <div className="STEPBTN">
-              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+              <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
             </div>
              
              </div>
@@ -1705,28 +1710,28 @@ class ListingCreate extends Component {
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span></span>
-                <p>Step 2: Set the scene</p>
+                <p>{language.Step} 2: {language.Set_the_scene}</p>
               </div>
 
-              <h2>Edit your description</h2>
-              <h4>Summary</h4>
-              <textarea onChange={(e) => this.setState({roomdescription_description: e.target.value})} placeholder="Describe the decor,light,what’s nearby,etc...">{this.state.roomdescription_description}</textarea>
+              <h2>{language.Edit_your_description}</h2>
+              <h4>{language.Summary}</h4>
+              <textarea onChange={(e) => this.setState({roomdescription_description: e.target.value})} placeholder={language.Describe_the_decor_light_whats_nearby_etc}>{this.state.roomdescription_description}</textarea>
 
-              <h4>My place is great for</h4>
+              <h4>{language.My_place_is_great_for}</h4>
 
               <div className="stepbox">  
                 <div onClick={(e) => {if(this.state.roomstuff_withKids ==0 )this.setState({roomstuff_withKids:1});else this.setState({roomstuff_withKids:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_withKids ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Family (with kids)</p>
+                  <p className="divinput">{language.Family_with_kids}</p>
                 </div>
 
                   <div onClick={(e) => {if(this.state.roomstuff_BigGroups ==0 )this.setState({roomstuff_BigGroups:1});else this.setState({roomstuff_BigGroups:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_BigGroups ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Big groups</p>
+                  <p className="divinput">{language.Big_groups}</p>
                   
                 </div>
 
@@ -1734,40 +1739,40 @@ class ListingCreate extends Component {
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_pets ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Furry friends (pets)</p>
+                  <p className="divinput">{language.Furry_friends_pets}</p>
                 </div>
             </div>
               
-              <h4 className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>Add more (optional)</h4>
-              <p className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>only 30% of hosts add more info here</p>
+              <h4 className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>{language.Add_more_optional}</h4>
+              <p className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>{language.only_of_hosts_add_more_info_here}</p>
 
             <div className={this.state.scene == 0 ? 'show' : 'hide'}>
-              <h4>About your place (optional)</h4>
+              <h4>{language.About_your_place_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_Aboutyour: e.target.value})}>{this.state.roomdescription_Aboutyour}</textarea>
 
 
-              <h4>What guests can access (optional)</h4>
+              <h4>{language.What_guests_can_access_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_guestscan: e.target.value})}>{this.state.roomdescription_guestscan}</textarea>
 
 
-              <h4>Your interaction with guests (optional)</h4>
+              <h4>{language.Your_interaction_with_guests_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_interaction: e.target.value})}>{this.state.roomdescription_interaction}</textarea>
 
-              <h4>Other things to note (optional)</h4>
+              <h4>{language.Other_things_to_note_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_Otherthings: e.target.value})}>{this.state.roomdescription_Otherthings}</textarea>
 
-              <h2>The neighbourhood</h2>
+              <h2>{language.The_neighbourhood}</h2>
               
 
-              <h4>About the neighbourhood (optional)</h4>
+              <h4>{language.About_the_neighbourhood_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_neighbourhood: e.target.value})}>{this.state.roomdescription_neighbourhood}</textarea>
 
-              <h4>How to get around (optional)</h4>
+              <h4>{language.How_to_get_around_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_around: e.target.value})}>{this.state.roomdescription_around}</textarea>
             </div>
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className={ this.state.roomdescription_description == "" ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_description == "" ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className={ this.state.roomdescription_description == "" ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_description == "" ? "disabled" : ""} onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -1775,8 +1780,8 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Your summary description is meant to be a brief overview of your place that guests read before they get into the details.</p>
-                    <p>You can also use your description to remind guests that people from all backgrounds are welcome in your home.</p>
+                    <p>{language.Your_summary_description}</p>
+                    <p>{language.You_can_also_use_your_description}</p>
                 </div>
              </div>
     
@@ -1795,13 +1800,13 @@ class ListingCreate extends Component {
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
-                <p>Step 2: Set the scene</p>
+                <p>{language.Step} 2: {language.Set_the_scene}</p>
               </div>
 
-              <h1>Name your place</h1>
+              <h1>{language.Name_your_place}</h1>
               <div className="box">
                 <span className={this.state.roomdescription_title.length > 50 ? "textpink" : ""}>{50-this.state.roomdescription_title.length}</span>
-                <input placeholder="Listing title" onChange={(e) => this.setState({roomdescription_title: e.target.value})} value={this.state.roomdescription_title}  type="text" />
+                <input placeholder={language.Listing_title} onChange={(e) => this.setState({roomdescription_title: e.target.value})} value={this.state.roomdescription_title}  type="text" />
               </div>
 
 
@@ -1809,8 +1814,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "disabled" : ""} onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -1818,7 +1823,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Singapore Home with a View</p>
+                    <p>{language.Singapore_Home_with_a_View}</p>
                 </div>
              </div>
     
@@ -1837,10 +1842,10 @@ class ListingCreate extends Component {
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
-                <p>Step 2: Set the scene</p>
+                <p>{language.Step} 2: {language.Set_the_scene}</p>
               </div>
 
-              <h1>Add your mobile number</h1>
+              <h1>{language.Add_your_mobile_number}</h1>
 
 
               <div className="box col-md-10">
@@ -1851,7 +1856,7 @@ class ListingCreate extends Component {
                   <span data-toggle="dropdown">+{this.state.roomstuff_AreaCode}</span>
                   <ul className="dropdown-menu" role="menu">
                     {this.state.National_name.map((item,index) => (
-                        <li><a onClick={(e)=>this.setState({roomstuff_AreaCode:(item.split('-')[2])})} >+{(item.split('-')[2])}</a></li>
+                        <li><a onClick={(e)=>this.setState({roomstuff_AreaCode:item})} >+{item}</a></li>
                       ))
                     }
                   </ul>
@@ -1868,8 +1873,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className={ this.state.phoneactive == 0 ? "buttonActive Right" : "Right"} disabled={ this.state.phoneactive == 0 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className={ this.state.phoneactive == 0 ? "buttonActive Right" : "Right"} disabled={ this.state.phoneactive == 0 ? "disabled" : ""} onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -1877,7 +1882,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Only confirmed guests get your phone number. This helps guests contact you quickly if needed. </p>
+                    <p>{language.Only_confirmed_guests_get_your_phone_number}</p>
                 </div>
              </div>
     
@@ -1893,42 +1898,42 @@ class ListingCreate extends Component {
           <div className="becomehost-5 container">
           <div className="row Step1_10">
           <div className="col-md-6 col-lg-7 col-sm-6">
-          <h1>Great process {this.state.user}!</h1>
-          <h3>Now let's get some details about your place so you can publish your listings </h3>
+          <h1>{language.Great_process} {this.state.user}!</h1>
+          <h3>{language.Now_lets_get_some_details}</h3>
           <div className="change">
               <div>
-                <p>Bedrooms,beds,amenities,and more</p>
-                <p className="textpink" onClick={(e) => this.setState({step:this.STEP.Step1_1})}>change</p>
+                <p>{language.Bedrooms_beds_amenities_and_more}</p>
+                <p className="textpink" onClick={(e) => this.setState({step:this.STEP.Step1_1})}>{language.change}</p>
               </div>
               <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
           </div>
 
           <div className="change">
               <div>
-                <p>Photos, short description, title</p>
-                <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step2_1})}>change</p>
+                <p>{language.Photos_short_description_title}</p>
+                <p className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step2_1})}>{language.change}</p>
               </div>
               <img  className="becomehost__step-1" src="../images/landloard_page-30.png" alt=""/>
           </div>
 
           <div className="Step2box">
-            <p className="Step2">Step 3</p>
-            <h2>Get ready for guests</h2>
-            <p className="Set">Booking settings, calendar, price</p>
-            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.nextStep}>Continue</button>
+            <p className="Step2">{language.Step} 3</p>
+            <h2>{language.Get_ready_for_guests}</h2>
+            <p className="Set">{language.Booking_settings_calendar_price}</p>
+            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.nextStep}>{language.Continue}</button>
           </div>
 
 
           <div className="Stepbox1">
-            <h2>The 3rd Party service provided by host </h2>
+            <h2>{language.The_3rd_Party_service_provided_by_host}</h2>
 
             <div className="service">
               <div>
-                  <h5><p>Home Rapair<span>▲</span></p></h5>
-                  <h5><p>Marketing & Brand<span>▼</span></p></h5>
-                  <h5><p>Photoshooting<span>▲</span></p></h5>
-                  <h5><p>Interior Design<span>▼</span></p></h5>
-                  <h5><p>Cleaning & Washing<span>▲</span></p></h5>
+                  <h5><p>{language.Home_Rapair}<span>▲</span></p></h5>
+                  <h5><p>{language.Marketing_Brand}<span>▼</span></p></h5>
+                  <h5><p>{language.Photoshooting}<span>▲</span></p></h5>
+                  <h5><p>{language.Interior_Design}<span>▼</span></p></h5>
+                  <h5><p>{language.Cleaning_Washing}<span>▲</span></p></h5>
               </div>
             </div>
 
@@ -1936,158 +1941,158 @@ class ListingCreate extends Component {
 
           <div className="Rapair" onClick={(e) => {if(this.state.Rapair == 0 )this.setState({Rapair:1});else this.setState({Rapair:0});}}>
               <img  src="../images/footer_icon-19.png" alt=""/>
-              <span className="left">We recommend: </span>
-              <span className="right">Home Rapair</span>
+              <span className="left">{language.We_recommend}: </span>
+              <span className="right">{language.Home_Rapair}</span>
           </div>      
 
           <div  className={this.state.Rapair != 0 ? 'show Shop' : 'hide Shop'}>
               <div className={this.state.Rapair == 1 ? 'show Shoplist' : 'hide Shoplist'}>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop1</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop1</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop1</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop1</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
               </div>
               <div className={this.state.Rapair == 2 ? 'show Shoplist' : 'hide Shoplist'}>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop2</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop2</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop2</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop2</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
               </div>
               <div  className={this.state.Rapair == 3 ? 'show Shoplist' : 'hide Shoplist'}>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop3</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop3</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop3</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
                   <div className="Shopitem">
                       <div>
-                          <span className="left">Shop3</span>
-                          <span className="right">Home - Fix</span>  
+                          <span className="left">{language.Shop1}</span>
+                          <span className="right">{language.Home_Fix}</span>  
                       </div>
                       <ul>
-                          <li><span>Address: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
-                          <li><span>Contact No:</span>  +65 84736394</li>
-                          <li><span>Email Address : </span> HFC@homefix.com</li>
-                          <li><span>Reference :</span> "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
+                          <li><span>{language.Address}: </span> Selffix DIY Vivo City,1 Harbourfront Walk,#B2-20/21 VivoCity,098585</li>
+                          <li><span>{language.Contact_No}:</span>  +65 84736394</li>
+                          <li><span>{language.Email_Address} : </span> HFC@homefix.com</li>
+                          <li><span>{language.Reference} :</span> Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do e</li>
                       </ul>
                   </div>
               </div>
@@ -2128,52 +2133,52 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Review PopulStay’s guest requirements</h1>
+              <h1>{language.Review_PopulStays_guest_requirements}</h1>
 
 
               <div className="box col-md-12">
-                <h3>All PopulStay guests must provide:</h3>
+                <h3>{language.All_PopulStay_guests_must_provide}</h3>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>{language.Email_address}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmedphone ==0 )this.setState({roomdescription_Confirmedphone:1});else this.setState({roomdescription_Confirmedphone:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>Confirmed phone number</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>{language.Confirmed_phone_number}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_information ==0 )this.setState({roomdescription_information:1});else this.setState({roomdescription_information:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_information == 1 ?"show":"hide"}></span></p>Payment information</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_information == 1 ?"show":"hide"}></span></p>{language.Payment_information}</label>
                 </div>
 
-                <h3>Before booking your home, each guest must:</h3>
+                <h3>{language.Before_booking_your_home_each_guest_must}</h3>
                 <div className="radio"  onClick={(e) => {if(this.state.roomdescription_Rules ==0 )this.setState({roomdescription_Rules:1});else this.setState({roomdescription_Rules:0});}}>
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Rules == 1 ?"show":"hide"}></span></p>Agree to your House Rules</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Rules == 1 ?"show":"hide"}></span></p>{language.Agree_to_your_House_Rules}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Message ==0 )this.setState({roomdescription_Message:1});else this.setState({roomdescription_Message:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Message == 1 ?"show":"hide"}></span></p>Message you about their trip</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Message == 1 ?"show":"hide"}></span></p>{language.Message_you_about_their_trip}</label>
                 </div>
                 <div className="radio"  onClick={(e) => {if(this.state.roomdescription_manyguests ==0 )this.setState({roomdescription_manyguests:1});else this.setState({roomdescription_manyguests:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_manyguests == 1 ?"show":"hide"}></span></p>Let you know how many guests are coming</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_manyguests == 1 ?"show":"hide"}></span></p>{language.Let_you_know_how_many_guests_are_coming}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmtime ==0 )this.setState({roomdescription_Confirmtime:1});else this.setState({roomdescription_Confirmtime:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmtime == 1 ?"show":"hide"}></span></p>Confirm their check-in time if they’re arriving within 2 days</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmtime == 1 ?"show":"hide"}></span></p>{language.Confirm_their_checkin_time_if_theyre_arriving_within2days}</label>
                 </div>
 
-                <h3 className="textpink">Add additional requirements</h3>
+                <h3 className="textpink">{language.Add_additional_requirements}</h3>
                 <div className="check" onClick={(e) => {if(this.state.roomstuff_submittedPopulStay ==0 )this.setState({roomstuff_submittedPopulStay:1});else this.setState({roomstuff_submittedPopulStay:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_submittedPopulStay ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">government-issued ID submitted to PopulStay</p>
+                  <p className="divinput">{language.governmentissued_ID_submitted_to_PopulStay}</p>
                 </div>
                 <div className="check" onClick={(e) => {if(this.state.roomstuff_Recommended ==0 )this.setState({roomstuff_Recommended:1});else this.setState({roomstuff_Recommended:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_Recommended ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Recommended by other hosts and have no negative reviews</p>
+                  <p className="divinput">{language.Recommended_by_other_hosts_and_have_no_negative_reviews}</p>
                 </div>
-                <h6>More requirements can mean fewer reservations.</h6>
+                <h6>{language.More_requirements_can_mean_fewer_reservations}</h6>
               </div>
 
 
@@ -2181,8 +2186,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2190,7 +2195,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>You need to feel confident with every reservation. That’s why we require certain information from every guest before they can book. </p>
+                    <p>{language.You_need_to_feel_confident_with_every_reservation}</p>
                 </div>
              </div>
     
@@ -2220,18 +2225,18 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Set house rules for your guests</h1>
+              <h1>{language.Set_house_rules_for_your_guests}</h1>
 
 
               <div className="box col-md-10">
                 <div className="check" onClick={(e) => {if(this.state.rules_children ==0 )this.setState({rules_children:1});else this.setState({rules_children:0});}}>
-                  <p className="divinput">Suitable for children (2-12 years)
+                  <p className="divinput">{language.Suitable_for_children}
                     <span><img className="Promptimg" src="../images/Prompt.png" />
                     <div className="rightbox1">
-                      <p><span>▲</span>You can say your listing isn’t suitable for infants or children if there are features that are dangerous for children or there’s a risk of property damage. If you decide to restrict guests with infants or children from booking, add an explanation so guests can understand why your listing isn’t suitable for their trip.</p>
+                      <p><span>▲</span>{language.You_can_say_your_listing}</p>
                     </div>
                     </span>
                   </p>
@@ -2248,19 +2253,19 @@ class ListingCreate extends Component {
                 contentLabel="Wallet Message">
                 <div className="Explainwhy">
                   <span className="close" onClick={(e) => {this.closeModal(e)}}>×</span>
-                  <h3>Explain why your listing isn’t  suitable for children</h3>
-                  <p>What features of your space might be dangerous to  children or easily damaged?</p>
+                  <h3>{language.Explain_why_your_listing}</h3>
+                  <p>{language.What_features_of_your}</p>
                   <textarea onChange={(e)=>this.setState({Explainwhy:e.target.value})}></textarea>
-                  <button className="Done" onClick={(e) => {this.closeModal(e)}} >Done</button>
-                  <button className="Cancel" onClick={(e) => {this.closeModal(e)}} >Cancel</button>
+                  <button className="Done" onClick={(e) => {this.closeModal(e)}} >{language.Done}</button>
+                  <button className="Cancel" onClick={(e) => {this.closeModal(e)}} >{language.Cancel}</button>
                 </div>  
                 </Modal>
 
                 <div className="check" onClick={(e) => {if(this.state.rules_infants ==0 )this.setState({rules_infants:1});else this.setState({rules_infants:0});}}>
-                  <p className="divinput">Suitable for infants (Under 2 years)
+                  <p className="divinput">{language.Suitable_for_infants}
                     <span><img className="Promptimg" src="../images/Prompt.png" />
                     <div className="rightbox1">
-                      <p><span>▲</span>You can say your listing isn’t suitable for infants or children if there are features that are dangerous for children or there’s a risk of property damage. If you decide to restrict guests with infants or children from booking, add an explanation so guests can understand why your listing isn’t suitable for their trip.</p>
+                      <p><span>▲</span>{language.You_can_say_your_listing}</p>
                     </div>
                     </span>
                   </p>
@@ -2272,10 +2277,10 @@ class ListingCreate extends Component {
                   </p>
                 </div>
                 <div className="check" onClick={(e) => {if(this.state.rules_pets ==0 )this.setState({rules_pets:1});else this.setState({rules_pets:0});}}>
-                  <p className="divinput">Suitable for pets
+                  <p className="divinput">{language.Suitable_for_pets}
                     <span><img className="Promptimg" src="../images/Prompt.png" />
                     <div className="rightbox1">
-                      <p><span>▲</span>You can limit guests from bringing pets, but assistance animals—for example, seeing eye dogs—aren’t considered pets. You have to reasonably accommodate reservations where a guest might bring an assistance animal, even if your listing or House Rules state “no pets.”Learn more</p>
+                      <p><span>▲</span>{language.You_can_limit_guests_from_bringing_pets}</p>
                     </div>
                     </span>
                   </p>
@@ -2287,7 +2292,7 @@ class ListingCreate extends Component {
                   </p>
                 </div>
                 <div className="check" onClick={(e) => {if(this.state.rules_Smoking ==0 )this.setState({rules_Smoking:1});else this.setState({rules_Smoking:0});}}>
-                  <p className="divinput">Smoking allowed</p>
+                  <p className="divinput">{language.Smoking_allowed}</p>
                   <p  className="Pinput">
                       <img className={this.state.rules_Smoking ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
@@ -2296,7 +2301,7 @@ class ListingCreate extends Component {
                   </p>
                 </div>
                 <div className="check" onClick={(e) => {if(this.state.rules_parties ==0 )this.setState({rules_parties:1});else this.setState({rules_parties:0});}}>
-                  <p className="divinput">Events or parties allowed</p>
+                  <p className="divinput">{language.Events_or_parties_allowed}</p>
                   <p  className="Pinput">
                       <img className={this.state.rules_parties ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
@@ -2305,73 +2310,73 @@ class ListingCreate extends Component {
                   </p>
                 </div>
 
-                <h4>Additional rules</h4>
+                <h4>{language.Additional_rules}</h4>
                 {this.state.AdditionalRules.map((Rules,index) => (
                   <h3>{Rules}<span data-index={index} onClick={this.deleteRules.bind(this,index)}>×</span></h3>
                   ))
                 }
                 <form onSubmit={(e)=>this.AdditionalRules(e)}>
                   <div className="add">
-                    <input type="text" onChange={(e)=>this.setState({RulesIpt:e.target.value})} placeholder="Quiet hours? No shoes in the house?" value={this.state.RulesIpt} />
-                    <button type="submit">Add</button>
+                    <input type="text" onChange={(e)=>this.setState({RulesIpt:e.target.value})} placeholder={language.Quiet_hours_No_shoes_in_the_house} value={this.state.RulesIpt} />
+                    <button type="submit">{language.Add}</button>
                   </div>
                 </form>
 
-                <h4 className={this.state.guests_know == 0 ? "textpink":""} onClick={(e)=>this.setState({guests_know:1})}>Details guests must know about your home</h4>
+                <h4 className={this.state.guests_know == 0 ? "textpink":""} onClick={(e)=>this.setState({guests_know:1})}>{language.Details_guests_must_know_about_your_home}</h4>
                 <div className={this.state.guests_know == 0 ? "hide":"show"}>
                   <div className="check1" onClick={(e) => {if(this.state.climb_stairs ==0 )this.setState({climb_stairs:1});else this.setState({climb_stairs:0});}}>
                     <p  className="Pinput">
                         <img className={this.state.climb_stairs ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                     </p>
-                    <p className="divinput">Must climb stairs</p>
+                    <p className="divinput">{language.Must_climb_stairs}</p>
                   </div>
                   <div className="check1" onClick={(e) => {if(this.state.Potential_noise ==0 )this.setState({Potential_noise:1});else this.setState({Potential_noise:0});}}>
                     <p  className="Pinput">
                         <img className={this.state.Potential_noise ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                     </p>
-                    <p className="divinput">Potential for noise</p>
+                    <p className="divinput">{language.Potential_for_noise}</p>
                   </div>
                   <div className="check1" onClick={(e) => {if(this.state.property_Pet ==0 )this.setState({property_Pet:1});else this.setState({property_Pet:0});}}>
                     <p  className="Pinput">
                         <img className={this.state.property_Pet ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                     </p>
-                    <p className="divinput">Pet(s) live on property</p>
+                    <p className="divinput">{language.Pets_live_on_property}</p>
                   </div>
                   <div className="check1" onClick={(e) => {if(this.state.property_parking ==0 )this.setState({property_parking:1});else this.setState({property_parking:0});}}>
                     <p  className="Pinput">
                         <img className={this.state.property_parking ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                     </p>
-                    <p className="divinput">No parking on property</p>
+                    <p className="divinput">{language.No_parking_on_property}</p>
                   </div>
                   <div className="check1" onClick={(e) => {if(this.state.shared_spaces ==0 )this.setState({shared_spaces:1});else this.setState({shared_spaces:0});}}>
                     <p  className="Pinput">
                         <img className={this.state.shared_spaces ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                     </p>
-                    <p className="divinput">Some spaces are shared</p>
+                    <p className="divinput">{language.Some_spaces_are_shared}</p>
                   </div>
                   <div className="check1" onClick={(e) => {if(this.state.Amenity_limitations ==0 )this.setState({Amenity_limitations:1});else this.setState({Amenity_limitations:0});}}>
                     <p  className="Pinput">
                         <img className={this.state.Amenity_limitations ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                     </p>
-                    <p className="divinput">Amenity limitations</p>
+                    <p className="divinput">{language.Amenity_limitations}</p>
                   </div>
                   <div className="check1" onClick={(e) => {if(this.state.property_recording ==0 )this.setState({property_recording:1});else this.setState({property_recording:0});}}>
                     <p  className="Pinput">
                         <img className={this.state.property_recording ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                     </p>
-                    <p className="divinput">D Survellance or recording devices on property</p>
+                    <p className="divinput">{language.D_Survellance_or_recording_devices_on_property}</p>
                   </div>
                   <div className="check1" onClick={(e) => {if(this.state.property_Weapons ==0 )this.setState({property_Weapons:1});else this.setState({property_Weapons:0});}}>
                     <p  className="Pinput">
                         <img className={this.state.property_Weapons ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                     </p>
-                    <p className="divinput">Weapons on property</p>
+                    <p className="divinput">{language.Weapons_on_property}</p>
                   </div>
                   <div className="check1" onClick={(e) => {if(this.state.property_animals ==0 )this.setState({property_animals:1});else this.setState({property_animals:0});}}>
                     <p  className="Pinput">
                         <img className={this.state.property_animals ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                     </p>
-                    <p className="divinput">Dangerous animals on property</p>
+                    <p className="divinput">{language.Dangerous_animals_on_property}</p>
                   </div>
                 </div>
                 
@@ -2382,8 +2387,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2391,8 +2396,8 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-12 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>In addition to PopulStay’s requirements, guests must agree to all your House Rules before they book.</p>
-                    <p>If you’re ever uncomfortable with a reservation, you can cancel penalty-free before or during a trip.</p>
+                    <p>{language.In_addition_to_PopulStays_requirements}</p>
+                    <p>{language.If_youre_ever_uncomfortable_with_a_reservation}</p>
                 </div>
              </div>
     
@@ -2422,44 +2427,44 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Review PopulStay guest requirements</h1>
+              <h1>{language.Review_PopulStay_guest_requirements}</h1>
 
 
               <div className="box col-md-12">
-                <h3>All PopulStay guests must provide:<span className="textpink" >Review</span></h3>
+                <h3>{language.All_PopulStay_guests_must_provide}:<span className="textpink" >{language.Review}</span></h3>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Email ==0 )this.setState({roomdescription_Email:1});else this.setState({roomdescription_Email:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>Email address</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Email == 1 ?"show":"hide"}></span></p>{language.Email_address}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.roomdescription_Confirmedphone ==0 )this.setState({roomdescription_Confirmedphone:1});else this.setState({roomdescription_Confirmedphone:0});}} >
-                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>Confirmed phone number</label>
+                  <label className="text-muted"><p><span className={this.state.roomdescription_Confirmedphone == 1 ?"show":"hide"}></span></p>{language.Confirmed_phone_number}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.Payment_information ==0 )this.setState({Payment_information:1});else this.setState({Payment_information:0});}} >
-                  <label className="text-muted"><p><span className={this.state.Payment_information == 1 ?"show":"hide"}></span></p>Payment information</label>
+                  <label className="text-muted"><p><span className={this.state.Payment_information == 1 ?"show":"hide"}></span></p>{language.Payment_information}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.guest_message ==0 )this.setState({guest_message:1});else this.setState({guest_message:0});}} >
-                  <label className="text-muted"><p><span className={this.state.guest_message == 1 ?"show":"hide"}></span></p>A message about the guest’s trip</label>
+                  <label className="text-muted"><p><span className={this.state.guest_message == 1 ?"show":"hide"}></span></p>{language.A_message_about_the_guests_trip}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.last_time ==0 )this.setState({last_time:1});else this.setState({last_time:0});}} >
-                  <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>Check-in time for last minute trips</label>
+                  <label className="text-muted"><p><span className={this.state.last_time == 1 ?"show":"hide"}></span></p>{language.Checkin_time_for_last_minute_trips}</label>
                 </div>
 
-                <h3>Your additional requirements<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>Edit</span></h3>
+                <h3>{language.Your_additional_requirements}<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>{language.Edit}</span></h3>
                 <div className="radio"  onClick={(e) => {if(this.state.governmentissued_ID ==0 )this.setState({governmentissued_ID:1});else this.setState({governmentissued_ID:0});}}>
-                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>Submit a government-issued ID to PopulStay</label>
+                  <label className="text-muted"><p><span className={this.state.governmentissued_ID == 1 ?"show":"hide"}></span></p>{language.Submit_a_government_issued_ID_to_PopulStay}</label>
                 </div>
 
-                <h3>Your House Rules<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>Edit</span></h3>
+                <h3>{language.Your_House_Rules}<span className="textpink"  onClick={(e) => this.setState({step:this.STEP.Step3_2})}>{language.Edit}</span></h3>
                 <div className="radio" onClick={(e) => {if(this.state.Not_safe ==0 )this.setState({Not_safe:1});else this.setState({Not_safe:0});}} >
-                  <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>Not safe or suitable for children (2-12 years)</label>
+                  <label className="text-muted"><p><span className={this.state.Not_safe == 1 ?"show":"hide"}></span></p>{language.Not_safe_or_suitable_for_children}</label>
                 </div>
                 <div className="radio"  onClick={(e) => {if(this.state.anytime_Checkin ==0 )this.setState({anytime_Checkin:1});else this.setState({anytime_Checkin:0});}} >
-                  <label className="text-muted"><p><span className={this.state.anytime_Checkin == 1 ?"show":"hide"}></span></p>Check-in is anytime after 3PM</label>
+                  <label className="text-muted"><p><span className={this.state.anytime_Checkin == 1 ?"show":"hide"}></span></p>{language.Checkin_is_anytime_after_3PM}</label>
                 </div>
                 <div className="radio" onClick={(e) => {if(this.state.NO_shoes ==0 )this.setState({NO_shoes:1});else this.setState({NO_shoes:0});}} >
-                  <label className="text-muted"><p><span className={this.state.NO_shoes == 1 ?"show":"hide"}></span></p>NO shoes in the house</label>
+                  <label className="text-muted"><p><span className={this.state.NO_shoes == 1 ?"show":"hide"}></span></p>{language.NO_shoes_in_the_house}</label>
                 </div>
 
               </div>
@@ -2469,8 +2474,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2478,7 +2483,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Guests will only be able to book instantly with you if they meet all these requirements and agree to your House Rules. </p>
+                    <p>{language.Guests_will_only_be_able_to_book}</p>
                 </div>
              </div>
     
@@ -2508,10 +2513,10 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Here’s how guests will book with you</h1>
+              <h1>{language.Heres_how_guests_will_book_with_you}</h1>
 
 
               <div className="box col-md-12">
@@ -2520,8 +2525,8 @@ class ListingCreate extends Component {
                     <img src="../images/step3_4img1.png" />
                   </div>
                   <div className="col-lg-9 pull-right">
-                    <h3>Qualified guests find your listing</h3>
-                    <p>Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.</p>
+                    <h3>{language.Qualified_guests_find_your_listing}</h3>
+                    <p>{language.Anyone_who_wants_to_book_with}</p>
                   </div>
                 </div>
                 <div className="boxdiv">
@@ -2529,9 +2534,9 @@ class ListingCreate extends Component {
                     <img src="../images/step3_4img2.png" />
                   </div>
                   <div className="col-lg-9 pull-right">
-                    <h3>You set controls for who can book</h3>
-                    <p>To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.</p>
-                    <p className="textpink">I want to review every request</p>
+                    <h3>{language.You_set_controls_for_who_can_book}</h3>
+                    <p>{language.To_book_available_dates_without_having}</p>
+                    <p className="textpink">{language.I_want_to_review_every_request}</p>
                   </div>
                 </div>
                 <div className="boxdiv">
@@ -2539,8 +2544,8 @@ class ListingCreate extends Component {
                     <img src="../images/step3_4img3.png" />
                   </div>
                   <div className="col-lg-9 pull-right">
-                    <h3>Once a guest books, you get notified</h3>
-                    <p>You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.</p>
+                    <h3>{language.Once_a_guest_books_you_get_notified}</h3>
+                    <p>{language.Youll_immediately_get_a_confirmation}</p>
                   </div>
                 </div>
               </div>
@@ -2548,8 +2553,8 @@ class ListingCreate extends Component {
               
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2557,8 +2562,8 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
-                    <p>In the rare case there are issues. PopulStay has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation</p>
-                    <h5>Set rules for who can book instantly</h5>
+                    <p>{language.In_the_rare_case_there_are_issues}</p>
+                    <h5>{language.Set_rules_for_who_can_book_instantly}</h5>
                 </div>
              </div>
     
@@ -2588,21 +2593,21 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Successful hosting starts with an accurate calendar</h1>
+              <h1>{language.Successful_hosting_starts}</h1>
 
 
               <div className="box col-md-12">
-                <p>Guests will book available days instantly. Only get booked when you can host by keeping your calendar and availability settings up-to-date.</p>
-                <p>Cancelling disrupts guests’ plans. If you cancel because your calendar is inaccurate, you’ll be charged a penalty fee and the dates won’t be available for anyone else to book.</p>
+                <p>{language.Guests_will_book_available_days_instantly}</p>
+                <p>{language.Cancelling_disrupts_guests_plans}</p>
 
                 <div className="check"  onClick={(e) => {if(this.state.roomstuff_Closet_drwers ==0 )this.setState({roomstuff_Closet_drwers:1});else this.setState({roomstuff_Closet_drwers:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_Closet_drwers ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Got it! I’ll keep my calendar up to date.</p> 
+                  <p className="divinput">{language.Got_it_Ill_keep_my_calendar_up_to_date}</p> 
                 </div>
               </div>
 
@@ -2611,8 +2616,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button  className={ this.state.roomstuff_Closet_drwers ==0 ? "buttonActive Right" : "Right"} disabled={ this.state.roomstuff_Closet_drwers ==0 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button  className={ this.state.roomstuff_Closet_drwers ==0 ? "buttonActive Right" : "Right"} disabled={ this.state.roomstuff_Closet_drwers ==0 ? "disabled" : ""} onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2644,32 +2649,32 @@ class ListingCreate extends Component {
                 <span></span>
                 <span></span>
                 <span></span>
-                <p>Step 3: Get ready for guests</p>
+                <p>{language.Step} 3: {language.Get_ready_for_guests}</p>
               </div>
 
-              <h1>Let’s get started with a couple questions</h1>
+              <h1>{language.Lets_get_started_with_a_couple_questions}</h1>
 
 
               <div className="box col-md-12">
 
-                <h3>Have you rented out your place before?</h3>
+                <h3>{language.Have_you_rented_out_your_place_before}</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.question_rented}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>I'm a novice in this respect</a></li>
-                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>I have a renting experience</a></li>
+                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>{language.Im_a_novice_in_this_respect}</a></li>
+                      <li><a onClick={(e)=>this.setState({question_rented:this.Getcontent(e)})}>{language.I_have_a_renting_experience}</a></li>
                     </ul>
                   </div>
                 </div>
-                <h3>How often do you want to have guests?</h3>
+                <h3>{language.How_often_do_you_want_to_have_guests}</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.Howoften_guests}<span>▼</span></button>
                     <ul className="dropdown-menu" role="menu">
-                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>Not sure yet</a></li>
-                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>Part of the time</a></li>
-                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>As much as possible</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>{language.Not_sure_yet}</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>{language.Part_of_the_time}</a></li>
+                      <li><a onClick={(e)=>this.setState({Howoften_guests:this.Getcontent(e)})}>{language.As_much_as_possible}</a></li>
                     </ul>
                   </div>
                 </div>
@@ -2677,8 +2682,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Right" onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -2687,7 +2692,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/step3_4img4.png" alt=""/>
-                    <p>Based on your responses, we can  recommend specific availability settings for you.</p>
+                    <p>{language.Based_on_your_responses}</p>
                 </div>
              </div>
              

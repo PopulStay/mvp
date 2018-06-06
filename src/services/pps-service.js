@@ -79,15 +79,15 @@ class PPSService {
   getDepositBalance(id){
     
       return new Promise((resolve, reject) => {
-            axios.get(process.env.Server_Address+'deposit/'+id)
-            .then(function (response) {
-            resolve(response);
-            })
-            .catch(function (error) {
-            console.error(error);
-            reject(error);
-            });
+          axios.get(process.env.Server_Address+'deposit/'+id)
+          .then(function (response) {
+          resolve(response);
+          })
+          .catch(function (error) {
+          console.error(error);
+          reject(error);
           });
+      });
   }
 
  getWithdrawInfo(account){

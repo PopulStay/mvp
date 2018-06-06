@@ -185,6 +185,143 @@ export const Home_Fix = 'Home-Fix';
 export const Contact_No = 'Contact No';
 export const Email_Address = 'Email Address';
 export const Reference = 'Reference';
+//Step11
+export const Set_the_scene = 'Set the scene';
+export const Show_travellers_what_your_space_looks_like = 'Show travellers what your space looks like';
+export const Many_hosts_have_at_least_8photos = 'Many hosts have at least 8 photos. You can start with just one photo and come back later to add more. Including photos of all the spaces a guest can use helps guests imagine staying at your place.';
+export const Make_sure_the_room_is_well_lit = 'Make sure the room is well-lit. Or take photos during daylight hours.';
+export const Sometimes_shooting_from_a_corner = 'Sometimes shooting from a corner (instead of straight-on) gives you a better shot.';
+export const Drag_and_Drop = 'Drag and Drop';
+export const OR = 'OR';
+export const Browse = 'Browse';
+//Step12
+export const Crop = 'Crop';
+export const Adjust_Brightness = 'Adjust Brightness';
+export const Rotate = 'Rotate';
+export const Zoom = 'Zoom';
+export const Brightness = 'Brightness';
+export const Contrast_Ratio = 'Contrast Ratio';
+export const Complete = 'Complete';
+export const Save_and_Replace = 'Save and Replace';
+//Step13
+export const Edit_your_description = 'Edit your description';
+export const Summary = 'Summary';
+export const Describe_the_decor_light_whats_nearby_etc = 'Describe the decor,light,what’s nearby,etc...';
+export const My_place_is_great_for = 'My place is great for';
+export const Family_with_kids = 'Family (with kids)';
+export const Big_groups = 'Big groups';
+export const Furry_friends_pets = 'Furry friends (pets)';
+export const Add_more_optional = 'Add more (optional)';
+export const only_of_hosts_add_more_info_here = 'only 30% of hosts add more info here';
+export const About_your_place_optional = 'About your place (optional)';
+export const What_guests_can_access_optional = 'What guests can access (optional)';
+export const Your_interaction_with_guests_optional = 'Your interaction with guests (optional)';
+export const Other_things_to_note_optional = 'Other things to note (optional)';
+export const The_neighbourhood = 'The neighbourhood';
+export const About_the_neighbourhood_optional = 'About the neighbourhood (optional)';
+export const How_to_get_around_optional = 'How to get around (optional)';
+export const Your_summary_description = 'Your summary description is meant to be a brief overview of your place that guests read before they get into the details.';
+export const You_can_also_use_your_description = 'You can also use your description to remind guests that people from all backgrounds are welcome in your home.';
+//Step14
+export const Name_your_place = 'Name your place';
+export const Listing_title = 'Listing title';
+export const Singapore_Home_with_a_View = 'Singapore Home with a View';
+//Step15
+export const Add_your_mobile_number = 'Add your mobile number';
+export const Only_confirmed_guests_get_your_phone_number = 'Only confirmed guests get your phone number. This helps guests contact you quickly if needed.';
+//Step16
+export const Photos_short_description_title = 'Photos short description title';
+//Step17
+export const Review_PopulStays_guest_requirements = 'Review PopulStay’s guest requirements';
+export const All_PopulStay_guests_must_provide = 'All PopulStay guests must provide:';
+export const Email_address = 'Email address';
+export const Confirmed_phone_number = 'Confirmed phone number';
+export const Payment_information = 'Payment information';
+export const Before_booking_your_home_each_guest_must = 'Before booking your home, each guest must:';
+export const Agree_to_your_House_Rules = 'Agree to your House Rules';
+export const Message_you_about_their_trip = 'Message you about their trip';
+export const Let_you_know_how_many_guests_are_coming = 'Let you know how many guests are coming';
+export const Confirm_their_checkin_time_if_theyre_arriving_within2days = 'Confirm their check-in time if they’re arriving within 2 days';
+export const Add_additional_requirements = 'Add additional requirements';
+export const governmentissued_ID_submitted_to_PopulStay = 'government-issued ID submitted to PopulStay';
+export const Recommended_by_other_hosts_and_have_no_negative_reviews = 'Recommended by other hosts and have no negative reviews';
+export const More_requirements_can_mean_fewer_reservations = 'More requirements can mean fewer reservations.';
+export const You_need_to_feel_confident_with_every_reservation = 'You need to feel confident with every reservation. That’s why we require certain information from every guest before they can book.';
+//Step18
+export const Set_house_rules_for_your_guests = 'Set house rules for your guests';
+export const Suitable_for_children = 'Suitable for children (2-12 years)';
+export const You_can_say_your_listing = 'You can say your listing isn’t suitable for infants or children if there are features that are dangerous for children or there’s a risk of property damage. If you decide to restrict guests with infants or children from booking, add an explanation so guests can understand why your listing isn’t suitable for their trip.';
+export const Explain_why_your_listing = 'Explain why your listing isn’t suitable for children';
+export const What_features_of_your = 'What features of your space might be dangerous to children or easily damaged?';
+export const Done = 'Done';
+export const You_can_limit_guests_from_bringing_pets = 'You can limit guests from bringing pets, but assistance animals—for example, seeing eye dogs—aren’t considered pets. You have to reasonably accommodate reservations where a guest might bring an assistance animal, even if your listing or House Rules state “no pets.”Learn more';
+export const Suitable_for_infants = 'Suitable for infants (Under 2 years)';
+export const Suitable_for_pets = 'Suitable for pets';
+export const Smoking_allowed = 'Smoking allowed';
+export const Events_or_parties_allowed = 'Events or parties allowed';
+export const Additional_rules = 'Additional rules';
+export const Quiet_hours_No_shoes_in_the_house = 'Quiet hours? No shoes in the house?';
+export const Add = 'Add';
+export const Details_guests_must_know_about_your_home = 'Details guests must know about your home';
+export const Must_climb_stairs = 'Must climb stairs';
+export const Potential_for_noise = 'Potential for noise';
+export const Pets_live_on_property = 'Pet(s) live on property';
+export const No_parking_on_property = 'No parking on property';
+export const Some_spaces_are_shared = 'Some spaces are shared';
+export const Amenity_limitations = 'Amenity limitations';
+export const D_Survellance_or_recording_devices_on_property = 'D Survellance or recording devices on property';
+export const Weapons_on_property = 'Weapons on property';
+export const Dangerous_animals_on_property = 'Dangerous animals on property';
+export const In_addition_to_PopulStays_requirements = 'In addition to PopulStay’s requirements, guests must agree to all your House Rules before they book.';
+export const If_youre_ever_uncomfortable_with_a_reservation = 'If you’re ever uncomfortable with a reservation, you can cancel penalty-free before or during a trip.';
+//Step19
+export const Review_PopulStay_guest_requirements = 'Review PopulStay guest requirements';
+export const Review = 'Review';
+export const A_message_about_the_guests_trip = 'A message about the guest’s trip';
+export const Your_additional_requirements = 'Your additional requirements';
+export const Your_House_Rules = 'Your House Rules';
+export const Checkin_time_for_last_minute_trips = 'Check-in time for last minute trips';
+export const Edit = 'Edit';
+export const Submit_a_government_issued_ID_to_PopulStay = 'Submit a government-issued ID to PopulStay';
+export const Not_safe_or_suitable_for_children = 'Not safe or suitable for children (2-12 years)';
+export const Checkin_is_anytime_after_3PM = 'Check-in is anytime after 3PM';
+export const NO_shoes_in_the_house = 'NO shoes in the house';
+export const Guests_will_only_be_able_to_book = 'Guests will only be able to book instantly with you if they meet all these requirements and agree to your House Rules.';
+//Step20
+export const Heres_how_guests_will_book_with_you = 'Here’s how guests will book with you';
+export const Qualified_guests_find_your_listing = 'Qualified guests find your listing';
+export const Anyone_who_wants_to_book_with = 'Anyone who wants to book with you needs to confirm their contact information, provide payment details, and tell you about their trip.';
+export const You_set_controls_for_who_can_book = 'You set controls for who can book';
+export const To_book_available_dates_without_having = 'To book available dates without having to send a request, guests must agree to your rules and meet all the requirements you set.';
+export const I_want_to_review_every_request = 'I want to review every request';
+export const Once_a_guest_books_you_get_notified = 'Once a guest books, you get notified';
+export const Youll_immediately_get_a_confirmation = 'You’ll immediately get a confirmation email with information like why they’re coming, when they’re arriving, and who they’re coming with.';
+export const In_the_rare_case_there_are_issues = "In the rare case there are issues. PopulStay has you covered with 24/7 customer support, a S1, 200,000 SGD Host Guarantee, and completely penalty-free cancellations if you're uncomfortable with a reservation";
+export const Set_rules_for_who_can_book_instantly = 'Set rules for who can book instantly';
+//Step21
+export const Successful_hosting_starts = 'Successful hosting starts with an accurate calendar';
+export const Guests_will_book_available_days_instantly = 'Guests will book available days instantly. Only get booked when you can host by keeping your calendar and availability settings up-to-date.';
+export const Cancelling_disrupts_guests_plans = 'Cancelling disrupts guests’ plans. If you cancel because your calendar is inaccurate, you’ll be charged a penalty fee and the dates won’t be available for anyone else to book.';
+export const Got_it_Ill_keep_my_calendar_up_to_date = "Got it! I’ll keep my calendar up to date.";
+//Step22
+export const Lets_get_started_with_a_couple_questions = 'Let’s get started with a couple questions';
+export const Have_you_rented_out_your_place_before = 'Have you rented out your place before?';
+export const Im_a_novice_in_this_respect = "I'm a novice in this respect";
+export const I_have_a_renting_experience = 'I have a renting experience';
+export const How_often_do_you_want_to_have_guests = 'How often do you want to have guests?';
+export const Not_sure_yet = 'Not sure yet';
+export const Part_of_the_time = 'Part of the time';
+export const As_much_as_possible = 'As much as possible';
+export const Based_on_your_responses = 'Based on your responses, we can recommend specific availability settings for you.';
+
+
+
+
+
+
+
+
+
 
 
 
@@ -332,7 +469,7 @@ export const Submit = 'Submit';
 export const state0 = 'Apply for money';
 export const state1 = 'In the coin';
 export const state2 = 'Finish the coin';
-export const state3 = 'Completed';
+export const state3 = 'Successful application';
 export const state_1 = 'Currency failure';
 
 

@@ -91,15 +91,11 @@ class WalletWithdraw extends React.Component {
     });
 
     var deleId = this.state.withdrawlist[index].id;
-    ppsService.deleWithdraw(deleId).then((data)=>{
-      console.log(data);
-    });
-
-
+    ppsService.deleWithdraw(deleId);
   }
 
   Withdraw(index){
-
+    console.log(this.state.withdrawlist[index].size)
   }
 
   openModal() {
@@ -163,7 +159,7 @@ class WalletWithdraw extends React.Component {
                         {item.state == 3 ? language.state3 : ""}
                         {item.state == -1 ? language.state-1 : ""}
                     </td>
-                    <td className="td5"><button className="Left"  onClick={this.Withdraw.bind(this,index)} >Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
+                    <td className="td5"><button className="Left"  onClick={this.Withdraw.bind(this,index)} >{language.Withdraw}</button><button className="Right" onClick={this.delelist.bind(this,index)}>{language.Cancel}</button></td>
                   </tr>  
                   ))
                 }

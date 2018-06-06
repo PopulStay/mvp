@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import languageService from '../services/language-service';
+import guestService from '../services/guest-service';
 
 class House_step1 extends Component {
 
@@ -21,6 +22,13 @@ class House_step1 extends Component {
   }
 
   componentWillMount(){
+    guestService.getGuesterInfo(window.address).then((data)=>{
+      if(data)
+        {
+            console.log(data.user)
+            this.setState({ user:data.user });
+        }
+    });
     this.setState({
         state:this.state.languagelist=window.languagelist,
         account: window.address,

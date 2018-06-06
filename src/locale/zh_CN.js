@@ -185,6 +185,140 @@ export const Home_Fix = '房源-修复';
 export const Contact_No = '联系方式';
 export const Email_Address = '电子邮件地址';
 export const Reference = '参考';
+//Step11
+export const Set_the_scene = '设置场景';
+export const Show_travellers_what_your_space_looks_like = '向旅客展示你的空间';
+export const Many_hosts_have_at_least_8photos = '很多房东至少有8张照片。您一开始可以只放一张照片，之后再回来添加。展示所有房客能使用的空间的照片，让房客对在您的房源住宿有更直观的体验。';
+export const Make_sure_the_room_is_well_lit = '确保房间明亮，或者选择在白天拍摄。';
+export const Sometimes_shooting_from_a_corner = '有的时候从角落拍摄，而不是正面拍摄，可能会有更好的效果。';
+export const Drag_and_Drop = '拖放';
+export const OR = '或者';
+export const Browse = '浏览';
+//Step12
+export const Crop = '修剪';
+export const Adjust_Brightness = '调整亮度';
+export const Rotate = '旋转';
+export const Zoom = '放大';
+export const Brightness = '亮度';
+export const Contrast_Ratio = '对比度';
+export const Complete = '完成';
+export const Save_and_Replace = '保存并替换';
+//Step13
+export const Edit_your_description = '向房客描述一下您的房源';
+export const Summary = '概要';
+export const Describe_the_decor_light_whats_nearby_etc = '描述一下房源内部的空间和设施、周边的环境和交通路线等等……';
+export const My_place_is_great_for = '我的地方非常适合';
+export const Family_with_kids = '家庭（带小孩）';
+export const Big_groups = '大团体';
+export const Furry_friends_pets = '毛茸茸的朋友（宠物）';
+export const Add_more_optional = '添加更多（可选）';
+export const only_of_hosts_add_more_info_here = '只有30％的主机在这里添加更多信息';
+export const About_your_place_optional = '关于您的房源（选填）';
+export const What_guests_can_access_optional = '房客可以使用的空间和设施（选填）';
+export const Your_interaction_with_guests_optional = '您与房客的互动（选填）';
+export const Other_things_to_note_optional = '其他要注意的事项（可选）';
+export const The_neighbourhood = '街区';
+export const About_the_neighbourhood_optional = '关于此街区（选填）';
+export const How_to_get_around_optional = '周边交通线路信息（选填）';
+export const Your_summary_description = '房源概要是对您房源的简要概述，房客了解房源的详细情况之前会先阅读这些信息（不要在概要中添加手机号、微信等私人联系方式）。';
+export const You_can_also_use_your_description = '您也可以在描述中告诉大家，您的房源欢迎各种不同背景的房客入住。';
+//Step14
+export const Name_your_place = '为您的房源起个名字';
+export const Listing_title = '房源名称';
+export const Singapore_Home_with_a_View = '新加坡看得见风景的房子';
+//Step15
+export const Add_your_mobile_number = '添加您的手机号码';
+export const Only_confirmed_guests_get_your_phone_number = '只有经确认的客人才能获得您的电话 如有需要，这可以帮助客人快速联系您。';
+//Step16
+export const Photos_short_description_title = '照片、简短描述、标题';
+//Step17
+export const Review_PopulStays_guest_requirements = '潮箱对房客的要求';
+export const All_PopulStay_guests_must_provide = '所有潮箱房客都必须在预订前提交：';
+export const Email_address = '电子邮件地址';
+export const Confirmed_phone_number = '已确认的手机号';
+export const Payment_information = '付款信息';
+export const Before_booking_your_home_each_guest_must = '房客必须完成以下步骤才能预订：';
+export const Agree_to_your_House_Rules = '同意您的房屋守则';
+export const Message_you_about_their_trip = '发消息向您大致介绍他们的旅程';
+export const Let_you_know_how_many_guests_are_coming = '告知您即将入住的房客人数';
+export const Confirm_their_checkin_time_if_theyre_arriving_within2days = '对于2天内就要入住的预订，房客须确认入住时间';
+export const Add_additional_requirements = '添加更多对房客的要求';
+export const governmentissued_ID_submitted_to_PopulStay = '已向潮箱提交身份证明材料';
+export const Recommended_by_other_hosts_and_have_no_negative_reviews = '获得其他房东推荐，且没有负面评价';
+export const More_requirements_can_mean_fewer_reservations = '要求越多，可能预订就会越少';
+export const You_need_to_feel_confident_with_every_reservation = '您需要对每项预订都有信心，这就是为什么我们需要每位客人的某些信息';
+//Step18
+export const Set_house_rules_for_your_guests = '为房客制定房屋守则';
+export const Suitable_for_children = '适合儿童（2-12岁）';
+export const You_can_say_your_listing = '如果您的房源存在可能会对儿童构成危险或易于损坏的设施或物品，您可以说明您的房源不适合婴儿或儿童。如果您决定不让带有婴儿或儿童的房客预订，请说明原因，以便房客理解您的房源为什么不适合他们。';
+export const Explain_why_your_listing = '解释为什么您的房源不适合儿童';
+export const What_features_of_your = '你的空间的哪些特征可能会对儿童造成危险或易于损坏？';
+export const Done = '完成';
+export const You_can_limit_guests_from_bringing_pets = '您可以限制房客携带宠物，但协助性动物（如导盲犬）不被视为宠物。即使您的房源页面或《房源守则》明确说明“不允许携带宠物”，您也需要合理接待可能会携带协助性宠物入住的房客。';
+export const Suitable_for_infants = '适合婴幼儿（2岁以下）';
+export const Suitable_for_pets = '适合携带宠物入住';
+export const Smoking_allowed = '允许吸烟';
+export const Events_or_parties_allowed = '允许举办活动或聚会';
+export const Additional_rules = '其他规则';
+export const Quiet_hours_No_shoes_in_the_house = '某些时间需保持安静？室内不能穿鞋？';
+export const Add = '添加';
+export const Details_guests_must_know_about_your_home = '对于您的房源，房客必须了解的信息';
+export const Must_climb_stairs = '需爬楼梯';
+export const Potential_for_noise = '可能会有噪音';
+export const Pets_live_on_property = '房源里养有宠物';
+export const No_parking_on_property = '房源里不能停车';
+export const Some_spaces_are_shared = '有共用区域';
+export const Amenity_limitations = '便利设施缺陷';
+export const D_Survellance_or_recording_devices_on_property = '房源内有监控或记录设备';
+export const Weapons_on_property = '房源内有武器';
+export const Dangerous_animals_on_property = '房源内有危险动物';
+export const In_addition_to_PopulStays_requirements = '除了符合爱彼迎的要求外，房客还必须同意您的所有房屋守则才能预订住宿。';
+export const If_youre_ever_uncomfortable_with_a_reservation = '如果某个预订让您觉得不安心，您可以在旅程开始前或住宿期间取消预订而免受处罚。';
+//Step19
+export const Review_PopulStay_guest_requirements = '潮箱对房客的要求';
+export const Review = '查看';
+export const A_message_about_the_guests_trip = '就他们的旅程给房东发消息';
+export const Your_additional_requirements = '您的其他要求';
+export const Your_House_Rules = '您的房屋守则';
+export const Checkin_time_for_last_minute_trips = '临时预订的入住时间';
+export const Edit = '编辑';
+export const Submit_a_government_issued_ID_to_PopulStay = '向潮箱提交政府颁发的身份证';
+export const Not_safe_or_suitable_for_children = '不安全或不适合儿童（2-12岁）';
+export const Checkin_is_anytime_after_3PM = '入住时间为下午3点以后';
+export const NO_shoes_in_the_house = '没有鞋子在房子里';
+export const Guests_will_only_be_able_to_book = '房客必须符合所有这些要求并同意您的房屋守则才能即时预订。';
+//Step20
+export const Heres_how_guests_will_book_with_you = '房客将通过下列方式预订您的房源';
+export const Qualified_guests_find_your_listing = '符合条件的房客才会找到您的房源';
+export const Anyone_who_wants_to_book_with = '任何想要预订您的房源的人都需要确认联系方式，提供付款信息，并告诉您他们的旅程。';
+export const You_set_controls_for_who_can_book = '谁可以预订由您规定';
+export const To_book_available_dates_without_having = '要在不需要发送请求的情况下预订可订日期，房客必须同意您的规则，并满足您设定的所有要求。';
+export const I_want_to_review_every_request = '我想审核每一个预订申请';
+export const Once_a_guest_books_you_get_notified = '房客预订后，您将收到通知';
+export const Youll_immediately_get_a_confirmation = '您会立即收到确认电子邮件，其中包含了旅行目的、抵达时间、同行人员等信息。';
+export const In_the_rare_case_there_are_issues = '如果在极少数情况下出现问题，潮箱将为您提供以下保障：24小时中文客服、PPS5,000,000房东保障金计划、当您对某笔预订不放心时取消预订可免受处罚。';
+export const Set_rules_for_who_can_book_instantly = '为可以立即预订的人设定规则';
+//Step21
+export const Successful_hosting_starts = '成功的托管以精确的日历开始';
+export const Guests_will_book_available_days_instantly = '客人将立即预订可用日期。只有在您的日历和可用性设置保持最新状态时才能进行托管。';
+export const Cancelling_disrupts_guests_plans = '取消会破坏客人的计划。如果您因日历不准确而取消预订，则需要支付罚金，并且其他人无法预订日期。';
+export const Got_it_Ill_keep_my_calendar_up_to_date = '得到它了！我会保持日历更新。';
+//Step22
+export const Lets_get_started_with_a_couple_questions = '先来回答几个问题吧';
+export const Have_you_rented_out_your_place_before = '您是否有出租房源的经验？';
+export const Im_a_novice_in_this_respect = '这方面我是新手';
+export const I_have_a_renting_experience = '我有出租经验';
+export const How_often_do_you_want_to_have_guests = '您希望多久接待一次房客？';
+export const Not_sure_yet = '还不确定';
+export const Part_of_the_time = '部分时间';
+export const As_much_as_possible = '尽可能多点';
+export const Based_on_your_responses = '根据您的回复，我们可以为您推荐具体的可租状态设置。';
+//Step23
+
+
+
+
+
 
 
 
@@ -300,9 +434,9 @@ export const Show_more = '展示更多';
 //guest-info--------------------------------------------------------------------------------------------
 export const Hello = '你好';
 export const Revise_the_head_image = '修改头像';
-export const PPS_balance = 'PPS余额';
-export const ETH_balance = 'ETH余额';
-export const PPS_deposited_in_Populstay = '保存在Populstay的PPS';
+export const PPS_balance = 'PPS 余额';
+export const ETH_balance = 'ETH 余额';
+export const PPS_deposited_in_Populstay = '潮箱 PPS';
 export const Guest_Managment_Panel = '宾客管理面板';
 export const Status = '状态';
 export const Information = '信息';
@@ -320,8 +454,8 @@ export const Export = '出口';
 export const Gas = '交易费';
 export const Gas_Price = '交易费价格';
 export const OK = '确认';
-export const Deposit = '存储';
-export const Deposit_PPS = '存储PPS';
+export const Deposit = '充值';
+export const Deposit_PPS = '充值PPS';
 export const Token_Size = '存储数量';
 export const Withdraw = '提取';
 export const Withdraw_PPS = '提取PPS';
@@ -333,7 +467,7 @@ export const Submit = '提交';
 export const state0 = '申请提币';
 export const state1 = '在申请中';
 export const state2 = '完成审核';
-export const state3 = '交易成功';
+export const state3 = '申请成功';
 export const state_1 = '提币失败';
 
 
