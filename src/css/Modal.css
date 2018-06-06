@@ -99,6 +99,9 @@
 .userBox .userlist>div{
   padding: 2% 0;
 }
+.userBox .userbtn{
+  margin-top: 1%;
+}
 .userBox span{
   font-family: RobotoBold; 
   font-size: 1.6rem;

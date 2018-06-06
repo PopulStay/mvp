@@ -163,7 +163,7 @@ class WalletWithdraw extends React.Component {
                         {item.state == 3 ? language.state3 : ""}
                         {item.state == -1 ? language.state-1 : ""}
                     </td>
-                    <td className="td5"><button className="Left"  onClick={this.Withdraw.bind(this,index)} >Withdraw</button><button className="Right" onClick={this.delelist.bind(this,index)}>Cancel</button></td>
+                    <td className="td5"><button className="Left"  onClick={this.Withdraw.bind(this,index)} >{language.Withdraw}</button><button className="Right" onClick={this.delelist.bind(this,index)}>{language.Cancel}</button></td>
                   </tr>  
                   ))
                 }

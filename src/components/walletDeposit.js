@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import ppsService from '../services/pps-service';
-import EthereumQRPlugin from 'ethereum-qr-code';
 import languageService from '../services/language-service';
 
-const qr = new EthereumQRPlugin();
 
 const customStyles = {
   content : {
@@ -30,7 +28,6 @@ class WalletDeposit extends React.Component {
       pirvatekey:"",
       PPS:0,
       languagelist:{},
-      qrurl:""
     };
 
     languageService.language();
@@ -38,17 +35,9 @@ class WalletDeposit extends React.Component {
 
   componentDidMount() {
     this.setState({ languagelist:window.languagelist });
-    this.loadQrCode();
   }
 
-  loadQrCode =()=>{
-        qr.toDataUrl({
-            to    : window.address,
-            gas   : window.gas
-        }).then((qrCodeDataUri)=>{
-        this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
-        })
-  }
+  
 
   deposit =()=> {
 
@@ -111,7 +100,6 @@ class WalletDeposit extends React.Component {
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
         contentLabel="Wallet Message">
           <div className="deposit">
-            <img className="photoClick" src={this.state.qrurl} onClick={(e)=>this.setState({modalcode:true,modalIsOpen:false})} />
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Deposit_PPS}</h2>
 
           <div className="form-group">
@@ -121,15 +109,6 @@ class WalletDeposit extends React.Component {
 
             <button className="btn btn-danger Left" onClick={this.deposit}>{language.Deposit}</button>
             <button className="btn btn-primary Right" onClick={(e)=>this.setState({modalcode:true})}>{language.Cancel}</button>
-          </div>
-        </Modal>
-
-        <Modal isOpen={this.state.modalcode} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
-        contentLabel="Wallet Message">
-          <div className="deposit">
-            <img className="photo" src={this.state.qrurl}  />
-            <p className="text2">{window.address}</p>
-            <button className="btn btn-primary center" onClick={(e)=>this.setState({modalcode:false})}>{language.Cancel}</button>
           </div>
         </Modal>
 

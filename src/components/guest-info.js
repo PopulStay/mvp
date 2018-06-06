@@ -12,6 +12,8 @@ import WalletWithdraw from './walletWithdraw';
 import { Link } from 'react-router-dom';
 import Timestamp from 'react-timestamp';
 import languageService from '../services/language-service';
+import EthereumQRPlugin from 'ethereum-qr-code';
+const qr = new EthereumQRPlugin();
 
 
 class GuestInfo extends React.Component {
@@ -34,6 +36,7 @@ class GuestInfo extends React.Component {
       usdOrderList:[],
       userPictures:"",
       languagelist:{},
+      qrurl:""
     };
 
 
@@ -78,9 +81,16 @@ class GuestInfo extends React.Component {
     });
 
     this.onGetDepositBalance();
+    this.loadQrCode();
+  }
 
-
-
+  loadQrCode =()=>{
+        qr.toDataUrl({
+            to    : window.address,
+            gas   : window.gas
+        }).then((qrCodeDataUri)=>{
+        this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
+        })
   }
 
   onGetDepositBalance = () =>{
@@ -119,7 +129,7 @@ class GuestInfo extends React.Component {
                 <p><span>{language.Revise_the_head_image}</span></p>
             </div>
           </div>
-          <div className="col-sm-12 col-md-8 col-lg-6 userlist row">
+          <div className="col-sm-12 col-md-6 col-lg-5 userlist row">
             <div className="col-sm-12 col-md-6 col-lg-6">
               <span>{language.User_name}:</span><p>{this.state.user}</p>
             </div>
@@ -139,13 +149,15 @@ class GuestInfo extends React.Component {
                <span>{language.PPS_deposited_in_Populstay}:</span><p>{this.state.ppsDeposited}</p>
             </div>
           </div>
-          <div className="col-sm-12 col-md-2 col-lg-3 userbtn" >
+          <div className="col-sm-12 col-md-2 col-lg-2 userbtn" >
               <WalletManage/>
               <WalletGas/>
               <WalletDeposit  onGetDepositBalance={this.onGetDepositBalance}/>
               <WalletWithdraw  onGetDepositBalance={this.onGetDepositBalance}/>
           </div>
-         
+          <div className="col-sm-12 col-md-2 col-lg-2">
+            <img className="photo" src={this.state.qrurl}  />
+          </div>
       </div>
 
       <div className="GuestManagment">
