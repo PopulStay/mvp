@@ -4,6 +4,7 @@ import GuestRegister from './guest-register';
 import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
 import AvatarEditor from 'react-avatar-editor';
+import languageService from '../services/language-service';
 
 class registerlist extends Component {
 
@@ -127,12 +128,18 @@ class registerlist extends Component {
         editor:0,
         photosindex:0,
         modalimg:'',
+        languagelist:{}
     };
 
     web3Service.loadWallet();
+    languageService.language();
   }
   componentWillMount() {
-      this.setState({step:this.STEP.Step1});
+      this.setState({
+        step:this.STEP.Step1,
+        state:this.state.languagelist=window.languagelist,
+        languagetext:this.state.languagelist.languagetext
+      });
       if(window.data){
           this.setState({ user:window.data.user});
       }else{
@@ -405,7 +412,8 @@ class registerlist extends Component {
     }
 
   render() {
-    const language = this.state.language;
+    const language = this.state.languagelist;
+    const languagetype = this.state.language;
     const experiencetype = this.state.experiencetype;
     const Countrysarr = this.state.Countrysarr;
     const Content_providedarr = this.state.Content_providedarr;
@@ -432,19 +440,19 @@ class registerlist extends Component {
                   </a>
                   <ul>
                     <li className="Li4">
-                      <a className="btn button__fill" href="/Register">Experiences</a>
+                      <a className="btn button__fill" href="/Register">{language.Experiences}</a>
                     </li>
                     <li className="Li4">
-                      <a className="btn button__fill">Resources</a>
+                      <a className="btn button__fill">{language.Resources}</a>
                     </li>
                     <li className="Li4">
-                      <a className="btn button__fill"><span className="glyphicon glyphicon-heart"></span>Wishlist</a>
+                      <a className="btn button__fill"><span className="glyphicon glyphicon-heart"></span>{language.Wishlist}</a>
                     </li>
                     <li className="Li4">
-                      <a className="btn button__fill">Trips</a>
+                      <a className="btn button__fill">{language.Trips}</a>
                     </li>
                     <li className="Li4">
-                      <a href="" className="btn button__Help">Help</a>
+                      <a href="" className="btn button__Help">{language.Help}</a>
                     </li>
                     <li className="Li5">
                       <GuestRegister/>
@@ -463,24 +471,21 @@ class registerlist extends Component {
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>Basics</li>
+                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>About the experiences</li>
+                      <li>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-12 col-md-7 col-lg-7">
-                    <h3>Location</h3>
-                    <h5>Which city will you host your experience in?</h5>
-                    <input type="text" onChange={(e) => this.setState({location: e.target.value})} placeholder="Singapore, Singapore" />
-                    <p>Great! Your city is supported. </p>
-                    <button className={ this.state.location == "" ? "btnactive next" : " next"} disabled={ this.state.location == "" ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Next</button>
-                </div>
-                <div className="box1 col-sm-12 col-md-5 col-lg-5">
-                    
+                    <h3>{language.Location}</h3>
+                    <h5>{language.Which_city_will_you_host_your_experience_in}</h5>
+                    <input type="text" onChange={(e) => this.setState({location: e.target.value})} placeholder={language.TOKYO} />
+                    <p>{language.Great_Your_city_is_supported}</p>
+                    <button className={ this.state.location == "" ? "btnactive next" : " next"} disabled={ this.state.location == "" ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
             </div>
           }
@@ -492,33 +497,33 @@ class registerlist extends Component {
                   <span className="bjpink"></span>
                   <span></span>
                   <ul>
-                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>Basics</li>
+                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>About the experiences</li>
+                      <li>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-12 col-md-7 col-lg-7">
-                    <h3>Which language will you write your descriptions in?</h3>
-                    <h5>Keep in mind that most travellers on PopulStay speak English, Chinese, French, or Spanish. If you’re comfortable writing and speaking in one of those languages, we suggest starting there.</h5>
-                    <p>I’ll write my descriptions and speak in : </p>
+                    <h3>{language.Which_language_will_you_write_your_descriptions_in}</h3>
+                    <h5>{language.Keep_in_mind_that_most_travellers}</h5>
+                    <p>{language.Ill_write_my_descriptions_and_speak_in} : </p>
                     <div className="btn-group">
                       <button type="button" data-toggle="dropdown">{this.state.languagetext}<span>▼</span></button>
                       <ul className="dropdown-menu" role="menu">
-                        {language.map(item => (
+                        {languagetype.map(item => (
                             <li><a onClick={(e) => this.setState({languagetext: item})}>{item}</a></li>
                           ))}
                       </ul>
                     </div>
-                    <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
                 <div className="box1 col-sm-12 col-md-5 col-lg-5">
                     <div>
                         <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                        <h6>Languages spoken by PopulStay travellers to Singapore</h6>
+                        <h6>{language.Languages_spoken_by_PopulStay_travellers_to_Singapore}</h6>
                         <ul>
                             <li className="English">
                                 <p className="text1"><span className="Left">English</span><span className="Right">72%</span></p>
@@ -2860,4 +2865,4 @@ class registerlist extends Component {
   }
 }
 
-export default withRouter(registerlist)
+export default registerlist

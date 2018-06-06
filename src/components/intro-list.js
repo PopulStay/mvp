@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
-import { withRouter } from 'react-router'
+import React, { Component } from 'react';
+import guestService from '../services/guest-service';
+import { withRouter } from 'react-router';
+import web3service from '../services/web3-service';
+import languageService from '../services/language-service';
 
 class introlist extends Component {
 
-  constructor(props, context) {
+  constructor(props) {
     super(props);
 
     this.STEP = {
@@ -20,16 +23,28 @@ class introlist extends Component {
 
     this.state = {
         step: 0,
-        Countrys:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
+        user:"",
+        Countrys:[],
         city:"Angola",
         work_experience:0,
         experience:"",
         hospitality:"",
+        languagelist:{},
     };
 
+      web3service.loadWallet();
+      languageService.language();
   }
   componentWillMount() {
-      this.setState({step:this.STEP.Step1});
+      guestService.getGuesterInfo(window.address).then((data)=>{
+            this.setState({ user:data.user });
+      });
+      this.setState({
+        step:this.state.languagelist=window.languagelist,
+        step:this.STEP.Step1,
+        Countrys:this.state.languagelist.Countrys,
+        city:this.state.languagelist.roomstuff_Country
+      });
   }
   nextstep(e){
     this.setState({step:this.state.step+1});
@@ -42,6 +57,7 @@ class introlist extends Component {
   }
 
   render() {
+    const language = this.state.languagelist;
     const Countrys = this.state.Countrys;
 
     return (
@@ -51,10 +67,10 @@ class introlist extends Component {
               <div className="boxleft">
                   <a href="../"><img className="logo" src="./images/introlist_logo.png" /></a>
                   <div className="box">
-                      <h3>Hi there, Zhao !</h3>
-                      <p>We’re excited to learn about the experience you’d like to host on Populstay.In just a few minutes, you’ll start to create your experience page, then you’ll submit it to be reviewed by Populstay</p>
+                      <h3>{language.Hi_there}, {this.state.user} !</h3>
+                      <p>{language.Were_excited_to_learn_about}</p>
                   </div>
-                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_1.png" />
@@ -77,24 +93,24 @@ class introlist extends Component {
                     <span></span>
                   </div>
                   <div className="box">
-                      <h3>Here’s an overview  of the process: </h3>
+                      <h3>{language.Heres_an_overview_of_the_process}: </h3>
                       <ul>
                           <li>
-                              <p className="text1"><span>1</span>Learn about our expectations(2-3 minutes) </p>
-                              <p className="text2">Find out what makes experiences different and what Populstay is looking for.</p>
+                              <p className="text1"><span>1</span>{language.Learn_about_our_expectations}</p>
+                              <p className="text2">{language.Find_out_what_makes_experiences}</p>
                           </li>
                           <li>
-                              <p className="text1"><span>2</span>Create your experience (as much time as you need)</p>
-                              <p className="text2">Add photos, videos, descriptions, and other details to be reviewed by Populstay.</p>
+                              <p className="text1"><span>2</span>{language.Create_your_experience}</p>
+                              <p className="text2">{language.Add_photos_videos_descriptions}</p>
                           </li>
                           <li>
-                              <p className="text1"><span>3</span>Submit for review</p>
-                              <p className="text2">Someone from Populstay  will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!</p>
+                              <p className="text1"><span>3</span>{language.Submit_for_review}</p>
+                              <p className="text2">{language.Someone_from_Populstay}</p>
                           </li>
                       </ul>
                   </div>
-                    <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
-                    <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                    <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
+                    <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>{language.Back}</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_2.png" />
@@ -117,7 +133,7 @@ class introlist extends Component {
                     <span></span>
                   </div>
                   <div className="box">
-                      <h3>First things first, which city would you like to host in?</h3>
+                      <h3>{language.First_things_first}</h3>
                       <div className="btn-group col-md-12">
                         <button type="button" data-toggle="dropdown">{this.state.city}<span>▼</span></button>
                         <ul className="dropdown-menu" role="menu">
@@ -127,8 +143,8 @@ class introlist extends Component {
                         </ul>
                       </div>
                   </div>
-                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
-                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>{language.Back}</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_3.png" />
@@ -151,18 +167,18 @@ class introlist extends Component {
                     <span></span>
                   </div>
                   <div className="box">
-                      <h3>Have you hosted an experience on Populstay or somewhere else before?</h3>
+                      <h3>{language.Have_you_hosted_an_experience}</h3>
                       <div className="radio" onClick={(e) => this.setState({work_experience: 0})}>
-                        <label className="text-muted"><p><span className={this.state.work_experience == 0 ?"show":"hide"}></span></p>Yes, i've done this before</label>
-                        <h4 className={this.state.work_experience == 0 ?"show":"hide"}>We welcome your participation and experience in Audemars Pigeut, which is different from organizing activities on other platforms.</h4>
+                        <label className="text-muted"><p><span className={this.state.work_experience == 0 ?"show":"hide"}></span></p>{language.Yes_ive_done_this_before}</label>
+                        <h4 className={this.state.work_experience == 0 ?"show":"hide"}>{language.We_welcome_your_participation}</h4>
                       </div>
                       <div className="radio" onClick={(e) => this.setState({work_experience: 1})}>
-                        <label className="text-muted"><p><span className={this.state.work_experience == 1 ?"show":"hide"}></span></p>No, not yet!</label>
-                        <h4 className={this.state.work_experience == 1 ?"show":"hide"}>No problem! Anyone with a lot of passion and a great idea can become a host. We'll show you tips and examples along the way to help you build a great experience and be successful.</h4>
+                        <label className="text-muted"><p><span className={this.state.work_experience == 1 ?"show":"hide"}></span></p>{language.No_not_yet}</label>
+                        <h4 className={this.state.work_experience == 1 ?"show":"hide"}>{language.No_problem_Anyone_with_a_lot_of_passion}</h4>
                       </div>
                   </div>
-                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
-                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>{language.Back}</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_4.png" />
@@ -185,18 +201,18 @@ class introlist extends Component {
                     <span></span>
                   </div>
                   <div className="box">
-                      <h3>What is Populstay looking for in an experience?</h3>
-                      <p>The following things don't qualify as a Populstay experience.</p>
+                      <h3>{language.What_is_Populstay_looking}</h3>
+                      <p>{language.The_following_things}</p>
                       <ul>
-                          <li>It's led by a knowledgeable and passionate host</li>
-                          <li>Guests participate hands-on, or are immersed in an activity</li>
-                          <li>It gives guests access to a special place or community</li>
-                          <li>It's unique, niche, or not what you'd expect</li>
+                          <li>{language.Its_led_by_a_knowledgeable}</li>
+                          <li>{language.Guests_participate}</li>
+                          <li>{language.It_gives_guests_access}</li>
+                          <li>{language.Its_unique_niche}</li>
                       </ul>
                   </div>
-                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
-                  <p className="textPink">Learn more about our standards</p>
-                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
+                  <p className="textPink">{language.Learn_more_about_our_standards}</p>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>{language.Back}</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_5.png" />
@@ -219,18 +235,18 @@ class introlist extends Component {
                     <span></span>
                   </div>
                   <div className="box">
-                      <h3>What we're not looking for:</h3>
-                      <p>The following things don't qualify as a Populstay experience.</p>
+                      <h3>{language.What_were_not_looking_for}:</h3>
+                      <p>{language.The_following_things_dont_qualify}</p>
                       <ul>
-                          <li>Large and impersonal tours(e.g. tours with 15 or more people)</li>
-                          <li>An event with no clear host(e.g. singles night at a bar)</li>
-                          <li>A service (e.g. airport transportation)</li>
-                          <li>Something guests could easily find on their own(e.g. a generic visit to the Eiffel Tower)</li>
+                          <li>{language.Large_and_impersonal_tours}</li>
+                          <li>{language.An_event_with_no_clear_host}</li>
+                          <li>{language.A_service}</li>
+                          <li>{language.Something_guests_could_easily}</li>
                       </ul>
                   </div>
-                  <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
-                  <p className="textPink">Learn more about our standards</p>
-                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
+                  <p className="textPink">{language.Learn_more_about_our_standards}</p>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>{language.Back}</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_6.png" />
@@ -253,11 +269,11 @@ class introlist extends Component {
                     <span></span>
                   </div>
                   <div className="box">
-                      <h3>Imagine your guests have all arrived. Hou would you kick off the first 10 minutes of your experience ?</h3>
+                      <h3>{language.Imagine_your_guests_have_all_arrived}</h3>
                       <textarea onChange={(e) => this.setState({experience: e.target.value})}></textarea>
                   </div>
-                  <button className={this.state.experience == "" ? "btnactive next" : "next"}  disabled={ this.state.experience == "" ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}  >Next</button>
-                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                  <button className={this.state.experience == "" ? "btnactive next" : "next"}  disabled={ this.state.experience == "" ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}  >{language.Next}</button>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>{language.Back}</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_7.png" />
@@ -280,11 +296,11 @@ class introlist extends Component {
                     <span></span>
                   </div>
                   <div className="box">
-                      <h3>What dose hospitality mean to you ? </h3>
+                      <h3>{language.What_dose_hospitality_mean_to_you}</h3>
                       <textarea onChange={(e) => this.setState({hospitality: e.target.value})}></textarea>
                   </div>
-                  <button className={this.state.hospitality == "" ? "btnactive next" : "next"}  disabled={ this.state.hospitality == "" ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}  >Next</button>
-                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                  <button className={this.state.hospitality == "" ? "btnactive next" : "next"}  disabled={ this.state.hospitality == "" ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}  >{language.Next}</button>
+                  <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>{language.Back}</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_7.png" />
@@ -307,24 +323,24 @@ class introlist extends Component {
                     <span className="bjpink"></span>
                   </div>
                   <div className="box">
-                      <h3>Here’s an overview  of the process: </h3>
+                      <h3>{language.Heres_an_overview_of_the_process}: </h3>
                       <ul>
                           <li>
-                              <p className="text1"><span>✔</span>Learn about our expectations(2-3 minutes) </p>
-                              <p className="text2">Find out what makes experiences different and what Populstay is looking for.</p>
+                              <p className="text1"><span>✔</span>{language.Learn_about_our_expectations}</p>
+                              <p className="text2">{language.Find_out_what_makes_experiences}</p>
                           </li>
                           <li>
-                              <p className="text1"><span>2</span>Create your experience (as much time as you need)</p>
-                              <p className="text2">Add photos, videos, descriptions, and other details to be reviewed by Populstay.</p>
+                              <p className="text1"><span>2</span>{language.Create_your_experience}</p>
+                              <p className="text2">{language.Add_photos_videos_descriptions}</p>
                           </li>
                           <li>
-                              <p className="text1"><span>3</span>Submit for review</p>
-                              <p className="text2">Someone from Populstay  will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!</p>
+                              <p className="text1"><span>3</span>{language.Submit_for_review}</p>
+                              <p className="text2">{language.Someone_from_Populstay}</p>
                           </li>
                       </ul>
                   </div>
-                    <button className="next" onClick={(e)=>this.submit(e)}>Create an experience</button>
-                    <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>BACK</p>
+                    <button className="next" onClick={(e)=>this.submit(e)}>{language.Create_an_experience}</button>
+                    <p className="pre" onClick={(e)=>this.prestep(e)}><span>◀</span>{language.Back}</p>
               </div>
               <div className="boxright">
                   <img src="./images/introlist_9.png" />
@@ -337,4 +353,4 @@ class introlist extends Component {
   }
 }
 
-export default withRouter(introlist)
+export default introlist

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import GuestRegister from './guest-register';
 import houselistingService from '../services/houseinfolist-service';
+import {Link} from 'react-router-dom';
+import languageService from '../services/language-service';
 
 class VerifyID extends Component {
 
@@ -26,7 +28,17 @@ class VerifyID extends Component {
         Certificates_type:1,
         Photo_front:"",
         Photo_back:"",
+        languagelist:{}
     };
+      languageService.language();
+  }
+
+  componentWillMount() {
+      this.setState({
+        state:this.state.languagelist=window.languagelist,
+        Countrysarr:this.state.languagelist.Countrys,
+        Countrys:this.state.languagelist.roomstuff_Country
+      });
   }
 
   uploadfront(e,index){
@@ -53,44 +65,47 @@ class VerifyID extends Component {
 
   render() {
     const Countrysarr = this.state.Countrysarr;
+    const language = this.state.languagelist;
 
     return (
       <div className="VerifyID">
-          <div><img className="header__logo" src="../images/logo.png" alt=""/></div>
+      <div>
+          <Link to="/"><img className="header__logo" src="../images/logo.png" alt=""/></Link>
+      </div>    
           { this.state.step === this.STEP.Step1 &&
               <div className="VerifyID_1 VerifyID_content col-lg-offset-1 col-lg-7">
                   <img src="/images/rightBoximg.png" />
-                  <h3>Add a valid government ID</h3>
-                  <h5>It looks like the photo you added isn’t a valid form of ID. To help us make sure it’s you, we’ll need another photo of a valid ID, like a driver’s license, passport, or visa.</h5>
-                  <button className="next" onClick={(e)=>this.nextstep(e)}>Add another photo</button>
+                  <h3>{language.Add_a_valid_government_ID}</h3>
+                  <h5>{language.It_looks_like_the_photo_you_added}</h5>
+                  <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Add_another_photo}</button>
               </div>
           }
 
           { this.state.step === this.STEP.Step2 &&
               <div className="VerifyID_2 VerifyID_content col-lg-offset-1 col-lg-7">
-                  <h3>How would you like to add a photo of your ID?</h3>
-                  <h5>You can either take a new photo of your government ID, or upload an existing one from your mobile device or computer.</h5>
+                  <h3>{language.How_would_you_like_to_add}</h3>
+                  <h5>{language.You_can_either_take_a_new_photo}</h5>
 
                   <div className="radio" onClick={(e) => this.setState({addPhoto_type: 1})}>
-                    <label className="text-muted"><p><span className={this.state.addPhoto_type == 1 ?"show":"hide"}></span></p>Take photo with the Airbnb mobile app<span className="Recommend">Recommend</span></label>
+                    <label className="text-muted"><p><span className={this.state.addPhoto_type == 1 ?"show":"hide"}></span></p>{language.Take_photo_with_the}<span className="Recommend">{language.Recommend}</span></label>
                   </div>
                   <div className="radio" onClick={(e) => this.setState({addPhoto_type: 2})}>
-                    <label className="text-muted"><p><span className={this.state.addPhoto_type == 2 ?"show":"hide"}></span></p>Take photo from this browser</label>
+                    <label className="text-muted"><p><span className={this.state.addPhoto_type == 2 ?"show":"hide"}></span></p>{language.Take_photo_from_this_browser}</label>
                   </div>
                   <div className="radio" onClick={(e) => this.setState({addPhoto_type: 3})}>
-                    <label className="text-muted"><p><span className={this.state.addPhoto_type == 3 ?"show":"hide"}></span></p>Upload photo from this device</label>
+                    <label className="text-muted"><p><span className={this.state.addPhoto_type == 3 ?"show":"hide"}></span></p>{language.Upload_photo_from_this_device}</label>
                   </div>
 
-                  <h6><span className="glyphicon glyphicon-lock"></span>Your ID will never be shared with a guest.</h6>
-                  <button className="next"  onClick={(e)=>this.nextstep(e)}>Add another photo</button>
+                  <h6><span className="glyphicon glyphicon-lock"></span>{language.Your_ID_will_never}</h6>
+                  <button className="next"  onClick={(e)=>this.nextstep(e)}>{language.Add_another_photo}</button>
               </div>
           }
 
           { this.state.step === this.STEP.Step3 &&
               <div className="VerifyID_2 VerifyID_3 VerifyID_content col-lg-offset-1 col-lg-7">
-                  <h3>Which type of ID would you like to add?</h3>
-                  <h5>It needs to be an official government ID.</h5>
-                  <p className="text1">Issuing country</p>
+                  <h3>{language.Which_type_of_ID_would_you_like_to_add}</h3>
+                  <h5>{language.It_needs_to_be_an_official_government_ID}</h5>
+                  <p className="text1">{language.Issuing_country}</p>
 
                   <div className="btn-group">
                     <button type="button" data-toggle="dropdown">{this.state.Countrys}<span>▼</span></button>
@@ -100,54 +115,54 @@ class VerifyID extends Component {
                         ))}
                     </ul>
                   </div>
-                  <p className="text2">Type of ID</p>
+                  <p className="text2">{language.Type_of_ID}</p>
 
                   <div className="radio" onClick={(e) => this.setState({Certificates_type: 1})}>
-                    <label className="text-muted"><p><span className={this.state.Certificates_type == 1 ?"show":"hide"}></span></p>Driver’s license</label>
+                    <label className="text-muted"><p><span className={this.state.Certificates_type == 1 ?"show":"hide"}></span></p>{language.Drivers_license}</label>
                   </div>
                   <div className="radio" onClick={(e) => this.setState({Certificates_type: 2})}>
-                    <label className="text-muted"><p><span className={this.state.Certificates_type == 2 ?"show":"hide"}></span></p>Passport</label>
+                    <label className="text-muted"><p><span className={this.state.Certificates_type == 2 ?"show":"hide"}></span></p>{language.Passport}</label>
                   </div>
                   <div className="radio" onClick={(e) => this.setState({Certificates_type: 3})}>
-                    <label className="text-muted"><p><span className={this.state.Certificates_type == 3 ?"show":"hide"}></span></p>Identity card</label>
+                    <label className="text-muted"><p><span className={this.state.Certificates_type == 3 ?"show":"hide"}></span></p>{language.Identity_card}</label>
                   </div>
 
-                  <h6><span className="glyphicon glyphicon-lock"></span>Your ID will never be shared with a guest.</h6>
-                  <button className="next"  onClick={(e)=>this.nextstep(e)}>Next</button>
+                  <h6><span className="glyphicon glyphicon-lock"></span>{language.Your_ID_will_never_be_shared_with_a_guest}</h6>
+                  <button className="next"  onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
               </div>
           }
 
           { this.state.step === this.STEP.Step4 &&
               <div className="VerifyID_2 VerifyID_4 VerifyID_content col-lg-offset-1 col-lg-7">
-                  <h3>Does this look OK?</h3>
-                  <h5>Make sure your images aren’t blurry and the front clearly shows your</h5>
+                  <h3>{language.Does_this_look_OK}</h3>
+                  <h5>{language.Make_sure_your_images}</h5>
                   <div className="divbox">
                     <div className="Left col-lg-6">
                       <div className="photodiv">
                         <img className={this.state.Photo_front ? "show" : "hide"} src={this.state.Photo_front} />
                         <input type="file" onChange={(e)=>this.uploadfront(e,1)} />
                       </div>
-                        <p>Add front<input type="file" onChange={(e)=>this.uploadfront(e,1)} /></p>
+                        <p>{language.Add_front}<input type="file" onChange={(e)=>this.uploadfront(e,1)} /></p>
                     </div> 
                     <div className="Right col-lg-6">
                       <div className="photodiv">
                         <img className={this.state.Photo_back ? "show" : "hide"} src={this.state.Photo_back} />
                         <input type="file"  onChange={(e)=>this.uploadfront(e,2)}/>
                       </div>
-                        <p>Add back<input type="file"  onChange={(e)=>this.uploadfront(e,2)}/></p>
+                        <p>{language.Add_back}<input type="file"  onChange={(e)=>this.uploadfront(e,2)}/></p>
                     </div> 
                   </div> 
                   
-                  <button className="next"  onClick={(e)=>this.nextstep(e)}>Next</button>
+                  <button className="next"  onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
               </div>
           }
 
           { this.state.step === this.STEP.Step5 &&
               <div className="VerifyID_1 VerifyID_content col-lg-offset-1 col-lg-7">
-                  <h3>We’re still reviewing your ID</h3>
-                  <h5>This will get wrapped up as soon as possible—and we’ll be in touch if there’s anything else we need.</h5>
-                  <h5>In the meantime, you can pick up where you left off.</h5>
-                  <button className="next"  onClick={(e)=>this.submit(e)}>Continue</button>
+                  <h3>{language.Were_still_reviewing_your_ID}</h3>
+                  <h5>{language.This_will_get_wrapped}</h5>
+                  <h5>{language.In_the_meantime}</h5>
+                  <button className="next"  onClick={(e)=>this.submit(e)}>{language.Continue}</button>
               </div>
           }
       </div>
@@ -155,4 +170,4 @@ class VerifyID extends Component {
   }
 }
 
-export default withRouter(VerifyID)
+export default VerifyID

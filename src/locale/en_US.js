@@ -411,10 +411,100 @@ export const Guests_send_a_message_with_their_booking_confirmation = 'Guests sen
 export const Lou_says_shell_be_in_town_for_work_and_shed_love_to_stay_with_you = 'Lou says she’ll be in town for work and she’d love to stay with you.';
 export const Welcome_guests_to_your_space = 'Welcome guests to your space!';
 export const Before_Lou_arrives = 'Before Lou arrives, coordinate details like check-in time and key exchange.';
+//Step33
+export const Your_local_laws_and_taxes = 'Your local laws and taxes';
+export const Make_sure_you_familiarise = 'Make sure you familiarise yourself with your local laws, as well as';
+export const PopulStays_Nondiscrimination_Policy = 'PopulStay’s Nondiscrimination Policy.';
+export const Please_educate_yourself_about_the_laws = 'Please educate yourself about the laws in your jurisdiction before listing your space.';
+export const Most_cities_have_rules_covering_homesharing = 'Most cities have rules covering homesharing, and the specific codes and ordinances can appear in many places (such as zoning, building, licensing or tax codes). In most places, you must register, get a permit, or obtain a license before you list your property or accept guests. You may also be responsible for collecting and remitting certain taxes. In some places, short-term rentals could be prohibited altogether.';
+export const Since_you_are_responsible_for_your_own_decision = 'Since you are responsible for your own decision to list or book, you should get comfortable with the applicable rules before listing on PopulStay. To get you started, we offer some helpful resources under “Your City Laws.”';
+export const By_accepting_our_Terms = 'By accepting our Terms of Service and listing your space, you certify that you will follow applicable laws and regulations.';
+//Step34
+export const Youre_ready_to_publish = 'You’re ready to publish!';
+export const Do_you_want_to_generate_Smart_Contract = 'Do you want to generate Smart Contract?';
+export const Generate_Smart_Contract = 'Generate Smart Contract';
+export const Youll_be_able_to_welcome_your_first = 'You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.';
+export const Publish_listing = 'Publish listing';
+export const Edit_Listing = 'Edit Listing';
+export const Place_name = 'Place name';
+export const Preview = 'Preview';
+//Step35
+export const Processing_your_submit = 'Processing your submit';
+export const Please_stand_by = 'Please stand by';
 
+//intro-list--------------------------------------------------------------------------------------------
+//Step1
+export const Hi_there = 'Hi there';
+export const Were_excited_to_learn_about = 'We’re excited to learn about the experience you’d like to host on Populstay.In just a few minutes, you’ll start to create your experience page, then you’ll submit it to be reviewed by Populstay';
+//Step2
+export const Heres_an_overview_of_the_process = 'Here’s an overview of the process';
+export const Learn_about_our_expectations = 'Learn about our expectations(2-3 minutes)';
+export const Find_out_what_makes_experiences = 'Find out what makes experiences different and what Populstay is looking for.';
+export const Create_your_experience = 'Create your experience (as much time as you need)';
+export const Add_photos_videos_descriptions = 'Add photos, videos, descriptions, and other details to be reviewed by Populstay.';
+export const Submit_for_review = 'Submit for review';
+export const Someone_from_Populstay = "Someone from Populstay will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!";
+//Step3
+export const First_things_first = 'First things first, which city would you like to host in?';
+//Step4
+export const Have_you_hosted_an_experience = 'Have you hosted an experience on Populstay or somewhere else before?';
+export const We_welcome_your_participation = 'We welcome your participation and experience in Audemars Pigeut, which is different from organizing activities on other platforms.';
+export const No_problem_Anyone_with_a_lot_of_passion = "No problem! Anyone with a lot of passion and a great idea can become a host. We'll show you tips and examples along the way to help you build a great experience and be successful.";
+export const Yes_ive_done_this_before = "Yes, i've done this before";
+export const No_not_yet = 'No, not yet!';
+//Step5
+export const What_is_Populstay_looking = 'What is Populstay looking for in an experience?';
+export const The_following_things = "The following things don't qualify as a Populstay experience.";
+export const Its_led_by_a_knowledgeable ="It's led by a knowledgeable and passionate host";
+export const Guests_participate = 'Guests participate hands-on, or are immersed in an activity';
+export const It_gives_guests_access = 'It gives guests access to a special place or community';
+export const Its_unique_niche = "It's unique, niche, or not what you'd expect";
+export const Learn_more_about_our_standards = 'Learn more about our standards';
+//Step6
+export const What_were_not_looking_for = "What we're not looking for";
+export const The_following_things_dont_qualify = "The following things don't qualify as a Populstay experience.";
+export const Large_and_impersonal_tours = "Large and impersonal tours(e.g. tours with 15 or more people)";
+export const An_event_with_no_clear_host = "An event with no clear host(e.g. singles night at a bar)";
+export const A_service = "A service (e.g. airport transportation)";
+export const Something_guests_could_easily = 'Something guests could easily find on their own(e.g. a generic visit to the Eiffel Tower)';
+//Step7
+export const Imagine_your_guests_have_all_arrived = 'Imagine your guests have all arrived. Hou would you kick off the first 10 minutes of your experience ?';
+//Step8
+export const What_dose_hospitality_mean_to_you = 'What dose hospitality mean to you ?';
+//Step9
+export const Create_an_experience = 'Create an experience';
 
-
-
+//verify-id--------------------------------------------------------------------------------------------
+//Step1
+export const Add_a_valid_government_ID = 'Add a valid government ID';
+export const It_looks_like_the_photo_you_added = 'It looks like the photo you added isn’t a valid form of ID. To help us make sure it’s you, we’ll need another photo of a valid ID, like a driver’s license, passport, or visa.';
+export const Add_another_photo = 'Add another photo';
+//Step2
+export const How_would_you_like_to_add = 'How would you like to add a photo of your ID?';
+export const You_can_either_take_a_new_photo = 'You can either take a new photo of your government ID, or upload an existing one from your mobile device or computer.';
+export const Take_photo_with_the = 'Take photo with the Airbnb mobile app';
+export const Take_photo_from_this_browser = 'Take photo from this browser';
+export const Upload_photo_from_this_device = 'Upload photo from this device';
+export const Your_ID_will_never = 'Your ID will never be shared with a guest.';
+export const Recommend = 'Recommend';
+//Step3
+export const Which_type_of_ID_would_you_like_to_add = 'Which type of ID would you like to add?';
+export const It_needs_to_be_an_official_government_ID = 'It needs to be an official government ID.';
+export const Issuing_country = 'Issuing country';
+export const Type_of_ID = 'Type of ID';
+export const Drivers_license = 'Driver’s license';
+export const Passport = 'Passport';
+export const Identity_card = 'Identity card';
+export const Your_ID_will_never_be_shared_with_a_guest = 'Your ID will never be shared with a guest.';
+//Step4
+export const Does_this_look_OK = 'Does this look OK?';
+export const Make_sure_your_images = 'Make sure your images aren’t blurry and the front clearly shows your';
+export const Add_front = 'Add front';
+export const Add_back = 'Add back';
+//Step5
+export const Were_still_reviewing_your_ID = 'We’re still reviewing your ID';
+export const This_will_get_wrapped = 'This will get wrapped up as soon as possible—and we’ll be in touch if there’s anything else we need.';
+export const In_the_meantime = 'In the meantime, you can pick up where you left off.';
 
 
 

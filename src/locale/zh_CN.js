@@ -432,9 +432,95 @@ export const Preview = '预览';
 export const Processing_your_submit = '处理您的提交';
 export const Please_stand_by = '请等待';
 
+//intro-list--------------------------------------------------------------------------------------------
+//Step1
+export const Hi_there = '你好';
+export const Were_excited_to_learn_about = '我们很高兴能够了解您想要在潮箱上举办的体验。仅需几分钟，您就可以开始创建体验页面，然后您将提交它以供潮箱审核';
+//Step2
+export const Heres_an_overview_of_the_process = '以下是该过程的概述';
+export const Learn_about_our_expectations = '了解我们的期望（2-3分钟）';
+export const Find_out_what_makes_experiences = '找出是什么让经验不同以及潮箱在寻找什么。';
+export const Create_your_experience = '创造你的经验（尽可能多的时间）';
+export const Add_photos_videos_descriptions = '添加照片，视频，说明和其他细节，由潮箱审查。';
+export const Submit_for_review = '提交审查';
+export const Someone_from_Populstay = '来自潮箱的人将会审查您的体验页面。 如果它符合我们的质量标准，您将可以添加可用性并开始托管！';
+//Step3
+export const First_things_first = '首先，你想在哪个城市举办？';
+//Step4
+export const Have_you_hosted_an_experience = '您之前是否曾经在潮箱或其他地方举办过体验活动？';
+export const We_welcome_your_participation = '我们欢迎您在Audemars Pigeut的参与和体验，这与在其他平台上组织活动不同。';
+export const No_problem_Anyone_with_a_lot_of_passion = '没问题！ 任何有激情和想法的人都可以成为主人。 我们会向您展示一些提示和示例，帮助您建立良好的体验并取得成功。';
+export const Yes_ive_done_this_before = '是的，我以前做过这个';
+export const No_not_yet = '还没有！';
+//Step5
+export const What_is_Populstay_looking = '潮箱在体验中寻找什么？';
+export const The_following_things = '以下事项不符合潮箱的经验';
+export const Its_led_by_a_knowledgeable = '它由一位知识渊博，充满激情的主持人领导';
+export const Guests_participate = '客人亲自参与，或沉浸在活动中';
+export const It_gives_guests_access = '它使客人可以访问特殊的地方或社区';
+export const Its_unique_niche = '这是独特的，利基，或不是你所期望的';
+export const Learn_more_about_our_standards = '详细了解我们的标准';
+//Step6
+export const What_were_not_looking_for = '我们不在寻找什么';
+export const The_following_things_dont_qualify = '以下事项不符合潮箱的经验。';
+export const Large_and_impersonal_tours = '大型非个人游览（例如15人以上的游览）';
+export const An_event_with_no_clear_host = '没有明确主持人的事件（例如酒吧的单身夜晚）';
+export const A_service = '服务（例如机场运输）';
+export const Something_guests_could_easily = '客人可以很容易地找到自己的东西（例如对艾菲尔铁塔的普通访问）';
+//Step7
+export const Imagine_your_guests_have_all_arrived = '想象你的客人都到了。 你将如何开始你的经验的前10分钟？';
+//Step8
+export const What_dose_hospitality_mean_to_you = '好客对你意味着什么？';
+//Step9
+export const Create_an_experience = '创造一种体验';
 
+//verify-id--------------------------------------------------------------------------------------------
+//Step1
+export const Add_a_valid_government_ID = '添加有效的政府ID';
+export const It_looks_like_the_photo_you_added = '它看起来像你添加的照片不是一个有效的身份证件。 为了帮助我们确保它是你的，我们需要另一张有效ID的照片，例如驾照，护照或签证。';
+export const Add_another_photo = '添加另一张照片';
+//Step2
+export const How_would_you_like_to_add = '您想如何添加您的ID的照片？';
+export const You_can_either_take_a_new_photo = '您可以拍摄政府ID的新照片，也可以从移动设备或计算机上载现有照片。';
+export const Take_photo_with_the = '使用潮箱手机应用程序拍照推荐';
+export const Take_photo_from_this_browser = '从这个浏览器拍照';
+export const Upload_photo_from_this_device = '创造一种体验';
+export const Your_ID_will_never = '从此设备上传照片';
+export const Recommend = '推荐';
+//Step3
+export const Which_type_of_ID_would_you_like_to_add = '您想添加哪种类型的ID？';
+export const It_needs_to_be_an_official_government_ID = '它需要是一个官方的政府ID。';
+export const Issuing_country = '发行地';
+export const Type_of_ID = 'ID的类型';
+export const Drivers_license = '驾照';
+export const Passport = '护照';
+export const Identity_card = '身份证';
+export const Your_ID_will_never_be_shared_with_a_guest = '您的ID不会与客人共享。';
+//Step4
+export const Does_this_look_OK = '这看起来好吗？';
+export const Make_sure_your_images = '确保你的图像不模糊，前面清楚地显示你的图像';
+export const Add_front = '添加正面';
+export const Add_back = '添加背面';
+//Step5
+export const Were_still_reviewing_your_ID = '我们仍在审核您的ID';
+export const This_will_get_wrapped = '这将尽快结束 - 如果还有其他任何我们需要的事情，我们将与您保持联系。';
+export const In_the_meantime = '与此同时，你可以从你离开的地方取回。';
 
-
+//register-list--------------------------------------------------------------------------------------------
+//Step1
+export const Experiences = '体验';
+export const Resources = '资源';
+export const Basics = '基本';
+export const About_the_experiences = '关于经验';
+export const Settings = '设置';
+export const Which_city_will_you_host_your_experience_in = '你会在哪个城市举办你的体验？';
+export const Great_Your_city_is_supported = '棒！ 支持您的城市。';
+//Step2
+export const Which_language_will_you_write_your_descriptions_in = '您会用哪种语言撰写体验描述？';
+export const Keep_in_mind_that_most_travellers = '请注意，英语、中文、法语和西班牙语是爱彼迎上的大多数旅客使用的语言。如果您可以熟练使用其中一种进行书面和口头交流，我们建议您首选该种语言。';
+export const Ill_write_my_descriptions_and_speak_in = '我将用以下语言写房源描述和进行口头交流：';
+export const Languages_spoken_by_PopulStay_travellers_to_Singapore = 'PopulStay旅行者使用的语言新加坡';
+export const languagetext = '选择语言';
 
 
 //guest-register--------------------------------------------------------------------------------------------

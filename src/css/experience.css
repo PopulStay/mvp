@@ -16,6 +16,9 @@
 	color: #fff !important;
  	font-family: RobotoThin; 
 }
+.experienceintro_header header li a{
+	padding: 0;
+}
 .experienceintro_header header li{
 	width: auto;
 	margin-left: 10%;
@@ -37,7 +40,6 @@
 	margin: 4% 0;
 }
 .experienceintro_header .headbox button{
-	width: 30%;
 	font-size: 2rem;
 	border-radius: 0;
 	margin:5% 5% 0 0;
@@ -423,6 +425,7 @@ text-decoration:none;
 	left: 10%;
 }
 .introlist .boxleft p.pre{
+	width: 100%;
 	position: absolute;
 	padding: 0;
     font-family: RobotoThin; 
