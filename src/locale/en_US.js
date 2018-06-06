@@ -254,6 +254,7 @@ export const You_can_say_your_listing = 'You can say your listing isn’t suitab
 export const Explain_why_your_listing = 'Explain why your listing isn’t suitable for children';
 export const What_features_of_your = 'What features of your space might be dangerous to children or easily damaged?';
 export const Done = 'Done';
+export const Explain_why = 'Explain why';
 export const You_can_limit_guests_from_bringing_pets = 'You can limit guests from bringing pets, but assistance animals—for example, seeing eye dogs—aren’t considered pets. You have to reasonably accommodate reservations where a guest might bring an assistance animal, even if your listing or House Rules state “no pets.”Learn more';
 export const Suitable_for_infants = 'Suitable for infants (Under 2 years)';
 export const Suitable_for_pets = 'Suitable for pets';
@@ -313,6 +314,41 @@ export const Not_sure_yet = 'Not sure yet';
 export const Part_of_the_time = 'Part of the time';
 export const As_much_as_possible = 'As much as possible';
 export const Based_on_your_responses = 'Based on your responses, we can recommend specific availability settings for you.';
+//Step23
+export const How_much_notice_do_you_need_before_a_guest_arrives = 'How much notice do you need before a guest arrives?';
+export const Same_day = 'Same day';
+export const onedays = '1 days';
+export const twodays = '2 days';
+export const threedays = '3 days';
+export const sevendays = '7 days';
+export const Tip = 'Tip';
+export const At_least2_days_notice_can_help = 'At least 2 days’ notice can help you plan for a guest’s arrival, but you might miss out on last-minute trips.';
+export const When_can_guests_checkin = 'When can guests check in?';
+export const Today = 'Today';
+export const select_a_time = 'select a time';
+export const Non_reservations = 'Non reservations';
+export const Howoften_Times = ["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"];
+//Step24
+export const advance_books = ["Anytime","3 months","6 months","9 months","A year","Non reservations"];
+export const How_far_in_advance_can_guests_book = 'How far in advance can guests book?';
+export const Avoid_cancelling_or_declining_guests = 'Avoid cancelling or declining guests by only unblocking dates you can host.';
+//Step26
+export const Lets_talk_pricing_essentials = 'Let’s talk pricing essentials';
+export const Start_by_choosing_a_price_range = 'Start by choosing a price range';
+export const Factor_in_things_like_your_location = 'Factor in things like your location, what you offer as a host, and anything extra that makes your home unique, like a pool table.';
+export const Demand_changes_your_price_should_too = 'Demand changes, your price should too';
+export const Take_advantage_of_high_demand = 'Take advantage of high demand during local events and popular times of the year. During low demand, you might want to lower your price to attract more guests, just like hotels do.';
+export const Were_here_to_help = "We're here to help";
+export const We_offer_tools_to_help_you = 'We offer tools to help you do both of these—Smart Pricing will look at demand in your area and help you set the right price for every night.';
+export const Hosts_who_use_Smart_Pricing_earn_an_average = 'Hosts who use Smart Pricing earn an average of 39% more than hosts who don’t. You can set up Smart Pricing next.';
+//Step27
+export const How_do_you_want_to_set_your_price = 'How do you want to set your price?';
+export const Price_adapts_to_demand = 'Price adapts to demand';
+export const You_tell_Smart_Pricing_to_automatically = 'You tell Smart Pricing to automatically adjust your price to match demand, but only within a price range that you';
+export const Price_is_fixed = 'Price is fixed';
+export const Set_a_base_price = 'Set a base price. PopulStay gives you price tips that you can accept or ignore.';
+export const The_right_price_can_change = "The right price can change as the number of searches for listings like yours goes up and down. Whichever price option you choose, you'li get tips to help you set prices for your listing";
+export const RECOMMENDED = 'RECOMMENDED';
 
 
 

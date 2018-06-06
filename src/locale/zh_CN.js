@@ -254,6 +254,7 @@ export const You_can_say_your_listing = '如果您的房源存在可能会对儿
 export const Explain_why_your_listing = '解释为什么您的房源不适合儿童';
 export const What_features_of_your = '你的空间的哪些特征可能会对儿童造成危险或易于损坏？';
 export const Done = '完成';
+export const Explain_why = '解释为什么';
 export const You_can_limit_guests_from_bringing_pets = '您可以限制房客携带宠物，但协助性动物（如导盲犬）不被视为宠物。即使您的房源页面或《房源守则》明确说明“不允许携带宠物”，您也需要合理接待可能会携带协助性宠物入住的房客。';
 export const Suitable_for_infants = '适合婴幼儿（2岁以下）';
 export const Suitable_for_pets = '适合携带宠物入住';
@@ -314,8 +315,40 @@ export const Part_of_the_time = '部分时间';
 export const As_much_as_possible = '尽可能多点';
 export const Based_on_your_responses = '根据您的回复，我们可以为您推荐具体的可租状态设置。';
 //Step23
-
-
+export const How_much_notice_do_you_need_before_a_guest_arrives = '在房客抵达前，您需要提前多久收到通知？';
+export const Same_day = '当天';
+export const onedays = '1 天';
+export const twodays = '2 天';
+export const threedays = '3 天';
+export const sevendays = '7 天';
+export const Tip = '小窍门';
+export const At_least2_days_notice_can_help = '至少提前2天通知能让您为房客的入住做好准备，但您可能会错过最后一刻的住宿预订。';
+export const When_can_guests_checkin = '房客什么时候可以入住？';
+export const Today = '今天';
+export const select_a_time = '选择时间';
+export const Non_reservations = '默认设置所有日期为不可订';
+export const Howoften_Times = ["灵活","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(次日)"];
+//Step24
+export const advance_books = ["任何时候","3个月","6个月","9个月","一年","默认设置所有日期为不可订"];
+export const How_far_in_advance_can_guests_book = '房客可以提前多久预订？';
+export const Avoid_cancelling_or_declining_guests = '只取消屏蔽那些您无法接待房客的日期能避免取消预订或拒绝房客。';
+//Step26
+export const Lets_talk_pricing_essentials = '请了解一下定价需知';
+export const Start_by_choosing_a_price_range = '请先确定价格区间';
+export const Factor_in_things_like_your_location = '可以纳入考量的方面有房源位置、您作为房东能提供的服务，以及其他让房源独具特色的设施，比如台球桌。';
+export const Demand_changes_your_price_should_too = '您的定价应根据需求变化进行调整';
+export const Take_advantage_of_high_demand = '如果正值当地办活动或每年的客流高峰期，您可以充分利用高需求带来的利润空间。在需求较低的淡季，您则可以通过降低价格吸引更多房客，这和酒店的做法是一样的。';
+export const Were_here_to_help = '我们能为您提供帮助';
+export const We_offer_tools_to_help_you = '我们的工具能够从这两方面提供帮助：智能定价会分析您所在地区的需求，并帮您设定合适的每晚价格。';
+export const Hosts_who_use_Smart_Pricing_earn_an_average = '使用智能定价的房东比不使用的房东平均多赚39%。接下来，您可以进行智能定价设置。';
+//Step27
+export const How_do_you_want_to_set_your_price = '你想如何设定你的价格？';
+export const Price_adapts_to_demand = '价格适应需求';
+export const You_tell_Smart_Pricing_to_automatically = '您告诉智能定价自动调整您的价格以符合需求，但仅限于您的价格范围';
+export const Price_is_fixed = '价格是固定的';
+export const Set_a_base_price = '设定基准价格。潮箱为您提供您可以接受或忽略的价格提示。';
+export const The_right_price_can_change = '正确的价格可以随着搜索像你的搜索数量的增加和减少而改变。无论您选择哪种价格选项，您都会收到提示，帮助您为商家信息设置价格';
+export const RECOMMENDED = '推荐';
 
 
 
@@ -441,7 +474,7 @@ export const Guest_Managment_Panel = '宾客管理面板';
 export const Status = '状态';
 export const Information = '信息';
 export const From = '从';
-export const To = '至';
+export const To = '到';
 export const Price = '价格';
 
 //host-info--------------------------------------------------------------------------------------------
