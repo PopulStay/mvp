@@ -203,6 +203,35 @@ export const Brightness = '亮度';
 export const Contrast_Ratio = '对比度';
 export const Complete = '完成';
 export const Save_and_Replace = '保存并替换';
+//Step13
+export const Edit_your_description = '向房客描述一下您的房源';
+export const Summary = '概要';
+export const Describe_the_decor_light_whats_nearby_etc = '描述一下房源内部的空间和设施、周边的环境和交通路线等等……';
+export const My_place_is_great_for = '我的地方非常适合';
+export const Family_with_kids = '家庭（带小孩）';
+export const Big_groups = '大团体';
+export const Furry_friends_pets = '毛茸茸的朋友（宠物）';
+export const Add_more_optional = '添加更多（可选）';
+export const only_of_hosts_add_more_info_here = '只有30％的主机在这里添加更多信息';
+export const About_your_place_optional = '关于您的房源（选填）';
+export const What_guests_can_access_optional = '房客可以使用的空间和设施（选填）';
+export const Your_interaction_with_guests_optional = '您与房客的互动（选填）';
+export const Other_things_to_note_optional = '其他要注意的事项（可选）';
+export const The_neighbourhood = '街区';
+export const About_the_neighbourhood_optional = '关于此街区（选填）';
+export const How_to_get_around_optional = '周边交通线路信息（选填）';
+export const Your_summary_description = '房源概要是对您房源的简要概述，房客了解房源的详细情况之前会先阅读这些信息（不要在概要中添加手机号、微信等私人联系方式）。';
+export const You_can_also_use_your_description = '您也可以在描述中告诉大家，您的房源欢迎各种不同背景的房客入住。';
+//Step14
+export const Name_your_place = '为您的房源起个名字';
+export const Listing_title = '房源名称';
+export const Singapore_Home_with_a_View = '新加坡看得见风景的房子';
+//Step15
+export const Add_your_mobile_number = '添加您的手机号码';
+export const Only_confirmed_guests_get_your_phone_number = '只有经确认的客人才能获得您的电话 如有需要，这可以帮助客人快速联系您。';
+
+
+
 
 
 

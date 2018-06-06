@@ -239,7 +239,7 @@ class ListingCreate extends Component {
             photosindex:0,
             modalsubmit:false,
             PicturesSize:"",
-            National_name:["Angola-安哥拉-0244","Afghanistan-阿富汗-93","Albania-阿尔巴尼亚-335","Algeria-阿尔及利亚-213","Andorra-安道尔共和国-376","Anguilla-安圭拉岛-1254","Antigua and Barbuda-安提瓜和巴布达-1268","Argentina-阿根廷-54","Armenia-亚美尼亚-374","Ascension-阿森松-247","Australia-澳大利亚-61","Austria-奥地利-43","Azerbaijan-阿塞拜疆-994","Bahamas-巴哈马-1242","Bahrain-巴林-973","Bangladesh-孟加拉国-880","Barbados-巴巴多斯-1246","Belarus-白俄罗斯-375","Belgium-比利时-32","Belize-伯利兹-501","Benin-贝宁-229","Bermuda Is-百慕大群岛-1441","Bolivia-玻利维亚-591","Botswana-博茨瓦纳-267","Brazil-巴西-55","Brunei-文莱-673","Bulgaria-保加利亚-359","Burkina Faso-布基纳法索-226","Burma-缅甸-95","Burundi-布隆迪-257","Cameroon-喀麦隆-237","Canada-加拿大-1","Cayman Is-开曼群岛-1345","Central African Republic-中非共和国-236","Chad-乍得-235","Chile-智利-56","China-中国-86","Colombia-哥伦比亚-57","Congo-刚果-242","Cook Is-库克群岛-682","Costa Rica-哥斯达黎加-506","Cuba-古巴-53","Cyprus-塞浦路斯-357","Czech Republic-捷克-420","Denmark-丹麦-45","Djibouti-吉布提-253","Dominica Rep-多米尼加共和国-1890","Ecuador-厄瓜多尔-593","Egypt-埃及-20","EI Salvador-萨尔瓦多-503","Estonia-爱沙尼亚-372","Ethiopia-埃塞俄比亚-251","Fiji-斐济-679","Finland-芬兰-358","France-法国-33","French Guiana-法属圭亚那-594","French Polynesia-法属玻利尼西亚-689","Gabon-加蓬-241","Gambia-冈比亚-220","Georgia-格鲁吉亚-995","Germany-德国-49","Ghana-加纳-233","Gibraltar-直布罗陀-350","Greece-希腊-30","Grenada-格林纳达-1809","Guam-关岛-1671","Guatemala-危地马拉-502","Guinea-几内亚-224","Guyana-圭亚那-592","Haiti-海地-509","Honduras-洪都拉斯-504","Hongkong-香港-852","Hungary-匈牙利-36","Iceland-冰岛-354","India-印度-91","Indonesia-印度尼西亚-62","Iran-伊朗-98","Iraq-伊拉克-964","Ireland-爱尔兰-353","Israel-以色列-972","Italy-意大利-39","Ivory Coast-科特迪瓦-225","Jamaica-牙买加-1876","Japan-日本-81","Jordan-约旦-962","Kampuchea (Cambodia )-柬埔寨-855","Kazakstan-哈萨克斯坦-327","Kenya-肯尼亚-254","Korea-韩国-82","Kuwait-科威特-965","Kyrgyzstan-吉尔吉斯坦-331","Laos-老挝-856","Latvia-拉脱维亚-371","Lebanon-黎巴嫩-961","Lesotho-莱索托-266","Liberia-利比里亚-231","Libya-利比亚-218","Liechtenstein-列支敦士登--423","Lithuania-立陶宛-370","Luxembourg-卢森堡-352","Macao-澳门-853","Madagascar-马达加斯加-261","Malawi-马拉维-265","Malaysia-马来西亚-60","Maldives-马尔代夫-960","Mali-马里-223","Malta-马耳他-356","Mariana Is-马里亚那群岛-1670","Martinique-马提尼克-596","Mauritius-毛里求斯-230","Mexico-墨西哥-52","Moldova-摩尔多瓦-373","Monaco-摩纳哥-377","Mongolia-蒙古-976","Montserrat Is-蒙特塞拉特岛-1664","Morocco-摩洛哥-212","Mozambique-莫桑比克-258","Namibia-纳米比亚-264","Nauru-瑙鲁-674","Nepal-尼泊尔-977","Netheriands Antilles-荷属安的列斯-599","Netherlands-荷兰-31","New Zealand-新西兰-64","Nicaragua-尼加拉瓜-505","Niger-尼日尔-227","Nigeria-尼日利亚-234","North Korea-朝鲜-850","Norway-挪威-47","Oman-阿曼-968","Pakistan-巴基斯坦-92","Panama-巴拿马-507","Papua New Cuinea-巴布亚新几内亚-675","Paraguay-巴拉圭-595","Peru-秘鲁-51","Philippines-菲律宾-63","Poland-波兰-48","Portugal-葡萄牙-351","Puerto Rico-波多黎各-1787","Qatar-卡塔尔-974","Reunion-留尼旺-262","Romania-罗马尼亚-40","Russia-俄罗斯-7","Saint Lueia-圣卢西亚-1758","Saint Vincent-圣文森特岛-1784","Samoa Eastern-东萨摩亚(美)-684","Samoa Western-西萨摩亚-685","San Marino-圣马力诺-378","Sao Tome and Principe-圣多美和普林西比-239","Saudi Arabia-沙特阿拉伯-966","Senegal-塞内加尔-221","Seychelles-塞舌尔-248","Sierra Leone-塞拉利昂-232","Singapore-新加坡-65","Slovakia-斯洛伐克-421","Slovenia-斯洛文尼亚-386","Solomon Is-所罗门群岛-677","Somali-索马里-252","South Africa-南非-27","Spain-西班牙-34","SriLanka-斯里兰卡-94","St.Lucia-圣卢西亚-1758","St.Vincent-圣文森特-1784","Sudan-苏丹-249","Suriname-苏里南-597","Swaziland-斯威士兰-268","Sweden-瑞典-46","Switzerland-瑞士-41","Syria-叙利亚-963","Taiwan-台湾省-886","Tajikstan-塔吉克斯坦-992","Tanzania-坦桑尼亚-255","Thailand-泰国-66","Togo-多哥-228","Tonga-汤加-676","Trinidad and Tobago-特立尼达和多巴哥-1809","Tunisia-突尼斯-216","Turkey-土耳其-90","Turkmenistan-土库曼斯坦-993","Uganda-乌干达-256","Ukraine-乌克兰-380","United Arab Emirates-阿拉伯联合酋长国-971","United Kiongdom-英国-44","United States of America-美国-1","Uruguay-乌拉圭-598","Uzbekistan-乌兹别克斯坦-233","Venezuela-委内瑞拉-58","Vietnam-越南-84","Yemen-也门-967","Yugoslavia-南斯拉夫-381","Zimbabwe-津巴布韦-263","Zaire-扎伊尔-243","Zambia-赞比亚-260"],
+            National_name:["0244","93","335","213","376","1254","1268","54","374","247","61","43","994","1242","973","880","1246","375","32","501","229","1441","591","267","55","673","359","226","95","257","237","1","1345","236","235","56","86","57","242","682","506","53","357","420","45","253","1890","593","20","503","372","251","679","358","33","594","689","241","220","995","49","233","350","30","1809","1671","502","224","592","509","504","852","36","354","91","62","98","964","353","972","39","225","1876","81","962","855","327","254","82","965","331","856","371","961","266","231","218","423","370","352","853","261","265","60","960","223","356","1670","596","230","52","373","377","976","1664","212","258","264","674","977","599","31","64","505","227","234","850","47","968","92","507","675","595","51","63","48","351","1787","974","262","40","7","1758","1784","684","685","378","239","966","221","248","232","65","421","386","677","252","27","34","94","1758","1784","249","597","268","46","41","963","886","992","255","66","228","676","1809","216","90","993","256","380","971","44","1","598","233","58","84","967","381","263","243","260"],
             Howoften_Froms:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             Howoften_Tos:["flexible","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00(morrow)"],
             languagelist:{},
@@ -1710,28 +1710,28 @@ class ListingCreate extends Component {
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span></span>
-                <p>Step 2: Set the scene</p>
+                <p>{language.Step} 2: {language.Set_the_scene}</p>
               </div>
 
-              <h2>Edit your description</h2>
-              <h4>Summary</h4>
-              <textarea onChange={(e) => this.setState({roomdescription_description: e.target.value})} placeholder="Describe the decor,light,what’s nearby,etc...">{this.state.roomdescription_description}</textarea>
+              <h2>{language.Edit_your_description}</h2>
+              <h4>{language.Summary}</h4>
+              <textarea onChange={(e) => this.setState({roomdescription_description: e.target.value})} placeholder={language.Describe_the_decor_light_whats_nearby_etc}>{this.state.roomdescription_description}</textarea>
 
-              <h4>My place is great for</h4>
+              <h4>{language.My_place_is_great_for}</h4>
 
               <div className="stepbox">  
                 <div onClick={(e) => {if(this.state.roomstuff_withKids ==0 )this.setState({roomstuff_withKids:1});else this.setState({roomstuff_withKids:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_withKids ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Family (with kids)</p>
+                  <p className="divinput">{language.Family_with_kids}</p>
                 </div>
 
                   <div onClick={(e) => {if(this.state.roomstuff_BigGroups ==0 )this.setState({roomstuff_BigGroups:1});else this.setState({roomstuff_BigGroups:0});}}>
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_BigGroups ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Big groups</p>
+                  <p className="divinput">{language.Big_groups}</p>
                   
                 </div>
 
@@ -1739,40 +1739,40 @@ class ListingCreate extends Component {
                   <p  className="Pinput">
                       <img className={this.state.roomstuff_pets ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                   </p>
-                  <p className="divinput">Furry friends (pets)</p>
+                  <p className="divinput">{language.Furry_friends_pets}</p>
                 </div>
             </div>
               
-              <h4 className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>Add more (optional)</h4>
-              <p className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>only 30% of hosts add more info here</p>
+              <h4 className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>{language.Add_more_optional}</h4>
+              <p className={this.state.scene == 1 ? 'show cursor' : 'hide'}  onClick={(e) => this.setState({scene:0})}>{language.only_of_hosts_add_more_info_here}</p>
 
             <div className={this.state.scene == 0 ? 'show' : 'hide'}>
-              <h4>About your place (optional)</h4>
+              <h4>{language.About_your_place_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_Aboutyour: e.target.value})}>{this.state.roomdescription_Aboutyour}</textarea>
 
 
-              <h4>What guests can access (optional)</h4>
+              <h4>{language.What_guests_can_access_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_guestscan: e.target.value})}>{this.state.roomdescription_guestscan}</textarea>
 
 
-              <h4>Your interaction with guests (optional)</h4>
+              <h4>{language.Your_interaction_with_guests_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_interaction: e.target.value})}>{this.state.roomdescription_interaction}</textarea>
 
-              <h4>Other things to note (optional)</h4>
+              <h4>{language.Other_things_to_note_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_Otherthings: e.target.value})}>{this.state.roomdescription_Otherthings}</textarea>
 
-              <h2>The neighbourhood</h2>
+              <h2>{language.The_neighbourhood}</h2>
               
 
-              <h4>About the neighbourhood (optional)</h4>
+              <h4>{language.About_the_neighbourhood_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_neighbourhood: e.target.value})}>{this.state.roomdescription_neighbourhood}</textarea>
 
-              <h4>How to get around (optional)</h4>
+              <h4>{language.How_to_get_around_optional}</h4>
               <textarea onChange={(e) => this.setState({roomdescription_around: e.target.value})}>{this.state.roomdescription_around}</textarea>
             </div>
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className={ this.state.roomdescription_description == "" ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_description == "" ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className={ this.state.roomdescription_description == "" ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_description == "" ? "disabled" : ""} onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -1780,8 +1780,8 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Your summary description is meant to be a brief overview of your place that guests read before they get into the details.</p>
-                    <p>You can also use your description to remind guests that people from all backgrounds are welcome in your home.</p>
+                    <p>{language.Your_summary_description}</p>
+                    <p>{language.You_can_also_use_your_description}</p>
                 </div>
              </div>
     
@@ -1800,13 +1800,13 @@ class ListingCreate extends Component {
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
-                <p>Step 2: Set the scene</p>
+                <p>{language.Step} 2: {language.Set_the_scene}</p>
               </div>
 
-              <h1>Name your place</h1>
+              <h1>{language.Name_your_place}</h1>
               <div className="box">
                 <span className={this.state.roomdescription_title.length > 50 ? "textpink" : ""}>{50-this.state.roomdescription_title.length}</span>
-                <input placeholder="Listing title" onChange={(e) => this.setState({roomdescription_title: e.target.value})} value={this.state.roomdescription_title}  type="text" />
+                <input placeholder={language.Listing_title} onChange={(e) => this.setState({roomdescription_title: e.target.value})} value={this.state.roomdescription_title}  type="text" />
               </div>
 
 
@@ -1814,8 +1814,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "buttonActive Right" : "Right"} disabled={ this.state.roomdescription_title == "" || this.state.roomdescription_title.length > 50 ? "disabled" : ""} onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -1823,7 +1823,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Singapore Home with a View</p>
+                    <p>{language.Singapore_Home_with_a_View}</p>
                 </div>
              </div>
     
@@ -1842,10 +1842,10 @@ class ListingCreate extends Component {
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
                 <span className="bjpink"></span>
-                <p>Step 2: Set the scene</p>
+                <p>{language.Step} 2: {language.Set_the_scene}</p>
               </div>
 
-              <h1>Add your mobile number</h1>
+              <h1>{language.Add_your_mobile_number}</h1>
 
 
               <div className="box col-md-10">
@@ -1856,7 +1856,7 @@ class ListingCreate extends Component {
                   <span data-toggle="dropdown">+{this.state.roomstuff_AreaCode}</span>
                   <ul className="dropdown-menu" role="menu">
                     {this.state.National_name.map((item,index) => (
-                        <li><a onClick={(e)=>this.setState({roomstuff_AreaCode:(item.split('-')[2])})} >+{(item.split('-')[2])}</a></li>
+                        <li><a onClick={(e)=>this.setState({roomstuff_AreaCode:item})} >+{item}</a></li>
                       ))
                     }
                   </ul>
@@ -1873,8 +1873,8 @@ class ListingCreate extends Component {
 
              
               <div className="STEPBTN">
-                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>Back</button>
-                <button className={ this.state.phoneactive == 0 ? "buttonActive Right" : "Right"} disabled={ this.state.phoneactive == 0 ? "disabled" : ""} onClick={this.nextStep}>Next</button>
+                <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.preStep}>{language.Back}</button>
+                <button className={ this.state.phoneactive == 0 ? "buttonActive Right" : "Right"} disabled={ this.state.phoneactive == 0 ? "disabled" : ""} onClick={this.nextStep}>{language.Next}</button>
               </div>
                
              </div>
@@ -1882,7 +1882,7 @@ class ListingCreate extends Component {
              <div className="col-md-4 col-lg-4 col-sm-4 paddingNone rightbox">
                  <div>
                     <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
-                    <p>Only confirmed guests get your phone number. This helps guests contact you quickly if needed. </p>
+                    <p>{language.Only_confirmed_guests_get_your_phone_number}</p>
                 </div>
              </div>
     

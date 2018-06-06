@@ -194,7 +194,41 @@ export const Sometimes_shooting_from_a_corner = 'Sometimes shooting from a corne
 export const Drag_and_Drop = 'Drag and Drop';
 export const OR = 'OR';
 export const Browse = 'Browse';
-
+//Step12
+export const Crop = 'Crop';
+export const Adjust_Brightness = 'Adjust Brightness';
+export const Rotate = 'Rotate';
+export const Zoom = 'Zoom';
+export const Brightness = 'Brightness';
+export const Contrast_Ratio = 'Contrast Ratio';
+export const Complete = 'Complete';
+export const Save_and_Replace = 'Save and Replace';
+//Step13
+export const Edit_your_description = 'Edit your description';
+export const Summary = 'Summary';
+export const Describe_the_decor_light_whats_nearby_etc = 'Describe the decor,light,what’s nearby,etc...';
+export const My_place_is_great_for = 'My place is great for';
+export const Family_with_kids = 'Family (with kids)';
+export const Big_groups = 'Big groups';
+export const Furry_friends_pets = 'Furry friends (pets)';
+export const Add_more_optional = 'Add more (optional)';
+export const only_of_hosts_add_more_info_here = 'only 30% of hosts add more info here';
+export const About_your_place_optional = 'About your place (optional)';
+export const What_guests_can_access_optional = 'What guests can access (optional)';
+export const Your_interaction_with_guests_optional = 'Your interaction with guests (optional)';
+export const Other_things_to_note_optional = 'Other things to note (optional)';
+export const The_neighbourhood = 'The neighbourhood';
+export const About_the_neighbourhood_optional = 'About the neighbourhood (optional)';
+export const How_to_get_around_optional = 'How to get around (optional)';
+export const Your_summary_description = 'Your summary description is meant to be a brief overview of your place that guests read before they get into the details.';
+export const You_can_also_use_your_description = 'You can also use your description to remind guests that people from all backgrounds are welcome in your home.';
+//Step14
+export const Name_your_place = '为您的房源起个名字';
+export const Listing_title = '房源名称';
+export const Singapore_Home_with_a_View = '新加坡看得见风景的房子';
+//Step15
+export const Add_your_mobile_number = 'Add your mobile number';
+export const Only_confirmed_guests_get_your_phone_number = 'Only confirmed guests get your phone number. This helps guests contact you quickly if needed.';
 
 
 //guest-register--------------------------------------------------------------------------------------------
