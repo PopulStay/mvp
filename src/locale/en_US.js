@@ -84,6 +84,10 @@ export const Book = 'Book';
 export const You_wont_be_charged_yet = 'You won’t be charged yet';
 export const Message_Me = 'Message Me';
 export const Contact_the_landlord = 'Contact the landlord';
+export const Checkin_is_anytime_after_2PM = 'Check-in is anytime after 2PM';
+export const Check_out_by_12PM = 'Check out by 12PM(noon)';
+export const Strict = 'Strict';
+export const Cancel_up_to_7_days_before_check = 'Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
@@ -615,10 +619,36 @@ export const Detailed_and_specific = 'Detailed and specific';
 export const If_your_experience_is_technical = 'If your experience is technical, such as workshops or tutorials, you will not be afraid to introduce details. Participants want to be able to know exactly where their money is spent.';
 export const You_can_directly_participate = 'You can directly participate in our weekly basketball camp and spend two hours of practice and playing time with 60 children. Only three of us are responsible for all the children (boys and girls are between 10 and 17 years old), so I hope you can help us train and guide them to play basketball. Spend time together with your children, let your vitality unfold, sweat and passion, and of course you need plenty of energy.';
 export const My_hometown_is_Colle_Val_d = "My hometown is Colle Val d 'Elsa, which is about 1 hours south of Florence, and I will recommend all the shops I like in a local market. I can take you around the cheeses, the local fish market and my own butcher's shop, and the stalls of the most fresh fruits and vegetables in Tuscany.";
-export const Describe_what_youll_do = '描述体验的内容';
+export const Describe_what_youll_do = 'Describe what you’ll do';
 export const Get_guests_excited_with_a_fun = 'Get guests excited with a fun, detailed description of the itinerary.';
 export const Write_about_each_activity_in_the_order_youll_do_them = 'Write about each activity in the order you’ll do them';
-
+//Step12
+export const Where_should_guests_meet_you = 'Where should guests meet you?';
+export const Tell_guests_exactly_where_to_meet = 'Tell guests exactly where to meet you at the start of the experience. Make sure the location is easy to find. The exact address won’t be shared until the guest’s reservation is confirmed.';
+export const Provide_an_address = 'Provide an address';
+export const Location_name = 'Location name';
+export const Street_address = 'Street address';
+export const eg35Blk_Mandalay_Road = 'e.g. 35Blk Mandalay Road';
+export const Apt_Suite_Bldg = 'Apt, Suite, Bldg. (optional)';
+export const ZIP_code = 'ZIP code';
+export const eg541189 = 'e.g. 541189';
+export const Direction = 'Direction';
+export const Include_specific_instructions = 'Include specific instructions on how to get to the meeting point, and how guests can find you once they arrive.';
+export const Consider_including_driving_walking = 'Consider including driving, walking...';
+export const Drop_a_pin_on_the_map = 'Drop a pin on the map';
+export const Map_pin = 'Map pin';
+export const Drag_the_pin_to_the_meeting_point = 'Drag the pin to the meeting point.';
+export const Only_confirmed_guests_will_see_the_exact_address = 'Only confirmed guests will see the exact address.';
+//Step13
+export const List_all_the_places = 'List all the places';
+export const List_the_locations_of_all = 'List the locations of all the experience activities, give participants some hints, so that they can understand why these places have their own advantages.';
+export const Do_not_include_the_address = 'Do not include the address';
+export const Participants_will_see_the_exact_address = 'Participants will see the exact address when booking, and remember to provide more information about this place so that participants can understand its uniqueness.';
+export const We_are_going_to_work_in_a_mobile = 'We are going to work in a mobile cabin that is rebuilt by the school bus, all of which are perpetual and a special experience for visitors.';
+export const We_should_go_to_Kloof_Corner_Ridge = 'We should go to Kloof Corner Ridge first to see the magnificent ridges along the cable station. But depending on the weather and the ability of the participants, we can also change the route. After taking a bath down the mountain, we can go to my favorite restaurant for a sumptuous dinner.';
+export const Add_details_about_where_youll_be = 'Add details about where you’ll be';
+export const Tell_guests_where_youll_go = 'Tell guests where you’ll go, why each location is special, or why you love it. It’s ok if it’s just one location.';
+export const Consider_including_special = 'Consider including special places guests can’t find or access on their own';
 
 
 

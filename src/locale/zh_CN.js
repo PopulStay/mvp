@@ -54,7 +54,7 @@ export const WIFI = '无线';
 export const Show_all_amenities = '展示所有设施';
 export const Sleeping_arr_7_amenities = '睡觉ARR 7设施';
 export const House_Rules = '房屋规则';
-export const Cancellations = '取消';
+export const Cancellations = '预订取消';
 export const Get_details = '获取详细信息';
 export const Reviews = '评论';
 export const Search_Reviews = '搜索评论';
@@ -84,6 +84,10 @@ export const Book = '预定';
 export const You_wont_be_charged_yet = '您暂时不会被收费';
 export const Message_Me = '给我发短信';
 export const Contact_the_landlord = '联系房东';
+export const Checkin_is_anytime_after_2PM = '入住时间为下午2点以后';
+export const Check_out_by_12PM = '12点退房（中午）';
+export const Strict = '严禁';
+export const Cancel_up_to_7_days_before_check = '入住前7天取消预订，并获得50％的退款（减去服务费）。取消行程后7天内取消预订';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
@@ -618,8 +622,34 @@ export const My_hometown_is_Colle_Val_d = '我的家乡是位于佛罗伦萨以�
 export const Describe_what_youll_do = '描述体验的内容';
 export const Get_guests_excited_with_a_fun = '有趣、详细的行程描述会引起参与者的极大兴趣。';
 export const Write_about_each_activity_in_the_order_youll_do_them = '按照您的做法顺序，为每项活动写简介。';
-
-
+//Step12
+export const Where_should_guests_meet_you = '添加集合地点';
+export const Tell_guests_exactly_where_to_meet = '在体验之初就让参与者知道确切的见面地点，请确保此地点易于寻找。参与者确认预订之后，我们才会分享确切的地址';
+export const Provide_an_address = '提供地址';
+export const Location_name = '地点名称';
+export const Street_address = '街道地址';
+export const eg35Blk_Mandalay_Road = '例如 ＃35Blk曼德勒路';
+export const Apt_Suite_Bldg = '公寓、套房、大厦（选填）';
+export const ZIP_code = '邮政编码';
+export const eg541189 = '例如 541189';
+export const Direction = '路线';
+export const Include_specific_instructions = '请详细说明如何到达见面地点，以及参与者到达地点后怎样与你会面';
+export const Consider_including_driving_walking = '不妨加入步行、开车和公共交通的路线以及停车小贴士。';
+export const Drop_a_pin_on_the_map = '在地图上添加标记';
+export const Map_pin = '地图针';
+export const Drag_the_pin_to_the_meeting_point = '请将大头针拖至集合地点。';
+export const Only_confirmed_guests_will_see_the_exact_address = '只有确认预订体验的参与者才能看到确切的地址。';
+export const Update_map = '更新地图';
+//Step13
+export const List_all_the_places = '列出所有地方';
+export const List_the_locations_of_all = '列出所有体验活动的地点，给参与者一些提示，让他们了解为什么这些地方有其过人之处。';
+export const Do_not_include_the_address = '不要包括地址';
+export const Participants_will_see_the_exact_address = '参与者在预订时会看到确切的地址，记得提供更多关于这个地方的信息，好让参与者明白其独特之处。';
+export const We_are_going_to_work_in_a_mobile = '我们会在一个由校车改建而成的移动小屋里进行工作坊，所有里面的东西都具有永续性，对访客来说是特别的体验。';
+export const We_should_go_to_Kloof_Corner_Ridge = '我们应该会先去Kloof Corner Ridge看看那一路延绵至上缆车站壮丽的山脊线。但取决于天气和参与者的能力范围，我们也可以更改一下路线。下山后洗个澡，我们就可以一起去我最爱的餐厅吃顿丰盛的晚餐。';
+export const Add_details_about_where_youll_be = '添加目的地详情';
+export const Tell_guests_where_youll_go = '请告诉参与者你们将前往哪些地点，每个地点有何独特之处，或者您为何独爱这里。如果只前往一个地点，也没有问题。';
+export const Consider_including_special = '不妨提供参与者无法自行找到或进入的特别去处体验。';
 
 
 

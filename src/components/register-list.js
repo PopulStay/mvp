@@ -48,11 +48,11 @@ class registerlist extends Component {
         experience:"",
         hospitality:"",
         language:["中文 (简体)","English","한국어","Deutsch","Français"],
-        languagetext:"Choose language",
+        languagetext:"",
         experiencetype:["Art and design","fashion","entertainment","motion","Health care","Outdoors","Delicious food","Life","Culture","Music","Business affairs","Night life"],
         experiencetext1:"Select a category",
         experiencetext2:"Select a category",
-        Countrysarr:["Angola","Afghanistan","Albania","Algeria","Anguilla","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda. ","Bolivia","Botswana","Brunei "," Bulgaria","Bulgaria","Burkina"," Burma"," Burundi ","Canada","the Central African Republic","Chad","Bolivia","Columbia","Congo","the Cook islands","Costa Rica","Cuba","Czech","Denmark","Denmark","Djibouti","Djibouti","Ecuador","Salvatore","Estonia ","Ethiopia","Fiji","Finland","French","French Guiana","Gabon"," Georgia "," German "," Garner "," Gibraltar "," Greece","Grenada","Guam "," Guatemala"," Guinea "," Guyana "," Haiti,"," Honduras,","Honduras","Hongkong","Hungary","Iceland","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kazakhstan","Kenya","South Korea","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Italy","Liechtenstein","Lithuania","Macao","Madagascar","Mawlawi","Malaysia","Maldives","Mali","Malta","Mauritius","Mexico","Moldova","Monaco","Mongolia","Mont salad","Morocco","Mozambique","Malta","Neo","Nepal","New Zealand","New Zealand","Nicaragua "," Niger"," Nigeria "," Norway ","Oman","Pakistan "," Papua New Guinea","Paraguay","Peru","Philippines","Poland","French Polynesia","Portuguese"," Puerto Rico "," Qatar "," Russia "," Saint Lucia ","St. Lucia","Saint Mari"," St. Mari "," Sao Tome and Principe "," Sao Tome and Principe "," Senegal","Seychelles"," Sierra Leone"," Singapore ","Slovakia"," Slovenia "," Somalia","South Africa","Senegal","Sri Lanka","Sultan"," Swaziland "," Sweden "," Switzerland"," the Swiss "," the Taiwan Province","the Taiwan Province","Tajikistan","the Tajikistan","Tanzania","Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Turkey"],
+        Countrysarr:[],
         experiencetYesNo:0,
         experiencetext2type:0,
         location:"",
@@ -138,7 +138,9 @@ class registerlist extends Component {
       this.setState({
         step:this.STEP.Step1,
         state:this.state.languagelist=window.languagelist,
-        languagetext:this.state.languagelist.languagetext
+        languagetext:this.state.languagelist.languagetext,
+        Countrysarr:this.state.languagelist.Countrys,
+        Countrys:this.state.languagelist.TOKYO,
       });
       var listStorage =  JSON.parse(sessionStorage.getItem('Experience'));
       if(listStorage){
@@ -1516,27 +1518,27 @@ class registerlist extends Component {
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play textPink"></li>
-                      <li className="textPink">About the experiences</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step6})}>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
-                    <h3>Where should guests meet you?</h3>
-                    <h5>Tell guests exactly where to meet you at the start of the experience. Make sure the location is easy to find. The exact address won’t be shared until the guest’s reservation is confirmed.</h5>
-                    <h6>Step 1: Provide an address</h6>
+                    <h3>{language.Where_should_guests_meet_you}</h3>
+                    <h5>{language.Tell_guests_exactly_where_to_meet}</h5>
+                    <h6>{language.Step} 1: {language.Provide_an_address}</h6>
                     <form>
                         <label>
-                          <p>Location name</p>
+                          <p>{language.Location_name}</p>
                           <input type="text" onChange={(e) => this.setState({Location_name: e.target.value})}/>
                         </label>
 
                         <label>
-                          <p>Country</p>
+                          <p>{language.Country}</p>
                           <div className="btn-group">
                             <button type="button" data-toggle="dropdown">{this.state.Countrys}<span>▼</span></button>
                             <ul className="dropdown-menu" role="menu">
@@ -1548,42 +1550,42 @@ class registerlist extends Component {
                         </label>
 
                         <label>
-                          <p>Street address</p>
-                          <input type="text" placeholder="e.g. 35Blk Mandalay Road"  onChange={(e) => this.setState({Street_address: e.target.value})}/>
+                          <p>{language.Street_address}</p>
+                          <input type="text" placeholder={language.eg35Blk_Mandalay_Road}  onChange={(e) => this.setState({Street_address: e.target.value})}/>
                         </label>
 
                         <label>
-                          <p>Apt, Suite, Bldg. (optional)</p>
-                          <input type="text" placeholder="e.g. #13-37 Mandalay Towers"  onChange={(e) => this.setState({Apt_Suite_Bldg: e.target.value})}/>
+                          <p>{language.Apt_Suite_Bldg}</p>
+                          <input type="text" placeholder={language.eg1337_Mandalay_Towers}  onChange={(e) => this.setState({Apt_Suite_Bldg: e.target.value})}/>
                         </label>
 
                         <label className="Left">
-                          <p>City</p>
-                          <input type="text" placeholder="Singapore" onChange={(e) => this.setState({City: e.target.value})} />
+                          <p>{language.City}</p>
+                          <input type="text" placeholder={language.TOKYO} onChange={(e) => this.setState({City: e.target.value})} />
                         </label>
 
                         <label className="Right">
-                          <p>ZIP code</p>
-                          <input type="text" placeholder="e.g. 541189" onChange={(e) => this.setState({ZIP_code: e.target.value})} />
+                          <p>{language.ZIP_code}</p>
+                          <input type="text" placeholder={language.eg541189} onChange={(e) => this.setState({ZIP_code: e.target.value})} />
                         </label>
 
                         <label>
-                          <p>Direction</p>
-                          <p className="p1">Include specific instructions on how to get to the meeting point, and how guests can find you once they arrive.</p>
-                          <textarea placeholder="Consider including driving, walking..." onChange={(e) => this.setState({Direction: e.target.value})}></textarea>
+                          <p>{language.Direction}</p>
+                          <p className="p1">{language.Include_specific_instructions}</p>
+                          <textarea placeholder={language.Consider_including_driving_walking} onChange={(e) => this.setState({Direction: e.target.value})}></textarea>
                         </label>
                     </form>
                     <div className="stepbox">
-                      <h6>Step 2: Drop a pin on the map</h6>
-                      <button onClick={(e)=> this.setState({API_img:"/images/registerlist_12img1.jpg"})}>Update map</button>
-                      <h5>Map pin</h5>
-                      <p>Drag the pin to the meeting point.</p>
+                      <h6>{language.Step} 2: {language.Drop_a_pin_on_the_map}</h6>
+                      <button onClick={(e)=> this.setState({API_img:"/images/registerlist_12img1.jpg"})}>{language.Update_map}</button>
+                      <h5>{language.Map_pin}</h5>
+                      <p>{language.Drag_the_pin_to_the_meeting_point}</p>
                       <img src="/images/registerlist_12img1.jpg" />
-                      <p>Only confirmed guests will see the exact address.</p>
+                      <p>{language.Only_confirmed_guests_will_see_the_exact_address}</p>
 
                     </div>
 
-                    <button className={ this.state.Location_name == "" || this.state.Street_address == "" || this.state.City == "" ? "btnactive next" : " next"} disabled={this.state.Location_name == "" || this.state.Street_address == "" || this.state.City == "" ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Save & Continue</button>
+                    <button className={ this.state.Location_name == "" || this.state.Street_address == "" || this.state.City == "" ? "btnactive next" : " next"} disabled={this.state.Location_name == "" || this.state.Street_address == "" || this.state.City == "" ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>{language.Save_Continue}</button>
 
                 </div>
 
@@ -1654,13 +1656,13 @@ class registerlist extends Component {
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play textPink"></li>
-                      <li className="textPink">About the experiences</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step6})}>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
@@ -1668,35 +1670,36 @@ class registerlist extends Component {
                         <div className="bj"></div>
                         <div className="Prompt_content">
                           <div className="boxleft">
-                              <h3>Tips</h3>
-                              <h6>List all the places</h6>
-                              <p>List the locations of all the experience activities, give participants some hints, so that they can understand why these places have their own advantages.</p>
-                              <h6>Do not include the address</h6>
-                              <p>Participants will see the exact address when booking, and remember to provide more information about this place so that participants can understand its uniqueness.</p>
+                              <h3>{language.Tips}</h3>
+                              <h6>{language.List_all_the_places}</h6>
+                              <p>{language.List_the_locations_of_all}</p>
+                              <h6>{language.Do_not_include_the_address}</h6>
+                              <p>{language.Participants_will_see_the_exact_address}</p>
                           </div>
                           <div className="boxright">
                               <span className="close" onClick={(e)=>this.setState({Prompttype_13:false})}>×</span>
-                              <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
                               <div className={this.state.Promptlist_13 == 1 ? "show lists" : "hide lists"}>
-                                <p>We are going to work in a mobile cabin that is rebuilt by the school bus, all of which are perpetual and a special experience for visitors.</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>Pepe & Eva</h5><span>Mystic Schoolbus</span></p></div>
+                                <p>{language.We_are_going_to_work_in_a_mobile}</p>
                               </div>
                               <div className={this.state.Promptlist_13 == 2 ? "show lists" : "hide lists"}>
-                                <p>We should go to Kloof Corner Ridge first to see the magnificent ridges along the cable station. But depending on the weather and the ability of the participants, we can also change the route. After taking a bath down the mountain, we can go to my favorite restaurant for a sumptuous dinner.</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>Luke</h5><span>Chasing Trails</span></p></div>
+                                <p>{language.We_should_go_to_Kloof_Corner_Ridge}</p>
                               </div>
                               <div className="listbottom">
-                                <p className="Left">Example {this.state.Promptlist_13} of 2</p>
+                                <p className="Left">{language.Example} {this.state.Promptlist_13} {language.Of} 2</p>
                                 <p className="Right"><span onClick={(e)=>this.Promptpre(13)}>◀</span><span onClick={(e)=>this.Promptnext(13)}>▶</span></p>
                               </div>
                           </div>
                         </div>
                     </div>
 
-                    <h3>Add details about where you’ll be</h3>
-                    <h5>Tell guests where you’ll go, why each location is special, or why you love it. It’s ok if it’s just one location.</h5>
-                    <p className="textpink"  onClick={(e)=>this.setState({Prompttype_13:"true"})}><img src="/images/photoi.png" />Tips and examples</p>
-                    <textarea onChange={(e)=>this.setState({position_information:e.target.value})} placeholder="Consider including special places guests can’t find or access on their own"></textarea>  
-                    <p className={this.state.position_information.length<100 ? "textpink" : ""}>{this.state.position_information.length > 100 ? this.state.position_information.length : 100-this.state.position_information.length} characters needed</p>
-                    <button className={ this.state.position_information.length<100 ? "btnactive next" : " next"} disabled={ this.state.position_information.length<100 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <h3>{language.Add_details_about_where_youll_be}</h3>
+                    <h5>{language.Tell_guests_where_youll_go}</h5>
+                    <p className="textpink"  onClick={(e)=>this.setState({Prompttype_13:"true"})}><img src="/images/photoi.png" />{language.Tips_and_examples}</p>
+                    <textarea onChange={(e)=>this.setState({position_information:e.target.value})} placeholder={language.Consider_including_special}></textarea>  
+                    <p className={this.state.position_information.length<100 ? "textpink" : ""}>{this.state.position_information.length > 100 ? this.state.position_information.length : 100-this.state.position_information.length} {language.characters_needed}</p>
+                    <button className={ this.state.position_information.length<100 ? "btnactive next" : " next"} disabled={ this.state.position_information.length<100 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
 
                 </div>
 

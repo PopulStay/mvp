@@ -368,7 +368,131 @@
 	}
 	/*home  end*/
 
-	/**/
+	/*detail start*/
+	.carousel-inner{
+		height: 300px;
+	}
+	.L_box1 .text2{
+		font-size: 2rem;
+		margin-bottom: 3%;
+	}
+	.detail-content .col-lg-5{
+		width: 90%;
+		margin:0 5%;
+	}
+	.detail-content {
+	    padding: 5% 0;
+	}
+	.slider .slider-list{
+	    width: auto;
+	}
+	.L_TEXT1{
+	    padding:0 5% 5%;
+	}
+	.L_box1{
+	    display: none;
+	}
+	.L_box1 .box1_list{
+		padding-left: 7%;		
+	}
+	.L_box1_1{
+	    display: block;
+	    margin-top: 5%;
+	}
+	.L_box2 .BOX__logo {
+	    width: 100px;
+	    height: 100px;
+	}
+	.L_box2 h4{
+	    font-size: 3rem;
+	    margin-top: 3%;
+	}
+	.L_box2 img{
+	    width: 30%;
+	}
+	.L_box3 p,
+	.L_box5 p, 
+	.L_box6 p,
+	.L_box6 p span,
+	.ReviewsGuest li .GuestDiv,
+	.neighbourhood ul li
+	{
+		font-size: 1.5rem;
+	}
+	.L_box1_1>p,.box6_More{
+	    text-align: center !important;
+	    border-bottom: none;
+	}
+	.L_box1_1,.L_box3,.L_box4,.L_box5,.L_box6,.Reviews,.ReviewsDiv,.ReviewsGuest,.neighbourhood{
+	    padding:0 5% 4%;
+	}
+	.box1_list p{
+	    width: 40% !important;
+	}
+	.More{
+	    text-align: right;
+	    padding-right: 5%;
+	}
+	.L_box4 img{
+	    width: 100%;
+	}
+	.detail-guest-div p{
+	    width: 20%;
+	}
+	.detail-guest-div .btn-group{
+	    width: 80%;
+	}
+	.DayPicker,.DayPicker>div>div{
+	    width: 350px !important;
+	}
+	.DayPicker_transitionContainer{
+	    width: 100% !important;
+	    height: 300px !important;
+	}
+	.L_box3 p,
+	.Reviews>p, .Reviews>div{
+	    width: 50%;
+	}
+	.Reviews,
+	.ReviewsDiv{
+		padding-top:3%;	
+	}
+	.ReviewsDiv li .divxx{
+		margin:0;
+	}
+	.ReviewsDiv .divxx img{
+		width: 15px;
+	}
+	.ReviewsDiv li p{
+		font-size: 1.2rem;
+	}
+	.Reviews>p, .neighbourhood>p{
+	    font-size: 2.4rem;
+	}
+	.Reviews .divxx{
+	    text-align: right;
+	}
+	.Reviews .input-group{
+	    width: 100%;
+	}
+	.detail-content .col-lg-7,
+	.detail-content .col-lg-5{
+		padding: 0;
+	}
+	.video{
+		width: 100%;
+		bottom: 0;
+		right: 0;
+	}
+	.video h4{
+		padding: 0 2%;
+	}
+	.video .videobtn{
+		padding: 2%;
+	}
+	/*detail end*/
+
+	/*listings-grid start*/
 	.listings-grid{
 		margin: 0 5% 10%;
 	}
@@ -383,7 +507,7 @@
 	.tag-header .tag__item.active span{
 		color: #f6416c;
 	}
-	/**/
+	/*listings-grid end*/
 
 	/*becomehost  start*/
 	.becomehost-1.container .STEPhead{
