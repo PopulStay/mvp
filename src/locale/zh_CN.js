@@ -567,6 +567,57 @@ export const Thumbnail = '缩略图';
 export const Upload_cover_photo = '上传封面照片';
 export const characters_needed = '需输入字符数';
 export const character_does_not_exceed = '还剩字符数';
+//Step7
+export const Gallery = '图库';
+export const Host = '体验达人';
+export const Show_yourself_leading_the_activity = '您自己带领开展活动的照片';
+export const Action = '行动';
+export const Show_guests_engaging_in_your_experience = '参与者参与体验的场景';
+export const Details = '详细信息';
+export const Capture_a_closeup_of_textures_or_interesting_details = '为有趣的细节拍摄特写镜头';
+export const Show_the_full_scene_and_try_to_include_people = '展示完整的场景，尽量选择有人物的照片';
+export const Miscellaneous = '其他';
+export const Add_up_to_10_photos = '添加最多10张照片';
+//Step8
+export const Tips = '提示';
+export const Highlight_your_professional_knowledge = '突出你的专业知识';
+export const Tell_you_why_you_are_qualified = '告诉你为什么你有资格成为一个有经验的人。 你可以提到你的独特技能，文凭和生活经验，以说服你，你是一个值得信赖和经验丰富的人。';
+export const Show_your_personality = '展现你的个性';
+export const Fully_demonstrate_your_unique_personality = '充分展现你独特的个性。 不要太谨慎。 你可以结束一个轶事或有趣的个人信息。';
+export const I_am_one_of_the_founders = '我是Amazing Brewing Company的创始人之一，也是韩国7位专业品酒大师之一。 我住在亚洲，欧洲和美国，并从世界各地抽取了100多家啤酒厂。';
+export const I_was_born_and_raised_in_a_village = '我出生并成长于肯尼亚的乡村，18岁时搬到了内罗毕。我驾驶着一辆400cc排量的摩托车，也非常热爱肯尼亚骑行一族的社区。我相信骑行者之间存在着一条特别的纽带，将我们大家紧紧联系在一起。';
+export const After_I_left_the_private_bank = '在我离开私人银行之后开始反思我们的生活方式并开始写旅游博客。于是，我创办了WaterThruSkin，到世界各地旅行推广环保时尚理念、以素食为主的健康饮食习惯以及生态旅游 。';
+export const Example = '范例';
+export const Of = '/';
+export const Tell_guests_what_makes_you_qualified_to_host_this_experience = '请告诉参与者您开展此次体验的资质情况';
+export const Mention_all_the_things_that_make = '请告诉大家为何您是开展此次体验的最佳人选。比如，您已在这个社区中生活多年，或者已成为所从事领域中的佼佼者';
+export const Im_cofounder_of_the_Amazing = '这是你展现自我的时刻！请充分利用这一版块展现自己的个人特质和资历情况（如获得的成就、奖励或特殊认可）。稍后你可以在其他版块中描述体验的具体状况。';
+//Step9
+export const Start_with_a_verb = '从动词开始';
+export const It_is_necessary_for_participants = '参与者有必要立即了解活动的内容。 请从主要动词开始，然后介绍他们将成为谁或将要从事何种活动。';
+export const Brief_and_clear = '简短明了';
+export const A_slogan_is_enough = '口号就够了，语言简洁明了，不需要添加太多花哨的形容词。';
+export const Tasting_the_Japanese_national_wine_with_the_wine_experts = '与葡萄酒专家一起品尝日本国酒';
+export const Witness_the_fashion_rejuvenation_of_Detroit = '见证底特律的时尚复兴';
+export const Record_daily_life_with_two_Cuban_filmmakers = '记录两位古巴电影人的日常生活';
+export const Write_a_tagline = '写一个口号';
+export const Clearly_describe_your_experience = '用一句简短而吸引人的句子清楚地描述你的经历。 从一个动词开始，告诉客人他们会做什么。';
+export const characters_remaining = '剩余的字符';
+export const Write_your_tagline_here = '在这里写你的口号';
+export const Save_Continue = '保存继续';
+//Step10
+export const Describe_the_nonprofit_organisation = '描述一下该非营利组织';
+export const Tell_people_about_the_nonprofit_organisation = '向大家介绍一下您合作的非营利组织。它支持什么类型的公益事业？它的使命又是什么？';
+//Step11
+export const Set_expectations = '设下期望';
+export const The_important_thing_is_to = '重要的是，要让参与者知道他们将会在体验中遇到什么情况。如果参与者需要为某些冒险活动做好准备，请提前告诉他们。';
+export const Detailed_and_specific = '详细具体';
+export const If_your_experience_is_technical = '如果您的体验是技术性的，比如工作坊或教程，可以把內容介绍得详细点也不怕。参与者们都希望能够确切知道他们的钱花在了哪里。';
+export const You_can_directly_participate = '您可以直接参与我们每周的篮球训练营，与60个孩子共度两个小时的练习和比赛时间。这里只有我们三个人负责所有的孩子（男孩和女孩的年龄都在10岁到17岁之间），所以希望您能帮我们一起训练并指导他们打篮球。与孩子们在一起共度欢乐时光，让您的活力无限释放，汗水激情飞扬，当然还需要有充沛的体力。';
+export const My_hometown_is_Colle_Val_d = '我的家乡是位于佛罗伦萨以南约1小时路程的埃尔萨谷口村（Colle Val d’Elsa），我会给您推荐当地的一个市场里所有我喜欢的店铺。我可以带您一起逛逛奶酪店、当地的鱼市和我自己家常光顾的一家肉店，还有那些搜罗了托斯卡纳最新鲜的水果和蔬菜的摊位。';
+export const Describe_what_youll_do = '描述体验的内容';
+export const Get_guests_excited_with_a_fun = '有趣、详细的行程描述会引起参与者的极大兴趣。';
+export const Write_about_each_activity_in_the_order_youll_do_them = '按照您的做法顺序，为每项活动写简介。';
 
 
 

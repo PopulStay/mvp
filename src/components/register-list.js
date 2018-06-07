@@ -927,32 +927,32 @@ class registerlist extends Component {
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play textPink"></li>
-                      <li className="textPink">About the experiences</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step6})}>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
-                    <h3>Create your cover</h3>
-                    <h5>If you don’t have the perfect photo right now, don’t worry. Use the best one you have on hand.</h5>
-                    <p className="textpink" onClick={(e) => {if(this.state.Tips_examples == 0 )this.setState({Tips_examples:1});else this.setState({Tips_examples:0});}}>Tips and examples<span className={this.state.Tips_examples == 1 ? "modalshow" : "hide"}>▲</span><span className={this.state.Tips_examples == 0 ? "modalshow" : "hide"}>▼</span></p>
+                    <h3>{language.Create_your_cover}</h3>
+                    <h5>{language.If_you_dont_have_the_perfect}</h5>
+                    <p className="textpink" onClick={(e) => {if(this.state.Tips_examples == 0 )this.setState({Tips_examples:1});else this.setState({Tips_examples:0});}}>{language.Tips_and_examples}<span className={this.state.Tips_examples == 1 ? "modalshow" : "hide"}>▲</span><span className={this.state.Tips_examples == 0 ? "modalshow" : "hide"}>▼</span></p>
                     <div className={this.state.Tips_examples == 1 ? "show examples" : "hide examples"}>
                       <ul className="ulleft col-sm-12 col-md-6 col-lg-6">
-                          <li><img src="../images/registerlist_dui.png" /><p>Think of your first photo and title as a book cover—it’s the first thing people will see</p></li>
-                          <li><img src="../images/registerlist_dui.png" /><p>Go with active, candid images</p></li>
-                          <li><img src="../images/registerlist_dui.png" /><p>Try to take the photo in a well-lit space</p></li>
-                          <li><img src="../images/registerlist_dui.png" /><p>Photos with a vertical orientation work best</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>{language.Think_of_your_first_photo_and_title}</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>{language.Go_with_active_candid_images}</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>{language.Try_to_take_the_photo_in_a_well_lit_space}</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>{language.Photos_with_a_vertical_orientation_work_best}</p></li>
                       </ul>
                       <ul className="ulright col-sm-6 col-md-6 col-lg-6">
-                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t use a flash or heavy filters</p></li>
-                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t upload blurry or distorted images</p></li>
-                          <li><img src="../images/registerlist_cuo.png" /><p>Photos cannot feature children, logos, or alcohol</p></li>
-                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t upload images with text overlaid</p></li>
-                          <li><img src="../images/registerlist_cuo.png" /><p>No posed portraits</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.Dont_use_a_flash_or_heavy_filters}</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.Dont_upload_blurry_or_distorted_images}</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.Photos_cannot_feature_children_logos_or_alcohol}</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.Dont_upload_images_with_text_overlaid}</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.No_posed_portraits}</p></li>
                       </ul>
                     </div>
                     <div className={this.state.Tips_examples == 1 ? "show imgs" : "hide imgs"}>
@@ -963,7 +963,7 @@ class registerlist extends Component {
                         <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_7img5.jpg"})} src="../images/registerlist_7img5.jpg" /></div>
                     </div>
 
-                    <h3>Gallery</h3>
+                    <h3>{language.Gallery}</h3>
                     <div className="Gallery">
                         <div className="col-sm-12 col-md-4 col-lg-4">
                           <div className="imgdiv">
@@ -973,46 +973,46 @@ class registerlist extends Component {
                         <div className="col-sm-12 col-md-4 col-lg-4">
                           <div className={this.state.photolist.length <= 0 ? "hide imgdiv" : "show imgdiv"}>
                             <img src={this.state.photolist[0]} />
-                            <p><span>Edit</span></p>
+                            <p><span>{language.Edit}</span></p>
                             <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,0)}></span>
                           </div>
-                          <div className={this.state.photolist.length <= 0 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Host</h4><p>Show yourself<br/>leading the activity</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                          <div className={this.state.photolist.length <= 0 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>{language.Host}</h4><p>{language.Show_yourself_leading_the_activity}</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
                         </div>
 
                         <div className="col-sm-12 col-md-4 col-lg-4">
                           <div className={this.state.photolist.length <= 1 ? "hide imgdiv" : "show imgdiv"}>
                             <img src={this.state.photolist[1]} />
-                            <p><span>Edit</span></p>
+                            <p><span>{language.Edit}</span></p>
                             <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,1)}></span>
                           </div>
-                          <div className={this.state.photolist.length <= 1 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Action</h4><p>Show guests engaging<br/>in your experience</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                          <div className={this.state.photolist.length <= 1 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>{language.Action}</h4><p>{language.Show_guests_engaging_in_your_experience}</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
                         </div>
 
                         <div className="col-sm-12 col-md-4 col-lg-4">
                           <div className={this.state.photolist.length <= 2 ? "hide imgdiv" : "show imgdiv"}>
                             <img src={this.state.photolist[2]} />
-                            <p><span>Edit</span></p>
+                            <p><span>{language.Edit}</span></p>
                             <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,2)}></span>
                           </div>
-                          <div className={this.state.photolist.length <= 2 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Details</h4><p>Capture a close-up of textures<br/>or interesting details</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                          <div className={this.state.photolist.length <= 2 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>{language.Details}</h4><p>{language.Capture_a_closeup_of_textures_or_interesting_details}</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
                         </div>
 
                         <div className="col-sm-12 col-md-4 col-lg-4">
                           <div className={this.state.photolist.length <= 3 ? "hide imgdiv" : "show imgdiv"}>
                             <img src={this.state.photolist[3]} />
-                            <p><span>Edit</span></p>
+                            <p><span>{language.Edit}</span></p>
                             <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,3)}></span>
                           </div>
-                          <div className={this.state.photolist.length <= 3 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Location</h4><p>Show the full scene and<br/>try to include people</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                          <div className={this.state.photolist.length <= 3 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>{language.Location}</h4><p>{language.Show_the_full_scene_and_try_to_include_people}</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
                         </div>
 
                         <div className="col-sm-12 col-md-4 col-lg-4">
                           <div className={this.state.photolist.length <= 4 ? "hide imgdiv" : "show imgdiv"}>
                             <img src={this.state.photolist[4]} />
-                            <p><span>Edit</span></p>
+                            <p><span>{language.Edit}</span></p>
                             <span className="glyphicon glyphicon-trash" onClick={(e) => this.delphoto(e,4)}></span>
                           </div>
-                          <div className={this.state.photolist.length <= 4 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>Miscellaneous</h4><p>Add up to 10 photos</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
+                          <div className={this.state.photolist.length <= 4 ? "show photodiv" : "hide photodiv"}><img src="../images/registerlist_7img6.png" /><h4>{language.Miscellaneous}</h4><p>{language.Add_up_to_10_photos}</p><input type="file" onChange={(e)=>this.photolist(e)}/></div>
                         </div>
                     </div>
 
@@ -1022,40 +1022,40 @@ class registerlist extends Component {
                       <div className="modal-dialog">
                         <div className="modal-content">
                             <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3>Adjust the cover photo</h3>
+                            <h3>{language.Adjust_the_cover_photo}</h3>
                           <div className="modal-body">
                           <canvas id="myCanvas" className="canvas"></canvas>
                           </div>
                           <div className="modal-footer">
                             <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
-                                <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />Crop</li>
-                                <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />Adjust Brightness</li>
-                                <li onClick={(e) => this.RotatePictures(e)}><img src="../images/Rotate.png" />Rotate</li>
+                                <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />{language.Crop}</li>
+                                <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />{language.Adjust_Brightness}</li>
+                                <li onClick={(e) => this.RotatePictures(e)}><img src="../images/Rotate.png" />{language.Rotate}</li>
                             </ul>
                             <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
                                 <li  className={this.state.modalset == 1 ? "show" : "hide"}>
-                                    <p>Zoom</p>
+                                    <p>{language.Zoom}</p>
                                     <input type="range" onChange={(e)=>this.rangePictures(e.target.value)} name="points"  step="0.01" min="1" max="3" />
                                 </li>
                                 <li  className={this.state.modalset == 2 ? "show" : "hide"}>
-                                    <p>Brightness</p>
+                                    <p>{language.Brightness}</p>
                                     <input type="range" onChange={(e)=>this.BrightnessPictures(e.target.value)} name="points" step="0.01" min="-1" max="1" />
                                 </li>
                                 <li  className={this.state.modalset == 2 ? "show" : "hide"}>
-                                    <p>Contrast Ratio</p>
+                                    <p>{language.Contrast_Ratio}</p>
                                     <input type="range" name="points" step="0.02" min="1" max="3" />
                                 </li>
                             </ul>
-                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">Cancel</button>
-                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >Complete</button>
-                            <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} type="button" data-dismiss="modal" aria-hidden="true">Save and Replace</button>
+                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">{language.Cancel}</button>
+                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >{language.Complete}</button>
+                            <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} type="button" data-dismiss="modal" aria-hidden="true">{language.Save_and_Replace}</button>
                           </div>
                         </div>
                       </div>
                     <div className="modal-backdrop fade in"></div>
                     </div>
                       
-                    <button className="next"  onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <button className="next"  onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
 
                 <div className="box2 col-sm-12 col-md-5 col-lg-5">
@@ -1112,13 +1112,13 @@ class registerlist extends Component {
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play textPink"></li>
-                      <li className="textPink">About the experiences</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step6})}>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
@@ -1126,26 +1126,28 @@ class registerlist extends Component {
                         <div className="bj"></div>
                         <div className="Prompt_content">
                           <div className="boxleft">
-                              <h3>Tips</h3>
-                              <h6>Highlight your professional knowledge</h6>
-                              <p>Tell you why you are qualified to be an experienced person. You can mention your unique skills, diploma and life experience to convince you that you are a trusted and experienced person.</p>
-                              <h6>Show your personality</h6>
-                              <p>Fully demonstrate your unique personality. Don't be too cautious. You can end with an anecdote or interesting personal message.</p>
+                              <h3>{language.Tips}</h3>
+                              <h6>{language.Highlight_your_professional_knowledge}</h6>
+                              <p>{language.Tell_you_why_you_are_qualified}</p>
+                              <h6>{language.Show_your_personality}</h6>
+                              <p>{language.Fully_demonstrate_your_unique_personality}</p>
                           </div>
                           <div className="boxright">
                               <span className="close" onClick={(e)=>this.setState({Prompttype_8:false})}>×</span>
-                              <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
                               <div className={this.state.Promptlist_8 == 1 ? "show lists" : "hide lists"}>
-                                <p>I am one of the founders of Amazing Brewing Company and also one of the 7 professional wine tasting masters in Korea. I have lived in Asia, Europe and the United States, and have sampled over 100 breweries from all over the world.</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
+                                <p>{language.I_am_one_of_the_founders}</p>
                               </div>
                               <div className={this.state.Promptlist_8 == 2 ? "show lists" : "hide lists"}>
-                                <p>I was born and raised in a village in Kenya, and moved to Nairobi when I was 18 years old. I am driving a 400cc motorcycle and I love the community of Kenya riding communities. I believe that there is a special bond between the riders, which is closely linked to all of us.</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>Wamuyu</h5><span>The Easy Rider</span></p></div>
+                                <p>{language.I_was_born_and_raised_in_a_village}</p>
                               </div>
                               <div className={this.state.Promptlist_8 == 3 ? "show lists" : "hide lists"}>
-                                <p>After I left the private bank, I began to reflect on our way of life and began writing travel blogs. So I set up WaterThruSkin to travel around the world to promote green fashion ideas, vegetarian eating habits and eco-tourism.</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>Valeria</h5><span>A Conscious Lifestyle</span></p></div>
+                                <p>{language.After_I_left_the_private_bank}</p>
                               </div>
                               <div className="listbottom">
-                                <p className="Left">Example {this.state.Promptlist_8} of 3</p>
+                                <p className="Left">{language.Example} {this.state.Promptlist_8} {language.Of} 3</p>
                                 <p className="Right"><span onClick={(e)=>this.Promptpre(8)}>◀</span><span onClick={(e)=>this.Promptnext(8)}>▶</span></p>
                               </div>
                           </div>
@@ -1153,12 +1155,12 @@ class registerlist extends Component {
                     </div>
 
 
-                    <h3>Tell guests what makes you qualified to host this experience</h3>
-                    <h5>Mention all the things that make you the best person to host this experience. For example, tell us you’ve lived in your community for many years, or you’re well known for what you do.</h5>
-                    <p className="textpink" onClick={(e)=>this.setState({Prompttype_8:true})}><img src="/images/photoi.png" />Tips and examples</p>
-                    <textarea onChange={(e)=>this.setState({introduce:e.target.value})} placeholder="I’m co-founder of the Amazing Brewing Company and one of seven certified cicerones (beer sommeliers) in Korea. I’ve lived in Asia, Europe, and the US and tasted beer at over 100 breweries worldwide."></textarea>  
-                    <p className={this.state.introduce.length<120 ? "textpink" : ""}>{this.state.introduce.length > 120 ? this.state.introduce.length : 120-this.state.introduce.length} characters needed</p>
-                    <button className={ this.state.introduce.length<120 ? "btnactive next" : " next"} disabled={ this.state.introduce.length<120 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <h3>{language.Tell_guests_what_makes_you_qualified_to_host_this_experience}</h3>
+                    <h5>{language.Mention_all_the_things_that_make}</h5>
+                    <p className="textpink" onClick={(e)=>this.setState({Prompttype_8:true})}><img src="/images/photoi.png" />{language.Tips_and_examples}</p>
+                    <textarea onChange={(e)=>this.setState({introduce:e.target.value})} placeholder={language.Im_cofounder_of_the_Amazing}></textarea>  
+                    <p className={this.state.introduce.length<120 ? "textpink" : ""}>{this.state.introduce.length > 120 ? this.state.introduce.length : 120-this.state.introduce.length} {language.characters_needed}</p>
+                    <button className={ this.state.introduce.length<120 ? "btnactive next" : " next"} disabled={ this.state.introduce.length<120 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
 
                 </div>
 
@@ -1220,13 +1222,13 @@ class registerlist extends Component {
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play textPink"></li>
-                      <li className="textPink">About the experiences</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step6})}>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
@@ -1234,26 +1236,28 @@ class registerlist extends Component {
                         <div className="bj"></div>
                         <div className="Prompt_content">
                           <div className="boxleft">
-                              <h3>Tips</h3>
-                              <h6>Start with a verb</h6>
-                              <p>It is necessary for participants to understand the content of the activity immediately. Please start with the main verb, and then introduce who they will be or where they are going to do the activity.</p>
-                              <h6>Brief and clear</h6>
-                              <p>A slogan is enough, and the language is concise and clear, and there is no need to add too many fancy adjectives.</p>
+                              <h3>{language.Tips}</h3>
+                              <h6>{language.Start_with_a_verb}</h6>
+                              <p>{language.It_is_necessary_for_participants}</p>
+                              <h6>{language.Brief_and_clear}</h6>
+                              <p>{language.A_slogan_is_enough}</p>
                           </div>
                           <div className="boxright">
                               <span className="close" onClick={(e)=>this.setState({Prompttype_9:false})}>×</span>
-                              <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
                               <div className={this.state.Promptlist_9 == 1 ? "show lists" : "hide lists"}>
-                                <p>Tasting the Japanese national wine with the wine experts</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
+                                <p>{language.Tasting_the_Japanese_national_wine_with_the_wine_experts}</p>
                               </div>
                               <div className={this.state.Promptlist_9 == 2 ? "show lists" : "hide lists"}>
-                                <p>Witness the fashion rejuvenation of Detroit</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
+                                <p>{language.Witness_the_fashion_rejuvenation_of_Detroit}</p>
                               </div>
                               <div className={this.state.Promptlist_9 == 3 ? "show lists" : "hide lists"}>
-                                <p>Record daily life with two Cuban filmmakers</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
+                                <p>{language.Record_daily_life_with_two_Cuban_filmmakers}</p>
                               </div>
                               <div className="listbottom">
-                                <p className="Left">Example {this.state.Promptlist_9} of 3</p>
+                                <p className="Left">{language.Example} {this.state.Promptlist_9} {language.Of} 3</p>
                                 <p className="Right"><span onClick={(e)=>this.Promptpre(9)}>◀</span><span onClick={(e)=>this.Promptnext(9)}>▶</span></p>
                               </div>
                           </div>
@@ -1261,12 +1265,12 @@ class registerlist extends Component {
                     </div>
 
 
-                    <h3>Write a tagline</h3>
-                    <h5>Clearly describe your experience in one short, catchy sentence. Start with a verb that tells guests what they will do.</h5>
-                    <p className="textpink" onClick={(e)=>this.setState({Prompttype_9:true})}><img src="/images/photoi.png" />Tips and examples</p>
-                    <input type="text"  onChange={(e)=>this.setState({Slogan:e.target.value})} placeholder="Write your tagline here"/>
-                    <p className={this.state.Slogan.length<60 ? "textpink" : ""}>{this.state.Slogan.length > 60 ? this.state.Slogan.length : 60-this.state.Slogan.length} characters remaining</p>
-                    <button className={ this.state.Slogan.length<60 ? "btnactive next" : " next"} disabled={ this.state.Slogan.length<60 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Save & Continue</button>
+                    <h3>{language.Write_a_tagline}</h3>
+                    <h5>{language.Clearly_describe_your_experience}</h5>
+                    <p className="textpink" onClick={(e)=>this.setState({Prompttype_9:true})}><img src="/images/photoi.png" />{language.Tips_and_examples}</p>
+                    <input type="text"  onChange={(e)=>this.setState({Slogan:e.target.value})} placeholder={language.Write_your_tagline_here}/>
+                    <p className={this.state.Slogan.length<60 ? "textpink" : ""}>{this.state.Slogan.length > 60 ? this.state.Slogan.length : 60-this.state.Slogan.length} {language.characters_remaining}</p>
+                    <button className={ this.state.Slogan.length<60 ? "btnactive next" : " next"} disabled={ this.state.Slogan.length<60 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>{language.Save_Continue}</button>
 
                 </div>
 
@@ -1328,21 +1332,21 @@ class registerlist extends Component {
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play textPink"></li>
-                      <li className="textPink">About the experiences</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step6})}>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
-                    <h3>Describe the nonprofit organisation</h3>
-                    <h5>Tell people about the nonprofit organisation that you are partnering with. What cause does it support? What is its mission?</h5>
+                    <h3>{language.Describe_the_nonprofit_organisation}</h3>
+                    <h5>{language.Tell_people_about_the_nonprofit_organisation}</h5>
                     <textarea onChange={(e)=>this.setState({organization:e.target.value})} ></textarea>  
-                    <p className={this.state.organization.length<200 ? "textpink" : ""}>{this.state.organization.length > 200 ? this.state.organization.length : 200-this.state.organization.length} characters needed</p>
-                    <button className={ this.state.organization.length<200 ? "btnactive next" : " next"} disabled={ this.state.organization.length<200 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <p className={this.state.organization.length<200 ? "textpink" : ""}>{this.state.organization.length > 200 ? this.state.organization.length : 200-this.state.organization.length} {language.characters_needed}</p>
+                    <button className={ this.state.organization.length<200 ? "btnactive next" : " next"} disabled={ this.state.organization.length<200 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
 
                 </div>
 
@@ -1405,13 +1409,13 @@ class registerlist extends Component {
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play textPink"></li>
-                      <li className="textPink">About the experiences</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step6})}>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
@@ -1419,23 +1423,24 @@ class registerlist extends Component {
                         <div className="bj"></div>
                         <div className="Prompt_content">
                           <div className="boxleft">
-                              <h3>Tips</h3>
-                              <h6>Set expectations</h6>
-                              <p>The important thing is to let participants know what they will encounter in their experience. If participants need to prepare for some adventure activities, please tell them ahead of time.</p>
-                              <h6>Detailed and specific</h6>
-                              <p>If your experience is technical, such as workshops or tutorials, you will not be afraid to introduce details. Participants want to be able to know exactly where their money is spent.</p>
+                              <h3>{language.Tips}</h3>
+                              <h6>{language.Set_expectations}</h6>
+                              <p>{language.The_important_thing_is_to}</p>
+                              <h6>{language.Detailed_and_specific}</h6>
+                              <p>{language.If_your_experience_is_technical}</p>
                           </div>
                           <div className="boxright">
                               <span className="close" onClick={(e)=>this.setState({Prompttype_11:false})}>×</span>
-                              <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>TK (Taekyung)</h5><span>Craft Beer Crawl</span></p></div>
                               <div className={this.state.Promptlist_11 == 1 ? "show lists" : "hide lists"}>
-                                <p>You can directly participate in our weekly basketball camp and spend two hours of practice and playing time with 60 children. Only three of us are responsible for all the children (boys and girls are between 10 and 17 years old), so I hope you can help us train and guide them to play basketball. Spend time together with your children, let your vitality unfold, sweat and passion, and of course you need plenty of energy.</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>Ayanda Cuba</h5><span>Sport is Power</span></p></div>
+                                <p>{language.You_can_directly_participate}</p>
                               </div>
                               <div className={this.state.Promptlist_11 == 2 ? "show lists" : "hide lists"}>
-                                <p>My hometown is Colle Val d 'Elsa, which is about 1 hours south of Florence, and I will recommend all the shops I like in a local market. I can take you around the cheeses, the local fish market and my own butcher's shop, and the stalls of the most fresh fruits and vegetables in Tuscany.</p>
+                                <div className="listtop"><p className="Left"><img src="/images/uesrimg.png" /></p><p className="Right"><h5>Massimiliano</h5><span>The Florentine Foodie</span></p></div>
+                                <p>{language.My_hometown_is_Colle_Val_d}</p>
                               </div>
                               <div className="listbottom">
-                                <p className="Left">Example {this.state.Promptlist_11} of 2</p>
+                                <p className="Left">{language.Example} {this.state.Promptlist_11} {language.Of} 2</p>
                                 <p className="Right"><span onClick={(e)=>this.Promptpre(11)}>◀</span><span onClick={(e)=>this.Promptnext(11)}>▶</span></p>
                               </div>
                           </div>
@@ -1443,12 +1448,12 @@ class registerlist extends Component {
                     </div>
   
 
-                    <h3>Describe what you’ll do</h3>
-                    <h5>Get guests excited with a fun, detailed description of the itinerary.</h5>
-                    <p className="textpink" onClick={(e)=>this.setState({Prompttype_11:true})}><img src="/images/photoi.png" />Tips and examples</p>
-                    <textarea onChange={(e)=>this.setState({Experience_content:e.target.value})} placeholder="Write about each activity in the order you’ll do them"></textarea>  
-                    <p className={this.state.Experience_content.length<200 ? "textpink" : ""}>{this.state.Experience_content.length > 200 ? this.state.Experience_content.length : 200-this.state.Experience_content.length} characters needed</p>
-                    <button className={ this.state.Experience_content.length<200 ? "btnactive next" : " next"} disabled={ this.state.Experience_content.length<200 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Save & Continue</button>
+                    <h3>{language.Describe_what_youll_do}</h3>
+                    <h5>{language.Get_guests_excited_with_a_fun}</h5>
+                    <p className="textpink" onClick={(e)=>this.setState({Prompttype_11:true})}><img src="/images/photoi.png" />{language.Tips_and_examples}</p>
+                    <textarea onChange={(e)=>this.setState({Experience_content:e.target.value})} placeholder={language.Write_about_each_activity_in_the_order_youll_do_them}></textarea>  
+                    <p className={this.state.Experience_content.length<200 ? "textpink" : ""}>{this.state.Experience_content.length > 200 ? this.state.Experience_content.length : 200-this.state.Experience_content.length} {language.characters_needed}</p>
+                    <button className={ this.state.Experience_content.length<200 ? "btnactive next" : " next"} disabled={ this.state.Experience_content.length<200 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>{language.Save_Continue}</button>
 
                 </div>
 

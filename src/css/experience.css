@@ -1215,6 +1215,8 @@ text-decoration:none;
 	margin: 2% 0;
 }
 .registerlist_7 .box .Gallery>div>.photodiv p{
+	width: 70%;
+    margin: 0 auto;
 	font-size: 1.2rem;
 }
 .registerlist_7 .box .Gallery>div>.photodiv input{
@@ -1410,6 +1412,9 @@ text-decoration:none;
 .Prompt .boxright .listbottom p{
 	color: #fff;
 	font-size: 1.4rem;
+}
+.Prompt .boxright .lists>p{
+	min-height: 100px;
 }
 .Prompt .boxright .listtop .Right span{
 	font-size: 1.4rem;

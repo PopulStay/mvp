@@ -534,8 +534,90 @@ export const Great_To_participate = 'Great! To participate, you’ll have to reg
 export const Make_sure_youre_signed = 'Make sure you’re signed into the organization’s Airbnb account';
 export const To_host_a_Social_Impact_experience = 'To host a Social Impact experience, you’ll need to add the nonprofit’s bank account as a payout method. You may need to create a new Airbnb account if the organisation doesn’t already have one.';
 export const Im_signed_into_the_organization = 'I’m signed into the organization’s account and not my personal Airbnb account.';
-
-
+//Step4
+export const Tell_us_about_the_organisation_you_represent = 'Tell us about the organisation you represent';
+export const Organisation_name = 'Organisation name';
+export const Enter_the_name = 'Enter the name';
+export const I_certify_that = 'I certify that';
+export const I_have_the_consent_of_the_charitable = 'I have the consent of the charitable organisation to run this experience on their behalf';
+export const The_charitable_organisation_meets = 'The charitable organisation meets';
+export const PopulStay_criteria_for_a_Social_Impact_experience = 'PopulStay criteria for a Social Impact experience';
+//Step5
+export const Create_the_page_guests_will_see = 'Create the page guests will see';
+export const Use_the_preview_on_the_the_right = 'Use the preview on the the right to see how your experience will look publicly. As you create the description for your experience, it will appear in the preview. Write in a clear, straightforward, and friendly way. We’ll give you tips on when to show off your personality and be more descriptive.';
+//Step6
+export const Create_your_cover = 'Create your cover';
+export const If_you_dont_have_the_perfect = 'If you don’t have the perfect photo right now, don’t worry. Use the best one you have on hand';
+export const Tips_and_examples = 'Tips and examples';
+export const Think_of_your_first_photo_and_title = 'Think of your first photo and title as a book cover—it’s the first thing people will see';
+export const Go_with_active_candid_images = 'Go with active, candid images';
+export const Try_to_take_the_photo_in_a_well_lit_space = 'Try to take the photo in a well-lit space';
+export const Photos_with_a_vertical_orientation_work_best = 'Photos with a vertical orientation work best';
+export const Dont_use_a_flash_or_heavy_filters = 'Don’t use a flash or heavy filters';
+export const Dont_upload_blurry_or_distorted_images = 'Don’t upload blurry or distorted images';
+export const Photos_cannot_feature_children_logos_or_alcohol = 'Photos cannot feature children, logos, or alcohol';
+export const Dont_upload_images_with_text_overlaid = 'Don’t upload images with text overlaid';
+export const No_posed_portraits = 'No posed portraits';
+export const Experience_title = 'Experience title';
+export const A_great_title_is_short = 'A great title is short, clear and descriptive. Try starting with a fun or unique verb.';
+export const Eg_Dance_your_way_through = 'E.g. Dance your way through Rio’s samba scene';
+export const Cover_photo = 'Cover photo';
+export const Adjust_your_cover_image_for_how = 'Adjust your cover image for how you’d like it to appear in search results.';
+export const Thumbnail = 'Thumbnail';
+export const Upload_cover_photo = 'Upload cover photo';
+export const characters_needed = 'characters needed';
+export const character_does_not_exceed = 'character does not exceed';
+//Step7
+export const Gallery = 'Gallery';
+export const Host = 'Host';
+export const Show_yourself_leading_the_activity = 'Show yourself leading the activity';
+export const Action = 'Action';
+export const Show_guests_engaging_in_your_experience = 'Show guests engaging in your experience';
+export const Details = 'Details';
+export const Capture_a_closeup_of_textures_or_interesting_details = 'Capture a close-up of textures or interesting details';
+export const Show_the_full_scene_and_try_to_include_people = 'Show the full scene and try to include people';
+export const Miscellaneous = 'Miscellaneous';
+export const Add_up_to_10_photos = 'Add up to 10 photos';
+//Step8
+export const Tips = 'Tips';
+export const Highlight_your_professional_knowledge = 'Highlight your professional knowledge';
+export const Tell_you_why_you_are_qualified = 'Tell you why you are qualified to be an experienced person. You can mention your unique skills, diploma and life experience to convince you that you are a trusted and experienced person.';
+export const Show_your_personality = 'Show your personality';
+export const Fully_demonstrate_your_unique_personality ="Fully demonstrate your unique personality. Don't be too cautious. You can end with an anecdote or interesting personal message.";
+export const I_am_one_of_the_founders = 'I am one of the founders of Amazing Brewing Company and also one of the 7 professional wine tasting masters in Korea. I have lived in Asia, Europe and the United States, and have sampled over 100 breweries from all over the world.';
+export const I_was_born_and_raised_in_a_village = 'I was born and raised in a village in Kenya, and moved to Nairobi when I was 18 years old. I am driving a 400cc motorcycle and I love the community of Kenya riding communities. I believe that there is a special bond between the riders, which is closely linked to all of us.';
+export const After_I_left_the_private_bank = 'After I left the private bank, I began to reflect on our way of life and began writing travel blogs. So I set up WaterThruSkin to travel around the world to promote green fashion ideas, vegetarian eating habits and eco-tourism.';
+export const Example = 'Example';
+export const Of = 'Of';
+export const Tell_guests_what_makes_you_qualified_to_host_this_experience = 'Tell guests what makes you qualified to host this experience';
+export const Mention_all_the_things_that_make = 'Mention all the things that make you the best person to host this experience. For example, tell us you’ve lived in your community for many years, or you’re well known for what you do.';
+export const Im_cofounder_of_the_Amazing = 'I’m co-founder of the Amazing Brewing Company and one of seven certified cicerones (beer sommeliers) in Korea. I’ve lived in Asia, Europe, and the US and tasted beer at over 100 breweries worldwide.';
+//Step9
+export const Start_with_a_verb = 'Start with a verb';
+export const It_is_necessary_for_participants = 'It is necessary for participants to understand the content of the activity immediately. Please start with the main verb, and then introduce who they will be or where they are going to do the activity.';
+export const Brief_and_clear = 'Brief and clear';
+export const A_slogan_is_enough = 'A slogan is enough, and the language is concise and clear, and there is no need to add too many fancy adjectives.';
+export const Tasting_the_Japanese_national_wine_with_the_wine_experts = 'Tasting the Japanese national wine with the wine experts';
+export const Witness_the_fashion_rejuvenation_of_Detroit = 'Witness the fashion rejuvenation of Detroit';
+export const Record_daily_life_with_two_Cuban_filmmakers = 'Record daily life with two Cuban filmmakers';
+export const Write_a_tagline = 'Write a tagline';
+export const Clearly_describe_your_experience = 'Clearly describe your experience in one short, catchy sentence. Start with a verb that tells guests what they will do.';
+export const characters_remaining = 'characters remaining';
+export const Write_your_tagline_here = 'Write your tagline here';
+export const Save_Continue = 'Save & Continue';
+//Step10
+export const Describe_the_nonprofit_organisation = 'Describe the nonprofit organisation';
+export const Tell_people_about_the_nonprofit_organisation = 'Tell people about the nonprofit organisation that you are partnering with. What cause does it support? What is its mission?';
+//Step11
+export const Set_expectations = 'Set expectations';
+export const The_important_thing_is_to = 'The important thing is to let participants know what they will encounter in their experience. If participants need to prepare for some adventure activities, please tell them ahead of time.';
+export const Detailed_and_specific = 'Detailed and specific';
+export const If_your_experience_is_technical = 'If your experience is technical, such as workshops or tutorials, you will not be afraid to introduce details. Participants want to be able to know exactly where their money is spent.';
+export const You_can_directly_participate = 'You can directly participate in our weekly basketball camp and spend two hours of practice and playing time with 60 children. Only three of us are responsible for all the children (boys and girls are between 10 and 17 years old), so I hope you can help us train and guide them to play basketball. Spend time together with your children, let your vitality unfold, sweat and passion, and of course you need plenty of energy.';
+export const My_hometown_is_Colle_Val_d = "My hometown is Colle Val d 'Elsa, which is about 1 hours south of Florence, and I will recommend all the shops I like in a local market. I can take you around the cheeses, the local fish market and my own butcher's shop, and the stalls of the most fresh fruits and vegetables in Tuscany.";
+export const Describe_what_youll_do = '描述体验的内容';
+export const Get_guests_excited_with_a_fun = 'Get guests excited with a fun, detailed description of the itinerary.';
+export const Write_about_each_activity_in_the_order_youll_do_them = 'Write about each activity in the order you’ll do them';
 
 
 
