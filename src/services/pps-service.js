@@ -107,9 +107,11 @@ class PPSService {
 
   applyWithdraw(account,size){
       var params = {};
-      params.size    = size;
-      params.account = account;
-      params.id      = window.address+"timestamp"+new Date().getTime();
+      params.size         = size;
+      params.applyAddress = account;
+      params.id           = window.address+"timestamp"+new Date().getTime();
+      params.account      = window.address;
+      
       return new Promise((resolve, reject) => {
           
       window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
