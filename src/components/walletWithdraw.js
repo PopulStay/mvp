@@ -34,7 +34,7 @@ class WalletWithdraw extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.delelist = this.delelist.bind(this);
+    //this.delelist = this.delelist.bind(this);
     this.Withdraw = this.Withdraw.bind(this);
 
     languageService.language();
@@ -74,7 +74,7 @@ class WalletWithdraw extends React.Component {
           state:0,
           id:'...',
       })
-      this.setState({withdrawlist:withdrawlist,Address:window.address,Size:1})
+      this.setState({withdrawlist:withdrawlist})
       ppsService.applyWithdraw(this.state.Address,this.state.Size);
       this.props.onGetDepositBalance();
     }
@@ -85,14 +85,14 @@ class WalletWithdraw extends React.Component {
     
   }
 
-  delelist(index){
-    this.setState({
-        withdrawlist: this.state.withdrawlist.filter((elem, i) => index != i)
-    });
+  // delelist(index){
+  //   this.setState({
+  //       withdrawlist: this.state.withdrawlist.filter((elem, i) => index != i)
+  //   });
 
-    var deleId = this.state.withdrawlist[index].id;
-    ppsService.deleWithdraw(deleId);
-  }
+  //   var deleId = this.state.withdrawlist[index].id;
+  //   ppsService.deleWithdraw(deleId);
+  // }
 
   Withdraw(index){
     console.log(this.state.withdrawlist[index].size)
@@ -145,21 +145,20 @@ class WalletWithdraw extends React.Component {
                     <th>{language.Size}</th>
                     <th>{language.TX}</th>
                     <th>{language.Status}</th>
-                    <th>{language.Operation}</th>
                 </tr>
                 {this.state.withdrawlist.map((item,index) => (
                   <tr>
-                    <td className="td1"><input type="text" value={item.account} readonly /></td>
+                    <td className="td1"><input type="text" value={item.applyAddress} readonly /></td>
                     <td className="td2">{item.size}</td>
-                    <td className="td3"><input type="text" value={item.id} readonly /></td>
+                    <td className="td3"><input type="text" value={item.txhash} readonly /></td>
                     <td className="td4">
                         {item.state == 0 ? language.state0 : ""}
                         {item.state == 1 ? language.state1 : ""}
                         {item.state == 2 ? language.state2 : ""}
-                        {item.state == 3 ? language.state3 : ""}
+                        {item.state == 3 ? language.state2 : ""}
+                        {item.state == 4 ? language.state3 : ""}
                         {item.state == -1 ? language.state-1 : ""}
-                    </td>
-                    <td className="td5"><button className="Left"  onClick={this.Withdraw.bind(this,index)} >{language.Withdraw}</button><button className="Right" onClick={this.delelist.bind(this,index)}>{language.Cancel}</button></td>
+                    </td>            
                   </tr>  
                   ))
                 }
