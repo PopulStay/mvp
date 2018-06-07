@@ -506,6 +506,35 @@ export const Were_still_reviewing_your_ID = 'We’re still reviewing your ID';
 export const This_will_get_wrapped = 'This will get wrapped up as soon as possible—and we’ll be in touch if there’s anything else we need.';
 export const In_the_meantime = 'In the meantime, you can pick up where you left off.';
 
+//register-list--------------------------------------------------------------------------------------------
+//Step1
+export const Experiences = 'Experiences';
+export const Resources = 'Resources';
+export const Basics = 'Basics';
+export const About_the_experiences = 'About the experiences';
+export const Settings = 'Settings';
+export const Which_city_will_you_host_your_experience_in = 'Which city will you host your experience in?';
+export const Great_Your_city_is_supported = 'Great! Your city is supported.';
+//Step2
+export const Which_language_will_you_write_your_descriptions_in = 'Which language will you write your descriptions in?';
+export const Keep_in_mind_that_most_travellers = 'Keep in mind that most travellers on PopulStay speak English, Chinese, French, or Spanish. If you’re comfortable writing and speaking in one of those languages, we suggest starting there.';
+export const Ill_write_my_descriptions_and_speak_in = '我将用以下语言写房源描述和进行口头交流：';
+export const Languages_spoken_by_PopulStay_travellers_to_Singapore = 'PopulStay旅行者使用的语言新加坡';
+export const languagetext = 'Choose a language';
+//Step3
+export const What_type_of_experience_will_you_host = 'What type of experience will you host?';
+export const Choose_the_category_that_best_describes = 'Choose the category that best describes your experience. Add a second, if you think it fits into another category.';
+export const Add_secondary_category = 'Add secondary category (optional)';
+export const Second_categories = 'Second categories (selection)';
+export const deleting = 'deleting';
+export const Are_you_hosting_on_behalf = 'Are you hosting on behalf of a nonprofit organisation?';
+export const If_youre_hosting_on_behalf = 'If you’re hosting on behalf of a nonprofit or charitable organisation, you may qualify to host a Social Impact experience. PopulStay will waive service fees, and 100% of the proceeds will go to the organisation.';
+export const Yes_Im_hosting_on_behalf_of_a_nonprofit_organisation = 'Yes, I’m hosting on behalf of a nonprofit organisation';
+export const Great_To_participate = 'Great! To participate, you’ll have to register with our partner, TechSoup. We’ll send you instructions after you submit your experience page.';
+export const Make_sure_youre_signed = 'Make sure you’re signed into the organization’s Airbnb account';
+export const To_host_a_Social_Impact_experience = 'To host a Social Impact experience, you’ll need to add the nonprofit’s bank account as a payout method. You may need to create a new Airbnb account if the organisation doesn’t already have one.';
+export const Im_signed_into_the_organization = 'I’m signed into the organization’s account and not my personal Airbnb account.';
+
 
 
 

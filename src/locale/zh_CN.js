@@ -521,6 +521,60 @@ export const Keep_in_mind_that_most_travellers = '请注意，英语、中文、
 export const Ill_write_my_descriptions_and_speak_in = '我将用以下语言写房源描述和进行口头交流：';
 export const Languages_spoken_by_PopulStay_travellers_to_Singapore = 'PopulStay旅行者使用的语言新加坡';
 export const languagetext = '选择语言';
+//Step3
+export const What_type_of_experience_will_you_host = '您提供的体验是什么类型的？';
+export const Choose_the_category_that_best_describes = '请选择一个最能描述您的旅程体验的类别。如果您的旅程体验同时也属于其他类别，便请再添加一个类别。';
+export const Add_secondary_category = '添加第二个类别（选填）';
+export const Second_categories = '第二个类别（选填）';
+export const deleting = '删除';
+export const Are_you_hosting_on_behalf = '您是否代表非营利组织来提供体验？';
+export const If_youre_hosting_on_behalf = '如果您代表非营利或慈善机构出租房源，那么就有资格提供社会公益体验。爱彼迎不会收取服务费，且收入将百分之百捐赠给非盈利或慈善机构。';
+export const Yes_Im_hosting_on_behalf_of_a_nonprofit_organisation = '是的，我代表非盈利组织提供体验';
+export const Great_To_participate = '棒极了！要加入体验，您需要在我们的合作伙伴Techsoup处登记。在您提交体验页面之后，我们将发送有关登记的指示说明。';
+export const Make_sure_youre_signed = '请确保您已经登陆了该组织的潮箱账号';
+export const To_host_a_Social_Impact_experience = '如想提供社会公益体验，您需要在收款方法中添加该非盈利机构的银行账号。如果该组织没有潮箱账号，您可能需要创建一个。';
+export const Im_signed_into_the_organization = '我登录了机构账号，这不是我的潮箱个人账号。';
+//Step4
+export const Tell_us_about_the_organisation_you_represent = '请向我们介绍一下您所代表的机构';
+export const Organisation_name = '机构名称';
+export const Enter_the_name = '在此输入名称';
+export const I_certify_that = '本人证明';
+export const I_have_the_consent_of_the_charitable = '我已经取得该慈善机构的同意，可以代表他们开展这个体验活动';
+export const The_charitable_organisation_meets = '此慈善机构符合';
+export const PopulStay_criteria_for_a_Social_Impact_experience = '潮箱社会公益体验的标准';
+//Step5
+export const Create_the_page_guests_will_see = '创建参与者会看到的页面';
+export const Use_the_preview_on_the_the_right = '通过右侧的预览面板，您可以预览体验页面最终呈现在大家眼前的效果。您撰写的描述也会出现在预览当中。体验描述应该清晰直接，措辞要友好亲切。我们也会提供一些小窍门，教您如何适时地彰显个人特色，让介绍看起来生动形象。';
+//Step6
+export const Create_your_cover = '创建你的封面';
+export const If_you_dont_have_the_perfect = '如果您手头没有完美的照片，请不必担心。您可以从现有照片中选出最好的。';
+export const Tips_and_examples = '提示和例子';
+export const Think_of_your_first_photo_and_title = '请为体验挑选一张最具代表性的照片，这会是参与者浏览体验时看到的第一张照片';
+export const Go_with_active_candid_images = '画面轻松自然';
+export const Try_to_take_the_photo_in_a_well_lit_space = '尝试在光线充足的空间拍摄照片';
+export const Photos_with_a_vertical_orientation_work_best = '垂直方向的照片效果最好';
+export const Dont_use_a_flash_or_heavy_filters = '请勿使用闪光灯或重磅过滤器';
+export const Dont_upload_blurry_or_distorted_images = '请勿上传模糊或失真的图像';
+export const Photos_cannot_feature_children_logos_or_alcohol = '照片不能包含儿童，标志或酒精';
+export const Dont_upload_images_with_text_overlaid = '不要上传覆盖有文字的图像';
+export const No_posed_portraits = '没有摆姿势的肖像';
+export const Experience_title = '体验标题';
+export const A_great_title_is_short = '请为体验挑选一张最具代表性的照片，这会是参与者浏览体验时看到的第一张照片';
+export const Eg_Dance_your_way_through = '例如，舞动里约桑巴舞体验';
+export const Cover_photo = '封面照片';
+export const Adjust_your_cover_image_for_how = '调整您的封面图片，了解您希望如何显示在搜索结果中。';
+export const Thumbnail = '缩略图';
+export const Upload_cover_photo = '上传封面照片';
+export const characters_needed = '需输入字符数';
+export const character_does_not_exceed = '还剩字符数';
+
+
+
+
+
+
+
+
 
 
 //guest-register--------------------------------------------------------------------------------------------
@@ -659,7 +713,7 @@ export const Token_Size = '存储数量';
 export const Withdraw = '提取';
 export const Withdraw_PPS = '提取PPS';
 export const Size = '数量';
-export const TX = 'TX';
+export const TX = '提交事务';
 export const Operation = '操作';
 export const Wallet_Size = '提取数量';
 export const Submit = '提交';

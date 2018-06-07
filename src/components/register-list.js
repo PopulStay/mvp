@@ -140,6 +140,10 @@ class registerlist extends Component {
         state:this.state.languagelist=window.languagelist,
         languagetext:this.state.languagelist.languagetext
       });
+      var listStorage =  JSON.parse(sessionStorage.getItem('Experience'));
+      if(listStorage){
+          this.setState({ step:listStorage.step});
+      }
       if(window.data){
           this.setState({ user:window.data.user});
       }else{
@@ -151,6 +155,7 @@ class registerlist extends Component {
   }
   nextstep(e){
     this.setState({step:this.state.step+1});
+    sessionStorage.setItem('Experience', JSON.stringify(this.state));
   }
   prestep(e){
     this.setState({step:this.state.step-1});
@@ -558,18 +563,18 @@ class registerlist extends Component {
                   <span className="bjpink"></span>
                   <span className="bjpink"></span>
                   <ul>
-                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>Basics</li>
+                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>About the experiences</li>
+                      <li>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
-                    <h3>What type of experience will you host?</h3>
-                    <h5>Choose the category that best describes your experience. Add a second, if you think it fits into another category.</h5>
+                    <h3>{language.What_type_of_experience_will_you_host}</h3>
+                    <h5>{language.Choose_the_category_that_best_describes}</h5>
                     <div className="btn-group">
                       <button type="button" data-toggle="dropdown">{this.state.experiencetext1}<span>▼</span></button>
                       <ul className="dropdown-menu" role="menu">
@@ -578,8 +583,8 @@ class registerlist extends Component {
                           ))}
                       </ul>
                     </div>
-                    <p className={this.state.experiencetext2type == 0 ? "show textPink" : "hide textPink"} onClick={(e) => this.setState({experiencetext2type: 1})}> + Add secondary category (optional)</p>
-                    <p className={this.state.experiencetext2type == 1 ? "show textp" : "hide textp"}>Second categories (selection) <span className="textPink" onClick={(e) => this.setState({experiencetext2type: 0})}>deleting</span></p>
+                    <p className={this.state.experiencetext2type == 0 ? "show textPink" : "hide textPink"} onClick={(e) => this.setState({experiencetext2type: 1})}> + {language.Add_secondary_category} (optional)</p>
+                    <p className={this.state.experiencetext2type == 1 ? "show textp" : "hide textp"}>{language.Second_categories}<span className="textPink" onClick={(e) => this.setState({experiencetext2type: 0})}>{language.deleting}</span></p>
                     <div  className={this.state.experiencetext2type == 1 ? "show btn-group" : "hide btn-group"} >
                       <button type="button" data-toggle="dropdown">{this.state.experiencetext2}<span>▼</span></button>
                       <ul className="dropdown-menu" role="menu">
@@ -588,20 +593,20 @@ class registerlist extends Component {
                           ))}
                       </ul>
                     </div>
-                    <h3 className="h31"><img src="./images/registerlist_3.png" />Are you hosting on behalf of a nonprofit organisation?</h3>
-                    <h5>If you’re hosting on behalf of a nonprofit or charitable organisation, you may qualify to host a Social Impact experience. PopulStay will waive service fees, and 100% of the proceeds will go to the organisation. Learn more</h5>
+                    <h3 className="h31"><img src="./images/registerlist_3.png" />{language.Are_you_hosting_on_behalf}</h3>
+                    <h5>{language.If_youre_hosting_on_behalf}</h5>
 
                     <div className="check" onClick={(e) => {if(this.state.experiencetYesNo ==0 )this.setState({experiencetYesNo:1});else this.setState({experiencetYesNo:0});}}>
                       <p  className="Pinput">
                           <img className={this.state.experiencetYesNo ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                       </p>
-                      <p className="divinput">Yes, I’m hosting on behalf of a nonprofit organisation </p>
+                      <p className="divinput">{language.Yes_Im_hosting_on_behalf_of_a_nonprofit_organisation} </p>
                     </div>
-                    <p className={this.state.experiencetYesNo == 1 ? "show" : "hide"}>Great! To participate, you’ll have to register with our partner, TechSoup. We’ll send you instructions after you submit your experience page.</p>
+                    <p className={this.state.experiencetYesNo == 1 ? "show" : "hide"}>{language.Great_To_participate}</p>
 
                     <div className={this.state.experiencetYesNo == 1 ? "show box3" : "hide box3"} >
-                        <h3>Make sure you’re signed into the organization’s Airbnb  account</h3>
-                        <p>To host a Social Impact experience, you’ll need to add the nonprofit’s bank account as a payout method. You may need to create a new Airbnb account if the organisation doesn’t already have one.</p>
+                        <h3>{language.Make_sure_youre_signed}</h3>
+                        <p>{language.To_host_a_Social_Impact_experience}</p>
                         <div className="userimg"><img src="../images/uesrimg.png" /></div>
                         <span>{this.state.user}</span>
 
@@ -609,11 +614,11 @@ class registerlist extends Component {
                           <p  className="Pinput">
                               <img className={this.state.Login_type ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                           </p>
-                          <p className="divinput">I’m signed into the organization’s account and not my personal Airbnb account.</p>
+                          <p className="divinput">{language.Im_signed_into_the_organization}</p>
                         </div>
                     </div>
 
-                    <button  className={ this.state.experiencetYesNo == 0 ? "btnactive next" : "next"} disabled={  this.state.experiencetYesNo == 0 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <button  className={ this.state.experiencetYesNo == 0 ? "btnactive next" : "next"} disabled={  this.state.experiencetYesNo == 0 ? "disabled" : ""}  onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
             </div>
           }
@@ -625,39 +630,39 @@ class registerlist extends Component {
                   <span className="bjpink"></span>
                   <span className="bjpink"></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink" onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>About the experiences</li>
+                      <li>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
-                    <h3>Tell us about the organisation you represent </h3>
-                    <h5>Organisation name</h5>
+                    <h3>{language.Tell_us_about_the_organisation_you_represent} </h3>
+                    <h5>{language.Organisation_name}</h5>
 
-                    <input type="text"  onChange={(e) => this.setState({Organisation_name: e.target.value})} placeholder="Enter the name"/>
+                    <input type="text"  onChange={(e) => this.setState({Organisation_name: e.target.value})} placeholder={language.Enter_the_name}/>
                    
-                    <h3 className="h31">I certify that: </h3>
+                    <h3 className="h31">{language.I_certify_that}: </h3>
 
                     <div className="check" onClick={(e) => {if(this.state.Prove1 ==0 )this.setState({Prove1:1});else this.setState({Prove1:0});}}>
                       <p  className="Pinput">
                           <img className={this.state.Prove1 ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                       </p>
-                      <p className="divinput">I have the consent of the charitable organisation to run this experience on their behalf</p>
+                      <p className="divinput">{language.I_have_the_consent_of_the_charitable}</p>
                     </div>
 
                     <div className="check" onClick={(e) => {if(this.state.Prove2 ==0 )this.setState({Prove2:1});else this.setState({Prove2:0});}}>
                       <p  className="Pinput">
                           <img className={this.state.Prove2 ==1 ? 'show' : 'hide'} src="../images/checkdui.png" alt=""/>
                       </p>
-                      <p className="divinput">The charitable organisation meets <span className="textpink">PopulStay criteria for a Social Impact experience</span></p>
+                      <p className="divinput">{language.The_charitable_organisation_meets}<span className="textpink">{language.PopulStay_criteria_for_a_Social_Impact_experience}</span></p>
                     </div>
 
 
-                    <button className="next"  className={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "btnactive next" : " next"} disabled={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <button className="next"  className={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "btnactive next" : " next"} disabled={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
 
                 <div className="box2 col-sm-12 col-md-5 col-lg-5">
@@ -666,31 +671,31 @@ class registerlist extends Component {
                         <ul>
                             <li className="li1">Experience</li>
                             <li className="li2">
-                                <p><img src="./images/registerlist_4location.png" />Singapore</p>
-                                <p><img src="./images/registerlist_4time.png" />0 hour total</p>
+                                <p><img src="./images/registerlist_4location.png" />{language.Singapore}</p>
+                                <p><img src="./images/registerlist_4time.png" />{language.hour_total}</p>
                             </li>
                             <li>
-                                <h5>What we’ll do</h5>
-                                <p>Give an overview description of what your guests will be doing on this experience.</p>
+                                <h5>{language.What_well_do}</h5>
+                                <p>{language.Give_an_overview_description}</p>
                             </li>
                             <li>
-                                <h5>What I’ll provide</h5>
-                                <p>Let your guests know if you’ll be including anything for this experience.</p>
+                                <h5>{language.What_Ill_provide}</h5>
+                                <p>{language.Let_your_guests_know_if_youll}</p>
                             </li>
                             <li>
-                                <h5>Where we’ll be</h5>
-                                <p>Tell your guests where you’ll be taking them for this experience.</p>
+                                <h5>{language.Where_well_be}</h5>
+                                <p>{language.Tell_your_guests_where_youll}</p>
                             </li>
                             <li className="li3">
-                                <h5>Notes</h5>
-                                <p>Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking</p>
+                                <h5>{language.Notes}</h5>
+                                <p>{language.Food_drink_and_transportation}</p>
                             </li>
                             <li className="li3">
                                 <img src="./images/registerlist_4api.jpg" />
                             </li>
                             <li className="li3">
-                                <h5>About Warm house</h5>
-                                <p>This is a social impact experience where 100% of what you pay for this experience goes to Warm house. <span className="textpink">Learn how your money helps.</span> </p>
+                                <h5>{language.About_Warm_house}</h5>
+                                <p>{language.This_is_a_social_impact_experience}<span className="textpink">{language.Learn_how_your_money_helps}</span> </p>
                             </li>
                         </ul>
                     </div>
@@ -702,9 +707,9 @@ class registerlist extends Component {
           { this.state.step === this.STEP.Step5 &&
             <div className="registerlist_3 registerlist_4 registerlist_5 row">
                 <div className="box col-sm-7 col-md-7 col-lg-7">
-                    <h3>Create the page guests will see </h3>
-                    <h5>Use the preview on the the right to see how your experience will look publicly. As you create the description for your experience, it will appear in the preview. Write in a clear, straightforward, and friendly way. We’ll give you tips on when to show off your personality and be more descriptive.</h5>
-                    <button className="next" onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <h3>{language.Create_the_page_guests_will_see}</h3>
+                    <h5>{language.Use_the_preview_on_the_the_right}</h5>
+                    <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
 
                 <div className="box2 col-sm-12 col-md-5 col-lg-5">
@@ -761,32 +766,32 @@ class registerlist extends Component {
                   <span></span>
                   <span></span>
                   <ul>
-                      <li className="textPink">Basics</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step1})}>{language.Basics}</li>
                       <li className="glyphicon glyphicon-play textPink"></li>
-                      <li className="textPink">About the experiences</li>
+                      <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step6})}>{language.About_the_experiences}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Settings</li>
+                      <li>{language.Settings}</li>
                       <li className="glyphicon glyphicon-play"></li>
-                      <li>Review & Submit</li>
+                      <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
                 <div className="box col-sm-7 col-md-7 col-lg-7">
-                    <h3>Create your cover</h3>
-                    <h5>If you don’t have the perfect photo right now, don’t worry. Use the best one you have on hand.</h5>
-                    <p className="textpink" onClick={(e) => {if(this.state.Tips_examples == 0 )this.setState({Tips_examples:1});else this.setState({Tips_examples:0});}}>Tips and examples<span className={this.state.Tips_examples == 1 ? "modalshow" : "hide"}>▲</span><span className={this.state.Tips_examples == 0 ? "modalshow" : "hide"}>▼</span></p>
+                    <h3>{language.Create_your_cover}</h3>
+                    <h5>{language.If_you_dont_have_the_perfect}</h5>
+                    <p className="textpink" onClick={(e) => {if(this.state.Tips_examples == 0 )this.setState({Tips_examples:1});else this.setState({Tips_examples:0});}}>{language.Tips_and_examples}<span className={this.state.Tips_examples == 1 ? "modalshow" : "hide"}>▲</span><span className={this.state.Tips_examples == 0 ? "modalshow" : "hide"}>▼</span></p>
                     <div className={this.state.Tips_examples == 1 ? "show examples" : "hide examples"}>
                       <ul className="ulleft col-sm-12 col-md-6 col-lg-6">
-                          <li><img src="../images/registerlist_dui.png" /><p>Think of your first photo and title as a book cover—it’s the first thing people will see</p></li>
-                          <li><img src="../images/registerlist_dui.png" /><p>Go with active, candid images</p></li>
-                          <li><img src="../images/registerlist_dui.png" /><p>Try to take the photo in a well-lit space</p></li>
-                          <li><img src="../images/registerlist_dui.png" /><p>Photos with a vertical orientation work best</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>{language.Think_of_your_first_photo_and_title}</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>{language.Go_with_active_candid_images}</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>{language.Try_to_take_the_photo_in_a_well_lit_space}</p></li>
+                          <li><img src="../images/registerlist_dui.png" /><p>{language.Photos_with_a_vertical_orientation_work_best}</p></li>
                       </ul>
                       <ul className="ulright col-sm-6 col-md-6 col-lg-6">
-                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t use a flash or heavy filters</p></li>
-                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t upload blurry or distorted images</p></li>
-                          <li><img src="../images/registerlist_cuo.png" /><p>Photos cannot feature children, logos, or alcohol</p></li>
-                          <li><img src="../images/registerlist_cuo.png" /><p>Don’t upload images with text overlaid</p></li>
-                          <li><img src="../images/registerlist_cuo.png" /><p>No posed portraits</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.Dont_use_a_flash_or_heavy_filters}</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.Dont_upload_blurry_or_distorted_images}</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.Photos_cannot_feature_children_logos_or_alcohol}</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.Dont_upload_images_with_text_overlaid}</p></li>
+                          <li><img src="../images/registerlist_cuo.png" /><p>{language.No_posed_portraits}</p></li>
                       </ul>
                     </div>
                     <div className={this.state.Tips_examples == 1 ? "show imgs" : "hide imgs"}>
@@ -795,29 +800,29 @@ class registerlist extends Component {
                         <div><img onClick={(e)=>this.setState({select_Pictures:"../images/registerlist_6img3.jpg"})} src="../images/registerlist_6img3.jpg" /></div>
                     </div>
 
-                    <h3>Experience title</h3>
-                    <p>A great title is short, clear and descriptive. Try starting with a fun or unique verb.</p>
-                    <input type="text" placeholder="E.g. Dance your way through Rio’s samba scene"  onChange={(e) => this.setState({Experience_title: e.target.value})}/>
-                    <p className={this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "textpink" : ""}>{this.state.Experience_title.length <= 10 ? 10-this.state.Experience_title.length+" characters needed" : "character does not exceed "+(38-this.state.Experience_title.length)}</p>
+                    <h3>{language.Experience_title}</h3>
+                    <p>{language.A_great_title_is_short}</p>
+                    <input type="text" placeholder={language.Eg_Dance_your_way_through}  onChange={(e) => this.setState({Experience_title: e.target.value})}/>
+                    <p className={this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "textpink" : ""}>{this.state.Experience_title.length <= 10 ? language.characters_needed + (10-this.state.Experience_title.length)  :  language.character_does_not_exceed +(38-this.state.Experience_title.length)}</p>
                     <div className={this.state.Experience_Pictures == "" ? "hide photoleft col-sm-12 col-md-12 col-lg-12" : "show photoleft col-sm-6 col-md-6 col-lg-6"} >
-                      <h3>Cover photo</h3>
-                      <p className={this.state.Experience_Pictures == "" ? "hide" : "show"}>Adjust your cover image for how you’d like it to appear in search results.</p>
+                      <h3>{language.Cover_photo}</h3>
+                      <p className={this.state.Experience_Pictures == "" ? "hide" : "show"}>{language.Adjust_your_cover_image_for_how}</p>
                       <div className={this.state.Experience_Pictures == "" ? "hide photochage" : "show photochage"}>
                           <img src={this.state.Experience_Pictures == "" ? "../images/registerlist_4.png" : this.state.Experience_Pictures} />
-                          <p  data-toggle="modal" data-target="#myModal" onClick={(e) => this.modalPictures(e)}><span>Edit</span></p>
+                          <p  data-toggle="modal" data-target="#myModal" onClick={(e) => this.modalPictures(e)}><span>{language.Edit}</span></p>
                           <span className="glyphicon glyphicon-trash"  onClick={(e) => {if(this.state.select_Pictures == this.state.Experience_Pictures)this.setState({Experience_Pictures: "",select_Pictures: ""});else this.setState({Experience_Pictures: ""})}}></span>
                       </div>
                     </div>
                     <div  className={this.state.Experience_Pictures == "" ? "hide photoright col-sm-6 col-md-6 col-lg-6" : "show photoright col-sm-6 col-md-6 col-lg-6"} >
-                      <h3>Thumbnail</h3>
-                      <p>Adjust your cover image for how you’d like it to appear in search results.</p>
+                      <h3>{language.Thumbnail}</h3>
+                      <p>{language.Adjust_your_cover_image_for_how}</p>
                       <div className={this.state.Experience_Pictures == "" ? "hide photochage" : "show photochage"}>
                           <img src={this.state.Experience_Pictures == "" ? "../images/registerlist_4.png" : this.state.Experience_Pictures} />
-                          <p  data-toggle="modal" data-target="#myModal" onClick={(e) => this.modalPictures(e)}><span>Edit</span></p>
+                          <p  data-toggle="modal" data-target="#myModal" onClick={(e) => this.modalPictures(e)}><span>{language.Edit}</span></p>
                       </div>
                     </div>
                     <div className={this.state.Experience_Pictures == "" ? "show Uploaddiv col-lg-12" : "hide Uploaddiv col-lg-12"}>
-                        <button className="Upload"><img src="../images/registerlist_btnimg.png" />Upload cover photo<input type="file" onChange={(e)=>this.fileChangedHandler(e)}/></button>
+                        <button className="Upload"><img src="../images/registerlist_btnimg.png" />{language.Upload_cover_photo}<input type="file" onChange={(e)=>this.fileChangedHandler(e)}/></button>
                     </div>
 
                    <div className="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -838,34 +843,34 @@ class registerlist extends Component {
                           </div>
                           <div className="modal-footer"vz>
                             <ul className={this.state.modalset == 0 ? "Set modalshow" : "Set hide"}>
-                                <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />Crop</li>
-                                <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />Adjust Brightness</li>
-                                <li onClick={(e) => this.setState({canvasRotate:this.state.canvasRotate+90})}><img src="../images/Rotate.png" />Rotate</li>
+                                <li onClick={(e) => this.setState({modalset:1})}><img src="../images/crop.png" />{language.Crop}</li>
+                                <li onClick={(e) => this.setState({modalset:2})}><img src="../images/Brightness.png" />{language.Adjust_Brightness}</li>
+                                <li onClick={(e) => this.setState({canvasRotate:this.state.canvasRotate+90})}><img src="../images/Rotate.png" />{language.Rotate}</li>
                             </ul>
                             <ul className={this.state.modalset != 0 ? "Brightness show" : "Brightness hide"}>
                                 <li  className={this.state.modalset == 1 ? "show" : "hide"}>
-                                    <p>Zoom</p>
+                                    <p>{language.Zoom}</p>
                                     <input type="range" onChange={(e)=>this.setState({canvasScale:e.target.value})} name="points"  step="0.01" min="0.5" max="2" />
                                 </li>
                                 <li  className={this.state.modalset == 2 ? "show" : "hide"}>
-                                    <p>Brightness</p>
+                                    <p>{language.Brightness}</p>
                                     <input type="range" onChange={(e)=>this.BrightnessPictures(e.target.value)} name="points" step="0.01" min="-1" max="1" />
                                 </li>
                                 <li  className={this.state.modalset == 2 ? "show" : "hide"}>
-                                    <p>Contrast Ratio</p>
+                                    <p>{language.Contrast_Ratio}</p>
                                     <input type="range" name="points" step="0.02" min="1" max="3" />
                                 </li>
                             </ul>
-                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">Cancel</button>
-                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >Complete</button>
-                            <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} data-dismiss="modal" aria-hidden="true" type="button" onClick={(e)=>this.onClickSave(e)}>Save and Replace</button>
+                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Cancel show" : "btn Cancel hide"} type="button">{language.Cancel}</button>
+                            <button onClick={(e) => this.setState({modalset:0})} className={this.state.modalset != 0 ? "btn Complete show" : "btn Complete hide"} type="button" >{language.Complete}</button>
+                            <button  className={this.state.modalset == 0 ? "btn Replace show" : "btn Replace hide"} data-dismiss="modal" aria-hidden="true" type="button" onClick={(e)=>this.onClickSave(e)}>{language.Save_and_Replace}</button>
                           </div>
                         </div>
                       </div>
                     <div className="modal-backdrop fade in"></div>
                     </div>
                       
-                    <button className="next"  className={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "btnactive next" : " next"} disabled={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>Next</button>
+                    <button className="next"  className={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "btnactive next" : " next"} disabled={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
 
                 <div className="box2 col-sm-12 col-md-5 col-lg-5">
