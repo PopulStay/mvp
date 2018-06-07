@@ -16,6 +16,9 @@
 	color: #fff !important;
  	font-family: RobotoThin; 
 }
+.experienceintro_header header li a{
+	padding: 0;
+}
 .experienceintro_header header li{
 	width: auto;
 	margin-left: 10%;
@@ -37,7 +40,6 @@
 	margin: 4% 0;
 }
 .experienceintro_header .headbox button{
-	width: 30%;
 	font-size: 2rem;
 	border-radius: 0;
 	margin:5% 5% 0 0;
@@ -423,6 +425,7 @@ text-decoration:none;
 	left: 10%;
 }
 .introlist .boxleft p.pre{
+	width: 100%;
 	position: absolute;
 	padding: 0;
     font-family: RobotoThin; 
@@ -1212,6 +1215,8 @@ text-decoration:none;
 	margin: 2% 0;
 }
 .registerlist_7 .box .Gallery>div>.photodiv p{
+	width: 70%;
+    margin: 0 auto;
 	font-size: 1.2rem;
 }
 .registerlist_7 .box .Gallery>div>.photodiv input{
@@ -1407,6 +1412,9 @@ text-decoration:none;
 .Prompt .boxright .listbottom p{
 	color: #fff;
 	font-size: 1.4rem;
+}
+.Prompt .boxright .lists>p{
+	min-height: 100px;
 }
 .Prompt .boxright .listtop .Right span{
 	font-size: 1.4rem;

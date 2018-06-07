@@ -665,7 +665,9 @@ h1,
 .Step3_2 .check1 .Pinput,
 .Step3_5 .check .Pinput,
 .Step3_21 .Pinput,
-div.Strainer_Home_Type .checkbox .Pinput{
+div.Strainer_Home_Type .checkbox .Pinput,
+.Step3_18 .Pinput
+{
   width: 20px;
   height: 20px;
   border-radius: 5px;
@@ -693,7 +695,8 @@ div.Strainer_Home_Type .checkbox .Pinput{
 .Step3_2 .check1 .divinput,
 .Step3_5 .check .divinput,
 .Step3_21 .divinput,
-div.Strainer_Home_Type .checkbox .divinput{
+div.Strainer_Home_Type .checkbox .divinput,
+.Step3_18 .divinput{
   float: right;
   width: 94%;
   font-size:1.6rem;
@@ -743,6 +746,7 @@ div.Strainer_Home_Type .checkbox .divinput{
 .Step3_10 .boxdiv,
 .Step3_12 .boxdiv,
 .Step3_15 .boxdiv,
+.Step3_18 .check,
 .Step3_21 .box>div{
   overflow: hidden; 
 }
@@ -1419,7 +1423,7 @@ div.Strainer_Home_Type .checkbox{
   font-size: 1.2rem;
   cursor: pointer;
 }
-.Step3_2 .check:first-child .divinput,.Pinput{
+.Step3_2 .check:first-child .divinput{
   margin-bottom: 0px;
 }
 .Step3_2 .Promptimg{
@@ -1916,6 +1920,9 @@ div.Strainer_Home_Type .checkbox{
   font-size: 1.6rem;
   color: #f6416c;
   text-decoration: underline;
+}
+.Step3_18 .check{
+  margin-top: 6%;
 }
 
 /*Step3_18 end*/

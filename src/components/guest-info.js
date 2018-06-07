@@ -157,6 +157,7 @@ class GuestInfo extends React.Component {
           </div>
           <div className="col-sm-12 col-md-2 col-lg-2">
             <img className="photo" src={this.state.qrurl}  />
+            <p className="address">{window.address}</p>
           </div>
       </div>
 

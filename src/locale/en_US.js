@@ -84,6 +84,10 @@ export const Book = 'Book';
 export const You_wont_be_charged_yet = 'You won’t be charged yet';
 export const Message_Me = 'Message Me';
 export const Contact_the_landlord = 'Contact the landlord';
+export const Checkin_is_anytime_after_2PM = 'Check-in is anytime after 2PM';
+export const Check_out_by_12PM = 'Check out by 12PM(noon)';
+export const Strict = 'Strict';
+export const Cancel_up_to_7_days_before_check = 'Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
@@ -349,13 +353,302 @@ export const Price_is_fixed = 'Price is fixed';
 export const Set_a_base_price = 'Set a base price. PopulStay gives you price tips that you can accept or ignore.';
 export const The_right_price_can_change = "The right price can change as the number of searches for listings like yours goes up and down. Whichever price option you choose, you'li get tips to help you set prices for your listing";
 export const RECOMMENDED = 'RECOMMENDED';
+//Step28
+export const Price_your_space = 'Price your space';
+export const Increase_your_chances_of_getting_booked = 'Increase your chances of getting booked';
+export const Set_up_Smart_Pricing_to_automatically = 'Set up Smart Pricing to automatically keep your nightly prices competitive as demand in your area changes.';
+export const Set_up_the_same_base_price_for_each_night = 'Set up the same base price for each night';
+export const Base_Price = 'Base Price';
+export const If_you_turn_Smart_Pricing_off_for_a_night_this_will_be_your_default_price = 'If you turn Smart Pricing off for a night,this will be your default price';
+export const Please_use_a_base_price_of_at_least_10PPS_but_no_more_than = 'Please use a base price of at least 10PPS but no more than 13,272,000,000PPS';
+export const Tips_are_based_on_your_listings_qualities_nearby_prices_and_demand = 'Tips are based on your listing’s qualities, nearby prices and demand';
+export const Currency = 'Currency';
+export const Start_with_a_lower_price_to_attract_bookings = 'Start with a lower price to attract bookings';
+export const New_hosts_start_with_a_lower_price_to_attract = 'New hosts start with a lower price to attract their first few bookings. Hosts who set prices within 5% of price tips are nearly 4x more likely to get booked';
+//Step29
+export const Set_up_Smart_Pricing = 'Set up Smart Pricing';
+export const Minimum_price = 'Minimum price';
+export const To_help_you_get_booked = 'To help you get booked, your price will move closer to this when demand is low';
+export const Maximum_price = 'Maximum price';
+export const To_help_you_earn_more = 'To help you earn more, your price will move closer to this when demand is high';
+export const The_highest_price_should_not_be_lower = 'The highest price should not be lower than the lowest price.';
+export const If_you_turn_Smart_Pricing = 'If you turn Smart Pricing off for a night,this will be your default price';
+export const Youre_always_in_control_of_your_nightly_price = 'You’re always in control of your nightly price. By continuing, you agree to turn on Smart Pricing. You can change this later in settings.';
+export const I_dont_want_my_price_to_adjust_with_demand = 'I don’t want my price to adjust with demand';
+export const Increase_bookings_when_demand_is_low = 'Increase bookings when demand is low';
+export const Smart_Pricing_can_automatically = 'Smart Pricing can automatically adjust your nightly price as demand changes based on factors like popular local events, seasonality and weekend vs. weekdays.';
+export const Thu = 'Thu';
+export const Fri = 'Fri';
+export const Sat = 'Sat';
+export const For_example_on_a_day_where_few_people = 'For example, on a day where few people are looking at your space, we’ll drop the price to attract more guests to book with you.';
+export const Youre_in_control = 'You’re in control';
+export const When_you_turn_on_competitive_pricing = 'When you turn on competitive pricing, you set the range you’re willing to charge each night. You can always turn off competitive pricing for specific days in your calendar.';
+//Step30
+export const Something_special_for_your_first_guests = 'Something special for your first guests';
+export const Offer_off_to_your_first_guests = 'Offer 20% off to your first guests';
+export const The_first_3_guests_who_book_your_place = 'The first 3 guests who book your place will get 20% off their stay. This special offer can attract new guests, and help you get the 3 reviews you need for a star rating.';
+export const Dont_add_a_special_offer = 'Don’t add a special offer';
+export const Once_you_publish_your_listing = 'Once you publish your listing, you won’t be able to add this offer.';
+export const Why_add_a_special_offer = 'Why add a special offer？';
+export const This_will_help_attract_your_first_guests = 'This will help attract your first guests, and help get your first reviews. Once you get 3 reviews, you’ll get a star rating in search results, which will help your listing stand out. New listings that get booked and reviewed in the first month appear more often in search results and get an average of 3.6x more bookings in their first 3 months';
+export const Well_share_your_offer = 'We’ll share your offer';
+export const Well_let_guests_who_are_searching = 'We’ll let guests who are searching in your area know that they can save 20% if they book your home. This can help get more eyes on your listing, but only the first 3 guests who book will be eligible for the offer.';
+export const First_guests_can_claim_your_offer = 'First 3 guests can claim your offer';
+export const The_offer_will_be_available_to_3_guests = 'The offer will be available to 3 guests. That way, you can get 3 reviews and your star rating. After 3 guests have claimed your offer, it won’t be valid anymore. If no one claims the offer, it’ll automatically expire after 30 days.';
+//Step31
+export const Length_of_stay_prices = 'Length-of-stay prices';
+export const Weekly_discount = 'Weekly discount';
+export const Encourage_travellers_to_book_longer_stays_by_offering_a_discount = 'Encourage travellers to book longer stays by offering a discount.';
+export const Travellers_searching_for_stays_longer = 'Travellers searching for stays longer than a week typically book listings with discounts.';
+export const Monthly_discount = 'Monthly discount';
+export const of_travellers_staying_longer_than = '68% of travellers staying longer than one month book listings with discounts greater than 20%.';
+export const Discount_for_longer_stays = 'Discount for longer stays';
+export const To_encourage_longer_stays = 'To encourage longer stays, some hosts set a weekly or monthly discount. If you want your listing to appear in searches for reservations of 28 nights or more, set a monthly discount.';
+export const Weekly_discounts_will_apply = 'Weekly discounts will apply to any reservation of 7 to 27 nights.';
+//Step32
+export const Based_on_your_settings__heres_what_you_could_expect = 'Based on your settings, here’s what you could expect';
+export const Youre_available_to_host_starting = 'You’re available to host starting ';
+export const Lou_is_planning_her_trip_and_thinks_your_listing_is_perfect = 'Lou is planning her trip and thinks your listing is perfect.';
+export const Guests_who_meet_PopulStay_requirements = 'Guests who meet PopulStay requirements can instantly book.';
+export const In_addition_to_meeting_guest_requirements = 'In addition to meeting guest requirements, Lou agrees to your House Rules.';
+export const Guests_send_a_message_with_their_booking_confirmation = 'Guests send a message with their booking confirmation.';
+export const Lou_says_shell_be_in_town_for_work_and_shed_love_to_stay_with_you = 'Lou says she’ll be in town for work and she’d love to stay with you.';
+export const Welcome_guests_to_your_space = 'Welcome guests to your space!';
+export const Before_Lou_arrives = 'Before Lou arrives, coordinate details like check-in time and key exchange.';
+//Step33
+export const Your_local_laws_and_taxes = 'Your local laws and taxes';
+export const Make_sure_you_familiarise = 'Make sure you familiarise yourself with your local laws, as well as';
+export const PopulStays_Nondiscrimination_Policy = 'PopulStay’s Nondiscrimination Policy.';
+export const Please_educate_yourself_about_the_laws = 'Please educate yourself about the laws in your jurisdiction before listing your space.';
+export const Most_cities_have_rules_covering_homesharing = 'Most cities have rules covering homesharing, and the specific codes and ordinances can appear in many places (such as zoning, building, licensing or tax codes). In most places, you must register, get a permit, or obtain a license before you list your property or accept guests. You may also be responsible for collecting and remitting certain taxes. In some places, short-term rentals could be prohibited altogether.';
+export const Since_you_are_responsible_for_your_own_decision = 'Since you are responsible for your own decision to list or book, you should get comfortable with the applicable rules before listing on PopulStay. To get you started, we offer some helpful resources under “Your City Laws.”';
+export const By_accepting_our_Terms = 'By accepting our Terms of Service and listing your space, you certify that you will follow applicable laws and regulations.';
+//Step34
+export const Youre_ready_to_publish = 'You’re ready to publish!';
+export const Do_you_want_to_generate_Smart_Contract = 'Do you want to generate Smart Contract?';
+export const Generate_Smart_Contract = 'Generate Smart Contract';
+export const Youll_be_able_to_welcome_your_first = 'You’ll be able to welcome your first guest starting 1 May 2018. If you’d like to update your calendar or house rules, you can easily do all that after you hit publish.';
+export const Publish_listing = 'Publish listing';
+export const Edit_Listing = 'Edit Listing';
+export const Place_name = 'Place name';
+export const Preview = 'Preview';
+//Step35
+export const Processing_your_submit = 'Processing your submit';
+export const Please_stand_by = 'Please stand by';
 
+//intro-list--------------------------------------------------------------------------------------------
+//Step1
+export const Hi_there = 'Hi there';
+export const Were_excited_to_learn_about = 'We’re excited to learn about the experience you’d like to host on Populstay.In just a few minutes, you’ll start to create your experience page, then you’ll submit it to be reviewed by Populstay';
+//Step2
+export const Heres_an_overview_of_the_process = 'Here’s an overview of the process';
+export const Learn_about_our_expectations = 'Learn about our expectations(2-3 minutes)';
+export const Find_out_what_makes_experiences = 'Find out what makes experiences different and what Populstay is looking for.';
+export const Create_your_experience = 'Create your experience (as much time as you need)';
+export const Add_photos_videos_descriptions = 'Add photos, videos, descriptions, and other details to be reviewed by Populstay.';
+export const Submit_for_review = 'Submit for review';
+export const Someone_from_Populstay = "Someone from Populstay will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!";
+//Step3
+export const First_things_first = 'First things first, which city would you like to host in?';
+//Step4
+export const Have_you_hosted_an_experience = 'Have you hosted an experience on Populstay or somewhere else before?';
+export const We_welcome_your_participation = 'We welcome your participation and experience in Audemars Pigeut, which is different from organizing activities on other platforms.';
+export const No_problem_Anyone_with_a_lot_of_passion = "No problem! Anyone with a lot of passion and a great idea can become a host. We'll show you tips and examples along the way to help you build a great experience and be successful.";
+export const Yes_ive_done_this_before = "Yes, i've done this before";
+export const No_not_yet = 'No, not yet!';
+//Step5
+export const What_is_Populstay_looking = 'What is Populstay looking for in an experience?';
+export const The_following_things = "The following things don't qualify as a Populstay experience.";
+export const Its_led_by_a_knowledgeable ="It's led by a knowledgeable and passionate host";
+export const Guests_participate = 'Guests participate hands-on, or are immersed in an activity';
+export const It_gives_guests_access = 'It gives guests access to a special place or community';
+export const Its_unique_niche = "It's unique, niche, or not what you'd expect";
+export const Learn_more_about_our_standards = 'Learn more about our standards';
+//Step6
+export const What_were_not_looking_for = "What we're not looking for";
+export const The_following_things_dont_qualify = "The following things don't qualify as a Populstay experience.";
+export const Large_and_impersonal_tours = "Large and impersonal tours(e.g. tours with 15 or more people)";
+export const An_event_with_no_clear_host = "An event with no clear host(e.g. singles night at a bar)";
+export const A_service = "A service (e.g. airport transportation)";
+export const Something_guests_could_easily = 'Something guests could easily find on their own(e.g. a generic visit to the Eiffel Tower)';
+//Step7
+export const Imagine_your_guests_have_all_arrived = 'Imagine your guests have all arrived. Hou would you kick off the first 10 minutes of your experience ?';
+//Step8
+export const What_dose_hospitality_mean_to_you = 'What dose hospitality mean to you ?';
+//Step9
+export const Create_an_experience = 'Create an experience';
 
+//verify-id--------------------------------------------------------------------------------------------
+//Step1
+export const Add_a_valid_government_ID = 'Add a valid government ID';
+export const It_looks_like_the_photo_you_added = 'It looks like the photo you added isn’t a valid form of ID. To help us make sure it’s you, we’ll need another photo of a valid ID, like a driver’s license, passport, or visa.';
+export const Add_another_photo = 'Add another photo';
+//Step2
+export const How_would_you_like_to_add = 'How would you like to add a photo of your ID?';
+export const You_can_either_take_a_new_photo = 'You can either take a new photo of your government ID, or upload an existing one from your mobile device or computer.';
+export const Take_photo_with_the = 'Take photo with the Airbnb mobile app';
+export const Take_photo_from_this_browser = 'Take photo from this browser';
+export const Upload_photo_from_this_device = 'Upload photo from this device';
+export const Your_ID_will_never = 'Your ID will never be shared with a guest.';
+export const Recommend = 'Recommend';
+//Step3
+export const Which_type_of_ID_would_you_like_to_add = 'Which type of ID would you like to add?';
+export const It_needs_to_be_an_official_government_ID = 'It needs to be an official government ID.';
+export const Issuing_country = 'Issuing country';
+export const Type_of_ID = 'Type of ID';
+export const Drivers_license = 'Driver’s license';
+export const Passport = 'Passport';
+export const Identity_card = 'Identity card';
+export const Your_ID_will_never_be_shared_with_a_guest = 'Your ID will never be shared with a guest.';
+//Step4
+export const Does_this_look_OK = 'Does this look OK?';
+export const Make_sure_your_images = 'Make sure your images aren’t blurry and the front clearly shows your';
+export const Add_front = 'Add front';
+export const Add_back = 'Add back';
+//Step5
+export const Were_still_reviewing_your_ID = 'We’re still reviewing your ID';
+export const This_will_get_wrapped = 'This will get wrapped up as soon as possible—and we’ll be in touch if there’s anything else we need.';
+export const In_the_meantime = 'In the meantime, you can pick up where you left off.';
 
-
-
-
-
+//register-list--------------------------------------------------------------------------------------------
+//Step1
+export const Experiences = 'Experiences';
+export const Resources = 'Resources';
+export const Basics = 'Basics';
+export const About_the_experiences = 'About the experiences';
+export const Settings = 'Settings';
+export const Which_city_will_you_host_your_experience_in = 'Which city will you host your experience in?';
+export const Great_Your_city_is_supported = 'Great! Your city is supported.';
+//Step2
+export const Which_language_will_you_write_your_descriptions_in = 'Which language will you write your descriptions in?';
+export const Keep_in_mind_that_most_travellers = 'Keep in mind that most travellers on PopulStay speak English, Chinese, French, or Spanish. If you’re comfortable writing and speaking in one of those languages, we suggest starting there.';
+export const Ill_write_my_descriptions_and_speak_in = '我将用以下语言写房源描述和进行口头交流：';
+export const Languages_spoken_by_PopulStay_travellers_to_Singapore = 'PopulStay旅行者使用的语言新加坡';
+export const languagetext = 'Choose a language';
+//Step3
+export const What_type_of_experience_will_you_host = 'What type of experience will you host?';
+export const Choose_the_category_that_best_describes = 'Choose the category that best describes your experience. Add a second, if you think it fits into another category.';
+export const Add_secondary_category = 'Add secondary category (optional)';
+export const Second_categories = 'Second categories (selection)';
+export const deleting = 'deleting';
+export const Are_you_hosting_on_behalf = 'Are you hosting on behalf of a nonprofit organisation?';
+export const If_youre_hosting_on_behalf = 'If you’re hosting on behalf of a nonprofit or charitable organisation, you may qualify to host a Social Impact experience. PopulStay will waive service fees, and 100% of the proceeds will go to the organisation.';
+export const Yes_Im_hosting_on_behalf_of_a_nonprofit_organisation = 'Yes, I’m hosting on behalf of a nonprofit organisation';
+export const Great_To_participate = 'Great! To participate, you’ll have to register with our partner, TechSoup. We’ll send you instructions after you submit your experience page.';
+export const Make_sure_youre_signed = 'Make sure you’re signed into the organization’s Airbnb account';
+export const To_host_a_Social_Impact_experience = 'To host a Social Impact experience, you’ll need to add the nonprofit’s bank account as a payout method. You may need to create a new Airbnb account if the organisation doesn’t already have one.';
+export const Im_signed_into_the_organization = 'I’m signed into the organization’s account and not my personal Airbnb account.';
+//Step4
+export const Tell_us_about_the_organisation_you_represent = 'Tell us about the organisation you represent';
+export const Organisation_name = 'Organisation name';
+export const Enter_the_name = 'Enter the name';
+export const I_certify_that = 'I certify that';
+export const I_have_the_consent_of_the_charitable = 'I have the consent of the charitable organisation to run this experience on their behalf';
+export const The_charitable_organisation_meets = 'The charitable organisation meets';
+export const PopulStay_criteria_for_a_Social_Impact_experience = 'PopulStay criteria for a Social Impact experience';
+//Step5
+export const Create_the_page_guests_will_see = 'Create the page guests will see';
+export const Use_the_preview_on_the_the_right = 'Use the preview on the the right to see how your experience will look publicly. As you create the description for your experience, it will appear in the preview. Write in a clear, straightforward, and friendly way. We’ll give you tips on when to show off your personality and be more descriptive.';
+//Step6
+export const Create_your_cover = 'Create your cover';
+export const If_you_dont_have_the_perfect = 'If you don’t have the perfect photo right now, don’t worry. Use the best one you have on hand';
+export const Tips_and_examples = 'Tips and examples';
+export const Think_of_your_first_photo_and_title = 'Think of your first photo and title as a book cover—it’s the first thing people will see';
+export const Go_with_active_candid_images = 'Go with active, candid images';
+export const Try_to_take_the_photo_in_a_well_lit_space = 'Try to take the photo in a well-lit space';
+export const Photos_with_a_vertical_orientation_work_best = 'Photos with a vertical orientation work best';
+export const Dont_use_a_flash_or_heavy_filters = 'Don’t use a flash or heavy filters';
+export const Dont_upload_blurry_or_distorted_images = 'Don’t upload blurry or distorted images';
+export const Photos_cannot_feature_children_logos_or_alcohol = 'Photos cannot feature children, logos, or alcohol';
+export const Dont_upload_images_with_text_overlaid = 'Don’t upload images with text overlaid';
+export const No_posed_portraits = 'No posed portraits';
+export const Experience_title = 'Experience title';
+export const A_great_title_is_short = 'A great title is short, clear and descriptive. Try starting with a fun or unique verb.';
+export const Eg_Dance_your_way_through = 'E.g. Dance your way through Rio’s samba scene';
+export const Cover_photo = 'Cover photo';
+export const Adjust_your_cover_image_for_how = 'Adjust your cover image for how you’d like it to appear in search results.';
+export const Thumbnail = 'Thumbnail';
+export const Upload_cover_photo = 'Upload cover photo';
+export const characters_needed = 'characters needed';
+export const character_does_not_exceed = 'character does not exceed';
+//Step7
+export const Gallery = 'Gallery';
+export const Host = 'Host';
+export const Show_yourself_leading_the_activity = 'Show yourself leading the activity';
+export const Action = 'Action';
+export const Show_guests_engaging_in_your_experience = 'Show guests engaging in your experience';
+export const Details = 'Details';
+export const Capture_a_closeup_of_textures_or_interesting_details = 'Capture a close-up of textures or interesting details';
+export const Show_the_full_scene_and_try_to_include_people = 'Show the full scene and try to include people';
+export const Miscellaneous = 'Miscellaneous';
+export const Add_up_to_10_photos = 'Add up to 10 photos';
+//Step8
+export const Tips = 'Tips';
+export const Highlight_your_professional_knowledge = 'Highlight your professional knowledge';
+export const Tell_you_why_you_are_qualified = 'Tell you why you are qualified to be an experienced person. You can mention your unique skills, diploma and life experience to convince you that you are a trusted and experienced person.';
+export const Show_your_personality = 'Show your personality';
+export const Fully_demonstrate_your_unique_personality ="Fully demonstrate your unique personality. Don't be too cautious. You can end with an anecdote or interesting personal message.";
+export const I_am_one_of_the_founders = 'I am one of the founders of Amazing Brewing Company and also one of the 7 professional wine tasting masters in Korea. I have lived in Asia, Europe and the United States, and have sampled over 100 breweries from all over the world.';
+export const I_was_born_and_raised_in_a_village = 'I was born and raised in a village in Kenya, and moved to Nairobi when I was 18 years old. I am driving a 400cc motorcycle and I love the community of Kenya riding communities. I believe that there is a special bond between the riders, which is closely linked to all of us.';
+export const After_I_left_the_private_bank = 'After I left the private bank, I began to reflect on our way of life and began writing travel blogs. So I set up WaterThruSkin to travel around the world to promote green fashion ideas, vegetarian eating habits and eco-tourism.';
+export const Example = 'Example';
+export const Of = 'Of';
+export const Tell_guests_what_makes_you_qualified_to_host_this_experience = 'Tell guests what makes you qualified to host this experience';
+export const Mention_all_the_things_that_make = 'Mention all the things that make you the best person to host this experience. For example, tell us you’ve lived in your community for many years, or you’re well known for what you do.';
+export const Im_cofounder_of_the_Amazing = 'I’m co-founder of the Amazing Brewing Company and one of seven certified cicerones (beer sommeliers) in Korea. I’ve lived in Asia, Europe, and the US and tasted beer at over 100 breweries worldwide.';
+//Step9
+export const Start_with_a_verb = 'Start with a verb';
+export const It_is_necessary_for_participants = 'It is necessary for participants to understand the content of the activity immediately. Please start with the main verb, and then introduce who they will be or where they are going to do the activity.';
+export const Brief_and_clear = 'Brief and clear';
+export const A_slogan_is_enough = 'A slogan is enough, and the language is concise and clear, and there is no need to add too many fancy adjectives.';
+export const Tasting_the_Japanese_national_wine_with_the_wine_experts = 'Tasting the Japanese national wine with the wine experts';
+export const Witness_the_fashion_rejuvenation_of_Detroit = 'Witness the fashion rejuvenation of Detroit';
+export const Record_daily_life_with_two_Cuban_filmmakers = 'Record daily life with two Cuban filmmakers';
+export const Write_a_tagline = 'Write a tagline';
+export const Clearly_describe_your_experience = 'Clearly describe your experience in one short, catchy sentence. Start with a verb that tells guests what they will do.';
+export const characters_remaining = 'characters remaining';
+export const Write_your_tagline_here = 'Write your tagline here';
+export const Save_Continue = 'Save & Continue';
+//Step10
+export const Describe_the_nonprofit_organisation = 'Describe the nonprofit organisation';
+export const Tell_people_about_the_nonprofit_organisation = 'Tell people about the nonprofit organisation that you are partnering with. What cause does it support? What is its mission?';
+//Step11
+export const Set_expectations = 'Set expectations';
+export const The_important_thing_is_to = 'The important thing is to let participants know what they will encounter in their experience. If participants need to prepare for some adventure activities, please tell them ahead of time.';
+export const Detailed_and_specific = 'Detailed and specific';
+export const If_your_experience_is_technical = 'If your experience is technical, such as workshops or tutorials, you will not be afraid to introduce details. Participants want to be able to know exactly where their money is spent.';
+export const You_can_directly_participate = 'You can directly participate in our weekly basketball camp and spend two hours of practice and playing time with 60 children. Only three of us are responsible for all the children (boys and girls are between 10 and 17 years old), so I hope you can help us train and guide them to play basketball. Spend time together with your children, let your vitality unfold, sweat and passion, and of course you need plenty of energy.';
+export const My_hometown_is_Colle_Val_d = "My hometown is Colle Val d 'Elsa, which is about 1 hours south of Florence, and I will recommend all the shops I like in a local market. I can take you around the cheeses, the local fish market and my own butcher's shop, and the stalls of the most fresh fruits and vegetables in Tuscany.";
+export const Describe_what_youll_do = 'Describe what you’ll do';
+export const Get_guests_excited_with_a_fun = 'Get guests excited with a fun, detailed description of the itinerary.';
+export const Write_about_each_activity_in_the_order_youll_do_them = 'Write about each activity in the order you’ll do them';
+//Step12
+export const Where_should_guests_meet_you = 'Where should guests meet you?';
+export const Tell_guests_exactly_where_to_meet = 'Tell guests exactly where to meet you at the start of the experience. Make sure the location is easy to find. The exact address won’t be shared until the guest’s reservation is confirmed.';
+export const Provide_an_address = 'Provide an address';
+export const Location_name = 'Location name';
+export const Street_address = 'Street address';
+export const eg35Blk_Mandalay_Road = 'e.g. 35Blk Mandalay Road';
+export const Apt_Suite_Bldg = 'Apt, Suite, Bldg. (optional)';
+export const ZIP_code = 'ZIP code';
+export const eg541189 = 'e.g. 541189';
+export const Direction = 'Direction';
+export const Include_specific_instructions = 'Include specific instructions on how to get to the meeting point, and how guests can find you once they arrive.';
+export const Consider_including_driving_walking = 'Consider including driving, walking...';
+export const Drop_a_pin_on_the_map = 'Drop a pin on the map';
+export const Map_pin = 'Map pin';
+export const Drag_the_pin_to_the_meeting_point = 'Drag the pin to the meeting point.';
+export const Only_confirmed_guests_will_see_the_exact_address = 'Only confirmed guests will see the exact address.';
+//Step13
+export const List_all_the_places = 'List all the places';
+export const List_the_locations_of_all = 'List the locations of all the experience activities, give participants some hints, so that they can understand why these places have their own advantages.';
+export const Do_not_include_the_address = 'Do not include the address';
+export const Participants_will_see_the_exact_address = 'Participants will see the exact address when booking, and remember to provide more information about this place so that participants can understand its uniqueness.';
+export const We_are_going_to_work_in_a_mobile = 'We are going to work in a mobile cabin that is rebuilt by the school bus, all of which are perpetual and a special experience for visitors.';
+export const We_should_go_to_Kloof_Corner_Ridge = 'We should go to Kloof Corner Ridge first to see the magnificent ridges along the cable station. But depending on the weather and the ability of the participants, we can also change the route. After taking a bath down the mountain, we can go to my favorite restaurant for a sumptuous dinner.';
+export const Add_details_about_where_youll_be = 'Add details about where you’ll be';
+export const Tell_guests_where_youll_go = 'Tell guests where you’ll go, why each location is special, or why you love it. It’s ok if it’s just one location.';
+export const Consider_including_special = 'Consider including special places guests can’t find or access on their own';
 
 
 

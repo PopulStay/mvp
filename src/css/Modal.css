@@ -44,7 +44,7 @@
   font-size: 3.4rem !important;
   margin-top: 0;
 }
-.userBox img{
+.userBox .userPhoto img{
   height: 100%;
   width: auto;
   position: absolute;
@@ -104,6 +104,18 @@
 }
 .userBox .userbtn>div{
   margin-left: 15%;
+}
+.userBox .photo{
+  width: 86%;
+  margin:0 7%;
+}
+.userBox .address{
+  word-break: break-all;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.4rem;
+  font-family: RobotoThin; 
+  margin-top: 2%;
 }
 .userBox span{
   font-family: RobotoBold; 

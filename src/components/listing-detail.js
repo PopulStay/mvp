@@ -154,7 +154,7 @@ class ListingsDetail extends Component {
       houseInfoDetailPromise =  houselistingService.getHouseInfoDetail(this.props.listingId)
         .then((result) => {
             var roominfo = JSON.parse(result._roominfo);
-            this.setState({ppsPrice:Number(result._price).toFixed(3),category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:(result._ethPrice/this.CONST.weiToGwei).toFixed(3),usdPrice:(result._ethPrice/this.CONST.weiToUSD).toFixed(3)});
+            this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:(result._ethPrice/this.CONST.weiToGwei).toFixed(3),usdPrice:result._ethPrice/this.CONST.weiToUSD});
             //slideArray.push();
 
           this.setState({Progress:this.state.Progress+50})
@@ -486,7 +486,7 @@ class ListingsDetail extends Component {
 
       <div className="detail-content container">
         <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
-      <div className="row">
+      <div >
       <div className="col-sm-12 col-md-12 col-lg-7">
         <div className="L_box1 col-sm-8 col-md-9">
           <p className="text1">{this.state.descriptioninfo.roomtype_category}</p>
@@ -510,8 +510,8 @@ class ListingsDetail extends Component {
         </div>
 
         <div className="L_box1 L_box1_1 col-sm-8 col-md-9">
-          <p className="text1">ENTIRE VILA - VEDADO</p>
-          <p className="text2">PlacetedelVedado</p>
+          <p className="text1">{this.state.descriptioninfo.roomtype_category}</p>
+          <p className="text2">{this.state.descriptioninfo.roomdescription_title}</p>
           <div className="box1_list col-lg-9">
             <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} {language.guests}</p>
             <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} {language.bedroom}</p>
@@ -559,15 +559,15 @@ class ListingsDetail extends Component {
 
         <div className="L_box5">
             <h5>{language.House_Rules}</h5>
-            <p>Check-in is anytime after 2PM</p>
-            <p>Check out by 12PM(noon)</p>
+            <p>{language.Checkin_is_anytime_after_2PM}</p>
+            <p>{language.Check_out_by_12PM}</p>
         </div>
 
         <p className="More hide">Dead all rules<span>▼</span></p>
         <div className="L_box6">
             <h5>{language.Cancellations}</h5>
-            <p>Strict</p>
-            <p>Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati...<span>Read more</span></p>
+            <p>{language.Strict}</p>
+            <p>{language.Cancel_up_to_7_days_before_check}<span>{language.Read_more}</span></p>
         </div>
         
         <p className="More box6_More hide">{language.Get_details}</p>
@@ -713,6 +713,7 @@ class ListingsDetail extends Component {
                     isDayBlocked={day=>this.isDayBlocked(day)}
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                     readOnly
+                    numberOfMonths
                   />
               }
               </div>
