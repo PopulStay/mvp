@@ -20,6 +20,13 @@
 	.tag-header .tag__item:nth-child(4n){
 		margin-right: 0;
 	}
+	header li{
+		margin-left: 3%;
+	}
+	header li.Li1>a,
+	header li.Li2>a{
+		padding: 2% 30px;
+	}
 	/*header  end*/
 	.rightbox{
 		padding:0;
@@ -75,9 +82,9 @@
 	.header{
 		padding: 4% 0% 4% 3%;
 	}
-	header li.Li1,
-	header li.Li2{
-	  	width: 28%;
+	header li.Li1>a,
+	header li.Li2>a{
+		padding: 2% 10px;
 	}
 	.tag-header .tag__item{
 		padding: 2px 0;
@@ -206,6 +213,7 @@
   	}
   	header li{
   		padding: 2% 0;
+  		margin-left: 0px;
   	}
   	header li.Li3>a, header li.Li4>a{
   		padding: 0;
@@ -242,7 +250,7 @@
 	    width: 100%;
 	    border-top: 1px solid #c5c5c5;
   	}
-  	header li.Li1 .button__fill,header li.Li2 .button__fill{
+  	header li.Li1>a,header li.Li2>a{
   		background: none;
   		color: #151b4e;
   		padding: 0;
@@ -389,27 +397,31 @@
 	.L_TEXT1{
 	    padding:0 5% 5%;
 	}
-	.L_box1{
-	    display: none;
-	}
-	.L_box1 .box1_list{
-		padding-left: 7%;		
-	}
-	.L_box1_1{
-	    display: block;
-	    margin-top: 5%;
+	.L_box2{
+		margin-bottom: 4%;
+		overflow: hidden;
 	}
 	.L_box2 .BOX__logo {
-	    width: 100px;
-	    height: 100px;
+	    width: 50px;
+	    height: 50px;
+	    float: left;
+	}
+	.L_box2 .BOX__user {
+		width: 50%;
+	    float: right;
 	}
 	.L_box2 h4{
-	    font-size: 3rem;
-	    margin-top: 3%;
+	    font-size: 2rem;
+	    margin-top: 0%;
 	}
 	.L_box2 img{
-	    width: 30%;
+	    width: 40%;
 	}
+	.L_box3 p img{
+		width: 20px;
+	}
+	.L_TEXT1,
+	.L_box1 .box1_list p, 
 	.L_box3 p,
 	.L_box5 p, 
 	.L_box6 p,
@@ -417,17 +429,18 @@
 	.ReviewsGuest li .GuestDiv,
 	.neighbourhood ul li
 	{
-		font-size: 1.5rem;
+		font-size: 1.4rem;
 	}
 	.L_box1_1>p,.box6_More{
 	    text-align: center !important;
 	    border-bottom: none;
 	}
-	.L_box1_1,.L_box3,.L_box4,.L_box5,.L_box6,.Reviews,.ReviewsDiv,.ReviewsGuest,.neighbourhood{
+	.L_box1,.L_box3,.L_box4,.L_box5,.L_box6,.Reviews,.ReviewsDiv,.ReviewsGuest,.neighbourhood{
 	    padding:0 5% 4%;
 	}
+	.neighbourhood ul li,
 	.box1_list p{
-	    width: 40% !important;
+	    width: 50% !important;
 	}
 	.More{
 	    text-align: right;
@@ -457,14 +470,16 @@
 	.ReviewsDiv{
 		padding-top:3%;	
 	}
+	.ReviewsDiv li{
+		width: 100%;
+	}
 	.ReviewsDiv li .divxx{
 		margin:0;
 	}
 	.ReviewsDiv .divxx img{
-		width: 15px;
 	}
 	.ReviewsDiv li p{
-		font-size: 1.2rem;
+		margin:0;
 	}
 	.Reviews>p, .neighbourhood>p{
 	    font-size: 2.4rem;
@@ -753,7 +768,6 @@
 	}
 	/**/
 }
-
 @media screen and (max-width: 500px){
 	/*home start*/
 	.form .index_home .listing-card{

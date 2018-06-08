@@ -52,17 +52,18 @@ class experienceintro extends Component {
     this.setState({districtCodes:codes.data});
       if( window.listingRows )
       {
-           var widthbox = this.state.listingRows.length*220;
            this.setState({ listingRows: window.listingRows });
+           var widthbox = this.state.listingRows.length*220;
            this.setState({ style : this.style.style_1.width = widthbox+'px' });
       }else{
           var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
-          this.setState({ listingRows: data });
-          window.listingRows = data;
-          var widthbox = this.state.listingRows.length*220;
-          this.setState({ style : this.style.style_1.width = widthbox+'px' });
-      });
+              this.setState({ listingRows: data });
+              window.listingRows = data;
+              var widthbox = this.state.listingRows.length*220;
+              this.setState({ style : this.style.style_1.width = widthbox+'px' });
+          });
       }
+      console.log(this.state.listingRows.length*220)
   }
 
   handlePageChange(pageNumber) {
@@ -91,10 +92,6 @@ class experienceintro extends Component {
       leftnum = leftnum+220;
       this.setState({ style : this.style.style_1.left = leftnum+'px',style : this.style.leftnum = leftnum });
     }
-  }
-
-  onLogOut = (value) =>{
-    this.setState({ clicklogout:value });
   }
 
 
@@ -130,7 +127,9 @@ class experienceintro extends Component {
                     <a className="btn button__fill">{language.Trips}</a>
                   </li>
                   <li className="Li3">
-                    <a href="" className="btn button__Help">{language.Help}</a>
+                    <Link to="/Intro">
+                          {language.Help} 
+                    </Link>
                   </li>
                   <li className="Li4">
                     <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />
@@ -200,29 +199,29 @@ class experienceintro extends Component {
                 <div className="lists col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <div className="img1"></div>
                     <p>{language.Walter_Wang}</p>
-                    <p>{language.Walter_Wang_introduction}</p>
+                    <p className="introduction">{language.Walter_Wang_introduction}</p>
                 </div>
                 <div className="lists col-xs-4 col-sm-4 col-md-4  col-lg-4">
                     <div className="img2"></div>
                     <p>{language.Xinpeng_Cai}</p>
-                    <p>{language.Xinpeng_Cai_introduction}</p>
+                    <p className="introduction">{language.Xinpeng_Cai_introduction}</p>
                 </div>
                 <div className="lists col-xs-4 col-sm-4 col-md-4  col-lg-4">
-                    <div className="img3"></div>
-                    <p>{language.Ling_Jun}</p>
-                    <p>{language.Ling_Jun_introduction}</p>
+                    <div className="img4"></div>
+                    <p>{language.Brain_Lin}</p>
+                    <p className="introduction">{language.Brain_Lin_introduction}</p>
                 </div>
               </div>
               <div className={this.state.introduce==1 ? "show box2" : "hide box2"}>
                 <div className="lists col-sm-4 col-md-4  col-lg-4 col-md-push-2">
-                    <div className="img4"></div>
-                    <p>{language.Brain_Lin}</p>
-                    <p>{language.Brain_Lin_introduction}</p>
+                    <div className="img3"></div>
+                    <p>{language.Ling_Jun}</p>
+                    <p className="introduction">{language.Ling_Jun_introduction}</p>
                 </div>
                 <div className="lists col-sm-4 col-md-4  col-lg-4 col-md-push-2">
                     <div className="img5"></div>
                     <p>{language.Tamir_Wu}</p>
-                    <p>{language.Tamir_Wu_introduction}</p>
+                    <p className="introduction">{language.Tamir_Wu_introduction}</p>
                 </div>
               </div>
           </div>

@@ -44,6 +44,7 @@ class registerlist extends Component {
         step: 0,
         user:"",
         city:"Angola",
+        clicklogout:false,
         work_experience:0,
         experience:"",
         hospitality:"",
@@ -223,6 +224,10 @@ class registerlist extends Component {
       this.setState({state:this.state.Experience_Pictures = canvasScaled.toDataURL("image/png")})
       console.log(this.state.Experience_Pictures)
     }
+  }
+
+  onLogOut = (value) =>{
+    this.setState({ clicklogout:value });
   }
 
   setEditorRef = (editor) => this.state.editor = editor
@@ -475,7 +480,7 @@ class registerlist extends Component {
                       <a href="" className="btn button__Help">{language.Help}</a>
                     </li>
                     <li className="Li5">
-                      <GuestRegister/>
+                      <GuestRegister  clicklogout={this.state.clicklogout}  onLogOut={this.onLogOut}/>
                     </li>
                   </ul>
                 </div>

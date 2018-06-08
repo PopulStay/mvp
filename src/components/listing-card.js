@@ -21,7 +21,6 @@ class ListingCard extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.row.id);
     // houselistingService.getHouseInfoDetail(this.props.row)
     // .then((result) => {

@@ -108,7 +108,7 @@ class WalletDeposit extends React.Component {
           </div>
 
             <button className="btn btn-danger Left" onClick={this.deposit}>{language.Deposit}</button>
-            <button className="btn btn-primary Right" onClick={(e)=>this.setState({modalcode:true})}>{language.Cancel}</button>
+            <button className="btn btn-primary Right" onClick={this.closeModal}>{language.Cancel}</button>
           </div>
         </Modal>
 
