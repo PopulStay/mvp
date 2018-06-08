@@ -526,6 +526,8 @@ export const Ill_write_my_descriptions_and_speak_in = 'I will write listing desc
 export const Languages_spoken_by_PopulStay_travellers_to_Singapore = 'Languages spoken by PopulStay travellers to Singapore';
 export const languagetext = 'Choose a language';
 //Step3
+export const Select_a_category = 'Select a category';
+export const experiencetype = ["Art and design","fashion","entertainment","motion","Health care","Outdoors","Delicious food","Life","Culture","Music","Business affairs","Night life"];
 export const What_type_of_experience_will_you_host = 'What type of experience will you host?';
 export const Choose_the_category_that_best_describes = 'Choose the category that best describes your experience. Add a second, if you think it fits into another category.';
 export const Add_secondary_category = 'Add secondary category (optional)';
@@ -639,6 +641,7 @@ export const Drop_a_pin_on_the_map = 'Drop a pin on the map';
 export const Map_pin = 'Map pin';
 export const Drag_the_pin_to_the_meeting_point = 'Drag the pin to the meeting point.';
 export const Only_confirmed_guests_will_see_the_exact_address = 'Only confirmed guests will see the exact address.';
+export const Update_map = 'Update map';
 //Step13
 export const List_all_the_places = 'List all the places';
 export const List_the_locations_of_all = 'List the locations of all the experience activities, give participants some hints, so that they can understand why these places have their own advantages.';
@@ -721,6 +724,67 @@ export const The_price_of_your_experience = 'The price of your experience is ent
 export const Pricing_calculator = 'Pricing calculator';
 export const Price_per_guest = 'Price per guest';
 export const Youd_make = 'You’d make';
+//Step21
+export const Explain_what_the_guests_money_benefits = 'Explain what the guests’ money benefits';
+export const Give_guests_insight_into_how_the_nonprofit = 'Give guests insight into how the nonprofit organisation will use their money. What will they be funding or enabling the nonprofit organisation to do?';
+export const Type_guest__contribution_description_here = 'Type guest  contribution description here ';
+//Step22
+export const At_what_time_will_you_typically_host_your_experience = 'At what time will you typically host your experience?';
+export const Later_on_youll_pick_the_exact_calendar = 'Later on, you’ll pick the exact calendar dates you’d like to host. You’ll also be able to adjust times for each individual date.';
+export const Selection_time = 'Selection time';
+//Step23
+export const Whens_the_latest_time_guests_can_book = 'When’s the latest time guests can book?';
+export const We_recommend_setting_this_as_close = 'We recommend setting this as close to the start time as possible so more guests can book.';
+export const Guests_can_book_until = 'Guests can book until';
+export const before_the_experience_starts = 'before the experience starts.';
+export const Would_you_like_to_have_your_experience = 'Would you like to have your experience cancelled if no one books by a certain time?';
+export const No_thanks = 'No thanks';
+export const Yes_I_need_advance_notice = 'Yes, I need advance notice that I’m hosting';
+export const Book_timearr = ["1 hours","2 hours","3 hours","4 hours","8 hours","12 hours","1 days","2 days","3 days","4 days","5 days","6 days","1 weeks"];
+//Step24
+export const Review_our_policies_before_you_submit_to_Populstay = 'Review our policies before you submit to Populstay';
+export const PopulStay_will_review_the_version = 'Populstay will review the version you’re about to submit, so make sure you’re happy with it. You can still go back and fine-tune your descriptions at any time.';
+export const Minimum_guests = 'Minimum guests';
+export const Experiences_on_PopulStay_have_a_1_guest_minimum = 'Experiences on Populstay have a 1 guest minimum. That means if one person books your experience, you’ll still be expected to host them.';
+export const Cancellation_policy = 'Cancellation policy';
+export const Cancelling_an_experience_can_negatively = 'Cancelling an experience can negatively affect a guest’s entire trip. We take our cancellation policy very seriously.';
+export const Service_fees = 'Service fees';
+export const PopulStay_takes20of_each_booking = 'Populstay takes 20% of each booking. Read more about our service fee.';
+export const Exclusivity = 'Exclusivity';
+export const Each_date_you_schedule_through_PopulStay = 'Each date you schedule through Populstay should only include Populstay guests. Guests who book through other platforms must be hosted at separate times.';
+export const By_submitting_I_confirm_the_following_is_true = 'By submitting, I confirm the following is true';
+export const My_experience_complies_with_local_laws = 'My experience complies with local laws. ';
+export const about_other_laws = 'about other laws (like business licensing) that may apply.';
+export const I_agree_to_the = 'I agree to the';
+export const Populstay_Experiences_Additional_Terms_of_Service = 'Populstay Experiences Additional Terms of Service';
+export const and_confirm_that_my_descriptions = 'and confirm that my descriptions and photos accurately reflect my experience.';
+export const Edit_description = 'Edit description';
+//Step25
+export const Thanks_Youve_successfully_submitted_your_experience = 'Thanks! You’ve successfully submitted your experience.';
+export const Now_sit_back_and_relax_well_need = 'Now sit back and relax - we’ll need some time to review and make sure it’s a fit. When we’re done, we’ll notify you via email.';
+export const You_can_also_keep_editing_your_experience = 'You can also keep editing your experience, or get ahead of the game by ';
+export const verifying_your_ID = 'verifying your ID';
+export const Verify_ID = 'Verify ID';
+export const Edit_Submissioin = 'Edit Submissioin';
+//Step right
+export const Give_an_overview_description_of_what_your_guests_will_be_doing_on_this_experience = 'Give an overview description of what your guests will be doing on this experience.';
+export const Let_your_guests_know_if_youll_be_including_anything_for_this_experience = 'Let your guests know if you’ll be including anything for this experience.';
+export const Tell_your_guests_where_youll_be_taking_them_for_this_experience = 'Tell your guests where you’ll be taking them for this experience.';
+export const Food_drink_and_transportation_not_included = 'Food, drink, and transportation not included.Is there anything else you’d like guests to know before booking';
+export const Where_well_meet = 'Where well meet';
+export const Raffles_place_singapore = 'Raffles place singapore';
+export const About_Warm_house = 'About Warm house';
+export const This_is_a_social_impact_experience = 'This is a social impact experience where 100% of what you pay for this experience goes to Warm house.';
+export const Learn_how_your_money_helps = 'Learn how your money helps.';
+export const Group_size_up_to = 'Group size up to';
+export const Who_can_come = 'Who can come';
+export const hour_total = 'hour total';
+export const What_well_do = 'What well do';
+export const What_Ill_provide = 'What Ill provide';
+export const Where_well_be = 'Where well be';
+export const Notes = 'Notes';
+
+
 
 
 
