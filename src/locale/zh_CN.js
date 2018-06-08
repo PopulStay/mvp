@@ -526,6 +526,8 @@ export const Ill_write_my_descriptions_and_speak_in = '我将用以下语言写�
 export const Languages_spoken_by_PopulStay_travellers_to_Singapore = 'PopulStay旅行者使用的语言新加坡';
 export const languagetext = '选择语言';
 //Step3
+export const Select_a_category = '选择一个类别';
+export const experiencetype = ["艺术与设计","时尚","娱乐","动作","保健","户外","美食","生活","文化","音乐","商务","夜生活"];
 export const What_type_of_experience_will_you_host = '您提供的体验是什么类型的？';
 export const Choose_the_category_that_best_describes = '请选择一个最能描述您的旅程体验的类别。如果您的旅程体验同时也属于其他类别，便请再添加一个类别。';
 export const Add_secondary_category = '添加第二个类别（选填）';
@@ -650,8 +652,144 @@ export const We_should_go_to_Kloof_Corner_Ridge = '我们应该会先去Kloof Co
 export const Add_details_about_where_youll_be = '添加目的地详情';
 export const Tell_guests_where_youll_go = '请告诉参与者你们将前往哪些地点，每个地点有何独特之处，或者您为何独爱这里。如果只前往一个地点，也没有问题。';
 export const Consider_including_special = '不妨提供参与者无法自行找到或进入的特别去处体验。';
-
-
+//Step14
+export const Highlight_your_expertise = '注明体验包含的项目';
+export const Show_off_why_youre_qualified = '详细描述您将提供哪些独特服务，让参与者了解有什么值得期待。';
+export const Sound_personable = '接纳不同的参与者';
+export const Let_your_personality_shine_through = '一些参与者可能有饮食忌口或身体不便。请告诉他们您可否满足他们的需求。';
+export const Refreshments = '茶点';
+export const Welcome_to_share_your_personal_preferences = '欢迎分享您的个人偏好。我会尽量满足！';
+export const Appetizer = '开胃菜';
+export const Please_tell_me_if_you_have_any_special = '请告诉我您是否有特别的饮食要求，如素食或不含麸质';
+export const seafood_dinner = '海鲜晚餐';
+export const This_seascape_restaurant_has_been_established = '这家海景餐厅已成立很长时间，在野餐桌上提供新鲜捕获的海鲜和爽口的啤酒';
+export const Sparkling_Water = '气泡水';
+export const Take_wine_and_sit_around_the_bonfire = '不妨带上葡萄酒，围坐在篝火旁享用';
+export const Travel_to_Ricks_Estate = '前往Rick’s Estate的交通';
+export const We_will_pick_you_up_at_Neptune = '我们将在Neptune’s Net餐厅接您，然后沿山而上前往Rick’s Estate';
+export const Digital_cameras_telescopes = '数码相机、望远镜、特殊接口和三脚架';
+export const What_will_you_provide_for_guests = '您为参与者提供的内容';
+export const Its_important_to_let_guests_know = '请列出体验费用中包含的内容，如水、咖啡、小吃、雨伞等';
+export const Item_one = '第1项';
+export const Not_providing_anything_for_your_guests = '不为您的客人提供任何东西？';
+export const I_am_not_providing_anything = '我没有提供任何东西';
+export const Item_two = '第2项';
+export const Delete = '删除';
+export const characters_exceed = '还剩字符数';
+export const Content_providedarr = ['餐食','饮品','住宿','门票','交通','设备','小吃'];
+export const Selection_project = '选择项目';
+export const placeholder_provided = ['你会提供什么样的食物？ 例如，烧烤晚餐等。','你会提供什么饮料？','你要去哪里住？','你会买什么样的门票？','经验使用什么交通工具？','你会提供什么设施？','给项目一个外名字？'];
+export const add_another_item = '添加另一个项目';
+//Step15
+export const What_should_guests_bring_with_them = '参与者需自带的东西';
+export const Think_through_everything_a_guest_will_need = '请仔细考虑，在开展体验过程中，除了您提供的东西，参与者还需要携带什么。参与者预订体验后，我们将通过邮件告知他们这些信息。';
+export const What_should_your_guests_bring = '参与者要带些什么东西？';
+export const Add_an_item = '添加项目';
+export const Please_Input_project = '请输入项目';
+//Step16
+export const What_else_do_guests_need_to_know_before_they_book = '参与者在预订之前还需要了解些什么？';
+export const Put_yourself_in_a_guests_shoes = '请设身处地为参与者着想。有些信息可能显而易见，不过详细说明可以让参与者做好充分准备。';
+export const Try_Addressing_any_concerns_guests = '请尝试解答参与者预订体验过程中可能存在的问题。';
+export const Is_there_nothing_else_guests_should_know = '还有哪些是参与者应当知道的？';
+export const I_have_no_additional_notes_for_my_guests = '没有其他注意事项';
+//Step17
+export const Setting = '设置';
+export const Add_details_like_group_size_price_default_time_and_more = '添加大小，价格，默认时间等详细信息。';
+//Step18
+export const Who_can_attend_your_experience = '哪些人可以参加您的体验？';
+export const Keep_in_mind_that_someone_booking = '请注意，向您预订体验的人士可能会为他人预订名额。如果您的体验对于年龄、技能水平或证书证明有严格要求，请在此添加。';
+export const Alcohol = '酒类';
+export const My_experience_includes_alcohol = '我的体验包含酒精，只向达到法定饮酒年龄的参与者提供酒精饮料。';
+export const Minimum_age = '最低年龄';
+export const Set_age_limits_for_guests = '为参与者设定年龄限制。未成年人必须有监护人的陪同才可参加。';
+export const Parents_can_bring_kids_under_2_years = '父母可以携带2岁以下的婴幼儿';
+export const How_active_is_your_experience = '你的体验有多需要运动？';
+export const Mostly_seated = '基本上是坐着';
+export const Light = '少量运动（例如，需要走一段路）';
+export const Moderate = '适度运动（例如，在基本平坦的道路上骑自行车）';
+export const High = '高强度运动（例如，持续一小时以上的运动）';
+export const Strenuous = '艰苦费力（例如，在崎岖的地形上徒步登高）';
+export const Additional_requirements = '其他要求';
+export const EgGuests_should_have_prior_surfing_experience = '例如，参与者应事先有过冲浪体验，必须持有潜水证，对狗等宠物不过敏。';
+export const Require_verified_ID = '需要已验证身份';
+export const The_primary_booker_has_to_successfully = '主要预订人必须成功完成“已验证身份”流程后，才能和其他参与者一起参加您的体验。';
+export const Require_the_booker_to = '要求预订人';
+export const verify_their_ID = '验证身份信息。';
+//Step19
+export const Maximum_group_size = '最大团体参与人数';
+export const Think_about_the_group_size = '请想一想您体验的最佳参与者人数。这是一个小型的、注重亲密互动的体验吗？还是需要大量参与者才有趣？请注意，爱彼迎规定体验至少有一位参与者，也就是说，即使只有一人预订，您仍然需要开展体验。';
+//Step20
+export const Set_a_price_per_guest = '设置每位参与者的价格';
+export const The_price_of_your_experience = '您可自行决定体验的定价，一些新加入的体验达人在还没有获得任何评价时，会设定较低的价格，以吸引体验参与者。';
+export const Pricing_calculator = '价格计算器';
+export const Price_per_guest = '每位价格';
+export const Youd_make = '您将赚取';
+//Step21
+export const Explain_what_the_guests_money_benefits = '说明参与者所付的费用会用在哪里';
+export const Give_guests_insight_into_how_the_nonprofit = '让参与者知道该非营利组织会如何运用他们的款项，而参与者的资助又会促进组织进行什么类型的工作。';
+export const Type_guest__contribution_description_here = '在这里输入有关参与者捐款的描述';
+//Step22
+export const At_what_time_will_you_typically_host_your_experience = '设置开展体验的默认时间';
+export const Later_on_youll_pick_the_exact_calendar = '稍后，您需要在日历上选择想要开展体验的具体日期，您还可以调整各日期开展体验的确切时间';
+export const Selection_time = '选择时间';
+//Step23
+export const Whens_the_latest_time_guests_can_book = '参与者预订的截至时间是什么时候？';
+export const We_recommend_setting_this_as_close = '我们建议您将此截止时间尽量设为接近体验开始时间，以便有更多参与者能够预订您的体验。';
+export const Guests_can_book_until = '参与者可在距离体验开始。';
+export const before_the_experience_starts = '前预订';
+export const Would_you_like_to_have_your_experience = '如果截至某个特定时间仍无人预订您的体验，您愿意取消此次体验吗？';
+export const No_thanks = '不，谢谢';
+export const Yes_I_need_advance_notice = '是，我需要提前通知我开展体验';
+export const Book_timearr = ["1个小时","2个小时","3个小时","4个小时","8个小时","12个小时","1天","2天","3天","4天","5天","6天","1星期"];
+//Step24
+export const Review_our_policies_before_you_submit_to_Populstay = '提交前请查看爱彼迎的政策';
+export const PopulStay_will_review_the_version = '潮箱将审核您此次提交的内容，请确认您不会介意。您可以随时返回并修改描述';
+export const Minimum_guests = '参与者人数最低要求';
+export const Experiences_on_PopulStay_have_a_1_guest_minimum = '潮箱体验参与者人数最少可为一人。因此，即便只有一人预订了您的体验，我们都希望您能接待这名参与者。';
+export const Cancellation_policy = '退订政策';
+export const Cancelling_an_experience_can_negatively = '取消体验将对参与者的整个旅程造成不利影响，因此，我们非常重视我们的退订政策。';
+export const Service_fees = '服务费';
+export const PopulStay_takes20of_each_booking = '潮箱将对每笔预订收取20%的费用。了解更多关于我们服务费的信息。';
+export const Exclusivity = '专属体验';
+export const Each_date_you_schedule_through_PopulStay = '在通过爱彼迎上安排的体验日期，您只能接待爱彼迎的体验参与者。请您安排其他时间接待其他平台预订活动的参与者。';
+export const By_submitting_I_confirm_the_following_is_true = '通过选择提交，我确认以下信息是真实的';
+export const My_experience_complies_with_local_laws = '我的体验符合当地法律。';
+export const about_other_laws = '可能适用的法律规定，如营业许可相关信息。';
+export const I_agree_to_the = '我同意';
+export const Populstay_Experiences_Additional_Terms_of_Service = '潮箱体验附加服务条款';
+export const and_confirm_that_my_descriptions = '并确认提供的描述和照片均能准确反映我开展的体验的情况。';
+export const Edit_description = '编辑体验描述';
+//Step25
+export const Thanks_Youve_successfully_submitted_your_experience = '非常感谢！您已成功提交体验信息。';
+export const Now_sit_back_and_relax_well_need = '现在不妨休息一下——我们需要一些时间来审核您的体验，确保其符合爱彼迎的要求。审核完成后，我们会通过电子邮件通知您。';
+export const You_can_also_keep_editing_your_experience = '您可以继续编辑体验，在开展体验的过程中抢占先机';
+export const verifying_your_ID = '验证身份信息';
+export const Verify_ID = '验证身份信息';
+export const Edit_Submissioin = '编辑体验';
+export const Exit = '退出';
+//Step26
+export const Welcome_backyour_experience = '欢迎你回来体验。';
+export const Keep_track_of_and_edit_all_your_experiences_Happy_hosting = '跟踪并编辑您的所有体验。 愉快的托管！';
+export const New_idea = '新的体验';
+export const Experience_submitted = '已提交体验';
+export const Your_experience_was_submitted = '您的体验已提交。 期望在大约2-4周内收到我们的回复。';
+//Step right
+export const Give_an_overview_description_of_what_your_guests_will_be_doing_on_this_experience = '给出一个关于你的客人将在这个体验中做什么的概述。';
+export const Let_your_guests_know_if_youll_be_including_anything_for_this_experience = '让您的客人知道您是否将包含任何此类体验。';
+export const Tell_your_guests_where_youll_be_taking_them_for_this_experience = '告诉你的客人你会带他们去这里体验。';
+export const Food_drink_and_transportation_not_included = '食物，饮料和运输不包括在内。在预订之前，您还有什么事想让客人知道';
+export const Where_well_meet = '在哪里见面';
+export const Raffles_place_singapore = '在新加坡';
+export const About_Warm_house = '关于温暖的房子';
+export const This_is_a_social_impact_experience = '这是一次社交影响体验，您为此体验付出的100％归温暖之家所有。';
+export const Learn_how_your_money_helps = '了解你的资金如何帮助。';
+export const Group_size_up_to = '团体规模达到';
+export const Who_can_come = '谁要来';
+export const hour_total = '小时总数';
+export const What_well_do = '我们会做什么';
+export const What_Ill_provide = '将提供什么';
+export const Where_well_be = '我们会在哪里';
+export const Notes = '笔记';
 
 
 
