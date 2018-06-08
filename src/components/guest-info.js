@@ -122,40 +122,39 @@ class GuestInfo extends React.Component {
 
       <div className="userBox row">
           <h1 className="col-sm-12 col-md-12 col-lg-12">{language.Hello}!{this.state.user}</h1>
-          <div className="col-sm-12 col-md-2 col-lg-2">
-            <div className="userPhoto">
-                <img src={this.state.userPictures == "" ? "../images/uesrimg.png" : this.state.userPictures} />
+          <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <div className="userPhoto" style={this.state.userPictures == '' ? {backgroundImage:"url(/images/uesrimg.png)"}:{backgroundImage:"url("+this.state.userPictures+")"}}>
                 <input type="file" onChange={(e)=>this.fileChangedHandler(e)} />
                 <p><span>{language.Revise_the_head_image}</span></p>
             </div>
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-5 userlist row">
-            <div className="col-sm-12 col-md-6 col-lg-6">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-5 userlist row">
+            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
               <span>{language.User_name}:</span><p>{this.state.user}</p>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
                <span>{language.Phone}:</span><p>{this.state.phone}</p>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
                <span>{language.Email}:</span><p>{this.state.email}</p>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
                <span>{language.PPS_balance}:</span><p>{this.state.ppsBalance}</p>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
                <span>{language.ETH_balance}:</span><p>{this.state.ethBalance/this.CONST.weiToEther-0 == 0 ? '0' : (this.state.ethBalance/this.CONST.weiToEther-0).toFixed(5)}</p>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
                <span>{language.PPS_deposited_in_Populstay}:</span><p>{this.state.ppsDeposited}</p>
             </div>
           </div>
-          <div className="col-sm-12 col-md-2 col-lg-2 userbtn" >
+          <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 userbtn" >
               <WalletManage/>
               <WalletGas/>
               <WalletDeposit  onGetDepositBalance={this.onGetDepositBalance}/>
               <WalletWithdraw  onGetDepositBalance={this.onGetDepositBalance}/>
           </div>
-          <div className="col-sm-12 col-md-2 col-lg-2">
+          <div className=" col-sm-12 col-md-2 col-lg-2">
             <img className="photo" src={this.state.qrurl}  />
             <p className="address">{window.address}</p>
           </div>

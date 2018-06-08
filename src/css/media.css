@@ -138,7 +138,7 @@
 	/*footer  start*/
 	.footer__brand-info{
     	width: 90% !important;
-		margin:3% 5%;
+		margin:3% 5% !important;
 	}
 	.footer__social-info{
 		padding: 2% 5% 1%;
@@ -274,6 +274,9 @@
   	.navbar-nav li:first-child{
     	border-top: none;
   	}
+  	.tag-header ul{
+  		padding: 0;
+  	}
   	.button__fill{
     	background-color: #fff !important;
   	}
@@ -281,7 +284,7 @@
     	float: none !important;
   	}
   	.navbar-brand{
-  		padding: 1.5% 3%;
+  		padding: 2% 3%;
   	}
   	.navbar-nav li a,.navbar-nav li button{
   		font-weight: 100;
@@ -293,6 +296,8 @@
   	}
   	.container{
   		max-width:100%;
+  		padding: 0;
+  		margin: 0;
   	}
   	.index_content .search{
   		width: 50%;
@@ -573,6 +578,9 @@
 	.experienceintro_header .headbox h2{
 		font-size: 2.4rem !important;
 	}
+	.experienceintro_header header li{
+		margin-left: 0;
+	}
 	.experienceintro_header .headbox p,
 	.experienceintro_header .headbox button.btn1, 
 	.experienceintro_header .headbox button.btn1 a,
@@ -592,8 +600,8 @@
 	}
 	.experience .content, 
 	.experienceintro_content .contentbox6 .box1 .content{
-		width: 70%;
-    	margin: 0 16%;
+		width: 80% !important;
+    	margin: 0 10% !important;
 	}
 	.experience .pre, 
 	.experience .next, 
@@ -624,7 +632,7 @@
 	.experienceintro_content .contentbox1>div .text1,
 	.experienceintro_content .contentbox3>.box1 .text1,
 	.experienceintro_content .contentbox3>.box2 .lists>p{
-		font-size: 1.6rem !important;
+		font-size: 1.4rem !important;
 	}
 	.experienceintro_content .contentbox1>div .text1, 
 	.experienceintro_content .contentbox3>.box1 .text1{
@@ -685,6 +693,18 @@
 	.experienceintro_content .contentbox3>.box2 .lists{
 		padding: 0 5px;
 	}
+	.experienceintro_content .contentbox4>div{
+		position: initial !important;
+		padding: 0 5%;
+	}
+	.experienceintro_content .contentbox4>.box1 h3,
+	.experienceintro_content .contentbox4>.box1 p,
+	.experienceintro_content .contentbox4>.box2 .lists>div{
+		color: #4d4e4e;
+	}
+	.experienceintro_content .contentbox4>.box2 .lists{
+		padding: 0;
+	}
 
 	/*listing-experiences  end*/
 
@@ -701,9 +721,22 @@
 	}
 	.userbtn>div{
 		width: 48% !important;
+		margin-left: 0 !important;
 	}
 	.userbtn>div>button{
 		width: 100%!important;
+	}
+	.userBox .address{
+		width: 90%;
+		margin: 2% 5%;
+	}
+	.userBox .userPhoto{
+		width: 80px;
+		height: 100px;
+		margin: 2% auto;
+	}
+	.userBox .userPhoto p span{
+		font-size: 1.2rem;
 	}
 	.GuestManagment td button{
 		padding: 6px;
@@ -724,6 +757,7 @@
 	.GuestManagment td, .HostManagment td, .GuestManagment td span, .GuestManagment td a,.GuestManagment td p{
 		font-size: 1rem !important;
 	}
+	.GuestManagment h1,
 	.HostManagment h1{
 		margin-left: 5% !important;
 	}
@@ -731,6 +765,16 @@
 		width: 50px!important;
 	}
 	/*info  end*/
+
+	/*ALL*/
+	.ALL{
+		width: 90%;
+		margin: 0 5%;
+	}
+	.All_experiences{
+		padding-right: 0;
+	}
+	/*ALL*/
 
 	/*modal*/
 	.Signup,
@@ -745,7 +789,7 @@
 	.deposit,
 	.withdraw{
 		width: 90% !important;
-		padding: 3% !important;
+		padding: 5% !important;
 		border-radius: 8px !important;
 	}
 	/*modal*/

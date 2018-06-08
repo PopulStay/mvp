@@ -53,10 +53,13 @@
   transform: translate(-50%,-50%);
 }
 .userBox .userPhoto{
-  width: auto;
-  height: 215px;
+  width: 90%;
+  height: 100%;
   position: relative;
   overflow: hidden;
+  background-size: cover;
+  background-position:center;
+  margin: 0 auto;
 }
 .userBox .userPhoto:hover p{
   display: block;
@@ -352,6 +355,7 @@
   text-align: center;
   color: #131c4e !important;
   font-size: 2.2rem;
+  margin: 0;
 }
 .Signup button{
   width: 80%;
@@ -370,6 +374,7 @@
   width: 80%;
   padding: 0;
   margin:0;
+  transform: translate(0%,30%) !important;
 }
 .Signup .dropdown-menu>a{
   display: block;
@@ -402,6 +407,7 @@
 .Signup .dropdown{
   font-size: 1.6rem;
   color: #f6416c;
+  position: relative;
 }
 .Signup .form-group{
   margin-bottom: 10px;
@@ -431,17 +437,20 @@
   color: #131c4e;
 }
 .ReactModal__Content{
+  position: initial !important;
+  background: none !important;
+  border: none !important;
+}
+/*.ReactModal__Content{
   position: fixed;
   width: 100%;
   height:100%;
-  background: none !important;
-  border: none !important;
   overflow: hidden !important;
   top: 0!important;
   bottom: 0!important;
   left: 0!important;
   right:0!important;
-}
+}*/
 .Import .Left,
 .Import .Right{
   width: 30%;

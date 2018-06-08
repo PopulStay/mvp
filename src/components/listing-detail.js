@@ -16,14 +16,6 @@ import languageService from '../services/language-service';
 
 
 const qr = new EthereumQRPlugin();
-const customStyles = {
-  content : {
-    top                   : '20%',
-    left                  : '35%',
-    right                 : '35%',
-    bottom                : '20%'
-  }
-};
 
 class ListingsDetail extends Component {
 
@@ -441,7 +433,7 @@ class ListingsDetail extends Component {
     return (  
 
 <div> 
-      <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+      <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} 
         contentLabel="Wallet Message">
         <div className="modalcode">
           <h3 ref={subtitle => this.subtitle = subtitle}>Your balance is not enough,SCAN QR to pay</h3>

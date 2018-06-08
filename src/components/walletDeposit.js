@@ -7,15 +7,6 @@ import ppsService from '../services/pps-service';
 import languageService from '../services/language-service';
 
 
-const customStyles = {
-  content : {
-    top                   : '30%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '30%'
-  }
-};
-
 
 class WalletDeposit extends React.Component {
   constructor() {
@@ -97,7 +88,7 @@ class WalletDeposit extends React.Component {
 
         <button className="btn btn-primary" onClick={this.openModal}>{language.Deposit}</button>
         
-        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal}  
         contentLabel="Wallet Message">
           <div className="deposit">
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Deposit_PPS}</h2>
@@ -112,7 +103,7 @@ class WalletDeposit extends React.Component {
           </div>
         </Modal>
 
-       <Modal isOpen={this.state.waitingModalIsOpen} onAfterOpen={this.afterWaitOpenModal} onRequestClose={this.closeWaitModal} style={customStyles} 
+       <Modal isOpen={this.state.waitingModalIsOpen} onAfterOpen={this.afterWaitOpenModal} onRequestClose={this.closeWaitModal} 
         contentLabel="Wallet Message">
           <div className="deposit">
             <h2 ref={subtitle => this.subtitle = subtitle}>Depositing PPS, please wait</h2>

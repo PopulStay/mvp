@@ -110,7 +110,7 @@ class experienceintro extends Component {
           <header className="header header__white">
             <nav className="nav navbar-nav navbar-right">
               <div className="navbar-header">
-                <butoon  className="glyphicon glyphicon-align-justify navBtn" data-toggle="collapse" data-target="#example-navbar-collapse"></butoon>
+                <butoon  className="glyphicon glyphicon-align-justify navBtn" onClick={(e)=>{if(this.state.box == 1) this.setState({box:0}); else this.setState({box:1}); }} data-toggle="collapse" data-target="#example-navbar-collapse"></butoon>
                 <a className="navbar-brand" href="../">
                 <img className="header__logo" src="../images/logo-3.png" alt=""/>
                 </a>
@@ -141,7 +141,7 @@ class experienceintro extends Component {
               </div>
             </nav>
           </header>
-          <div className="headbox">
+          <div className={this.state.box == 1 ? 'headbox hide' : 'headbox'} >
               <h2>{language.Host_an_experience_on_Populstay}</h2>
               <p>{language.Earn_money_leading_people_on_activities_you_love}</p>
               <button className="btn1"><a href="/experiencelist">{language.Get_Started}</a></button>

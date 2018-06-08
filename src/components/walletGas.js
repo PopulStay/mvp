@@ -5,15 +5,6 @@ import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import languageService from '../services/language-service';
 
-const customStyles = {
-  content : {
-    top                   : '30%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '30%'
-  }
-};
-
 
 class WalletGas extends React.Component {
   constructor() {
@@ -55,7 +46,7 @@ class WalletGas extends React.Component {
     <div>
 
         <button className="btn btn-primary" onClick={this.openInfoModal}>{language.Gas}</button>
-        <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} style={customStyles} 
+        <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} 
         contentLabel="InfoModal">
         <div className="Gas">
           <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>

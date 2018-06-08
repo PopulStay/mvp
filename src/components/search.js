@@ -152,6 +152,7 @@ class Search extends Component {
                                       focusedInput={this.state.focusedInput} 
                                       onFocusChange={focusedInput => this.setState({ focusedInput })} 
                                       readOnly 
+                                      numberOfMonths
                                     />
                                 </div>
                             </div>

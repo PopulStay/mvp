@@ -7,7 +7,7 @@
 .experienceintro_header header{
 	width: 100%;
 	position: absolute;
-	top:1%;
+	top:0%;
 }
 .experienceintro_header header li a,
 .experienceintro_header header li.Li5 button{
@@ -286,6 +286,7 @@ text-decoration:none;
 	position: absolute;
 	bottom: 10%;
 	padding: 0 5%;
+	overflow: hidden;
 }
 .experienceintro_content .contentbox4>.box2 span{
 	display: inline-block;
@@ -300,6 +301,9 @@ text-decoration:none;
    	font-family: RobotoBold; 
    	float: left;
    	margin: 7% 0;
+}
+.experienceintro_content .contentbox4>.box2 .lists{
+	overflow: hidden;
 }
 .experienceintro_content .contentbox4>.box2 .lists>div{
 	width: 80%;
