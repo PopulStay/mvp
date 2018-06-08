@@ -650,8 +650,78 @@ export const We_should_go_to_Kloof_Corner_Ridge = '我们应该会先去Kloof Co
 export const Add_details_about_where_youll_be = '添加目的地详情';
 export const Tell_guests_where_youll_go = '请告诉参与者你们将前往哪些地点，每个地点有何独特之处，或者您为何独爱这里。如果只前往一个地点，也没有问题。';
 export const Consider_including_special = '不妨提供参与者无法自行找到或进入的特别去处体验。';
-
-
+//Step14
+export const Highlight_your_expertise = '注明体验包含的项目';
+export const Show_off_why_youre_qualified = '详细描述您将提供哪些独特服务，让参与者了解有什么值得期待。';
+export const Sound_personable = '接纳不同的参与者';
+export const Let_your_personality_shine_through = '一些参与者可能有饮食忌口或身体不便。请告诉他们您可否满足他们的需求。';
+export const Refreshments = '茶点';
+export const Welcome_to_share_your_personal_preferences = '欢迎分享您的个人偏好。我会尽量满足！';
+export const Appetizer = '开胃菜';
+export const Please_tell_me_if_you_have_any_special = '请告诉我您是否有特别的饮食要求，如素食或不含麸质';
+export const seafood_dinner = '海鲜晚餐';
+export const This_seascape_restaurant_has_been_established = '这家海景餐厅已成立很长时间，在野餐桌上提供新鲜捕获的海鲜和爽口的啤酒';
+export const Sparkling_Water = '气泡水';
+export const Take_wine_and_sit_around_the_bonfire = '不妨带上葡萄酒，围坐在篝火旁享用';
+export const Travel_to_Ricks_Estate = '前往Rick’s Estate的交通';
+export const We_will_pick_you_up_at_Neptune = '我们将在Neptune’s Net餐厅接您，然后沿山而上前往Rick’s Estate';
+export const Digital_cameras_telescopes = '数码相机、望远镜、特殊接口和三脚架';
+export const What_will_you_provide_for_guests = '您为参与者提供的内容';
+export const Its_important_to_let_guests_know = '请列出体验费用中包含的内容，如水、咖啡、小吃、雨伞等';
+export const Item_one = '第1项';
+export const Not_providing_anything_for_your_guests = '不为您的客人提供任何东西？';
+export const I_am_not_providing_anything = '我没有提供任何东西';
+export const Item_two = '第2项';
+export const Delete = '删除';
+export const characters_exceed = '还剩字符数';
+export const Content_providedarr = ['餐食','饮品','住宿','门票','交通','设备','小吃'];
+export const Selection_project = '选择项目';
+export const placeholder_provided = ['你会提供什么样的食物？ 例如，烧烤晚餐等。','你会提供什么饮料？','你要去哪里住？','你会买什么样的门票？','经验使用什么交通工具？','你会提供什么设施？','给项目一个外名字？'];
+export const add_another_item = '添加另一个项目';
+//Step15
+export const What_should_guests_bring_with_them = '参与者需自带的东西';
+export const Think_through_everything_a_guest_will_need = '请仔细考虑，在开展体验过程中，除了您提供的东西，参与者还需要携带什么。参与者预订体验后，我们将通过邮件告知他们这些信息。';
+export const What_should_your_guests_bring = '参与者要带些什么东西？';
+export const Add_an_item = '添加项目';
+export const Please_Input_project = '请输入项目';
+//Step16
+export const What_else_do_guests_need_to_know_before_they_book = '参与者在预订之前还需要了解些什么？';
+export const Put_yourself_in_a_guests_shoes = '请设身处地为参与者着想。有些信息可能显而易见，不过详细说明可以让参与者做好充分准备。';
+export const Try_Addressing_any_concerns_guests = '请尝试解答参与者预订体验过程中可能存在的问题。';
+export const Is_there_nothing_else_guests_should_know = '还有哪些是参与者应当知道的？';
+export const I_have_no_additional_notes_for_my_guests = '没有其他注意事项';
+//Step17
+export const Setting = '设置';
+export const Add_details_like_group_size_price_default_time_and_more = '添加大小，价格，默认时间等详细信息。';
+//Step18
+export const Who_can_attend_your_experience = '哪些人可以参加您的体验？';
+export const Keep_in_mind_that_someone_booking = '请注意，向您预订体验的人士可能会为他人预订名额。如果您的体验对于年龄、技能水平或证书证明有严格要求，请在此添加。';
+export const Alcohol = '酒类';
+export const My_experience_includes_alcohol = '我的体验包含酒精，只向达到法定饮酒年龄的参与者提供酒精饮料。';
+export const Minimum_age = '最低年龄';
+export const Set_age_limits_for_guests = '为参与者设定年龄限制。未成年人必须有监护人的陪同才可参加。';
+export const Parents_can_bring_kids_under_2_years = '父母可以携带2岁以下的婴幼儿';
+export const How_active_is_your_experience = '你的体验有多需要运动？';
+export const Mostly_seated = '基本上是坐着';
+export const Light = '少量运动（例如，需要走一段路）';
+export const Moderate = '适度运动（例如，在基本平坦的道路上骑自行车）';
+export const High = '高强度运动（例如，持续一小时以上的运动）';
+export const Strenuous = '艰苦费力（例如，在崎岖的地形上徒步登高）';
+export const Additional_requirements = '其他要求';
+export const EgGuests_should_have_prior_surfing_experience = '例如，参与者应事先有过冲浪体验，必须持有潜水证，对狗等宠物不过敏。';
+export const Require_verified_ID = '需要已验证身份';
+export const The_primary_booker_has_to_successfully = '主要预订人必须成功完成“已验证身份”流程后，才能和其他参与者一起参加您的体验。';
+export const Require_the_booker_to = '要求预订人';
+export const verify_their_ID = '验证身份信息。';
+//Step19
+export const Maximum_group_size = '最大团体参与人数';
+export const Think_about_the_group_size = '请想一想您体验的最佳参与者人数。这是一个小型的、注重亲密互动的体验吗？还是需要大量参与者才有趣？请注意，爱彼迎规定体验至少有一位参与者，也就是说，即使只有一人预订，您仍然需要开展体验。';
+//Step20
+export const Set_a_price_per_guest = '设置每位参与者的价格';
+export const The_price_of_your_experience = '您可自行决定体验的定价，一些新加入的体验达人在还没有获得任何评价时，会设定较低的价格，以吸引体验参与者。';
+export const Pricing_calculator = '价格计算器';
+export const Price_per_guest = '每位价格';
+export const Youd_make = '您将赚取';
 
 
 

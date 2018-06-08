@@ -522,8 +522,8 @@ export const Great_Your_city_is_supported = 'Great! Your city is supported.';
 //Step2
 export const Which_language_will_you_write_your_descriptions_in = 'Which language will you write your descriptions in?';
 export const Keep_in_mind_that_most_travellers = 'Keep in mind that most travellers on PopulStay speak English, Chinese, French, or Spanish. If you’re comfortable writing and speaking in one of those languages, we suggest starting there.';
-export const Ill_write_my_descriptions_and_speak_in = '我将用以下语言写房源描述和进行口头交流：';
-export const Languages_spoken_by_PopulStay_travellers_to_Singapore = 'PopulStay旅行者使用的语言新加坡';
+export const Ill_write_my_descriptions_and_speak_in = 'I will write listing descriptions and oral exchanges in the following languages：';
+export const Languages_spoken_by_PopulStay_travellers_to_Singapore = 'Languages spoken by PopulStay travellers to Singapore';
 export const languagetext = 'Choose a language';
 //Step3
 export const What_type_of_experience_will_you_host = 'What type of experience will you host?';
@@ -649,10 +649,78 @@ export const We_should_go_to_Kloof_Corner_Ridge = 'We should go to Kloof Corner 
 export const Add_details_about_where_youll_be = 'Add details about where you’ll be';
 export const Tell_guests_where_youll_go = 'Tell guests where you’ll go, why each location is special, or why you love it. It’s ok if it’s just one location.';
 export const Consider_including_special = 'Consider including special places guests can’t find or access on their own';
-
-
-
-
+//Step14
+export const Highlight_your_expertise = 'Highlight your expertise';
+export const Show_off_why_youre_qualified = 'Show off why you’re qualified to host. Mention any unique skills, credentials, or even life experience that make you a credible host.';
+export const Sound_personable = 'Sound personable';
+export const Let_your_personality_shine_through = 'Let your personality shine through. Try ending with a fun fact or interesting personal detail to avoid sounding too formal.';
+export const Refreshments = 'Refreshments';
+export const Welcome_to_share_your_personal_preferences = 'Welcome to share your personal preferences. I will try to satisfy it!';
+export const Appetizer = 'Appetizer';
+export const Please_tell_me_if_you_have_any_special = 'Please tell me if you have any special dietary requirements, such as vegetarian or gluten free.';
+export const seafood_dinner = 'seafood dinner';
+export const This_seascape_restaurant_has_been_established = 'This seascape restaurant has been established for a long time to provide fresh seafood and refreshing beer on the picnic table.';
+export const Sparkling_Water = 'Sparkling Water';
+export const Take_wine_and_sit_around_the_bonfire = 'Take wine and sit around the bonfire';
+export const Travel_to_Ricks_Estate = "Travel to Rick 's Estate";
+export const We_will_pick_you_up_at_Neptune = "We will pick you up at Neptune 's Net restaurant and then go up the hill to Rick' s Estate.";
+export const Digital_cameras_telescopes = 'Digital cameras, telescopes, special interfaces and three legs.';
+export const What_will_you_provide_for_guests = 'What will you provide for guests?';
+export const Its_important_to_let_guests_know = 'It’s important to let guests know what you’ll provide because it helps them understand what they’re paying for.';
+export const Item_one = 'Item one';
+export const Not_providing_anything_for_your_guests = 'Not providing anything for your guests?';
+export const I_am_not_providing_anything = 'I am not providing anything';
+export const Item_two = 'Item two';
+export const Delete = 'Delete';
+export const characters_exceed = 'characters exceed';
+export const Content_providedarr = ["food","Drink","Accommodation","Ticket","Traffic","Equipment","Snack"];
+export const Selection_project = 'Selection project';
+export const placeholder_provided = ['What kind of food will you provide? For example, barbecue dinner and so on.','What drinks will you provide?','Where are you going to live?','What kind of tickets will you pay for it?','What means of transportation will the experience use?','What facilities will you provide?','Give the project an external name?'];
+export const add_another_item = 'add another item';
+//Step15
+export const What_should_guests_bring_with_them = 'What should guests bring with them?';
+export const Think_through_everything_a_guest_will_need = "Think through everything a guest will need to have with them during the experience that you’re not already providing. This will be emailed to guests once they book.";
+export const What_should_your_guests_bring = 'What should your guests bring?';
+export const Add_an_item = 'Add an item';
+export const Please_Input_project = 'Please Input project';
+//Step16
+export const What_else_do_guests_need_to_know_before_they_book = 'What else do guests need to know before they book?';
+export const Put_yourself_in_a_guests_shoes = 'Put yourself in a guest’s shoes. Some information may seem obvious, but be detailed so guests are over-prepared.';
+export const Try_Addressing_any_concerns_guests = 'Try  Addressing any concerns guests might have about booking your experience';
+export const Is_there_nothing_else_guests_should_know = 'Is there nothing else guests should know?';
+export const I_have_no_additional_notes_for_my_guests = 'I have no additional notes for my guests';
+//Step17
+export const Setting = 'Setting';
+export const Add_details_like_group_size_price_default_time_and_more = 'Add details like group size, price, default time, and more.';
+//Step18
+export const Who_can_attend_your_experience = 'Who can attend your experience?';
+export const Keep_in_mind_that_someone_booking = 'Keep in mind that someone booking your experience might book spots for other guests. If there are strict requirements around age, skill level, or certifications, include them here.';
+export const Alcohol = 'Alcohol';
+export const My_experience_includes_alcohol = 'My experience includes alcohol. Only guests that meet the leaal drinking age will be served';
+export const Minimum_age = 'Minimum age';
+export const Set_age_limits_for_guests = 'Set age limits for guests. Minors can only attend with their legal guardian.';
+export const Parents_can_bring_kids_under_2_years = 'Parents can bring kids under 2 years';
+export const How_active_is_your_experience = 'How active is your experience?';
+export const Mostly_seated = 'Mostly seated';
+export const Light = 'Light (e.g. a little walking)';
+export const Moderate = 'Moderate (e.g. a bike ride on mostly flat road)';
+export const High = 'High (e.g. physical movement lasting more than an hour)';
+export const Strenuous = 'Strenuous (e.g. an uphill hike over rough terrain)';
+export const Additional_requirements = 'Additional requirements';
+export const EgGuests_should_have_prior_surfing_experience = 'E.g. Guests should have prior surfing experience, guest must have a scuba license, guests should be comfortable around dogs, etc.';
+export const Require_verified_ID = 'Require verified ID';
+export const The_primary_booker_has_to_successfully = 'The primary booker has to successfully complete verified ID in order for them and their guests to attend your experience.';
+export const Require_the_booker_to = 'Require the booker to';
+export const verify_their_ID = 'verify their ID';
+//Step19
+export const Maximum_group_size = 'Maximum group size';
+export const Think_about_the_group_size = 'Think about the group size that works best for your experience. Should it be small and intimate? Is it fun with a large group? Please note that Airbnb has a one-guest minimum, which means that if only one person books your experience, you’ll still be expected to host.';
+//Step20
+export const Set_a_price_per_guest = 'Set a price per guest';
+export const The_price_of_your_experience = 'The price of your experience is entirely up to you. Play with the calculator to see how much you’d earn depending on the number of guests. If you have questions, read up on tips for setting your price.';
+export const Pricing_calculator = 'Pricing calculator';
+export const Price_per_guest = 'Price per guest';
+export const Youd_make = 'You’d make';
 
 
 
