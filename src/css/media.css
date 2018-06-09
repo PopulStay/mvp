@@ -252,8 +252,9 @@
   	}
   	header li.Li1>a,header li.Li2>a{
   		background: none;
-  		color: #151b4e;
+  		color: #131c4e;
   		padding: 0;
+  		font-family: FiraSansBlack;
   	}
   	header li.Li3{
   		margin-left: 0;
@@ -265,8 +266,19 @@
   	.tag-header .tag__item{
   		width: 49%;
   	}
+  	.form .container > .row{
+  		width: 100%;
+  		margin: 0 ;
+  		padding: 0;
+  	}
   	.form .container > .row li{
+  		width: 49%;
   		text-align: center;
+  		padding: 0;
+  		margin: 0;
+  	}
+  	.form .container > .row li:nth-child(even){
+  		float: right;
   	}
   	.navbar-nav .navbar-collapse .navbar-brand{
     	display: none !important;
@@ -534,7 +546,7 @@
 		margin-top: 5%;
 	}
 	.container>div>div.row>div.col-lg-7{
-		padding: 0;
+		padding: 0 4%;
 	}
 	.Step1_1 .rightimg{
 		position: static; 
@@ -556,11 +568,15 @@
 	.Step1_2 .form-group .btn-group button, .Step1_2 .dropdown-menu, .Step3_6 .form-group .btn-group button, .Step3_6 .dropdown-menu, .Step3_12 .form-group .btn-group button, .Step3_12 .dropdown-menu, .Step3_15 .form-group .btn-group button{
 		width: 100%;
 	}
+	.Step1_1 .form-group button, .Step1_1 .form-control, .Step1_1 .dropdown-menu{
+		width: 100%!important;
+	}
 	/*------------Step1_2--------------------*/
 	.Step1_10 .change div p{
 		font-size: 1.4rem;
 	}
-	.Step1_10 .stepbg, .Step3_17 .stepbg, .Step3_18 .stepbg{
+	.Step1_10 .stepbg, .Step3_17 .stepbg, .Step3_18 .stepbg,
+	.Step2_3 textarea,.Step2_4 .box{
 		width: 100%;
 	}
 	.Step1_10 .Shopitem>div>span.right{
@@ -568,6 +584,18 @@
 	}
 	.Step1_10 .paddingNone{
 		margin-bottom: 3%;
+	}
+	.Step1_7 .Map{
+		width: 100%;
+	}
+	.Step2_1 .photos .photosipt>h3{
+		font-size: 3rem;
+	}
+	.Step2_1 .photos .photosipt>h3>button{
+		font-size: 2rem;
+	}
+	.Step2_2 .photos .photosimg, .Step2_2 .photos .photosipt{
+		height: 80px;
 	}
 	/*becomehost  end*/
 

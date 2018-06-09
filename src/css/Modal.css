@@ -24,6 +24,9 @@
   transform: translate(-50%,-50%) !important;
   border-radius: 25px !important;
 }
+.Signup .dropdownBtn{
+  position: relative;
+}
 .info h1,
 .HostManagment h1{
   border-left:2px solid #f6416c; 

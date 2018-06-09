@@ -126,7 +126,7 @@ class Wallet extends Component {
 
     return (
       <div>
-            <div className="dropdown">
+            <div className="dropdownBtn">
               <button className="button__outline" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           {language.Create_Or_Import_Wallet}<span>▼</span>
               </button>            
