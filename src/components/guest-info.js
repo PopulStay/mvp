@@ -164,7 +164,6 @@ class GuestInfo extends React.Component {
         <h1>{language.Guest_Managment_Panel}</h1>
         <div className="divtr">
             <div>{language.Address}</div>
-            <div>{language.Status}</div>
             <div>{language.Information}</div>
             <div>{language.From}</div>
             <div>{language.To}</div>

@@ -161,7 +161,7 @@
 .GuestManagment .divtr>div,
 .HostManagment .divtr>div{
   float: left;
-  width: 14%;
+  width: 16.5%;
   text-align: center;
   font-family: RobotoBold; 
   font-size: 1.8rem;
@@ -172,7 +172,7 @@
 }
 .GuestManagment .overflowAuto .divtr>div,
 .HostManagment .overflowAuto .divtr>div{
-  width: 14%;
+  width: 16.5%;
   text-align:center;
   color: #999;
   font-family: RobotoThin; 

@@ -26,7 +26,6 @@ class GuestUsdOrderRow extends Component {
     return (
               <div className="divtr">
                     <div><p><a href={"listing/"+this.props.item.houseinfoid}>{this.props.item.houseinfoid}</a></p></div>
-                    <div>{this.props.item.state == 2 ? language.state4 : language.state5}</div>
                     <div><Link to={`/listing/${this.props.item.houseinfoid}`}>{language.Check}</Link></div>
                     <div><Timestamp time={this.props.item.from.substring(0,10)} format='date'/></div>
                     <div><Timestamp time={this.props.item.to.substring(0,10)} format='date'/></div>

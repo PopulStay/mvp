@@ -95,7 +95,6 @@ class GuestOrderRow extends Component {
     return (
        <div className="divtr">
         <div><p><a href={this.state.url}>{this.props.account}</a></p></div>
-        <div>{this.state.status == 1 ? language.state4 : language.state5}</div>
         <div><Link to={`/listing/${this.state.houseInformation}`}>{language.Check}</Link></div>
         <div><Timestamp time={this.state.from} format='date'/></div>
         <div><Timestamp time={this.state.to} format='date'/></div>
