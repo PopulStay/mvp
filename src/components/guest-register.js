@@ -9,14 +9,6 @@ import web3service from '../services/web3-service';
 import languageService from '../services/language-service';
 
 
-const customStyles = {
-  content : {
-    top                   : '8%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '8%'
-  }
-};
 
 
 class GuestRegister extends React.Component {
@@ -144,7 +136,7 @@ class GuestRegister extends React.Component {
 
          { (this.state.registered === false || this.props.clicklogout ===true ) &&<button className="button__outline" onClick={this.openModal}>{language.Sign_up}</button>}
          <div className="registermodal">
-            <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+            <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} 
             contentLabel="Example Modal">
             <div className="Signup">
                 <img className="close" onClick={this.closeModal} src="../images/closezi.png" />

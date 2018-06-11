@@ -16,14 +16,6 @@ import languageService from '../services/language-service';
 
 
 const qr = new EthereumQRPlugin();
-const customStyles = {
-  content : {
-    top                   : '20%',
-    left                  : '35%',
-    right                 : '35%',
-    bottom                : '20%'
-  }
-};
 
 class ListingsDetail extends Component {
 
@@ -441,7 +433,7 @@ class ListingsDetail extends Component {
     return (  
 
 <div> 
-      <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+      <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} 
         contentLabel="Wallet Message">
         <div className="modalcode">
           <h3 ref={subtitle => this.subtitle = subtitle}>Your balance is not enough,SCAN QR to pay</h3>
@@ -504,21 +496,12 @@ class ListingsDetail extends Component {
           <div className="BOX__logo">
             <img src={this.state.previewurl} alt="" />
           </div>
-
-          <h4>{this.state.user}</h4>
-          <img className="BOX2img" src="../images/detail-list.png" alt="" />
-        </div>
-
-        <div className="L_box1 L_box1_1 col-sm-8 col-md-9">
-          <p className="text1">{this.state.descriptioninfo.roomtype_category}</p>
-          <p className="text2">{this.state.descriptioninfo.roomdescription_title}</p>
-          <div className="box1_list col-lg-9">
-            <p><img src="../images/detail-img02.png" alt="" />{this.state.descriptioninfo.roombasics_totalguests} {language.guests}</p>
-            <p><img src="../images/detail-img01.png" alt="" />{this.state.descriptioninfo.roombasics_guestbedrooms} {language.bedroom}</p>
-            <p><img src="../images/detail-img05.png" alt="" />{this.state.beds} {language.bed}</p>
-            <p><img src="../images/detail-img03.png" alt="" />{this.state.pictures.length} {language.private_bath}</p>
+          <div className="BOX__user">
+            <h4>{this.state.user}</h4>
+            <img className="BOX2img" src="../images/detail-list.png" alt="" />
           </div>
         </div>
+
 
         <div className="L_TEXT1">{this.state.descriptioninfo.roomdescription_description}</div>
         <p className="More hide">{language.Read_more}<span>▼</span></p>

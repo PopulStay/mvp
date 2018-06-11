@@ -13,14 +13,6 @@ import Housestep1 from './house-step1';
 import languageService from '../services/language-service';
 
 
-const customStyles = {
-  content : {
-    top                   : '20%',
-    left                  : '35%',
-    right                 : '35%',
-    bottom                : '20%'
-  }
-};
 
 
 class ListingCreate extends Component {
@@ -2262,7 +2254,7 @@ class ListingCreate extends Component {
                   <p className="textpink" onClick={(e) => {this.openModal(e)}} >{language.Explain_why}</p>
                 </div>
 
-                <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} 
+                <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}  
                 contentLabel="Wallet Message">
                 <div className="Explainwhy">
                   <span className="close" onClick={(e) => {this.closeModal(e)}}>×</span>
@@ -3720,7 +3712,7 @@ class ListingCreate extends Component {
 
                
              </div>
-             <Modal isOpen={this.state.modalsubmit} onRequestClose={this.closeModal} style={customStyles} 
+             <Modal isOpen={this.state.modalsubmit} onRequestClose={this.closeModal}  
               contentLabel="Example Modal">
                 <div className="submit">
                     <h2>{language.Processing_your_submit}</h2>
@@ -3780,7 +3772,7 @@ class ListingCreate extends Component {
             <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.submit}>{language.Publish_listing}</button>
 
           </div>
-          <Modal isOpen={this.state.modalsubmit} onRequestClose={this.closeModal} style={customStyles} 
+          <Modal isOpen={this.state.modalsubmit} onRequestClose={this.closeModal} 
           contentLabel="Example Modal">
             <div className="submit">
                 <h2>{language.Processing_your_submit}</h2>

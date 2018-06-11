@@ -4,14 +4,6 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import hostService from '../services/host-service';
 
-const customStyles = {
-  content : {
-    top                   : '8%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '8%'
-  }
-};
 
 
 class HostRegister extends React.Component {
@@ -100,7 +92,7 @@ class HostRegister extends React.Component {
 
 
          {this.state.registered === false &&<a onClick={this.openModal} className="btn button__fill">Become a Host</a>}
-        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} 
         contentLabel="Example Modal">
           <h2 ref={subtitle => this.subtitle = subtitle}>Host Register</h2>
           <br/>

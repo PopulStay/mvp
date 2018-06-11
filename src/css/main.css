@@ -7775,6 +7775,7 @@ header button {
 }
 header li.Li1>a,
 header li.Li2>a{
+  padding: 2% 40px;
   display: block;
   border-radius: 50px;
   color: #fff;
@@ -7782,14 +7783,12 @@ header li.Li2>a{
   border:none;
 }
 header li.Li1>a{
-  padding: 2% 50px;
   background: -webkit-linear-gradient(left, #2b2051 , #762d5b); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(right, #2b2051, #762d5b); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(right, #2b2051, #762d5b); /* Firefox 3.6 - 15 */
   background: linear-gradient(to right, #2b2051 , #762d5b);
 }
 header li.Li2>a{
-  padding: 2% 40px;
   background: -webkit-linear-gradient(left, #8a305e , #e9406a); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(right, #8a305e, #e9406a); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(right, #8a305e, #e9406a); /* Firefox 3.6 - 15 */
@@ -7945,7 +7944,7 @@ header .dropdown-menu a.dropdown-item1{
 }
 
 .footer__dropdown {
-  padding: 4% 0;
+  padding: 6% 0;
 }
 .footer__dropdown .btn-group img{
   width: 25px;
@@ -8563,7 +8562,7 @@ header .dropdown-menu a.dropdown-item1{
 }
 .navbar-collapse ul{
   float: right;
-  width:70%;
+  width:80%;
   text-align: right;
 }
 .navbar-collapse{

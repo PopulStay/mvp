@@ -49,7 +49,7 @@
   font-size: 3.4rem;
   color: #131c4e;
   font-weight: bold;
-  margin-bottom:10%;
+  margin-bottom:3%;
   font-family: RobotoBold; 
 }
 .L_box1,.L_box1 .box1_list{
@@ -97,7 +97,7 @@
     transform: translate(-50%,-50%);
 }
 .L_box2 img{
-  width: 100%;
+  width: 60%;
 }
 .L_TEXT1{
   width:100%;

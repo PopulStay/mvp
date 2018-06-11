@@ -244,3 +244,10 @@ jerry：  21）上传android的基础版本；jerry  优先级：1
          
      
 
+1) More Fiters 
+2）search home
+3）页面响应式
+4）footer微信
+5）地图
+6) 头像
+7）

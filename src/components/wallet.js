@@ -11,15 +11,6 @@ const localeList = {
   "zh_CN": require('../locale/zh_CN.js'),
 };
 
-const customStyles = {
-  content : {
-    top                   : '30%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '30%'
-  }
-};
-
 class Wallet extends Component {
 
   constructor(props) {
@@ -135,7 +126,7 @@ class Wallet extends Component {
 
     return (
       <div>
-            <div className="dropdown">
+            <div className="dropdownBtn">
               <button className="button__outline" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           {language.Create_Or_Import_Wallet}<span>▼</span>
               </button>            
@@ -149,7 +140,7 @@ class Wallet extends Component {
 
 
        <div>
-        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} 
         contentLabel="Example Modal">
           <div className="Import">
           <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
@@ -164,7 +155,7 @@ class Wallet extends Component {
           </div>
         </Modal>
 
-        <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} style={customStyles} 
+        <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal}
         contentLabel="InfoModal">
         <div className="Create">
           <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_clear_your_account}</h2>
@@ -175,7 +166,7 @@ class Wallet extends Component {
         </div>  
         </Modal>
 
-        <Modal isOpen={this.state.clearModalIsOpen} onAfterOpen={this.afterOpenClearInfoModal} onRequestClose={this.closeClearInfoModal} style={customStyles} 
+        <Modal isOpen={this.state.clearModalIsOpen} onAfterOpen={this.afterOpenClearInfoModal} onRequestClose={this.closeClearInfoModal} 
         contentLabel="Wallet Message">
           <div className="clear">
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>

@@ -5,15 +5,6 @@ import Modal from 'react-modal';
 import languageService from '../services/language-service';
 
 
-const customStyles = {
-  content : {
-    top                   : '30%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '30%'
-  }
-};
-
 
 class WalletManage extends React.Component {
   constructor() {
@@ -70,7 +61,7 @@ class WalletManage extends React.Component {
     <div>
 
         <button className="btn btn-danger" onClick={this.openModal}>{language.Export}</button>
-        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal}  
         contentLabel="Wallet Message">
         <div className="PirvateKey">
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>

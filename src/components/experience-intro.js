@@ -52,17 +52,18 @@ class experienceintro extends Component {
     this.setState({districtCodes:codes.data});
       if( window.listingRows )
       {
-           var widthbox = this.state.listingRows.length*220;
            this.setState({ listingRows: window.listingRows });
+           var widthbox = this.state.listingRows.length*220;
            this.setState({ style : this.style.style_1.width = widthbox+'px' });
       }else{
           var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
-          this.setState({ listingRows: data });
-          window.listingRows = data;
-          var widthbox = this.state.listingRows.length*220;
-          this.setState({ style : this.style.style_1.width = widthbox+'px' });
-      });
+              this.setState({ listingRows: data });
+              window.listingRows = data;
+              var widthbox = this.state.listingRows.length*220;
+              this.setState({ style : this.style.style_1.width = widthbox+'px' });
+          });
       }
+      console.log(this.state.listingRows.length*220)
   }
 
   handlePageChange(pageNumber) {
@@ -93,10 +94,6 @@ class experienceintro extends Component {
     }
   }
 
-  onLogOut = (value) =>{
-    this.setState({ clicklogout:value });
-  }
-
 
 
 
@@ -113,7 +110,7 @@ class experienceintro extends Component {
           <header className="header header__white">
             <nav className="nav navbar-nav navbar-right">
               <div className="navbar-header">
-                <butoon  className="glyphicon glyphicon-align-justify navBtn" data-toggle="collapse" data-target="#example-navbar-collapse"></butoon>
+                <butoon  className="glyphicon glyphicon-align-justify navBtn" onClick={(e)=>{if(this.state.box == 1) this.setState({box:0}); else this.setState({box:1}); }} data-toggle="collapse" data-target="#example-navbar-collapse"></butoon>
                 <a className="navbar-brand" href="../">
                 <img className="header__logo" src="../images/logo-3.png" alt=""/>
                 </a>
@@ -130,7 +127,9 @@ class experienceintro extends Component {
                     <a className="btn button__fill">{language.Trips}</a>
                   </li>
                   <li className="Li3">
-                    <a href="" className="btn button__Help">{language.Help}</a>
+                    <Link to="/Intro">
+                          {language.Help} 
+                    </Link>
                   </li>
                   <li className="Li4">
                     <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />
@@ -142,7 +141,7 @@ class experienceintro extends Component {
               </div>
             </nav>
           </header>
-          <div className="headbox">
+          <div className={this.state.box == 1 ? 'headbox hide' : 'headbox'} >
               <h2>{language.Host_an_experience_on_Populstay}</h2>
               <p>{language.Earn_money_leading_people_on_activities_you_love}</p>
               <button className="btn1"><a href="/experiencelist">{language.Get_Started}</a></button>
@@ -200,29 +199,29 @@ class experienceintro extends Component {
                 <div className="lists col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <div className="img1"></div>
                     <p>{language.Walter_Wang}</p>
-                    <p>{language.Walter_Wang_introduction}</p>
+                    <p className="introduction">{language.Walter_Wang_introduction}</p>
                 </div>
                 <div className="lists col-xs-4 col-sm-4 col-md-4  col-lg-4">
                     <div className="img2"></div>
                     <p>{language.Xinpeng_Cai}</p>
-                    <p>{language.Xinpeng_Cai_introduction}</p>
+                    <p className="introduction">{language.Xinpeng_Cai_introduction}</p>
                 </div>
                 <div className="lists col-xs-4 col-sm-4 col-md-4  col-lg-4">
-                    <div className="img3"></div>
-                    <p>{language.Ling_Jun}</p>
-                    <p>{language.Ling_Jun_introduction}</p>
+                    <div className="img4"></div>
+                    <p>{language.Brain_Lin}</p>
+                    <p className="introduction">{language.Brain_Lin_introduction}</p>
                 </div>
               </div>
               <div className={this.state.introduce==1 ? "show box2" : "hide box2"}>
                 <div className="lists col-sm-4 col-md-4  col-lg-4 col-md-push-2">
-                    <div className="img4"></div>
-                    <p>{language.Brain_Lin}</p>
-                    <p>{language.Brain_Lin_introduction}</p>
+                    <div className="img3"></div>
+                    <p>{language.Ling_Jun}</p>
+                    <p className="introduction">{language.Ling_Jun_introduction}</p>
                 </div>
                 <div className="lists col-sm-4 col-md-4  col-lg-4 col-md-push-2">
                     <div className="img5"></div>
                     <p>{language.Tamir_Wu}</p>
-                    <p>{language.Tamir_Wu_introduction}</p>
+                    <p className="introduction">{language.Tamir_Wu_introduction}</p>
                 </div>
               </div>
           </div>

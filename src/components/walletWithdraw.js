@@ -6,14 +6,6 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import ppsService from '../services/pps-service';
 import languageService from '../services/language-service';
 
-const customStyles = {
-  content : {
-    top                   : '30%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '30%'
-  }
-};
 
 
 class WalletWithdraw extends React.Component {
@@ -134,7 +126,7 @@ class WalletWithdraw extends React.Component {
     <div>
 
         <button className="btn btn-primary" onClick={this.openModal}>{language.Withdraw}</button>
-        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} 
         contentLabel="Wallet Message">
           <div className="withdraw">
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Withdraw_PPS}</h2>

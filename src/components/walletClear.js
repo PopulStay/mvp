@@ -8,16 +8,6 @@ import web3Service from '../services/web3-service';
 import languageService from '../services/language-service';
 
 
-const customStyles = {
-  content : {
-    top                   : '30%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '30%'
-  }
-};
-
-
 class WalletClear extends React.Component {
   constructor(props) {
     super(props)
@@ -100,7 +90,7 @@ class WalletClear extends React.Component {
           <a onClick={(e) => this.setState({modalinOpen:true})}>{language.Log_in}</a>
         }
 
-        <Modal isOpen={this.state.modaloutOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Wallet Message">
+        <Modal isOpen={this.state.modaloutOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal}  contentLabel="Wallet Message">
           <div className="clear">
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
             <div>
@@ -114,7 +104,7 @@ class WalletClear extends React.Component {
           </div>
         </Modal>
 
-        <Modal isOpen={this.state.modalinOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} contentLabel="Wallet Message">
+        <Modal isOpen={this.state.modalinOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal}  contentLabel="Wallet Message">
           <div className="Import">
           <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
           <br/>
