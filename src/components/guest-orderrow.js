@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import orderService from '../services/order-service';
 import { Link } from 'react-router-dom';
 import Timestamp from 'react-timestamp';
+import languageService from '../services/language-service';
 
 class GuestOrderRow extends Component {
 
@@ -14,11 +15,12 @@ class GuestOrderRow extends Component {
       to:"Loading",
       price:"Loading",
       ethPrice:"Loading",
-      url:""
-
+      url:"",
+      languagelist:{},
     }
 
     this.checkIn   = this.checkIn.bind(this);
+    languageService.language();
   }
 
 
@@ -76,6 +78,7 @@ class GuestOrderRow extends Component {
      ;
   }
   componentDidMount() {
+    this.setState({ languagelist:window.languagelist });
 
      if(this.props.account)
      {
@@ -87,17 +90,18 @@ class GuestOrderRow extends Component {
   }
 
   render() {
+      const language = this.state.languagelist;
 
     return (
        <div className="divtr">
         <div><p><a href={this.state.url}>{this.props.account}</a></p></div>
-        <div>{this.state.status}</div>
-        <div><Link to={`/listing/${this.state.houseInformation}`}>Check</Link></div>
+        <div>{this.state.status == 1 ? language.state4 : language.state5}</div>
+        <div><Link to={`/listing/${this.state.houseInformation}`}>{language.Check}</Link></div>
         <div><Timestamp time={this.state.from} format='date'/></div>
         <div><Timestamp time={this.state.to} format='date'/></div>
         <div>{this.state.ethPrice == 0 ? this.state.price+"/PPS" : this.state.ethPrice/1000000000+"/ETH"}</div>
-        { this.state.status === '0' &&<div><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></div>}
-        { this.state.status === '1' &&<div>Checked In</div>}
+        { this.state.status === '0' &&<div><button className="btn-sn btn-danger" onClick={this.checkIn}>{language.Check_In}</button></div>}
+        { this.state.status === '1' &&<div>{language.Check_In}</div>}
       </div>
     
     )

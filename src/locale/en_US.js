@@ -766,6 +766,13 @@ export const You_can_also_keep_editing_your_experience = 'You can also keep edit
 export const verifying_your_ID = 'verifying your ID';
 export const Verify_ID = 'Verify ID';
 export const Edit_Submissioin = 'Edit Submissioin';
+export const Exit = 'Exit';
+//Step26
+export const Welcome_backyour_experience = 'Welcome backyour experience';
+export const Keep_track_of_and_edit_all_your_experiences_Happy_hosting = 'Track and edit all your experiences. Pleasant hosting!';
+export const New_idea = 'New idea';
+export const Experience_submitted = 'Experience submitted';
+export const Your_experience_was_submitted = 'Your experience has been submitted. Expect to receive our reply in about 2-4 weeks.';
 //Step right
 export const Give_an_overview_description_of_what_your_guests_will_be_doing_on_this_experience = 'Give an overview description of what your guests will be doing on this experience.';
 export const Let_your_guests_know_if_youll_be_including_anything_for_this_experience = 'Let your guests know if you’ll be including anything for this experience.';
@@ -783,10 +790,6 @@ export const What_well_do = 'What well do';
 export const What_Ill_provide = 'What Ill provide';
 export const Where_well_be = 'Where well be';
 export const Notes = 'Notes';
-
-
-
-
 
 //guest-register--------------------------------------------------------------------------------------------
 export const Sign_up = 'Sign up';
@@ -927,12 +930,16 @@ export const TX = 'TX';
 export const Operation = 'Operation';
 export const Wallet_Size = 'Wallet Size';
 export const Submit = 'Submit';
-export const state0 = 'Apply for money';
-export const state1 = 'In the coin';
-export const state2 = 'Finish the coin';
-export const state3 = 'Successful application';
-export const state_1 = 'Currency failure';
-
+export const state0 = 'Application';
+export const state1 = 'Application';
+export const state2 = 'Wait';
+export const state3 = 'Success';
+export const state4 = 'Successfully ordered';
+export const state5 = 'Order failed';
+export const state6 = 'Published successfully';
+export const state7 = 'Fail to publish';
+export const state_1 = 'Failure';
+export const Check = 'Check';
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = 'Become a Host';

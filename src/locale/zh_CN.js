@@ -791,11 +791,6 @@ export const What_Ill_provide = '将提供什么';
 export const Where_well_be = '我们会在哪里';
 export const Notes = '笔记';
 
-
-
-
-
-
 //guest-register--------------------------------------------------------------------------------------------
 export const Sign_up = '注册';
 export const Welcome = '欢迎！';
@@ -854,7 +849,6 @@ export const SHANGHAI = '上海';
 export const LONDON = '伦敦';
 export const PARIS = '巴黎';
 export const SINGAPORE = '新加坡';
-
 
 //experience-intro--------------------------------------------------------------------------------------------
 export const Wishlist = '愿望清单';
@@ -940,8 +934,12 @@ export const state0 = '申请提币';
 export const state1 = '在申请中';
 export const state2 = '完成审核';
 export const state3 = '申请成功';
+export const state4 = '订购成功';
+export const state5 = '订购失败';
+export const state6 = '发布成功';
+export const state7 = '发布失败';
 export const state_1 = '提币失败';
-
+export const Check = '查看';
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = '成为房东';
