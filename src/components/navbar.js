@@ -50,7 +50,7 @@ class NavBar extends Component {
   return (
 
       <div className="headerbox">
-    {this.props.hideTagHeader !="NO" &&
+    {this.props.hideTagHeader !="NO" && !this.props.renderChild &&
       <header className="header header__white">
       <nav className="nav navbar-nav navbar-right">
         <div className="navbar-header">
