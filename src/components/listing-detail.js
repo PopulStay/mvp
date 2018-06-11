@@ -85,6 +85,10 @@ class ListingsDetail extends Component {
     languageService.language();
   }
 
+  componentWillUnmount(){
+    window.location.reload();
+  }
+
   openModal() {
     this.setState({modalIsOpen: true});
   }

@@ -60,6 +60,8 @@ class Footer extends Component {
 
     this.setState({language:language});
    
+    window.location.reload();
+    
     for (var item in window.localeList) {
         if(item == language){
             var languagelist = window.localeList[item];
@@ -75,7 +77,6 @@ class Footer extends Component {
     sessionStorage.removeItem('step');
     sessionStorage.removeItem('test');
 
-    window.location.reload();
 
   }
     render() {
