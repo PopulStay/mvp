@@ -43,13 +43,13 @@ class HostRoomListRow extends Component {
   render() {
 
     return (
-       <tr>
-        <td>{this.state.category}</td>
-        <td>{this.state.beds}</td>
-        <td>{this.state.location}</td>
-        <td>{this.state.price}/PPS</td>
-        <td>{this.state.status}</td>
-      </tr>
+       <div className="divtr">
+        <div>{this.state.category}</div>
+        <div>{this.state.beds}</div>
+        <div>{this.state.location}</div>
+        <div>{this.state.price}/PPS</div>
+        <div>{this.state.status}</div>
+      </div>
     
     )
   }

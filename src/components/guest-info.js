@@ -154,7 +154,7 @@ class GuestInfo extends React.Component {
               <WalletDeposit  onGetDepositBalance={this.onGetDepositBalance}/>
               <WalletWithdraw  onGetDepositBalance={this.onGetDepositBalance}/>
           </div>
-          <div className=" col-sm-12 col-md-2 col-lg-2">
+          <div className=" col-sm-12 col-md-2 col-lg-2 userqrurl">
             <img className="photo" src={this.state.qrurl}  />
             <p className="address">{window.address}</p>
           </div>
@@ -162,33 +162,26 @@ class GuestInfo extends React.Component {
 
       <div className="GuestManagment">
         <h1>{language.Guest_Managment_Panel}</h1>
+        <div className="divtr">
+            <div>{language.Address}</div>
+            <div>{language.Status}</div>
+            <div>{language.Information}</div>
+            <div>{language.From}</div>
+            <div>{language.To}</div>
+            <div>{language.Price}</div>
+            <div>{language.Check_in}</div>
+        </div>
         <div className="overflowAuto">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>{language.Address}</th>
-                <th>{language.Status}</th>
-                <th>{language.Information}</th>
-                <th>{language.From}</th>
-                <th>{language.To}</th>
-                <th>{language.Price}</th>
-                <th>{language.Check_in}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.orderlist.map(account => (
-                    <GuestOrderRow account={account} key={account}/>
-              ))}
-
-              {this.state.usdOrderList.map(item => (
-
-                  <GuestUsdOrderRow item={item}/>
-
-              ))}
-            </tbody>
-          </table>
+          {this.state.orderlist.map(account => (
+              <GuestOrderRow account={account} key={account}/>
+          ))}
+          {this.state.usdOrderList.map(item => (
+              <GuestUsdOrderRow item={item}/>
+          ))}
         </div>
-        </div>
+      </div>
+
+      
       </div>
     );
   }

@@ -89,16 +89,16 @@ class GuestOrderRow extends Component {
   render() {
 
     return (
-       <tr>
-        <td><p><a href={this.state.url}>{this.props.account}</a></p></td>
-        <td>{this.state.status}</td>
-        <td><Link to={`/listing/${this.state.houseInformation}`}>Check</Link></td>
-        <td><Timestamp time={this.state.from} format='date'/></td>
-        <td><Timestamp time={this.state.to} format='date'/></td>
-        <td>{this.state.ethPrice == 0 ? this.state.price+"/PPS" : this.state.ethPrice/1000000000+"/ETH"}</td>
-        { this.state.status === '0' &&<td><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></td>}
-        { this.state.status === '1' &&<td>Checked In</td>}
-      </tr>
+       <div className="divtr">
+        <div><p><a href={this.state.url}>{this.props.account}</a></p></div>
+        <div>{this.state.status}</div>
+        <div><Link to={`/listing/${this.state.houseInformation}`}>Check</Link></div>
+        <div><Timestamp time={this.state.from} format='date'/></div>
+        <div><Timestamp time={this.state.to} format='date'/></div>
+        <div>{this.state.ethPrice == 0 ? this.state.price+"/PPS" : this.state.ethPrice/1000000000+"/ETH"}</div>
+        { this.state.status === '0' &&<div><button className="btn-sn btn-danger" onClick={this.checkIn}>Check In</button></div>}
+        { this.state.status === '1' &&<div>Checked In</div>}
+      </div>
     
     )
   }
