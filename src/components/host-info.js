@@ -33,17 +33,12 @@ class HostInfo extends React.Component {
 
       hostService.getHouseListing( window.address).then((data)=>{
         this.setState({ roomInfoList:data});
-        window.data = data;
        });
 
-    if(window.data){
-        this.setState({ ppsBalance:window.data});
-    }else{
+   
         ppsService.getBalance( window.address).then((data)=>{
           this.setState({ ppsBalance:data});
-            window.data = data;
         });
-    }
 
   }
    

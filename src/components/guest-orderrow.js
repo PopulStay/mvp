@@ -25,16 +25,7 @@ class GuestOrderRow extends Component {
 
 
   getPreOrderInfo(){
-    if(window.result){
-        this.setState({
-          houseInformation:window.result._houseinfo,
-          status:window.result._status,
-          from:window.result._from.substring(0,10),
-          to:window.result._to.substring(0,10),
-          price:window.result._price,
-          ethPrice:window.result._ethPrice
-        });
-    }else{
+
         orderService.getPreOrderInfo( this.props.account)
         .then((result) => {
             this.setState({
@@ -46,11 +37,11 @@ class GuestOrderRow extends Component {
               ethPrice:result._ethPrice,
               url:"https://kovan.etherscan.io/address/"+this.props.account
             });
-            window.result = result;
+            
         }).catch((error) => {
           console.error(error);
         });
-  }
+ 
   }
 
 

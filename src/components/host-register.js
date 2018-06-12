@@ -30,14 +30,9 @@ class HostRegister extends React.Component {
   componentWillMount() {
     if(window.accounts){
         this.setState( { account: window.accounts[0], id: window.accounts[0] });
-        if(window.data){
-          this.setState({ registered:true });
-        }else{
           hostService.getHostInfo(window.accounts[0]).then((data)=>{
             this.setState({ registered:true });
-            window.data = data;
           });
-        }
     }else{
       window.web3.eth.getAccounts((error, accounts) => {
         this.setState( { account: accounts[0], id: accounts[0] });

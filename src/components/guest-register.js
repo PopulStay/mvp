@@ -74,14 +74,10 @@ class GuestRegister extends React.Component {
 
   loadUserData = () =>{
     this.setState( { account: window.address, id: window.address});
-    if(window.data){
-      this.setState({ registered:true });
-      this.setState({ user:window.data.user });
-    }
+
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ registered:true });
       this.setState({ user:data.user });
-      window.data = data;
      });
   }
   
