@@ -252,12 +252,36 @@ class HouseInfoListingService {
 
   getHouseId(districtCode,from,to,guests,place){
 
+     var url  = process.env.Server_Address+'HouseInformation?';
+
+     if( place!=null || place !=undefined || place != null  || place !="undefined" )
+     {
+       url = url + 'place='+place;
+     }
+
+     if( guests!=null || guests !=undefined || guests != null  || guests !="undefined" )
+     {
+       url = url + '&guests='+guests;
+     }
+
+     if( to!=null || to !=undefined || to != null  || to !="undefined" )
+     {
+       url = url + '&to='+to;
+     }
+
+     if( from!=null || from !=undefined || from != null  || from !="undefined" )
+     {
+       url = url + '&from='+from;
+     }
+
+     if( districtCode!=null || districtCode !=undefined || districtCode != null  || districtCode !="undefined" )
+     {
+       url = url + '&districeCode='+districtCode;
+     }
+ 
+
     return new Promise((resolve, reject) => {
-      axios.get(process.env.Server_Address+'HouseInformation?place='+place
-                                                          +'&guests='+guests
-                                                          +'&to='+to
-                                                          +'&from='+from
-                                                          +'&districeCode='+districtCode)
+      axios.get(url)
       .then((response)=> {
         resolve(response.data);
       })
