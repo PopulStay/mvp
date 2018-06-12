@@ -25,6 +25,7 @@ class ListingsDetail extends Component {
     this.CONST = {
       weiToEther: 1000000000000000000,
       weiToGwei:1000000000,
+      GweiToEther:1000000000,
       weiToUSD:1000000,
       
     }
@@ -232,15 +233,9 @@ class ListingsDetail extends Component {
       });
     }
 
-    if(window.data){
-      this.setState({ user:window.data.user});
-    }else{
-      guestService.getGuesterInfo(window.address).then((data)=>{
+    guestService.getGuesterInfo(window.address).then((data)=>{
         this.setState({ user:data.user});
-        window.data = data;
       });
-    }
-  
   }
 
 
@@ -276,9 +271,9 @@ class ListingsDetail extends Component {
     console.log(this.state.descriptioninfo)
     let unitsToBuy = 0;
     if(this.state.price == 0){
-        var Total_price = this.state.ppsPrice * this.DateDays() + 26
+        var Total_price = this.state.ppsPrice * this.DateDays() 
     }else{
-        var Total_price = this.state.price * this.DateDays() + 26
+        var Total_price = this.state.price * this.DateDays() 
     }
 
 
@@ -334,7 +329,7 @@ class ListingsDetail extends Component {
         this.closeModal();
         promise =    houselistingService.setPreOrderByETH(          
                                          this.state.lister,
-                                         Total_price * unitsToBuy,
+                                         Total_price * unitsToBuy* this.CONST.GweiToEther,
                                          this.props.listingId, 
                                          this.state.checkInDate.toDate().getTime(), 
                                          this.state.checkOutDate.toDate().getTime(),
@@ -348,6 +343,7 @@ class ListingsDetail extends Component {
         promise =    houselistingService.setPreOrderByETH(          
                                          this.state.lister,
                                          Total_price * unitsToBuy,
+                                         Total_price * unitsToBuy * this.CONST.GweiToEther,
                                          this.props.listingId, 
                                          this.state.checkInDate.toDate().getTime(), 
                                          this.state.checkOutDate.toDate().getTime(),

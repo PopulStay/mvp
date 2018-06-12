@@ -160,14 +160,11 @@ class registerlist extends Component {
       if(listStorage){
           this.setState({ step:listStorage.step});
       }
-      if(window.data){
-          this.setState({ user:window.data.user});
-      }else{
-          guestService.getGuesterInfo(window.address).then((data)=>{
-            this.setState({ user:data.user});
-            window.data = data;
-          });
-      }
+
+      guestService.getGuesterInfo(window.address).then((data)=>{
+        this.setState({ user:data.user});
+      });
+     
   }
   nextstep(e){
     this.setState({step:this.state.step+1});

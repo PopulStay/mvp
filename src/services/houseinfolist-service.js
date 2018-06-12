@@ -41,8 +41,9 @@ class HouseInfoListingService {
     return hashStr
   }
 
-  setPreOrderByETH( hostaddress, ethpriceGwei, uuid, from, to, days )
+  setPreOrderByETH( hostaddress,ether, ethpriceGwei, uuid, from, to, days )
   {
+
     return new Promise((resolve, reject) => {
       var contract = new window.web3.eth.Contract( HouseInfoListing.abi,houselist_address );
       var dataobj  = contract.methods.preOrderByEth(
@@ -59,7 +60,7 @@ class HouseInfoListingService {
        params.days = days;  
        params.hostaddress  = hostaddress;
        params.price        = 0;
-       params.ethprice     = ethpriceGwei;
+       params.ethprice     = ether;
        params.guestaddress = window.address;
        params.houseinfoid  = uuid;
 
