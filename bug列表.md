@@ -23,5 +23,10 @@ IPFS的发布的响应式。                           X 没有反应的结果
 
 4)预定房源
 PPS预定房源                                   O
-ETH预定房源                                   X Yan修正 问题：eth的price有26个
+ETH预定房源                                   X Eric修正  X；  发布价格不一致： YAN修正：        
+
+
+5）预定页面
+PPS订单确认。                                 X Eric增加API 返回结果没有提示。 YAN修正
+ETH订单确认。                                 X Eric增加API  返回结果没有提示。 YAN修正
 
