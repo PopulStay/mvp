@@ -566,6 +566,9 @@
 		padding: 0 4%;
 	}
 	/*------------Step1_1--------------------*/
+	.Step1_1 .stepfoot h4 img{
+		right: -23px;
+	}
 	.rightbox{
 		padding: 0 4%;
 	}
@@ -579,21 +582,39 @@
 	.Step1_1 .form-group button, .Step1_1 .form-control, .Step1_1 .dropdown-menu{
 		width: 100%!important;
 	}
+	.Step1_5 .step5box input, .Step3_12 .boxdiv input{
+		padding: 0 20%;
+	}
+	.Step1_5 .step5box img, .Step3_12 .boxdiv>img{
+		left: 8%;
+	}
 	/*------------Step1_2--------------------*/
+	.Step1_10 .Shopitem{
+		width: 100%;
+	}
+	.Step1_10 .Shopitem>div>span{
+		font-size: 1.8rem;
+		padding: 1% 0;
+	}
+	.Step1_10 .Shopitem>ul li,
+	.Step1_10 .Shopitem>ul li span,
 	.Step1_10 .change div p{
 		font-size: 1.4rem;
+	}
+	.Step1_10 .Shopitem>div>span.right{
+		font-size: 1.6rem;
 	}
 	.Step1_10 .stepbg, .Step3_17 .stepbg, .Step3_18 .stepbg,
 	.Step2_3 textarea,.Step2_4 .box{
 		width: 100%;
 	}
-	.Step1_10 .Shopitem>div>span.right{
-		font-size: 1.3rem;
-	}
 	.Step1_10 .paddingNone{
 		margin-bottom: 3%;
 	}
-	.Step1_7 .Map{
+	.Step3_12 .boxdiv input, .Step3_15 .boxdiv input,
+	.Step1_7 .Map,
+	.Step3_17 .box,
+	.Step3_18 .box{
 		width: 100%;
 	}
 	.Step2_1 .photos .photosipt>h3{
@@ -608,11 +629,17 @@
 		height: 230px;
 	}
 	.Step2_2 .photos .photosimg span{
-		opacity: 1;
+		opacity: 0.8;
 		margin: 5%;
 	}
 	.Step3_1 h6{
 		font-size: 1.4rem;
+	}
+	.Step3_1 h3 span{
+		margin: 0;
+	}
+	.Step3_2 .check .divinput{
+		width: 70%;
 	}
 	.Step3_4 .boxdiv img{
 		width: 70%;
@@ -634,7 +661,7 @@
 		float: left;
 	}
 	.Step3_10 .boxdiv .radio{
-		width: 10%;
+		width: 24px;
 		float: right;
 		padding: 0;
 		margin-top: 15%;

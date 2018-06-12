@@ -1278,6 +1278,7 @@ div.Strainer_Home_Type .checkbox .divinput,
   height: 150px;
   padding: 2% 3%;
   font-size: 1.6rem;
+  border:1px solid #aaa;
 }
 .Step2_3 h2{
   margin: 2% 0 5%;

@@ -468,15 +468,14 @@ class ListingCreate extends Component {
     }
 
     submit(){
-      this.setState({modalsubmit:true});
+        this.setState({modalsubmit:true});
          houselistingService.submitListing(this.state)
           .then((tx) => {
-            console.log(this.state)
-              this.setState({
-                  step: this.STEP.PROCESSING
-              });
-              console.log(tx)
-              return houselistingService.waitTransactionFinished(tx);
+                sessionStorage.removeItem('test');
+                this.setState({
+                    step: this.STEP.PROCESSING
+                });
+                return houselistingService.waitTransactionFinished(tx);
           })
           .then((blockNumber) => {
               this.setState({
