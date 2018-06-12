@@ -171,7 +171,7 @@ class GuestRegister extends React.Component {
 
                 </div>
                 <br/>
-                <img className={this.state.account == "" || this.state.user == "" || this.state.emailactive == 0 ? 'closeok closeactive' : 'closeok'} src="../images/ok.png" onClick={this.register} />
+                <button className={this.state.account == "" || this.state.user == "" || this.state.emailactive == 0 ? 'closeok closeactive' : 'closeok'} onClick={this.register}>{language.OK}</button>
                 <button className="btn btn-primary closecancel" onClick={this.closeModal}>{language.Cancel}</button>
               </div>
             </Modal>

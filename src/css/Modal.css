@@ -437,9 +437,12 @@
   font-family: RobotoThin; 
   color: #8b8b8a !important;
 }
-.Signup img.closeok{
-  cursor: pointer;
-  width: 45%;
+.Signup .closeok{
+  width: 50%;
+  font-size: 1.8rem;
+  text-align: center;
+  float: left;
+  border-radius: 8px;
 }
 .Signup .closecancel{
   width: 50%;
@@ -447,8 +450,8 @@
   border: none !important;
   color: #131c4e;
   font-size: 1.8rem;
-  margin-left: 2%;
   text-align: center;
+  float: right;
 }
 .Signup .closecancel:hover{
   color: #131c4e;

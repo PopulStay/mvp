@@ -25,7 +25,7 @@
 	}
 	header li.Li1>a,
 	header li.Li2>a{
-		padding: 2% 30px;
+		padding: 2% 30px !important;
 	}
 	/*header  end*/
 	.rightbox{
@@ -84,7 +84,7 @@
 	}
 	header li.Li1>a,
 	header li.Li2>a{
-		padding: 2% 10px;
+		padding: 2% 10px!important;
 	}
 	.tag-header .tag__item{
 		padding: 2px 0;
@@ -252,8 +252,8 @@
   	}
   	header li.Li1>a,header li.Li2>a{
   		background: none;
-  		color: #131c4e;
-  		padding: 0;
+  		color: #131c4e !important;
+  		padding: 0!important;
   		font-family: FiraSansBlack;
   	}
   	header li.Li3{
@@ -324,6 +324,11 @@
 	}
 	.footer_ul{
 		margin-left:0px;
+		padding: 3.5% 0;
+		float: left;
+	}
+	.footer_ul ul{
+		padding-left: 1%;
 	}
 	.footer__dropdown{
 		width: 50%;
@@ -611,7 +616,31 @@
 	}
 	.Step3_4 .boxdiv img{
 		width: 70%;
-		margin: 0 15%;
+		margin: 2% 15%;
+	}
+	.Step3_6 .form-group1{
+		height: auto;
+	}
+	.Step3_7 .rightbox1>div>.date, .Step3_8 .rightbox1>div>.date{
+		width: 31%;
+		margin: 0 1%;
+	}
+	.Step3_10 .boxdiv .pull-left img{
+		width: 60%;
+		margin: 2% 20%;
+	}
+	.Step3_10 .boxdiv .content{
+		width: 90%;
+		float: left;
+	}
+	.Step3_10 .boxdiv .radio{
+		width: 10%;
+		float: right;
+		padding: 0;
+		margin-top: 15%;
+	}
+	.Step3_18 .divinput{
+		width: 90%;
 	}
 	/*becomehost  end*/
 
@@ -811,12 +840,30 @@
 	/*info  end*/
 
 	/*ALL*/
-	.ALL{
+	.ALL,
+	.experience{
 		width: 90%;
 		margin: 0 5%;
 	}
 	.All_experiences{
 		padding-right: 0;
+	}
+	div.Strainer_More .Bedroom ul li p.text-right{
+		padding: 0;
+	}
+	.tag-header .tag__item>div{
+		width: 230%;
+		left: 0%;
+	}
+	.tag-header .tag__item>div.Strainer_More{
+		width: 100%;
+		max-height: 500px;
+		left: 0%;
+		top:65%;
+		padding: 5%;
+	}
+	.tag-header .tag__item>.Strainer_Price{
+		left: 102%;
 	}
 	/*ALL*/
 
@@ -835,6 +882,9 @@
 		width: 90% !important;
 		padding: 5% !important;
 		border-radius: 8px !important;
+	}
+	.modal-content{
+		width: 95%;
 	}
 	/*modal*/
 
@@ -855,6 +905,8 @@
 		width: 20px;
 	}
 	/**/
+
+
 }
 @media screen and (max-width: 500px){
 	/*home start*/
