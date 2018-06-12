@@ -7943,7 +7943,7 @@ header .dropdown-menu a.dropdown-item1{
   min-width: auto;
 }
 
-.footer__dropdown {
+.footer__dropdown{
   padding: 6% 0;
 }
 .footer__dropdown .btn-group img{
@@ -8007,18 +8007,21 @@ header .dropdown-menu a.dropdown-item1{
   text-align: center;
 }
 
-
 .footer__logo {
-  width: 10%;
+  width: 30%;
   float: left;
+}
+.footer_ul ul{
+  overflow: hidden;
+  padding-left: 20%;
 }
 .footer_ul{
   width: 20%;
   float: left;
   line-height:2.2;
-  margin: 4% 0 2% 5%;
   color: #151b4e;
   font-family: RobotoThin; 
+  padding: 5.5% 0;
 }
 .footer_ul ul>a{
   color: #151b4e;

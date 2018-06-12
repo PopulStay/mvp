@@ -56,8 +56,8 @@
   transform: translate(-50%,-50%);
 }
 .userBox .userPhoto{
-  width: 90%;
-  height: 100%;
+  width: 80%;
+  height: 98%;
   position: relative;
   overflow: hidden;
   background-size: cover;
@@ -111,9 +111,12 @@
 .userBox .userbtn>div{
   margin-left: 15%;
 }
+.userBox .userqrurl{
+  margin-top: 0.8%;
+}
 .userBox .photo{
-  width: 86%;
-  margin:0 7%;
+  width: 76%;
+  margin: 0 10%;
 }
 .userBox .address{
   word-break: break-all;
@@ -146,54 +149,65 @@
   max-height: 500px;
   overflow: auto;
 }
-.GuestManagment th,
-.HostManagment th{
+.GuestManagment>.divtr,
+.HostManagment>.divtr{
   border-top: 1px solid #151b4e !important;
-  border-bottom: 1px solid #151b4e !important;
-  font-family: RobotoBold; 
-  font-size: 1.6rem;
-  padding: 1.5% 0 !important;
-  width: 15%;
-  text-align:center;
 }
-.GuestManagment td,
-.HostManagment td{
-  width: 15%;
+.GuestManagment .divtr,
+.HostManagment .divtr{
+  overflow: hidden;
+  border-bottom: 1px solid #151b4e !important;
+}
+.GuestManagment .divtr>div,
+.HostManagment .divtr>div{
+  float: left;
+  width: 16.5%;
+  text-align: center;
+  font-family: RobotoBold; 
+  font-size: 1.8rem;
+  padding: 1% 0 !important;
+}
+.HostManagment .divtr>div{
+  width: 20%;
+}
+.GuestManagment .overflowAuto .divtr>div,
+.HostManagment .overflowAuto .divtr>div{
+  width: 16.5%;
   text-align:center;
   color: #999;
   font-family: RobotoThin; 
-  padding: 1% 0 !important;
+  padding: 0.8% 0 !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 1.6rem;
 }
-.GuestManagment td button{
+
+.HostManagment .overflowAuto .divtr>div{
+  width: 20%;
+}
+.GuestManagment .divtr>div button{
   background: #fff;
   border:1px solid #f6416c;
   color:#f6416c;
   line-height: 0;
   height: 30px;
 }
-.GuestManagment td button:hover{
+.GuestManagment .divtr>div button:hover{
   border:1px solid #f6416c;
   color:#fff;
   background: #f6416c;
 }
-.GuestManagment td p{
+.GuestManagment .divtr>div p{
   width: 100px;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
   margin: 0 auto;
 }
-.GuestManagment td span,
-.GuestManagment td a{
+.GuestManagment .divtr>div span,
+.GuestManagment .divtr>div a{
   font-size: 1.6rem;
-}
-.GuestManagment tr,
-.HostManagment tr{
-  border-bottom: 1px solid #aaa !important;
 }
 .userbtn>div{
   padding-bottom: 9.5%;

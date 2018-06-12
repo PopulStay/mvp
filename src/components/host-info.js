@@ -52,26 +52,19 @@ class HostInfo extends React.Component {
       const language = this.state.languagelist;
     return (
       <div className="HostManagment">
-      <h1>{language.Host_Managment_Panel}</h1>
-        <div className="overflowAuto">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>{language.Category}</th>
-                <th>{language.Beds}</th>
-                <th>{language.Location}</th>
-                <th>{language.Price}</th>
-                <th>{language.Status}</th>
-              </tr>
-            </thead>
-            <tbody>
+        <h1>{language.Host_Managment_Panel}</h1>
+          <div className="divtr">
+            <div>{language.Category}</div>
+            <div>{language.Beds}</div>
+            <div>{language.Location}</div>
+            <div>{language.Price}</div>
+            <div>{language.Status}</div>
+          </div>
+          <div className="overflowAuto">
              {this.state.roomInfoList.map(row => (
                     <HostRoomList row={row}/>
               ))}
-             
-            </tbody>
-          </table>
-        </div>
+          </div>
       </div>
     );
   }
