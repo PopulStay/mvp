@@ -65,9 +65,7 @@ class NavBar extends Component {
           </a>
           <ul>
             <li className="Li1">
-              <Link to="/create">
-                    {language.Become_a_Host}
-              </Link>
+              <GuestRegister clicklogout={this.state.clicklogout} type='1' onLogOut={this.onLogOut} />
             </li>
             <li className="Li2">
               <Link to="/Intro">
@@ -83,7 +81,7 @@ class NavBar extends Component {
               <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />
             </li>
             <li className="Li5">
-              <GuestRegister clicklogout={this.state.clicklogout}  onLogOut={this.onLogOut} />
+              <GuestRegister clicklogout={this.state.clicklogout} type='0' onLogOut={this.onLogOut} />
             </li>
           </ul>
         </div>

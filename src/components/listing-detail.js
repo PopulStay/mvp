@@ -380,10 +380,10 @@ class ListingsDetail extends Component {
 
   calcTotalPrice() {
     if(this.state.price == 0){
-      return this.state.ppsPrice * this.DateDays() + 26
+      return this.state.ppsPrice * this.DateDays()
     }
     else{
-      return this.state.price * this.DateDays() + 26
+      return this.state.price * this.DateDays()
     }
   }
 
@@ -734,12 +734,6 @@ class ListingsDetail extends Component {
                           <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">0</span>
-                    </li>
-                    <li className="blueColor">
-                      <span className = "LeftSpan">{language.Cleaning_fee}
-                          <img src="../images/detail-img13.png" />
-                      </span>
-                      <span className = "RightSpan">26</span>
                     </li>
                     <li className="blueColor">
                       <span className = "LeftSpan">{language.Total_Price}</span>

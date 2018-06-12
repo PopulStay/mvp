@@ -822,6 +822,7 @@ export const Address = '地址';
 export const Create = '创建';
 
 //listing-all--------------------------------------------------------------------------------------------
+export const All_home = '全部房源';
 export const All_experiences = '全部体验';
 export const Experience = '体验';
 export const Confirm = '确认';

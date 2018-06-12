@@ -23,7 +23,7 @@
 	header li{
 		margin-left: 3%;
 	}
-	header li.Li1>a,
+	header li.Li1 div>a,
 	header li.Li2>a{
 		padding: 2% 30px !important;
 	}
@@ -82,7 +82,7 @@
 	.header{
 		padding: 4% 0% 4% 3%;
 	}
-	header li.Li1>a,
+	header li.Li1 div>a,
 	header li.Li2>a{
 		padding: 2% 10px!important;
 	}
@@ -250,7 +250,7 @@
 	    width: 100%;
 	    border-top: 1px solid #c5c5c5;
   	}
-  	header li.Li1>a,header li.Li2>a{
+  	header li.Li1 div>a,header li.Li2>a{
   		background: none;
   		color: #131c4e !important;
   		padding: 0!important;
