@@ -560,7 +560,7 @@ class Listingall extends Component {
           }
           <div className="container experience ALL" onClick={(e)=>this.taghide()}>
             <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
-                <h2>{language.All_experiences}</h2>
+                <h2>{language.All_home}</h2>
                 <div className={this.state.experienceList == 1 ? "show All_experiences row" : "hide All_experiences row"}>
                     {showListingsRows.map(item => (
                       <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 listing-card">

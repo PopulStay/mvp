@@ -99,7 +99,7 @@ class GuestRegister extends React.Component {
   }
   email(e){
     this.setState({state:this.state.email=e});
-    var rephone = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    var rephone = /^[A-Za-z0-9\u4e00-\u9fa5-_]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
     if(e.length != "" && rephone.test(e)){
       this.setState({state: this.state.emailactive=1});
     }else{
@@ -107,7 +107,7 @@ class GuestRegister extends React.Component {
     }
   }
   Prompt(){
-      var rephone = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+      var rephone = /^[A-Za-z0-9\u4e00-\u9fa5-_]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
       if(this.state.user == "" || this.state.account == ""){
         return this.state.languagelist.Consummate_user_information
       }else if(this.state.email.length == 0){
@@ -128,13 +128,25 @@ class GuestRegister extends React.Component {
 
 
         {
-          this.state.registered === true &&  this.props.clicklogout ===false  && 
-           
+          this.state.registered === true && this.props.clicklogout ===false && this.props.type == '0'  && 
           <button onClick={(e) => window.location.href="/managepanel"} className="logoutButton float-right"><Link to="/managepanel">{language.Welcome}{this.state.user}<span></span></Link></button>
-          
         }
 
-         { (this.state.registered === false || this.props.clicklogout ===true ) &&<button className="button__outline" onClick={this.openModal}>{language.Sign_up}</button>}
+        { 
+          (this.state.registered === false && this.props.type == '0' || this.props.clicklogout ===true && this.props.type == '0' ) &&
+          <button className="button__outline" onClick={this.openModal}>{language.Sign_up}</button>
+        }
+
+        {
+          this.state.registered === true && this.props.clicklogout ===false && this.props.type == '1'  && 
+          <Link to="/create">{language.Become_a_Host}</Link>
+        }
+
+        { 
+          (this.state.registered === false && this.props.type == '1' || this.props.clicklogout ===true && this.props.type == '1' ) &&
+          <a onClick={this.openModal}>{language.Become_a_Host}</a>
+        }
+
          <div className="registermodal">
             <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} 
             contentLabel="Example Modal">
