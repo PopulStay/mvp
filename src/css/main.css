@@ -7775,12 +7775,13 @@ header button {
 }
 header li.Li1>a,
 header li.Li2>a{
-  padding: 2% 40px;
+  padding: 2% 40px !important;
   display: block;
   border-radius: 50px;
-  color: #fff;
+  color: #fff !important;
   font-family: RobotoThin; 
   border:none;
+  cursor: pointer;
 }
 header li.Li1>a{
   background: -webkit-linear-gradient(left, #2b2051 , #762d5b); /* Safari 5.1 - 6.0 */

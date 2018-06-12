@@ -138,7 +138,7 @@ class Footer extends Component {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header"><button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
-                    <div className="modal-body"><img src="./images/qrcode.jpg" alt=""/></div>
+                    <div className="modal-body"><img src="./images/code.jpg" alt=""/></div>
                 </div>
             </div>
         </div>

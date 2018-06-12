@@ -561,6 +561,9 @@
 		padding: 0 4%;
 	}
 	/*------------Step1_1--------------------*/
+	.rightbox{
+		padding: 0 4%;
+	}
 	.Step1_10 .change,
 	.Step1_2 .form-group, .Step3_6 .form-group, .Step3_12 .form-group, .Step3_15 .form-group{
 		width: 100%;
@@ -594,8 +597,21 @@
 	.Step2_1 .photos .photosipt>h3>button{
 		font-size: 2rem;
 	}
+	.Step2_2 .photos .photosimg:first-child,
 	.Step2_2 .photos .photosimg, .Step2_2 .photos .photosipt{
-		height: 80px;
+		width: 97%;
+		height: 230px;
+	}
+	.Step2_2 .photos .photosimg span{
+		opacity: 1;
+		margin: 5%;
+	}
+	.Step3_1 h6{
+		font-size: 1.4rem;
+	}
+	.Step3_4 .boxdiv img{
+		width: 70%;
+		margin: 0 15%;
 	}
 	/*becomehost  end*/
 

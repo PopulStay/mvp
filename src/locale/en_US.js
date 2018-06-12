@@ -166,8 +166,8 @@ export const ConFirm_your_password = 'ConFirm your password';
 export const Provide_the_essentials_helps_guests_feel_at_home_in_your_place = 'Provide the essentials helps guests feel at home in your place.';
 export const Some_hosts_provide_breakfast_or_just_coffee_and_tea = 'Some hosts provide breakfast,or just coffee and tea. None of there things arerequired,but sometimes they add a nice touch to help guests feel welcome.';
 //Step9
-export const kitchen = '厨房';
-export const HouseStep9 = '列出的空间应该位于房源范围内。请不要包括不属于您房源的洗衣房或者附近其他地方。如果邻居同意的话，您可以将游泳池、按摩浴池或其他公用空间包括进去。';
+export const kitchen = 'kitchen';
+export const HouseStep9 = 'Spaces should be on the property. Don’t include laundromats or nearby places that aren’t part of your property. If it’s OK with your neighbors, you can include a pool, hot tub, or other shared space.';
 //Step10
 export const Great_process = 'Great process';
 export const Now_lets_get_some_details = "Now let's get some details about your place so you can publish your listings";
