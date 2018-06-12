@@ -99,6 +99,10 @@ class GuestInfo extends React.Component {
         console.log(data.data.balance)
         this.setState({ ppsDeposited : data.data.balance});
      });
+
+     ppsService.getBalance(window.address).then((data)=>{
+      this.setState({ ppsBalance:data});
+     });
   }
    
   fileChangedHandler(event){

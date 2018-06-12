@@ -69,7 +69,7 @@ class WalletManage extends React.Component {
               <h3>{language.Address}:</h3>
               <p className="text1">{window.address}</p>
               <h3>{language.Private_Key}:</h3>
-              <p className="text1">{window.privateKey}</p>
+              <p className="text1">{this.substring0x(window.privateKey)}</p>
             </div>  
             <button className="btn btn-primary Right" onClick={this.closeModal}>{language.Cancel}</button>
           </div>
