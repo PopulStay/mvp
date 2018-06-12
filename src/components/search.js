@@ -38,7 +38,6 @@ class Search extends Component {
   componentDidMount() {
 
     this.setState({ languagelist:window.languagelist });
-      this.setState({state: this.state.location = this.state.languagelist.Tokyo});
 
       houselistingService.getDistrictCodes().then((codes)=>
       {

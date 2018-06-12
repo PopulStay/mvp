@@ -254,7 +254,7 @@ class HouseInfoListingService {
 
     return new Promise((resolve, reject) => {
       axios.get(process.env.Server_Address+'HouseInformation?place='+place
-                                                          +'&guests>='+guests
+                                                          +'&guests='+guests
                                                           +'&to='+to
                                                           +'&from='+from
                                                           +'&districeCode='+districtCode)
