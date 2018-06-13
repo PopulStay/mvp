@@ -2002,6 +2002,26 @@ div.Strainer_Home_Type .checkbox{
   margin:8% 0 0;
 }
 /*Step3_21 end*/
+.success{
+  margin: 5% 0;
+}
+.success h1{
+  text-align: center;
+  font-size: 3rem;
+  color: #f6416c;
+  margin-bottom: 5%;
+}
+.success .btn{
+  color: #f6416c;
+  margin: 0 40%;
+  width: 20%;
+  border:1px solid #f6416c;
+  background: #fff;
+}
+.success .btn:hover{
+  background: #f6416c;
+  color: #fff;
+}
 .Explainwhy span.close{
   float: right;
   font-size: 3rem;

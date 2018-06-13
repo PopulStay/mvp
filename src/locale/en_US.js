@@ -90,6 +90,7 @@ export const Checkin_is_anytime_after_2PM = 'Check-in is anytime after 2PM';
 export const Check_out_by_12PM = 'Check out by 12PM(noon)';
 export const Strict = 'Strict';
 export const Cancel_up_to_7_days_before_check = 'Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati';
+export const Insufficient_balance = 'Insufficient balance';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
