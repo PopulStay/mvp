@@ -18,7 +18,7 @@ class Search extends Component {
         location:"Tokyo",
         locationName:"Tokyo",
         listingRows: [],
-        listingsPerPage: 6,
+        listingsPerPage: 9,
         districtCodes:[],
         curDistrictCodeIndex:0,
         Progress:0,
@@ -207,18 +207,7 @@ class Search extends Component {
             </Link>
         </div>
         <div className="container index_home">
-            <h2>{language.Experiences_travellers_love}</h2>
-            <p>{language.Book_activities_led_by_local_hosts_on_your_next_trip}</p>
-            <div className="overflow row">
-                {showListingsRows.map(row => (
-                  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 listing-card">
-                  <ListingCard row={row}/>
-                  </div>
-                ))}
-            </div>
-            <Link to="/all">
-            <h4 className={this.state.listingRows.length>=8 ? 'show' : 'hide'}>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
-            </Link>
+            <h2>{language.Stay_tuned}</h2>
         </div>
     </div>
 

@@ -1636,7 +1636,7 @@ class ListingCreate extends Component {
               <div className="photos">
                   {this.state.selectedPictures.map((file,index) => (
                     <div className="photosimg" >
-                      <img className="img-thumbnail"  data-toggle="modal" data-target="#myModal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
+                      <img className="img-thumbnail"  data-toggle="modal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
                       <span  className="glyphicon glyphicon-trash" onClick={this.deletePictures.bind(this,index)} ></span>
                     </div>
                     ))

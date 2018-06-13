@@ -477,7 +477,7 @@ class registerlist extends Component {
                       <a href="" className="btn button__Help">{language.Help}</a>
                     </li>
                     <li className="Li5">
-                      <GuestRegister  clicklogout={this.state.clicklogout}  onLogOut={this.onLogOut}/>
+                      <GuestRegister  clicklogout={this.state.clicklogout} type='0'  onLogOut={this.onLogOut}/>
                     </li>
                   </ul>
                 </div>
@@ -502,7 +502,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-12 col-md-7 col-lg-7">
+                <div className="box col-sm-12 col-md-12 col-lg-7">
                     <h3>{language.Location}</h3>
                     <h5>{language.Which_city_will_you_host_your_experience_in}</h5>
                     <input type="text" onChange={(e) => this.setState({location: e.target.value})} placeholder={language.TOKYO} />
@@ -528,7 +528,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-12 col-md-7 col-lg-7">
+                <div className="box col-sm-12 col-md-12 col-lg-7">
                     <h3>{language.Which_language_will_you_write_your_descriptions_in}</h3>
                     <h5>{language.Keep_in_mind_that_most_travellers}</h5>
                     <p>{language.Ill_write_my_descriptions_and_speak_in} : </p>
@@ -542,7 +542,7 @@ class registerlist extends Component {
                     </div>
                     <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
-                <div className="box1 col-sm-12 col-md-5 col-lg-5">
+                <div className="box1 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img className="becomehost__info" src="./images/rightBoximg.png" alt=""/>
                         <h6>{language.Languages_spoken_by_PopulStay_travellers_to_Singapore}</h6>
@@ -589,7 +589,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.What_type_of_experience_will_you_host}</h3>
                     <h5>{language.Choose_the_category_that_best_describes}</h5>
                     <div className="btn-group">
@@ -656,7 +656,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Tell_us_about_the_organisation_you_represent} </h3>
                     <h5>{language.Organisation_name}</h5>
 
@@ -682,7 +682,7 @@ class registerlist extends Component {
                     <button className="next"  className={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "btnactive next" : " next"} disabled={ this.state.Organisation_name == "" || this.state.Prove1 == 0 || this.state.Prove2 == 0 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -743,13 +743,13 @@ class registerlist extends Component {
 
           { this.state.step === this.STEP.Step5 &&
             <div className="registerlist_3 registerlist_4 registerlist_5 row">
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Create_the_page_guests_will_see}</h3>
                     <h5>{language.Use_the_preview_on_the_the_right}</h5>
                     <button className="next" onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -832,7 +832,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Create_your_cover}</h3>
                     <h5>{language.If_you_dont_have_the_perfect}</h5>
                     <p className="textpink" onClick={(e) => {if(this.state.Tips_examples == 0 )this.setState({Tips_examples:1});else this.setState({Tips_examples:0});}}>{language.Tips_and_examples}<span className={this.state.Tips_examples == 1 ? "modalshow" : "hide"}>▲</span><span className={this.state.Tips_examples == 0 ? "modalshow" : "hide"}>▼</span></p>
@@ -930,7 +930,7 @@ class registerlist extends Component {
                     <button className="next"  className={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "btnactive next" : " next"} disabled={ this.state.Experience_Pictures == "" || this.state.Experience_title.length > 38 || this.state.Experience_title.length < 10 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -1013,7 +1013,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Create_your_cover}</h3>
                     <h5>{language.If_you_dont_have_the_perfect}</h5>
                     <p className="textpink" onClick={(e) => {if(this.state.Tips_examples == 0 )this.setState({Tips_examples:1});else this.setState({Tips_examples:0});}}>{language.Tips_and_examples}<span className={this.state.Tips_examples == 1 ? "modalshow" : "hide"}>▲</span><span className={this.state.Tips_examples == 0 ? "modalshow" : "hide"}>▼</span></p>
@@ -1135,7 +1135,7 @@ class registerlist extends Component {
                     <button className="next"  onClick={(e)=>this.nextstep(e)}>{language.Next}</button>
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -1218,7 +1218,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <div className={this.state.Prompttype_8 ? "show Prompt" : "hide Prompt"}>
                         <div className="bj"></div>
                         <div className="Prompt_content">
@@ -1261,7 +1261,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -1344,7 +1344,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <div className={this.state.Prompttype_9 ? "show Prompt" : "hide Prompt"}>
                         <div className="bj"></div>
                         <div className="Prompt_content">
@@ -1387,7 +1387,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -1470,7 +1470,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Describe_the_nonprofit_organisation}</h3>
                     <h5>{language.Tell_people_about_the_nonprofit_organisation}</h5>
                     <textarea onChange={(e)=>this.setState({organization:e.target.value})} ></textarea>  
@@ -1479,7 +1479,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -1562,7 +1562,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                   <div className={this.state.Prompttype_11 ? "show Prompt" : "hide Prompt"}>
                         <div className="bj"></div>
                         <div className="Prompt_content">
@@ -1601,7 +1601,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -1684,7 +1684,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Where_should_guests_meet_you}</h3>
                     <h5>{language.Tell_guests_exactly_where_to_meet}</h5>
                     <h6>{language.Step} 1: {language.Provide_an_address}</h6>
@@ -1746,7 +1746,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -1829,7 +1829,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <div className={this.state.Prompttype_13 ? "show Prompt" : "hide Prompt"}>
                         <div className="bj"></div>
                         <div className="Prompt_content">
@@ -1867,7 +1867,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -1950,7 +1950,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <div className={this.state.Prompttype_14 ? "show Prompt" : "hide Prompt"}>
                         <div className="bj"></div>
                         <div className="Prompt_content">
@@ -2026,7 +2026,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -2109,7 +2109,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.What_should_guests_bring_with_them}</h3>
                     <h5>{language.Think_through_everything_a_guest_will_need}</h5>
                     
@@ -2135,7 +2135,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -2218,7 +2218,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.What_else_do_guests_need_to_know_before_they_book}</h3>
                     <h5>{language.Put_yourself_in_a_guests_shoes}</h5>
                     
@@ -2237,7 +2237,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -2298,7 +2298,7 @@ class registerlist extends Component {
 
           { this.state.step === this.STEP.Step17 &&
             <div className="registerlist_4 registerlist_17 row">
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Setting}</h3>
                     <h5>{language.Add_details_like_group_size_price_default_time_and_more}</h5>
                      
@@ -2306,7 +2306,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -2384,7 +2384,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Who_can_attend_your_experience}</h3>
                     <h5>{language.Keep_in_mind_that_someone_booking}</h5>
                     
@@ -2448,7 +2448,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -2526,7 +2526,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Maximum_group_size}</h3>
                     <h5>{language.Think_about_the_group_size}</h5>
 
@@ -2543,7 +2543,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -2621,7 +2621,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Set_a_price_per_guest}</h3>
                     <h5>{language.The_price_of_your_experience}</h5>
 
@@ -2633,7 +2633,7 @@ class registerlist extends Component {
                     <button className={ this.state.price_guest == 0 ? "btnactive next" : " next"} disabled={ this.state.price_guest == 0 ? "disabled" : ""} onClick={(e)=>this.nextstep(e)}>{language.Save_Continue}</button>
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -2711,7 +2711,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
 
                     <h3>{language.Explain_what_the_guests_money_benefits}</h3>
                     <h5>{language.Give_guests_insight_into_how_the_nonprofit}</h5>
@@ -2744,7 +2744,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.At_what_time_will_you_typically_host_your_experience}</h3>
                     <h5>{language.Later_on_youll_pick_the_exact_calendar}</h5>
       
@@ -2772,7 +2772,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -2850,7 +2850,7 @@ class registerlist extends Component {
                       <li>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Whens_the_latest_time_guests_can_book}</h3>
                     <h5>{language.We_recommend_setting_this_as_close}</h5>
           
@@ -2898,7 +2898,7 @@ class registerlist extends Component {
                       <li className="textPink"  onClick={(e)=>this.setState({step:this.STEP.Step23})}>{language.Review} & {language.Submit}</li>
                   </ul>
                 </div>
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Review_our_policies_before_you_submit_to_Populstay}</h3>
 
                     <h6>{language.PopulStay_will_review_the_version}</h6>
@@ -2937,7 +2937,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>
@@ -2998,7 +2998,7 @@ class registerlist extends Component {
 
           { this.state.step === this.STEP.Step25 &&
             <div className="registerlist_4 registerlist_25 row">
-                <div className="box col-sm-7 col-md-7 col-lg-7">
+                <div className="box col-sm-7 col-md-12 col-lg-7">
                     <h3>{language.Thanks_Youve_successfully_submitted_your_experience}. </h3>
                     <h5>{language.Now_sit_back_and_relax_well_need}</h5>
                     <h5>{language.You_can_also_keep_editing_your_experience}<span className="textpink">{language.verifying_your_ID}</span></h5>
@@ -3009,7 +3009,7 @@ class registerlist extends Component {
 
                 </div>
 
-                <div className="box2 col-sm-12 col-md-5 col-lg-5">
+                <div className="box2 col-sm-12 col-md-12 col-lg-5">
                     <div>
                         <img src={this.state.select_Pictures == "" ? "../images/registerlist_4.png" : this.state.select_Pictures} />
                         <ul>

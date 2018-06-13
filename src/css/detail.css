@@ -361,10 +361,6 @@
   padding: 0 3%;
   height:40px;
 }
-.details-daterange-div .DateRangePicker_picker{
-  left: auto !important;
-  right: 0 !important;
-}
 .DateInput{
   line-height: 40px;
 }
