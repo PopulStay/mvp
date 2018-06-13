@@ -22,6 +22,7 @@ export const Show_all = '显示全部';
 export const Experiences_travellers_love = '体验旅客的爱';
 export const Book_activities_led_by_local_hosts_on_your_next_trip = '在下次旅行中当主人预订活动';
 export const Tokyo = '东京';
+export const Stay_tuned = '敬请期待';
 
 //listing-detail--------------------------------------------------------------------------------------------
 export const bedroom = '卧室';
@@ -824,6 +825,8 @@ export const Create = '创建';
 
 //listing-all--------------------------------------------------------------------------------------------
 export const All_home = '全部房源';
+export const Home_Type = '房间类型';
+export const More_Fiters = '更多';
 export const All_experiences = '全部体验';
 export const Experience = '体验';
 export const Confirm = '确认';

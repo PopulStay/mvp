@@ -38,7 +38,7 @@ class Listingall extends Component {
         Home_Type:'Home Type',
         PriceAdd:0,
         PriceDele:0,
-        Pricemin:10000,
+        Pricemin:0,
         Pricemax:1000000,
         Price:'Price',
         listingRows: [],
@@ -56,6 +56,11 @@ class Listingall extends Component {
   componentDidMount() {
 
     this.setState({ languagelist:window.languagelist });
+    this.setState({
+      Citys_type:window.languagelist.City,
+      Home_Type:window.languagelist.Home_Type,
+      Price:window.languagelist.Price
+    });
 
     this.handlePageChange = this.handlePageChange.bind(this);
     
@@ -82,13 +87,13 @@ class Listingall extends Component {
       var price = data[i].price;
       var guestsnum =  Number(this.state.Adult) + Number(this.state.children) + Number(this.state.Baby);
       var ifCity,ifcategory;
-      if(this.state.Citys_type == 'City'){
+      if(this.state.Citys_type == this.state.languagelist.City){
         ifCity = City;
       }else{
         ifCity = this.state.Citys_type;
       }
 
-      if(this.state.Home_Type == 'Home Type'){
+      if(this.state.Home_Type == this.state.languagelist.Home_Type){
         ifcategory = category;
       }else{
         ifcategory = this.state.Home_Type;
@@ -252,8 +257,8 @@ class Listingall extends Component {
   TagSelect(e){
     this.taghide();
 
-    if(this.state.Pricemin == 10000 && this.state.Pricemax == 1000000){
-        this.setState({Pricemin:10000,Pricemax:1000000,Price:'Price'})
+    if(this.state.Pricemin == 0 && this.state.Pricemax == 1000000){
+        this.setState({Pricemin:0,Pricemax:1000000,Price:'Price'})
     }else{
         this.setState({Price:'PPS'+this.state.Pricemin+"-"+'PPS'+this.state.Pricemax})
     }
@@ -276,7 +281,7 @@ class Listingall extends Component {
       }
 
       if(Strainer == "Strainer_Price"){
-        this.setState({Pricemin:10000,Pricemax:1000000,Price:'Price'})
+        this.setState({Pricemin:0,Pricemax:1000000,Price:'Price'})
       }
 
      this.taghide();
@@ -312,7 +317,7 @@ class Listingall extends Component {
           {!this.props.hideTagHeader &&
             <div className="tag-header Strainerbox">
               <ul className="tag container">
-              <li className="tag__item"><a href="/experience"><img src="../../images/Experience.png" alt=""/><span>{language.Experience}</span></a></li>
+              <li className="tag__item"><a><img src="../../images/Experience.png" alt=""/><span>{language.Experience}</span></a></li>
               <li className="tag__item"><span className="location-tag Strainerspan" data-Strainer="Strainer_City" onClick={(e)=>this.Strainer(e)}>{this.state.Citys_type}</span>
                   <div className={this.state.Strainer_City ? "Strainer_City show" : "Strainer_City hide"}>
                       <div className="Strainer_Home_Type">
@@ -405,7 +410,7 @@ class Listingall extends Component {
                       </div>
                   </div>
               </li>
-              <li className={this.state.Strainer_More ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_More" onClick={(e)=>this.Strainer(e)}>More Fiters</span>
+              <li className={this.state.Strainer_More ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_More" onClick={(e)=>this.Strainer(e)}>{language.More_Fiters}</span>
                   <div className={this.state.Strainer_More ? "Strainer_More  show" : "Strainer_More hide"}>
                       <div className="Bedroom">
                           <h6>Bedroom and bed</h6>

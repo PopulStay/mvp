@@ -55,12 +55,12 @@ class WalletClear extends React.Component {
       window.address          = obj.address;
       window.addressShow      = obj.address.substring(0,10)+"...";
       window.privateKey       = "0x" + this.state.pirvatekey;
+      this.setState({modalinOpen:false});
+      this.props.onLogOut(false);
        reactLocalStorage.setObject('wallet', 
       {'address': window.address,
       'privateKey': window.privateKey,
       'addressshow': window.addressshow});
-      this.setState({modalinOpen:false});
-      this.props.onLogOut(false);
   }
 
 

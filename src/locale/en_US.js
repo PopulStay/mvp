@@ -22,6 +22,7 @@ export const Show_all = 'Show all';
 export const Experiences_travellers_love = 'Experiences travellers love';
 export const Book_activities_led_by_local_hosts_on_your_next_trip = 'Book activities led by local hosts on your next trip';
 export const Tokyo = 'Tokyo';
+export const Stay_tuned = 'Stay tuned';
 
 //listing-detail--------------------------------------------------------------------------------------------
 export const bedroom = 'bedroom';
@@ -824,6 +825,8 @@ export const Create = 'Create';
 
 //listing-all--------------------------------------------------------------------------------------------
 export const All_experiences = 'All experiences';
+export const Home_Type = 'Home Type';
+export const More_Fiters = 'More_Fiters';
 export const Experience = 'Experience';
 export const Confirm = 'Confirm';
 export const Reset = 'Reset';

@@ -4,7 +4,7 @@
 		width: 100%;
 	}
 	.navbar-collapse ul{
-	    width: 90%;
+	    width: 85%;
 	}
 	.tag-header ul{
 		width: 100%;
@@ -91,6 +91,12 @@
 	/*header  start*/
 	.header{
 		padding: 4% 0% 4% 3%;
+	}
+	.navbar-collapse ul{
+		margin-top: 5%;
+	}
+	header li.Li3, header li.Li4{
+		margin: 0;
 	}
 	header li.Li1 div>a,
 	header li.Li2>a{
@@ -196,6 +202,75 @@
 		height: 180px;
 	}
 	/*listing-experiences  end*/
+
+	/*introlist start*/
+	.introlist .STEPhead{
+		padding-left: 10%;
+	}
+	.introlist{
+		padding: 0;
+	}
+	.introlist>div{
+		margin: 0;
+		padding: 0 5%;
+	}
+	.introlist .boxleft{
+		margin: 10% 0;	
+	}
+	.introlist .boxleft .box{
+		padding: 10%;
+		min-height: 400px;
+	}
+	.introlist .STEPhead,
+	.introlist .boxleft p.pre,
+	.introlist .boxleft .box,
+	.introlist_1 .boxleft .box,
+	.introlist .boxright img,
+	.introlist>div{
+		position: initial;
+		width: 100%;
+		height: auto;
+		transform: translate(0,0);
+	}
+	.introlist .boxleft, 
+	.introlist .boxright{
+		position: initial;
+		width: 100%;
+	}
+	.introlist .boxleft p.pre,
+	.introlist .boxleft button.next,
+	.introlist_1 .boxleft button.next{
+		position: initial;
+		margin: 5% 10%;
+	}
+	.introlist .boxleft p.pre{
+		width: 50%;
+	}
+	.introlist .STEPhead{
+		top:80px;
+	}
+	.introlist_3 .boxleft h3{
+		margin: 5% 0;
+	} 
+	.introlist_3 .dropdown-menu{
+		min-height: 300px;
+	}
+	/*introlist end*/
+	/*register*/
+	.register_content>div{
+		margin-top: 5%;
+	}
+	.register_content .box1,
+	.register_content .box2{
+		padding: 0;
+		margin: 0;
+	}
+	.register_content .box1>div,
+	.register_content .box2>div{
+		width: 100%;
+		margin: 0;
+	}
+	/*register*/
 }
 
 @media screen and (max-width: 768px){
