@@ -227,7 +227,7 @@ class ListingsDetail extends Component {
 
 
     if (this.props.listingId) {
-      //this.loadOrdered(this.props.listingId);
+      this.loadOrdered(this.props.listingId);
       this.loadListing();
      
     }
@@ -259,20 +259,20 @@ class ListingsDetail extends Component {
       
 
 
-  // loadOrdered = (id) =>{
-  //     houselistingService.getHouseInfoById(id).then((data)=>{
-  //       if(data)
-  //       {
-  //         var slide ={};
-  //         slide.imgageUrl = data.profile.previewImage;
-  //         this.state.slides.push(slide);
-  //       }
+  loadOrdered = (id) =>{
+      houselistingService.getHouseInfoById(id).then((data)=>{
+        if(data)
+        {
+          var slide ={};
+          slide.imgageUrl = data.profile.previewImage;
+          this.state.slides.push(slide);
+        }
 
-  //       if(data.bookedDate != undefined ){
-  //           this.setState({DateLists: data.bookedDate.data});
-  //       }
-  //     });
-  // }
+        if(data.bookedDate != undefined ){
+            this.setState({DateLists: data.bookedDate.data});
+        }
+      });
+  }
 
   handleBooking() {
     console.log(this.state.descriptioninfo)
