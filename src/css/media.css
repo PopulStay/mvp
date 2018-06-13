@@ -75,6 +75,16 @@
 		height: 260px;
 	}
 	/*listing-experiences  end*/
+
+	/**/
+	.introlist .boxleft,
+	.introlist .boxright{
+		width: 50%;
+	}
+	.introlist .boxright img{
+		transform: translate(0,-50%);
+	}
+	/**/
 }
 
 @media screen and (max-width: 992px){

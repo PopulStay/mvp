@@ -143,6 +143,19 @@ class GuestRegister extends React.Component {
           <a onClick={this.openModal}>{language.Become_a_Host}</a>
         }
 
+        {
+          (this.state.registered === false && this.props.type == '2' || this.props.clicklogout ===true && this.props.type == '2' ) &&
+          <button className="bg-pink color-blue btn-lg btn-block text-bold text-center"  onClick={this.openModal}>{language.Sign_up}</button>
+        }
+
+        {
+          (this.state.registered === false && this.props.type == '3' || this.props.clicklogout ===true && this.props.type == '3' ) &&
+          <div className="Please_Log_in"  onClick={this.openModal}>{language.Please_Log_in}</div>
+        }
+
+
+
+
          <div className="registermodal">
             <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} 
             contentLabel="Example Modal">

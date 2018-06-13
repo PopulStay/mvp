@@ -6,6 +6,7 @@ import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
 import Modal from 'react-modal';
 import languageService from '../services/language-service';
+import GuestRegister from './guest-register';
 
 
 const socketServer = process.env.Socket_Server;
@@ -466,7 +467,7 @@ class Video extends Component {
 
             <div>
 
-              {this.state.Current_user === 1 && 
+              {this.state.Current_user === 1 && window.address &&
                 <div className={this.state.modalIsOpen == true ? "video hide" : "video show"} style={{width:!this.state.narrow? "auto" : "",bottom:this.state.enlarge? "50%":"",right:this.state.enlarge? "50%":"",transform: this.state.enlarge? "translate(50%,50%)":""}}>
                   <div className={this.state.narrow ? "" : "hide"}>
                   <div className="videobox">  
@@ -506,7 +507,7 @@ class Video extends Component {
                   <p className={!this.state.narrow ? "show" : "hide"}  onClick={(e)=>this.setState({narrow:true})}>{language.Contact_the_landlord}</p>
                 </div>
               }
-              {this.state.Current_user === 0 && 
+              {this.state.Current_user === 0 && window.address &&
                 <div className={this.state.modalIsOpen == true ? "video hide" : "video show"} style={{width:!this.state.narrow? "auto" : "",bottom:this.state.enlarge? "50%":"",right:this.state.enlarge? "50%":"",transform: this.state.enlarge? "translate(50%,50%)":""}}>
                 <div className={this.state.narrow ? "" : "hide"}>
                   <div className="videobox">
@@ -542,6 +543,9 @@ class Video extends Component {
                   </div>
                   <p className={!this.state.narrow ? "show" : "hide"}  onClick={(e)=>this.setState({narrow:true})}>{language.Contact_the_landlord}</p>
                 </div>
+              }
+              { !window.address &&
+                <GuestRegister clicklogout={this.state.clicklogout} type='3' onLogOut={this.onLogOut} />
               }
 
              </div> 

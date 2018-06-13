@@ -13,6 +13,7 @@ import Modal from 'react-modal';
 import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
 import languageService from '../services/language-service';
+import GuestRegister from './guest-register';
 
 
 const qr = new EthereumQRPlugin();
@@ -77,6 +78,7 @@ class ListingsDetail extends Component {
       Progress:0,
       Progresshide:0,
       languagelist:{},
+      clicklogout:false,
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -84,6 +86,10 @@ class ListingsDetail extends Component {
     this.closeModal = this.closeModal.bind(this);
 
     languageService.language();
+  }
+
+  onLogOut = (value) =>{
+    this.setState({ clicklogout:value });
   }
 
   componentWillUnmount(){
@@ -231,6 +237,7 @@ class ListingsDetail extends Component {
       web3Service.getETHBalance(window.address).then((data)=>{
         this.setState({ ethBalance:data/this.CONST.weiToGwei});
       });
+      this.setState({login:true});
     }
 
     guestService.getGuesterInfo(window.address).then((data)=>{
@@ -743,7 +750,7 @@ class ListingsDetail extends Component {
 
              <div className="detail-summary__action">
                  {
-                    this.props.listingId &&
+                    this.props.listingId && this.state.login &&
                     <button
                       className="bg-pink color-blue btn-lg btn-block text-bold text-center"
                       onClick={this.handleBooking}
@@ -752,7 +759,11 @@ class ListingsDetail extends Component {
                       >
                         {language.Book}
                     </button>
-                }    
+                }  
+                {
+                  !this.state.login &&
+                  <GuestRegister clicklogout={this.state.clicklogout} type='2' onLogOut={this.onLogOut} />
+                }  
 
             
              <h4 className="text-center">{language.You_wont_be_charged_yet}</h4>

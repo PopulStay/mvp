@@ -135,7 +135,7 @@ class experienceintro extends Component {
                     <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />
                   </li>
                   <li className="Li5">
-                    <GuestRegister clicklogout={this.state.clicklogout}  onLogOut={this.onLogOut} />
+                    <GuestRegister clicklogout={this.state.clicklogout} type='0' onLogOut={this.onLogOut} />
                   </li>
                 </ul>
               </div>
