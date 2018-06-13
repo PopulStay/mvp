@@ -71,7 +71,7 @@ class ListingCreate extends Component {
         
 
         this.state = {
-            step: 1,
+            step: 200,
             roomtype_category:"",
             roomtype_guests:1,
             roomtype_location:"",
@@ -3905,7 +3905,7 @@ class ListingCreate extends Component {
 
           <div className="becomehost-8 container">
           <div className="row">
-          <div className="col-md-12 col-lg-12 col-sm-12 Step-8">
+          <div className="col-md-12 col-lg-12 col-sm-12 success">
             <h1>Submission of success</h1>
             <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.preStep}>Back</button>
           </div>

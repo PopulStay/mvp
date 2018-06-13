@@ -499,7 +499,7 @@ class Video extends Component {
                       <h6 className="enlarge" onClick={(e)=>{if(this.state.enlarge)this.setState({enlarge:false});else this.setState({enlarge:true});}}></h6> 
                       <h6 className="narrow" onClick={(e)=>this.setState({narrow:false,enlarge:false})}></h6>
                     </h4>
-                    <h4>{this.state.ppsBalance >= 1 ? '' : '余额不足'}</h4>
+                    <h4>{this.state.ppsBalance >= 1 ? '' : language.Insufficient_balance}</h4>
                      <ul  style={{height:this.state.enlarge? "300px":""}}>
                         {this.state.messagearr.map((item,index) => (
                             <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
@@ -538,7 +538,7 @@ class Video extends Component {
                       <h6 className="enlarge" onClick={(e)=>{if(this.state.enlarge)this.setState({enlarge:false});else this.setState({enlarge:true});}}></h6> 
                       <h6 className="narrow" onClick={(e)=>this.setState({narrow:false,enlarge:false})}></h6>
                     </h4>
-                    <h4>{this.state.ppsBalance >= 1 ? '' : '余额不足'}</h4>
+                    <h4>{this.state.ppsBalance >= 1 ? '' : language.Insufficient_balance}</h4>
                      <ul  style={{height:this.state.enlarge? "300px":""}}>
                         {this.state.messagearr.map((item,index) => (
                             <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}

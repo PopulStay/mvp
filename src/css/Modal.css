@@ -505,6 +505,7 @@
 }
 .withdraw .submitbox label{
   font-size: 1.8rem;
+  margin-top: 3%;
 }
 .withdraw table tr td.td5{
   width: 35%;

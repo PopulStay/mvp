@@ -60,12 +60,12 @@ export const Cancellations = '预订取消';
 export const Get_details = '获取详细信息';
 export const Reviews = '评论';
 export const Search_Reviews = '搜索评论';
-export const Accuracy = '准确性';
-export const Location = '城市';
-export const Communication = '通信';
+export const Accuracy = '如实描述';
+export const Location = '位置便利指数';
+export const Communication = '沟通交流';
 export const heck_In = '报到';
-export const Cleanliness = '清洁';
-export const Value = '价值';
+export const Cleanliness = '干净指数';
+export const Value = '性价比';
 export const See_the_neighbourhood = '看到周边地区';
 export const Public_Transit = '公共交通';
 export const Restaurant = '餐厅';
@@ -90,6 +90,7 @@ export const Checkin_is_anytime_after_2PM = '入住时间为下午2点以后';
 export const Check_out_by_12PM = '12点退房（中午）';
 export const Strict = '严禁';
 export const Cancel_up_to_7_days_before_check = '入住前7天取消预订，并获得50％的退款（减去服务费）。取消行程后7天内取消预订';
+export const Insufficient_balance = '余额不足';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
