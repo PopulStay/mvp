@@ -275,7 +275,7 @@ class ListingsDetail extends Component {
   }
 
   handleBooking() {
-    console.log(this.state.descriptioninfo)
+    this.setState({checkInDate:null});
     let unitsToBuy = 0;
     if(this.state.price == 0){
         var Total_price = this.state.ppsPrice * this.DateDays() 
