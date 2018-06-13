@@ -134,7 +134,7 @@ class Search extends Component {
                     
                     <div className="col-md-12 col-lg-12 col-sm-12 ">
 
-                        <div className=" col-sm-8 col-md-8 col-lg-8 index_box">
+                        <div className=" col-sm-12 col-md-8 col-lg-8 index_box">
                             <div className="col-md-12 col-lg-12 col-sm-12 guestsleft">
                                 <div className="form-group">
                                     <label className="col-sm-6 col-md-6 col-lg-6 ">{language.Check_in}</label>
@@ -173,7 +173,7 @@ class Search extends Component {
 
                         </div>
 
-                        <div className="search  col-sm-3  col-md-3  col-lg-3">
+                        <div className="search  col-sm-12  col-md-3  col-lg-3">
                             <a onClick={this.setURL} href="#" className="btn button__fill btn-lg form__search">
                                 <img src="../images/search_home.png" />
                             </a>
@@ -203,7 +203,7 @@ class Search extends Component {
                   ))}
             </div>
             <Link to="/all">
-            <h4>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
+            <h4 className={this.state.listingRows.length>=8 ? 'show' : 'hide'}>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
             </Link>
         </div>
         <div className="container index_home">
@@ -217,7 +217,7 @@ class Search extends Component {
                 ))}
             </div>
             <Link to="/all">
-            <h4>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
+            <h4 className={this.state.listingRows.length>=8 ? 'show' : 'hide'}>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
             </Link>
         </div>
     </div>

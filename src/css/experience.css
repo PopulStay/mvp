@@ -376,7 +376,7 @@ text-decoration:none;
 	position: relative;
 }
 .introlist .boxleft .logo{
-	width: 30px;
+	width: 40px;
 }
 .introlist .STEPhead{
 	position: absolute;
@@ -520,6 +520,9 @@ text-decoration:none;
 }
 .introlist_3 .boxleft .btn-group{
 	padding: 0;
+}
+.introlist_3 .dropdown-menu{
+	max-height: 113px !important;
 }
 .introlist_3 .boxleft .btn-group button,
 .registerlist_2 .btn-group button,

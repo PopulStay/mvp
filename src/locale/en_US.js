@@ -2,6 +2,7 @@
 export const Help = 'Help';
 export const Log_out = 'Log out';
 export const Log_in = 'Log in';
+export const Please_Log_in = 'Please login to contact host';
 
 // search--------------------------------------------------------------------------------------------
 export const Find_dream_homes_and_experiences_on_PopulStay = 'Find dream homes and experiences on PopulStay';

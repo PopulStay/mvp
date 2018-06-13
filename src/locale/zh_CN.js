@@ -2,6 +2,7 @@
 export const Help = '帮助';
 export const Log_out = '退出登录';
 export const Log_in = '登录';
+export const Please_Log_in = '请登录联系房东';
 
 // search--------------------------------------------------------------------------------------------
 export const Find_dream_homes_and_experiences_on_PopulStay = '在潮箱找到梦想家园和体验';
