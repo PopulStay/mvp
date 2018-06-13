@@ -34,5 +34,7 @@ ETH订单确认。                                 X Eric增加API  返回结果
 预定的时间冲突									X
 
 6)通话测试
-单机message测试                                  O
-单机
+单机message测试								O
+PPS为0时不能语音视频							X。Yan增加提示
+单机有存在平台的PPS的通话视频                   O  Y
+
