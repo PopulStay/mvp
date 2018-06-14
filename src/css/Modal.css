@@ -144,6 +144,11 @@
   margin-left: 7%;
   margin-bottom: 4%;
   position: relative;
+  overflow: auto;
+}
+.auto{
+  min-width: 800px;
+  overflow: auto;
 }
 .overflowAuto{
   max-height: 500px;
