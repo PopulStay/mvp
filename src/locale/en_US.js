@@ -794,6 +794,10 @@ export const What_Ill_provide = 'What Ill provide';
 export const Where_well_be = 'Where well be';
 export const Notes = 'Notes';
 
+//Submission_of_success
+export const Submission_of_success = 'Submission of success';
+export const Submission_of_PROCESSING = 'Submission of PROCESSING';
+
 //guest-register--------------------------------------------------------------------------------------------
 export const Sign_up = 'Sign up';
 export const Welcome = 'Welcome！';
