@@ -47,6 +47,7 @@ class WalletClear extends React.Component {
       reactLocalStorage.setObject('wallet', null);
       this.setState({modaloutOpen:false});
       this.props.onLogOut(true);
+        window.location.href='/';
 
   }
 

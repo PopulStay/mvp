@@ -125,7 +125,7 @@ class GuestRegister extends React.Component {
 
         {
           this.state.registered === true && this.props.clicklogout ===false && this.props.type == '0'  && 
-          <button onClick={(e) => window.location.href="/managepanel"} className="logoutButton float-right"><Link to="/managepanel">{language.Welcome}{this.state.user}<span></span></Link></button>
+          <button onClick={(e) => window.location.href="/managepanel"} className="logoutButton float-right"><Link to="/managepanel">{this.state.user}<span></span></Link></button>
         }
 
         { 
