@@ -383,6 +383,9 @@
   right: 0;
   top:0;
 }
+.clear .Please_logn_in{
+  text-align: center;
+}
 .deposit .text2{
   font-family: RobotoBold; 
   font-size: 1.8rem;
