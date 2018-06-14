@@ -62,6 +62,7 @@ class WalletClear extends React.Component {
       {'address': window.address,
       'privateKey': window.privateKey,
       'addressshow': window.addressshow});
+    window.location.href='/';
   }
 
 
