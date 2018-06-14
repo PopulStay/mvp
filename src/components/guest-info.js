@@ -165,7 +165,8 @@ class GuestInfo extends React.Component {
       </div>
 
       <h1>{language.Guest_Managment_Panel}</h1>
-      <div className="GuestManagment">
+      <p className={this.state.orderlist.length == 0 ? 'show No_order' : 'hide No_order'}>{language.No_order}</p>
+      <div className={this.state.orderlist.length == 0 ? 'hide GuestManagment' : 'show GuestManagment'}>
         <div className="auto">
           <div className="divtr">
               <div>{language.Address}</div>

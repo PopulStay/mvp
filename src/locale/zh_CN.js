@@ -920,6 +920,8 @@ export const From = '从';
 export const To = '到';
 export const Price = '价格';
 export const Location_type = '位置';
+export const Add_a_house = '添加房源';
+export const No_order = '没有订单';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = '房东管理面板';

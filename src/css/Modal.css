@@ -134,6 +134,30 @@
 .userBox p{
   display: inline-block;
 }
+.No_order{
+  color:#f6416c ;
+  margin: 50px auto;
+  padding: 1% 5%;
+  font-size: 1.8rem;
+  text-align: center;
+}
+.Add_a_house{
+  border:1px solid #f6416c;
+  background:#fff;
+  color:#f6416c ;
+  margin: 50px auto;
+  padding: 1% 5%;
+}
+.Add_a_house a{
+  color:#f6416c ;
+  font-size: 1.8rem;
+}
+.Add_a_house:hover{
+  background:#f6416c;
+}
+.Add_a_house:hover a{
+  color:#fff ; 
+}
 .GuestManagment h1,
 .HostManagment h1{
   margin-left: -2%;
