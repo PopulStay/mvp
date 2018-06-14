@@ -412,6 +412,7 @@ class Listingall extends Component {
               </li>
               <li className={this.state.Strainer_More ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_More" onClick={(e)=>this.Strainer(e)}>{language.More_Fiters}</span>
                   <div className={this.state.Strainer_More ? "Strainer_More  show" : "Strainer_More hide"}>
+                  <p>{language.Stay_tuned}</p>
                       <div className="Bedroom">
                           <h6>Bedroom and bed</h6>
                           <ul>
