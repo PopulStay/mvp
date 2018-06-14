@@ -918,6 +918,7 @@ export const Information = 'Information';
 export const From = 'From';
 export const To = 'To';
 export const Price = 'Price';
+export const Location_type = 'Location';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = 'Host Managment Panel';

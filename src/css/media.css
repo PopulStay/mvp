@@ -162,6 +162,27 @@
 	/*footer  end*/
 
 	/*info  start*/
+	.userBox .userbtn>div{
+		width: 50%;
+		margin: 0;
+		display: inline-block;
+	}
+	.userBox .userbtn{
+		margin-top: 5%;
+		padding: 0 4%;
+	}
+	.userBox .photo{
+		width:27%;
+		margin:0;
+		float: left;
+	}
+	.userBox .userqrurl{
+		margin-top: 5%;
+	}
+	.userBox .address{
+		width:35%;
+		margin: 5%;
+	}
 	.GuestManagment th, 
 	.HostManagment th{
 		font-size: 1.4rem !important;
@@ -269,6 +290,9 @@
 	.register_content .box2>div{
 		width: 100%;
 		margin: 0;
+	}
+	.Prompt .Prompt_content{
+		width: 80%;
 	}
 	/*register*/
 }
@@ -894,6 +918,7 @@
 	/*listing-experiences  end*/
 
 	/*info  start*/
+
 	.userBox img{	
 		position: initial;
 	}
@@ -908,8 +933,14 @@
 		width: 48% !important;
 		margin-left: 0 !important;
 	}
+	.userbtn>div:nth-child(even){
+		float: right;
+	}
 	.userbtn>div>button{
 		width: 100%!important;
+	}
+	.userBox .photo{
+		width: 100%;
 	}
 	.userBox .address{
 		width: 90%;
@@ -918,7 +949,7 @@
 	.userBox .userPhoto{
 		width: 103px;
 		height: 140px;
-		margin: 2% auto;
+		margin: 2% 0;
 	}
 	.userBox .userPhoto p span{
 		font-size: 1.2rem;
@@ -1000,7 +1031,7 @@
 	}
 	/*modal*/
 
-	/**/
+	/*footer start*/
 	.footer__dropdown .btn-group{
 		width: 150px;
 	}
@@ -1016,7 +1047,104 @@
 	.footer .social li .social__icon{
 		width: 20px;
 	}
-	/**/
+	/*footer end*/
+	
+	/*register start*/
+	.register_content{
+		padding: 0 5%;
+	}
+	.register,
+	.register .box{
+		padding: 0;
+	}
+	.register .STEPhead span{
+		margin-right: 5%;
+	}
+	.registerlist_2 .btn-group,
+	.registerlist_1 .box input, .registerlist_4 .box input,
+	.registerlist_3 .btn-group, .registerlist_18 .btn-group,
+	.registerlist_6 .photochage,
+	.registerlist_8 .box textarea, .registerlist_12 .box label textarea
+	{
+		width: 100%;
+	}
+	.register_content .box1, .register_content .box2{
+		margin-top: 10%;
+	}
+	.introlist_3 .dropdown-menu a, 
+	.registerlist_2 .dropdown-menu a, 
+	.registerlist_3 .dropdown-menu a, 
+	.registerlist_12 .dropdown-menu a, 
+	.registerlist_14 .dropdown-menu a, 
+	.registerlist_18 .dropdown-menu a, 
+	.VerifyID_3 .dropdown-menu a{
+		padding:3% 5%;
+	}
+	.registerlist_3 .check .divinput, 
+	.registerlist_14 .check .divinput, 
+	.registerlist_15 .check .divinput, 
+	.registerlist_18 .check .divinput, 
+	.registerlist_24 .check .divinput{
+		width: 90%;
+	}
+	.registerlist_4 .box .imgs>div{
+		width: 30%;
+		margin: 0 1%;
+	}
+	.registerlist_6 .photoleft>p.show{
+		display: none !important;
+	}
+	.registerlist_7 .box .Gallery>div:nth-child(1), .registerlist_7 .box .Gallery>div:nth-child(4),
+	.registerlist_7 .box .Gallery>div{
+		width: 48%;
+		margin: 0 1% 2%;
+		padding: 0;
+	}
+	.registerlist_7 .box .Gallery>div>.imgdiv img{
+		width: auto;
+		height: 100%;
+	}
+	.Prompt .Prompt_content{
+		background: #fff;
+	}
+	.Prompt .boxright .listbottom .Right span,
+	.Prompt .boxright>span.close{
+		color: #f6416c;
+	}
+	.Prompt .Prompt_content>div.boxleft,
+	.Prompt .Prompt_content>div.boxright,
+	.registerlist_12 .box label input, .registerlist_12 .box label .btn-group,
+	.registerlist_12 .stepbox img,
+	.registerlist_14 .btn-group, .registerlist_14 h6.Item_ne,
+	.registerlist_15 .inputlist,
+	.registerlist_20 .price_guest
+	{
+		width: 100%;
+	}
+	.Prompt .boxright .listtop .Right h5,
+	.Prompt .boxright .listtop .Right span,
+	.Prompt .boxright .lists>p, .Prompt .boxright .listbottom p{
+		color: #4d4e4e;
+	}
+	.Prompt .Prompt_content{
+		width: 90%;
+	}
+	.Prompt .boxright .listbottom span:first-child{
+		width: 50%;
+	}
+	.Prompt .Prompt_content>div{
+		padding: 5% !important;
+	}
+	.registerlist_12 .box .Right{
+		margin: 0;
+	}
+	.registerlist_20 .price_guest input{
+		padding: 
+	}
+	.navbar-collapse ul{
+		margin-top: 0px;
+	}
+	/*register end*/
 
 
 }
