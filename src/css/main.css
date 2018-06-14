@@ -7765,7 +7765,13 @@ header li.Li4>a{
   color: #131c4e;
 }
 header li.Li5{
+  width: auto;
   color: #131c4e;
+  border:1px solid #131c4e;
+  border-radius: 8px;
+}
+header li.Li5>div{
+  overflow: hidden;
 }
 header li.Li5 button a{
   color: #131c4e;
@@ -7800,7 +7806,7 @@ header li.Li2 .button__fill:hover{
   color: #fff;
 }
 header li.Li5 button{
-  border:1px solid #131c4e;
+  border:none;
   padding: 2% 12%;
   color: #131c4e;
   position: relative;
@@ -7833,8 +7839,8 @@ header .logoutButton span{
   border-radius: 50%;
   background: #f6416c;
   position: absolute;
-  top:2px;
-  right: 2px;
+  top:5px;
+  right: 5px;
 }
 header nav{
   width: 50%;

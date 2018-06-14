@@ -32,6 +32,7 @@ class HostInfo extends React.Component {
     this.setState( { account: window.address, id:  window.address });
 
       hostService.getHouseListing( window.address).then((data)=>{
+        console.log(data)
         this.setState({ roomInfoList:data});
        });
 
@@ -52,7 +53,7 @@ class HostInfo extends React.Component {
           <div className="auto">
             <div className="divtr">
               <div>{language.Category}</div>
-              <div>{language.Beds}</div>
+              <div>{language.Bathrooms}</div>
               <div>{language.Location_type}</div>
               <div>{language.Price}</div>
               <div>{language.Status}</div>
