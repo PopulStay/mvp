@@ -930,6 +930,7 @@ export const Beds = '床';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Export = '出口';
+export const Please_logn_in = '请登录';
 export const Gas = '交易费';
 export const Gas_Price = '交易费价格';
 export const OK = '确认';

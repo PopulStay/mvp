@@ -23,6 +23,9 @@
 	width: auto;
 	margin-left: 10%;
 }
+.experienceintro_header header li.Li5{
+	border:none;
+}
 .experienceintro_header .navbar-collapse ul{
 	text-align: right;
 }

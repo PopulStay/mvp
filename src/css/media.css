@@ -76,7 +76,7 @@
 	}
 	/*listing-experiences  end*/
 
-	/**/
+	/*introlist start*/
 	.introlist .boxleft,
 	.introlist .boxright{
 		width: 50%;
@@ -84,7 +84,7 @@
 	.introlist .boxright img{
 		transform: translate(0,-50%);
 	}
-	/**/
+	/*introlist end*/
 }
 
 @media screen and (max-width: 992px){

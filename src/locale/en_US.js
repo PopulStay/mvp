@@ -929,6 +929,7 @@ export const Beds = 'Beds';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Export = 'wallet';
+export const Please_logn_in = 'Please logn in';
 export const Gas = 'Gas';
 export const Gas_Price = 'Gas Price';
 export const OK = 'OK';
