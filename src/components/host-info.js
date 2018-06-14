@@ -49,7 +49,10 @@ class HostInfo extends React.Component {
     return (
       <div className="info">
         <h1>{language.Host_Managment_Panel}</h1>
-        <div className="HostManagment">
+        <button className={this.state.roomInfoList.length == 0 ? 'show Add_a_house' : 'hide Add_a_house'}>
+          <a href="/create">{language.Add_a_house}</a>
+        </button>
+        <div  className={this.state.roomInfoList.length == 0 ? 'hide HostManagment' : 'show HostManagment'}>
           <div className="auto">
             <div className="divtr">
               <div>{language.Category}</div>

@@ -919,6 +919,8 @@ export const From = 'From';
 export const To = 'To';
 export const Price = 'Price';
 export const Location_type = 'Location';
+export const Add_a_house = 'Add a house';
+export const No_order = 'No order';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = 'Host Managment Panel';

@@ -4910,9 +4910,11 @@ tbody.collapse.in {
 }
 
 .navbar-brand {
-  float: left;
   font-size: 18px;
-  line-height: 20px;
+  position: absolute;
+  top:50%;
+  left: 5%;
+  transform: translate(0,-50%);
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
@@ -7882,6 +7884,7 @@ header nav a{
 
 .header {
   padding:3% 5% 3% 6%;
+  position: relative;
 }
 
 .header__logo {
