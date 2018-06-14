@@ -794,6 +794,10 @@ export const What_Ill_provide = '将提供什么';
 export const Where_well_be = '我们会在哪里';
 export const Notes = '笔记';
 
+//Submission_of_success
+export const Submission_of_success = '发布成功';
+export const Submission_of_PROCESSING = '提交处理中';
+
 //guest-register--------------------------------------------------------------------------------------------
 export const Sign_up = '注册';
 export const Welcome = '欢迎！';

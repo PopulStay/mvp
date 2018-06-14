@@ -242,6 +242,7 @@
   font-size: 2.2rem;
   margin: 0 0 3%;
 }
+.success h1 span.glyphicon-refresh,
 .deposit span.glyphicon-refresh,
 .submit span.glyphicon-refresh{
   font-size: 2rem;
