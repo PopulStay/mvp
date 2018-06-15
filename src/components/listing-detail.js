@@ -14,6 +14,7 @@ import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
 import languageService from '../services/language-service';
 import GuestRegister from './guest-register';
+import { Link } from 'react-router-dom';
 
 
 const qr = new EthereumQRPlugin();
@@ -36,6 +37,7 @@ class ListingsDetail extends Component {
       SUBMIT: 2,
       PROCESSING: 3,
       PURCHASED: 4,
+      Insufficient: 5,
     }
     
     this.state = {
@@ -71,6 +73,7 @@ class ListingsDetail extends Component {
           {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with PopulStay! Will definitely book this place again.'}
       ],
       ethBalance:0,
+      ppsBalance:0,
       usddatalist:[],
       modalIsOpen: false,
       qrurl:"",
@@ -237,12 +240,15 @@ class ListingsDetail extends Component {
       web3Service.getETHBalance(window.address).then((data)=>{
         this.setState({ ethBalance:data/this.CONST.weiToGwei});
       });
+      ppsService.getBalance(window.address).then((data)=>{
+        this.setState({ ppsBalance:data});
+      });
       this.setState({login:true});
     }
 
     guestService.getGuesterInfo(window.address).then((data)=>{
         this.setState({ user:data.user});
-      });
+    });
   }
 
 
@@ -275,8 +281,6 @@ class ListingsDetail extends Component {
   }
 
   handleBooking() {
-    this.setState({checkInDate:null});
-    this.setState({checkOutDate:null});
     let unitsToBuy = 0;
     if(this.state.price == 0){
         var Total_price = this.state.ppsPrice * this.DateDays() 
@@ -293,14 +297,18 @@ class ListingsDetail extends Component {
 
     if( this.state.priceActive == 1 )
     {
-      promise = ppsService.setPreOrder(          
-       this.state.lister,
-       Total_price * unitsToBuy,
-       this.props.listingId, 
-       this.state.checkInDate.toDate().getTime(), 
-       this.state.checkOutDate.toDate().getTime(),
-       unitsToBuy
-      );
+      if(this.state.ppsBalance < Total_price){
+        this.setState({step:this.STEP.Insufficient});
+      }else{
+        promise = ppsService.setPreOrder(          
+         this.state.lister,
+         Total_price * unitsToBuy,
+         this.props.listingId, 
+         this.state.checkInDate.toDate().getTime(), 
+         this.state.checkOutDate.toDate().getTime(),
+         unitsToBuy
+        );
+      }
 
     } 
     else if( this.state.priceActive == 2 )
@@ -372,6 +380,9 @@ class ListingsDetail extends Component {
       console.log(error)
       this.setState({step: this.STEP.VIEW})
     })
+
+    this.setState({checkInDate:null});
+    this.setState({checkOutDate:null});
   }
 
   DateDays() {
@@ -472,6 +483,15 @@ class ListingsDetail extends Component {
           <Overlay imageUrl="/images/circular-check-button.svg">
             <p>Booking was successful.</p>
             <button><a href="#" onClick={()=>window.location.reload()}>Reload page</a></button>
+          </Overlay>
+        }
+
+        {this.state.step===this.STEP.Insufficient &&
+          <Overlay imageUrl="/images/circular-check-button.svg">
+            <p>{language.Insufficient_balance}</p>
+            <Link to='/managepanel'>
+              <button className="balance">{language.Deposit}</button>
+            </Link>
           </Overlay>
         }
 

@@ -939,6 +939,7 @@ export const Deposit_PPS = '充值PPS';
 export const Token_Size = '存储数量';
 export const Withdraw = '提取';
 export const Withdraw_PPS = '提取PPS';
+export const Please_wait_for_success = '请等待提币成功';
 export const Size = '数量';
 export const TX = '提交事务';
 export const Operation = '操作';

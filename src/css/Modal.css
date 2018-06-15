@@ -14,7 +14,7 @@
   width: 410px;
   background: #fff;
   border-radius: 7px;
-  padding:90%;
+  padding:70%;
   position: absolute;
   top:50% !important;
   left: 50% !important;
@@ -23,6 +23,9 @@
   border-radius: 20px;
   transform: translate(-50%,-50%) !important;
   border-radius: 25px !important;
+}
+.overlay-box button a{
+  color: #f5426c;
 }
 .Signup .dropdownBtn{
   position: relative;
@@ -136,7 +139,7 @@
 }
 .No_order{
   color:#f6416c ;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 1% 5%;
   font-size: 1.8rem;
   text-align: center;
@@ -145,18 +148,14 @@
   border:1px solid #f6416c;
   background:#fff;
   color:#f6416c ;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 1% 5%;
-}
-.Add_a_house a{
-  color:#f6416c ;
+  font-family: RobotoThin; 
   font-size: 1.8rem;
 }
 .Add_a_house:hover{
-  background:#f6416c;
-}
-.Add_a_house:hover a{
   color:#fff ; 
+  background:#f6416c;
 }
 .GuestManagment h1,
 .HostManagment h1{
@@ -255,6 +254,7 @@
   background: #f6416c;
   color: #fff;
 }
+.modalcode h3,
 .Create h2,
 .Create1 h2,
 .PirvateKey h2,
@@ -274,6 +274,7 @@
 .success h1 span.glyphicon-refresh,
 .deposit span.glyphicon-refresh,
 .submit span.glyphicon-refresh{
+  color: #f6416c;
   font-size: 2rem;
   margin-left: 2%;
   animation:refresh 1s infinite;
@@ -316,6 +317,7 @@
   outline:none;
   margin: 0;
 }
+.modalcode button,
 .clear button,
 .PirvateKey button,
 .Gas button,
@@ -324,7 +326,9 @@
 .Create button,
 .Create1 button,
 .Import button,
-.withdraw button{
+.withdraw button,
+.overlay-box .balance,
+.clear .balance{
   width: 30%;
   padding: 1% 0;
   margin: 6% 5% 0;
@@ -332,12 +336,16 @@
   font-family: RobotoBold; 
   border:1px solid #f6416c;
 }
+.modalcode button,
 .clear button.Left,
 .Gas button.Left,
 .deposit button.Left,
 .Sign button.Left,
 .Import button.Left,
-.withdraw button.Left{
+.withdraw button.Left,
+.overlay-box .balance,
+.deposit .balance,
+.clear .balance{
   color:#f6416c;
   background: #fff;
 }
@@ -359,6 +367,7 @@
   color: #fff;
   border:1px solid #f6416c;
 }
+.modalcode button,
 .Create button,
 .Create1 button,
 .PirvateKey button,
@@ -575,6 +584,12 @@
 .withdraw button{
   width:35%;
   margin-top: 3%;
+}
+.overlay-box .balance,
+.deposit .balance,
+.clear .balance{
+  width: 50%;
+  margin: 5% 25% 0;
 }
 .footer .modal-dialog{
   position: fixed;
