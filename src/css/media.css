@@ -446,6 +446,7 @@
 		width: 50%;
 	}
 	.form .container{
+		width: 90%;
 		background:none;
 		padding:3% 0;
 	}
@@ -500,13 +501,22 @@
 		width: 333px;
 		overflow: hidden;
 	}
+	.form .index_home .listing-card{
+		padding: 0 5%;
+	}
 	.form .index_home .listing-card:nth-child(even){
 	  padding-right: 0;
-	  padding-left: 15px;
+	  padding-left: 10px;
 	}
 	.form .index_home .listing-card:nth-child(odd){
 	  padding-left: 0;
-	  padding-right: 15px;
+	  padding-right: 10px;
+	}
+	.form .overflow .photo{
+		min-height: 100px;
+	}
+	.form .index_home h4{
+		border:1px solid #;
 	}
 	/*home  end*/
 
@@ -550,7 +560,7 @@
 	}
 	.L_box2 img{
 	    width: 40%;
-	}
+	} 
 	.L_box3 p img{
 		width: 20px;
 	}
@@ -1160,11 +1170,6 @@
 
 }
 @media screen and (max-width: 500px){
-	/*home start*/
-	.form .index_home .listing-card{
-		padding: 0 !important;
-	}
-	/*home end*/
 
 	/*experience start*/
 	.experienceintro_content .contentbox3>.box1{
