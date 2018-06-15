@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import ppsService from '../services/pps-service';
 import languageService from '../services/language-service';
+import web3Service from '../services/web3-service';
 
 
 
@@ -22,6 +23,7 @@ class WalletWithdraw extends React.Component {
       statetype:'To be audited',
       languagelist:{},
       Arrstate:0,
+      ethBalance:0,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -41,6 +43,9 @@ class WalletWithdraw extends React.Component {
      .then((data)=>{
         this.setState({ ppsDeposited : data.data.balance});
      });
+    web3Service.getETHBalance(window.address).then((data)=>{
+      this.setState({ ethBalance:data});
+    });
     
     this.withdrawlist();
 
@@ -136,50 +141,62 @@ class WalletWithdraw extends React.Component {
     <div>
 
         <button className="btn btn-primary" onClick={this.openModal}>{language.Withdraw}</button>
-        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} 
-        contentLabel="Wallet Message">
-          <div className="withdraw">
-            <h2 ref={subtitle => this.subtitle = subtitle}>{language.Withdraw_PPS}</h2>
-            <div className="tablebox">
-              <table className={this.state.withdrawlist.length == 0 ? "hide table" : "table" }>
-                <tr>
-                    <th>{language.Address}</th>
-                    <th>{language.Size}</th>
-                    <th>{language.TX}</th>
-                    <th>{language.Status}</th>
-                </tr>
-                {this.state.withdrawlist.map((item,index) => (
+        {
+          this.state.ethBalance > 0 &&
+          <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} contentLabel="Wallet Message">
+            <div className="withdraw">
+              <h2 ref={subtitle => this.subtitle = subtitle}>{language.Withdraw_PPS}</h2>
+              <div className="tablebox">
+                <table className={this.state.withdrawlist.length == 0 ? "hide table" : "table" }>
                   <tr>
-                    <td className="td1"><input type="text" value={item.applyAddress} readonly /></td>
-                    <td className="td2">{item.size}</td>
-                    <td className="td3"><input type="text" value={item.txhash} readonly /></td>
-                    <td className="td4">
-                        {item.state == 0 ? language.state0 : ""}
-                        {item.state == 1 ? language.state1 : ""}
-                        {item.state == 2 ? language.state2 : ""}
-                        {item.state == 3 ? language.state2 : ""}
-                        {item.state == 4 ? language.state3 : ""}
-                        {item.state == -1 ? language.state-1 : ""}
-                    </td>            
-                  </tr>  
-                  ))
-                }
-              </table>
+                      <th>{language.Address}</th>
+                      <th>{language.Size}</th>
+                      <th>{language.TX}</th>
+                      <th>{language.Status}</th>
+                  </tr>
+                  {this.state.withdrawlist.map((item,index) => (
+                    <tr>
+                      <td className="td1"><input type="text" value={item.applyAddress} readonly /></td>
+                      <td className="td2">{item.size}</td>
+                      <td className="td3"><input type="text" value={item.txhash} readonly /></td>
+                      <td className="td4">
+                          {item.state == 0 ? language.state0 : ""}
+                          {item.state == 1 ? language.state1 : ""}
+                          {item.state == 2 ? language.state2 : ""}
+                          {item.state == 3 ? language.state2 : ""}
+                          {item.state == 4 ? language.state3 : ""}
+                          {item.state == -1 ? language.state-1 : ""}
+                      </td>            
+                    </tr>  
+                    ))
+                  }
+                </table>
+              </div>
+              <div className="row submitbox">
+                  <div className="form-group col-lg-6">
+                    <label>{language.Address}</label>
+                    <input type="text"  className="form-control" placeholder={language.Wallet_Account} value={this.state.Address} onChange={(e) => this.setState({Address: e.target.value})} />
+                  </div>
+                  <div className="form-group col-lg-6">
+                    <label>{language.Size}</label>
+                    <input type="number"  className="form-control" placeholder={language.Wallet_Size} value={this.state.Size} onChange={(e) => this.Size(e)} />
+                  </div>
+              </div>
+              <button className="Left" disabled={this.state.Arrstate == this.state.withdrawlist.length ? '' : 'disabled'} onClick={(e)=>this.Submit(e)}>{this.state.Arrstate == this.state.withdrawlist.length ? language.Submit : language.Please_wait_for_success}</button>
+              <button className="Right" onClick={this.closeModal}>{language.Cancel}</button>
             </div>
-            <div className="row submitbox">
-                <div className="form-group col-lg-6">
-                  <label>{language.Address}</label>
-                  <input type="text"  className="form-control" placeholder={language.Wallet_Account} value={this.state.Address} onChange={(e) => this.setState({Address: e.target.value})} />
-                </div>
-                <div className="form-group col-lg-6">
-                  <label>{language.Size}</label>
-                  <input type="number"  className="form-control" placeholder={language.Wallet_Size} value={this.state.Size} onChange={(e) => this.Size(e)} />
-                </div>
+          </Modal>
+        }
+
+        {
+          this.state.ethBalance <= 0 &&
+          <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} contentLabel="Wallet Message">
+            <div className="clear">
+              <h2 ref={subtitle => this.subtitle = subtitle}>{language.Withdraw_PPS}{language.Insufficient_balance}</h2>
+              <button className="balance" onClick={this.closeModal}>{language.Cancel}</button>
             </div>
-            <button className="Left" disabled={this.state.Arrstate == this.state.withdrawlist.length ? '' : 'disabled'} onClick={(e)=>this.Submit(e)}>{this.state.Arrstate == this.state.withdrawlist.length ? language.Submit : language.Please_wait_for_success}</button>
-            <button className="Right" onClick={this.closeModal}>{language.Cancel}</button>
-          </div>
-        </Modal>
+          </Modal>
+        }
       
 
       </div>

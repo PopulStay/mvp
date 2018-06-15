@@ -321,7 +321,8 @@
 .Create button,
 .Create1 button,
 .Import button,
-.withdraw button{
+.withdraw button,
+.clear .balance{
   width: 30%;
   padding: 1% 0;
   margin: 6% 5% 0;
@@ -334,7 +335,8 @@
 .deposit button.Left,
 .Sign button.Left,
 .Import button.Left,
-.withdraw button.Left{
+.withdraw button.Left,
+.clear .balance{
   color:#f6416c;
   background: #fff;
 }
@@ -572,6 +574,10 @@
 .withdraw button{
   width:35%;
   margin-top: 3%;
+}
+.clear .balance{
+  width: 50%;
+  margin: 5% 25% 0;
 }
 .footer .modal-dialog{
   position: fixed;
