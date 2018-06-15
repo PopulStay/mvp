@@ -14,6 +14,7 @@ import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
 import languageService from '../services/language-service';
 import GuestRegister from './guest-register';
+import { Link } from 'react-router-dom';
 
 
 const qr = new EthereumQRPlugin();
@@ -488,7 +489,9 @@ class ListingsDetail extends Component {
         {this.state.step===this.STEP.Insufficient &&
           <Overlay imageUrl="/images/circular-check-button.svg">
             <p>{language.Insufficient_balance}</p>
-            <button><a href="#" onClick={(e) => window.location.href='/managepanel'}>{language.Deposit}</a></button>
+            <Link to='/managepanel'>
+              <button className="balance">{language.Deposit}</button>
+            </Link>
           </Overlay>
         }
 

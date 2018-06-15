@@ -24,6 +24,9 @@
   transform: translate(-50%,-50%) !important;
   border-radius: 25px !important;
 }
+.overlay-box button a{
+  color: #f5426c;
+}
 .Signup .dropdownBtn{
   position: relative;
 }
@@ -324,6 +327,7 @@
 .Create1 button,
 .Import button,
 .withdraw button,
+.overlay-box .balance,
 .clear .balance{
   width: 30%;
   padding: 1% 0;
@@ -339,6 +343,7 @@
 .Sign button.Left,
 .Import button.Left,
 .withdraw button.Left,
+.overlay-box .balance,
 .deposit .balance,
 .clear .balance{
   color:#f6416c;
@@ -580,6 +585,7 @@
   width:35%;
   margin-top: 3%;
 }
+.overlay-box .balance,
 .deposit .balance,
 .clear .balance{
   width: 50%;
