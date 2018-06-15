@@ -236,7 +236,7 @@ class HouseInfoListingService {
     getRecommand(districtCode){
 
     return new Promise((resolve, reject) => {
-      axios.get(process.env.Server_Address+'HouseInformation?districeCode='+districtCode)
+      axios.get(process.env.Server_Address+'HouseInformation?districeCode='+districtCode+ '&limit=6')
       .then((response)=> {
         resolve(response.data);
       })
@@ -253,7 +253,7 @@ class HouseInfoListingService {
 
   getHouseId(districtCode,from,to,guests,place){
 
-     var url  = process.env.Server_Address+'HouseInformation?';
+     var url  = process.env.Server_Address+'HouseInformation/search?';
 
      if( place!=null || place !=undefined || place != null  || place !="undefined" )
      {
