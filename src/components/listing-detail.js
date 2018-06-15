@@ -475,6 +475,11 @@ class ListingsDetail extends Component {
           </Overlay>
         }
 
+          <Overlay imageUrl="/images/circular-check-button.svg">
+            <p>{language.Insufficient_balance}</p>
+            <button><a href="#" onClick={window.location.href='/managepanel'}>{language.Deposit}</a></button>
+          </Overlay>
+
       <div className="carousel-slider">
       <Carousel>
        {this.state.slides.map(slide => (

@@ -14,7 +14,7 @@
   width: 410px;
   background: #fff;
   border-radius: 7px;
-  padding:90%;
+  padding:70%;
   position: absolute;
   top:50% !important;
   left: 50% !important;
@@ -136,7 +136,7 @@
 }
 .No_order{
   color:#f6416c ;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 1% 5%;
   font-size: 1.8rem;
   text-align: center;
@@ -145,18 +145,14 @@
   border:1px solid #f6416c;
   background:#fff;
   color:#f6416c ;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 1% 5%;
-}
-.Add_a_house a{
-  color:#f6416c ;
+  font-family: RobotoThin; 
   font-size: 1.8rem;
 }
 .Add_a_house:hover{
-  background:#f6416c;
-}
-.Add_a_house:hover a{
   color:#fff ; 
+  background:#f6416c;
 }
 .GuestManagment h1,
 .HostManagment h1{
@@ -274,6 +270,7 @@
 .success h1 span.glyphicon-refresh,
 .deposit span.glyphicon-refresh,
 .submit span.glyphicon-refresh{
+  color: #f6416c;
   font-size: 2rem;
   margin-left: 2%;
   animation:refresh 1s infinite;

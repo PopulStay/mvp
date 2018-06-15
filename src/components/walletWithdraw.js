@@ -21,6 +21,7 @@ class WalletWithdraw extends React.Component {
       ppsDeposited:0,
       statetype:'To be audited',
       languagelist:{},
+      Arrstate:0,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -74,6 +75,15 @@ class WalletWithdraw extends React.Component {
       () => this.withdrawlist(),
       2000
     );
+
+    var Arrstate = [];
+    for(var i=0;i<withdrawlist.length;i++){
+      if(withdrawlist[i].state == 4){
+        Arrstate.push(withdrawlist[i].state);
+      }
+      this.setState({Arrstate:Arrstate.length})
+    }
+
     
   }
 
@@ -166,7 +176,7 @@ class WalletWithdraw extends React.Component {
                   <input type="number"  className="form-control" placeholder={language.Wallet_Size} value={this.state.Size} onChange={(e) => this.Size(e)} />
                 </div>
             </div>
-            <button className="Left" onClick={(e)=>this.Submit(e)}>{language.Submit}</button>
+            <button className="Left" disabled={this.state.Arrstate == this.state.withdrawlist.length ? '' : 'disabled'} onClick={(e)=>this.Submit(e)}>{this.state.Arrstate == this.state.withdrawlist.length ? language.Submit : language.Please_wait_for_success}</button>
             <button className="Right" onClick={this.closeModal}>{language.Cancel}</button>
           </div>
         </Modal>

@@ -938,6 +938,7 @@ export const Deposit_PPS = 'Deposit PPS';
 export const Token_Size = 'Token Size';
 export const Withdraw = 'Withdraw';
 export const Withdraw_PPS = 'Withdraw PPS';
+export const Please_wait_for_success = 'Please wait for success';
 export const Size = 'Size';
 export const TX = 'TX';
 export const Operation = 'Operation';
