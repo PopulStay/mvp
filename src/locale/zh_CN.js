@@ -91,6 +91,9 @@ export const Check_out_by_12PM = '12点退房（中午）';
 export const Strict = '严禁';
 export const Cancel_up_to_7_days_before_check = '入住前7天取消预订，并获得50％的退款（减去服务费）。取消行程后7天内取消预订';
 export const Insufficient_balance = '余额不足';
+export const Answer = '接通';
+export const Decline = '挂断';
+export const Video_call = '视频通话';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
