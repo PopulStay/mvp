@@ -471,7 +471,6 @@ class ListingCreate extends Component {
         this.setState({step: this.STEP.PROCESSING});
          houselistingService.submitListing(this.state)
           .then((tx) => {
-                sessionStorage.removeItem('test');
                 this.setState({
                     step: this.STEP.PROCESSING
                 });
@@ -485,6 +484,7 @@ class ListingCreate extends Component {
           .catch((error) => {
               console.log(error)
           })
+          sessionStorage.removeItem('test');
     }
 
     fileChangedHandler(event){

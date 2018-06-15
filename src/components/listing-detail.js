@@ -300,6 +300,7 @@ class ListingsDetail extends Component {
       if(this.state.ppsBalance < Total_price){
         this.setState({step:this.STEP.Insufficient});
       }else{
+        console.log(Total_price)
         promise = ppsService.setPreOrder(          
          this.state.lister,
          Total_price * unitsToBuy,
@@ -395,10 +396,10 @@ class ListingsDetail extends Component {
 
   calcTotalPrice() {
     if(this.state.price == 0){
-      return this.state.ppsPrice * this.DateDays()
+      return this.state.ppsPrice * this.DateDays() * this.state.guest
     }
     else{
-      return this.state.price * this.DateDays()
+      return this.state.price * this.DateDays() * this.state.guest
     }
   }
 
@@ -745,7 +746,7 @@ class ListingsDetail extends Component {
                       <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}{language.nights}
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan">{(this.state.price) * this.DateDays() * this.state.guest}</span>
+                      <span className = "RightSpan">{this.calcTotalPrice()}</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">{language.Special_Offer_20_off}
