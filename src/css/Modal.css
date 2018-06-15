@@ -251,6 +251,7 @@
   background: #f6416c;
   color: #fff;
 }
+.modalcode h3,
 .Create h2,
 .Create1 h2,
 .PirvateKey h2,
@@ -313,6 +314,7 @@
   outline:none;
   margin: 0;
 }
+.modalcode button,
 .clear button,
 .PirvateKey button,
 .Gas button,
@@ -330,12 +332,14 @@
   font-family: RobotoBold; 
   border:1px solid #f6416c;
 }
+.modalcode button,
 .clear button.Left,
 .Gas button.Left,
 .deposit button.Left,
 .Sign button.Left,
 .Import button.Left,
 .withdraw button.Left,
+.deposit .balance,
 .clear .balance{
   color:#f6416c;
   background: #fff;
@@ -358,6 +362,7 @@
   color: #fff;
   border:1px solid #f6416c;
 }
+.modalcode button,
 .Create button,
 .Create1 button,
 .PirvateKey button,
@@ -575,6 +580,7 @@
   width:35%;
   margin-top: 3%;
 }
+.deposit .balance,
 .clear .balance{
   width: 50%;
   margin: 5% 25% 0;

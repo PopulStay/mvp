@@ -121,7 +121,8 @@ class WalletDeposit extends React.Component {
               <h2 className={this.state.ethBalance>0 ? 'hide' : 'show'}>{language.Insufficient_balance}</h2>
 
               <button className={this.state.ethBalance<=0 ? 'hide Left' : 'show Left'}  onClick={this.deposit}>{language.Deposit}</button>
-              <button className="Right" onClick={this.closeModal}>{language.Cancel}</button>
+              <button className={this.state.ethBalance<=0 ? 'hide Right' : 'show Right'} onClick={this.closeModal}>{language.Cancel}</button>
+              <button className={this.state.ethBalance>0 ? 'hide balance' : 'show balance'} onClick={this.closeModal}>{language.Cancel}</button>
             </div>
           </Modal>
 

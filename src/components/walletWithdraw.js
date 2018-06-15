@@ -192,7 +192,7 @@ class WalletWithdraw extends React.Component {
           this.state.ethBalance <= 0 &&
           <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} contentLabel="Wallet Message">
             <div className="clear">
-              <h2 ref={subtitle => this.subtitle = subtitle}>{language.Withdraw_PPS}{language.Insufficient_balance}</h2>
+              <h2 ref={subtitle => this.subtitle = subtitle}>{language.Insufficient_balance}</h2>
               <button className="balance" onClick={this.closeModal}>{language.Cancel}</button>
             </div>
           </Modal>
