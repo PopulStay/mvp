@@ -91,6 +91,9 @@ export const Check_out_by_12PM = 'Check out by 12PM(noon)';
 export const Strict = 'Strict';
 export const Cancel_up_to_7_days_before_check = 'Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati';
 export const Insufficient_balance = 'Insufficient balance';
+export const Answer = 'Answer';
+export const Decline = 'Decline';
+export const Video_call = 'Video call';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
