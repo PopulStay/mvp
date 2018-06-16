@@ -11,7 +11,6 @@ class ListingCard extends Component {
       category: "Loading...",
       name: "Loading...",
       price: "Loading...",
-      ipfsHash: null,
       lister: null,
       descriptioninfo:{},
       previewurl:"",
@@ -21,6 +20,7 @@ class ListingCard extends Component {
   }
 
   componentDidMount() {
+<<<<<<< HEAD
     houselistingService.getHouseInfoDetail(this.props.row.id)
     .then((result) => {
         var roominfo = JSON.parse(result._roominfo);
@@ -31,6 +31,10 @@ class ListingCard extends Component {
     //     var roominfo = JSON.parse(result[4]);
     //     this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds});
     //     return 
+=======
+    //var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.row.id);
+
+>>>>>>> origin/master
     var roominfo = this.props.row.houseinfo;
     if(roominfo){
       this.setState({Progress:this.state.Progress+100})
@@ -46,27 +50,23 @@ class ListingCard extends Component {
       location:roominfo.location,
       beds:roominfo.beds
     });
-      
-    if( this.props.row.profile )
-    {
-      this.setState({previewurl: this.props.row.profile.previewImage });
-    }
-    
-    //console.log(new Date())
-    // ipfsService.getListing(ipfsHash)    
-    //     .then((result)=>{
-    //       var descriptioninfo = JSON.parse(result);
-    //      this.setState({descriptioninfo:descriptioninfo});
-    //      if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
-    //      {
-    //       console.log(new Date())
-    //       this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
-    //       console.log(this.state.previewurl);
-    //      }
 
-    // }).catch((error) => {
-    //   console.error(error);
-    // });
+    if( this.props.row.id )
+    {
+      houselistingService
+      .getHouseInfoById(this.props.row.id)
+      .then((res)=>{
+            this.setState({previewurl: res.profile.previewImage });
+
+      });
+
+    }
+      
+    // if( this.props.row.profile )
+    // {
+    //   this.setState({previewurl: this.props.row.profile.previewImage });
+    // }
+  
   }
   render() {
     return (
