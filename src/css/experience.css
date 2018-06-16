@@ -23,6 +23,9 @@
 	width: auto;
 	margin-left: 10%;
 }
+.experienceintro_header header li.Li5{
+	border:none;
+}
 .experienceintro_header .navbar-collapse ul{
 	text-align: right;
 }
@@ -264,7 +267,6 @@ text-decoration:none;
 	background: url(../images/Tamir_Wu.jpg);
 }
 
-
 .experienceintro_content .contentbox4>.box1{
 	width: 100%;
 	position: absolute;
@@ -376,7 +378,7 @@ text-decoration:none;
 	position: relative;
 }
 .introlist .boxleft .logo{
-	width: 30px;
+	width: 40px;
 }
 .introlist .STEPhead{
 	position: absolute;
@@ -521,6 +523,9 @@ text-decoration:none;
 .introlist_3 .boxleft .btn-group{
 	padding: 0;
 }
+.introlist_3 .dropdown-menu{
+	max-height: 113px !important;
+}
 .introlist_3 .boxleft .btn-group button,
 .registerlist_2 .btn-group button,
 .registerlist_3 .btn-group button,
@@ -654,6 +659,7 @@ text-decoration:none;
 	height: 100px;
 	border:1px solid #606060;
 	margin-top: 3%;
+	padding: 3% ;
 }
 .introlist_9 a{
 	color: #fff;

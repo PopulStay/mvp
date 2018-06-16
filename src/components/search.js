@@ -38,13 +38,18 @@ class Search extends Component {
   componentDidMount() {
 
     this.setState({ languagelist:window.languagelist });
-      this.setState({state: this.state.location = this.state.languagelist.Tokyo});
 
       houselistingService.getDistrictCodes().then((codes)=>
       {
        
         this.setListingRows(codes);
-        this.setState({Progress:this.state.Progress+35})
+        this.setState({Progress:this.state.Progress+100})
+        if (this.state.Progress>=100) {
+          this.timerID = setTimeout(
+            () => this.setState({Progresshide:1}),
+            1000
+          );
+        }
       });
   }
 
@@ -61,32 +66,15 @@ class Search extends Component {
   }
   
   setListingRows =(codes) =>{
-    this.setState({Progress:this.state.Progress+35})
     this.setState({districtCodes:codes.data});
       if( window.listingRows )
       {
          this.setState({ listingRows: window.listingRows });
-         this.setState({Progress:this.state.Progress+35})
-         if (this.state.Progress>=100) {
-            this.timerID = setTimeout(
-              () => this.setState({Progresshide:1}),
-              1000
-            );
-          }
       }else{
           var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
               this.setState({ listingRows: data });
-              this.setState({Progress:this.state.Progress+35})
 
               window.listingRows = data;
-              this.setState({Progress:this.state.Progress+35});
-              
-              if (this.state.Progress>=100) {
-                this.timerID = setTimeout(
-                  () => this.setState({Progresshide:1}),
-                  1000
-                );
-              }
           });
       }
   }
@@ -135,7 +123,7 @@ class Search extends Component {
                     
                     <div className="col-md-12 col-lg-12 col-sm-12 ">
 
-                        <div className=" col-sm-8 col-md-8 col-lg-8 index_box">
+                        <div className=" col-sm-12 col-md-8 col-lg-8 index_box">
                             <div className="col-md-12 col-lg-12 col-sm-12 guestsleft">
                                 <div className="form-group">
                                     <label className="col-sm-6 col-md-6 col-lg-6 ">{language.Check_in}</label>
@@ -174,7 +162,7 @@ class Search extends Component {
 
                         </div>
 
-                        <div className="search  col-sm-3  col-md-3  col-lg-3">
+                        <div className="search  col-sm-12  col-md-3  col-lg-3">
                             <a onClick={this.setURL} href="#" className="btn button__fill btn-lg form__search">
                                 <img src="../images/search_home.png" />
                             </a>
@@ -187,7 +175,7 @@ class Search extends Component {
                             <li className="liicon">•</li>
                             <a href="../"><li className="litext1">{language.HOMES}</li></a>
                             <li className="liicon">•</li>
-                            <a href="/experience"><li className="litext1">{language.EXPERIENCE}</li></a>
+                            <a><li className="litext1">{language.EXPERIENCE}</li></a>
                         </ul>
                     </div>
                 </div>
@@ -198,28 +186,17 @@ class Search extends Component {
             <h2>{language.Homes_around_the_world}</h2>
             <div className="overflow row">
                   {showListingsRows.map(row => (
-                    <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 listing-card">
+                    <div className="col-xs-6 col-sm-6 col-md-4 col-lg-4 listing-card">
                     <ListingCard row={row}/>
                     </div>
                   ))}
             </div>
             <Link to="/all">
-            <h4>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
+            <h4 className={this.state.listingRows.length>=8 ? 'show' : 'hide'}>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
             </Link>
         </div>
         <div className="container index_home">
-            <h2>{language.Experiences_travellers_love}</h2>
-            <p>{language.Book_activities_led_by_local_hosts_on_your_next_trip}</p>
-            <div className="overflow row">
-                {showListingsRows.map(row => (
-                  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 listing-card">
-                  <ListingCard row={row}/>
-                  </div>
-                ))}
-            </div>
-            <Link to="/all">
-            <h4>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
-            </Link>
+            <h2>{language.Stay_tuned}</h2>
         </div>
     </div>
 

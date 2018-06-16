@@ -4,7 +4,7 @@
 		width: 100%;
 	}
 	.navbar-collapse ul{
-	    width: 90%;
+	    width: 85%;
 	}
 	.tag-header ul{
 		width: 100%;
@@ -23,9 +23,9 @@
 	header li{
 		margin-left: 3%;
 	}
-	header li.Li1>a,
+	header li.Li1 div>a,
 	header li.Li2>a{
-		padding: 2% 30px;
+		padding: 2% 30px !important;
 	}
 	/*header  end*/
 	.rightbox{
@@ -75,16 +75,48 @@
 		height: 260px;
 	}
 	/*listing-experiences  end*/
+
+	/*introlist start*/
+	.introlist .boxleft,
+	.introlist .boxright{
+		width: 50%;
+	}
+	.introlist .boxright img{
+		transform: translate(0,-50%);
+	}
+	/*introlist end*/
 }
 
 @media screen and (max-width: 992px){
 	/*header  start*/
+	.header__logo{
+		width: 50px;
+	}
+	header .navBtn{
+	    position: absolute;
+	    top: 50%;
+	    right: 5%;
+	    transform: translate(0%,-50%);
+	    font-size: 3rem;
+	    color: #d9534f;
+	    border: 1px solid #d9534f;
+	    width: 40px;
+	    text-align: center;
+	    height: 40px;
+	    cursor: pointer;
+	    line-height: 37px;
+	    display: block;
+  	}
 	.header{
 		padding: 4% 0% 4% 3%;
 	}
-	header li.Li1>a,
+	.navbar-collapse ul{
+		width: 90%;
+		margin-top: 5%;
+	}
+	header li.Li1 div>a,
 	header li.Li2>a{
-		padding: 2% 10px;
+		padding: 2% 10px!important;
 	}
 	.tag-header .tag__item{
 		padding: 2px 0;
@@ -146,6 +178,27 @@
 	/*footer  end*/
 
 	/*info  start*/
+	.userBox .userbtn>div{
+		width: 50%;
+		margin: 0;
+		display: inline-block;
+	}
+	.userBox .userbtn{
+		margin-top: 5%;
+		padding: 0 4%;
+	}
+	.userBox .photo{
+		width:27%;
+		margin:0;
+		float: left;
+	}
+	.userBox .userqrurl{
+		margin-top: 5%;
+	}
+	.userBox .address{
+		width:35%;
+		margin: 5%;
+	}
 	.GuestManagment th, 
 	.HostManagment th{
 		font-size: 1.4rem !important;
@@ -186,25 +239,82 @@
 		height: 180px;
 	}
 	/*listing-experiences  end*/
+
+	/*introlist start*/
+	.introlist .STEPhead{
+		padding-left: 10%;
+	}
+	.introlist{
+		padding: 0;
+	}
+	.introlist>div{
+		margin: 0;
+		padding: 0 5%;
+	}
+	.introlist .boxleft{
+		margin: 10% 0;	
+	}
+	.introlist .boxleft .box{
+		padding: 10%;
+		min-height: 400px;
+	}
+	.introlist .STEPhead,
+	.introlist .boxleft p.pre,
+	.introlist .boxleft .box,
+	.introlist_1 .boxleft .box,
+	.introlist .boxright img,
+	.introlist>div{
+		position: initial;
+		width: 100%;
+		height: auto;
+		transform: translate(0,0);
+	}
+	.introlist .boxleft, 
+	.introlist .boxright{
+		position: initial;
+		width: 100%;
+	}
+	.introlist .boxleft p.pre,
+	.introlist .boxleft button.next,
+	.introlist_1 .boxleft button.next{
+		position: initial;
+		margin: 5% 10%;
+	}
+	.introlist .boxleft p.pre{
+		width: 50%;
+	}
+	.introlist .STEPhead{
+		top:80px;
+	}
+	.introlist_3 .boxleft h3{
+		margin: 5% 0;
+	} 
+	.introlist_3 .dropdown-menu{
+		min-height: 300px;
+	}
+	/*introlist end*/
+	/*register*/
+	.register_content>div{
+		margin-top: 5%;
+	}
+	.register_content .box1,
+	.register_content .box2{
+		padding: 0;
+		margin: 0;
+	}
+	.register_content .box1>div,
+	.register_content .box2>div{
+		width: 100%;
+		margin: 0;
+	}
+	.Prompt .Prompt_content{
+		width: 80%;
+	}
+	/*register*/
 }
 
 @media screen and (max-width: 768px){
 	/*header  start*/
-	header .navBtn{
-	    position: absolute;
-	    top: 50%;
-	    right: 5%;
-	    transform: translate(0%,-50%);
-	    font-size: 3rem;
-	    color: #d9534f;
-	    border: 1px solid #d9534f;
-	    width: 40px;
-	    text-align: center;
-	    height: 40px;
-	    cursor: pointer;
-	    line-height: 37px;
-	    display: block;
-  	}
   	.header{
     	padding:0 !important;
   	}
@@ -220,6 +330,8 @@
   	}
   	header li.Li5{
 		margin-left: 0;
+		border:none;
+		border-radius: 0;
 	}
   	.navbar-nav{
 	    width: 100%;
@@ -250,10 +362,10 @@
 	    width: 100%;
 	    border-top: 1px solid #c5c5c5;
   	}
-  	header li.Li1>a,header li.Li2>a{
+  	header li.Li1 div>a,header li.Li2>a{
   		background: none;
-  		color: #131c4e;
-  		padding: 0;
+  		color: #131c4e !important;
+  		padding: 0!important;
   		font-family: FiraSansBlack;
   	}
   	header li.Li3{
@@ -324,11 +436,17 @@
 	}
 	.footer_ul{
 		margin-left:0px;
+		padding: 3.5% 0;
+		float: left;
+	}
+	.footer_ul ul{
+		padding-left: 1%;
 	}
 	.footer__dropdown{
 		width: 50%;
 	}
 	.form .container{
+		width: 90%;
 		background:none;
 		padding:3% 0;
 	}
@@ -383,13 +501,22 @@
 		width: 333px;
 		overflow: hidden;
 	}
+	.form .index_home .listing-card{
+		padding: 0 5%;
+	}
 	.form .index_home .listing-card:nth-child(even){
 	  padding-right: 0;
-	  padding-left: 15px;
+	  padding-left: 10px;
 	}
 	.form .index_home .listing-card:nth-child(odd){
 	  padding-left: 0;
-	  padding-right: 15px;
+	  padding-right: 10px;
+	}
+	.form .overflow .photo{
+		min-height: 100px;
+	}
+	.form .index_home h4{
+		border:1px solid #;
 	}
 	/*home  end*/
 
@@ -433,7 +560,7 @@
 	}
 	.L_box2 img{
 	    width: 40%;
-	}
+	} 
 	.L_box3 p img{
 		width: 20px;
 	}
@@ -561,6 +688,12 @@
 		padding: 0 4%;
 	}
 	/*------------Step1_1--------------------*/
+	.Step1_1 .stepfoot h4 img{
+		right: -23px;
+	}
+	.rightbox{
+		padding: 0 4%;
+	}
 	.Step1_10 .change,
 	.Step1_2 .form-group, .Step3_6 .form-group, .Step3_12 .form-group, .Step3_15 .form-group{
 		width: 100%;
@@ -571,21 +704,39 @@
 	.Step1_1 .form-group button, .Step1_1 .form-control, .Step1_1 .dropdown-menu{
 		width: 100%!important;
 	}
+	.Step1_5 .step5box input, .Step3_12 .boxdiv input{
+		padding: 0 20%;
+	}
+	.Step1_5 .step5box img, .Step3_12 .boxdiv>img{
+		left: 8%;
+	}
 	/*------------Step1_2--------------------*/
+	.Step1_10 .Shopitem{
+		width: 100%;
+	}
+	.Step1_10 .Shopitem>div>span{
+		font-size: 1.8rem;
+		padding: 1% 0;
+	}
+	.Step1_10 .Shopitem>ul li,
+	.Step1_10 .Shopitem>ul li span,
 	.Step1_10 .change div p{
 		font-size: 1.4rem;
+	}
+	.Step1_10 .Shopitem>div>span.right{
+		font-size: 1.6rem;
 	}
 	.Step1_10 .stepbg, .Step3_17 .stepbg, .Step3_18 .stepbg,
 	.Step2_3 textarea,.Step2_4 .box{
 		width: 100%;
 	}
-	.Step1_10 .Shopitem>div>span.right{
-		font-size: 1.3rem;
-	}
 	.Step1_10 .paddingNone{
 		margin-bottom: 3%;
 	}
-	.Step1_7 .Map{
+	.Step3_12 .boxdiv input, .Step3_15 .boxdiv input,
+	.Step1_7 .Map,
+	.Step3_17 .box,
+	.Step3_18 .box{
 		width: 100%;
 	}
 	.Step2_1 .photos .photosipt>h3{
@@ -594,8 +745,51 @@
 	.Step2_1 .photos .photosipt>h3>button{
 		font-size: 2rem;
 	}
+	.Step2_2 .photos .photosimg:first-child,
 	.Step2_2 .photos .photosimg, .Step2_2 .photos .photosipt{
-		height: 80px;
+		width: 97%;
+		height: 230px;
+	}
+	.Step2_2 .photos .photosimg span{
+		opacity: 0.8;
+		margin: 5%;
+	}
+	.Step3_1 h6{
+		font-size: 1.4rem;
+	}
+	.Step3_1 h3 span{
+		margin: 0;
+	}
+	.Step3_2 .check .divinput{
+		width: 70%;
+	}
+	.Step3_4 .boxdiv img{
+		width: 70%;
+		margin: 2% 15%;
+	}
+	.Step3_6 .form-group1{
+		height: auto;
+	}
+	.Step3_7 .rightbox1>div>.date, .Step3_8 .rightbox1>div>.date{
+		width: 31%;
+		margin: 0 1%;
+	}
+	.Step3_10 .boxdiv .pull-left img{
+		width: 60%;
+		margin: 2% 20%;
+	}
+	.Step3_10 .boxdiv .content{
+		width: 90%;
+		float: left;
+	}
+	.Step3_10 .boxdiv .radio{
+		width: 24px;
+		float: right;
+		padding: 0;
+		margin-top: 15%;
+	}
+	.Step3_18 .divinput{
+		width: 90%;
 	}
 	/*becomehost  end*/
 
@@ -737,6 +931,7 @@
 	/*listing-experiences  end*/
 
 	/*info  start*/
+
 	.userBox img{	
 		position: initial;
 	}
@@ -751,8 +946,14 @@
 		width: 48% !important;
 		margin-left: 0 !important;
 	}
+	.userbtn>div:nth-child(even){
+		float: right;
+	}
 	.userbtn>div>button{
 		width: 100%!important;
+	}
+	.userBox .photo{
+		width: 100%;
 	}
 	.userBox .address{
 		width: 90%;
@@ -761,7 +962,7 @@
 	.userBox .userPhoto{
 		width: 103px;
 		height: 140px;
-		margin: 2% auto;
+		margin: 2% 0;
 	}
 	.userBox .userPhoto p span{
 		font-size: 1.2rem;
@@ -795,12 +996,30 @@
 	/*info  end*/
 
 	/*ALL*/
-	.ALL{
+	.ALL,
+	.experience{
 		width: 90%;
 		margin: 0 5%;
 	}
 	.All_experiences{
 		padding-right: 0;
+	}
+	div.Strainer_More .Bedroom ul li p.text-right{
+		padding: 0;
+	}
+	.tag-header .tag__item>div{
+		width: 230%;
+		left: 0%;
+	}
+	.tag-header .tag__item>div.Strainer_More{
+		width: 100%;
+		max-height: 500px;
+		left: 0%;
+		top:65%;
+		padding: 5%;
+	}
+	.tag-header .tag__item>.Strainer_Price{
+		left: 102%;
 	}
 	/*ALL*/
 
@@ -820,9 +1039,20 @@
 		padding: 5% !important;
 		border-radius: 8px !important;
 	}
+	.modal-content{
+		width: 95%;
+	}
+	.ReactModal__Content{
+		width: 100%;
+		height: 100%;
+		top: 0%!important;
+		bottom: 0%!important;
+		left: 0%!important;
+		right:0%!important;
+	}
 	/*modal*/
 
-	/**/
+	/*footer start*/
 	.footer__dropdown .btn-group{
 		width: 150px;
 	}
@@ -838,18 +1068,112 @@
 	.footer .social li .social__icon{
 		width: 20px;
 	}
-	/**/
+	/*footer end*/
+	
+	/*register start*/
+	.register_content{
+		padding: 0 5%;
+	}
+	.register,
+	.register .box{
+		padding: 0;
+	}
+	.register .STEPhead span{
+		margin-right: 5%;
+	}
+	.registerlist_2 .btn-group,
+	.registerlist_1 .box input, .registerlist_4 .box input,
+	.registerlist_3 .btn-group, .registerlist_18 .btn-group,
+	.registerlist_6 .photochage,
+	.registerlist_8 .box textarea, .registerlist_12 .box label textarea
+	{
+		width: 100%;
+	}
+	.register_content .box1, .register_content .box2{
+		margin-top: 10%;
+	}
+	.introlist_3 .dropdown-menu a, 
+	.registerlist_2 .dropdown-menu a, 
+	.registerlist_3 .dropdown-menu a, 
+	.registerlist_12 .dropdown-menu a, 
+	.registerlist_14 .dropdown-menu a, 
+	.registerlist_18 .dropdown-menu a, 
+	.VerifyID_3 .dropdown-menu a{
+		padding:3% 5%;
+	}
+	.registerlist_3 .check .divinput, 
+	.registerlist_14 .check .divinput, 
+	.registerlist_15 .check .divinput, 
+	.registerlist_18 .check .divinput, 
+	.registerlist_24 .check .divinput{
+		width: 90%;
+	}
+	.registerlist_4 .box .imgs>div{
+		width: 30%;
+		margin: 0 1%;
+	}
+	.registerlist_6 .photoleft>p.show{
+		display: none !important;
+	}
+	.registerlist_7 .box .Gallery>div:nth-child(1), .registerlist_7 .box .Gallery>div:nth-child(4),
+	.registerlist_7 .box .Gallery>div{
+		width: 48%;
+		margin: 0 1% 2%;
+		padding: 0;
+	}
+	.registerlist_7 .box .Gallery>div>.imgdiv img{
+		width: auto;
+		height: 100%;
+	}
+	.Prompt .Prompt_content{
+		background: #fff;
+	}
+	.Prompt .boxright .listbottom .Right span,
+	.Prompt .boxright>span.close{
+		color: #f6416c;
+	}
+	.Prompt .Prompt_content>div.boxleft,
+	.Prompt .Prompt_content>div.boxright,
+	.registerlist_12 .box label input, .registerlist_12 .box label .btn-group,
+	.registerlist_12 .stepbox img,
+	.registerlist_14 .btn-group, .registerlist_14 h6.Item_ne,
+	.registerlist_15 .inputlist,
+	.registerlist_20 .price_guest
+	{
+		width: 100%;
+	}
+	.Prompt .boxright .listtop .Right h5,
+	.Prompt .boxright .listtop .Right span,
+	.Prompt .boxright .lists>p, .Prompt .boxright .listbottom p{
+		color: #4d4e4e;
+	}
+	.Prompt .Prompt_content{
+		width: 90%;
+	}
+	.Prompt .boxright .listbottom span:first-child{
+		width: 50%;
+	}
+	.Prompt .Prompt_content>div{
+		padding: 5% !important;
+	}
+	.registerlist_12 .box .Right{
+		margin: 0;
+	}
+	.registerlist_20 .price_guest input{
+		padding: 
+	}
+	.navbar-collapse ul{
+		margin-top: 0px;
+	}
+	/*register end*/
+
+
 }
 @media screen and (max-width: 500px){
-	/*home start*/
-	.form .index_home .listing-card{
-		padding: 0 !important;
-	}
-	/*home end*/
 
 	/*experience start*/
 	.experienceintro_content .contentbox3>.box1{
-		top:22% !important;
+		top:30% !important;
 	}
 	.experienceintro_content .contentbox3>.box2 .lists>div{
 		height: 150px!important;

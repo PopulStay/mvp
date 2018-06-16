@@ -135,7 +135,7 @@ class experienceintro extends Component {
                     <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />
                   </li>
                   <li className="Li5">
-                    <GuestRegister clicklogout={this.state.clicklogout}  onLogOut={this.onLogOut} />
+                    <GuestRegister clicklogout={this.state.clicklogout} type='0' onLogOut={this.onLogOut} />
                   </li>
                 </ul>
               </div>
@@ -152,7 +152,7 @@ class experienceintro extends Component {
         <div className="experienceintro_content">
           <div className="contentbox">
               <img className="col-sm-12 col-md-9 col-lg-9" src="../images/experienceimg1.png" />
-              <h3>{language.What_are_Populsaty_Experiences}?</h3>
+              <h3>{language.What_are_Populsaty_Experiences}</h3>
               <p className="col-sm-12 col-md-3 col-lg-3">{language.Populstay_Experiences_are_activities}</p>
           </div>
 

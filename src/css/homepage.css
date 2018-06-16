@@ -7,7 +7,7 @@
 }
 
 .form form {
-  padding-top: 5%;
+  padding-top: 3%;
 }
 
 .form label {
@@ -154,6 +154,7 @@
 .form .index_home h4{
   margin:0;
   font-size: 1.6rem;
+  font-family: RobotoThin; 
 }
 .form .index_home p{
   font-size: 1.6rem;
@@ -185,6 +186,7 @@
   background-repeat: no-repeat;
 }
 .listing-card .photo img{
+  width: auto;
   position: absolute;
   top:50%;
   left: 50%;

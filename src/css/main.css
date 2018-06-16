@@ -4910,9 +4910,11 @@ tbody.collapse.in {
 }
 
 .navbar-brand {
-  float: left;
   font-size: 18px;
-  line-height: 20px;
+  position: absolute;
+  top:50%;
+  left: 5%;
+  transform: translate(0,-50%);
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
@@ -7765,7 +7767,13 @@ header li.Li4>a{
   color: #131c4e;
 }
 header li.Li5{
+  width: auto;
   color: #131c4e;
+  border:1px solid #131c4e;
+  border-radius: 8px;
+}
+header li.Li5>div{
+  overflow: hidden;
 }
 header li.Li5 button a{
   color: #131c4e;
@@ -7773,16 +7781,17 @@ header li.Li5 button a{
 header button {
   min-width: 124px;
 }
-header li.Li1>a,
+header li.Li1 div>a,
 header li.Li2>a{
-  padding: 2% 40px;
+  padding: 2% 40px !important;
   display: block;
   border-radius: 50px;
-  color: #fff;
+  color: #fff !important;
   font-family: RobotoThin; 
   border:none;
+  cursor: pointer;
 }
-header li.Li1>a{
+header li.Li1 div>a{
   background: -webkit-linear-gradient(left, #2b2051 , #762d5b); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(right, #2b2051, #762d5b); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(right, #2b2051, #762d5b); /* Firefox 3.6 - 15 */
@@ -7799,7 +7808,7 @@ header li.Li2 .button__fill:hover{
   color: #fff;
 }
 header li.Li5 button{
-  border:1px solid #131c4e;
+  border:none;
   padding: 2% 12%;
   color: #131c4e;
   position: relative;
@@ -7832,8 +7841,8 @@ header .logoutButton span{
   border-radius: 50%;
   background: #f6416c;
   position: absolute;
-  top:2px;
-  right: 2px;
+  top:5px;
+  right: 5px;
 }
 header nav{
   width: 50%;
@@ -7875,6 +7884,7 @@ header nav a{
 
 .header {
   padding:3% 5% 3% 6%;
+  position: relative;
 }
 
 .header__logo {
@@ -7943,7 +7953,7 @@ header .dropdown-menu a.dropdown-item1{
   min-width: auto;
 }
 
-.footer__dropdown {
+.footer__dropdown{
   padding: 6% 0;
 }
 .footer__dropdown .btn-group img{
@@ -8007,18 +8017,21 @@ header .dropdown-menu a.dropdown-item1{
   text-align: center;
 }
 
-
 .footer__logo {
-  width: 10%;
+  width: 72px;
   float: left;
 }
+.footer_ul ul{
+  overflow: hidden;
+  padding-left: 20%;
+}
 .footer_ul{
-  width: 20%;
+  width: 30%;
   float: left;
   line-height:2.2;
-  margin: 4% 0 2% 5%;
   color: #151b4e;
   font-family: RobotoThin; 
+  padding: 5.5% 0;
 }
 .footer_ul ul>a{
   color: #151b4e;

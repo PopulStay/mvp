@@ -170,14 +170,15 @@ class Wallet extends Component {
         contentLabel="Wallet Message">
           <div className="clear">
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
-            <div>
+            <div className={window.address ? 'show' : 'hide'}>
               <h3>{language.Address}</h3>
               <p className="text1">{window.address}</p>
               <h3>{language.Private_Key}</h3>
               <p className="text1">{this.substring0x(window.privateKey)}</p>
             </div>  
-            <button className="btn btn-danger Left" onClick={this.clear}>{language.Clear}</button>
-            <button className="btn btn-primary Right" onClick={this.closeClearInfoModal}>{language.Cancel}</button>
+            <h3 className={window.address ? 'hide Please_logn_in' : 'show Please_logn_in'}>{language.Please_logn_in}</h3>
+            <button className={window.address ? 'show Left' : 'hide Left'} onClick={this.clear}>{language.Clear}</button>
+            <button className="Right" onClick={this.closeClearInfoModal}>{language.Cancel}</button>
           </div>
         </Modal>
 

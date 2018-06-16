@@ -2,6 +2,7 @@
 export const Help = '帮助';
 export const Log_out = '退出登录';
 export const Log_in = '登录';
+export const Please_Log_in = '请登录联系房东';
 
 // search--------------------------------------------------------------------------------------------
 export const Find_dream_homes_and_experiences_on_PopulStay = '在潮箱找到梦想家园和体验';
@@ -21,6 +22,7 @@ export const Show_all = '显示全部';
 export const Experiences_travellers_love = '体验旅客的爱';
 export const Book_activities_led_by_local_hosts_on_your_next_trip = '在下次旅行中当主人预订活动';
 export const Tokyo = '东京';
+export const Stay_tuned = '敬请期待';
 
 //listing-detail--------------------------------------------------------------------------------------------
 export const bedroom = '卧室';
@@ -58,12 +60,12 @@ export const Cancellations = '预订取消';
 export const Get_details = '获取详细信息';
 export const Reviews = '评论';
 export const Search_Reviews = '搜索评论';
-export const Accuracy = '准确性';
-export const Location = '城市';
-export const Communication = '通信';
+export const Accuracy = '如实描述';
+export const Location = '位置便利指数';
+export const Communication = '沟通交流';
 export const heck_In = '报到';
-export const Cleanliness = '清洁';
-export const Value = '价值';
+export const Cleanliness = '干净指数';
+export const Value = '性价比';
 export const See_the_neighbourhood = '看到周边地区';
 export const Public_Transit = '公共交通';
 export const Restaurant = '餐厅';
@@ -82,12 +84,16 @@ export const Cleaning_fee = '清洁费';
 export const Total_Price = '总价格';
 export const Book = '预定';
 export const You_wont_be_charged_yet = '您暂时不会被收费';
-export const Message_Me = '给我发短信';
+export const Message_Me = '发送信息';
 export const Contact_the_landlord = '联系房东';
 export const Checkin_is_anytime_after_2PM = '入住时间为下午2点以后';
 export const Check_out_by_12PM = '12点退房（中午）';
 export const Strict = '严禁';
 export const Cancel_up_to_7_days_before_check = '入住前7天取消预订，并获得50％的退款（减去服务费）。取消行程后7天内取消预订';
+export const Insufficient_balance = '余额不足';
+export const Answer = '接通';
+export const Decline = '挂断';
+export const Video_call = '视频通话';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
@@ -791,10 +797,9 @@ export const What_Ill_provide = '将提供什么';
 export const Where_well_be = '我们会在哪里';
 export const Notes = '笔记';
 
-
-
-
-
+//Submission_of_success
+export const Submission_of_success = '发布成功';
+export const Submission_of_PROCESSING = '提交处理中';
 
 //guest-register--------------------------------------------------------------------------------------------
 export const Sign_up = '注册';
@@ -827,6 +832,9 @@ export const Address = '地址';
 export const Create = '创建';
 
 //listing-all--------------------------------------------------------------------------------------------
+export const All_home = '全部房源';
+export const Home_Type = '房间类型';
+export const More_Fiters = '更多';
 export const All_experiences = '全部体验';
 export const Experience = '体验';
 export const Confirm = '确认';
@@ -855,7 +863,6 @@ export const LONDON = '伦敦';
 export const PARIS = '巴黎';
 export const SINGAPORE = '新加坡';
 
-
 //experience-intro--------------------------------------------------------------------------------------------
 export const Wishlist = '愿望清单';
 export const Trips = '旅行';
@@ -879,7 +886,7 @@ export const Guest_on_An_Untold_Story_in_Dublin = '在都柏林一个无尽的�
 export const Walter_Wang = '王跃';
 export const Walter_Wang_introduction = '新加坡国立大学计算机生物学创始人兼首席执行官，新加坡电信第一本地数据科学家，5年Airbnb业主经验，2年Airbnb智能门锁合作供应商，设计产品智能钥匙盒荣获德国IF工业设计 奖励，公司价值超过1亿美元。 Audemars Pigeut以房东的经验为主，让他看到连锁店技术可以解决现有的家居平台痛点，选择放弃千万股份事业的高峰期，全部在区块连锁社区，做更大，更多 有意义的事情，潮箱的创建。';
 export const Xinpeng_Cai = '蔡新朋';
-export const Xinpeng_Cai_introduction = '联合创始人兼首席运营官，澳大利亚斯文伯恩研究所（Sven Bourne Institute），企业管理学士，连续10名企业家，他们加入了赢创，领导了2000万欧元的供应链启动，并实现了每年2500万欧元的个人护理产品销售额 ，并于2015年成立了Wielan Pte Ltd.。创始人兼首席执行官凌军的创始人兼首席经济学家是科技创始人和创始人，中国社会科学院的产业经济学专家正在阅读 上海交通大学高级金融学院博士和工商管理硕士。 他已经由复兴组织太平洋保险和绿城集团创立。 房地产业有着广泛的社会科学和资源，目前负责中国的融资和战略规划。';
+export const Xinpeng_Cai_introduction = '联合创始人兼首席运营官，澳大利亚斯文伯恩研究所（Sven Bourne Institute），企业管理学士，连续10年企业家，他们加入了赢创，领导了2000万欧元的供应链启动，并实现了每年2500万欧元的个人护理产品销售额 ，并于2015年成立了Wielan Pte Ltd.。创始人兼首席执行官凌军的创始人兼首席经济学家是科技创始人和创始人，中国社会科学院的产业经济学专家正在阅读 上海交通大学高级金融学院博士和工商管理硕士。 他已经由复兴组织太平洋保险和绿城集团创立。 房地产业有着广泛的社会科学和资源，目前负责中国的融资和战略规划。';
 export const Ling_Jun = '凌骏';
 export const Ling_Jun_introduction = '中国社会科学院工商管理硕士，MBA，上海交通大学高级金融学院，前任就职小组，太平洋保险，绿色城市创始人兼首席经济学家 集团是国内房地产投资的投资基地，拥有社会科学知识和广泛的资源，目前负责中国的财务管理和战略规划。';
 export const Brain_Lin = '林凯亮';
@@ -915,6 +922,9 @@ export const Information = '信息';
 export const From = '从';
 export const To = '到';
 export const Price = '价格';
+export const Location_type = '位置';
+export const Add_a_house = '添加房源';
+export const No_order = '没有订单';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = '房东管理面板';
@@ -923,6 +933,7 @@ export const Beds = '床';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Export = '出口';
+export const Please_logn_in = '请登录';
 export const Gas = '交易费';
 export const Gas_Price = '交易费价格';
 export const OK = '确认';
@@ -931,6 +942,7 @@ export const Deposit_PPS = '充值PPS';
 export const Token_Size = '存储数量';
 export const Withdraw = '提取';
 export const Withdraw_PPS = '提取PPS';
+export const Please_wait_for_success = '请等待提币成功';
 export const Size = '数量';
 export const TX = '提交事务';
 export const Operation = '操作';
@@ -940,8 +952,12 @@ export const state0 = '申请提币';
 export const state1 = '在申请中';
 export const state2 = '完成审核';
 export const state3 = '申请成功';
+export const state4 = '订购成功';
+export const state5 = '订购失败';
+export const state6 = '发布成功';
+export const state7 = '发布失败';
 export const state_1 = '提币失败';
-
+export const Check = '查看';
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = '成为房东';

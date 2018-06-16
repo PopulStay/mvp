@@ -468,21 +468,19 @@ class ListingCreate extends Component {
     }
 
     submit(){
-      this.setState({modalsubmit:true});
+        sessionStorage.removeItem('test');
+        this.setState({step: this.STEP.PROCESSING});
          houselistingService.submitListing(this.state)
           .then((tx) => {
-            console.log(this.state)
-              this.setState({
-                  step: this.STEP.PROCESSING
-              });
-              console.log(tx)
-              return houselistingService.waitTransactionFinished(tx);
+                this.setState({
+                    step: this.STEP.PROCESSING
+                });
+                return houselistingService.waitTransactionFinished(tx);
           })
           .then((blockNumber) => {
-              this.setState({
-                  step: this.STEP.SUCCESS,
-                  modalsubmit:false
-              });
+            this.setState({
+                step: this.STEP.SUCCESS
+            });
           })
           .catch((error) => {
               console.log(error)
@@ -1637,7 +1635,7 @@ class ListingCreate extends Component {
               <div className="photos">
                   {this.state.selectedPictures.map((file,index) => (
                     <div className="photosimg" >
-                      <img className="img-thumbnail"  data-toggle="modal" data-target="#myModal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
+                      <img className="img-thumbnail"  data-toggle="modal" onClick={this.modalPictures.bind(this,index)} src={file.imagePreviewUrl} />
                       <span  className="glyphicon glyphicon-trash" onClick={this.deletePictures.bind(this,index)} ></span>
                     </div>
                     ))
@@ -3712,14 +3710,6 @@ class ListingCreate extends Component {
 
                
              </div>
-             <Modal isOpen={this.state.modalsubmit} onRequestClose={this.closeModal}  
-              contentLabel="Example Modal">
-                <div className="submit">
-                    <h2>{language.Processing_your_submit}</h2>
-                    <br/>
-                    <h2>{language.Please_stand_by}<span className="glyphicon glyphicon-refresh"></span></h2>
-                </div>
-              </Modal>
 
              <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
                   <img className="stepbg" src="../images/step3_18img.png" alt=""/>
@@ -3772,13 +3762,7 @@ class ListingCreate extends Component {
             <button className="btn btn-default btn-lg bg-pink color-white Left" onClick={this.submit}>{language.Publish_listing}</button>
 
           </div>
-          <Modal isOpen={this.state.modalsubmit} onRequestClose={this.closeModal} 
-          contentLabel="Example Modal">
-            <div className="submit">
-                <h2>{language.Processing_your_submit}</h2>
-                <h2>{language.Please_stand_by}<span className="glyphicon glyphicon-refresh"></span></h2>
-            </div>
-          </Modal>
+          
           <div className="col-md-6 col-lg-5 col-sm-6 paddingNone" onClick={this.preStep}>
               <img className="stepbg" src="../images/step3_18img.png" alt=""/>
               <div className="Preview">
@@ -3906,12 +3890,26 @@ class ListingCreate extends Component {
 
           <div className="becomehost-8 container">
           <div className="row">
-          <div className="col-md-12 col-lg-12 col-sm-12 Step-8">
-            <h1>Submission of success</h1>
-            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.preStep}>Back</button>
+          <div className="col-md-12 col-lg-12 col-sm-12 success">
+          <div>
+            <h1>{language.Submission_of_success}</h1>
+            <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.preStep}>{language.Back}</button>
+          </div>  
           </div>
           </div>
           </div>
+        }
+
+        {
+          this.state.step === this.STEP.PROCESSING &&
+            <div className="becomehost-8 container">
+                <div className="row">
+                    <div className="col-md-12 col-lg-12 col-sm-12 success">
+                        <h1>{language.Submission_of_PROCESSING}<span className="glyphicon glyphicon-refresh"></span></h1>
+                        <button className="btn btn-default btn-lg bg-pink color-white subbtn Left" onClick={this.preStep}>{language.Back}</button>
+                    </div>
+                </div>
+            </div>
         }
 
 

@@ -41,8 +41,9 @@ class HouseInfoListingService {
     return hashStr
   }
 
-  setPreOrderByETH( hostaddress, ethpriceGwei, uuid, from, to, days )
+  setPreOrderByETH( hostaddress,ether, ethpriceGwei, uuid, from, to, days )
   {
+
     return new Promise((resolve, reject) => {
       var contract = new window.web3.eth.Contract( HouseInfoListing.abi,houselist_address );
       var dataobj  = contract.methods.preOrderByEth(
@@ -59,7 +60,7 @@ class HouseInfoListingService {
        params.days = days;  
        params.hostaddress  = hostaddress;
        params.price        = 0;
-       params.ethprice     = ethpriceGwei;
+       params.ethprice     = ether;
        params.guestaddress = window.address;
        params.houseinfoid  = uuid;
 
@@ -235,7 +236,7 @@ class HouseInfoListingService {
     getRecommand(districtCode){
 
     return new Promise((resolve, reject) => {
-      axios.get(process.env.Server_Address+'HouseInformation?districeCode='+districtCode)
+      axios.get(process.env.Server_Address+'HouseInformation?districeCode='+districtCode+ '&limit=6')
       .then((response)=> {
         resolve(response.data);
       })
@@ -252,12 +253,36 @@ class HouseInfoListingService {
 
   getHouseId(districtCode,from,to,guests,place){
 
+     var url  = process.env.Server_Address+'HouseInformation/search?';
+
+     if( place!=null || place !=undefined || place != null  || place !="undefined" )
+     {
+       url = url + 'place='+place;
+     }
+
+     if( guests!=null || guests !=undefined || guests != null  || guests !="undefined" )
+     {
+       url = url + '&guests='+guests;
+     }
+
+     if( to!=null || to !=undefined || to != null  || to !="undefined" )
+     {
+       url = url + '&to='+to;
+     }
+
+     if( from!=null || from !=undefined || from != null  || from !="undefined" )
+     {
+       url = url + '&from='+from;
+     }
+
+     if( districtCode!=null || districtCode !=undefined || districtCode != null  || districtCode !="undefined" )
+     {
+       url = url + '&districeCode='+districtCode;
+     }
+ 
+
     return new Promise((resolve, reject) => {
-      axios.get(process.env.Server_Address+'HouseInformation?place='+place
-                                                          +'&guests>='+guests
-                                                          +'&to='+to
-                                                          +'&from='+from
-                                                          +'&districeCode='+districtCode)
+      axios.get(url)
       .then((response)=> {
         resolve(response.data);
       })

@@ -89,8 +89,8 @@ class Footer extends Component {
     {this.props.hideTagFooter !="NO" &&
     <footer className="footer">
         <div className="footer__brand-info container">
-            <img className="footer__logo" src="../images/logo-2.png" alt="" />
             <div className="footer_ul">
+                <img className="footer__logo" src="../images/logo-2.png" alt="" />
                 <ul>
                     <Link to="/create">
                         <li>{language.Become_a_Host}</li>
@@ -138,7 +138,7 @@ class Footer extends Component {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header"><button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
-                    <div className="modal-body"><img src="./images/qrcode.jpg" alt=""/></div>
+                    <div className="modal-body"><img src="./images/code.jpg" alt=""/></div>
                 </div>
             </div>
         </div>

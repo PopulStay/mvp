@@ -99,6 +99,10 @@ class GuestInfo extends React.Component {
         console.log(data.data.balance)
         this.setState({ ppsDeposited : data.data.balance});
      });
+
+     ppsService.getBalance(window.address).then((data)=>{
+      this.setState({ ppsBalance:data});
+     });
   }
    
   fileChangedHandler(event){
@@ -122,73 +126,68 @@ class GuestInfo extends React.Component {
 
       <div className="userBox row">
           <h1 className="col-sm-12 col-md-12 col-lg-12">{language.Hello}!{this.state.user}</h1>
-          <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <div className="col-xs-12 col-sm-12 col-md-3 col-lg-2">
             <div className="userPhoto" style={this.state.userPictures == '' ? {backgroundImage:"url(/images/uesrimg.png)"}:{backgroundImage:"url("+this.state.userPictures+")"}}>
                 <input type="file" onChange={(e)=>this.fileChangedHandler(e)} />
                 <p><span>{language.Revise_the_head_image}</span></p>
             </div>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-5 userlist row">
-            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
+          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-5 userlist row">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <span>{language.User_name}:</span><p>{this.state.user}</p>
             </div>
-            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                <span>{language.Phone}:</span><p>{this.state.phone}</p>
             </div>
-            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                <span>{language.Email}:</span><p>{this.state.email}</p>
             </div>
-            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                <span>{language.PPS_balance}:</span><p>{this.state.ppsBalance}</p>
             </div>
-            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                <span>{language.ETH_balance}:</span><p>{this.state.ethBalance/this.CONST.weiToEther-0 == 0 ? '0' : (this.state.ethBalance/this.CONST.weiToEther-0).toFixed(5)}</p>
             </div>
-            <div className="col-xs-6 col-sm-12 col-md-6 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                <span>{language.PPS_deposited_in_Populstay}:</span><p>{this.state.ppsDeposited}</p>
             </div>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 userbtn" >
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-2 userbtn" >
               <WalletManage/>
               <WalletGas/>
               <WalletDeposit  onGetDepositBalance={this.onGetDepositBalance}/>
               <WalletWithdraw  onGetDepositBalance={this.onGetDepositBalance}/>
           </div>
-          <div className=" col-sm-12 col-md-2 col-lg-2">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-2 userqrurl">
             <img className="photo" src={this.state.qrurl}  />
             <p className="address">{window.address}</p>
           </div>
       </div>
 
-      <div className="GuestManagment">
-        <h1>{language.Guest_Managment_Panel}</h1>
-        <div className="overflowAuto">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>{language.Address}</th>
-                <th>{language.Status}</th>
-                <th>{language.Information}</th>
-                <th>{language.From}</th>
-                <th>{language.To}</th>
-                <th>{language.Price}</th>
-                <th>{language.Check_in}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.orderlist.map(account => (
-                    <GuestOrderRow account={account} key={account}/>
-              ))}
-
-              {this.state.usdOrderList.map(item => (
-
-                  <GuestUsdOrderRow item={item}/>
-
-              ))}
-            </tbody>
-          </table>
+      <h1>{language.Guest_Managment_Panel}</h1>
+      <p className={this.state.orderlist.length == 0 ? 'show No_order' : 'hide No_order'}>{language.No_order}</p>
+      <div className={this.state.orderlist.length == 0 ? 'hide GuestManagment' : 'show GuestManagment'}>
+        <div className="auto">
+          <div className="divtr">
+              <div>{language.Address}</div>
+              <div>{language.Information}</div>
+              <div>{language.From}</div>
+              <div>{language.To}</div>
+              <div>{language.Price}</div>
+              <div>{language.Check_in}</div>
+          </div>
+          <div className="overflowAuto">
+            {this.state.orderlist.map(account => (
+                <GuestOrderRow account={account} key={account}/>
+            ))}
+            {this.state.usdOrderList.map(item => (
+                <GuestUsdOrderRow item={item}/>
+            ))}
+          </div>
         </div>
-        </div>
+      </div>
+
+      
       </div>
     );
   }

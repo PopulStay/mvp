@@ -2,6 +2,7 @@
 export const Help = 'Help';
 export const Log_out = 'Log out';
 export const Log_in = 'Log in';
+export const Please_Log_in = 'Please login to contact host';
 
 // search--------------------------------------------------------------------------------------------
 export const Find_dream_homes_and_experiences_on_PopulStay = 'Find dream homes and experiences on PopulStay';
@@ -21,6 +22,7 @@ export const Show_all = 'Show all';
 export const Experiences_travellers_love = 'Experiences travellers love';
 export const Book_activities_led_by_local_hosts_on_your_next_trip = 'Book activities led by local hosts on your next trip';
 export const Tokyo = 'Tokyo';
+export const Stay_tuned = 'Stay tuned';
 
 //listing-detail--------------------------------------------------------------------------------------------
 export const bedroom = 'bedroom';
@@ -88,6 +90,10 @@ export const Checkin_is_anytime_after_2PM = 'Check-in is anytime after 2PM';
 export const Check_out_by_12PM = 'Check out by 12PM(noon)';
 export const Strict = 'Strict';
 export const Cancel_up_to_7_days_before_check = 'Cancel up to 7 days before check in and get a 50% refund (minus service fees).cancel within 7 days of your trip and the reservati';
+export const Insufficient_balance = 'Insufficient balance';
+export const Answer = 'Answer';
+export const Decline = 'Decline';
+export const Video_call = 'Video call';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
@@ -166,8 +172,8 @@ export const ConFirm_your_password = 'ConFirm your password';
 export const Provide_the_essentials_helps_guests_feel_at_home_in_your_place = 'Provide the essentials helps guests feel at home in your place.';
 export const Some_hosts_provide_breakfast_or_just_coffee_and_tea = 'Some hosts provide breakfast,or just coffee and tea. None of there things arerequired,but sometimes they add a nice touch to help guests feel welcome.';
 //Step9
-export const kitchen = '厨房';
-export const HouseStep9 = '列出的空间应该位于房源范围内。请不要包括不属于您房源的洗衣房或者附近其他地方。如果邻居同意的话，您可以将游泳池、按摩浴池或其他公用空间包括进去。';
+export const kitchen = 'kitchen';
+export const HouseStep9 = 'Spaces should be on the property. Don’t include laundromats or nearby places that aren’t part of your property. If it’s OK with your neighbors, you can include a pool, hot tub, or other shared space.';
 //Step10
 export const Great_process = 'Great process';
 export const Now_lets_get_some_details = "Now let's get some details about your place so you can publish your listings";
@@ -439,26 +445,26 @@ export const Please_stand_by = 'Please stand by';
 //intro-list--------------------------------------------------------------------------------------------
 //Step1
 export const Hi_there = 'Hi there';
-export const Were_excited_to_learn_about = 'We’re excited to learn about the experience you’d like to host on Populstay.In just a few minutes, you’ll start to create your experience page, then you’ll submit it to be reviewed by Populstay';
+export const Were_excited_to_learn_about = 'We’re excited to learn about the experience you’d like to host on PopulStay.In just a few minutes, you’ll start to create your experience page, then you’ll submit it to be reviewed by PopulStay';
 //Step2
 export const Heres_an_overview_of_the_process = 'Here’s an overview of the process';
 export const Learn_about_our_expectations = 'Learn about our expectations(2-3 minutes)';
-export const Find_out_what_makes_experiences = 'Find out what makes experiences different and what Populstay is looking for.';
+export const Find_out_what_makes_experiences = 'Find out what makes experiences different and what PopulStay is looking for.';
 export const Create_your_experience = 'Create your experience (as much time as you need)';
-export const Add_photos_videos_descriptions = 'Add photos, videos, descriptions, and other details to be reviewed by Populstay.';
+export const Add_photos_videos_descriptions = 'Add photos, videos, descriptions, and other details to be reviewed by PopulStay.';
 export const Submit_for_review = 'Submit for review';
-export const Someone_from_Populstay = "Someone from Populstay will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!";
+export const Someone_from_Populstay = "Someone from PopulStay will review your experience page. If it meets our quality standards, you'll get to add availability and start hosting!";
 //Step3
 export const First_things_first = 'First things first, which city would you like to host in?';
 //Step4
-export const Have_you_hosted_an_experience = 'Have you hosted an experience on Populstay or somewhere else before?';
+export const Have_you_hosted_an_experience = 'Have you hosted an experience on PopulStay or somewhere else before?';
 export const We_welcome_your_participation = 'We welcome your participation and experience in Audemars Pigeut, which is different from organizing activities on other platforms.';
 export const No_problem_Anyone_with_a_lot_of_passion = "No problem! Anyone with a lot of passion and a great idea can become a host. We'll show you tips and examples along the way to help you build a great experience and be successful.";
 export const Yes_ive_done_this_before = "Yes, i've done this before";
 export const No_not_yet = 'No, not yet!';
 //Step5
-export const What_is_Populstay_looking = 'What is Populstay looking for in an experience?';
-export const The_following_things = "The following things don't qualify as a Populstay experience.";
+export const What_is_Populstay_looking = 'What is PopulStay looking for in an experience?';
+export const The_following_things = "The following things don't qualify as a PopulStay experience.";
 export const Its_led_by_a_knowledgeable ="It's led by a knowledgeable and passionate host";
 export const Guests_participate = 'Guests participate hands-on, or are immersed in an activity';
 export const It_gives_guests_access = 'It gives guests access to a special place or community';
@@ -466,7 +472,7 @@ export const Its_unique_niche = "It's unique, niche, or not what you'd expect";
 export const Learn_more_about_our_standards = 'Learn more about our standards';
 //Step6
 export const What_were_not_looking_for = "What we're not looking for";
-export const The_following_things_dont_qualify = "The following things don't qualify as a Populstay experience.";
+export const The_following_things_dont_qualify = "The following things don't qualify as a PopulStay experience.";
 export const Large_and_impersonal_tours = "Large and impersonal tours(e.g. tours with 15 or more people)";
 export const An_event_with_no_clear_host = "An event with no clear host(e.g. singles night at a bar)";
 export const A_service = "A service (e.g. airport transportation)";
@@ -742,21 +748,21 @@ export const No_thanks = 'No thanks';
 export const Yes_I_need_advance_notice = 'Yes, I need advance notice that I’m hosting';
 export const Book_timearr = ["1 hours","2 hours","3 hours","4 hours","8 hours","12 hours","1 days","2 days","3 days","4 days","5 days","6 days","1 weeks"];
 //Step24
-export const Review_our_policies_before_you_submit_to_Populstay = 'Review our policies before you submit to Populstay';
-export const PopulStay_will_review_the_version = 'Populstay will review the version you’re about to submit, so make sure you’re happy with it. You can still go back and fine-tune your descriptions at any time.';
+export const Review_our_policies_before_you_submit_to_Populstay = 'Review our policies before you submit to PopulStay';
+export const PopulStay_will_review_the_version = 'PopulStay will review the version you’re about to submit, so make sure you’re happy with it. You can still go back and fine-tune your descriptions at any time.';
 export const Minimum_guests = 'Minimum guests';
-export const Experiences_on_PopulStay_have_a_1_guest_minimum = 'Experiences on Populstay have a 1 guest minimum. That means if one person books your experience, you’ll still be expected to host them.';
+export const Experiences_on_PopulStay_have_a_1_guest_minimum = 'Experiences on PopulStay have a 1 guest minimum. That means if one person books your experience, you’ll still be expected to host them.';
 export const Cancellation_policy = 'Cancellation policy';
 export const Cancelling_an_experience_can_negatively = 'Cancelling an experience can negatively affect a guest’s entire trip. We take our cancellation policy very seriously.';
 export const Service_fees = 'Service fees';
-export const PopulStay_takes20of_each_booking = 'Populstay takes 20% of each booking. Read more about our service fee.';
+export const PopulStay_takes20of_each_booking = 'PopulStay takes 20% of each booking. Read more about our service fee.';
 export const Exclusivity = 'Exclusivity';
-export const Each_date_you_schedule_through_PopulStay = 'Each date you schedule through Populstay should only include Populstay guests. Guests who book through other platforms must be hosted at separate times.';
+export const Each_date_you_schedule_through_PopulStay = 'Each date you schedule through PopulStay should only include PopulStay guests. Guests who book through other platforms must be hosted at separate times.';
 export const By_submitting_I_confirm_the_following_is_true = 'By submitting, I confirm the following is true';
 export const My_experience_complies_with_local_laws = 'My experience complies with local laws. ';
 export const about_other_laws = 'about other laws (like business licensing) that may apply.';
 export const I_agree_to_the = 'I agree to the';
-export const Populstay_Experiences_Additional_Terms_of_Service = 'Populstay Experiences Additional Terms of Service';
+export const Populstay_Experiences_Additional_Terms_of_Service = 'PopulStay Experiences Additional Terms of Service';
 export const and_confirm_that_my_descriptions = 'and confirm that my descriptions and photos accurately reflect my experience.';
 export const Edit_description = 'Edit description';
 //Step25
@@ -766,6 +772,13 @@ export const You_can_also_keep_editing_your_experience = 'You can also keep edit
 export const verifying_your_ID = 'verifying your ID';
 export const Verify_ID = 'Verify ID';
 export const Edit_Submissioin = 'Edit Submissioin';
+export const Exit = 'Exit';
+//Step26
+export const Welcome_backyour_experience = 'Welcome backyour experience';
+export const Keep_track_of_and_edit_all_your_experiences_Happy_hosting = 'Track and edit all your experiences. Pleasant hosting!';
+export const New_idea = 'New idea';
+export const Experience_submitted = 'Experience submitted';
+export const Your_experience_was_submitted = 'Your experience has been submitted. Expect to receive our reply in about 2-4 weeks.';
 //Step right
 export const Give_an_overview_description_of_what_your_guests_will_be_doing_on_this_experience = 'Give an overview description of what your guests will be doing on this experience.';
 export const Let_your_guests_know_if_youll_be_including_anything_for_this_experience = 'Let your guests know if you’ll be including anything for this experience.';
@@ -784,9 +797,9 @@ export const What_Ill_provide = 'What Ill provide';
 export const Where_well_be = 'Where well be';
 export const Notes = 'Notes';
 
-
-
-
+//Submission_of_success
+export const Submission_of_success = 'Submission of success';
+export const Submission_of_PROCESSING = 'Submission of PROCESSING';
 
 //guest-register--------------------------------------------------------------------------------------------
 export const Sign_up = 'Sign up';
@@ -820,6 +833,8 @@ export const Create = 'Create';
 
 //listing-all--------------------------------------------------------------------------------------------
 export const All_experiences = 'All experiences';
+export const Home_Type = 'Home Type';
+export const More_Fiters = 'More_Fiters';
 export const Experience = 'Experience';
 export const Confirm = 'Confirm';
 export const Reset = 'Reset';
@@ -850,17 +865,17 @@ export const SINGAPORE = 'SINGAPORE';
 //experience-intro--------------------------------------------------------------------------------------------
 export const Wishlist = 'Wishlist';
 export const Trips = 'Trips';
-export const Host_an_experience_on_Populstay = 'Host an experience on Populstay';
+export const Host_an_experience_on_Populstay = 'Host an experience on PopulStay';
 export const Earn_money_leading_people_on_activities_you_love = 'Earn money leading people on activities you love.';
 export const Get_Started = 'Get Started';
 export const Learn_more = 'Learn more';
 export const What_are_Populsaty_Experiences = 'What are Populsaty Experiences?';
-export const Populstay_Experiences_are_activities = "Populstay Experiences are activities designed and led by inspiring locals. They go beyond typical tours or classes by immersing guests in each host's unique world. it's an opportunity for anyone to share their hobbies, skill, or expertise without needing an extra room.";
+export const Populstay_Experiences_are_activities = "PopulStay Experiences are activities designed and led by inspiring locals. They go beyond typical tours or classes by immersing guests in each host's unique world. it's an opportunity for anyone to share their hobbies, skill, or expertise without needing an extra room.";
 export const Some_guests_are_now_writing = 'Some guests are now writing and sending postcards to penpals around the world,including me!';
 export const Jena = 'Jena';
 export const Hosts_Postcard_Scavenger_Hunt_in_Oaklan = 'Hosts Postcard Scavenger Hunt in Oaklan';
 export const Introduce_guests_to_the_activities = "Introduce guests to the activities and places you're most passionate about. We'll help you design your experience step by step with plenty of resources along the way";
-export const Share_your_passion_with_the_world = 'Share your passion with the world';
+export const Share_your_passion_with_the_world = 'Share your passion with the world?';
 export const Meet_interesting_people = 'Meet interesting people';
 export const Connect_with_a_community = 'Connect with a community of traveller and locals who share your interests.';
 export const You_might_make_a_few_new_friends = 'You might make a few new friends, learn from fellow enthusiasts, or get someone excited about a new hobby.';
@@ -880,9 +895,9 @@ export const Tamir_Wu_introduction = 'The co founder and market business extends
 export const Meet_the_host_community = 'Meet the host community';
 export const Host_are_chefs_artists = "Host are chefs, artists, and other in-the-know locals like you who give their guests access to activities and places they can't typically find on their own. They make everyone feel welcome, and help people in a group connect with one another";
 export const How_to_get_started = 'How to get started';
-export const Heres_a_brief_overview = 'Here’s a brief overview of the process to host an experience on Populstay';
+export const Heres_a_brief_overview = 'Here’s a brief overview of the process to host an experience on PopulStay';
 export const Learn_what_were_looking_for = "Learn what we're looking for";
-export const Review_our_quality_standards = 'Review our quality standards and see if your experience is a fit for Populstay.';
+export const Review_our_quality_standards = 'Review our quality standards and see if your experience is a fit for PopulStay.';
 export const Create_a_page_with_descriptions = 'Create a page with descriptions, photos, video, and other detals.';
 export const If_your_experience_meets = 'If your experience meets our quality standards, you can begin hosting.';
 export const Frequently_asked_questions = 'Frequently asked questions';
@@ -899,13 +914,16 @@ export const Hello = 'Hello';
 export const Revise_the_head_image = 'Revise the head image';
 export const PPS_balance = 'PPS balance';
 export const ETH_balance = 'ETH balance';
-export const PPS_deposited_in_Populstay = 'PPS Populstay';
+export const PPS_deposited_in_Populstay = 'PPS PopulStay';
 export const Guest_Managment_Panel = 'Guest Managment Panel';
 export const Status = 'Status';
 export const Information = 'Information';
 export const From = 'From';
 export const To = 'To';
 export const Price = 'Price';
+export const Location_type = 'Location';
+export const Add_a_house = 'Add a house';
+export const No_order = 'No order';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = 'Host Managment Panel';
@@ -914,6 +932,7 @@ export const Beds = 'Beds';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Export = 'wallet';
+export const Please_logn_in = 'Please logn in';
 export const Gas = 'Gas';
 export const Gas_Price = 'Gas Price';
 export const OK = 'OK';
@@ -922,20 +941,25 @@ export const Deposit_PPS = 'Deposit PPS';
 export const Token_Size = 'Token Size';
 export const Withdraw = 'Withdraw';
 export const Withdraw_PPS = 'Withdraw PPS';
+export const Please_wait_for_success = 'Please wait for success';
 export const Size = 'Size';
 export const TX = 'TX';
 export const Operation = 'Operation';
 export const Wallet_Size = 'Wallet Size';
 export const Submit = 'Submit';
-export const state0 = 'Apply for money';
-export const state1 = 'In the coin';
-export const state2 = 'Finish the coin';
-export const state3 = 'Successful application';
-export const state_1 = 'Currency failure';
-
+export const state0 = 'Application';
+export const state1 = 'Application';
+export const state2 = 'Wait';
+export const state3 = 'Success';
+export const state4 = 'Successfully ordered';
+export const state5 = 'Order failed';
+export const state6 = 'Published successfully';
+export const state7 = 'Fail to publish';
+export const state_1 = 'Failure';
+export const Check = 'Check';
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = 'Become a Host';
 export const Help_Center = 'Help_Center';
-export const About_Populstay = 'About_Populstay';
+export const About_Populstay = 'About_PopulStay';
 export const Become_an_organiser = 'Become an organiser';

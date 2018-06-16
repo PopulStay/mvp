@@ -38,7 +38,7 @@ class Listingall extends Component {
         Home_Type:'Home Type',
         PriceAdd:0,
         PriceDele:0,
-        Pricemin:10000,
+        Pricemin:0,
         Pricemax:1000000,
         Price:'Price',
         listingRows: [],
@@ -56,6 +56,11 @@ class Listingall extends Component {
   componentDidMount() {
 
     this.setState({ languagelist:window.languagelist });
+    this.setState({
+      Citys_type:window.languagelist.City,
+      Home_Type:window.languagelist.Home_Type,
+      Price:window.languagelist.Price
+    });
 
     this.handlePageChange = this.handlePageChange.bind(this);
     
@@ -82,13 +87,13 @@ class Listingall extends Component {
       var price = data[i].price;
       var guestsnum =  Number(this.state.Adult) + Number(this.state.children) + Number(this.state.Baby);
       var ifCity,ifcategory;
-      if(this.state.Citys_type == 'City'){
+      if(this.state.Citys_type == this.state.languagelist.City){
         ifCity = City;
       }else{
         ifCity = this.state.Citys_type;
       }
 
-      if(this.state.Home_Type == 'Home Type'){
+      if(this.state.Home_Type == this.state.languagelist.Home_Type){
         ifcategory = category;
       }else{
         ifcategory = this.state.Home_Type;
@@ -252,8 +257,8 @@ class Listingall extends Component {
   TagSelect(e){
     this.taghide();
 
-    if(this.state.Pricemin == 10000 && this.state.Pricemax == 1000000){
-        this.setState({Pricemin:10000,Pricemax:1000000,Price:'Price'})
+    if(this.state.Pricemin == 0 && this.state.Pricemax == 1000000){
+        this.setState({Pricemin:0,Pricemax:1000000,Price:'Price'})
     }else{
         this.setState({Price:'PPS'+this.state.Pricemin+"-"+'PPS'+this.state.Pricemax})
     }
@@ -276,7 +281,7 @@ class Listingall extends Component {
       }
 
       if(Strainer == "Strainer_Price"){
-        this.setState({Pricemin:10000,Pricemax:1000000,Price:'Price'})
+        this.setState({Pricemin:0,Pricemax:1000000,Price:'Price'})
       }
 
      this.taghide();
@@ -312,7 +317,7 @@ class Listingall extends Component {
           {!this.props.hideTagHeader &&
             <div className="tag-header Strainerbox">
               <ul className="tag container">
-              <li className="tag__item"><a href="/experience"><img src="../../images/Experience.png" alt=""/><span>{language.Experience}</span></a></li>
+              <li className="tag__item"><a><img src="../../images/Experience.png" alt=""/><span>{language.Experience}</span></a></li>
               <li className="tag__item"><span className="location-tag Strainerspan" data-Strainer="Strainer_City" onClick={(e)=>this.Strainer(e)}>{this.state.Citys_type}</span>
                   <div className={this.state.Strainer_City ? "Strainer_City show" : "Strainer_City hide"}>
                       <div className="Strainer_Home_Type">
@@ -342,9 +347,9 @@ class Listingall extends Component {
               <li className={this.state.Strainer_Guests ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_Guests" onClick={(e)=>this.Strainer(e)}>{Number(this.state.Adult) + Number(this.state.children) + Number(this.state.Baby)} {language.Adults}</span>
                   <div className={this.state.Strainer_Guests ? "Strainer_Guests show" : "Strainer_Guests hide"}>
                       <ul>
-                          <li><p className="col-lg-6 text-left">{language.Adult}</p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Adult:this.state.Adult > 1 ? this.state.Adult-1 : this.state.Adult})}>◀</span><span className="text">{this.state.Adult}</span><span className="Right" onClick={(e)=>this.setState({Adult:this.state.Adult >= 16 ? 16 : this.state.Adult+1})}>▶</span></p></li>
-                          <li><p className="col-lg-6 text-left text1">{language.children}<small>{language.years_old}</small></p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({children:this.state.children > 0 ? this.state.children-1 : this.state.children})}>◀</span><span className="text">{this.state.children}</span><span className="Right" onClick={(e)=>this.setState({children:this.state.children >= 5 ? 5 : this.state.children+1})}>▶</span></p></li>
-                          <li><p className="col-lg-6 text-left text1">{language.Baby}<small>{language.Under_2_years_of_age}</small></p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Baby:this.state.Baby > 0 ? this.state.Baby-1 : this.state.Baby})}>◀</span><span className="text">{this.state.Baby}</span><span className="Right" onClick={(e)=>this.setState({Baby:this.state.Baby >= 5 ? 5 : this.state.Baby+1})}>▶</span></p></li>
+                          <li><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">{language.Adult}</p><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Adult:this.state.Adult > 1 ? this.state.Adult-1 : this.state.Adult})}>◀</span><span className="text">{this.state.Adult}</span><span className="Right" onClick={(e)=>this.setState({Adult:this.state.Adult >= 16 ? 16 : this.state.Adult+1})}>▶</span></p></li>
+                          <li><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left text1">{language.children}<small>{language.years_old}</small></p><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({children:this.state.children > 0 ? this.state.children-1 : this.state.children})}>◀</span><span className="text">{this.state.children}</span><span className="Right" onClick={(e)=>this.setState({children:this.state.children >= 5 ? 5 : this.state.children+1})}>▶</span></p></li>
+                          <li><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left text1">{language.Baby}<small>{language.Under_2_years_of_age}</small></p><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Baby:this.state.Baby > 0 ? this.state.Baby-1 : this.state.Baby})}>◀</span><span className="text">{this.state.Baby}</span><span className="Right" onClick={(e)=>this.setState({Baby:this.state.Baby >= 5 ? 5 : this.state.Baby+1})}>▶</span></p></li>
                       </ul>
                       <div className="operation">
                           <p className="cancel Left" onClick={(e)=>this.setState({Strainer_Guests:false})}>{language.Cancel}</p>
@@ -405,14 +410,15 @@ class Listingall extends Component {
                       </div>
                   </div>
               </li>
-              <li className={this.state.Strainer_More ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_More" onClick={(e)=>this.Strainer(e)}>More Fiters</span>
+              <li className={this.state.Strainer_More ? "tag__item active" : "tag__item"}><span className="Strainerspan" data-Strainer="Strainer_More" onClick={(e)=>this.Strainer(e)}>{language.More_Fiters}</span>
                   <div className={this.state.Strainer_More ? "Strainer_More  show" : "Strainer_More hide"}>
+                  <p>{language.Stay_tuned}</p>
                       <div className="Bedroom">
                           <h6>Bedroom and bed</h6>
                           <ul>
-                              <li><p className="col-lg-6 text-left">Number of beds</p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Adult:this.state.Adult > 1 ? this.state.Adult-1 : this.state.Adult})}>◀</span><span className="text">{this.state.Adult}</span><span className="Right" onClick={(e)=>this.setState({Adult:this.state.Adult >= 16 ? 16 : this.state.Adult+1})}>▶</span></p></li>
-                              <li><p className="col-lg-6 text-left text1">Bedroom</p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({children:this.state.children > 0 ? this.state.children-1 : this.state.children})}>◀</span><span className="text">{this.state.children}</span><span className="Right" onClick={(e)=>this.setState({children:this.state.children >= 5 ? 5 : this.state.children+1})}>▶</span></p></li>
-                              <li><p className="col-lg-6 text-left text1">TOILET</p><p className="col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Baby:this.state.Baby > 0 ? this.state.Baby-1 : this.state.Baby})}>◀</span><span className="text">{this.state.Baby}</span><span className="Right" onClick={(e)=>this.setState({Baby:this.state.Baby >= 5 ? 5 : this.state.Baby+1})}>▶</span></p></li>
+                              <li><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">Number of beds</p><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Adult:this.state.Adult > 1 ? this.state.Adult-1 : this.state.Adult})}>◀</span><span className="text">{this.state.Adult}</span><span className="Right" onClick={(e)=>this.setState({Adult:this.state.Adult >= 16 ? 16 : this.state.Adult+1})}>▶</span></p></li>
+                              <li><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left text1">Bedroom</p><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({children:this.state.children > 0 ? this.state.children-1 : this.state.children})}>◀</span><span className="text">{this.state.children}</span><span className="Right" onClick={(e)=>this.setState({children:this.state.children >= 5 ? 5 : this.state.children+1})}>▶</span></p></li>
+                              <li><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left text1">TOILET</p><p className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right"><span className="Left" onClick={(e)=>this.setState({Baby:this.state.Baby > 0 ? this.state.Baby-1 : this.state.Baby})}>◀</span><span className="text">{this.state.Baby}</span><span className="Right" onClick={(e)=>this.setState({Baby:this.state.Baby >= 5 ? 5 : this.state.Baby+1})}>▶</span></p></li>
                           </ul>
                       </div>
                       <div className="Flashover options">
@@ -560,7 +566,7 @@ class Listingall extends Component {
           }
           <div className="container experience ALL" onClick={(e)=>this.taghide()}>
             <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
-                <h2>{language.All_experiences}</h2>
+                <h2>{language.All_home}</h2>
                 <div className={this.state.experienceList == 1 ? "show All_experiences row" : "hide All_experiences row"}>
                     {showListingsRows.map(item => (
                       <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 listing-card">

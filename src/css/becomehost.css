@@ -1,4 +1,3 @@
-
 @font-face { 
   font-family: RobotoRegular; 
   src: url('../fonts/Roboto-Regular.ttf'); 
@@ -1044,7 +1043,7 @@ div.Strainer_Home_Type .checkbox .divinput,
   position: relative;
 }
 .Step2_1 .rightbox{
-  top:10%;
+  top:5%;
   right:7%;
   position: absolute;
   width: 300px;
@@ -1069,7 +1068,7 @@ div.Strainer_Home_Type .checkbox .divinput,
   margin-bottom: 8%;
 }
 .Step2_2 .rightbox{
-  top:18%;
+  top:5%;
   right:3%;
   position: absolute;
   width: 300px;
@@ -1089,6 +1088,7 @@ div.Strainer_Home_Type .checkbox .divinput,
 .Step2_1 .photos .photosipt>h3>p{
   font-size: 3rem;
 }
+.Signup .closeok,
 .Step2_1 .photos .photosipt>h3>button{
   font-size: 3rem;
   background: linear-gradient(to right, #e9406a ,#2b2051);
@@ -1277,6 +1277,7 @@ div.Strainer_Home_Type .checkbox .divinput,
   height: 150px;
   padding: 2% 3%;
   font-size: 1.6rem;
+  border:1px solid #aaa;
 }
 .Step2_3 h2{
   margin: 2% 0 5%;
@@ -2000,6 +2001,26 @@ div.Strainer_Home_Type .checkbox{
   margin:8% 0 0;
 }
 /*Step3_21 end*/
+.success{
+  margin: 5% 0;
+}
+.success h1{
+  text-align: center;
+  font-size: 3rem;
+  color: #f6416c;
+  margin-bottom: 5%;
+}
+.success .btn{
+  color: #f6416c;
+  margin: 0 40%;
+  width: 20%;
+  border:1px solid #f6416c;
+  background: #fff;
+}
+.success .btn:hover{
+  background: #f6416c;
+  color: #fff;
+}
 .Explainwhy span.close{
   float: right;
   font-size: 3rem;

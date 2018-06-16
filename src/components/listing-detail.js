@@ -13,6 +13,8 @@ import Modal from 'react-modal';
 import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
 import languageService from '../services/language-service';
+import GuestRegister from './guest-register';
+import { Link } from 'react-router-dom';
 
 
 const qr = new EthereumQRPlugin();
@@ -25,6 +27,7 @@ class ListingsDetail extends Component {
     this.CONST = {
       weiToEther: 1000000000000000000,
       weiToGwei:1000000000,
+      GweiToEther:1000000000,
       weiToUSD:1000000,
       
     }
@@ -34,6 +37,7 @@ class ListingsDetail extends Component {
       SUBMIT: 2,
       PROCESSING: 3,
       PURCHASED: 4,
+      Insufficient: 5,
     }
     
     this.state = {
@@ -60,15 +64,16 @@ class ListingsDetail extends Component {
       neighbourhoodurl:'../images/detail-content-map.png',
       neighbourhoodlist:[
           {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
-          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking AirBnB in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended AirBnB to get an affordable yet convenient locati…Read more'},
+          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking PopulStay in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended PopulStay to get an affordable yet convenient locati…Read more'},
           {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
-          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with Airbnb! Will definitely book this place again.'},
+          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with PopulStay! Will definitely book this place again.'},
           {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
-          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking AirBnB in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended AirBnB to get an affordable yet convenient locati…Read more'},
+          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking PopulStay in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended PopulStay to get an affordable yet convenient locati…Read more'},
           {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
-          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with Airbnb! Will definitely book this place again.'}
+          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with PopulStay! Will definitely book this place again.'}
       ],
       ethBalance:0,
+      ppsBalance:0,
       usddatalist:[],
       modalIsOpen: false,
       qrurl:"",
@@ -76,6 +81,7 @@ class ListingsDetail extends Component {
       Progress:0,
       Progresshide:0,
       languagelist:{},
+      clicklogout:false,
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -83,6 +89,10 @@ class ListingsDetail extends Component {
     this.closeModal = this.closeModal.bind(this);
 
     languageService.language();
+  }
+
+  onLogOut = (value) =>{
+    this.setState({ clicklogout:value });
   }
 
   componentWillUnmount(){
@@ -190,7 +200,7 @@ class ListingsDetail extends Component {
               for(var i =0 ;i < descriptioninfo.selectedPictures.length;i++)
               {
                 var slide ={};
-                slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
+                slide.imgageUrl = descriptioninfo.selectedPictures[i+1].imagePreviewUrl;
                 slideArray.push(slide);
                 this.setState({Progress:this.state.Progress+50})
 
@@ -220,7 +230,7 @@ class ListingsDetail extends Component {
 
 
     if (this.props.listingId) {
-      //this.loadOrdered(this.props.listingId);
+      this.loadOrdered(this.props.listingId);
       this.loadListing();
      
     }
@@ -230,17 +240,15 @@ class ListingsDetail extends Component {
       web3Service.getETHBalance(window.address).then((data)=>{
         this.setState({ ethBalance:data/this.CONST.weiToGwei});
       });
+      ppsService.getBalance(window.address).then((data)=>{
+        this.setState({ ppsBalance:data});
+      });
+      this.setState({login:true});
     }
 
-    if(window.data){
-      this.setState({ user:window.data.user});
-    }else{
-      guestService.getGuesterInfo(window.address).then((data)=>{
+    guestService.getGuesterInfo(window.address).then((data)=>{
         this.setState({ user:data.user});
-        window.data = data;
-      });
-    }
-  
+    });
   }
 
 
@@ -248,7 +256,7 @@ class ListingsDetail extends Component {
     var dayS = new Date(day).getTime();
     var DateLists = this.state.DateLists;
     for(var i=0;i<DateLists.length;i++){
-      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end+43200000){
+      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end-43200000){
         console.log(new Date(dayS));
         return new Date(dayS);
       }
@@ -257,28 +265,27 @@ class ListingsDetail extends Component {
       
 
 
-  // loadOrdered = (id) =>{
-  //     houselistingService.getHouseInfoById(id).then((data)=>{
-  //       if(data)
-  //       {
-  //         var slide ={};
-  //         slide.imgageUrl = data.profile.previewImage;
-  //         this.state.slides.push(slide);
-  //       }
+  loadOrdered = (id) =>{
+      houselistingService.getHouseInfoById(id).then((data)=>{
+        if(data)
+        {
+          var slide ={};
+          slide.imgageUrl = data.profile.previewImage;
+          this.state.slides.push(slide);
+        }
 
-  //       if(data.bookedDate != undefined ){
-  //           this.setState({DateLists: data.bookedDate.data});
-  //       }
-  //     });
-  // }
+        if(data.bookedDate != undefined ){
+            this.setState({DateLists: data.bookedDate.data});
+        }
+      });
+  }
 
   handleBooking() {
-    console.log(this.state.descriptioninfo)
     let unitsToBuy = 0;
     if(this.state.price == 0){
-        var Total_price = this.state.ppsPrice * this.DateDays() + 26
+        var Total_price = this.state.ppsPrice * this.DateDays() 
     }else{
-        var Total_price = this.state.price * this.DateDays() + 26
+        var Total_price = this.state.price * this.DateDays() 
     }
 
 
@@ -290,14 +297,19 @@ class ListingsDetail extends Component {
 
     if( this.state.priceActive == 1 )
     {
-      promise = ppsService.setPreOrder(          
-       this.state.lister,
-       Total_price * unitsToBuy,
-       this.props.listingId, 
-       this.state.checkInDate.toDate().getTime(), 
-       this.state.checkOutDate.toDate().getTime(),
-       unitsToBuy
-      );
+      if(this.state.ppsBalance < Total_price){
+        this.setState({step:this.STEP.Insufficient});
+      }else{
+        console.log(Total_price)
+        promise = ppsService.setPreOrder(          
+         this.state.lister,
+         Total_price * unitsToBuy,
+         this.props.listingId, 
+         this.state.checkInDate.toDate().getTime(), 
+         this.state.checkOutDate.toDate().getTime(),
+         unitsToBuy
+        );
+      }
 
     } 
     else if( this.state.priceActive == 2 )
@@ -334,7 +346,7 @@ class ListingsDetail extends Component {
         this.closeModal();
         promise =    houselistingService.setPreOrderByETH(          
                                          this.state.lister,
-                                         Total_price * unitsToBuy,
+                                         Total_price * unitsToBuy* this.CONST.GweiToEther,
                                          this.props.listingId, 
                                          this.state.checkInDate.toDate().getTime(), 
                                          this.state.checkOutDate.toDate().getTime(),
@@ -348,6 +360,7 @@ class ListingsDetail extends Component {
         promise =    houselistingService.setPreOrderByETH(          
                                          this.state.lister,
                                          Total_price * unitsToBuy,
+                                         Total_price * unitsToBuy * this.CONST.GweiToEther,
                                          this.props.listingId, 
                                          this.state.checkInDate.toDate().getTime(), 
                                          this.state.checkOutDate.toDate().getTime(),
@@ -368,6 +381,9 @@ class ListingsDetail extends Component {
       console.log(error)
       this.setState({step: this.STEP.VIEW})
     })
+
+    this.setState({checkInDate:null});
+    this.setState({checkOutDate:null});
   }
 
   DateDays() {
@@ -380,10 +396,10 @@ class ListingsDetail extends Component {
 
   calcTotalPrice() {
     if(this.state.price == 0){
-      return this.state.ppsPrice * this.DateDays() + 26
+      return this.state.ppsPrice * this.DateDays() * this.state.guest
     }
     else{
-      return this.state.price * this.DateDays() + 26
+      return this.state.price * this.DateDays() * this.state.guest
     }
   }
 
@@ -468,6 +484,15 @@ class ListingsDetail extends Component {
           <Overlay imageUrl="/images/circular-check-button.svg">
             <p>Booking was successful.</p>
             <button><a href="#" onClick={()=>window.location.reload()}>Reload page</a></button>
+          </Overlay>
+        }
+
+        {this.state.step===this.STEP.Insufficient &&
+          <Overlay imageUrl="/images/circular-check-button.svg">
+            <p>{language.Insufficient_balance}</p>
+            <Link to='/managepanel'>
+              <button className="balance">{language.Deposit}</button>
+            </Link>
           </Overlay>
         }
 
@@ -611,7 +636,7 @@ class ListingsDetail extends Component {
                   </div>
                 </li>
                 <li>
-                  <p>{language.heck_In}</p>
+                  <p>{language.Check_in}</p>
                   <div className="divxx">
                     <img src="../images/detail-xx01.png" alt="" />
                     <img src="../images/detail-xx01.png" alt="" />
@@ -721,7 +746,7 @@ class ListingsDetail extends Component {
                       <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}{language.nights}
                           <img src="../images/detail-img13.png" />
                       </span>
-                      <span className = "RightSpan">{(this.state.price) * this.DateDays() * this.state.guest}</span>
+                      <span className = "RightSpan">{this.calcTotalPrice()}</span>
                     </li>
                     <li className="pinkColor">
                       <span className = "LeftSpan">{language.Special_Offer_20_off}
@@ -736,12 +761,6 @@ class ListingsDetail extends Component {
                       <span className = "RightSpan">0</span>
                     </li>
                     <li className="blueColor">
-                      <span className = "LeftSpan">{language.Cleaning_fee}
-                          <img src="../images/detail-img13.png" />
-                      </span>
-                      <span className = "RightSpan">26</span>
-                    </li>
-                    <li className="blueColor">
                       <span className = "LeftSpan">{language.Total_Price}</span>
                       <span className = "RightSpan">
                         {this.state.priceCurrency}: { this.calcTotalPrice()}
@@ -753,7 +772,7 @@ class ListingsDetail extends Component {
 
              <div className="detail-summary__action">
                  {
-                    this.props.listingId &&
+                    this.props.listingId && this.state.login &&
                     <button
                       className="bg-pink color-blue btn-lg btn-block text-bold text-center"
                       onClick={this.handleBooking}
@@ -762,7 +781,11 @@ class ListingsDetail extends Component {
                       >
                         {language.Book}
                     </button>
-                }    
+                }  
+                {
+                  !this.state.login &&
+                  <GuestRegister clicklogout={this.state.clicklogout} type='2' onLogOut={this.onLogOut} />
+                }  
 
             
              <h4 className="text-center">{language.You_wont_be_charged_yet}</h4>

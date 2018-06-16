@@ -32,18 +32,14 @@ class HostInfo extends React.Component {
     this.setState( { account: window.address, id:  window.address });
 
       hostService.getHouseListing( window.address).then((data)=>{
+        console.log(data)
         this.setState({ roomInfoList:data});
-        window.data = data;
        });
 
-    if(window.data){
-        this.setState({ ppsBalance:window.data});
-    }else{
+   
         ppsService.getBalance( window.address).then((data)=>{
           this.setState({ ppsBalance:data});
-            window.data = data;
         });
-    }
 
   }
    
@@ -51,26 +47,26 @@ class HostInfo extends React.Component {
   render() {
       const language = this.state.languagelist;
     return (
-      <div className="HostManagment">
-      <h1>{language.Host_Managment_Panel}</h1>
-        <div className="overflowAuto">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>{language.Category}</th>
-                <th>{language.Beds}</th>
-                <th>{language.Location}</th>
-                <th>{language.Price}</th>
-                <th>{language.Status}</th>
-              </tr>
-            </thead>
-            <tbody>
-             {this.state.roomInfoList.map(row => (
-                    <HostRoomList row={row}/>
-              ))}
-             
-            </tbody>
-          </table>
+      <div className="info">
+        <h1>{language.Host_Managment_Panel}</h1>
+        <Link to='/create'>
+          <button className={this.state.roomInfoList.length == 0 ? 'show Add_a_house' : 'hide Add_a_house'}>{language.Add_a_house}</button>
+        </Link>
+        <div  className={this.state.roomInfoList.length == 0 ? 'hide HostManagment' : 'show HostManagment'}>
+          <div className="auto">
+            <div className="divtr">
+              <div>{language.Category}</div>
+              <div>{language.Bathrooms}</div>
+              <div>{language.Location_type}</div>
+              <div>{language.Price}</div>
+              <div>{language.Status}</div>
+            </div>
+            <div className="overflowAuto">
+               {this.state.roomInfoList.map(row => (
+                      <HostRoomList row={row}/>
+                ))}
+            </div>
+          </div>
         </div>
       </div>
     );

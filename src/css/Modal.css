@@ -14,7 +14,7 @@
   width: 410px;
   background: #fff;
   border-radius: 7px;
-  padding:2%;
+  padding:70%;
   position: absolute;
   top:50% !important;
   left: 50% !important;
@@ -23,6 +23,9 @@
   border-radius: 20px;
   transform: translate(-50%,-50%) !important;
   border-radius: 25px !important;
+}
+.overlay-box button a{
+  color: #f5426c;
 }
 .Signup .dropdownBtn{
   position: relative;
@@ -56,8 +59,8 @@
   transform: translate(-50%,-50%);
 }
 .userBox .userPhoto{
-  width: 90%;
-  height: 100%;
+  width: 80%;
+  height: 98%;
   position: relative;
   overflow: hidden;
   background-size: cover;
@@ -111,9 +114,12 @@
 .userBox .userbtn>div{
   margin-left: 15%;
 }
+.userBox .userqrurl{
+  margin-top: 0.8%;
+}
 .userBox .photo{
-  width: 86%;
-  margin:0 7%;
+  width: 76%;
+  margin: 0 10%;
 }
 .userBox .address{
   word-break: break-all;
@@ -131,6 +137,26 @@
 .userBox p{
   display: inline-block;
 }
+.No_order{
+  color:#f6416c ;
+  margin: 100px auto;
+  padding: 1% 5%;
+  font-size: 1.8rem;
+  text-align: center;
+}
+.Add_a_house{
+  border:1px solid #f6416c;
+  background:#fff;
+  color:#f6416c ;
+  margin: 100px auto;
+  padding: 1% 5%;
+  font-family: RobotoThin; 
+  font-size: 1.8rem;
+}
+.Add_a_house:hover{
+  color:#fff ; 
+  background:#f6416c;
+}
 .GuestManagment h1,
 .HostManagment h1{
   margin-left: -2%;
@@ -141,59 +167,75 @@
   margin-left: 7%;
   margin-bottom: 4%;
   position: relative;
+  overflow: hidden;
+}
+.auto{
+  min-width: 800px;
+  overflow: auto;
 }
 .overflowAuto{
   max-height: 500px;
   overflow: auto;
 }
-.GuestManagment th,
-.HostManagment th{
+.GuestManagment>.divtr,
+.HostManagment>.divtr{
   border-top: 1px solid #151b4e !important;
-  border-bottom: 1px solid #151b4e !important;
-  font-family: RobotoBold; 
-  font-size: 1.6rem;
-  padding: 1.5% 0 !important;
-  width: 15%;
-  text-align:center;
 }
-.GuestManagment td,
-.HostManagment td{
-  width: 15%;
+.GuestManagment .divtr,
+.HostManagment .divtr{
+  overflow: hidden;
+  border-bottom: 1px solid #151b4e !important;
+}
+.GuestManagment .divtr>div,
+.HostManagment .divtr>div{
+  float: left;
+  width: 16.5%;
+  text-align: center;
+  font-family: RobotoBold; 
+  font-size: 1.8rem;
+  padding: 1% 0 !important;
+}
+.HostManagment .divtr>div{
+  width: 20%;
+}
+.GuestManagment .overflowAuto .divtr>div,
+.HostManagment .overflowAuto .divtr>div{
+  width: 16.5%;
   text-align:center;
   color: #999;
   font-family: RobotoThin; 
-  padding: 1% 0 !important;
+  padding: 0.8% 0 !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 1.6rem;
 }
-.GuestManagment td button{
+
+.HostManagment .overflowAuto .divtr>div{
+  width: 20%;
+}
+.GuestManagment .divtr>div button{
   background: #fff;
   border:1px solid #f6416c;
   color:#f6416c;
   line-height: 0;
   height: 30px;
 }
-.GuestManagment td button:hover{
+.GuestManagment .divtr>div button:hover{
   border:1px solid #f6416c;
   color:#fff;
   background: #f6416c;
 }
-.GuestManagment td p{
+.GuestManagment .divtr>div p{
   width: 100px;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
   margin: 0 auto;
 }
-.GuestManagment td span,
-.GuestManagment td a{
+.GuestManagment .divtr>div span,
+.GuestManagment .divtr>div a{
   font-size: 1.6rem;
-}
-.GuestManagment tr,
-.HostManagment tr{
-  border-bottom: 1px solid #aaa !important;
 }
 .userbtn>div{
   padding-bottom: 9.5%;
@@ -212,6 +254,7 @@
   background: #f6416c;
   color: #fff;
 }
+.modalcode h3,
 .Create h2,
 .Create1 h2,
 .PirvateKey h2,
@@ -228,8 +271,10 @@
   font-size: 2.2rem;
   margin: 0 0 3%;
 }
+.success h1 span.glyphicon-refresh,
 .deposit span.glyphicon-refresh,
 .submit span.glyphicon-refresh{
+  color: #f6416c;
   font-size: 2rem;
   margin-left: 2%;
   animation:refresh 1s infinite;
@@ -272,6 +317,7 @@
   outline:none;
   margin: 0;
 }
+.modalcode button,
 .clear button,
 .PirvateKey button,
 .Gas button,
@@ -280,7 +326,9 @@
 .Create button,
 .Create1 button,
 .Import button,
-.withdraw button{
+.withdraw button,
+.overlay-box .balance,
+.clear .balance{
   width: 30%;
   padding: 1% 0;
   margin: 6% 5% 0;
@@ -288,12 +336,16 @@
   font-family: RobotoBold; 
   border:1px solid #f6416c;
 }
+.modalcode button,
 .clear button.Left,
 .Gas button.Left,
 .deposit button.Left,
 .Sign button.Left,
 .Import button.Left,
-.withdraw button.Left{
+.withdraw button.Left,
+.overlay-box .balance,
+.deposit .balance,
+.clear .balance{
   color:#f6416c;
   background: #fff;
 }
@@ -315,6 +367,7 @@
   color: #fff;
   border:1px solid #f6416c;
 }
+.modalcode button,
 .Create button,
 .Create1 button,
 .PirvateKey button,
@@ -338,6 +391,9 @@
   position: absolute;
   right: 0;
   top:0;
+}
+.clear .Please_logn_in{
+  text-align: center;
 }
 .deposit .text2{
   font-family: RobotoBold; 
@@ -423,9 +479,12 @@
   font-family: RobotoThin; 
   color: #8b8b8a !important;
 }
-.Signup img.closeok{
-  cursor: pointer;
-  width: 45%;
+.Signup .closeok{
+  width: 50%;
+  font-size: 1.8rem;
+  text-align: center;
+  float: left;
+  border-radius: 8px;
 }
 .Signup .closecancel{
   width: 50%;
@@ -433,26 +492,26 @@
   border: none !important;
   color: #131c4e;
   font-size: 1.8rem;
-  margin-left: 2%;
   text-align: center;
+  float: right;
 }
 .Signup .closecancel:hover{
   color: #131c4e;
 }
 .ReactModal__Content{
-  position: initial !important;
   background: none !important;
   border: none !important;
+  top: 50%!important;
+  bottom: 50%!important;
+  left: 50%!important;
+  right:50%!important;
+  overflow: initial !important;
 }
 /*.ReactModal__Content{
   position: fixed;
   width: 100%;
   height:100%;
   overflow: hidden !important;
-  top: 0!important;
-  bottom: 0!important;
-  left: 0!important;
-  right:0!important;
 }*/
 .Import .Left,
 .Import .Right{
@@ -488,6 +547,7 @@
 }
 .withdraw .submitbox label{
   font-size: 1.8rem;
+  margin-top: 3%;
 }
 .withdraw table tr td.td5{
   width: 35%;
@@ -524,4 +584,24 @@
 .withdraw button{
   width:35%;
   margin-top: 3%;
+}
+.overlay-box .balance,
+.deposit .balance,
+.clear .balance{
+  width: 50%;
+  margin: 5% 25% 0;
+}
+.footer .modal-dialog{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%) !important;
+}
+.footer .modal-dialog button{
+  padding:1% 3%;
+}
+.footer .modal-dialog button span{
+  font-size: 2rem;
 }
