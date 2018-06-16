@@ -43,7 +43,13 @@ class Search extends Component {
       {
        
         this.setListingRows(codes);
-        this.setState({Progress:this.state.Progress+35})
+        this.setState({Progress:this.state.Progress+100})
+        if (this.state.Progress>=100) {
+          this.timerID = setTimeout(
+            () => this.setState({Progresshide:1}),
+            1000
+          );
+        }
       });
   }
 
@@ -60,32 +66,15 @@ class Search extends Component {
   }
   
   setListingRows =(codes) =>{
-    this.setState({Progress:this.state.Progress+35})
     this.setState({districtCodes:codes.data});
       if( window.listingRows )
       {
          this.setState({ listingRows: window.listingRows });
-         this.setState({Progress:this.state.Progress+35})
-         if (this.state.Progress>=100) {
-            this.timerID = setTimeout(
-              () => this.setState({Progresshide:1}),
-              1000
-            );
-          }
       }else{
           var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
               this.setState({ listingRows: data });
-              this.setState({Progress:this.state.Progress+35})
 
               window.listingRows = data;
-              this.setState({Progress:this.state.Progress+35});
-              
-              if (this.state.Progress>=100) {
-                this.timerID = setTimeout(
-                  () => this.setState({Progresshide:1}),
-                  1000
-                );
-              }
           });
       }
   }
