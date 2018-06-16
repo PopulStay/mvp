@@ -283,4 +283,22 @@ jerry：  21）上传android的基础版本；jerry  优先级：1
 
 
 
+6-16
+
+1）存币增加对公司账户前后价格差别的核查，并记录到日志表；  --eric
+2）Web Token开发，登录注册模式的改变，私有Key的加密和安全协议。---Eric  1
+3）android的restful调用，首页检索和展示。 ---Jerry。eric整理API  1
+4）增加提币审核后台;          --eric
+5) 将大组件抽出，形成小组件；  --yan 优先级 4  
+7）profile的头像上传；  yan ding。 优先级：2
+8）真实的地图功能；   yan  优先级：3
+9）help页面；  chrite  yan eric。优先级：3
+10) 地图功能； yan    优先级：3 
+11）URL长度问题； ding  优先级：3
+12）房源的主图片的突出；yan。优先级：3
+13）instant booking ／booking 问题； ？待定
+14）订单详细页面的增加；eric yan  优先级：2
+15）调查安卓的Web3j用法。Eric， Jerry。2
+
+
 
