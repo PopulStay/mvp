@@ -250,6 +250,23 @@ class HouseInfoListingService {
   }
 
 
+  getAllLists(districtCode){
+
+    return new Promise((resolve, reject) => {
+      axios.get(process.env.Server_Address+'HouseInformation?districeCode='+districtCode)
+      .then((response)=> {
+        resolve(response.data);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
+    })
+
+   //   var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address)
+   //   return contract.methods.getUUIDS(districtCode).call();
+  }
+
+
 
   getHouseId(districtCode,from,to,guests,place){
 

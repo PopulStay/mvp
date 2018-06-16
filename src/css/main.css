@@ -5397,6 +5397,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   border-radius: 50%;
   overflow: hidden;
   margin: 0 1%;
+  cursor: pointer;
 }
 
 .pagination > li > a,

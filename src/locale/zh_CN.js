@@ -963,4 +963,4 @@ export const Check = '查看';
 export const Become_a_Host = '成为房东';
 export const Help_Center = '帮助中心';
 export const About_Populstay = '关于潮箱';
-export const Become_an_organiser = '成为组织者';
+export const Become_an_organiser = '成为体验者';

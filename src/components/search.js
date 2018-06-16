@@ -16,7 +16,7 @@ class Search extends Component {
         checkOutDate: 0,
         guests:1,
         location:"Tokyo",
-        locationName:"Tokyo",
+        locationName:'',
         listingRows: [],
         listingsPerPage: 6,
         districtCodes:[],
@@ -37,7 +37,10 @@ class Search extends Component {
 
   componentDidMount() {
 
-    this.setState({ languagelist:window.languagelist });
+    this.setState({ 
+      languagelist:window.languagelist,
+      locationName:window.languagelist.TOKYO
+    });
 
       houselistingService.getDistrictCodes().then((codes)=>
       {
@@ -54,13 +57,15 @@ class Search extends Component {
   }
 
   setURL =()=> {
-      if(this.state.checkInDate && this.state.checkOutDate )
-      {
-        var checkOutDate = this.state.checkOutDate.toDate().getTime();
-        var checkInDate = this.state.checkInDate.toDate().getTime();
+        var checkOutDate = this.state.checkOutDate;
+        var checkInDate = this.state.checkInDate;
+        if(this.state.checkInDate && this.state.checkOutDate )
+        {
+          checkOutDate = checkOutDate.toDate().getTime();
+          checkInDate = checkInDate.toDate().getTime();
         }
 
-        var url = "/home/search?checkInDate="+checkInDate+"&checkOutDate="+checkInDate+"&guests="+this.state.guests+"&location="+this.state.location
+        var url = "/home/search?checkInDate="+checkInDate+"&checkOutDate="+checkInDate+"&guests="+this.state.guests+"&location="+this.state.locationName
         this.setState({url:url});
         window.location.href=url;
   }
@@ -99,23 +104,23 @@ class Search extends Component {
             <span className="color-pink text-bold">{language.PopulStay_Superior_Guest_Experience_Maximized_Owner_Profit}</span>
             <h4>{language.Choose_your_city}</h4>
             <ul className="form__location row">
-                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4 active" data-name="Tokyo"  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != "Tokyo" ? "../images/location-13_1.png" : "../images/location-13.png"} alt="" />
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4 active" data-name={language.TOKYO}  onClick={(e)=>this.locationName(e)}>
+                    <img src={this.state.locationName != language.TOKYO ? "../images/location-13_1.png" : "../images/location-13.png"} alt="" />
                 </li>
-                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="New York"  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != "New York" ? "../images/location-14_1.png" : "../images/location-14.png"} alt="" />
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.NEW_YORK}  onClick={(e)=>this.locationName(e)}>
+                    <img src={this.state.locationName != language.NEW_YORK ? "../images/location-14_1.png" : "../images/location-14.png"} alt="" />
                 </li>
-                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="Shanghai"  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != "Shanghai" ? "../images/location-15_1.png" : "../images/location-15.png"} alt="" />
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.SHANGHAI}  onClick={(e)=>this.locationName(e)}>
+                    <img src={this.state.locationName != language.SHANGHAI ? "../images/location-15_1.png" : "../images/location-15.png"} alt="" />
                 </li>
-                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="London"  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != "London" ? "../images/location-16_1.png" : "../images/location-16.png"} alt="" />
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.LONDON}  onClick={(e)=>this.locationName(e)}>
+                    <img src={this.state.locationName != language.LONDON ? "../images/location-16_1.png" : "../images/location-16.png"} alt="" />
                 </li>
-                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="Paris"  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != "Paris" ? "../images/location-17_1.png" : "../images/location-17.png"} alt="" />
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.PARIS}  onClick={(e)=>this.locationName(e)}>
+                    <img src={this.state.locationName != language.PARIS ? "../images/location-17_1.png" : "../images/location-17.png"} alt="" />
                 </li>
-                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name="Singapore"  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != "Singapore" ? "../images/location-18_1.png" : "../images/location-18.png"} alt="" />
+                <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.SINGAPORE}  onClick={(e)=>this.locationName(e)}>
+                    <img src={this.state.locationName != language.SINGAPORE ? "../images/location-18_1.png" : "../images/location-18.png"} alt="" />
                 </li>
             </ul>
             <form action="">
@@ -156,7 +161,7 @@ class Search extends Component {
                             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 guestsnum Right">
                                 <div className="form-group">
                                     <label>{language.location}</label>
-                                    <input type="text" className="form-control input-lg" value={this.state.location} onChange={(e)=> this.setState({location: e.target.value}) }/>
+                                    <input type="text" className="form-control input-lg" value={this.state.locationName} onChange={(e)=> this.setState({locationName: e.target.value}) }/>
                                 </div>
                             </div>
 
@@ -191,8 +196,11 @@ class Search extends Component {
                     </div>
                   ))}
             </div>
+            <div className={showListingsRows.length == 0 ? "show divLoad" : 'hide divLoad'}>
+              <img src="images/loader.gif" />
+            </div>
             <Link to="/all">
-            <h4 className={this.state.listingRows.length>=8 ? 'show' : 'hide'}>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
+            <h4 className={this.state.listingRows.length>=6 ? 'show' : 'hide'}>{language.Show_all} ({this.state.listingRows.length > 99 ? this.state.listingRows.length+"+" : this.state.listingRows.length})</h4>
             </Link>
         </div>
         <div className="container index_home">
