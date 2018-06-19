@@ -47,6 +47,7 @@ class PreOrderService {
 
               axios.post(process.env.Server_Address+'checkin/',params)
               .then((response)=> {
+                //state:0准备提交。1 已经提交 2 已经写入以太链
                 resolve(response);
               })
               .catch(function (error) {
