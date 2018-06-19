@@ -114,7 +114,6 @@ class ListingsDetail extends Component {
 
 
   loadListing() {
-    console.log(this.props)
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
     var slideArray = this.state.slides;
 
@@ -183,8 +182,8 @@ class ListingsDetail extends Component {
 
 
         houseInfoDetailPromise.then((result)=>{
+          console.log(result)
               var descriptioninfo = result;
-          console.log(descriptioninfo)
              this.setState({descriptioninfo:descriptioninfo});
              if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
              {
@@ -256,7 +255,7 @@ class ListingsDetail extends Component {
     var dayS = new Date(day).getTime();
     var DateLists = this.state.DateLists;
     for(var i=0;i<DateLists.length;i++){
-      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end-43200000){
+      if(dayS>DateLists[i].start+86400000 && dayS<DateLists[i].end-129600000){
         console.log(new Date(dayS));
         return new Date(dayS);
       }

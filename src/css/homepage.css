@@ -144,6 +144,12 @@
 .form .index_home .listing-card{
   margin-bottom: 3%;
 }
+.form .divLoad{
+  text-align: center;
+}
+.form .divLoad img{
+  width: auto;
+}
 .form .overflow{
   margin: 0;
   overflow: hidden;
