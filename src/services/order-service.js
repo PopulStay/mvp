@@ -12,7 +12,7 @@ class PreOrderService {
     this.PreOrderContract = this.contract(PreOrder);
   }
 
-    confirm(address,ethOrPPS){
+  confirm(address,ethOrPPS,from,to,houseinfoid){
        return new Promise((resolve, reject) => {
       var contract = new window.web3.eth.Contract(PreOrder.abi,address);
       
@@ -40,10 +40,11 @@ class PreOrderService {
               transaction.sign(pk);
               var serializedTx = transaction.serialize().toString('hex');
 
-              params.id              = window.address+"_"+new Date().getTime();
+              params.from            = from+"000";//+"000" in order to match data in DB
+              params.to              = to+"000";
+              params.houseinfoid     = houseinfoid;
+              params.address         = address;
               params.transactionData = '0x' + serializedTx;
-              params.account         = window.address;
-              params.state           = 0;
 
               axios.post(process.env.Server_Address+'checkin/',params)
               .then((response)=> {

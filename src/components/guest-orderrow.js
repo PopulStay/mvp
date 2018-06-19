@@ -57,7 +57,14 @@ class GuestOrderRow extends Component {
       ethOrPPS = 'ETH';
     }
 
-    orderService.confirm( this.props.account , ethOrPPS ).then((tx)=>{
+    orderService.confirm( 
+                           this.props.account ,
+                           ethOrPPS ,
+                           this.state.from,
+                           this.state.to,
+                           this.state.houseInformation
+
+      ).then((tx)=>{
       console.log(tx)
        return orderService.waitTransactionFinished(tx)
      }).then((blockNumber) => {

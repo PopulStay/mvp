@@ -53,9 +53,7 @@ class GuestInfo extends React.Component {
     this.setState( { account: window.address, id: window.address });
 
     guestService.getPreorderList(window.address).then((data)=>{
-   
       this.setState({ orderlist:data});
-      console.log(this.state)
      });
 
     ppsService.getBalance(window.address).then((data)=>{
