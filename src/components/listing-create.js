@@ -11,6 +11,7 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import guestService from '../services/guest-service';
 import Housestep1 from './house-step1';
 import languageService from '../services/language-service';
+import GoogleMap from './GoogleMap';
 
 
 
@@ -1069,7 +1070,7 @@ class ListingCreate extends Component {
               <p className="text1">11-1318,Singapore,541189,Singapore</p>
               
               <div className="Map">
-                <img src="./images/search-map.jpg" />
+                    <GoogleMap />
               </div>
 
 

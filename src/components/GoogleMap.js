@@ -8,17 +8,14 @@ class GoogleMap extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        lat:59.955413,
-        lng:30.337844,
+        lat:9.6075,
+        lng:8.9303,
         listingRows: [],
-        greatPlaces: [
-          {id: '￥148', lat: 59.955413, lng: 30.337844},
-          {id: '￥588', lat: 59.724, lng: 30.080}
-        ]
+        greatPlaces: []
       };
   }
 
-  componentDidMount() {
+  componentWillMount () {
       houselistingService.getDistrictCodes().then((codes)=>
       {
         this.setListingRows(codes);
@@ -27,16 +24,30 @@ class GoogleMap extends Component {
 
   setListingRows =(codes) =>{
     var uuids = houselistingService.getAllLists(codes.data[0].id).then((data)=>{
-       
+        var greatPlaces = [];
+        for(var i=0;i<data.length;i++){
+          var obj = {};
+          var latnum = (Math.random()*20).toFixed(4);
+          var lngnum = (Math.random()*18).toFixed(4);
+          obj.id =  data[i].price;
+          obj.lat =  latnum;
+          obj.lng =  lngnum;
+          greatPlaces.push(obj);
+        }
 
-        this.setState({ listingRows: data});
+        console.log(greatPlaces)
+
+        this.setState({ 
+          listingRows: data,
+          greatPlaces:greatPlaces,
+          lat:greatPlaces[0].lat,
+          lng:greatPlaces[0].lng
+        });
     });
   }
 
-
   render() {
     const AnyReactComponent = ({ text }) => <div className="Mapicon">{text}<span></span></div>;
-
     const places = this.state.greatPlaces
     .map(place => {
       const {id, ...coords} = place;
@@ -55,7 +66,7 @@ class GoogleMap extends Component {
           <GoogleMapReact
             bootstrapURLKeys={{ key: 'AIzaSyD0WT2bQlRLoaTu1XbQ9U_kam0-xmmWxFA' }}
             defaultCenter={{lat:this.state.lat,lng:this.state.lng}}
-            defaultZoom={9}
+            defaultZoom={6}
           >
 
           {places}
