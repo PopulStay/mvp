@@ -244,9 +244,6 @@ class HouseInfoListingService {
         reject(error);
       });
     })
-
-   //   var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address)
-   //   return contract.methods.getUUIDS(districtCode).call();
   }
 
 
