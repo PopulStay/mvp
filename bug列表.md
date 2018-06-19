@@ -14,8 +14,8 @@
 向生成账户转入PPS，并且显示                   	O
 二维码                                     	O
 存币PPS PopulStay修正							O
-存币PPS Balance  修正							X  没实时更新				Eric修正 ：  O
-查看钱包信息                                  X  private Key存在0X		Eric修正 ：  O				
+存币PPS Balance  修正							X  没实时更新		    Eric修正 ：  O
+查看钱包信息                                  X  privateKey存在	Eric修正 ：  O				
 向其他账户取币									O	
 向自己账户取币									O		
 
