@@ -7934,8 +7934,9 @@ header .dropdown-menu a.dropdown-item1{
 }
 
 .footer__brand-info {
-  margin: 3% 10%;
+  margin: 3% auto;
   width: 80% !important;
+  max-width: 1200px !important;
 }
 
 .footer__brand-info div.dropdown {
@@ -8338,7 +8339,8 @@ header .dropdown-menu a.dropdown-item1{
   width: 100%;
 }
 .listings-grid{
-  margin: 0 10% 10%;
+  max-width: 1200px;
+  margin: 0 auto 10%;
 }
 
 /* end of tag-header */

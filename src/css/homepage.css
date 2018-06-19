@@ -18,6 +18,7 @@
 .form .index_content,
 .form .index_home{
   width: 75%;
+  max-width: 1080px !important;
   margin:1% auto 3%;
   padding: 3%;  
   border-radius: 4px;
@@ -27,9 +28,6 @@
 .form .index_home a{
   color: #4d4e4e;
   text-decoration: none;
-}
-.form .index_content{
-  margin:5% auto 0;
 }
 .form .container h1{
   font-size:5rem;

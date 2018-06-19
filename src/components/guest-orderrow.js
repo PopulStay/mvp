@@ -58,6 +58,7 @@ class GuestOrderRow extends Component {
     }
 
     orderService.confirm( this.props.account , ethOrPPS ).then((tx)=>{
+      console.log(tx)
        return orderService.waitTransactionFinished(tx)
      }).then((blockNumber) => {
       this.setState({ status: '1' })
@@ -77,7 +78,6 @@ class GuestOrderRow extends Component {
      }
 
 
-   
   }
 
   render() {
@@ -91,7 +91,7 @@ class GuestOrderRow extends Component {
         <div><Timestamp time={this.state.to} format='date'/></div>
         <div>{this.state.ethPrice == 0 ? this.state.price+"/PPS" : this.state.ethPrice/1000000000+"/ETH"}</div>
         { this.state.status === '0' &&<div><button className="btn-sn btn-danger" onClick={this.checkIn}>{language.Check_In}</button></div>}
-        { this.state.status === '1' &&<div>{language.Check_In}</div>}
+        { this.state.status === '1' &&<div>{language.ok_checkIn}</div>}
       </div>
     
     )

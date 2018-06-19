@@ -948,6 +948,7 @@ export const TX = '提交事务';
 export const Operation = '操作';
 export const Wallet_Size = '提取数量';
 export const Submit = '提交';
+export const ok_checkIn = '已入住';
 export const state0 = '申请提币';
 export const state1 = '在申请中';
 export const state2 = '完成审核';

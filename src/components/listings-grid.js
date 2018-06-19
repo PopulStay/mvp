@@ -4,6 +4,8 @@ import Pagination from 'react-js-pagination'
 import { withRouter } from 'react-router'
 import ListingCard from './listing-card'
 import languageService from '../services/language-service';
+import GoogleMap from './GoogleMap'
+
 
 class ListingsGrid extends Component {
 
@@ -96,7 +98,7 @@ class ListingsGrid extends Component {
             />
           </div>
           <div className="col-md-4 col-lg-4">
-            <img src="../../images/search-map.jpg" />
+            <GoogleMap />
           </div>
         </div>
         
