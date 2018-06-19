@@ -9,20 +9,12 @@ class IpfsService {
       return IpfsService.instance
     }
 
-    // If connecting to a local IPFS daemon, set envionment variables
-    // IPFS_DOMAIN = 127.0.0.1 and IPFS_API_PORT = 5001
     this.ipfsDomain = process.env.IPFS_DOMAIN ;
     this.ipfsApiPort = process.env.IPFS_API_PORT;
     this.ipfsGatewayPort = process.env.IPFS_GATEWAY_PORT;
     this.ipfsProtocol = 'https'
 
     this.ipfs = ipfsAPI(this.ipfsDomain, this.ipfsApiPort, {protocol: this.ipfsProtocol})
-    // this.ipfs.swarm.peers(function(error, response) {
-    //   if (error) {
-    //     console.error("IPFS - Can't connect to the IPFS API.")
-    //     console.error(error)
-    //   }
-    // })
     IpfsService.instance = this;
   }
 
