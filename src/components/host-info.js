@@ -32,7 +32,6 @@ class HostInfo extends React.Component {
     this.setState( { account: window.address, id:  window.address });
 
       hostService.getHouseListing( window.address).then((data)=>{
-        console.log(data)
         this.setState({ roomInfoList:data});
        });
 
