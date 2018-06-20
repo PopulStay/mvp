@@ -199,7 +199,7 @@ class ListingsDetail extends Component {
               for(var i =0 ;i < descriptioninfo.selectedPictures.length;i++)
               {
                 var slide ={};
-                slide.imgageUrl = descriptioninfo.selectedPictures[i+1].imagePreviewUrl;
+                slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
                 slideArray.push(slide);
                 this.setState({Progress:this.state.Progress+50})
 

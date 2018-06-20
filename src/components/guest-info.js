@@ -47,10 +47,11 @@ class GuestInfo extends React.Component {
   
   componentDidMount() {
     this.setState({ languagelist:window.languagelist });
-
-
-
     this.setState( { account: window.address, id: window.address });
+
+    guestService.getOrderState().then((data)=>{
+        console.log(data);
+    });
 
     guestService.getPreorderList(window.address).then((data)=>{
       this.setState({ orderlist:data});
