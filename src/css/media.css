@@ -504,16 +504,9 @@
 	.form .index_home .listing-card{
 		padding: 0 5%;
 	}
-	.form .index_home .listing-card:nth-child(even){
+	.form .index_home .listing-card{
 	  padding-right: 0;
-	  padding-left: 10px;
-	}
-	.form .index_home .listing-card:nth-child(odd){
 	  padding-left: 0;
-	  padding-right: 10px;
-	}
-	.form .overflow .photo{
-		min-height: 100px;
 	}
 	.form .index_home h4{
 		border:1px solid #;
