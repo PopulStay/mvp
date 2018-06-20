@@ -12,7 +12,10 @@ class PreOrderService {
     this.PreOrderContract = this.contract(PreOrder);
   }
 
+
+
   confirm(address,ethOrPPS,from,to,houseinfoid){
+  
        return new Promise((resolve, reject) => {
       var contract = new window.web3.eth.Contract(PreOrder.abi,address);
       
