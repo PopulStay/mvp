@@ -46,6 +46,10 @@ class GoogleMap extends Component {
     });
   }
 
+  onBoundsChange(){
+    console.log(123)
+  }
+
   render() {
     const AnyReactComponent = ({ text }) => <div className="Mapicon">{text}<span></span></div>;
     const places = this.state.greatPlaces
@@ -67,8 +71,8 @@ class GoogleMap extends Component {
             bootstrapURLKeys={{ key: 'AIzaSyD0WT2bQlRLoaTu1XbQ9U_kam0-xmmWxFA' }}
             defaultCenter={{lat:this.state.lat,lng:this.state.lng}}
             defaultZoom={6}
+            onZoomAnimationEnd={this.onBoundsChange}
           >
-
           {places}
         </GoogleMapReact>
       </div>
