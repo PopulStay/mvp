@@ -60,6 +60,16 @@ class WalletWithdraw extends React.Component {
       //结束取币是3
       this.setState({withdrawlist:data.data})
     });
+
+    var withdrawlist = this.state.withdrawlist;
+    var Arrstate = [];
+    for(var i=0;i<withdrawlist.length;i++){
+      if(withdrawlist[i].state == 4){
+        Arrstate.push(withdrawlist[i].state);
+      }
+      this.setState({Arrstate:Arrstate.length})
+    }
+
     this.props.onGetDepositBalance();
   }
 
@@ -80,14 +90,6 @@ class WalletWithdraw extends React.Component {
       () => this.withdrawlist(),
       2000
     );
-
-    var Arrstate = [];
-    for(var i=0;i<withdrawlist.length;i++){
-      if(withdrawlist[i].state == 4){
-        Arrstate.push(withdrawlist[i].state);
-      }
-      this.setState({Arrstate:Arrstate.length})
-    }
 
     
   }
