@@ -651,7 +651,13 @@ h1,
 }
 .Step1_7 .Map{
   width: 80%;
+  height: 500px;
   margin: 5% 0;
+}
+.Step1_7 .Map .Mapicon{
+  width: 30px;
+  position: absolute;
+  transform: translate(-50%,-50%);
 }
 /*Step1_7 end*/
 .Step1_8 h1{

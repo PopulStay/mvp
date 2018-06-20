@@ -255,8 +255,7 @@ class ListingsDetail extends Component {
     var dayS = new Date(day).getTime();
     var DateLists = this.state.DateLists;
     for(var i=0;i<DateLists.length;i++){
-      if(dayS>DateLists[i].start+86400000 && dayS<DateLists[i].end-129600000){
-        console.log(new Date(dayS));
+      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end-43200000){
         return new Date(dayS);
       }
     }
@@ -276,6 +275,7 @@ class ListingsDetail extends Component {
         if(data.bookedDate != undefined ){
             this.setState({DateLists: data.bookedDate.data});
         }
+        console.log(this.state.DateLists);
       });
   }
 
