@@ -81,6 +81,8 @@ export const nights = 'nights';
 export const Special_Offer_20_off = 'Special Offer 20 off';
 export const Long_stay_discount = 'Long stay discount';
 export const Cleaning_fee = 'Cleaning fee';
+export const Cleaning_fee_Details = 'One-time fee charged by host to cover the cost of cleaning their space.';
+export const Service_fee_Details = 'This helps us run our platform and offer services like 24/7 support on your trip.';
 export const Total_Price = 'Total Price';
 export const Book = 'Book';
 export const You_wont_be_charged_yet = 'You won’t be charged yet';
@@ -852,6 +854,7 @@ export const Have_your_own_separate_room_and_share_some_public_space = 'Have you
 export const Share_Room = 'Share Room';
 export const A_joint_space_such_as_a_public_Lounge = 'A joint space, such as a public Lounge.';
 export const The_average_price_per_night_is_PPS10000 = 'The average price per night is PPS10000.';
+export const No_result = 'No result';
 
 //listing-experience--------------------------------------------------------------------------------------------
 export const Explore_Experiences = 'Explore Experiences';

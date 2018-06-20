@@ -103,7 +103,6 @@ class Listingall extends Component {
         }
 
         this.setState({ listingRows: lists});
-       
       }
       window.listingRows = data;
     });
@@ -587,7 +586,7 @@ class Listingall extends Component {
                       </div>
                     ))}
                 </div>
-                <h1 className={this.state.listingRows.length == 0 ? "show": "hide"}>No result</h1>
+                <h1 className={this.state.listingRows.length == 0 ? "show": "hide"}>{language.No_result}</h1>
                 <div className="listspan">
                   <span className={this.state.experienceList == 1 ? "active hide" : ""}  onClick={(e)=>this.setState({experienceList:1})}></span>
                   <span className={this.state.experienceList == 1 ? "active hide" : ""}  onClick={(e)=>this.setState({experienceList:2})}></span>
