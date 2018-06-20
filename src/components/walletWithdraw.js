@@ -53,7 +53,6 @@ class WalletWithdraw extends React.Component {
 
   withdrawlist(){
     ppsService.getWithdrawInfo(window.address).then((data)=>{
-      console.log(data.data)
       //开始申请提币，state是0
       //完成了向populstay转账0.01个eth，state是1
       //然后完成审核，向以太链提交申请，以太链正在挖矿，state是2
