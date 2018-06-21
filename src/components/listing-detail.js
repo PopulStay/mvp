@@ -226,7 +226,7 @@ class ListingsDetail extends Component {
 
   componentWillMount() {
 
-
+    //获取评论代码，comment为评论内容。
     houselistingService.getHouseComment(this.props.listingId)
     .then((data)=>{
       console.log(data);
