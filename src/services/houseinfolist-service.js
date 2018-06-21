@@ -3,10 +3,10 @@ import ipfsService from '../services/ipfs-service';
 import bs58 from 'bs58';
 import axios from 'axios';
 import Web3 from 'web3';
-const Buf = require('buffer/').Buffer ;
-const EthereumTx = require('ethereumjs-tx');
-const web_provider = process.env.WEB3_PROVIDER;
-const houselist_address = process.env.RentHouseListingAddress;
+const  Buf               = require('buffer/').Buffer ;
+const  EthereumTx        = require('ethereumjs-tx');
+const  web_provider      = process.env.WEB3_PROVIDER;
+const  houselist_address = process.env.RentHouseListingAddress;
 
 
 class HouseInfoListingService {
@@ -24,9 +24,18 @@ class HouseInfoListingService {
       window.web3 = new Web3( new Web3.providers.HttpProvider(web_provider));
       window.web3loaded = true;
     }
-      
+  }
 
-   
+   getHouseComment(houseinfoid){
+    return new Promise((resolve, reject) => {
+          axios.get(process.env.Server_Address+'book?houseinfoid='+houseinfoid )
+                    .then((response)=> {
+                      resolve(response);
+                    })
+                    .catch(function (error) {
+                      reject(error);
+                    });
+         });           
   }
 
   getBytes32FromIpfsHash(ipfsListing) {

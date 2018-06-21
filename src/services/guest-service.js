@@ -29,6 +29,25 @@ class GuestService {
                     });
          });           
   }
+
+  addComment(id,commment){
+    var params = {};
+    
+    params.id       = id;
+    params.commment = commment;
+
+    return new Promise((resolve, reject) => {
+    axios.post(process.env.Server_Address+'commment', params)
+    .then(function (response) {
+      resolve(response);
+    })
+    .catch(function (error) {
+      console.error(error)
+      reject(error)
+    });
+    })
+
+  }
     
   guestRegister(registerData) {
     return new Promise((resolve, reject) => {
