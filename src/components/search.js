@@ -105,22 +105,22 @@ class Search extends Component {
             <h4>{language.Choose_your_city}</h4>
             <ul className="form__location row">
                 <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4 active" data-name={language.TOKYO}  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != language.TOKYO ? "../images/location-13_1.png" : "../images/location-13.png"} alt="" />
+                    <img src={this.state.locationName != language.TOKYO ? "../images/tokyo_grey.png" : "../images/tokyo_red.png"} alt="" />
                 </li>
                 <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.NEW_YORK}  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != language.NEW_YORK ? "../images/location-14_1.png" : "../images/location-14.png"} alt="" />
+                    <img src={this.state.locationName != language.NEW_YORK ? "../images/new_york_grey.png" : "../images/new_york_red.png"} alt="" />
                 </li>
                 <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.SHANGHAI}  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != language.SHANGHAI ? "../images/location-15_1.png" : "../images/location-15.png"} alt="" />
+                    <img src={this.state.locationName != language.SHANGHAI ? "../images/shanghai_grey.png" : "../images/shanghai_red.png"} alt="" />
                 </li>
                 <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.LONDON}  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != language.LONDON ? "../images/location-16_1.png" : "../images/location-16.png"} alt="" />
+                    <img src={this.state.locationName != language.LONDON ? "../images/london_grey.png" : "../images/london_red.png"} alt="" />
                 </li>
                 <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.PARIS}  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != language.PARIS ? "../images/location-17_1.png" : "../images/location-17.png"} alt="" />
+                    <img src={this.state.locationName != language.PARIS ? "../images/paris_grey.png" : "../images/paris_red.png"} alt="" />
                 </li>
                 <li className="col-xs-6 col-md-2 col-lg-2 col-sm-4" data-name={language.SINGAPORE}  onClick={(e)=>this.locationName(e)}>
-                    <img src={this.state.locationName != language.SINGAPORE ? "../images/location-18_1.png" : "../images/location-18.png"} alt="" />
+                    <img src={this.state.locationName != language.SINGAPORE ? "../images/singapore_grey.png" : "../images/singapore_red.png"} alt="" />
                 </li>
             </ul>
             <form action="">

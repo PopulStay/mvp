@@ -50,7 +50,6 @@ class GuestInfo extends React.Component {
     this.setState( { account: window.address, id: window.address });
 
     guestService.getOrderState().then((data)=>{
-        console.log(data);
       this.setState({ orderlist:data});
     });
 
@@ -60,13 +59,10 @@ class GuestInfo extends React.Component {
     //     console.log(data);
     // });
   
-    guestService.getPreorderList(window.address).then((data)=>{
-      // this.setState({ orderlist:data});
-     });
+    
 
     ppsService.getBalance(window.address).then((data)=>{
       this.setState({ ppsBalance:data});
-      console.log(data)
      });
 
     web3Service.getETHBalance(window.address).then((data)=>{
@@ -184,16 +180,7 @@ class GuestInfo extends React.Component {
           </div>
           <div className="overflowAuto">
             {this.state.orderlist.map(item => (
-                <div className="divtr">
-                  <div><p><a href={item.url}>{item.hostaddress}</a></p></div>
-                  <div><Link to={`/listing/${item.hostaddress}`}>{language.Check}</Link></div>
-                  <div><Timestamp time={item.from} format='date'/></div>
-                  <div><Timestamp time={item.to} format='date'/></div>
-                  <div>{item.ethprice == '0' ? item.price+"/PPS" : item.ethprice/1000000000+"/ETH"}</div>
-                  { item.state === '0' &&<div><button className="btn-sn btn-danger" onClick={this.checkIn}>{language.Check_In}</button></div>}
-                  { item.state === '2' &&<div>{language.ok_checkIn}</div>}
-                  { item.state === '4' &&<div><button className="btn-sn btn-danger" onClick={this.checkIn}>{language.Reviews}</button></div>}
-                </div>
+                <GuestOrderRow item={item}/>
             ))}
             {this.state.usdOrderList.map(item => (
                 <GuestUsdOrderRow item={item}/>

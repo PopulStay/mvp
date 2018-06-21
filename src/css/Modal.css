@@ -10,7 +10,8 @@
 .deposit,
 .withdraw,
 .Sign,
-.submit{
+.submit,
+.Reviews{
   width: 410px;
   background: #fff;
   border-radius: 7px;
@@ -316,7 +317,8 @@
 .Import button,
 .withdraw button,
 .overlay-box .balance,
-.clear .balance{
+.clear .balance,
+.Reviews button{
   width: 30%;
   padding: 1% 0;
   margin: 6% 5% 0;
@@ -324,7 +326,8 @@
   font-family: RobotoBold; 
   border:1px solid #f6416c;
 }
-.modalcode button,
+.Reviews button.Left,
+.modalcode button.Left,
 .clear button.Left,
 .Gas button.Left,
 .deposit button.Left,
@@ -337,6 +340,7 @@
   color:#f6416c;
   background: #fff;
 }
+.Reviews button.Right,
 .clear button.Right,
 .Gas button.Right,
 .deposit button.Right,
@@ -473,6 +477,7 @@
   text-align: center;
   float: left;
   border-radius: 8px;
+  padding:0;
 }
 .Signup .closecancel{
   width: 50%;
@@ -572,6 +577,12 @@
 .clear .balance{
   width: 50%;
   margin: 5% 25% 0;
+}
+.Reviews textarea{
+  width: 100%;
+  border:1px solid #131c4e;
+  font-size: 1.6rem;
+  padding: 5%;
 }
 .footer .modal-dialog{
   position: fixed;
