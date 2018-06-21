@@ -64,7 +64,6 @@ class GoogleMap extends Component {
     });
 
 
-    console.log(this.props.zoom)
     return (
       <div id="Map">
           <GoogleMapReact

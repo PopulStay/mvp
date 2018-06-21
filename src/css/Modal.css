@@ -190,9 +190,6 @@
   font-size: 1.8rem;
   padding: 1% 0 !important;
 }
-.HostManagment .divtr>div{
-  width: 20%;
-}
 .GuestManagment .overflowAuto .divtr>div,
 .HostManagment .overflowAuto .divtr>div{
   width: 16.5%;
@@ -204,10 +201,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 1.6rem;
-}
-
-.HostManagment .overflowAuto .divtr>div{
-  width: 20%;
 }
 .GuestManagment .divtr>div button{
   background: #fff;

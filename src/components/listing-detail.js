@@ -227,7 +227,6 @@ class ListingsDetail extends Component {
   componentWillMount() {
     this.setState({ languagelist:window.languagelist });
 
-
     if (this.props.listingId) {
       this.loadOrdered(this.props.listingId);
       this.loadListing();
@@ -244,10 +243,6 @@ class ListingsDetail extends Component {
       });
       this.setState({login:true});
     }
-
-    guestService.getGuesterInfo(window.address).then((data)=>{
-        this.setState({ user:data.user});
-    });
   }
 
 
@@ -265,6 +260,9 @@ class ListingsDetail extends Component {
 
   loadOrdered = (id) =>{
       houselistingService.getHouseInfoById(id).then((data)=>{
+        guestService.getGuesterInfo(data.hostAddress).then((data)=>{
+            this.setState({ user:data.user});
+        });
         if(data)
         {
           var slide ={};
@@ -275,7 +273,6 @@ class ListingsDetail extends Component {
         if(data.bookedDate != undefined ){
             this.setState({DateLists: data.bookedDate.data});
         }
-        console.log(this.state.DateLists);
       });
   }
 

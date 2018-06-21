@@ -23,9 +23,11 @@ class HostRoomListRow extends Component {
 
 
   getHostRoomInfo(){
+    console.log(this.props)
     var roominfo = this.props.row.houseinfo;
     this.setState({
       state:this.props.row.state,
+      url:this.props.row.id,
       price:this.props.row.price,
       category:roominfo.category,
       location:roominfo.location,
@@ -50,6 +52,7 @@ class HostRoomListRow extends Component {
     return (
        <div className="divtr">
         <div>{this.state.category}</div>
+        <div><Link to={`/listing/${this.state.url}`}>{language.Check}</Link></div>
         <div>{this.state.beds}</div>
         <div>{this.state.location}</div>
         <div>{this.state.price}/PPS</div>
