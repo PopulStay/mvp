@@ -225,8 +225,14 @@ class ListingsDetail extends Component {
   
 
   componentWillMount() {
-    this.setState({ languagelist:window.languagelist });
 
+
+    houselistingService.getHouseComment(this.props.listingId)
+    .then((data)=>{
+      console.log(data);
+    })
+
+    this.setState({ languagelist:window.languagelist });
 
     if (this.props.listingId) {
       this.loadOrdered(this.props.listingId);

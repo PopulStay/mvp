@@ -30,14 +30,14 @@ class GuestService {
          });           
   }
 
-  addComment(id,commment){
+  addComment(id,comment){
     var params = {};
     
     params.id       = id;
-    params.commment = commment;
+    params.comment = comment;
 
     return new Promise((resolve, reject) => {
-    axios.post(process.env.Server_Address+'commment', params)
+    axios.post(process.env.Server_Address+'comment', params)
     .then(function (response) {
       resolve(response);
     })

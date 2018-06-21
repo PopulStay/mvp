@@ -53,6 +53,12 @@ class GuestInfo extends React.Component {
         console.log(data);
     });
 
+    //这是测试代码； guestService.getOrderState()可以获得addcomment里面的ID
+    //
+    // guestService.addComment("5b2b201223347629a9ebd73f","test").then((data)=>{
+    //     console.log(data);
+    // });
+  
     guestService.getPreorderList(window.address).then((data)=>{
       this.setState({ orderlist:data});
      });

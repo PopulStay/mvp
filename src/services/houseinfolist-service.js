@@ -28,7 +28,7 @@ class HouseInfoListingService {
 
    getHouseComment(houseinfoid){
     return new Promise((resolve, reject) => {
-          axios.get(process.env.Server_Address+'book?houseinfoid='+houseinfoid )
+          axios.get(process.env.Server_Address+'book?state=5&houseinfoid='+houseinfoid )
                     .then((response)=> {
                       resolve(response);
                     })
