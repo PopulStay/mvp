@@ -127,7 +127,7 @@ class Footer extends Component {
                 <ul className="social">
                     <li><a className="social__facebook social__icon" target="__blank" href="https://fb.me/populstay"></a></li>
                     <li><a className="social__youtube social__icon" target="_blank" href="https://youtu.be/lrWl11R2ar8"></a></li>
-                    <li><a className="social__telegram social__icon" target="_blank" href="https://t.me/PopulStay01"></a></li>
+                    <li><a className="social__telegram social__icon" target="_blank" href="https://t.me/PopulStayEn"></a></li>
                     <li><a className="social__twitter social__icon" target="_blank" href="https://twitter.com/populstay"></a></li>
                     <li><a className="social__reddit social__icon" target="_blank" href="https://www.reddit.com/user/PopulStay/"></a></li>
                     <li><a className="social__wechat social__icon" href="#wechatmodal" data-toggle="modal" data-target="#wechatModal"></a></li>

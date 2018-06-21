@@ -14,6 +14,7 @@ import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
 import languageService from '../services/language-service';
 import GuestRegister from './guest-register';
+import Timestamp from 'react-timestamp';
 import { Link } from 'react-router-dom';
 
 
@@ -62,16 +63,7 @@ class ListingsDetail extends Component {
       priceCurrency:"PPS",
       neighbourhood:0,
       neighbourhoodurl:'../images/detail-content-map.png',
-      neighbourhoodlist:[
-          {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
-          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking PopulStay in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended PopulStay to get an affordable yet convenient locati…Read more'},
-          {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
-          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with PopulStay! Will definitely book this place again.'},
-          {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
-          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking PopulStay in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended PopulStay to get an affordable yet convenient locati…Read more'},
-          {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
-          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with PopulStay! Will definitely book this place again.'}
-      ],
+      neighbourhoodlist:[],
       ethBalance:0,
       ppsBalance:0,
       usddatalist:[],
@@ -231,7 +223,7 @@ class ListingsDetail extends Component {
     //获取评论代码，comment为评论内容。
     houselistingService.getHouseComment(this.props.listingId)
     .then((data)=>{
-      console.log(data);
+          this.setState({neighbourhoodlist:data.data})
     })
 
     this.setState({ languagelist:window.languagelist });
@@ -436,26 +428,7 @@ class ListingsDetail extends Component {
   render() {
     const language = this.state.languagelist;
     const price = typeof this.state.ppsPrice === 'string' ? 0 : this.state.ppsPrice;
-    const guestItems = [];
-    this.state.guests.forEach((guest,index)=>{
-      guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest} {language.guests}</a></li>)
-    })
 
-    const neighbourhoods = [];
-    this.state.neighbourhoodlist.forEach((item,index)=>{
-      neighbourhoods.push(
-          <li>
-              <div className="GuestName">
-                  <img src={item.imgurl} alt="" />
-                  <div>
-                      <p>{item.name}</p>
-                      <p>{item.time}</p>
-                  </div>
-              </div>
-              <p className="GuestDiv">{item.Reviews}</p>
-          </li>
-      )
-    })
     return (  
 
 <div> 
@@ -676,7 +649,20 @@ class ListingsDetail extends Component {
 
         <div className="ReviewsGuest">
           <ul>
-            {neighbourhoods}
+            {this.state.neighbourhoodlist.map(item => (
+              <li>
+                  <div className="GuestName">
+                      <div className="uesrimg">
+                        <img src='/images/uesrimg.png' alt="" />
+                      </div>
+                      <div className="uesrtext">
+                          <p>{item.name}</p>
+                          <p><Timestamp time={item.from.substring(0,10)} format='date'/></p>
+                      </div>
+                  </div>
+                  <p className="GuestDiv">{item.comment}</p>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -741,7 +727,9 @@ class ListingsDetail extends Component {
                 <div className="btn-group">
                   <button type="button" data-toggle="dropdown" >{this.state.guest} {language.guests}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
-                    { guestItems }
+                    {this.state.guests.map(guest => (
+                      <li><a onClick={this.Guests.bind(this,guest)} >{guest} {language.guests}</a></li>
+                    ))}
                   </ul>
                 </div>
               </div>

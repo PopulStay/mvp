@@ -510,9 +510,20 @@
 .ReviewsDiv .divxx img{
   width: 20px;
 }
-.ReviewsGuest img{
-  width: 10%;
+.ReviewsGuest .uesrimg{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
   float: left;
+  border:1px solid #f6416c;
+}
+.ReviewsGuest .uesrimg img{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .ReviewsGuest .GuestName{
   margin-top: 3%;
@@ -544,7 +555,7 @@
     background:#151b4e;
 }
 .ReviewsGuest ul{
-  height: 500px;
+  max-height: 500px;
   overflow: auto;
 }
 .ReviewsGuest li{
@@ -558,17 +569,17 @@
   margin-top:3%; 
   font-family: RobotoThin; 
 }
-.ReviewsGuest .GuestName div{
+.ReviewsGuest .GuestName .uesrtext{
   width: 85%;
   float: right;
   margin: 1% 0;
 }
-.ReviewsGuest .GuestName div p:first-child{
+.ReviewsGuest .GuestName .uesrtext p:first-child{
   color: #4d4e4e;
   font-weight: 600;
   font-family: RobotoBold; 
 }
-.ReviewsGuest .GuestName div p{
+.ReviewsGuest .GuestName .uesrtext p{
   margin: 0;
   font-size: 1.8rem;
   font-family: RobotoThin; 

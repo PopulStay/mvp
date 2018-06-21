@@ -11,7 +11,7 @@
 .withdraw,
 .Sign,
 .submit,
-.Reviews{
+.Wallet_Reviews{
   width: 410px;
   background: #fff;
   border-radius: 7px;
@@ -318,7 +318,7 @@
 .withdraw button,
 .overlay-box .balance,
 .clear .balance,
-.Reviews button{
+.Wallet_Reviews button{
   width: 30%;
   padding: 1% 0;
   margin: 6% 5% 0;
@@ -326,7 +326,7 @@
   font-family: RobotoBold; 
   border:1px solid #f6416c;
 }
-.Reviews button.Left,
+.Wallet_Reviews button.Left,
 .modalcode button.Left,
 .clear button.Left,
 .Gas button.Left,
@@ -340,7 +340,7 @@
   color:#f6416c;
   background: #fff;
 }
-.Reviews button.Right,
+.Wallet_Reviews button.Right,
 .clear button.Right,
 .Gas button.Right,
 .deposit button.Right,
@@ -578,7 +578,7 @@
   width: 50%;
   margin: 5% 25% 0;
 }
-.Reviews textarea{
+.Wallet_Reviews textarea{
   width: 100%;
   border:1px solid #131c4e;
   font-size: 1.6rem;

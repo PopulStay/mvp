@@ -834,6 +834,7 @@ export const Address = 'Address';
 export const Create = 'Create';
 
 //listing-all--------------------------------------------------------------------------------------------
+export const All_home = 'All home';
 export const All_experiences = 'All experiences';
 export const Home_Type = 'Home Type';
 export const More_Fiters = 'More_Fiters';
@@ -951,6 +952,7 @@ export const Operation = 'Operation';
 export const Wallet_Size = 'Wallet Size';
 export const Submit = 'Submit';
 export const ok_checkIn = 'Check In';
+export const ok_Reviews = 'Reviews';
 export const state0 = 'Application';
 export const state1 = 'Application';
 export const state2 = 'Wait';
