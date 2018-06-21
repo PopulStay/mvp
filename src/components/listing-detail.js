@@ -226,6 +226,8 @@ class ListingsDetail extends Component {
 
   componentWillMount() {
 
+
+
     //获取评论代码，comment为评论内容。
     houselistingService.getHouseComment(this.props.listingId)
     .then((data)=>{
@@ -233,6 +235,7 @@ class ListingsDetail extends Component {
     })
 
     this.setState({ languagelist:window.languagelist });
+
 
     if (this.props.listingId) {
       this.loadOrdered(this.props.listingId);
@@ -250,10 +253,6 @@ class ListingsDetail extends Component {
       });
       this.setState({login:true});
     }
-
-    guestService.getGuesterInfo(window.address).then((data)=>{
-        this.setState({ user:data.user});
-    });
   }
 
 
@@ -271,6 +270,9 @@ class ListingsDetail extends Component {
 
   loadOrdered = (id) =>{
       houselistingService.getHouseInfoById(id).then((data)=>{
+        guestService.getGuesterInfo(data.hostAddress).then((data)=>{
+            this.setState({ user:data.user});
+        });
         if(data)
         {
           var slide ={};
@@ -281,7 +283,6 @@ class ListingsDetail extends Component {
         if(data.bookedDate != undefined ){
             this.setState({DateLists: data.bookedDate.data});
         }
-        console.log(this.state.DateLists);
       });
   }
 
@@ -749,27 +750,38 @@ class ListingsDetail extends Component {
                 <ul>
                     <li className="blueColor">
                       <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}{language.nights}
-                          <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">{this.calcTotalPrice()}</span>
+                      <p className="clearFloat"></p>
                     </li>
                     <li className="pinkColor">
-                      <span className = "LeftSpan">{language.Special_Offer_20_off}
+                      <span className = "LeftSpan">{language.Cleaning_fee}
                           <img src="../images/detail-img13.png" />
+                          <div>
+                              <h6>{language.Cleaning_fee_Details}</h6>
+                              <p></p>
+                          </div>
                       </span>
                       <span className = "RightSpan">0</span>
+                      <p className="clearFloat"></p>
                     </li>
                     <li className="pinkColor">
-                      <span className = "LeftSpan">{language.Long_stay_discount}
+                      <span className = "LeftSpan">{language.Service_fees}
                           <img src="../images/detail-img13.png" />
+                          <div>
+                              <h6>{language.Service_fee_Details}</h6>
+                              <p></p>
+                          </div>
                       </span>
                       <span className = "RightSpan">0</span>
+                      <p className="clearFloat"></p>
                     </li>
                     <li className="blueColor">
                       <span className = "LeftSpan">{language.Total_Price}</span>
                       <span className = "RightSpan">
                         {this.state.priceCurrency}: { this.calcTotalPrice()}
                       </span>
+                      <p className="clearFloat"></p>
                     </li>
                 </ul>
                

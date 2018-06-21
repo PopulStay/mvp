@@ -18,6 +18,8 @@ body{
    padding-right: 10%;
 }
 .becomehost-1.container{
+  max-width: 1500px !important;
+  margin: 0 auto;
   padding: 0 10%;
 }
 img{width: 100%;}

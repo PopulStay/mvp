@@ -81,6 +81,8 @@ export const nights = '晚';
 export const Special_Offer_20_off = '特别优惠20％优惠';
 export const Long_stay_discount = '长期优惠';
 export const Cleaning_fee = '清洁费';
+export const Cleaning_fee_Details = '房东收取的一次性清洁费，用于清洁房源。';
+export const Service_fee_Details = '服务费可以帮助我们维持平台的运行，同时为您的旅程提供24小时客服支持。';
 export const Total_Price = '总价格';
 export const Book = '预定';
 export const You_wont_be_charged_yet = '您暂时不会被收费';
@@ -853,6 +855,7 @@ export const Have_your_own_separate_room_and_share_some_public_space = '有自�
 export const Share_Room = '合住房间';
 export const A_joint_space_such_as_a_public_Lounge = '入住合用空间，如公共休息室';
 export const The_average_price_per_night_is_PPS10000 = '平均每晚价格为PPS10000。';
+export const No_result = '没有列表';
 
 //listing-experience--------------------------------------------------------------------------------------------
 export const Explore_Experiences = '探索经验';
@@ -919,8 +922,8 @@ export const PPS_deposited_in_Populstay = '潮箱 PPS';
 export const Guest_Managment_Panel = '宾客管理面板';
 export const Status = '状态';
 export const Information = '信息';
-export const From = '从';
-export const To = '到';
+export const From = '入住时间';
+export const To = '退房时间';
 export const Price = '价格';
 export const Location_type = '位置';
 export const Add_a_house = '添加房源';

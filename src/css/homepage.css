@@ -18,9 +18,9 @@
 .form .index_content,
 .form .index_home{
   width: 75%;
-  max-width: 1080px !important;
+  max-width: 1200px !important;
   margin:1% auto 3%;
-  padding: 3%;  
+  padding: 4%;  
   border-radius: 4px;
   background: url(../images/index.png) no-repeat;
   background-size: 100%;
@@ -40,6 +40,7 @@
   margin: 3% 0;
 }
 .form .container > .row {
+  width: 100%;
   padding: 4% 0;
 }
 .index_content .DateRangePicker{
@@ -166,7 +167,7 @@
   margin-bottom: 3%;
 }
 .form .container > .row li {
-    cursor: pointer;
+  cursor: pointer;
 }
 .listings-grid h1{
   margin-bottom: 2%;
@@ -201,6 +202,9 @@
   margin: 3% 0 1%;
   font-size: 1.6rem;
   font-family: RobotoBold; 
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .listing-card .title{
   color: #131c4e;
@@ -243,7 +247,9 @@
 /*-------------experience-------------------------*/
 
 .experience{
+  max-width: 1500px !important;
   padding: 0 5%;
+  margin: 0 auto;
 }
 .experience h1{
   text-align: center;

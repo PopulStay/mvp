@@ -8290,8 +8290,9 @@ header .dropdown-menu a.dropdown-item1{
   color: #f6416c;
 }
 .tag-header>ul{
-  width:1275px ;
-  max-width: 1275px !important;
+  width:1400px ;
+  max-width: 1400px !important;
+  margin: 0 auto;
 }
 .tag-header li {
   display: inline-block;

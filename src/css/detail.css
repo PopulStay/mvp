@@ -334,7 +334,6 @@
   float: right;
 }
 .details-totalprice-div ul li{
-  overflow: hidden;
   line-height: 1.9;
 }
 .details-totalprice-div ul li span{
@@ -355,6 +354,42 @@
   top:50%;
   right: -25px;
   transform: translate(0,-50%);
+}
+.details-totalprice-div ul li .LeftSpan{
+  position: relative;
+  cursor: pointer;
+}
+.details-totalprice-div ul li .LeftSpan:hover div{
+  display:block;
+}
+.details-totalprice-div ul li div{
+  width: 300px;
+  padding: 10px;
+  position: absolute;
+  background: #131c4e;
+  bottom:40px;
+  z-index: 99;
+  left: 0%;
+  display: none;
+}
+.details-totalprice-div ul li div h6{
+  font-size: 1.8rem;
+  line-height: 1.9;
+  color: #fff;
+}
+.details-totalprice-div ul li div p{
+  width: 0px;
+  height: 0px;
+  border: 10px solid transparent;
+  border-top: 10px solid #131c4e;
+  position: absolute;
+  left: 22%;
+  bottom:-30px;
+}
+.details-totalprice-div ul li .clearFloat{
+  clear: both;
+  margin: 0;
+  padding: 0;
 }
 .blueColor{
   color: #131c4e;
