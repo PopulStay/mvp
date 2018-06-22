@@ -970,3 +970,7 @@ export const Become_a_Host = 'Become a Host';
 export const Help_Center = 'Help_Center';
 export const About_Populstay = 'About_PopulStay';
 export const Become_an_organiser = 'Become an organiser';
+
+// Receipt--------------------------------------------------------------------------------------------
+export const To_Itinerary = 'To Itinerary';
+export const Print = 'Print';

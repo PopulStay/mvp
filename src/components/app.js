@@ -22,6 +22,7 @@ import Itrolist from './intro-list.js'
 import Registerlist from './register-list.js'
 import Verifyid from './verify-id.js'
 import Helpbox from './helpbox.js'
+import ProfileReceipt from './profile_receipt.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -145,6 +146,13 @@ const VerifyID = (props) => (
   </Layout>
 )
 
+const Receipt = (props) => (
+  <Layout {...props}  >
+      <ProfileReceipt />
+  </Layout>
+)
+
+
 // Top level component
 const App = () => (
   <Router>
@@ -164,6 +172,7 @@ const App = () => (
           <Route exact path="/Register" component={Register}/>
           <Route exact path="/VerifyID" component={VerifyID}/>
           <Route exact path="/help" component={HELPBOX}/>
+          <Route exact path="/Receipt" component={Receipt}/>
         </div>
     </ScrollToTop>
   </Router>
