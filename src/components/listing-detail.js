@@ -74,6 +74,7 @@ class ListingsDetail extends Component {
       Progresshide:0,
       languagelist:{},
       clicklogout:false,
+      detail:'',
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -150,8 +151,9 @@ class ListingsDetail extends Component {
          //with smart contract 
       houseInfoDetailPromise =  houselistingService.getHouseInfoDetail(this.props.listingId)
         .then((result) => {
+        console.log(result._ethPrice/this.CONST.weiToGwei)
             var roominfo = JSON.parse(result._roominfo);
-            this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:(result._ethPrice/this.CONST.weiToGwei).toFixed(3),usdPrice:result._ethPrice/this.CONST.weiToUSD});
+            this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
             //slideArray.push();
 
           this.setState({Progress:this.state.Progress+50})
@@ -267,9 +269,8 @@ class ListingsDetail extends Component {
         });
         if(data)
         {
-          var slide ={};
-          slide.imgageUrl = data.profile.previewImage;
-          this.state.slides.push(slide);
+          console.log(data.profile.previewImage)
+          this.setState({detail:data.profile.previewImage});
         }
 
         if(data.bookedDate != undefined ){
@@ -475,13 +476,15 @@ class ListingsDetail extends Component {
           </Overlay>
         }
 
+      
+
       <div className="carousel-slider">
-      <Carousel>
-       {this.state.slides.map(slide => (
-        <div className="carousel-inner item" style={{backgroundImage:"url("+slide.imgageUrl+")"}}>
-        </div>
-         ))}
-      </Carousel>
+        <Carousel>
+         {this.state.slides.map(slide => (
+          <div className="carousel-inner item" style={{backgroundImage:"url("+slide.imgageUrl+")"}}>
+          </div>
+           ))}
+        </Carousel>
       </div>
 
       <div className="detail-content container">
@@ -562,110 +565,114 @@ class ListingsDetail extends Component {
         </div>
         
         <p className="More box6_More hide">{language.Get_details}</p>
-
-        <div className="Reviews">
-            <p>{this.state.neighbourhoodlist.length} {language.Reviews}</p>
-            <div className="divxx">
-              <img src="../images/detail-xx01.png" alt="" />
-              <img src="../images/detail-xx01.png" alt="" />
-              <img src="../images/detail-xx01.png" alt="" />
-              <img src="../images/detail-xx01.png" alt="" />
-              <img src="../images/detail-xx02.png" alt="" />
+        
+        <div className={this.state.neighbourhoodlist == 0 ? 'hide' : 'show'}>
+            <div className="Reviews">
+                <p>{this.state.neighbourhoodlist.length} {language.Reviews}</p>
+                <div className="divxx">
+                  <img src="../images/detail-xx01.png" alt="" />
+                  <img src="../images/detail-xx01.png" alt="" />
+                  <img src="../images/detail-xx01.png" alt="" />
+                  <img src="../images/detail-xx01.png" alt="" />
+                  <img src="../images/detail-xx02.png" alt="" />
+                </div>
+                <div className="input-group">
+                  <span className="input-group-btn">
+                    <button className="btn btn-default" type="button">
+                      <span className="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+                  <input type="text" className="form-control" placeholder={language.Search_Reviews} />
+                </div>
             </div>
-            <div className="input-group">
-              <span className="input-group-btn">
-                <button className="btn btn-default" type="button">
-                  <span className="glyphicon glyphicon-search"></span>
-                </button>
-              </span>
-              <input type="text" className="form-control" placeholder={language.Search_Reviews} />
+
+            <div className="ReviewsDiv">
+                <ul>
+                    <li>
+                      <p>{language.Accuracy}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Location}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Communication}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Check_in}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Cleanliness}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Value}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div className="ReviewsGuest">
+              <ul>
+                {this.state.neighbourhoodlist.map(item => (
+                  <li>
+                      <div className="GuestName">
+                          <div className="uesrimg">
+                            <img src='/images/uesrimg.png' alt="" />
+                          </div>
+                          <div className="uesrtext">
+                              <p>{item.name}</p>
+                              <p><Timestamp time={item.from.substring(0,10)} format='date'/></p>
+                          </div>
+                      </div>
+                      <p className="GuestDiv">{item.comment}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
         </div>
-
-        <div className="ReviewsDiv">
-            <ul>
-                <li>
-                  <p>{language.Accuracy}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Location}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Communication}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Check_in}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Cleanliness}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Value}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-            </ul>
+        <div className={this.state.neighbourhoodlist == 0 ? 'show L_box6' : 'hide L_box6'}>
+            <h5>{language.No_Reviews}</h5>
         </div>
-
-        <div className="ReviewsGuest">
-          <ul>
-            {this.state.neighbourhoodlist.map(item => (
-              <li>
-                  <div className="GuestName">
-                      <div className="uesrimg">
-                        <img src='/images/uesrimg.png' alt="" />
-                      </div>
-                      <div className="uesrtext">
-                          <p>{item.name}</p>
-                          <p><Timestamp time={item.from.substring(0,10)} format='date'/></p>
-                      </div>
-                  </div>
-                  <p className="GuestDiv">{item.comment}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <div className="neighbourhood">
             <p>{language.See_the_neighbourhood}</p>
             <img src={this.state.neighbourhoodurl} alt="" />
