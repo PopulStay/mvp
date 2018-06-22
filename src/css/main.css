@@ -7157,7 +7157,6 @@ button.close {
   transition: 0.6s ease-in-out left;
 }
 .slider .slider-list{
-  height: 600px !important;
   position: relative;
 }
 .carousel-inner{

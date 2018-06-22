@@ -475,17 +475,30 @@ class ListingsDetail extends Component {
             </Link>
           </Overlay>
         }
-
       
+      {this.state.slides.length != 0 &&
+        <div className="banner" onClick={(e)=>this.setState({modalslider:true})}> 
+          <img src={this.state.detail} />
+        </div>  
+      }
 
-      <div className="carousel-slider">
-        <Carousel>
-         {this.state.slides.map(slide => (
-          <div className="carousel-inner item" style={{backgroundImage:"url("+slide.imgageUrl+")"}}>
-          </div>
-           ))}
-        </Carousel>
-      </div>
+      {this.state.slides.length == 0 &&
+        <div className="banner"> 
+          <img src={this.state.detail} />
+        </div>  
+      }
+      
+      <Modal isOpen={this.state.modalslider} onAfterOpen={this.afterOpenModal} onRequestClose={(e)=>this.setState({modalslider:false})} 
+        contentLabel="Wallet Message">
+        <div className="carousel-slider">
+          <span className="slidesClose"  onClick={(e)=>this.setState({modalslider:false})}>×</span>
+          <Carousel>
+           {this.state.slides.map(slide => (
+              <img src={slide.imgageUrl} />
+          ))}
+          </Carousel>
+        </div>
+      </Modal>
 
       <div className="detail-content container">
         <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
