@@ -33,6 +33,7 @@ class GuestOrderRow extends Component {
 
 
    checkIn(){
+    console.log(this.props.item)
       var ethOrPPS;
 
     if( this.props.item.price != 0 || this.props.item.price != '0' )
@@ -92,8 +93,9 @@ class GuestOrderRow extends Component {
           <div><Timestamp time={this.props.item.from.substring(0,10)} format='date'/></div>
           <div><Timestamp time={this.props.item.to.substring(0,10)} format='date'/></div>
           <div>{this.props.item.ethprice == '0' ? this.props.item.price+"/PPS" : this.props.item.ethprice/1000000000+"/ETH"}</div>
-          { this.props.item.state === '0' &&<div><button className="btn-sn btn-danger" onClick={this.checkIn}>{language.Check_In}</button></div>}
-          { this.props.item.state === '2' &&<div>{language.ok_checkIn}</div>}
+          { this.props.item.state === '1' &&<div>{language.state1}</div>}
+          { this.props.item.state === '2' &&<div><button className="btn-sn btn-danger" onClick={this.checkIn}>{language.Check_In}</button></div>}
+          { this.props.item.state === '3' &&<div>{language.state1}</div>}
           { this.props.item.state === '4' &&<div><button className="btn-sn btn-danger" onClick={this.openModal}>{language.Reviews}</button></div>}
           { this.props.item.state === '5' &&<div>{language.ok_Reviews}</div>}
         </div>
