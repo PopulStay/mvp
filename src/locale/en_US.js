@@ -953,6 +953,7 @@ export const Operation = 'Operation';
 export const Wallet_Size = 'Wallet Size';
 export const Submit = 'Submit';
 export const ok_checkIn = 'Check In';
+export const checkIn_ok_no = 'Are you sure you want to check in?';
 export const ok_Reviews = 'Reviews';
 export const state0 = 'Application';
 export const state1 = 'Application';

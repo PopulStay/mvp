@@ -953,6 +953,7 @@ export const Operation = '操作';
 export const Wallet_Size = '提取数量';
 export const Submit = '提交';
 export const ok_checkIn = '已入住';
+export const checkIn_ok_no = '确认要入住吗？';
 export const ok_Reviews = '已评价';
 export const state0 = '申请提币';
 export const state1 = '在申请中';

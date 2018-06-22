@@ -253,7 +253,8 @@
 .deposit h2,
 .withdraw h2,
 .Sign h2,
-.submit h2{
+.submit h2,
+.overlay-box .checkIn h3{
   color: #f6416c !important;
   text-align: center;
   font-family: RobotoBold; 
@@ -318,7 +319,8 @@
 .withdraw button,
 .overlay-box .balance,
 .clear .balance,
-.Wallet_Reviews button{
+.Wallet_Reviews button,
+.overlay-box .checkIn button{
   width: 30%;
   padding: 1% 0;
   margin: 6% 5% 0;
@@ -336,7 +338,8 @@
 .withdraw button.Left,
 .overlay-box .balance,
 .deposit .balance,
-.clear .balance{
+.clear .balance,
+.overlay-box .checkIn button.Left{
   color:#f6416c;
   background: #fff;
 }
@@ -349,7 +352,8 @@
 .Sign button.Right,
 .Create button,
 .Import button.Right,
-.withdraw button.Right{
+.withdraw button.Right,
+.overlay-box .checkIn button.Right{
   background:#f6416c;
   color: #fff;
 }
@@ -622,4 +626,14 @@
   border-top: 10px solid #131c4e;
   position: absolute;
   bottom: -14px;
+}
+
+.overlay-box{
+  border:1px solid #f6416c;
+}
+.overlay-box .checkIn h3{
+  margin-bottom: 8%;
+}
+.overlay-box .checkIn button{
+  width: 40%;
 }
