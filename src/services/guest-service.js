@@ -30,11 +30,17 @@ class GuestService {
          });           
   }
 
-  addComment(id,comment){
+  addComment(id,comment,accuracyStar,locationStar,communicationStar,checkinStar,cleanlinessStar,valueStar){
     var params = {};
     
-    params.id       = id;
-    params.comment = comment;
+    params.id                 = id;
+    params.comment            = comment;
+    params.accuracyStar       = accuracyStar;
+    params.locationStar       = locationStar;
+    params.communicationStar  = communicationStar;
+    params.checkinStar        = checkinStar;
+    params.cleanlinessStar    = cleanlinessStar;
+    params.valueStar          = valueStar;
 
     return new Promise((resolve, reject) => {
     axios.post(process.env.Server_Address+'comment', params)
