@@ -80,7 +80,6 @@
   color: #4d4e4e;
   width: 40%;
   font-size: 1.8rem;
-  font-family: RobotoThin; 
 }
 .L_box1 .box1_list p:nth-child(even){
   width: 55%;
@@ -104,9 +103,6 @@
   position: relative;
   margin: 0 auto;
 }
-.L_box2 .BOX__logo h4{
-  font-family: RobotoThin; 
-}
 .L_box2 .BOX__logo img{
   width: auto;
   height: 100%;
@@ -117,7 +113,6 @@
 }
 .L_box2 .BOX__user h4{
   font-size: 1.6rem;
-  font-family: RobotoThin; 
 }
 .L_box2 img{
   width: 60%;
@@ -128,7 +123,6 @@
   margin: 2% 0 0;
   font-size: 1.8rem;
   color: #4d4e4e;
-  font-family: RobotoThin; 
   padding: 0 0 5%;
   border-bottom:1.5px solid #c5c5c5; 
 }
@@ -177,7 +171,6 @@
 .L_box5 p,.L_box6 p{
   font-size: 1.8rem;
   margin:3% 0 0;
-  font-family: RobotoThin; 
 }
 .L_box6{
   padding: 0 0 5%;
@@ -321,6 +314,7 @@
 .detail-price{
   font-size: 29px;
   color: #f6416c;
+  font-family: RobotoBold; 
 }
 
 .detail-price-div{
@@ -465,7 +459,6 @@
   border-top: 1px solid #888;
   cursor: pointer;
   padding: 2% 20px;
-  font-family: RobotoThin; 
 }
 .detail-guest-div .dropdown-menu > li > a:hover{
   background: #f6416c;
@@ -498,9 +491,6 @@
   font-size: 1.4rem;
   color: #888;
 }
-.Reviews .input-group{
-  font-family: RobotoThin; 
-}
 .ReviewsDiv{
   overflow: hidden;
   padding: 2% 0;
@@ -520,7 +510,6 @@
   font-size: 1.8rem;
   color: #4d4e4e;
   margin: 2% 0;
-  font-family: RobotoThin; 
 }
 .ReviewsDiv li .divxx{
   float: right;
@@ -586,7 +575,6 @@
   color: #4d4e4e;
   font-size: 1.8rem;
   margin-top:3%; 
-  font-family: RobotoThin; 
 }
 .ReviewsGuest .GuestName .uesrtext{
   width: 85%;
@@ -601,7 +589,6 @@
 .ReviewsGuest .GuestName .uesrtext p{
   margin: 0;
   font-size: 1.8rem;
-  font-family: RobotoThin; 
 }
 .neighbourhood>p,.neighbourhood ul{
   margin: 5% 0;
@@ -614,6 +601,7 @@
   font-size: 1.8rem;
   cursor: pointer;
   font-weight: 600;
+  font-family: RobotoBold; 
 }
 .neighbourhood ul li img{
   width: 25px;
@@ -746,7 +734,6 @@
 }
 
 .video h4 p span{
-  font-family: RobotoThin; 
   font-size: 1.2rem;
   display: none;
 }
@@ -809,7 +796,6 @@
   color: #fff;
   font-size: 1.2rem;
   padding:3% 5%;
-  font-family: RobotoThin; 
   margin-bottom: 10%;
 }
 .video li img{
@@ -843,7 +829,6 @@
   margin: 0 0%;
   font-size: 1.6rem;
   padding:2% 3%;
-  font-family: RobotoThin; 
   float: left;
   outline:none
 }

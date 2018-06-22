@@ -56,7 +56,6 @@
   height: 38px;
   line-height: auto;
   background:#fff;
-  font-family: RobotoThin; 
 }
 .index_content .guestsnum .form-group{
   width: 85%;
@@ -159,11 +158,9 @@
 .form .index_home h4{
   margin:0;
   font-size: 1.6rem;
-  font-family: RobotoThin; 
 }
 .form .index_home p{
   font-size: 1.6rem;
-  font-family: RobotoThin; 
   margin-bottom: 3%;
 }
 .form .container > .row li {
@@ -227,10 +224,6 @@
   display: inline-block;
   float: left;
   color: #131c4e;
-}
-.listing-card .price,
-.listing-card .divxx span{
-  font-family: RobotoThin; 
 }
 .modalcode .listing-card{
   width: 60%;
@@ -372,7 +365,6 @@
   background: none;
   color: #131c4e;
   border-bottom: 1px solid #131c4e;
-  font-family: RobotoThin; 
 }
 .ALL .All_experiences{
   padding-right: 0;
@@ -405,4 +397,203 @@
   margin: 0 1%;
   cursor: pointer;
 }
+
+/*Receipt start*/
+.Receipt .box1,
+.Receipt .box2,
+.Receipt .box3,
+.Receipt .box4_1,
+.Receipt .box4_2,
+.Receipt .box5 div>ul li,
+.Receipt .box5 div,
+.Receipt .box7 ul li{
+  overflow: hidden;
+}
+.Receipt .box1>p,
+.Receipt .box2>p,
+.Receipt .box4_1 p,
+.Receipt .box4_2 p,
+.Receipt .box4_3 p,
+.Receipt .box5 div>ul li>p,
+.Receipt .box6>p,
+.Receipt .box7 ul li>p,
+.Receipt .box7 ul li>h4,
+.Receipt .box7 ul li>p span,
+.Receipt .box8 p{
+  font-size: 1.6rem;
+}
+.Receipt{
+  max-width: 1200px !important;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.Receipt .box1 span{
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  border: 5px solid transparent;
+  border-right: 8px solid #f6416c;
+  margin-right: 10px;
+}
+.Receipt h3{
+  font-size:3rem;
+  font-family: RobotoBold; 
+}
+.Receipt .box2>p b,
+.Receipt .box6 p b,
+.Receipt .box7 ul li>p b{
+  font-family: RobotoBold; 
+}
+.Receipt .box2>p.Left{
+  width: 200px;
+}
+.Receipt .box2>p.Right{
+  width: 100px;
+  text-align: right;
+}
+.Receipt .box2{
+  margin: 2% 0;
+}
+.Receipt .box4,
+.Receipt .box5>div{
+  border:1px solid #c2c2c2;
+  border-radius:8px;
+}
+.Receipt .box4{
+  padding: 3%;
+}
+.Receipt .box4_2,
+.Receipt .box4_3{
+  border-bottom:1px solid #c2c2c2;
+  margin: 0;
+}
+.Receipt .box4_1 p,
+.Receipt .box4_2 p,
+.Receipt .box4_4{
+  padding: 0;
+}
+.Receipt .box4_2{
+  padding:1% 0;
+}
+.Receipt .box4_2 p span{
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  border: 8px solid transparent;
+  border-left: 10px solid #f6416c;
+  margin-right: 10px;
+}
+.Receipt .box4_3,
+.Receipt .box4_4{
+  padding:3% 0;
+  margin: 0;
+}
+.Receipt .box4_1 p,
+.Receipt .box4_3 h4,
+.Receipt .box4_4 h4,
+.Receipt .box5 div.box5_bottom h4,
+.Receipt .box6 h4{
+  font-size: 2rem;
+  font-family: RobotoBold; 
+}
+.Receipt .box4_3 p{
+  width: 100%;
+}
+.Receipt .box4_4 div.userlist{
+  width: 100%;
+  position: relative;
+  margin: 2% 0;
+}
+.Receipt .box4_4 div.userlist>div{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  border:1px solid #f6416c;
+  float: left;
+}
+.Receipt .box4_4 div.userlist>div>img{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Receipt .box4_4 div.userlist p{
+  float: left;
+  position: absolute;
+  top:50%;
+  transform: translate(0,-50%);
+  left: 60px;
+  font-size: 1.8rem;
+}
+.Receipt .box5{
+  padding: 0;
+}
+.Receipt .box5>div{
+  margin-left: 5%;
+  padding: 4%;
+}
+.Receipt .box5>div h3{
+  margin-top: 0%;
+}
+.Receipt .box5 div>ul{
+  margin:3% 0;
+}
+.Receipt .box5 div>ul li>p.left{
+  font-weight: 500;
+}
+.Receipt .box5 div.box5_top button{
+  width: 100%;
+  background: #f6416c;
+  border:none;
+  color: #fff;
+  border-radius: 0;
+}
+.Receipt .box5 div.box5_top button span{
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+.Receipt .box5 div.box5_bottom ul{
+  border-bottom:1px solid #c2c2c2;
+  padding-bottom: 2%;
+}
+.Receipt .box5 div.box5_top{
+  margin-bottom: 5%;
+}
+.Receipt .box5 div.box5_bottom .Adddetails{
+  float: right;
+  color: #f6416c;
+  border-bottom:1px solid #f6416c;
+  font-size: 1.6rem;
+}
+.Receipt .box6,
+.Receipt .box7{
+  border-bottom:1px solid #f6416c;
+  margin:1% 0;
+  padding: 1% 0;
+}
+.Receipt .box7 h4{
+  margin: 0;
+  font-family: RobotoBold; 
+}
+.Receipt .box8{
+  padding: 1% 0 5%;
+  position: relative;
+}
+.Receipt .box7 ul li p span,
+.Receipt .box8 p span a,
+.Receipt .box8 p span{
+  color: #f6416c;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.Receipt .box8 img{
+  width: 80px;
+  position: absolute;
+  right: 5%;
+  bottom: 18%;
+}
+/*Receipt end*/
 /*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWVwYWdlLnNjc3MiLCJfdmFyLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFFSSxZQ0ZRO0NER1Q7O0FBSEg7RUFNSSxZQ05RO0NET1Q7O0FBR0g7RUFDRSxzQkFBcUI7Q0EwQ3RCOztBQTNDRDtFQUlJLGtCQUFpQjtDQUNsQjs7QUFMSDtFQVFJLGtCQUFpQjtDQUNsQjs7QUFUSDtFQVlJLGVDbkJVO0VEb0JWLHFCQUFvQjtDQUNyQjs7QUFkSDtFQWlCSSxtQkFBa0I7RUFDbEIsMEJDekJVO0VEMEJWLG1CQUFrQjtDQUtuQjs7QUF4Qkg7RUFzQk0sZ0JBQWU7Q0FDaEI7O0FBdkJMO0VBMkJJLFlBQVc7Q0FDWjs7QUFFRDs7RUFFRSxjQUFhO0NBQ2Q7O0FBRUQ7RUFDRSxlQUFjO0NBQ2Y7O0FBRUQ7RUFDRSxpQkFBZ0I7RUFDaEIsaUJBQWdCO0NBQ2pCIiwiZmlsZSI6ImhvbWVwYWdlLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4vX3Zhcic7XG5cbi5oZWFkZXIge1xuICBhOm5vdCguYnRuKSB7XG4gICAgY29sb3I6ICR3aGl0ZTtcbiAgfVxuXG4gIC5idXR0b25fX291dGxpbmUge1xuICAgIGNvbG9yOiAkd2hpdGU7XG4gIH1cbn1cblxuLmZvcm0ge1xuICBwYWRkaW5nOiA2MHB4IDAgMTEwcHg7XG5cbiAgaDEgc3BhbiB7XG4gICAgZm9udC1zaXplOiAzLjByZW07XG4gIH1cblxuICBmb3JtIHtcbiAgICBwYWRkaW5nLXRvcDogNjBweDtcbiAgfVxuXG4gIGxhYmVsIHtcbiAgICBjb2xvcjogJHBpbms7XG4gICAgZm9udC13ZWlnaHQ6IGxpZ2h0ZXI7XG4gIH1cblxuICAuY29udGFpbmVyIHtcbiAgICBwYWRkaW5nOiAzMHB4IDUwcHg7XG4gICAgYm9yZGVyOiAxcHggc29saWQgJHBpbms7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuXG4gICAgPiAucm93IHtcbiAgICAgIHBhZGRpbmc6IDMwcHggMDtcbiAgICB9XG4gIH1cblxuICAucm93IGltZyB7XG4gICAgd2lkdGg6IDEwMCU7XG4gIH1cblxuICAmX19sb2NhdGlvbiBsaSBpbWcgfiBpbWcsXG4gICZfX2xvY2F0aW9uIGxpLmFjdGl2ZSBpbWcge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cblxuICAmX19sb2NhdGlvbiBsaS5hY3RpdmUgaW1nIH4gaW1nIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgfVxuXG4gICZfX3NlYXJjaCB7XG4gICAgbWluLXdpZHRoOiAxNjBweDtcbiAgICBtYXgtd2lkdGg6IDE4MHB4O1xuICB9XG59IiwiJGJhc2UtZm9udC1zaXplOiAxMHB4O1xuXG4kd2hpdGU6ICNmZmY7XG4kZ3JheTogI2VlZTtcbiRkYXJrLWJsdWU6ICMxMzFjNGU7XG4kcGluazogI2Y2NDE2YztcbiRncmVlbjogIzY2Y2IwMDsiXX0= */
