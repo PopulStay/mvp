@@ -59,6 +59,7 @@ export const House_Rules = 'House Rules';
 export const Cancellations = 'Cancellations';
 export const Get_details = 'Get details';
 export const Reviews = 'Reviews';
+export const No_Reviews = 'No Reviews';
 export const Search_Reviews = 'Search Reviews';
 export const Accuracy = 'Accuracy';
 export const Location = 'Location';

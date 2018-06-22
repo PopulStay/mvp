@@ -10,8 +10,27 @@
   font-family: RobotoThin; 
   src: url('../fonts/Roboto-Thin.ttf'); 
 } 
+.banner{
+  cursor: pointer;
+}
+.carousel-slider{
+  width: 1000px;
+  position: relative;
+  padding: 0 5%;
+}
+.carousel-slider .slidesClose{
+  position: absolute;
+  top:-20px;
+  right: -20px;
+  font-size: 5rem;
+  color: #fff;
+  cursor: pointer;
+}
 .slider .slider-list{
-  width: auto;
+  width: 100% !important;
+}
+.slider .slider-list li{
+  width: 100% !important;
 }
 .detail-content {
   position: relative;
@@ -633,7 +652,7 @@
   position: fixed;
   bottom: 5%;
   right: 3%;
-  z-index: 99999;
+  z-index: 99;
   background: url(../images/video.png) no-repeat;
   background-size: 100% 100%;
   padding:0.8%;

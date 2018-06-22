@@ -59,6 +59,7 @@ export const House_Rules = '房屋规则';
 export const Cancellations = '预订取消';
 export const Get_details = '获取详细信息';
 export const Reviews = '评论';
+export const No_Reviews = '暂无评论';
 export const Search_Reviews = '搜索评论';
 export const Accuracy = '如实描述';
 export const Location = '位置便利指数';
