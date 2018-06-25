@@ -53,13 +53,22 @@ class WalletWithdraw extends React.Component {
 
   withdrawlist(){
     ppsService.getWithdrawInfo(window.address).then((data)=>{
-      console.log(data.data)
       //开始申请提币，state是0
       //完成了向populstay转账0.01个eth，state是1
       //然后完成审核，向以太链提交申请，以太链正在挖矿，state是2
       //结束取币是3
       this.setState({withdrawlist:data.data})
     });
+
+    var withdrawlist = this.state.withdrawlist;
+    var Arrstate = [];
+    for(var i=0;i<withdrawlist.length;i++){
+      if(withdrawlist[i].state == 4){
+        Arrstate.push(withdrawlist[i].state);
+      }
+      this.setState({Arrstate:Arrstate.length})
+    }
+
     this.props.onGetDepositBalance();
   }
 
@@ -80,14 +89,6 @@ class WalletWithdraw extends React.Component {
       () => this.withdrawlist(),
       2000
     );
-
-    var Arrstate = [];
-    for(var i=0;i<withdrawlist.length;i++){
-      if(withdrawlist[i].state == 4){
-        Arrstate.push(withdrawlist[i].state);
-      }
-      this.setState({Arrstate:Arrstate.length})
-    }
 
     
   }

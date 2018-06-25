@@ -10,8 +10,27 @@
   font-family: RobotoThin; 
   src: url('../fonts/Roboto-Thin.ttf'); 
 } 
+.banner{
+  cursor: pointer;
+}
+.carousel-slider{
+  width: 1000px;
+  position: relative;
+  padding: 0 5%;
+}
+.carousel-slider .slidesClose{
+  position: absolute;
+  top:-20px;
+  right: -20px;
+  font-size: 5rem;
+  color: #fff;
+  cursor: pointer;
+}
 .slider .slider-list{
-  width: auto;
+  width: 100% !important;
+}
+.slider .slider-list li{
+  width: 100% !important;
 }
 .detail-content {
   position: relative;
@@ -61,7 +80,6 @@
   color: #4d4e4e;
   width: 40%;
   font-size: 1.8rem;
-  font-family: RobotoThin; 
 }
 .L_box1 .box1_list p:nth-child(even){
   width: 55%;
@@ -85,9 +103,6 @@
   position: relative;
   margin: 0 auto;
 }
-.L_box2 .BOX__logo h4{
-  font-family: RobotoThin; 
-}
 .L_box2 .BOX__logo img{
   width: auto;
   height: 100%;
@@ -98,7 +113,6 @@
 }
 .L_box2 .BOX__user h4{
   font-size: 1.6rem;
-  font-family: RobotoThin; 
 }
 .L_box2 img{
   width: 60%;
@@ -109,7 +123,6 @@
   margin: 2% 0 0;
   font-size: 1.8rem;
   color: #4d4e4e;
-  font-family: RobotoThin; 
   padding: 0 0 5%;
   border-bottom:1.5px solid #c5c5c5; 
 }
@@ -158,7 +171,6 @@
 .L_box5 p,.L_box6 p{
   font-size: 1.8rem;
   margin:3% 0 0;
-  font-family: RobotoThin; 
 }
 .L_box6{
   padding: 0 0 5%;
@@ -302,6 +314,7 @@
 .detail-price{
   font-size: 29px;
   color: #f6416c;
+  font-family: RobotoBold; 
 }
 
 .detail-price-div{
@@ -334,7 +347,6 @@
   float: right;
 }
 .details-totalprice-div ul li{
-  overflow: hidden;
   line-height: 1.9;
 }
 .details-totalprice-div ul li span{
@@ -355,6 +367,42 @@
   top:50%;
   right: -25px;
   transform: translate(0,-50%);
+}
+.details-totalprice-div ul li .LeftSpan{
+  position: relative;
+  cursor: pointer;
+}
+.details-totalprice-div ul li .LeftSpan:hover div{
+  display:block;
+}
+.details-totalprice-div ul li div{
+  width: 300px;
+  padding: 10px;
+  position: absolute;
+  background: #131c4e;
+  bottom:40px;
+  z-index: 99;
+  left: 0%;
+  display: none;
+}
+.details-totalprice-div ul li div h6{
+  font-size: 1.8rem;
+  line-height: 1.9;
+  color: #fff;
+}
+.details-totalprice-div ul li div p{
+  width: 0px;
+  height: 0px;
+  border: 10px solid transparent;
+  border-top: 10px solid #131c4e;
+  position: absolute;
+  left: 22%;
+  bottom:-30px;
+}
+.details-totalprice-div ul li .clearFloat{
+  clear: both;
+  margin: 0;
+  padding: 0;
 }
 .blueColor{
   color: #131c4e;
@@ -411,7 +459,6 @@
   border-top: 1px solid #888;
   cursor: pointer;
   padding: 2% 20px;
-  font-family: RobotoThin; 
 }
 .detail-guest-div .dropdown-menu > li > a:hover{
   background: #f6416c;
@@ -444,9 +491,6 @@
   font-size: 1.4rem;
   color: #888;
 }
-.Reviews .input-group{
-  font-family: RobotoThin; 
-}
 .ReviewsDiv{
   overflow: hidden;
   padding: 2% 0;
@@ -466,7 +510,6 @@
   font-size: 1.8rem;
   color: #4d4e4e;
   margin: 2% 0;
-  font-family: RobotoThin; 
 }
 .ReviewsDiv li .divxx{
   float: right;
@@ -475,9 +518,20 @@
 .ReviewsDiv .divxx img{
   width: 20px;
 }
-.ReviewsGuest img{
-  width: 10%;
+.ReviewsGuest .uesrimg{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
   float: left;
+  border:1px solid #f6416c;
+}
+.ReviewsGuest .uesrimg img{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .ReviewsGuest .GuestName{
   margin-top: 3%;
@@ -509,7 +563,7 @@
     background:#151b4e;
 }
 .ReviewsGuest ul{
-  height: 500px;
+  max-height: 500px;
   overflow: auto;
 }
 .ReviewsGuest li{
@@ -521,22 +575,20 @@
   color: #4d4e4e;
   font-size: 1.8rem;
   margin-top:3%; 
-  font-family: RobotoThin; 
 }
-.ReviewsGuest .GuestName div{
+.ReviewsGuest .GuestName .uesrtext{
   width: 85%;
   float: right;
   margin: 1% 0;
 }
-.ReviewsGuest .GuestName div p:first-child{
+.ReviewsGuest .GuestName .uesrtext p:first-child{
   color: #4d4e4e;
   font-weight: 600;
   font-family: RobotoBold; 
 }
-.ReviewsGuest .GuestName div p{
+.ReviewsGuest .GuestName .uesrtext p{
   margin: 0;
   font-size: 1.8rem;
-  font-family: RobotoThin; 
 }
 .neighbourhood>p,.neighbourhood ul{
   margin: 5% 0;
@@ -549,6 +601,7 @@
   font-size: 1.8rem;
   cursor: pointer;
   font-weight: 600;
+  font-family: RobotoBold; 
 }
 .neighbourhood ul li img{
   width: 25px;
@@ -587,7 +640,7 @@
   position: fixed;
   bottom: 5%;
   right: 3%;
-  z-index: 99999;
+  z-index: 99;
   background: url(../images/video.png) no-repeat;
   background-size: 100% 100%;
   padding:0.8%;
@@ -681,7 +734,6 @@
 }
 
 .video h4 p span{
-  font-family: RobotoThin; 
   font-size: 1.2rem;
   display: none;
 }
@@ -744,7 +796,6 @@
   color: #fff;
   font-size: 1.2rem;
   padding:3% 5%;
-  font-family: RobotoThin; 
   margin-bottom: 10%;
 }
 .video li img{
@@ -778,7 +829,6 @@
   margin: 0 0%;
   font-size: 1.6rem;
   padding:2% 3%;
-  font-family: RobotoThin; 
   float: left;
   outline:none
 }

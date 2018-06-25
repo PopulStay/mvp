@@ -47,20 +47,22 @@ class GuestInfo extends React.Component {
   
   componentDidMount() {
     this.setState({ languagelist:window.languagelist });
-
-
-
     this.setState( { account: window.address, id: window.address });
 
-    guestService.getPreorderList(window.address).then((data)=>{
-   
+    guestService.getOrderState().then((data)=>{
       this.setState({ orderlist:data});
-      console.log(this.state)
-     });
+    });
+
+    //这是测试代码； guestService.getOrderState()可以获得addcomment里面的ID
+    //
+    // guestService.addComment("5b2b201223347629a9ebd73f","test").then((data)=>{
+    //     console.log(data);
+    // });
+  
+    
 
     ppsService.getBalance(window.address).then((data)=>{
       this.setState({ ppsBalance:data});
-      console.log(data)
      });
 
     web3Service.getETHBalance(window.address).then((data)=>{
@@ -165,8 +167,8 @@ class GuestInfo extends React.Component {
       </div>
 
       <h1>{language.Guest_Managment_Panel}</h1>
-      <p className={this.state.orderlist.length == 0 ? 'show No_order' : 'hide No_order'}>{language.No_order}</p>
-      <div className={this.state.orderlist.length == 0 ? 'hide GuestManagment' : 'show GuestManagment'}>
+      <p className={(this.state.orderlist.length == 0 && this.state.usdOrderList.length == 0 )? 'show No_order' : 'hide No_order'}>{language.No_order}</p>
+      <div className={(this.state.orderlist.length == 0  && this.state.usdOrderList.length == 0 ) ? 'hide GuestManagment' : 'show GuestManagment'}>
         <div className="auto">
           <div className="divtr">
               <div>{language.Address}</div>
@@ -174,11 +176,11 @@ class GuestInfo extends React.Component {
               <div>{language.From}</div>
               <div>{language.To}</div>
               <div>{language.Price}</div>
-              <div>{language.Check_in}</div>
+              <div>{language.Operation}</div>
           </div>
           <div className="overflowAuto">
-            {this.state.orderlist.map(account => (
-                <GuestOrderRow account={account} key={account}/>
+            {this.state.orderlist.map(item => (
+                <GuestOrderRow item={item}/>
             ))}
             {this.state.usdOrderList.map(item => (
                 <GuestUsdOrderRow item={item}/>

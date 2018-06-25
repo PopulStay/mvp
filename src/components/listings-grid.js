@@ -4,6 +4,8 @@ import Pagination from 'react-js-pagination'
 import { withRouter } from 'react-router'
 import ListingCard from './listing-card'
 import languageService from '../services/language-service';
+import GoogleMap from './GoogleMap'
+
 
 class ListingsGrid extends Component {
 
@@ -11,7 +13,7 @@ class ListingsGrid extends Component {
     super(props);
       this.state = {
         listingRows: [],
-        listingsPerPage: 12,
+        listingsPerPage: 8,
         districtCodes:[],
         curDistrictCodeIndex:0,
         Progress:0,
@@ -36,23 +38,6 @@ class ListingsGrid extends Component {
         var guests = url[2][1];
         var place = url[3][1];
     }
-
-    // if( window.searchCondition.checkInDate )
-    // {
-    //   var from   = window.searchCondition.checkInDate.toDate().getTime();
-    // }
-
-    // if( window.searchCondition.checkOutDate )
-    // {
-    //   var to = window.searchCondition.checkOutDate.toDate().getTime();
-    // }
-
-    // if( window.searchCondition )
-    // {
-    //   var guests = window.searchCondition.guests;
-    //   var place  = window.searchCondition.place;      
-    // }
-
 
     if(window.codes)
     {
@@ -79,7 +64,6 @@ class ListingsGrid extends Component {
 
   render() {
     const activePage = this.props.match.params.activePage || 1;
-    console.log(this.state.listingRows);
     const showListingsRows = this.state.listingRows.slice(
       this.state.listingsPerPage * (activePage-1),
       this.state.listingsPerPage * (activePage))
@@ -114,7 +98,7 @@ class ListingsGrid extends Component {
             />
           </div>
           <div className="col-md-4 col-lg-4">
-            <img src="../../images/search-map.jpg" />
+            <GoogleMap />
           </div>
         </div>
         

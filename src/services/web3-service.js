@@ -52,7 +52,7 @@ getBalanceForCharge(address, expectbalance, pollIntervalMilliseconds=1000) {
           window.address = obj.address;
           window.privateKey = obj.privateKey;
           window.addressshow = obj.address.substring(0,10)+"...";
-          window.gas = 3000000;
+          window.gas = 4;
       }
     }
     

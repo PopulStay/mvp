@@ -56,14 +56,14 @@ class experienceintro extends Component {
            var widthbox = this.state.listingRows.length*220;
            this.setState({ style : this.style.style_1.width = widthbox+'px' });
       }else{
-          var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
+          var uuids = houselistingService.getAllLists(codes.data[0].id).then((data)=>{
               this.setState({ listingRows: data });
               window.listingRows = data;
               var widthbox = this.state.listingRows.length*220;
               this.setState({ style : this.style.style_1.width = widthbox+'px' });
           });
       }
-      console.log(this.state.listingRows.length*220)
+      console.log(this.state.listingRows.length)
   }
 
   handlePageChange(pageNumber) {

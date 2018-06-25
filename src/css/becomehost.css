@@ -11,13 +11,15 @@
   src: url('../fonts/Roboto-Thin.ttf'); 
 } 
 body{
-  font-family: RobotoRegular; 
   color: #4d4e4e;
+  font-family: RobotoThin; 
 }
 .container>div>div.row>div.col-lg-7 {
    padding-right: 10%;
 }
 .becomehost-1.container{
+  max-width: 1500px !important;
+  margin: 0 auto;
   padding: 0 10%;
 }
 img{width: 100%;}
@@ -114,67 +116,6 @@ h1,
 }
 .cursor{
   cursor: pointer;
-}
-.Step1_1 .form-control,
-.Step1_1 .dropdown-menu a,
-.Step1_1 .btn-group button,
-.Step1_2 .radio label,
-.Step1_2 .btn-group button,
-.Step1_2 .dropdown-menu a,
-.Step1_3 h3 b,
-.Step1_3 .form-group .btn-group button,
-.Step1_4 .btn-group button,
-.Step1_5 .step5box input,
-.Step1_6 .btn-group button,
-.Step1_6 h2 span,
-.Step1_2 .rightbox>div p,
-.Step1_6 .btn-group button,
-.Step1_6 input,
-.Step1_6 .dropdown-menu,
-.Step1_8 .divinput,
-.Step1_8 .Stepbox input,
-.Step1_10 .Shopitem>div>span.right,
-.Step1_10 .Shopitem>ul li,
-.Step1_10 h3,
-.rightbox>div p,
-.rightbox>div h4,
-.Step2_1 .rightbox ul li,
-.Step2_2 .rightbox ul li,
-.Step2_3 textarea,
-.Step2_3 .divinput,
-.Step2_4 .box span,
-.Step2_4 input,
-.Step2_5 .dropdown-menu a,
-.Step2_5 .stepbox input,
-.Step3_1 .radio label,
-.Step3_1 .divinput,
-.Step3_2 .divinput,
-.Step3_2 .check .textpink,
-.Step3_2 div.add input,
-.Step3_2 .rightbox1 p,
-.Explainwhy p,
-.Step3_4 .boxdiv p,
-.Step3_5 .box,
-.Step3_6 .dropdown-menu a,
-.Step3_6 .form-group .btn-group button,
-.Step3_6 .box>h5,
-.Step3_10 .boxdiv p,
-.Step3_12 .box>p,
-.Step3_12 .boxdiv input,
-.Step3_12 .dropdown-menu a,
-.Step3_12 .rightbox1 p,
-.Step3_15 .box>p,
-.Step3_15 .boxdiv input,
-.Step3_17 .box>p,
-.Step3_18 .box>p,
-.Step3_20 .box>p,
-.Step3_20 .boxdiv .content>p,
-.Step3_21 p,
-.Step3_2 h3,
-.introlist_4 .radio label,
-.registerlist_18 .radio label,
-.VerifyID_2 .radio label{
-  font-family: RobotoThin; 
 }
 .container{
   width: 100%;
@@ -651,7 +592,13 @@ h1,
 }
 .Step1_7 .Map{
   width: 80%;
+  height: 500px;
   margin: 5% 0;
+}
+.Step1_7 .Map .Mapicon{
+  width: 30px;
+  position: absolute;
+  transform: translate(-50%,-50%);
 }
 /*Step1_7 end*/
 .Step1_8 h1{

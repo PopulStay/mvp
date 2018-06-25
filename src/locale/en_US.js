@@ -59,6 +59,7 @@ export const House_Rules = 'House Rules';
 export const Cancellations = 'Cancellations';
 export const Get_details = 'Get details';
 export const Reviews = 'Reviews';
+export const No_Reviews = 'No Reviews';
 export const Search_Reviews = 'Search Reviews';
 export const Accuracy = 'Accuracy';
 export const Location = 'Location';
@@ -81,6 +82,8 @@ export const nights = 'nights';
 export const Special_Offer_20_off = 'Special Offer 20 off';
 export const Long_stay_discount = 'Long stay discount';
 export const Cleaning_fee = 'Cleaning fee';
+export const Cleaning_fee_Details = 'One-time fee charged by host to cover the cost of cleaning their space.';
+export const Service_fee_Details = 'This helps us run our platform and offer services like 24/7 support on your trip.';
 export const Total_Price = 'Total Price';
 export const Book = 'Book';
 export const You_wont_be_charged_yet = 'You won’t be charged yet';
@@ -832,6 +835,7 @@ export const Address = 'Address';
 export const Create = 'Create';
 
 //listing-all--------------------------------------------------------------------------------------------
+export const All_home = 'All home';
 export const All_experiences = 'All experiences';
 export const Home_Type = 'Home Type';
 export const More_Fiters = 'More_Fiters';
@@ -852,6 +856,7 @@ export const Have_your_own_separate_room_and_share_some_public_space = 'Have you
 export const Share_Room = 'Share Room';
 export const A_joint_space_such_as_a_public_Lounge = 'A joint space, such as a public Lounge.';
 export const The_average_price_per_night_is_PPS10000 = 'The average price per night is PPS10000.';
+export const No_result = 'No result';
 
 //listing-experience--------------------------------------------------------------------------------------------
 export const Explore_Experiences = 'Explore Experiences';
@@ -869,7 +874,7 @@ export const Host_an_experience_on_Populstay = 'Host an experience on PopulStay'
 export const Earn_money_leading_people_on_activities_you_love = 'Earn money leading people on activities you love.';
 export const Get_Started = 'Get Started';
 export const Learn_more = 'Learn more';
-export const What_are_Populsaty_Experiences = 'What are Populsaty Experiences?';
+export const What_are_Populsaty_Experiences = 'What are PopulSaty Experiences?';
 export const Populstay_Experiences_are_activities = "PopulStay Experiences are activities designed and led by inspiring locals. They go beyond typical tours or classes by immersing guests in each host's unique world. it's an opportunity for anyone to share their hobbies, skill, or expertise without needing an extra room.";
 export const Some_guests_are_now_writing = 'Some guests are now writing and sending postcards to penpals around the world,including me!';
 export const Jena = 'Jena';
@@ -947,6 +952,8 @@ export const TX = 'TX';
 export const Operation = 'Operation';
 export const Wallet_Size = 'Wallet Size';
 export const Submit = 'Submit';
+export const ok_checkIn = 'Check In';
+export const ok_Reviews = 'Reviews';
 export const state0 = 'Application';
 export const state1 = 'Application';
 export const state2 = 'Wait';
@@ -963,3 +970,7 @@ export const Become_a_Host = 'Become a Host';
 export const Help_Center = 'Help_Center';
 export const About_Populstay = 'About_PopulStay';
 export const Become_an_organiser = 'Become an organiser';
+
+// Receipt--------------------------------------------------------------------------------------------
+export const To_Itinerary = 'To Itinerary';
+export const Print = 'Print';

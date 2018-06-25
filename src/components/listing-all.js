@@ -77,43 +77,40 @@ class Listingall extends Component {
 
   setListingRows =(codes) =>{
     this.setState({districtCodes:codes.data});
+    var uuids = houselistingService.getAllLists(codes.data[0].id).then((data)=>{
+      var lists = [];
+      for(var i=0;i<data.length;i++){
+        var City = data[i].place.toUpperCase();
+        var guests = Number(data[i].guests);
+        var category = data[i].houseinfo.category;
+        var price = data[i].price;
+        var guestsnum =  Number(this.state.Adult) + Number(this.state.children) + Number(this.state.Baby);
+        var ifCity,ifcategory;
+        if(this.state.Citys_type == this.state.languagelist.City){
+          ifCity = City;
+        }else{
+          ifCity = this.state.Citys_type;
+        }
 
-    var uuids = houselistingService.getRecommand(codes.data[0].id).then((data)=>{
-    var lists = [];
-    for(var i=0;i<data.length;i++){
-      var City = data[i].place.toUpperCase();
-      var guests = Number(data[i].guests);
-      var category = data[i].houseinfo.category;
-      var price = data[i].price;
-      var guestsnum =  Number(this.state.Adult) + Number(this.state.children) + Number(this.state.Baby);
-      var ifCity,ifcategory;
-      if(this.state.Citys_type == this.state.languagelist.City){
-        ifCity = City;
-      }else{
-        ifCity = this.state.Citys_type;
-      }
+        if(this.state.Home_Type == this.state.languagelist.Home_Type){
+          ifcategory = category;
+        }else{
+          ifcategory = this.state.Home_Type;
+        }
+        
+        if(City == ifCity && guests >= guestsnum && category == ifcategory && price >= this.state.Pricemin && price <= this.state.Pricemax){
+          lists.push(data[i]);
+        }
 
-      if(this.state.Home_Type == this.state.languagelist.Home_Type){
-        ifcategory = category;
-      }else{
-        ifcategory = this.state.Home_Type;
+        this.setState({ listingRows: lists});
       }
-      
-      if(City == ifCity && guests >= guestsnum && category == ifcategory && price >= this.state.Pricemin && price <= this.state.Pricemax){
-        lists.push(data[i]);
-        console.log(lists)
-      }
-
-      this.setState({ listingRows: lists});
-     
-    }
-    window.listingRows = data;
+      window.listingRows = data;
     });
   }
 
 
   handlePageChange(pageNumber) {
-    this.props.history.push(`/page/${pageNumber}`)
+    
   }
 
   nextlist(e){
@@ -131,7 +128,6 @@ class Listingall extends Component {
   
 
   Strainer(e){
-    console.log(1)
     var Strainer = e.currentTarget.getAttribute('data-Strainer');
     if(Strainer == "Strainer_City"){
       if(this.state.Strainer_City){
@@ -590,7 +586,7 @@ class Listingall extends Component {
                       </div>
                     ))}
                 </div>
-                <h1 className={this.state.listingRows.length == 0 ? "show": "hide"}>No result</h1>
+                <h1 className={this.state.listingRows.length == 0 ? "show": "hide"}>{language.No_result}</h1>
                 <div className="listspan">
                   <span className={this.state.experienceList == 1 ? "active hide" : ""}  onClick={(e)=>this.setState({experienceList:1})}></span>
                   <span className={this.state.experienceList == 1 ? "active hide" : ""}  onClick={(e)=>this.setState({experienceList:2})}></span>

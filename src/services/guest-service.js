@@ -16,6 +16,44 @@ class GuestService {
     this.contract = require('truffle-contract');
     this.houseInfoListingContract = this.contract(HouseInfoListing);
   }
+
+  getOrderState(){
+    return new Promise((resolve, reject) => {
+          axios.get(process.env.Server_Address+'book?guestaddress='+window.address )
+                    .then((response)=> {
+                      //state:0准备提交。2 已经提交 4 已经checkin
+                      resolve(response.data);
+                    })
+                    .catch(function (error) {
+                      reject(error);
+                    });
+         });           
+  }
+
+  addComment(id,comment,accuracyStar,locationStar,communicationStar,checkinStar,cleanlinessStar,valueStar){
+    var params = {};
+    
+    params.id                 = id;
+    params.comment            = comment;
+    params.accuracyStar       = accuracyStar;
+    params.locationStar       = locationStar;
+    params.communicationStar  = communicationStar;
+    params.checkinStar        = checkinStar;
+    params.cleanlinessStar    = cleanlinessStar;
+    params.valueStar          = valueStar;
+
+    return new Promise((resolve, reject) => {
+    axios.post(process.env.Server_Address+'comment', params)
+    .then(function (response) {
+      resolve(response);
+    })
+    .catch(function (error) {
+      console.error(error)
+      reject(error)
+    });
+    })
+
+  }
     
   guestRegister(registerData) {
     return new Promise((resolve, reject) => {

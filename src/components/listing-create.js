@@ -11,8 +11,7 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import guestService from '../services/guest-service';
 import Housestep1 from './house-step1';
 import languageService from '../services/language-service';
-
-
+import GoogleMapReact from 'google-map-react';
 
 
 class ListingCreate extends Component {
@@ -234,9 +233,9 @@ class ListingCreate extends Component {
             Howoften_Froms:[],
             Howoften_Tos:[],
             languagelist:{},
-            generate_smart_contract:0
-
-
+            generate_smart_contract:0,
+            lat:9.6075,
+            lng:8.9303,
         }
         this.DETA={
             current_year : 1,
@@ -445,7 +444,9 @@ class ListingCreate extends Component {
                 'editor':listStorage.editor,
                 'photosindex':listStorage.photosindex,
                 'modalsubmit':listStorage.modalsubmit,
-                'PicturesSize':listStorage.PicturesSize
+                'PicturesSize':listStorage.PicturesSize,
+                'lat':listStorage.lat,
+                'lng':listStorage.lng,
             })
         }
     }
@@ -465,6 +466,10 @@ class ListingCreate extends Component {
 
     closeModal() {
       this.setState({modalIsOpen: false});
+    }
+
+    onBoundsChange(defaultCenter){
+        this.setState({lat:defaultCenter.center.lat,lng:defaultCenter.center.lng})
     }
 
     submit(){
@@ -704,6 +709,7 @@ class ListingCreate extends Component {
 
   render() {
     const language = this.state.languagelist;
+    const AnyReactComponent = ({ text }) => <div className="Mapicon"><img src="/images/Map.png" /></div>;
     return (
       <div className="becomehost-1 container">
 
@@ -1066,10 +1072,20 @@ class ListingCreate extends Component {
 
               <h1>{language.Is_the_pin_in_the_right_place}</h1>
               <h2>{language.If_needed_you_can_drag_the_pin_to_adjust_its_location}</h2>
-              <p className="text1">11-1318,Singapore,541189,Singapore</p>
+              <p className="text1">{this.state.lat},{this.state.lng}</p>
               
               <div className="Map">
-                <img src="./images/search-map.jpg" />
+                    <GoogleMapReact
+                        bootstrapURLKeys={{ key: 'AIzaSyD0WT2bQlRLoaTu1XbQ9U_kam0-xmmWxFA' }}
+                        defaultCenter={{lat:this.state.lat,lng:this.state.lng}}
+                        defaultZoom={6}
+                        onChange={defaultCenter => this.onBoundsChange(defaultCenter)}
+                      >
+                      <AnyReactComponent
+                        lat={this.state.lat}
+                        lng={this.state.lng}
+                      />
+                    </GoogleMapReact>
               </div>
 
 

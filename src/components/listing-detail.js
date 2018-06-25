@@ -14,6 +14,7 @@ import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
 import languageService from '../services/language-service';
 import GuestRegister from './guest-register';
+import Timestamp from 'react-timestamp';
 import { Link } from 'react-router-dom';
 
 
@@ -62,16 +63,7 @@ class ListingsDetail extends Component {
       priceCurrency:"PPS",
       neighbourhood:0,
       neighbourhoodurl:'../images/detail-content-map.png',
-      neighbourhoodlist:[
-          {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
-          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking PopulStay in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended PopulStay to get an affordable yet convenient locati…Read more'},
-          {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
-          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with PopulStay! Will definitely book this place again.'},
-          {name:'Afian',time:'March 2018',imgurl:'../images/Guest1.png',Reviews:'Excellent location near Changi Business Park. Very accessible with the new downtown line MRT at upper changi road east'},
-          {name:'Lenie',time:'December 2017',imgurl:'../images/Guest2.png',Reviews:'I was quite skeptical in booking PopulStay in the past as I always thought of  trouble in staying other peoples houses. I always book a hotel to stay for myself and my family everytime they travel to Singapore. A friend recomended PopulStay to get an affordable yet convenient locati…Read more'},
-          {name:'Kay',time:'November 2017',imgurl:'../images/Guest3.png',Reviews:'It’s my partner’s first time in Singapore and I could not have asked for a wonderful place to stay than Eddie’s. The house is stylish and comfy plus the location is superb, very near to the new MRT line and close to the airport too. Our 7 days stay was even amazing with the hosp…Read more'},
-          {name:'Lina',time:'August 2017',imgurl:'../images/Guest4.png',Reviews:'Eddie and Edwin are really the best host! Susan is so friendly and she is really a great helper. Thank you so much for this best experience with PopulStay! Will definitely book this place again.'}
-      ],
+      neighbourhoodlist:[],
       ethBalance:0,
       ppsBalance:0,
       usddatalist:[],
@@ -82,6 +74,7 @@ class ListingsDetail extends Component {
       Progresshide:0,
       languagelist:{},
       clicklogout:false,
+      detail:'',
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -114,7 +107,6 @@ class ListingsDetail extends Component {
 
 
   loadListing() {
-    console.log(this.props)
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.listingId);
     var slideArray = this.state.slides;
 
@@ -159,8 +151,9 @@ class ListingsDetail extends Component {
          //with smart contract 
       houseInfoDetailPromise =  houselistingService.getHouseInfoDetail(this.props.listingId)
         .then((result) => {
+        console.log(result._ethPrice/this.CONST.weiToGwei)
             var roominfo = JSON.parse(result._roominfo);
-            this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:(result._ethPrice/this.CONST.weiToGwei).toFixed(3),usdPrice:result._ethPrice/this.CONST.weiToUSD});
+            this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
             //slideArray.push();
 
           this.setState({Progress:this.state.Progress+50})
@@ -183,8 +176,8 @@ class ListingsDetail extends Component {
 
 
         houseInfoDetailPromise.then((result)=>{
+          console.log(result)
               var descriptioninfo = result;
-          console.log(descriptioninfo)
              this.setState({descriptioninfo:descriptioninfo});
              if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
              {
@@ -200,7 +193,7 @@ class ListingsDetail extends Component {
               for(var i =0 ;i < descriptioninfo.selectedPictures.length;i++)
               {
                 var slide ={};
-                slide.imgageUrl = descriptioninfo.selectedPictures[i+1].imagePreviewUrl;
+                slide.imgageUrl = descriptioninfo.selectedPictures[i].imagePreviewUrl;
                 slideArray.push(slide);
                 this.setState({Progress:this.state.Progress+50})
 
@@ -226,6 +219,15 @@ class ListingsDetail extends Component {
   
 
   componentWillMount() {
+
+
+
+    //获取评论代码，comment为评论内容。
+    houselistingService.getHouseComment(this.props.listingId)
+    .then((data)=>{
+          this.setState({neighbourhoodlist:data.data})
+    })
+
     this.setState({ languagelist:window.languagelist });
 
 
@@ -245,10 +247,6 @@ class ListingsDetail extends Component {
       });
       this.setState({login:true});
     }
-
-    guestService.getGuesterInfo(window.address).then((data)=>{
-        this.setState({ user:data.user});
-    });
   }
 
 
@@ -257,7 +255,6 @@ class ListingsDetail extends Component {
     var DateLists = this.state.DateLists;
     for(var i=0;i<DateLists.length;i++){
       if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end-43200000){
-        console.log(new Date(dayS));
         return new Date(dayS);
       }
     }
@@ -267,11 +264,13 @@ class ListingsDetail extends Component {
 
   loadOrdered = (id) =>{
       houselistingService.getHouseInfoById(id).then((data)=>{
+        guestService.getGuesterInfo(data.hostAddress).then((data)=>{
+            this.setState({ user:data.user});
+        });
         if(data)
         {
-          var slide ={};
-          slide.imgageUrl = data.profile.previewImage;
-          this.state.slides.push(slide);
+          console.log(data.profile.previewImage)
+          this.setState({detail:data.profile.previewImage});
         }
 
         if(data.bookedDate != undefined ){
@@ -430,26 +429,7 @@ class ListingsDetail extends Component {
   render() {
     const language = this.state.languagelist;
     const price = typeof this.state.ppsPrice === 'string' ? 0 : this.state.ppsPrice;
-    const guestItems = [];
-    this.state.guests.forEach((guest,index)=>{
-      guestItems.push(<li><a onClick={this.Guests.bind(this,guest)} >{guest} {language.guests}</a></li>)
-    })
 
-    const neighbourhoods = [];
-    this.state.neighbourhoodlist.forEach((item,index)=>{
-      neighbourhoods.push(
-          <li>
-              <div className="GuestName">
-                  <img src={item.imgurl} alt="" />
-                  <div>
-                      <p>{item.name}</p>
-                      <p>{item.time}</p>
-                  </div>
-              </div>
-              <p className="GuestDiv">{item.Reviews}</p>
-          </li>
-      )
-    })
     return (  
 
 <div> 
@@ -495,15 +475,30 @@ class ListingsDetail extends Component {
             </Link>
           </Overlay>
         }
+      
+      {this.state.slides.length != 0 &&
+        <div className="banner" onClick={(e)=>this.setState({modalslider:true})}> 
+          <img src={this.state.detail} />
+        </div>  
+      }
 
-      <div className="carousel-slider">
-      <Carousel>
-       {this.state.slides.map(slide => (
-        <div className="carousel-inner item" style={{backgroundImage:"url("+slide.imgageUrl+")"}}>
+      {this.state.slides.length == 0 &&
+        <div className="banner"> 
+          <img src={this.state.detail} />
+        </div>  
+      }
+      
+      <Modal isOpen={this.state.modalslider} onAfterOpen={this.afterOpenModal} onRequestClose={(e)=>this.setState({modalslider:false})} 
+        contentLabel="Wallet Message">
+        <div className="carousel-slider">
+          <span className="slidesClose"  onClick={(e)=>this.setState({modalslider:false})}>×</span>
+          <Carousel>
+           {this.state.slides.map(slide => (
+              <img src={slide.imgageUrl} />
+          ))}
+          </Carousel>
         </div>
-         ))}
-      </Carousel>
-      </div>
+      </Modal>
 
       <div className="detail-content container">
         <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
@@ -583,97 +578,114 @@ class ListingsDetail extends Component {
         </div>
         
         <p className="More box6_More hide">{language.Get_details}</p>
-
-        <div className="Reviews">
-            <p>{this.state.neighbourhoodlist.length} {language.Reviews}</p>
-            <div className="divxx">
-              <img src="../images/detail-xx01.png" alt="" />
-              <img src="../images/detail-xx01.png" alt="" />
-              <img src="../images/detail-xx01.png" alt="" />
-              <img src="../images/detail-xx01.png" alt="" />
-              <img src="../images/detail-xx02.png" alt="" />
+        
+        <div className={this.state.neighbourhoodlist == 0 ? 'hide' : 'show'}>
+            <div className="Reviews">
+                <p>{this.state.neighbourhoodlist.length} {language.Reviews}</p>
+                <div className="divxx">
+                  <img src="../images/detail-xx01.png" alt="" />
+                  <img src="../images/detail-xx01.png" alt="" />
+                  <img src="../images/detail-xx01.png" alt="" />
+                  <img src="../images/detail-xx01.png" alt="" />
+                  <img src="../images/detail-xx02.png" alt="" />
+                </div>
+                <div className="input-group">
+                  <span className="input-group-btn">
+                    <button className="btn btn-default" type="button">
+                      <span className="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+                  <input type="text" className="form-control" placeholder={language.Search_Reviews} />
+                </div>
             </div>
-            <div className="input-group">
-              <span className="input-group-btn">
-                <button className="btn btn-default" type="button">
-                  <span className="glyphicon glyphicon-search"></span>
-                </button>
-              </span>
-              <input type="text" className="form-control" placeholder={language.Search_Reviews} />
+
+            <div className="ReviewsDiv">
+                <ul>
+                    <li>
+                      <p>{language.Accuracy}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Location}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Communication}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Check_in}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Cleanliness}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                    <li>
+                      <p>{language.Value}</p>
+                      <div className="divxx">
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx01.png" alt="" />
+                        <img src="../images/detail-xx02.png" alt="" />
+                      </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div className="ReviewsGuest">
+              <ul>
+                {this.state.neighbourhoodlist.map(item => (
+                  <li>
+                      <div className="GuestName">
+                          <div className="uesrimg">
+                            <img src='/images/uesrimg.png' alt="" />
+                          </div>
+                          <div className="uesrtext">
+                              <p>{item.name}</p>
+                              <p><Timestamp time={item.from.substring(0,10)} format='date'/></p>
+                          </div>
+                      </div>
+                      <p className="GuestDiv">{item.comment}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
         </div>
-
-        <div className="ReviewsDiv">
-            <ul>
-                <li>
-                  <p>{language.Accuracy}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Location}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Communication}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Check_in}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Cleanliness}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-                <li>
-                  <p>{language.Value}</p>
-                  <div className="divxx">
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx01.png" alt="" />
-                    <img src="../images/detail-xx02.png" alt="" />
-                  </div>
-                </li>
-            </ul>
+        <div className={this.state.neighbourhoodlist == 0 ? 'show L_box6' : 'hide L_box6'}>
+            <h5>{language.No_Reviews}</h5>
         </div>
-
-        <div className="ReviewsGuest">
-          <ul>
-            {neighbourhoods}
-          </ul>
-        </div>
-
         <div className="neighbourhood">
             <p>{language.See_the_neighbourhood}</p>
             <img src={this.state.neighbourhoodurl} alt="" />
@@ -735,7 +747,9 @@ class ListingsDetail extends Component {
                 <div className="btn-group">
                   <button type="button" data-toggle="dropdown" >{this.state.guest} {language.guests}<span>▼</span></button>
                   <ul className="dropdown-menu" role="menu">
-                    { guestItems }
+                    {this.state.guests.map(guest => (
+                      <li><a onClick={this.Guests.bind(this,guest)} >{guest} {language.guests}</a></li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -744,27 +758,38 @@ class ListingsDetail extends Component {
                 <ul>
                     <li className="blueColor">
                       <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}{language.nights}
-                          <img src="../images/detail-img13.png" />
                       </span>
                       <span className = "RightSpan">{this.calcTotalPrice()}</span>
+                      <p className="clearFloat"></p>
                     </li>
                     <li className="pinkColor">
-                      <span className = "LeftSpan">{language.Special_Offer_20_off}
+                      <span className = "LeftSpan">{language.Cleaning_fee}
                           <img src="../images/detail-img13.png" />
+                          <div>
+                              <h6>{language.Cleaning_fee_Details}</h6>
+                              <p></p>
+                          </div>
                       </span>
                       <span className = "RightSpan">0</span>
+                      <p className="clearFloat"></p>
                     </li>
                     <li className="pinkColor">
-                      <span className = "LeftSpan">{language.Long_stay_discount}
+                      <span className = "LeftSpan">{language.Service_fees}
                           <img src="../images/detail-img13.png" />
+                          <div>
+                              <h6>{language.Service_fee_Details}</h6>
+                              <p></p>
+                          </div>
                       </span>
                       <span className = "RightSpan">0</span>
+                      <p className="clearFloat"></p>
                     </li>
                     <li className="blueColor">
                       <span className = "LeftSpan">{language.Total_Price}</span>
                       <span className = "RightSpan">
                         {this.state.priceCurrency}: { this.calcTotalPrice()}
                       </span>
+                      <p className="clearFloat"></p>
                     </li>
                 </ul>
                
