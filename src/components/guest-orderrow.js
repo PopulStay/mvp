@@ -22,12 +22,15 @@ class GuestOrderRow extends Component {
       url:"",
       languagelist:{},
       Comment:'',
+      selectedPictures:[],
     }
 
     this.checkIn   = this.checkIn.bind(this);
     this.Reviews   = this.Reviews.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.fileChangedHandler = this.fileChangedHandler.bind(this);
+    this.deletePictures = this.deletePictures.bind(this);
     languageService.language();
   }
 
@@ -94,6 +97,38 @@ class GuestOrderRow extends Component {
         this.setState({checkInOpen: false});
     });
   }
+  fileChangedHandler(event){
+        event.preventDefault();
+        
+        var files = this.state.selectedPictures;
+        let reader = new FileReader();
+        let file = event.target.files[0];
+
+        var imgsize = (file.size/1024).toFixed(2); 
+        if(imgsize<600){
+            reader.onloadend = () => {
+              files.push({
+                file: file,
+                imagePreviewUrl: reader.result
+              });
+              this.setState({selectedPictures:files});
+            }
+          reader.readAsDataURL(file)
+          this.setState({PicturesSize:''});
+        }else{
+          this.setState({PicturesSize:'The picture must not exceed 600KB'})
+        }
+        console.log(this.state.selectedPictures)
+        
+    }
+
+    deletePictures(index,e){
+      this.setState({
+            selectedPictures: this.state.selectedPictures.filter((elem, i) => index != i)
+      });
+
+    }
+
 
   render() {
       const language = this.state.languagelist;
@@ -101,7 +136,9 @@ class GuestOrderRow extends Component {
     return (
       <div>
         <div className="divtr">
-          <div><p><a href={`/listing/${this.state.houseinfoid}`}>{this.state.houseinfoid}</a></p></div>
+          {this.state.usdprice != '0' && this.state.usdprice && <div><p>/</p></div>}
+          {this.state.ethprice != '0' && this.state.ethprice && <div><a href={`/listing/${this.state.houseinfoid}`}><span className="glyphicon glyphicon-search"></span></a></div>}
+          {this.state.price != '0' && this.state.price && <div><a href={`/listing/${this.state.houseinfoid}`}><span className="glyphicon glyphicon-search"></span></a></div>}
           <div><Link to="/Receipt">{language.Check}</Link></div>
           <div><Timestamp time={this.state.from.substring(0,10)} format='date'/></div>
           <div><Timestamp time={this.state.to.substring(0,10)} format='date'/></div>
@@ -110,6 +147,7 @@ class GuestOrderRow extends Component {
           {this.state.price != '0' && this.state.price && <div>{this.state.price+"/PPS"}</div> }
           { this.state.state === '1' &&<div>{language.state1}</div>}
           { this.state.state === '2' &&<div><button className="btn-sn btn-danger" onClick={(e)=>this.setState({checkInOpen:true})}>{language.Check_In}</button></div>}
+          { this.state.state === '-2' &&<div><button className="btn-sn btn-danger">{language.Check_In}</button></div>}
           { this.state.state === '3' &&<div>{language.state1}</div>}
           { this.state.state === '4' &&<div><button className="btn-sn btn-danger" onClick={this.openModal}>{language.Reviews}</button></div>}
           { this.state.state === '5' &&<div>{language.ok_Reviews}</div>}
@@ -118,9 +156,99 @@ class GuestOrderRow extends Component {
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal}  
         contentLabel="Wallet Message">
           <div className="Wallet_Reviews">
-            <textarea onChange={(e)=>this.setState({Comment:e.target.value})}></textarea>
-            <button className="btn btn-primary Left" onClick={this.Reviews}>{language.Reviews}</button>
-            <button className="btn btn-primary Right" onClick={this.closeModal}>{language.Cancel}</button>
+            <div className="box1">
+                <div className="userimg">
+                  <img src="/images/uesrimg.png"/>
+                </div>
+                <div className="usertext">
+                  <h4>Mo Han</h4>
+                  <p>Charleston, South Carolina, United States · Joined in March 2018</p>
+                  <h6>Absolute Melbourne Center Apartment</h6>
+                </div>
+            </div>
+
+            <ul className="box2">
+                <li>
+                  <p>{language.Accuracy}</p>
+                  <div className="divxx">
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>{language.Location}</p>
+                  <div className="divxx">
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>{language.Communication}</p>
+                  <div className="divxx">
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>{language.Check_in}</p>
+                  <div className="divxx">
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>{language.Cleanliness}</p>
+                  <div className="divxx">
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                  </div>
+                </li>
+                <li>
+                  <p>{language.Value}</p>
+                  <div className="divxx">
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                    <img src="../images/reviews1.png" alt="" />
+                  </div>
+                </li>
+            </ul>
+
+            <textarea placeholder="Describe your experiece here" onChange={(e)=>this.setState({Comment:e.target.value})}></textarea>
+
+            <div className="photos">
+                {this.state.selectedPictures.map((file,index) => (
+                  <div className="photosimg" >
+                    <img className="img-thumbnail" src={file.imagePreviewUrl} />
+                    <span  className="glyphicon glyphicon-trash" onClick={this.deletePictures.bind(this,index)} ></span>
+                  </div>
+                  ))
+                 }
+               <div className="photosipt">
+                  <img src="../images/reviews3.png" />
+                  <input className="btn btn-default btn-lg bg-pink color-white Fileipt" type="file" onChange={(e)=>this.fileChangedHandler(e)}/>
+               </div>
+            </div>
+            <p className="textpink">{this.state.PicturesSize}</p>
+
+            <button className="Right Right1" onClick={this.closeModal}>{language.Cancel}</button>
+            <button className="Right" onClick={this.Reviews}>{language.Reviews}</button>
           </div>
         </Modal>
 

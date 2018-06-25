@@ -497,12 +497,14 @@
   border-top:1.5px solid #c5c5c5; 
   border-bottom:1.5px solid #c5c5c5; 
 }
-.ReviewsDiv li{
+.ReviewsDiv li,
+.Wallet_Reviews .box2 li{
   width: 47%;
   float: left;
   padding: 1% 0;
 }
-.ReviewsDiv li:nth-child(even){
+.ReviewsDiv li:nth-child(even),
+.Wallet_Reviews .box2 li:nth-child(even){
   float: right;
 }
 .ReviewsDiv li p{
@@ -511,7 +513,8 @@
   color: #4d4e4e;
   margin: 2% 0;
 }
-.ReviewsDiv li .divxx{
+.ReviewsDiv li .divxx,
+.Wallet_Reviews .box2 li .divxx{
   float: right;
   margin: 2% 0;
 }
