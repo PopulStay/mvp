@@ -26,6 +26,8 @@ class GuestRegister extends React.Component {
       emailactive:0,
       Prompt:"",
       languagelist:{},
+      password:"",
+      repeatPassword:""
     };
 
     this.openModal = this.openModal.bind(this);
@@ -45,11 +47,14 @@ class GuestRegister extends React.Component {
    
   register(){
     var register={};
-    register.id      = window.address;
-    register.user    = this.state.user;
-    register.account = window.address;
-    register.phone   = this.state.phone;
-    register.email   = this.state.email;
+    register.id             = window.address;
+    register.user           = this.state.user;
+    register.account        = window.address;
+    register.phone          = this.state.phone;
+    register.email          = this.state.email;
+    register.password       = this.state.password;
+    register.repeatPassword = this.state.repeatPassword;
+    register.encryptedPK    = window.privateKey;
     guestService.guestRegister(register).then((data)=>{
       this.setState({ registered:true });
       this.closeModal();
@@ -178,6 +183,18 @@ class GuestRegister extends React.Component {
                   <label>{language.User}</label>
                   <input type="text" className="form-control" placeholder={language.User_name} onChange={(e) => this.setState({user: e.target.value})}/>
                 </div>
+
+                <div className="form-group">
+                  <label>Password</label>
+                  <input type="text" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})}/>
+                </div>
+
+
+                <div className="form-group">
+                  <label>repeatPassword</label>
+                  <input type="text" className="form-control" placeholder="repeatPassword" onChange={(e) => this.setState({repeatPassword: e.target.value})}/>
+                </div>
+                
 
                 <div className="form-group">
                   <label>{language.Phone}</label>
