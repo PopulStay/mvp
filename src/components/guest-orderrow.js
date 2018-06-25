@@ -32,6 +32,7 @@ class GuestOrderRow extends Component {
     this.fileChangedHandler = this.fileChangedHandler.bind(this);
     this.deletePictures = this.deletePictures.bind(this);
     languageService.language();
+
   }
 
 
@@ -82,6 +83,7 @@ class GuestOrderRow extends Component {
       state:this.props.item.state,
     });
     this.setState({ languagelist:window.languagelist });
+    //orderService.confirmByUSD("5b30a218e13af37acb1e872a");
   }
 
   openModal() {
