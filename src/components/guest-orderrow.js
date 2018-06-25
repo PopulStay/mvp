@@ -28,6 +28,7 @@ class GuestOrderRow extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     languageService.language();
+
   }
 
 
@@ -66,6 +67,7 @@ class GuestOrderRow extends Component {
   }
   componentDidMount() {
     this.setState({ languagelist:window.languagelist });
+    //orderService.confirmByUSD("5b30a218e13af37acb1e872a");
   }
 
   openModal() {

@@ -13,6 +13,29 @@ class PreOrderService {
   }
 
 
+  //记住一定只能是-2的
+  //orderService.confirmByUSD("5b30a218e13af37acb1e872a");
+  confirmByUSD(id){
+     return new Promise((resolve, reject) => {
+        var params       = {};
+        params.id    = id;
+        params.state = 4;
+
+        axios
+        .post(process.env.Server_Address+'currencycheckin/',params)
+        .then((response)=> {
+                  //state:0准备提交。1 已经提交 2 已经写入以太链
+                  resolve(response);
+                })
+        .catch(function (error) {
+                  reject(error);
+                });
+      });
+  }
+
+
+
+
 
   confirm(address,ethOrPPS,from,to,houseinfoid){
   
