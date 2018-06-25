@@ -518,6 +518,7 @@
   opacity: 0.5;
 }
 .withdraw{
+  padding: 5%;
   width: 750px;
 }
 .withdraw .tablebox{
@@ -531,6 +532,7 @@
 .withdraw table th{
   text-align: center;
   font-size: 1.6rem;
+  font-family: RobotoBold; 
 }
 .withdraw .submitbox{
   width: 100%;
@@ -539,6 +541,7 @@
 .withdraw .submitbox label{
   font-size: 1.8rem;
   margin-top: 3%;
+  font-family: RobotoBold; 
 }
 .withdraw table tr td.td5{
   width: 35%;

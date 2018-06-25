@@ -102,7 +102,7 @@ class GuestOrderRow extends Component {
       <div>
         <div className="divtr">
           <div><p><a href={`/listing/${this.state.houseinfoid}`}>{this.state.houseinfoid}</a></p></div>
-          <div><Link to={`/listing/${this.state.houseinfoid}`}>{language.Check}</Link></div>
+          <div><Link to="/Receipt">{language.Check}</Link></div>
           <div><Timestamp time={this.state.from.substring(0,10)} format='date'/></div>
           <div><Timestamp time={this.state.to.substring(0,10)} format='date'/></div>
           {this.state.usdprice != '0' && this.state.usdprice && <div>{this.state.usdprice+"/USD"}</div> }
