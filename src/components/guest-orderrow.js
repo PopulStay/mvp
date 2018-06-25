@@ -66,6 +66,7 @@ class GuestOrderRow extends Component {
      ;
   }
   componentDidMount() {
+    console.log(this.props)
     this.setState({ languagelist:window.languagelist });
     //orderService.confirmByUSD("5b30a218e13af37acb1e872a");
   }
@@ -94,7 +95,9 @@ class GuestOrderRow extends Component {
           <div><Link to={`/listing/${this.props.item.houseinfoid}`}>{language.Check}</Link></div>
           <div><Timestamp time={this.props.item.from.substring(0,10)} format='date'/></div>
           <div><Timestamp time={this.props.item.to.substring(0,10)} format='date'/></div>
-          <div>{this.props.item.ethprice == '0' ? this.props.item.price+"/PPS" : this.props.item.ethprice/1000000000+"/ETH"}</div>
+          {this.props.item.usdprice != '0' && this.props.item.usdprice && <div>{this.props.item.usdprice+"/USD"}</div> }
+          {this.props.item.ethprice != '0' && this.props.item.ethprice && <div>{this.props.item.ethprice+"/ETH"}</div> }
+          {this.props.item.price != '0' && this.props.item.price && <div>{this.props.item.price+"/PPS"}</div> }
           { this.props.item.state === '1' &&<div>{language.state1}</div>}
           { this.props.item.state === '2' &&<div><button className="btn-sn btn-danger" onClick={this.checkIn}>{language.Check_In}</button></div>}
           { this.props.item.state === '3' &&<div>{language.state1}</div>}

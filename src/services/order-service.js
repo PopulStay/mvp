@@ -65,9 +65,17 @@ class PreOrderService {
               var transaction =new EthereumTx(txData);
               transaction.sign(pk);
               var serializedTx = transaction.serialize().toString('hex');
-
-              params.from            = from+"000";//+"000" in order to match data in DB
-              params.to              = to+"000";
+              var fromLen;
+              var toLen;
+              if(from.length<13){
+                fromLen = from+"000";
+                toLen = to+"000";
+              }else{
+                fromLen = from;
+                toLen = to;
+              }
+              params.from            = fromLen;//+"000" in order to match data in DB
+              params.to              = toLen;
               params.houseinfoid     = houseinfoid;
               params.address         = address;
               params.transactionData = '0x' + serializedTx;
