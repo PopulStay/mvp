@@ -413,7 +413,7 @@
 .Receipt .box1>p,
 .Receipt .box2>p,
 .Receipt .box4_1 p,
-.Receipt .box4_2 p,
+.Receipt .box4_2 p span,
 .Receipt .box4_3 p,
 .Receipt .box5 div>ul li>p,
 .Receipt .box6>p,
@@ -477,7 +477,7 @@
 .Receipt .box4_2{
   padding:1% 0;
 }
-.Receipt .box4_2 p span{
+.Receipt .box4_2 p.text-center span{
   display: inline-block;
   width: 0px;
   height: 0px;

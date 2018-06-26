@@ -89,6 +89,7 @@ class GuestOrderRow extends Component {
     });
   }
   componentDidMount() {
+    console.log(this.props.item)
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ user:data.user});
     });
@@ -159,6 +160,12 @@ class GuestOrderRow extends Component {
 
     }
 
+    onCheck(){
+      var url = "/Receipt?checkInDate="+this.props.item.from+"&checkOutDate="+this.props.item.to+"&price="+this.props.item.price+"&ethprice="+this.props.item.ethprice+"&usdprice="+this.props.item.usdprice+"&days="+this.props.item.days
+      window.location.href=url;
+
+    }
+
 
   render() {
       const language = this.state.languagelist;
@@ -167,9 +174,9 @@ class GuestOrderRow extends Component {
       <div>
         <div className="divtr">
           {this.state.usdprice != '0' && this.state.usdprice && <div><p>/</p></div>}
-          {this.state.ethprice != '0' && this.state.ethprice && <div><a href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`}><span className="glyphicon glyphicon-search"></span></a></div>}
-          {this.state.price != '0' && this.state.price && <div><a href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`}><span className="glyphicon glyphicon-search"></span></a></div>}
-          <div><Link to="/Receipt">{language.Check}</Link></div>
+          {this.state.ethprice != '0' && this.state.ethprice && <div><a href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.houseinfoid}</p></a></div>}
+          {this.state.price != '0' && this.state.price && <div><a href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.houseinfoid}</p></a></div>}
+          <div><span onClick={(e)=>this.onCheck()}>{language.Check}</span></div>
           <div><Timestamp time={this.state.from.substring(0,10)} format='date'/></div>
           <div><Timestamp time={this.state.to.substring(0,10)} format='date'/></div>
           {this.state.usdprice != '0' && this.state.usdprice && <div>{this.state.usdprice+"/USD"}</div> }

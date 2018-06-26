@@ -182,6 +182,19 @@
   overflow: hidden;
   border-bottom: 1px solid #151b4e !important;
 }
+.GuestManagment .divtr>div p{
+  margin-bottom: 0;
+}
+.GuestManagment .divtr>div a p{
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+.GuestManagment .divtr>div a p span{
+  margin-right: 10px;
+}
 .GuestManagment .divtr>div,
 .HostManagment .divtr>div{
   float: left;
