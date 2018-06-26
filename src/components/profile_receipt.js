@@ -9,7 +9,13 @@ class Receipt extends React.Component {
     super(props);
 
     this.state = {
-      languagelist:{}
+      languagelist:{},
+      checkInDate:'',
+      checkOutDate:'',
+      price:0,
+      ethprice:0,
+      usdprice:0,
+      days:0
     };
 
 
@@ -30,8 +36,8 @@ class Receipt extends React.Component {
     for(var i = 0;i<url.length;i++){
         url[i] = url[i].split("=");
         this.setState({
-          checkInDate:Number(url[0][1]),
-          checkOutDate:Number(url[1][1]),
+          checkInDate:String(url[0][1]),
+          checkOutDate:String(url[1][1]),
           price:url[2][1],
           ethprice:url[3][1],
           usdprice:url[4][1],
@@ -44,14 +50,13 @@ class Receipt extends React.Component {
 
   render() {
       const language = this.state.languagelist;
-      console.log(typeof this.state.checkInDate)
     return (
 
       <div className="Receipt">
           <div className="box1"><p className="Left"><span></span>{language.To_Itinerary}</p><p className="Right">{language.Print}</p></div>
           <h3>{language.Confirmed}: 7 {language.nights} in Melbourne, Australia</h3>
           <div className="box2">
-              <p className="Left">Booked by <b>Christie Zhong</b> Wednesday, <Timestamp time={this.state.checkInDate} format='date'/></p>
+              <p className="Left">Booked by <b>Christie Zhong</b> Wednesday, <Timestamp time={this.state.checkInDate.substring(0,10)} format='date'/></p>
               <p className="Right"><b>{language.order_number}</b> HMFTDP9Q48</p>
           </div>
           <div className="box3">
@@ -61,9 +66,9 @@ class Receipt extends React.Component {
                 <p className="Right">{language.Check_Out}</p>
               </div>
               <div className="box4_2 row">
-                <p className="col-sm-4 col-md-4 col-lg-4"><Timestamp time={this.state.checkInDate} format='date'/></p>
+                <p className="col-sm-4 col-md-4 col-lg-4"><Timestamp time={this.state.checkInDate.substring(0,10)} format='date'/></p>
                 <p className="col-sm-4 col-md-4 col-lg-4 text-center"><span></span><span></span><span></span></p>
-                <p className="col-sm-4 col-md-4 col-lg-4 text-right"><Timestamp time={this.state.checkOutDate} format='date'/></p>
+                <p className="col-sm-4 col-md-4 col-lg-4 text-right"><Timestamp time={this.state.checkOutDate.substring(0,10)} format='date'/></p>
               </div>
               <div className="box4_3 row">
                 <h4>Entire home/apt</h4>
