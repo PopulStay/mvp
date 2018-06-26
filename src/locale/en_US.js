@@ -97,6 +97,10 @@ export const Insufficient_balance = 'Insufficient balance';
 export const Answer = 'Answer';
 export const Decline = 'Decline';
 export const Video_call = 'Video call';
+export const POST = 'POST';
+export const Write_your_review = 'Write your review';
+export const Describe_your_experiece_here = 'Describe your experiece here';
+export const Your_reviews_will_be_posted_on_publicly_on_the_web = 'Your reviews will be posted on publicly on the web';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1

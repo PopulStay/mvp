@@ -78,7 +78,7 @@ class ListingCard extends Component {
         <Link to={`/listing/${this.props.row.id}`}>
           <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
           <div className="photo" style={this.state.previewurl == '' ? {background:"#fafafa"}:{backgroundImage:"url("+this.state.previewurl+")"}}>
-          <img className={this.state.previewurl == '' ? 'show' : 'hide'} src="images/loader.gif" />
+          <img className={this.state.previewurl == '' ? 'show' : 'hide'} src="/images/loader.gif" />
           </div>
           <div className="category">{this.state.title == '' ? '....' : this.state.title}</div>
           <div className="title">{this.state.location}</div>

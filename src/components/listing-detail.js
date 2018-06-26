@@ -14,8 +14,8 @@ import EthereumQRPlugin from 'ethereum-qr-code';
 import Video from './video';
 import languageService from '../services/language-service';
 import GuestRegister from './guest-register';
-import Timestamp from 'react-timestamp';
 import { Link } from 'react-router-dom';
+import Reviews from './Reviews';
 
 
 const qr = new EthereumQRPlugin();
@@ -75,6 +75,7 @@ class ListingsDetail extends Component {
       languagelist:{},
       clicklogout:false,
       detail:'',
+      Reviews:0,
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -219,15 +220,6 @@ class ListingsDetail extends Component {
   
 
   componentWillMount() {
-
-
-
-    //获取评论代码，comment为评论内容。
-    houselistingService.getHouseComment(this.props.listingId)
-    .then((data)=>{
-          this.setState({neighbourhoodlist:data.data})
-    })
-
     this.setState({ languagelist:window.languagelist });
 
 
@@ -269,7 +261,6 @@ class ListingsDetail extends Component {
         });
         if(data)
         {
-          console.log(data.profile.previewImage)
           this.setState({detail:data.profile.previewImage});
         }
 
@@ -426,6 +417,11 @@ class ListingsDetail extends Component {
     }
   }
 
+  onReviews = (value) =>{
+    this.setState({ Reviews:value });
+    console.log(value)
+  }
+
   render() {
     const language = this.state.languagelist;
     const price = typeof this.state.ppsPrice === 'string' ? 0 : this.state.ppsPrice;
@@ -579,113 +575,8 @@ class ListingsDetail extends Component {
         
         <p className="More box6_More hide">{language.Get_details}</p>
         
-        <div className={this.state.neighbourhoodlist == 0 ? 'hide' : 'show'}>
-            <div className="Reviews">
-                <p>{this.state.neighbourhoodlist.length} {language.Reviews}</p>
-                <div className="divxx">
-                  <img src="../images/detail-xx01.png" alt="" />
-                  <img src="../images/detail-xx01.png" alt="" />
-                  <img src="../images/detail-xx01.png" alt="" />
-                  <img src="../images/detail-xx01.png" alt="" />
-                  <img src="../images/detail-xx02.png" alt="" />
-                </div>
-                <div className="input-group">
-                  <span className="input-group-btn">
-                    <button className="btn btn-default" type="button">
-                      <span className="glyphicon glyphicon-search"></span>
-                    </button>
-                  </span>
-                  <input type="text" className="form-control" placeholder={language.Search_Reviews} />
-                </div>
-            </div>
-
-            <div className="ReviewsDiv">
-                <ul>
-                    <li>
-                      <p>{language.Accuracy}</p>
-                      <div className="divxx">
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx02.png" alt="" />
-                      </div>
-                    </li>
-                    <li>
-                      <p>{language.Location}</p>
-                      <div className="divxx">
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx02.png" alt="" />
-                      </div>
-                    </li>
-                    <li>
-                      <p>{language.Communication}</p>
-                      <div className="divxx">
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx02.png" alt="" />
-                      </div>
-                    </li>
-                    <li>
-                      <p>{language.Check_in}</p>
-                      <div className="divxx">
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx02.png" alt="" />
-                      </div>
-                    </li>
-                    <li>
-                      <p>{language.Cleanliness}</p>
-                      <div className="divxx">
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx02.png" alt="" />
-                      </div>
-                    </li>
-                    <li>
-                      <p>{language.Value}</p>
-                      <div className="divxx">
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx01.png" alt="" />
-                        <img src="../images/detail-xx02.png" alt="" />
-                      </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div className="ReviewsGuest">
-              <ul>
-                {this.state.neighbourhoodlist.map(item => (
-                  <li>
-                      <div className="GuestName">
-                          <div className="uesrimg">
-                            <img src='/images/uesrimg.png' alt="" />
-                          </div>
-                          <div className="uesrtext">
-                              <p>{item.name}</p>
-                              <p><Timestamp time={item.from.substring(0,10)} format='date'/></p>
-                          </div>
-                      </div>
-                      <p className="GuestDiv">{item.comment}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-        </div>
-        <div className={this.state.neighbourhoodlist == 0 ? 'show L_box6' : 'hide L_box6'}>
-            <h5>{language.No_Reviews}</h5>
-        </div>
+        <Reviews onReviews={this.onReviews} listingId={this.props.listingId} />
+        
         <div className="neighbourhood">
             <p>{language.See_the_neighbourhood}</p>
             <img src={this.state.neighbourhoodurl} alt="" />
@@ -715,11 +606,110 @@ class ListingsDetail extends Component {
               </span>
               <span className = "detail-price-font">{language.Daily_Price}</span>
               <p className="detail-price-xx">
-                <img src="../images/detail-xx01.png" alt="" />
-                <img src="../images/detail-xx01.png" alt="" />
-                <img src="../images/detail-xx01.png" alt="" />
-                <img src="../images/detail-xx01.png" alt="" />
-                <img src="../images/detail-xx02.png" alt="" />
+                {this.state.Reviews >= 0 && this.state.Reviews < 1 &&
+                      <div className="divxx">
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 1 && this.state.Reviews < 2 &&
+                      <div className="divxx">
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 2 && this.state.Reviews < 3 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 3 && this.state.Reviews < 4 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 4 && this.state.Reviews < 5 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 5 && this.state.Reviews < 6 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 6 && this.state.Reviews < 7 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 7 && this.state.Reviews < 8 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 8 && this.state.Reviews < 9 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 9 && this.state.Reviews < 10 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 10 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                      </div>
+                    }
               </p>
               <div className="details-daterange-div">
 
