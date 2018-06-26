@@ -593,7 +593,7 @@
   border:1px solid #f6416c;
   position: relative;
   float: left;
-  margin: 3% 0;
+  margin: 2% 0;
 }
 .Wallet_Reviews .box1 .userimg img{
   position: absolute;
@@ -686,7 +686,6 @@
   position: relative;
   overflow: hidden;
   margin: 1% ;
-  border-radius: 8px;
   float: left;
 }
 .Wallet_Reviews button{
