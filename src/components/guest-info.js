@@ -182,9 +182,6 @@ class GuestInfo extends React.Component {
             {this.state.orderlist.map(item => (
                 <GuestOrderRow item={item}/>
             ))}
-            {this.state.usdOrderList.map(item => (
-                <GuestUsdOrderRow item={item}/>
-            ))}
           </div>
         </div>
       </div>
