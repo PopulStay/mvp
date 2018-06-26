@@ -120,7 +120,7 @@ class GuestOrderRow extends Component {
   Reviews(){
     if(this.state.Accuracy != 0 && this.state.Location != 0 && this.state.Communication != 0 && this.state.Check_in != 0 && this.state.Cleanliness != 0 && this.state.Value != 0 && this.state.Comment != ''){
       guestService.addComment(this.props.item.id,this.state.Comment,this.state.Accuracy,this.state.Location,this.state.Communication,this.state.Check_in,this.state.Cleanliness,this.state.Value).then((data)=>{
-          this.setState({modalIsOpen: false});
+          this.setState({state:'5',modalIsOpen: false});
       });
     }else{
       console.log(456)

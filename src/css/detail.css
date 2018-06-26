@@ -478,6 +478,9 @@
   width: auto;
   border-radius: 0 !important;
 }
+.Comment .Wallet_Reviews .box1 .usertext p span{
+  color: #f6416c;
+}
 .Comment .Wallet_Reviews .photos{
   max-height: 100% !important;
 }
@@ -552,6 +555,7 @@
   overflow: hidden;
   float: left;
   border:1px solid #f6416c;
+  margin: 1% 0;
 }
 .ReviewsGuest .uesrimg img{
   position: absolute;

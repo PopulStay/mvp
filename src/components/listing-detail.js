@@ -75,6 +75,7 @@ class ListingsDetail extends Component {
       languagelist:{},
       clicklogout:false,
       detail:'',
+      Reviews:0,
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -260,7 +261,6 @@ class ListingsDetail extends Component {
         });
         if(data)
         {
-          console.log(data.profile.previewImage)
           this.setState({detail:data.profile.previewImage});
         }
 
@@ -417,6 +417,11 @@ class ListingsDetail extends Component {
     }
   }
 
+  onReviews = (value) =>{
+    this.setState({ Reviews:value });
+    console.log(value)
+  }
+
   render() {
     const language = this.state.languagelist;
     const price = typeof this.state.ppsPrice === 'string' ? 0 : this.state.ppsPrice;
@@ -570,7 +575,7 @@ class ListingsDetail extends Component {
         
         <p className="More box6_More hide">{language.Get_details}</p>
         
-        <Reviews listingId={this.props.listingId} />
+        <Reviews onReviews={this.onReviews} listingId={this.props.listingId} />
         
         <div className="neighbourhood">
             <p>{language.See_the_neighbourhood}</p>
@@ -601,11 +606,110 @@ class ListingsDetail extends Component {
               </span>
               <span className = "detail-price-font">{language.Daily_Price}</span>
               <p className="detail-price-xx">
-                <img src="../images/reviews1.png" alt="" />
-                <img src="../images/reviews1.png" alt="" />
-                <img src="../images/reviews1.png" alt="" />
-                <img src="../images/reviews1.png" alt="" />
-                <img src="../images/reviews2.png" alt="" />
+                {this.state.Reviews >= 0 && this.state.Reviews < 1 &&
+                      <div className="divxx">
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 1 && this.state.Reviews < 2 &&
+                      <div className="divxx">
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 2 && this.state.Reviews < 3 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 3 && this.state.Reviews < 4 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 4 && this.state.Reviews < 5 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 5 && this.state.Reviews < 6 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 6 && this.state.Reviews < 7 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 7 && this.state.Reviews < 8 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 8 && this.state.Reviews < 9 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 9 && this.state.Reviews < 10 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.Reviews >= 10 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                      </div>
+                    }
               </p>
               <div className="details-daterange-div">
 

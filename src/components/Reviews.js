@@ -16,8 +16,6 @@ class Reviews extends React.Component {
       languagelist:{},
       selectedPictures:[],
       neighbourhoodlist:[],
-      accuracyStarNUM:0,
-      locationStarNUM:0,
       Comment:'',
       Accuracy:0, 
       Location:0,
@@ -87,7 +85,9 @@ class Reviews extends React.Component {
               cleanlinessStarNUM += Number(data.data[i].cleanlinessStar);
               valueStarNUM += Number(data.data[i].valueStar);
             }
+            var ReviewsNUM = accuracyStarNUM/data.data.length+locationStarNUM/data.data.length+communicationStarNUM/data.data.length+checkinStarNUM/data.data.length+cleanlinessStarNUM/data.data.length+valueStarNUM/data.data.length;
             this.setState({
+              ReviewsNUM:ReviewsNUM/6,
               accuracyStarNUM:accuracyStarNUM/data.data.length,
               locationStarNUM:locationStarNUM/data.data.length,
               communicationStarNUM:communicationStarNUM/data.data.length,
@@ -95,9 +95,11 @@ class Reviews extends React.Component {
               cleanlinessStarNUM:cleanlinessStarNUM/data.data.length,
               valueStarNUM:valueStarNUM/data.data.length
             })
-            console.log(valueStarNUM/data.data.length)
+
+            this.props.onReviews(this.state.ReviewsNUM);
           }
     })
+
   }
 
   fileChangedHandler(event){
@@ -121,7 +123,6 @@ class Reviews extends React.Component {
       }else{
         this.setState({PicturesSize:'The picture must not exceed 600KB'})
       }
-      console.log(this.state.selectedPictures)
       
   }
 
@@ -147,15 +148,116 @@ class Reviews extends React.Component {
   render() {
         const language = this.state.languagelist;
     return (
+      <div>
+      {this.state.neighbourhoodlist.length != 0 &&
         <div className="Comment">
             <div className="Reviews">
                 <p>{this.state.neighbourhoodlist.length} {language.Reviews}</p>
                 <div className="divxx">
-                  <img src="../images/reviews1.png" alt="" />
-                  <img src="../images/reviews1.png" alt="" />
-                  <img src="../images/reviews1.png" alt="" />
-                  <img src="../images/reviews1.png" alt="" />
-                  <img src="../images/reviews2.png" alt="" />
+                  {this.state.ReviewsNUM >= 0 && this.state.ReviewsNUM < 1 &&
+                      <div className="divxx">
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 1 && this.state.ReviewsNUM < 2 &&
+                      <div className="divxx">
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 2 && this.state.ReviewsNUM < 3 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 3 && this.state.ReviewsNUM < 4 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 4 && this.state.ReviewsNUM < 5 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 5 && this.state.ReviewsNUM < 6 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 6 && this.state.ReviewsNUM < 7 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 7 && this.state.ReviewsNUM < 8 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 8 && this.state.ReviewsNUM < 9 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 9 && this.state.ReviewsNUM < 10 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews1_5.png" alt="" />
+                          <img src="../images/reviews1.png" alt="" />
+                      </div>
+                    }
+                    {this.state.ReviewsNUM >= 10 &&
+                      <div className="divxx">
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                          <img src="../images/reviews2.png" alt="" />
+                      </div>
+                    }
                 </div>
                 <div className="input-group">
                   <span className="input-group-btn">
@@ -823,7 +925,7 @@ class Reviews extends React.Component {
                             <img src='/images/uesrimg.png' alt="" />
                           </div>
                           <div className="uesrtext">
-                              <p>{item.name}</p>
+                              <p>{this.state.user}</p>
                               <p><Timestamp time={item.from.substring(0,10)} format='date'/></p>
                           </div>
                       </div>
@@ -841,8 +943,7 @@ class Reviews extends React.Component {
                   </div>
                   <div className="usertext">
                     <h4>{this.state.user}</h4>
-                    <p>Charleston, South Carolina, United States · Joined in March 2018</p>
-                    <h6>Absolute Melbourne Center Apartment</h6>
+                    <p>{language.Your_reviews_will_be_posted_on_publicly_on_the_web}. {language.Learn_more}</p>
                   </div>
               </div>
 
@@ -929,6 +1030,14 @@ class Reviews extends React.Component {
               <button className="Right" onClick={this.Reviews}>{language.POST}</button>
             </div>
         </div>
+      }
+
+      {this.state.neighbourhoodlist.length == 0 &&
+        <div className="L_box6">
+            <h5>{language.No_Reviews}</h5>
+        </div>
+      }
+      </div>  
     );
   }
 }
