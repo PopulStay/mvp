@@ -763,7 +763,7 @@ class ListingsDetail extends Component {
                       <p className="clearFloat"></p>
                     </li>
                     <li className="pinkColor">
-                      <span className = "LeftSpan">{language.Cleaning_fee}
+                      <span className = "LeftSpan">{language.Cleaning_fees}
                           <img src="../images/detail-img13.png" />
                           <div>
                               <h6>{language.Cleaning_fee_Details}</h6>

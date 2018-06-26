@@ -215,12 +215,9 @@
   color:#fff;
   background: #f6416c;
 }
-.GuestManagment .divtr>div p{
-  width: 100px;
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-  margin: 0 auto;
+.GuestManagment .divtr>div .glyphicon{
+  color: #f6416c;
+  cursor: pointer;
 }
 .GuestManagment .divtr>div span,
 .GuestManagment .divtr>div a{
@@ -253,7 +250,8 @@
 .deposit h2,
 .withdraw h2,
 .Sign h2,
-.submit h2{
+.submit h2,
+.overlay-box .checkIn h3{
   color: #f6416c !important;
   text-align: center;
   font-family: RobotoBold; 
@@ -318,7 +316,7 @@
 .withdraw button,
 .overlay-box .balance,
 .clear .balance,
-.Wallet_Reviews button{
+.overlay-box .checkIn button{
   width: 30%;
   padding: 1% 0;
   margin: 6% 5% 0;
@@ -326,7 +324,6 @@
   font-family: RobotoBold; 
   border:1px solid #f6416c;
 }
-.Wallet_Reviews button.Left,
 .modalcode button.Left,
 .clear button.Left,
 .Gas button.Left,
@@ -336,11 +333,11 @@
 .withdraw button.Left,
 .overlay-box .balance,
 .deposit .balance,
-.clear .balance{
+.clear .balance,
+.overlay-box .checkIn button.Left{
   color:#f6416c;
   background: #fff;
 }
-.Wallet_Reviews button.Right,
 .clear button.Right,
 .Gas button.Right,
 .deposit button.Right,
@@ -349,7 +346,8 @@
 .Sign button.Right,
 .Create button,
 .Import button.Right,
-.withdraw button.Right{
+.withdraw button.Right,
+.overlay-box .checkIn button.Right{
   background:#f6416c;
   color: #fff;
 }
@@ -513,7 +511,9 @@
 .closeactive{
   opacity: 0.5;
 }
+.Wallet_Reviews,
 .withdraw{
+  padding: 5%;
   width: 750px;
 }
 .withdraw .tablebox{
@@ -527,6 +527,7 @@
 .withdraw table th{
   text-align: center;
   font-size: 1.6rem;
+  font-family: RobotoBold; 
 }
 .withdraw .submitbox{
   width: 100%;
@@ -535,6 +536,7 @@
 .withdraw .submitbox label{
   font-size: 1.8rem;
   margin-top: 3%;
+  font-family: RobotoBold; 
 }
 .withdraw table tr td.td5{
   width: 35%;
@@ -578,12 +580,126 @@
   width: 50%;
   margin: 5% 25% 0;
 }
+.Wallet_Reviews .box1{
+  border-bottom: 1px solid #c5c5c5;
+  overflow: hidden;
+  padding-bottom: 2%;
+}
+.Wallet_Reviews .box1 .userimg{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  border:1px solid #f6416c;
+  position: relative;
+  float: left;
+  margin: 3% 0;
+}
+.Wallet_Reviews .box1 .userimg img{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Wallet_Reviews .box1 .usertext{
+  float: right;
+  width: 80%;
+}
+.Wallet_Reviews .box1 .usertext h4{
+  font-family: RobotoBold; 
+  font-size: 2rem;
+}
+.Wallet_Reviews .box1 .usertext p{
+  font-size: 1.6rem;
+}
+.Wallet_Reviews .box1 .usertext h6{
+  font-size: 1.4rem;
+}
+.Wallet_Reviews .box2 li p{
+  font-size: 1.6rem;
+  float: left;
+  color: #4d4e4e;
+  margin: 2% 0;
+}
+.Wallet_Reviews .box2 li .divxx img{
+  width: 20px;
+  margin: 0 3px;
+  cursor: pointer;
+}
 .Wallet_Reviews textarea{
   width: 100%;
-  border:1px solid #131c4e;
+  height:100px;
+  border:none;
   font-size: 1.6rem;
-  padding: 5%;
+  border-bottom: 2px solid #f6416c;
 }
+.Wallet_Reviews .photos{
+  max-height: 200px;
+  overflow: auto;
+}
+.Wallet_Reviews .photos .photosipt{
+  position: relative;
+}
+.Wallet_Reviews .photos .photosipt img{
+  width: 100%;
+  height: 100%;
+}
+.Wallet_Reviews .photos input{
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  top:0;
+  opacity: 0;
+}
+.Wallet_Reviews .photos .photosimg img{
+  width:auto;
+  height: 100%;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Wallet_Reviews .photos .photosimg span{
+  display: inline-block;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #000;
+  text-align: center;
+  line-height: 40px;
+  font-size: 2rem;
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Wallet_Reviews .photos .photosimg:hover span{
+  opacity: 0.6
+}
+.Wallet_Reviews .photos .photosimg,
+.Wallet_Reviews .photos .photosipt{
+  width: 31.1%;
+  height:150px;
+  position: relative;
+  overflow: hidden;
+  margin: 1% ;
+  border-radius: 8px;
+  float: left;
+}
+.Wallet_Reviews button{
+  background: none;
+  border:none;
+  color: #f6416c;
+  font-size: 1.8rem;
+  margin-top:3%;
+}
+.Wallet_Reviews button.Right1{
+  color:#4d4e4e;
+}
+
 .footer .modal-dialog{
   position: fixed;
   width: 100%;
@@ -622,4 +738,14 @@
   border-top: 10px solid #131c4e;
   position: absolute;
   bottom: -14px;
+}
+
+.overlay-box{
+  border:1px solid #f6416c;
+}
+.overlay-box .checkIn h3{
+  margin-bottom: 8%;
+}
+.overlay-box .checkIn button{
+  width: 40%;
 }
