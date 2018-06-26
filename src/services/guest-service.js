@@ -1,6 +1,7 @@
 import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
 import houselistingService from './houseinfolist-service';
 import axios from 'axios';
+import {reactLocalStorage} from 'reactjs-localstorage';
 
 class GuestService {
   static instance
@@ -28,6 +29,10 @@ class GuestService {
                       reject(error);
                     });
          });           
+  }
+
+  setWebToken(token){
+    window.webtoken = 'bear '+token;
   }
 
   addComment(id,comment,accuracyStar,locationStar,communicationStar,checkinStar,cleanlinessStar,valueStar){
