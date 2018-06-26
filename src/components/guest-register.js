@@ -26,6 +26,8 @@ class GuestRegister extends React.Component {
       emailactive:0,
       Prompt:"",
       languagelist:{},
+      // password:"",
+      // repeatPassword:""
     };
 
     this.openModal = this.openModal.bind(this);
@@ -45,11 +47,14 @@ class GuestRegister extends React.Component {
    
   register(){
     var register={};
-    register.id      = window.address;
-    register.user    = this.state.user;
-    register.account = window.address;
-    register.phone   = this.state.phone;
-    register.email   = this.state.email;
+    register.id             = window.address;
+    register.user           = this.state.user;
+    register.account        = window.address;
+    register.phone          = this.state.phone;
+    register.email          = this.state.email;
+    // register.password       = this.state.password;
+    // register.repeatPassword = this.state.repeatPassword;
+    // register.encryptedPK    = window.privateKey;
     guestService.guestRegister(register).then((data)=>{
       this.setState({ registered:true });
       this.closeModal();

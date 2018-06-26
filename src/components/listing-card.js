@@ -20,6 +20,7 @@ class ListingCard extends Component {
   }
 
   componentDidMount() {
+
     var descriptioninfo;
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.row.id);
     var houseInfoDetailPromise ;
@@ -35,6 +36,7 @@ class ListingCard extends Component {
     //     var roominfo = JSON.parse(result[4]);
     //     this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds});
     //     return 
+
     //var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.row.id);
 
     var roominfo = this.props.row.houseinfo;
@@ -59,7 +61,9 @@ class ListingCard extends Component {
       .then((res)=>{
             this.setState({previewurl: res.profile.previewImage });
 
+
       });
+
 
     }
       
