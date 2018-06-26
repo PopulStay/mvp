@@ -4,7 +4,7 @@ export const Log_out = '退出登录';
 export const Log_in = '登录';
 export const Please_Log_in = '请登录联系房东';
 
-// search--------------------------------------------------------------------------------------------
+// search--------------------------user------------------------------------------------------------------
 export const Find_dream_homes_and_experiences_on_PopulStay = '在潮箱找到梦想家园和体验';
 export const PopulStay_Superior_Guest_Experience_Maximized_Owner_Profit = '潮箱-高级宾客体验和最大化所有者利润';
 export const Choose_your_city = '选择你的城市！';
@@ -811,6 +811,7 @@ export const Guest_Register = '用户注册';
 export const Wallet_Account = '钱包账户';
 export const User = '用户';
 export const User_name = '用户名';
+export const User_Password = '密码';
 export const Phone = '电话';
 export const Email = '邮箱';
 export const Enter_email = '输入邮箱';
