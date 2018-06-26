@@ -97,6 +97,10 @@ export const Insufficient_balance = '余额不足';
 export const Answer = '接通';
 export const Decline = '挂断';
 export const Video_call = '视频通话';
+export const POST = '提交';
+export const Write_your_review = '写下您的评论';
+export const Describe_your_experiece_here = '在这里描述你的经历';
+export const Your_reviews_will_be_posted_on_publicly_on_the_web = '您的评论将在网上公开发布';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1

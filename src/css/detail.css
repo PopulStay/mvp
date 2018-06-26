@@ -472,11 +472,35 @@
   padding: 5% 0 1%;
   overflow: hidden;
 }
+.Comment .Wallet_Reviews{
+  padding: 0;
+  margin: 5% 0;
+  width: auto;
+  border-radius: 0 !important;
+}
+.Comment .Wallet_Reviews .box1 .usertext p span{
+  color: #f6416c;
+}
+.Comment .Wallet_Reviews .photos{
+  max-height: 100% !important;
+}
+.Comment .Wallet_Reviews textarea{
+  height: 150px;
+  border:1px solid #8b8b8b;
+  border-radius: 8px;
+  margin: 3% 0;
+  padding: 3% ;
+}
+.Comment .Wallet_Reviews button{
+  color:#fff;
+  background: #f6416c;
+}
 .Reviews>p,.Reviews>div{
   float: left;
   width: 33.3%;
   font-family: RobotoBold; 
 }
+.Comment .Wallet_Reviews>p,
 .Reviews>p,.neighbourhood>p{
   font-size: 3.4rem;
   font-family: RobotoBold; 
@@ -486,6 +510,7 @@
 }
 .Reviews .divxx img{
   width: 25px;
+  margin: 0 3px;
 }
 .Reviews .input-group button span{
   font-size: 1.4rem;
@@ -520,6 +545,7 @@
 }
 .ReviewsDiv .divxx img{
   width: 20px;
+  margin: 0 3PX;
 }
 .ReviewsGuest .uesrimg{
   position: relative;
@@ -529,6 +555,7 @@
   overflow: hidden;
   float: left;
   border:1px solid #f6416c;
+  margin: 1% 0;
 }
 .ReviewsGuest .uesrimg img{
   position: absolute;
