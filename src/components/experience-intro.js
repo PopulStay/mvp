@@ -6,6 +6,7 @@ import houselistingService from '../services/houseinfolist-service'
 import Pagination from 'react-js-pagination'
 import ListingCard from './listing-card'
 import WalletClear from './walletClear';
+import WalletHelp from './WalletHelp';
 import languageService from '../services/language-service';
 
 class experienceintro extends Component {
@@ -127,9 +128,7 @@ class experienceintro extends Component {
                     <a className="btn button__fill">{language.Trips}</a>
                   </li>
                   <li className="Li3">
-                    <Link to="/Intro">
-                          {language.Help} 
-                    </Link>
+                    <WalletHelp />
                   </li>
                   <li className="Li4">
                     <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />

@@ -32,6 +32,7 @@ import '../css/main.css'
 import '../css/search.css'
 import '../css/Modal.css'
 import '../css/experience.css'
+import '../css/help.css'
 import '../css/media.css'
 
 const SearchPage = (props) => (

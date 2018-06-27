@@ -972,8 +972,8 @@ export const Check = 'Check';
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = 'Become a Host';
-export const Help_Center = 'Help_Center';
-export const About_Populstay = 'About_PopulStay';
+export const Help_Center = 'Help Center';
+export const About_Populstay = 'About PopulStay';
 export const Become_an_organiser = 'Become an organiser';
 
 // Receipt--------------------------------------------------------------------------------------------

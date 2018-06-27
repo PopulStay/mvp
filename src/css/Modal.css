@@ -731,6 +731,7 @@
 /*Map*/
 #Map{
   height: 100%;
+  overflow: hidden;
 }
 #Map .Mapicon{
   color: white; 
