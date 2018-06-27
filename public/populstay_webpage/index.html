@@ -284,7 +284,9 @@
             <div class="container">
                 <div class="contact-us__card">
                     <div> <img class="contact-us__title" src="./img/contact-us-title.png" alt="populstay-contact-us-title" /> </div>
-                    <form class="col-5" action="">
+                    <form class="col-5" action="https://server.populstay.com/emailsender">
+                        <!-- 看看能不能提交上去，https://server.populstay.com/emailsender是提交的地址，用form的post请求，然后input里面的参数用：
+                        from， to，subject，text; -->
                         <div class="contact-us__form-item"> <input type="text" placeholder="Name" id="contactName" name="contactName" data-placeholder="Name" /> </div>
                         <div class="contact-us__form-item"> <input type="number" placeholder="Telephone" id="contactPhone" name="contactPhone" data-placeholder="Phone" /> </div>
                         <div class="contact-us__form-item"> <input type="text" placeholder="Email" id="contactEmail" name="contactEmail" data-placeholder="Email" /> </div>
