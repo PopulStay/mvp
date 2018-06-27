@@ -54,6 +54,24 @@ class GuestService {
     })
 
   }
+  sendEmail(from,to,subject,text){
+    var params = {};
+    params.from    = from;
+    params.to      = to;
+    params.subject = subject;
+    params.text    = text;
+
+    axios.post(process.env.Server_Address+'emailsender', params)
+    .then(function (response) {
+      resolve(response);
+    })
+    .catch(function (error) {
+      console.error(error)
+      reject(error)
+    });
+
+
+  }
     
   guestRegister(registerData) {
     return new Promise((resolve, reject) => {

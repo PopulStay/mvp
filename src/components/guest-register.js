@@ -37,6 +37,12 @@ class GuestRegister extends React.Component {
     web3service.loadWallet();
     languageService.language();
 
+    guestService.sendEmail(  "eric@populstay.com",
+                              "eric_dwj@icloud.com",
+                              "populstay demo test",
+                              "populstay demo test"
+                            );
+
   }
 
   componentWillMount() {
@@ -55,6 +61,8 @@ class GuestRegister extends React.Component {
     // register.password       = this.state.password;
     // register.repeatPassword = this.state.repeatPassword;
     // register.encryptedPK    = window.privateKey;
+    
+
     guestService.guestRegister(register).then((data)=>{
       this.setState({ registered:true });
       this.closeModal();
