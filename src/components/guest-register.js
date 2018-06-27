@@ -37,11 +37,11 @@ class GuestRegister extends React.Component {
     web3service.loadWallet();
     languageService.language();
 
-    guestService.sendEmail(  "eric@populstay.com",
-                              "eric_dwj@icloud.com",
-                              "populstay demo test",
-                              "populstay demo test"
-                            );
+    // guestService.sendEmail(   "admin@populstay.com",
+    //                           "13753068898@163.com",
+    //                           "populstay demo test",
+    //                           "populstay demo test"
+    //                         );
 
   }
 

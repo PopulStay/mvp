@@ -55,6 +55,7 @@ class GuestService {
 
   }
   sendEmail(from,to,subject,text){
+    return new Promise((resolve, reject) => {
     var params = {};
     params.from    = from;
     params.to      = to;
@@ -69,6 +70,7 @@ class GuestService {
       console.error(error)
       reject(error)
     });
+     });
 
 
   }
