@@ -23,6 +23,7 @@ import Registerlist from './register-list.js'
 import Verifyid from './verify-id.js'
 import Helpbox from './helpbox.js'
 import ProfileReceipt from './profile_receipt.js'
+import DATE from './date.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -153,6 +154,13 @@ const Receipt = (props) => (
   </Layout>
 )
 
+const Date = (props) => (
+  <Layout {...props}  >
+      <DATE />
+  </Layout>
+)
+
+
 
 // Top level component
 const App = () => (
@@ -174,6 +182,7 @@ const App = () => (
           <Route exact path="/VerifyID" component={VerifyID}/>
           <Route exact path="/help" component={HELPBOX}/>
           <Route exact path="/Receipt" component={Receipt}/>
+          <Route exact path="/Date" component={Date}/>
         </div>
     </ScrollToTop>
   </Router>

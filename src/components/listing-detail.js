@@ -243,6 +243,7 @@ class ListingsDetail extends Component {
 
 
   isDayBlocked(day){
+    console.log(this.state.DateLists)
     var dayS = new Date(day).getTime();
     var DateLists = this.state.DateLists;
     for(var i=0;i<DateLists.length;i++){
