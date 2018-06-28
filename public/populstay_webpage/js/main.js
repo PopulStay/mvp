@@ -8,7 +8,6 @@ window.onload = function () {
     var name = $("#Name").val()
   	var telephone = $("#Phone").val()
     if(Email != "" && subject != "" && text != "" && name != "" && telephone != ""){
-      $("#submit").attr("disabled",false);
     	$.post("https://server.populstay.com/emailsender",
     	{
     	  from:Email,
@@ -18,15 +17,16 @@ window.onload = function () {
         telephone:telephone,
         name:name
     	});
-      alert("发送成功");
+      $("#prompt").show();
+      $("#prompt h3").html("Sent successfully")
       $("#Email").val("")
       $("#Address").val("")
       $("#Message").val("")
       $("#Name").val("")
       $("#Phone").val("")
     }else{
-      $("#submit").attr("disabled", true);
-      alert("请完善信息")
+      $("#prompt").show();
+      $("#prompt h3").html("Please fill in the information")
     }
     
 
@@ -36,19 +36,22 @@ window.onload = function () {
   $("#subscribeSubmit").click(function(){
     var Email = $("#SIGNUP_email").val()
     if(Email != ""){
-      $("#subscribeSubmit").attr("disabled",false);
       var SIGNUP_json = {'email':Email}
       $.post("https://server.populstay.com/generaldata",
       {
         code:'001',
         generalData:SIGNUP_json
       });
-      alert("发送成功");
+      $("#prompt").show();
+      $("#prompt h3").html("Sent successfully")
       $("#SIGNUP_email").val("");
     }else{
-      $("#subscribeSubmit").attr("disabled", true);
-      alert("请完善信息");
+      $("#prompt").show();
+      $("#prompt h3").html("Please fill in the information")
     }
+  })
 
+  $("#prompt button").click(function(){
+    $("#prompt").hide()
   })
 };
