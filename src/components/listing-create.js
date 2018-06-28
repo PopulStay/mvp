@@ -2747,7 +2747,6 @@ class ListingCreate extends Component {
 
               <div className="box col-md-12">
 
-                <h3>{language.Have_you_rented_out_your_place_before}</h3>
                 <div className="form-group">    
                   <div className="btn-group col-md-12">
                     <button type="button" data-toggle="dropdown">{this.state.notice_arrives}<span>▼</span></button>

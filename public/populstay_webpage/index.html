@@ -284,16 +284,17 @@
             <div class="container">
                 <div class="contact-us__card">
                     <div> <img class="contact-us__title" src="./img/contact-us-title.png" alt="populstay-contact-us-title" /> </div>
-                    <form class="col-5" action="https://server.populstay.com/emailsender">
-                        <!-- 看看能不能提交上去，https://server.populstay.com/emailsender是提交的地址，用form的post请求，然后input里面的参数用：
-                        from， to，subject，text; -->
-                        <div class="contact-us__form-item"> <input type="text" placeholder="Name" id="contactName" name="contactName" data-placeholder="Name" /> </div>
-                        <div class="contact-us__form-item"> <input type="number" placeholder="Telephone" id="contactPhone" name="contactPhone" data-placeholder="Phone" /> </div>
-                        <div class="contact-us__form-item"> <input type="text" placeholder="Email" id="contactEmail" name="contactEmail" data-placeholder="Email" /> </div>
-                        <div class="contact-us__form-item"> <input type="text" placeholder="Address" id="contactAddress" name="contactAddress" data-placeholder="Address" /> </div>
-                        <div class="contact-us__textarea contact-us__form-item"> <label>Message</label> <textarea name="" cols="30" rows="10" id="contactMessage" name="contactMessage" data-placeholder="Message" /></textarea>
-                        </div><button class="contact-us__submit" type="submit" name="contactSubmit" id="contactSubmit"> <img src="./img/contact-us-send.png" alt=""> </button> 
-                    </form>
+
+                    <div class="col-5">
+                        <div class="contact-us__form-item"> <input type="text" placeholder="Name" data-placeholder="Name" /> </div>
+                        <div class="contact-us__form-item"> <input type="number" placeholder="Telephone" data-placeholder="Phone" /> </div>
+                        <div class="contact-us__form-item"> <input type="text" placeholder="From Email" id="from" name="from" data-placeholder="Email" /> </div>
+                        <div class="contact-us__form-item"> <input type="text" placeholder="To Email" id="to" name="to" data-placeholder="Email" /> </div>
+                        <div class="contact-us__form-item"> <input type="text" placeholder="Address" id="subject" name="subject" data-placeholder="Address" /> </div>
+                        <div class="contact-us__textarea contact-us__form-item"> <label>Message</label> <textarea cols="30" rows="10" id="text" name="text" data-placeholder="Message" /></textarea>
+                        </div><button class="contact-us__submit" id="submit"> <img src="./img/contact-us-send.png" alt=""> </button> 
+                    </div>
+
                     <div class="contact-us__contacter-info col-5">
                         <ul class="contact-us__contacter">
                             <li> <i class="contact-us__icon name align-middle"></i> <span class="align-middle">Walter Wang Yue</span> </li>
