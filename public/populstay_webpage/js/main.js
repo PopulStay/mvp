@@ -35,12 +35,19 @@ window.onload = function () {
 
   $("#subscribeSubmit").click(function(){
     var Email = $("#SIGNUP_email").val()
-    var SIGNUP_json = {'email':Email}
-    $.post("https://server.populstay.com/generaldata",
-    {
-      code:'001',
-      generalData:SIGNUP_json
-    });
+    if(Email != ""){
+      $("#subscribeSubmit").attr("disabled",false);
+      var SIGNUP_json = {'email':Email}
+      $.post("https://server.populstay.com/generaldata",
+      {
+        code:'001',
+        generalData:SIGNUP_json
+      });
+      $("#SIGNUP_email").val("")
+    }else{
+      $("#subscribeSubmit").attr("disabled", true);
+      alert("请完善信息")
+    }
 
   })
 };
