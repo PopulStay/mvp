@@ -10,8 +10,8 @@ window.onload = function () {
   	
   	$.post("https://server.populstay.com/emailsender",
   	{
-  	  from:'walter@populstay.com',
-  	  to:Email,
+  	  from:Email,
+  	  to:'walter@populstay.com',
   	  subject:subject,
   	  text:text,
       telephone:telephone,
