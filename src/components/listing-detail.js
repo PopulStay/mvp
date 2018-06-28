@@ -247,7 +247,7 @@ class ListingsDetail extends Component {
     var DateLists = this.state.DateLists;
     for(var i=0;i<DateLists.length;i++){
       if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end-43200000){
-        return true;
+        return new Date(dayS);
       }
     }
   } 
