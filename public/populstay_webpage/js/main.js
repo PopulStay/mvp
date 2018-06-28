@@ -7,16 +7,29 @@ window.onload = function () {
     var text = $("#Message").val()
     var name = $("#Name").val()
   	var telephone = $("#Phone").val()
-  	
-  	$.post("https://server.populstay.com/emailsender",
-  	{
-  	  from:Email,
-  	  to:'walter@populstay.com',
-  	  subject:subject,
-  	  text:text,
-      telephone:telephone,
-      name:name
-  	});
+    if(Email != "" && subject != "" && text != "" && name != "" && telephone != ""){
+      $("#submit").attr("disabled",false);
+    	$.post("https://server.populstay.com/emailsender",
+    	{
+    	  from:Email,
+    	  to:'walter@populstay.com',
+    	  subject:subject,
+    	  text:text,
+        telephone:telephone,
+        name:name
+    	});
+      alert("发送成功");
+      $("#Email").val("")
+      $("#Address").val("")
+      $("#Message").val("")
+      $("#Name").val("")
+      $("#Phone").val("")
+    }else{
+      $("#submit").attr("disabled", true);
+      alert("请完善信息")
+    }
+    
+
 
   })
 
