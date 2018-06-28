@@ -43,10 +43,11 @@ window.onload = function () {
         code:'001',
         generalData:SIGNUP_json
       });
-      $("#SIGNUP_email").val("")
+      alert("发送成功");
+      $("#SIGNUP_email").val("");
     }else{
       $("#subscribeSubmit").attr("disabled", true);
-      alert("请完善信息")
+      alert("请完善信息");
     }
 
   })
