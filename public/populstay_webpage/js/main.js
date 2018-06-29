@@ -1,57 +1,104 @@
 window.onload = function () {
   $('.loading').addClass('hidden');
-
-  $("#submit").click(function(){
-  	var Email = $("#Email").val()
-  	var subject = $("#Address").val()
-    var text = $("#Message").val()
-    var name = $("#Name").val()
-  	var telephone = $("#Phone").val()
-    if(Email != "" && subject != "" && text != "" && name != "" && telephone != ""){
-    	$.post("https://server.populstay.com/emailsender",
-    	{
-    	  from:Email,
-    	  to:'walter@populstay.com',
-    	  subject:subject,
-    	  text:text,
-        telephone:telephone,
-        name:name
-    	});
-      $("#prompt").show();
-      $("#prompt h3").html("Sent successfully")
-      $("#Email").val("")
-      $("#Address").val("")
-      $("#Message").val("")
-      $("#Name").val("")
-      $("#Phone").val("")
-    }else{
-      $("#prompt").show();
-      $("#prompt h3").html("Please fill in the information")
-    }
-    
-
-
-  })
-
-  $("#subscribeSubmit").click(function(){
-    var Email = $("#SIGNUP_email").val()
-    if(Email != ""){
-      var SIGNUP_json = {'email':Email}
-      $.post("https://server.populstay.com/generaldata",
-      {
-        code:'001',
-        generalData:SIGNUP_json
-      });
-      $("#prompt").show();
-      $("#prompt h3").html("Sent successfully")
-      $("#SIGNUP_email").val("");
-    }else{
-      $("#prompt").show();
-      $("#prompt h3").html("Please fill in the information")
-    }
-  })
-
-  $("#prompt button").click(function(){
-    $("#prompt").hide()
-  })
 };
+
+function isValidEmailAddress(emailAddress) {
+  var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+  return pattern.test(emailAddress);
+}
+
+function isValidPhoneNumber(phoneNumber) {
+  var pattern = new RegExp("^[0-9]*$");
+  return pattern.test(phoneNumber);
+}
+
+$(function() {
+  // Hide the loading if time exceeds 20 seconds
+  var loading = setTimeout(function(){
+    if (!$('.loading').hasClass('hidden')) {
+      $('.loading').addClass('hidden');
+      clearTimeout(loading);
+    }
+  }, 20000);
+
+  $('#subscribeSubmit').on('click', function() {
+    var inputValue = $('#subscribeEmail').val();
+
+    $('.subscribe__email-validate-error').remove();
+
+    if (!inputValue || inputValue === '') {
+      $('#subscribeEmail').focus();
+      $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox is empty, please enter! </span>');
+    } else if (!isValidEmailAddress(inputValue)) {
+      $('#subscribeEmail').focus();
+      $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox format error, please re-enter! </span>');
+    }
+  });
+
+  $('#contactSubmit').on('click', function() {
+    var $parent = $(this).parent();
+    var _inputs = $('.contact-us :input');
+
+    var errorMsg = '';
+
+    $parent.find(".formtips").remove();
+
+
+    // Validate contact name
+    if( _inputs.is('#contactName')){
+      var _this = $('#contactName');
+
+      if(!_this.val() || _this.val() === ''){
+        errorMsg = 'Please enter the name.';
+        $('#contactName').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+      }
+    }
+
+    // Validate contact phone
+    if(_inputs.is('#contactPhone')){
+      var _this = $('#contactPhone');
+
+      if(!_this.val() || _this.val() === ''){
+        errorMsg = 'Please enter the contact phone.';
+      } else if (!isValidPhoneNumber(_this.val())) {
+        errorMsg = 'The contact phone should be number.';
+      }
+
+      $('#contactPhone').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+    }
+
+    // Validate contact email
+    if(_inputs.is('#contactEmail')){
+      var _this = $('#contactEmail');
+
+      if(!_this.val() || _this.val() === ''){
+        errorMsg = 'Please enter the contact email.';
+      } else if (!isValidEmailAddress(_this.val())) {
+        errorMsg = 'Please enter correct mailbox.';
+      }
+
+      $('#contactEmail').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+    }
+
+     // Validate contact address
+     if( _inputs.is('#contactAddress')){
+      var _this = $('#contactAddress');
+
+      if(!_this.val() || _this.val() === ''){
+        errorMsg = 'Please enter the contact address.';
+        $('#contactAddress').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+      }
+    }
+
+    // Validate contact message
+    var message = $('#contactMessage');
+    if(!message.val() || message.val() === ''){
+      errorMsg = 'Please enter the contact message.';
+      $('#contactMessage').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+    }
+
+    if (errorMsg) {
+      return false;
+    }
+  });
+});
