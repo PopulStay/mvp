@@ -27,11 +27,13 @@ class Data extends Component {
     
     this.state = {
       DateLists:[
-        {start:1530590400000,end:1530763200000},
-        {start:1530849600000,end:1531022400000}
+        {start:1530590400000,end:1530763200000},   //2018/7/3 12:0:0   2018/7/5 12:0:0
+        {start:1530849600000,end:1531022400000}    //2018/7/6 12:0:0   2018/7/8 12:0:0
       ]
     }
     languageService.language();
+    this.isStartDayBlocked = this.isStartDayBlocked.bind(this);
+    this.isEndDayBlocked = this.isEndDayBlocked.bind(this);
   }
 
   
@@ -50,15 +52,30 @@ class Data extends Component {
   }
 
 
-  isDayBlocked(day){
-    var dayS = new Date(day).getTime();
+  isStartDayBlocked(day){
     var DateLists = this.state.DateLists;
+    var dayS = new Date(day).getTime();
     for(var i=0;i<DateLists.length;i++){
-      if(dayS>DateLists[i].start && dayS<DateLists[i].end){
+      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end){
         return new Date(dayS);
       }
     }
   } 
+
+  isEndDayBlocked(day){
+    var DateLists = this.state.DateLists;       //已经预定的日期
+    var currentDate = new Date(this.state.checkInDate).toLocaleString()  //当前选这一天
+    console.log(currentDate)
+    var dayS = new Date(day).getTime();
+    for(var i=0;i<DateLists.length;i++){
+      if(dayS>DateLists[i].start && dayS<DateLists[i].end-86400000){
+        return new Date(dayS);
+      }
+      if(currentDate<DateLists[i].start){
+        console.log(new Date(DateLists[i].start).toLocaleString() )
+      }
+    }
+  }
       
   
 
@@ -68,7 +85,7 @@ class Data extends Component {
     const isDayBlocked = this.state.focusedInput === "startDate" ? this.isStartDayBlocked : this.isEndDayBlocked;
     return (  
 
-        <div> 
+        <div style={{background:"#000"}}> 
               <DateRangePicker
                 startDate={this.state.checkInDate}
                 startDateId="start_date"

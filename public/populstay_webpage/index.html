@@ -278,13 +278,13 @@
             <div class="container">
                 <div class="contact-us__card">
                     <div> <img class="contact-us__title" src="./img/contact-us-title.png" alt="populstay-contact-us-title" /> </div>
-                    <form class="col-5" action="">
+                    <div class="col-5" action="">
                         <div class="contact-us__form-item"> <input type="text" placeholder="Name" id="contactName" name="contactName" data-placeholder="Name" 　required/> </div>
                         <div class="contact-us__form-item"> <input type="number" placeholder="Telephone" id="contactPhone" name="contactPhone" data-placeholder="Phone" /> </div>
                         <div class="contact-us__form-item"> <input type="text" placeholder="Email" id="contactEmail" name="contactEmail" data-placeholder="Email" /> </div>
                         <div class="contact-us__form-item"> <input type="text" placeholder="Address" id="contactAddress" name="contactAddress" data-placeholder="Address" /> </div>
                         <div class="contact-us__textarea contact-us__form-item"> <label>Message</label> <textarea name="" cols="30" rows="10" id="contactMessage" name="contactMessage" data-placeholder="Message" /></textarea>
-                        </div><button class="contact-us__submit" type="submit" name="contactSubmit" id="contactSubmit"> <img src="./img/contact-us-send.png" alt=""> </button> </form>
+                        </div><button class="contact-us__submit" type="submit" name="contactSubmit" id="contactSubmit"> <img src="./img/contact-us-send.png" alt=""> </button> </div>
                     <div class="contact-us__contacter-info col-5">
                         <ul class="contact-us__contacter">
                             <li> <i class="contact-us__icon name align-middle"></i> <span class="align-middle">Walter Wang Yue</span> </li>
@@ -319,6 +319,7 @@
         </footer>
         <div id="qrcodeModal" class="modal"> <img class="qrcode-modal-img" src="./img/qrcode.jpg" /> </div>
     </div>
+    <div id="prompt"><h3>Submitted successfully</h3><button>CLOSE</button></div>
     <script src="js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="js/vendor/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
