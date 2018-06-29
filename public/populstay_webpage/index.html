@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="fonts/iconfont.ttf">
     <link rel="stylesheet" type="text/css" href="fonts/iconfont.woff">
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/break-points.css" type="text/css">
@@ -33,26 +34,26 @@
         <header class="header"> <img class="header__logo" src="./img/header-logo.png" alt="populstay-logo" />
             <div class="header__content text-center">
                 <h1 class="header__title"> PopulStay </h1>
-                <p class="header__description"> The genuine home sharing community redesigned<br>using blockchain technology </p>
+                <p class="header__description"> The genuine home sharing community redesigned<br>using the blockchain technology </p>
                 <ul class="header__social-icons">
                     <li class="header__social align-middle"> <a target="_blank" href="https://fb.me/populstay"><i class="iconfont icon-facebook"></i></a> </li>
-                    <li class="header__social align-middle"> <a target="_blank" href="https://youtu.be/lrWl11R2ar8"><i class="iconfont icon-youtube"></i></a> </li>
-                    <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-instagram"></i></a> </li>
-                    <li class="header__social align-middle"> <a target="_blank" href="https://t.me/PopulStay01"><i class="iconfont icon-telegram"></i></a> </li>
+                    <li class="header__social align-middle"> <a target="_blank" href="https://www.youtube.com/channel/UCAOiiN8HmppZ-qTeCW2pcwg"><i class="iconfont icon-youtube"></i></a> </li>
+                    <li class="header__social align-middle"> <a target="_blank" href="https://www.instagram.com/populstay/"><i class="iconfont icon-instagram"></i></a> </li>
+                    <li class="header__social align-middle"> <a target="_blank" href="https://t.me/PopulStayEn"><i class="iconfont icon-telegram"></i></a> </li>
                     <li class="header__social align-middle"> <a target="_blank" href="https://twitter.com/populstay"><i class="iconfont icon-twitter"></i></a> </li>
-                    <li class="header__social align-middle"> <a target="_blank" href="https://www.reddit.com/user/PopulStay/"><i class="iconfont icon-reddit"></i></a> </li>
-                    <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-wechat"></i></a> </li>
-                    <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-weibo"></i></a> </li>
+                    <li class="header__social align-middle"> <a target="_blank" href="https://www.reddit.com/user/PopulStay"><i class="iconfont icon-reddit"></i></a> </li>
+                    <li class="header__social align-middle"> <a href="#qrcodeModal" rel="modal:open"><i class="iconfont icon-wechat"></i></a> </li>
+                    <li class="header__social align-middle"> <a target="_blank" href="http://weibo.com/populstay"><i class="iconfont icon-weibo"></i></a> </li>
                 </ul>
-                <p class="header__description"> The decentralized booking and autonomous property management platform<br/> for vacation rental and the home sharing economy.<br/> PopulStay has been selected as part of the Blockchain Business Camp Tokyo.<br/> Details can be found here.. </p><a target="_blank" href="https://demo.populstay.com/" class="header__demo-button"> <img class="align-middle" src="./img/header-demo-button.png" alt="populstay-demo-button"> <span class="header__demo-button-text align-middle">Visit PopulStay Demo</span> </a> </div>
+                <p class="header__description"> The decentralized booking and autonomous property management platform<br/> for vacation rental and the home sharing economy.<br/> PopulStay has been selected as part of the Blockchain Business Camp Tokyo.<br/> Details can be found <a target="_blank" href="http://www.seisakukikaku.metro.tokyo.jp/bdc_tokyo/english/bizcamptky/blockchain/">here..</a> </p><a target="_blank" href="https://demo.populstay.com/" class="header__demo-button"> <img class="align-middle" src="./img/header-demo-button.png" alt="populstay-demo-button"> <span class="header__demo-button-text align-middle">Visit PopulStay Demo</span> </a> </div>
         </header>
         <div class="advantage text-center">
             <ul class="advantage__list">
                 <li class="align-top text-center advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-1.png" alt="populstay-advantage-1"> </i> <label>Our Benefits</label> </li>
-                <li class="align-top text-center advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-2.jpg" alt="populstay-advantage-2"> </i> <label>Blockchain-based<br/>Smart Lock</label> </li>
-                <li class="align-top text-center advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-2.jpg" alt="populstay-advantage-2"> </i> <label>Decentralized Platform </label> <span>No middleman</span> </li>
-                <li class="align-top text-center advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-3.png" alt="populstay-advantage-3"> </i> <label>Machine Trust</label> <span>Defined by smart contracts</span> </li>
-                <li class="align-top text-center advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-4.png" alt="populstay-advantage-4"> </i> <label>Decentralized Autonomous<br/>Organization</label> <span>Operate more efficiently</span> </li>
+                <li class="align-top text-center advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-2.png" alt="populstay-advantage-2"> </i> <label>Blockchain-based<br/>Smart Lock</label> </li>
+                <li class="align-top text-center advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-3.jpg" alt="populstay-advantage-2"> </i> <label>Decentralized Platform </label> <span>No middleman</span> </li>
+                <li class="align-top text-center advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-4.png" alt="populstay-advantage-3"> </i> <label>Machine Trust</label> <span>Defined by smart contracts</span> </li>
+                <li class="align-top text-center advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-5.png" alt="populstay-advantage-4"> </i> <label>Decentralized Autonomous<br/>Organization</label> <span>Operate more efficiently</span> </li>
                 <li class="align-top text-center advantage__logo advantage__item"> <i class="advantage__icon"> <img src="./img/advantage-logo.png" alt="populstay-advantage-5"> </i> <label></label> <span></span> </li>
             </ul>
         </div>
@@ -62,7 +63,7 @@
                 <div class="product__title"> <img class="product__title-img" src="./img/product-title.png" alt="populstay-product-title"> </div>
                 <div class="product__article">
                     <div class="product__subtitle">
-                        <h3>Hardware: the world's first real keyless</h3> <img class="product__subtitle-img" src="./img/product-subtitle.png" alt="populstay-product-subtitle"> </div>
+                        <h3>Hardware: The world’s first real keyless door look.</h3> <img class="product__subtitle-img" src="./img/product-subtitle.png" alt="populstay-product-subtitle"> </div>
                     <p class="story-product__description">The biggest challenge and hidden danger of smart locks is security.</p>
                     <p class="story-product__description">For the hardware part, the cylinder in the lock allows the locksmith or thieve to open the door lock easily, it is just a matter of time, depending on the grade of the cylinder. For the software part, a central door lock management system means that once the server is hacked, hackers will acquire the control rights of all the door locks at zero cost. This would be a catastrophic event.</p>
                     <p class="story-product__description">PopulStay, however, developed the world's first genuine, keyless, blockchain-based smart lock and its associated chips.The door locks are managed through a smart contract. The owner of the door lock can determine, who can use the door lock and access the property during which period, and the user of the door lock needs to confirm the transaction of the door lock with a smart phone and gets authenticated first.</p>
@@ -94,7 +95,7 @@
         <section class="platform">
             <div class="platform__intro">
                 <div class="container">
-                    <h3 class="platform__intro-text">Software: the home sharing wconomics redesigned using blockchain</h3>
+                    <h3 class="platform__intro-text">Software: The home sharing economy redesigned using blockchain.</h3>
                 </div>
             </div>
             <div class="container">
@@ -110,7 +111,7 @@
                 <div class="col-5"> <img class="organization__title" src="./img/organization-title.png" alt="populstay-organization-title">
                     <div class="organization__detail">
                         <h3 class="organization__subtitle">Operate more efficiently</h3>
-                        <p class="organization__description"> Publishing a listing on our platform takes less than ten minutes, but operating a listing takes efforts. In order to make it hassle-free, we integrate qualified third party providers for cleaning, key exchange, professional photo shooting, interior design and dynamic pricing service to work for you in a decentralized and autonomous way. </p>
+                        <p class="organization__description"> Publishing a listing on our platform takes less than ten minutes, but operating a listing takes efforts. In order to make it hassle-free, we integrate qualified third party providers for cleaning, key exchange, professional photo shooting, interior design and dynamic pricing to work for you in a decentralized and autonomous way. </p>
                     </div>
                 </div>
             </div>
@@ -162,11 +163,11 @@
                     </section>
                     <div class="blog__social-container text-right"> <label>Visit Us: </label>
                         <ul class="blog__social-icons">
-                            <li class="blog__social text-center"> <a target="_blank" href=""><i class="iconfont icon-facebook"></i></a> </li>
-                            <li class="blog__social text-center"> <a target="_blank" href=""><i class="iconfont icon-instagram"></i></a> </li>
-                            <li class="blog__social text-center"> <a target="_blank" href=""><i class="iconfont icon-twitter"></i></a> </li>
-                            <li class="blog__social text-center"> <a target="_blank" href=""><i class="iconfont icon-wechat"></i></a> </li>
-                            <li class="blog__social text-center"> <a target="_blank" href=""><i class="iconfont icon-weibo"></i></a> </li>
+                            <li class="blog__social text-center"> <a target="_blank" href="https://fb.me/populstay"><i class="iconfont icon-facebook"></i></a> </li>
+                            <li class="blog__social text-center"> <a target="_blank" href="https://www.instagram.com/populstay/"><i class="iconfont icon-instagram"></i></a> </li>
+                            <li class="blog__social text-center"> <a target="_blank" href="https://twitter.com/populstay"><i class="iconfont icon-twitter"></i></a> </li>
+                            <li class="blog__social text-center"> <a href="#qrcodeModal" rel="modal:open"><i class="iconfont icon-wechat"></i></a> </li>
+                            <li class="blog__social text-center"> <a target="_blank" href="http://weibo.com/populstay"><i class="iconfont icon-weibo"></i></a> </li>
                         </ul>
                     </div>
                 </div>
@@ -181,7 +182,7 @@
                         <div class="col-3">
                             <h4 class="services__role-name">Host</h4>
                             <ul class="services__role-effects">
-                                <li class="services__role-effect col-5"> <img class="services__role-effect-icon" src="./img/service-2.png" /> <span>Clearing & Washing</span> </li>
+                                <li class="services__role-effect col-5"> <img class="services__role-effect-icon" src="./img/service-2.png" /> <span>Cleaning & Washing</span> </li>
                                 <li class="services__role-effect col-5"> <img class="services__role-effect-icon" src="./img/service-3.png" /> <span>Photo Shooting</span> </li>
                                 <li class="services__role-effect col-5"> <img class="services__role-effect-icon" src="./img/service-4.png" /> <span>Smart ioT Gadgets</span> </li>
                                 <li class="services__role-effect col-5"> <img class="services__role-effect-icon" src="./img/service-5.png" /> <span>Smart Pricing</span> </li>
@@ -206,15 +207,33 @@
         </div>
         <section class="intro text-center">
             <div class="container"> <img class="intro__team-title" src="./img/team-title.png" alt="populstay-team-title">
-                <ul class="intro__team-wrapper"> 
-                    <li class="intro__team-item"> <a target="_blank" href="https://www.linkedin.com/in/yue-wang-02a45315/"><div class="intro__team-item-img wang"></div></a> <a target="_blank" href="https://www.linkedin.com/in/yue-wang-02a45315/"><i class="intro__team-item-name">Walter Wang Yue</i></a> <span class="intro__team-item-title">Founder &amp; CEO</span> </li>
-                    <li class="intro__team-item"> <a target="_blank" href="https://www.linkedin.com/in/xinpeng-cai-920414131/"><div class="intro__team-item-img cai"></div></a> <a target="_blank" href="https://www.linkedin.com/in/xinpeng-cai-920414131/"><i class="intro__team-item-name">Xinpeng Cai</i></a> <span class="intro__team-item-title">Co-founder &amp; COO</span> </li>
-                    <li class="intro__team-item"> <a target="_blank" href="https://www.linkedin.com/in/kailiang-lin-262b9315b/"><div class="intro__team-item-img lin"></div></a> <a target="_blank" href="https://www.linkedin.com/in/kailiang-lin-262b9315b/"><i class="intro__team-item-name">Brian Lin</i></a> <span class="intro__team-item-title">Chief Marketing Officer</span> </li><!-- 
-                    <li class="intro__team-item"> <a target="_blank" href=""><div class="intro__team-item-img l-jun"></div></a> <a target="_blank" href=""><i class="intro__team-item-name">Ling Jun</i></a> <span class="intro__team-item-title">Marketing Guru</span> </li>
-                    <li class="intro__team-item"> <a target="_blank" href=""><div class="intro__team-item-img tao"></div></a> <a target="_blank" href=""><i class="intro__team-item-name">Wu Tao</i></a> <span class="intro__team-item-title">Founder & CEO</span> </li>--> 
-                    <li class="intro__team-item"> <a target="_blank" href=""><div class="intro__team-item-img zhong"></div></a> <a target="_blank" href=""><i class="intro__team-item-name">Christie Zhong</i></a> <span class="intro__team-item-title">Senior Designer</span> </li>
-                    <li class="intro__team-item"> <a target="_blank" href=""><div class="intro__team-item-img e"></div></a> <a target="_blank" href=""><i class="intro__team-item-name">Jiachang E</i></a> <span class="intro__team-item-title">Marketing Guru</span> </li>
-                    <li class="intro__team-item"> <a target="_blank" href=""><div class="intro__team-item-img dw-jun"></div></a> <a target="_blank" href=""><i class="intro__team-item-name">Dingwen Jun</i></a> <span class="intro__team-item-title">Marketing Guru</span> </li></ul>
+                <ul class="intro__team-wrapper">
+                    <li class="intro__team-item">
+                        <a target="_blank" href="https://www.linkedin.com/in/yue-wang-02a45315/">
+                            <div class="intro__team-item-img wang"></div>
+                        </a> <a target="_blank" href="https://www.linkedin.com/in/yue-wang-02a45315/"><i class="intro__team-item-name">Walter Wang Yue</i></a> <span class="intro__team-item-title">Founder & CEO</span> </li>
+                    <li class="intro__team-item">
+                        <a target="_blank" href="https://www.linkedin.com/in/xinpeng-cai-920414131/">
+                            <div class="intro__team-item-img cai"></div>
+                        </a> <a target="_blank" href="https://www.linkedin.com/in/xinpeng-cai-920414131/"><i class="intro__team-item-name">Xinpeng Cai</i></a> <span class="intro__team-item-title">Co-founder & COO</span> </li>
+                    <li class="intro__team-item">
+                        <a target="_blank" href="https://www.linkedin.com/in/kailiang-lin-262b9315b/">
+                            <div class="intro__team-item-img lin"></div>
+                        </a> <a target="_blank" href="https://www.linkedin.com/in/kailiang-lin-262b9315b/"><i class="intro__team-item-name">Brian Lin</i></a> <span class="intro__team-item-title">Chief Marketing Officer</span> </li>
+                    <!-- <li class="intro__team-item"> <a target="_blank" href=""><div class="intro__team-item-img l-jun"></div></a> <a target="_blank" href=""><i class="intro__team-item-name">Ling Jun</i></a> <span class="intro__team-item-title">Marketing Guru</span> </li><li class="intro__team-item"> <a target="_blank" href=""><div class="intro__team-item-img tao"></div></a> <a target="_blank" href=""><i class="intro__team-item-name">Wu Tao</i></a> <span class="intro__team-item-title">Founder & CEO</span> </li>-->
+                    <li class="intro__team-item">
+                        <a target="_blank" href="http://linkedin.com/in/linlu-zhong-8350a6a4">
+                            <div class="intro__team-item-img zhong"></div>
+                        </a> <a target="_blank" href="http://linkedin.com/in/linlu-zhong-8350a6a4"><i class="intro__team-item-name">Christie Zhong</i></a> <span class="intro__team-item-title">Senior Designer</span> </li>
+                    <li class="intro__team-item">
+                        <a target="_blank" href="">
+                            <div class="intro__team-item-img e"></div>
+                        </a> <a target="_blank" href=""><i class="intro__team-item-name">Jiachang E</i></a> <span class="intro__team-item-title">Marketing Guru</span> </li>
+                    <li class="intro__team-item">
+                        <a target="_blank" href="">
+                            <div class="intro__team-item-img dw-jun"></div>
+                        </a> <a target="_blank" href=""><i class="intro__team-item-name">Dingwen Jun</i></a> <span class="intro__team-item-title">Marketing Guru</span> </li>
+                </ul>
                 <div class="intro__divider"></div>
             </div>
             <div class="intro__partner-container container"> <img class="intro__partner-title" src="./img/parternship-title.png" alt="populstay-partnership-title" />
@@ -239,8 +258,8 @@
         <div class="subscribe text-center"> <i class="subscribe__logo"></i>
             <p class="subscribe__title">Subscribe to our Newsletter</p>
             <div class="subscribe__email">
-                <div class="subscribe__input align-middle"> <input type="email" id="SIGNUP_email" placeholder="Enter your email address" id="subscribeEmail" name="email" data-placeholder="Email" /> </div>
-                <div class="subscribe__btn align-middle"> <button type="submit" name="subscribeSubmit" id="subscribeSubmit" >SIGN UP</button> </div>
+                <div class="subscribe__input align-middle"> <input type="email" placeholder="Enter your email address" id="subscribeEmail" name="email" data-placeholder="Email" /> </div>
+                <div class="subscribe__btn align-middle"> <button type="submit" name="subscribeSubmit" id="subscribeSubmit">SIGN UP</button> </div>
             </div>
         </div>
         <section class="news text-center">
@@ -259,16 +278,13 @@
             <div class="container">
                 <div class="contact-us__card">
                     <div> <img class="contact-us__title" src="./img/contact-us-title.png" alt="populstay-contact-us-title" /> </div>
-
-                    <div class="col-5">
-                        <div class="contact-us__form-item"> <input type="text" placeholder="Name" id="Name" name="Name" data-placeholder="Name" /> </div>
-                        <div class="contact-us__form-item"> <input type="number" placeholder="Telephone" id="Phone" name="Phone" data-placeholder="Phone" /> </div>
-                        <div class="contact-us__form-item"> <input type="text" placeholder="Email" id="Email" name="Email" data-placeholder="Email" /> </div>
-                        <div class="contact-us__form-item"> <input type="text" placeholder="Address" id="Address" name="Address" data-placeholder="Address" /> </div>
-                        <div class="contact-us__textarea contact-us__form-item"> <label>Message</label> <textarea cols="30" rows="10" id="Message" name="Message" data-placeholder="Message" /></textarea>
-                        </div><button class="contact-us__submit" id="submit"> <img src="./img/contact-us-send.png" alt=""> </button> 
-                    </div>
-
+                    <form class="col-5" action="">
+                        <div class="contact-us__form-item"> <input type="text" placeholder="Name" id="contactName" name="contactName" data-placeholder="Name" 　required/> </div>
+                        <div class="contact-us__form-item"> <input type="number" placeholder="Telephone" id="contactPhone" name="contactPhone" data-placeholder="Phone" /> </div>
+                        <div class="contact-us__form-item"> <input type="text" placeholder="Email" id="contactEmail" name="contactEmail" data-placeholder="Email" /> </div>
+                        <div class="contact-us__form-item"> <input type="text" placeholder="Address" id="contactAddress" name="contactAddress" data-placeholder="Address" /> </div>
+                        <div class="contact-us__textarea contact-us__form-item"> <label>Message</label> <textarea name="" cols="30" rows="10" id="contactMessage" name="contactMessage" data-placeholder="Message" /></textarea>
+                        </div><button class="contact-us__submit" type="submit" name="contactSubmit" id="contactSubmit"> <img src="./img/contact-us-send.png" alt=""> </button> </form>
                     <div class="contact-us__contacter-info col-5">
                         <ul class="contact-us__contacter">
                             <li> <i class="contact-us__icon name align-middle"></i> <span class="align-middle">Walter Wang Yue</span> </li>
@@ -283,32 +299,29 @@
                 <div class="col-5"> <img class="footer__info-img"> </div>
                 <div class="footer__contact col-3">
                     <h3 class="footer__contact-title">Contact Us</h3> <label class="footer__contact-email">walter@populstay.com</label>
-                    <p class="footer__contact-address">10 Anson Road #26-04 lntenational Plaza, Singapore 079903</p>
+                    <p class="footer__contact-address">10 Anson Road #27-15 lntenational Plaza, Singapore 079903</p>
                 </div>
                 <div class="footer__follow col-2">
                     <h3 class="footer__follow-title">Follow Us</h3>
                     <ul class="header__social-icons text-center">
-                        <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-facebook"></i></a> </li>
-                        <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-youtube"></i></a> </li>
-                        <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-instagram"></i></a> </li>
-                        <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-telegram"></i></a> </li>
-                        <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-twitter"></i></a> </li>
-                        <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-reddit"></i></a> </li>
-                        <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-wechat"></i></a> </li>
-                        <li class="header__social align-middle"> <a target="_blank" href=""><i class="iconfont icon-weibo"></i></a> </li>
+                        <li class="header__social align-middle"> <a target="_blank" href="https://fb.me/populstay"><i class="iconfont icon-facebook"></i></a> </li>
+                        <li class="header__social align-middle"> <a target="_blank" href="https://www.youtube.com/channel/UCAOiiN8HmppZ-qTeCW2pcwg"><i class="iconfont icon-youtube"></i></a> </li>
+                        <li class="header__social align-middle"> <a target="_blank" href="https://www.instagram.com/populstay/"><i class="iconfont icon-instagram"></i></a> </li>
+                        <li class="header__social align-middle"> <a target="_blank" href="https://t.me/PopulStayEn"><i class="iconfont icon-telegram"></i></a> </li>
+                        <li class="header__social align-middle"> <a target="_blank" href="https://twitter.com/populstay"><i class="iconfont icon-twitter"></i></a> </li>
+                        <li class="header__social align-middle"> <a target="_blank" href="https://www.reddit.com/user/PopulStay"><i class="iconfont icon-reddit"></i></a> </li>
+                        <li class="header__social align-middle"> <a href="#qrcodeModal" rel="modal:open"><i class="iconfont icon-wechat"></i></a> </li>
+                        <li class="header__social align-middle"> <a target="_blank" href="http://weibo.com/populstay"><i class="iconfont icon-weibo"></i></a> </li>
                     </ul>
                 </div>
             </div>
             <div class="footer__copyright"> <img class="footer__copyright-title align-middle" src="./img/footer-title.png" alt="" /> <img class="footer__copyright-logo align-middle" src="./img/footer-logo.png" alt="" /> </div>
         </footer>
-        <div>
-        <div id="prompt">
-            <h3>Sent successfully</h3>
-            <button>CLOSE</button>
-        </div>
+        <div id="qrcodeModal" class="modal"> <img class="qrcode-modal-img" src="./img/qrcode.jpg" /> </div>
     </div>
     <script src="js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <script>
