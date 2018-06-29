@@ -32,6 +32,14 @@ $(function() {
     } else if (!isValidEmailAddress(inputValue)) {
       $('#subscribeEmail').focus();
       $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox format error, please re-enter! </span>');
+    }else{
+      $.post("https://server.populstay.com/generaldata",
+      {
+        code:'001',
+        generalData:$('#subscribeEmail').val()
+      });
+      $("#prompt").show();
+      $("#subscribeEmail").val("");
     }
   });
 
@@ -100,5 +108,25 @@ $(function() {
     if (errorMsg) {
       return false;
     }
+    if(!errorMsg){
+      $.post("https://server.populstay.com/emailsender",
+      {
+        from:$("#contactEmail").val(),
+        to:'walter@populstay.com',
+        subject:$("#contactAddress").val(),
+        text:$("#contactMessage").val(),
+        telephone:$("#contactPhone").val(),
+        name:$("#contactName").val()
+      });
+      $("#prompt").show();
+      $("#contactEmail").val("")
+      $("#contactAddress").val("")
+      $("#contactMessage").val("")
+      $("#contactPhone").val("")
+      $("#contactName").val("")
+    }
   });
+  $("#prompt button").click(function(){
+    $("#prompt").hide()
+  })
 });
