@@ -1,0 +1,107 @@
+.Help .modal-dialog{
+	position: fixed;
+	top:0;
+	width: 350px;
+	height: 100%;
+	right: 0;
+	margin: 0;
+	transform: none !important;
+}
+.Help .modal-content{
+	border-radius: 0;
+	height: 100%;
+	border:none;
+	overflow: auto;
+}
+.Help .modal-header{
+	display: block;
+}
+.Help .modal-header h4{
+	width: 100%;
+	text-align: center;
+	font-size: 2.4rem;
+  	font-family: RobotoBold; 
+  	margin: 4% 0;
+}
+.Help .modal-header span{
+	float: right;
+	font-size: 4rem;
+	line-height: 0px;
+  	font-family: none; 
+  	margin: 4% 0;
+}
+.Help .modal-body{
+	text-align: left;
+}
+.Help .modal-body .box1{
+	position: relative;
+  	margin: 5% 0 8%;
+}
+.Help .modal-body .box1 span{
+	position: absolute;
+	color: #f6416c;
+	top:50%;
+	transform: translate(0,-50%);
+	font-size: 1.8rem;
+}
+.Help .modal-body .box1 input{
+	width: 100%;
+	padding:3% 0% 3% 15%;
+	font-size: 1.4rem;
+	border:1px solid #c2c2c2;
+}
+.Help .modal-body>h4{
+	font-size: 1.8rem;
+  	font-family: RobotoBold; 
+}
+.Help .modal-body ul{
+	width: 100%;
+	text-align: left;
+	float: none !important;
+}
+.Help .modal-body ul li{
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding: 5% 0;
+	border-bottom:1px solid #c2c2c2;
+	text-align: left;
+	font-size: 1.6rem;
+}
+.Help .modal-body ul li:hover{
+	background: rgb(242, 242, 242);
+}
+.Help .modal-body ul li>span{
+	color: #f6416c;
+	font-size: 2rem;
+	position: absolute;
+	top:50%;
+	right: 0;
+	transform: translate(0,-50%);
+}
+.Help .modal-body ul li:last-child{
+	border-bottom:none;
+}
+/*Reservation requests*/
+.Help .modal-body ul .box2>p{
+	margin: 5% 0;
+	font-size: 1.6rem;
+}
+.Help .modal-footer{
+	display: block;
+	border:none;
+}
+.Help .modal-footer button{
+	background:#f6416c;
+	border:#f6416c;
+	color: #fff;
+	border-radius: 0;
+}
+.Help .modal-footer p,
+.Help .modal-footer button{
+	width: 100%;
+}
+.Help .modal-footer p{
+	margin: 5% 0;
+	text-align: center;
+}

@@ -824,6 +824,10 @@ export const Consummate_user_information = '完善用户信息';
 export const Please_enter_the_mailbox = '请输入邮箱';
 export const Incorrect_mailbox_format = '邮箱格式不正确';
 export const Well_never_share_your_email_with_anyone_else = '我们永远不会与其他人分享你的电子邮件';
+export const Code = '验证码';
+export const Get_verification_code = '获取验证码';
+export const Verification_code_error = '验证码错误';
+export const Successful_verification = '验证成功';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Create_Or_Import_Wallet = '创建或导入钱包';

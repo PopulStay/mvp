@@ -78,6 +78,26 @@ class GuestService {
     });
 
   }
+  sendEmail(from,to,subject,text){
+    return new Promise((resolve, reject) => {
+    var params = {};
+    params.from    = from;
+    params.to      = to;
+    params.subject = subject;
+    params.text    = text;
+
+    axios.post(process.env.Server_Address+'emailsender', params)
+    .then(function (response) {
+      resolve(response);
+    })
+    .catch(function (error) {
+      console.error(error)
+      reject(error)
+    });
+     });
+
+
+  }
     
   guestRegister(registerData) {
     return new Promise((resolve, reject) => {
@@ -108,6 +128,40 @@ class GuestService {
     return houselistingService.getGuestPreorderList(account);
   }
 
+  getGuesterCode(email) {
+    return new Promise((resolve, reject) => {
+    var emailArr = {};
+    emailArr.to      = email;
+    emailArr.subject = '请确认您的验证码';
+    emailArr.from    = "admin@populstay.com";
+    axios.post(process.env.Server_Address+'emailverify/sendVerificationEmail', emailArr)
+    .then(function (response) {
+      console.log(response)
+      resolve(response);
+    })
+    .catch(function (error) {
+      console.error(error)
+      reject(error)
+    });
+    })
+  }
+
+  VerificationCode(email,Code) {
+    return new Promise((resolve, reject) => {
+    var Verification = {};
+    Verification.to      = email;
+    Verification.code = Code;
+    axios.post(process.env.Server_Address+'emailverify/verifyEmail', Verification)
+    .then(function (response) {
+      console.log(response)
+      resolve(response);
+    })
+    .catch(function (error) {
+      console.error(error)
+      reject(error)
+    });
+    })
+  }
 
  }
 

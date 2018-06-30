@@ -23,6 +23,7 @@ import Registerlist from './register-list.js'
 import Verifyid from './verify-id.js'
 import Helpbox from './helpbox.js'
 import ProfileReceipt from './profile_receipt.js'
+import DATE from './date.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -32,6 +33,7 @@ import '../css/main.css'
 import '../css/search.css'
 import '../css/Modal.css'
 import '../css/experience.css'
+import '../css/help.css'
 import '../css/media.css'
 
 const SearchPage = (props) => (
@@ -152,6 +154,13 @@ const Receipt = (props) => (
   </Layout>
 )
 
+const Date = (props) => (
+  <Layout {...props}  >
+      <DATE />
+  </Layout>
+)
+
+
 
 // Top level component
 const App = () => (
@@ -173,6 +182,7 @@ const App = () => (
           <Route exact path="/VerifyID" component={VerifyID}/>
           <Route exact path="/help" component={HELPBOX}/>
           <Route exact path="/Receipt" component={Receipt}/>
+          <Route exact path="/Date" component={Date}/>
         </div>
     </ScrollToTop>
   </Router>
