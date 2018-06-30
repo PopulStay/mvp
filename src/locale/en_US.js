@@ -815,6 +815,7 @@ export const Guest_Register = 'Guest Register';
 export const Wallet_Account = 'Wallet Account';
 export const User = 'User';
 export const User_name = 'User name';
+export const User_Password = 'Password';
 export const Phone = 'Phone';
 export const Email = 'Email';
 export const Enter_email = 'Enter email';
