@@ -81,6 +81,8 @@ class ListingsDetail extends Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.isStartDayBlocked = this.isStartDayBlocked.bind(this);
+    this.isEndDayBlocked = this.isEndDayBlocked.bind(this);
 
     languageService.language();
   }
@@ -242,16 +244,43 @@ class ListingsDetail extends Component {
   }
 
 
-  isDayBlocked(day){
-    console.log(this.state.DateLists)
-    var dayS = new Date(day).getTime();
+  isStartDayBlocked(day){
     var DateLists = this.state.DateLists;
+    var currentDate = new Date(this.state.checkInDate).getTime(); 
+    var dayS = new Date(day).getTime();
     for(var i=0;i<DateLists.length;i++){
-      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end-43200000){
+      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end){
         return new Date(dayS);
       }
     }
   } 
+
+  isEndDayBlocked(day){
+    var DateLists = this.state.DateLists;      
+    var currentDate = new Date(this.state.checkInDate).getTime(); 
+    var dayS = new Date(day).getTime();
+    var startdateArr = [];
+    var enddateArr = [];
+    for(var i=0;i<DateLists.length;i++){
+      if(dayS>DateLists[i].start && dayS<DateLists[i].end-86400000){
+        return new Date(dayS);
+      }
+      if(currentDate<=DateLists[i].start){
+        startdateArr.push(DateLists[i].start)
+      }
+      if(currentDate>=DateLists[i].end){
+        console.log(DateLists[i].end)
+        enddateArr.push(DateLists[i].end)
+      }
+    }
+    console.log(Math.min(...startdateArr)-43200000)
+    if(dayS>Math.min(...startdateArr)-43200000) {
+        return true;
+    } 
+    // if(dayS<Math.max(...enddateArr)-86400000) {
+    //     return true;
+    // }  
+  }
       
 
 
@@ -426,7 +455,7 @@ class ListingsDetail extends Component {
   render() {
     const language = this.state.languagelist;
     const price = typeof this.state.ppsPrice === 'string' ? 0 : this.state.ppsPrice;
-
+    const isDayBlocked = this.state.focusedInput === "startDate" ? this.isStartDayBlocked : this.isEndDayBlocked;
     return (  
 
 <div> 
@@ -725,7 +754,7 @@ class ListingsDetail extends Component {
                     endDateId="end_date"
                     onDatesChange={({ startDate, endDate }) => {this.setState({checkInDate: startDate, checkOutDate: endDate })}}
                     focusedInput={this.state.focusedInput}
-                    isDayBlocked={day=>this.isDayBlocked(day)}
+                    isDayBlocked={isDayBlocked}
                     onFocusChange={focusedInput => this.setState({ focusedInput })}
                     readOnly
                     numberOfMonths

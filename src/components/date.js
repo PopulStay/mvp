@@ -28,7 +28,8 @@ class Data extends Component {
     this.state = {
       DateLists:[
         {start:1530590400000,end:1530763200000},   //2018/7/3 12:0:0   2018/7/5 12:0:0
-        {start:1530849600000,end:1531022400000}    //2018/7/6 12:0:0   2018/7/8 12:0:0
+        {start:1530849600000,end:1531022400000},   //2018/7/6 12:0:0   2018/7/8 12:0:0
+        {start:1531627200000,end:1532059200000}    //2018/7/15 12:0:0   2018/7/20 12:0:0
       ]
     }
     languageService.language();
@@ -54,6 +55,7 @@ class Data extends Component {
 
   isStartDayBlocked(day){
     var DateLists = this.state.DateLists;
+    var currentDate = new Date(this.state.checkInDate).getTime(); 
     var dayS = new Date(day).getTime();
     for(var i=0;i<DateLists.length;i++){
       if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end){
@@ -63,18 +65,28 @@ class Data extends Component {
   } 
 
   isEndDayBlocked(day){
-    var DateLists = this.state.DateLists;       //已经预定的日期
-    var currentDate = new Date(this.state.checkInDate).toLocaleString()  //当前选这一天
-    console.log(currentDate)
+    var DateLists = this.state.DateLists;      
+    var currentDate = new Date(this.state.checkInDate).getTime(); 
     var dayS = new Date(day).getTime();
+    var startdateArr = [];
+    var enddateArr = [];
     for(var i=0;i<DateLists.length;i++){
       if(dayS>DateLists[i].start && dayS<DateLists[i].end-86400000){
         return new Date(dayS);
       }
       if(currentDate<DateLists[i].start){
-        console.log(new Date(DateLists[i].start).toLocaleString() )
+        startdateArr.push(DateLists[i].start)
+      }
+      if(currentDate>DateLists[i].end){
+        enddateArr.push(DateLists[i].end)
       }
     }
+    if(dayS>Math.min(...startdateArr)+43200000) {
+        return true;
+    } 
+    if(dayS<Math.max(...enddateArr)-86400000) {
+        return true;
+    }  
   }
       
   
