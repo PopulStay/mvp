@@ -823,6 +823,10 @@ export const Consummate_user_information = 'Consummate user information';
 export const Please_enter_the_mailbox = 'Please enter the mailbox';
 export const Incorrect_mailbox_format = 'Incorrect mailbox format';
 export const Well_never_share_your_email_with_anyone_else = "We'll never share your email with anyone else";
+export const Code = 'Code';
+export const Get_verification_code = 'Get verification code';
+export const Verification_code_error = 'Verification code error';
+export const Successful_verification = 'Successful verification';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Create_Or_Import_Wallet = 'Create Or Import Wallet';

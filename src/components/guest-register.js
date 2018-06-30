@@ -22,6 +22,8 @@ class GuestRegister extends React.Component {
       account:"",
       phone:"",
       email:"",
+      Verification:'验证码',
+      VerificationCode:0,
       registered:false,
       emailactive:0,
       Prompt:"",
@@ -47,7 +49,7 @@ class GuestRegister extends React.Component {
 
   componentWillMount() {
     this.setState({ languagelist:window.languagelist });
-
+    this.setState({Verification:window.languagelist.Get_verification_code});
     this.loadUserData();
   }
    
@@ -66,6 +68,7 @@ class GuestRegister extends React.Component {
     guestService.guestRegister(register).then((data)=>{
       this.setState({ registered:true });
       this.closeModal();
+      window.location.href='/';
      });
   }
 
@@ -128,6 +131,36 @@ class GuestRegister extends React.Component {
       }
   }
 
+  VerificationCode(){
+    var num = 60;
+    this.timerID = setInterval(
+      () => {
+        if(this.state.Verification == 1){
+          clearTimeout(this.timerID);
+          this.setState({Verification:this.state.languagelist.Verification_code_error});
+        }else{
+          this.setState({Verification:num--});
+        }
+      },
+      1000
+    );
+    guestService.getGuesterCode(this.state.email)
+  }
+
+  emailCode(e){
+    if(e.length==4){
+      guestService.VerificationCode(this.state.email,e).then((data)=>{
+        clearTimeout(this.timerID);
+        this.setState({Verification:this.state.languagelist.Successful_verification});
+      })
+      .catch(function (error) {
+        clearTimeout(this.timerID);
+        this.setState({Verification:this.state.languagelist.Verification_code_error});
+      });
+    }else{
+      this.setState({Verification:this.state.languagelist.Get_verification_code});
+    }
+  }
 
   render() {
         const language = this.state.languagelist;
@@ -203,9 +236,14 @@ class GuestRegister extends React.Component {
                   <small id="emailHelp" className="form-text text-muted">{this.Prompt()}</small>
                 </div>
 
+                <div className="VerificationCode">
+                  <button className={this.Prompt() == this.state.languagelist.Well_never_share_your_email_with_anyone_else ? "" : "active"} disabled={this.Prompt() == this.state.languagelist.Well_never_share_your_email_with_anyone_else ? "" : "true"} onClick={(e)=>this.VerificationCode(e)}>{this.state.Verification}</button>
+                  <input type="number" placeholder={language.Code} onChange={(e) => this.emailCode(e.target.value)} />
+                </div>
+
                 </div>
                 <br/>
-                <button className={this.state.account == "" || this.state.user == "" || this.state.emailactive == 0 ? 'closeok closeactive' : 'closeok'} onClick={this.register}>{language.OK}</button>
+                <button className={this.state.account == "" || this.state.Verification != this.state.languagelist.Successful_verification ? 'closeok closeactive' : 'closeok'} onClick={this.register}>{language.OK}</button>
                 <button className="btn btn-primary closecancel" onClick={this.closeModal}>{language.Cancel}</button>
               </div>
             </Modal>
