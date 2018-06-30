@@ -483,6 +483,30 @@
   font-family: RobotoThin; 
   color: #8b8b8a !important;
 }
+.Signup .VerificationCode{
+  overflow: hidden;
+}
+.Signup .VerificationCode button{
+  float: left;
+  width: 60%;
+  height: 35px;
+  text-align: center;
+  border-radius: 0px;
+  border: 1px solid #f6416c;
+  padding: 0;
+  background: #f6416c;
+  color: #fff;
+}
+.Signup .VerificationCode button.active{
+  opacity: 0.5;
+}
+.Signup .VerificationCode input{
+  float: right;
+  width: 40%;
+  border-radius: 0px;
+  padding: 0;
+  text-align: center;
+}
 .Signup .closeok{
   width: 50%;
   font-size: 1.8rem;
