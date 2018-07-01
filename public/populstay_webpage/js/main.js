@@ -1,5 +1,8 @@
 window.onload = function () {
   $('.loading').addClass('hidden');
+  if(userLanguage == 'zh-CN'){
+    
+  }
 };
 
 function isValidEmailAddress(emailAddress) {
@@ -13,6 +16,7 @@ function isValidPhoneNumber(phoneNumber) {
 }
 
 $(function() {
+  var userLanguage = getCookie("userLanguage");
   // Hide the loading if time exceeds 20 seconds
   var loading = setTimeout(function(){
     if (!$('.loading').hasClass('hidden')) {
@@ -27,11 +31,19 @@ $(function() {
     $('.subscribe__email-validate-error').remove();
 
     if (!inputValue || inputValue === '') {
-      $('#subscribeEmail').focus();
-      $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox is empty, please enter! </span>');
+      if(userLanguage == 'zh-CN'){
+        $('#subscribeEmail').after('<span class="subscribe__email-validate-error">邮箱为空，请输入！ </span>');
+      }else{
+        $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox is empty, please enter! </span>');
+      }
     } else if (!isValidEmailAddress(inputValue)) {
       $('#subscribeEmail').focus();
-      $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox format error, please re-enter! </span>');
+      $('#subscribeEmail').focus();
+      if(userLanguage == 'zh-CN'){
+        $('#subscribeEmail').after('<span class="subscribe__email-validate-error">邮箱格式错误，请重新输入！</span>');
+      }else{
+        $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox format error, please re-enter! </span>');
+      }
     }else{
       $.post("https://server.populstay.com/generaldata",
       {
@@ -57,7 +69,11 @@ $(function() {
       var _this = $('#contactName');
 
       if(!_this.val() || _this.val() === ''){
-        errorMsg = 'Please enter the name.';
+        if(userLanguage == 'zh-CN'){
+          errorMsg = '请输入名称.';
+        }else{
+          errorMsg = 'Please enter the name.';
+        }
         $('#contactName').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
       }
     }
@@ -67,9 +83,17 @@ $(function() {
       var _this = $('#contactPhone');
 
       if(!_this.val() || _this.val() === ''){
-        errorMsg = 'Please enter the contact phone.';
+        if(userLanguage == 'zh-CN'){
+          errorMsg = '请输入联系电话.';
+        }else{
+          errorMsg = 'Please enter the contact phone.';
+        }
       } else if (!isValidPhoneNumber(_this.val())) {
-        errorMsg = 'The contact phone should be number.';
+        if(userLanguage == 'zh-CN'){
+          errorMsg = '联系电话应该是号码.';
+        }else{
+          errorMsg = 'The contact phone should be number.';
+        }
       }
 
       $('#contactPhone').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
@@ -80,9 +104,17 @@ $(function() {
       var _this = $('#contactEmail');
 
       if(!_this.val() || _this.val() === ''){
-        errorMsg = 'Please enter the contact email.';
+        if(userLanguage == 'zh-CN'){
+          errorMsg = '请输入联系电子邮件.';
+        }else{
+          errorMsg = 'Please enter the contact email.';
+        }
       } else if (!isValidEmailAddress(_this.val())) {
-        errorMsg = 'Please enter correct mailbox.';
+        if(userLanguage == 'zh-CN'){
+          errorMsg = '请输入正确的邮箱.';
+        }else{
+          errorMsg = 'Please enter correct mailbox.';
+        }
       }
 
       $('#contactEmail').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
@@ -93,7 +125,11 @@ $(function() {
       var _this = $('#contactAddress');
 
       if(!_this.val() || _this.val() === ''){
-        errorMsg = 'Please enter the contact address.';
+        if(userLanguage == 'zh-CN'){
+          errorMsg = '请输入联系地址.';
+        }else{
+          errorMsg = 'Please enter the contact address.';
+        }
         $('#contactAddress').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
       }
     }
@@ -101,7 +137,11 @@ $(function() {
     // Validate contact message
     var message = $('#contactMessage');
     if(!message.val() || message.val() === ''){
-      errorMsg = 'Please enter the contact message.';
+      if(userLanguage == 'zh-CN'){
+        errorMsg = '请输入联系信息.';
+      }else{
+        errorMsg = 'Please enter the contact message.';
+      }
       $('#contactMessage').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
     }
 
