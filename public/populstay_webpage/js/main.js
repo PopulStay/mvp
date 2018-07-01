@@ -15,7 +15,18 @@ window.onload = function () {
     $(".intro__partner-title").attr('src','./img/parternship-title-zh.png');
     $(".road-map__title").attr('src','./img/road-map-title-zh.png');
     $(".news .container").addClass("new_container");
+    $(".organization__title").attr('src','./img/organization-title-zh.png');
+    $(".contact-us__title").attr('src','./img/contact-us-title-zh.png');
+    $(".header-demo-button").attr('src','./img/header-demo-button-zh.png');
+    $(".communication__title-img").attr('src','./img/communication-title-zh.png');
     $(".h3_subtitle").hide()
+    if(document.body.clientWidth >= 768){
+      $(".road-map__content").addClass("road-map__content_zh");
+    }else{
+      $(".road-map__content").addClass("road-map__content_zh_s");
+    }
+    $(".organization__title").attr('src','./img/organization-title-zh.png');
+    $(".contact-us__title").attr('src','./img/contact-us-title-zh.png');
   }else{
     $(".contact-us__title").attr('src','./img/contact-us-title.png');
     $(".communication .col-5:first-child").removeClass("communication__pic_zh");
@@ -26,10 +37,19 @@ window.onload = function () {
     $(".product__subtitle-img").attr('src','./img/product-subtitle.png');
     $(".platform__title").attr('src','./img/platform-title.png');
     $(".machine__title-img").attr('src','./img/machine-title.png');
-    $(".intro__team-title").attr('src','./img/team-title-zh.png');
+    $(".intro__team-title").attr('src','./img/team-title.png');
     $(".intro__partner-title").attr('src','./img/parternship-title.png');
     $(".road-map__title").attr('src','./img/road-map-title.png');
+    $(".header-demo-button").attr('src','./img/header-demo-button.png');
+    $(".communication__title-img").attr('src','./img/communication-title.png');
     $(".h3_subtitle").show()
+    if(document.body.clientWidth >= 768){
+      $(".road-map__content").removeClass("road-map__content_zh");
+    }else{
+      $(".road-map__content").removeClass("road-map__content_zh_s");
+    }
+    $(".organization__title").attr('src','./img/organization-title.png');
+    $(".contact-us__title").attr('src','./img/contact-us-title.png');
   }
 };
 
