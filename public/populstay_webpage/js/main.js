@@ -1,5 +1,36 @@
 window.onload = function () {
+  var userLanguage = getCookie("userLanguage");
   $('.loading').addClass('hidden');
+  if(userLanguage == 'zh-CN'){
+    $(".contact-us__title").attr('src','./img/contact-us-title-zh.png');
+    $(".communication .col-5:first-child").addClass("communication__pic_zh");
+    $(".contact-us__submit img").attr('src','./img/contact-us-send-zh.png');
+    $(".footer__copyright-title").attr('src','./img/footer-title-zh.png');
+    $(".footer__copyright-logo").hide()
+    $(".product__title-img").attr('src','./img/product-title-zh.png');
+    $(".product__subtitle-img").attr('src','./img/product-subtitle-zh.png');
+    $(".platform__title").attr('src','./img/platform-title-zh.png');
+    $(".machine__title-img").attr('src','./img/machine-title-zh.png');
+    $(".intro__team-title").attr('src','./img/team-title-zh.png');
+    $(".intro__partner-title").attr('src','./img/parternship-title-zh.png');
+    $(".road-map__title").attr('src','./img/road-map-title-zh.png');
+    $(".news .container").addClass("new_container");
+    $(".h3_subtitle").hide()
+  }else{
+    $(".contact-us__title").attr('src','./img/contact-us-title.png');
+    $(".communication .col-5:first-child").removeClass("communication__pic_zh");
+    $(".contact-us__submit img").attr('src','./img/contact-us-send.png');
+    $(".footer__copyright-title").attr('src','./img/footer-title.png');
+    $(".footer__copyright-logo").show()
+    $(".product__title-img").attr('src','./img/product-title.png');
+    $(".product__subtitle-img").attr('src','./img/product-subtitle.png');
+    $(".platform__title").attr('src','./img/platform-title.png');
+    $(".machine__title-img").attr('src','./img/machine-title.png');
+    $(".intro__team-title").attr('src','./img/team-title-zh.png');
+    $(".intro__partner-title").attr('src','./img/parternship-title.png');
+    $(".road-map__title").attr('src','./img/road-map-title.png');
+    $(".h3_subtitle").show()
+  }
 };
 
 function isValidEmailAddress(emailAddress) {
@@ -13,6 +44,7 @@ function isValidPhoneNumber(phoneNumber) {
 }
 
 $(function() {
+  var userLanguage = getCookie("userLanguage");
   // Hide the loading if time exceeds 20 seconds
   var loading = setTimeout(function(){
     if (!$('.loading').hasClass('hidden')) {
@@ -27,16 +59,15 @@ $(function() {
     $('.subscribe__email-validate-error').remove();
 
     if (!inputValue || inputValue === '') {
-      $('#subscribeEmail').focus();
-      if($("header h6").html() == "English"){
-        $('#subscribeEmail').after('<span class="subscribe__email-validate-error">邮箱为空，请输入！</span>');
+      if(userLanguage == 'zh-CN'){
+        $('#subscribeEmail').after('<span class="subscribe__email-validate-error">邮箱为空，请输入！ </span>');
       }else{
         $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox is empty, please enter! </span>');
       }
     } else if (!isValidEmailAddress(inputValue)) {
       $('#subscribeEmail').focus();
       $('#subscribeEmail').focus();
-      if($("header h6").html() == "English"){
+      if(userLanguage == 'zh-CN'){
         $('#subscribeEmail').after('<span class="subscribe__email-validate-error">邮箱格式错误，请重新输入！</span>');
       }else{
         $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox format error, please re-enter! </span>');
@@ -56,7 +87,11 @@ $(function() {
     var $parent = $(this).parent();
     var _inputs = $('.contact-us :input');
 
-    var errorMsg = '';
+    var errorMsgName = '';
+    var errorMsgPhone = '';
+    var errorMsgEmail = '';
+    var errorMsgAddress = '';
+    var errorMsgMessage = '';
 
     $parent.find(".formtips").remove();
 
@@ -66,12 +101,12 @@ $(function() {
       var _this = $('#contactName');
 
       if(!_this.val() || _this.val() === ''){
-        if($("header h6").html() == "English"){
-          errorMsg = '请输入名称.';
+        if(userLanguage == 'zh-CN'){
+          errorMsgName = '请输入名称.';
         }else{
-          errorMsg = 'Please enter the name.';
+          errorMsgName = 'Please enter the name.';
         }
-        $('#contactName').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+        $('#contactName').parent().append('<span class="formtips onError">'+errorMsgName+'</span>');
       }
     }
 
@@ -80,20 +115,20 @@ $(function() {
       var _this = $('#contactPhone');
 
       if(!_this.val() || _this.val() === ''){
-        if($("header h6").html() == "English"){
-          errorMsg = '请输入联系电话.';
+        if(userLanguage == 'zh-CN'){
+          errorMsgPhone = '请输入联系电话.';
         }else{
-          errorMsg = 'Please enter the contact phone.';
+          errorMsgPhone = 'Please enter the contact phone.';
         }
       } else if (!isValidPhoneNumber(_this.val())) {
-        if($("header h6").html() == "English"){
-          errorMsg = '联系电话应该是号码.';
+        if(userLanguage == 'zh-CN'){
+          errorMsgPhone = '联系电话应该是号码.';
         }else{
-          errorMsg = 'The contact phone should be number.';
+          errorMsgPhone = 'The contact phone should be number.';
         }
       }
 
-      $('#contactPhone').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+      $('#contactPhone').parent().append('<span class="formtips onError">'+errorMsgPhone+'</span>');
     }
 
     // Validate contact email
@@ -101,20 +136,20 @@ $(function() {
       var _this = $('#contactEmail');
 
       if(!_this.val() || _this.val() === ''){
-        if($("header h6").html() == "English"){
-          errorMsg = '请输入联系电子邮件.';
+        if(userLanguage == 'zh-CN'){
+          errorMsgEmail = '请输入联系电子邮件.';
         }else{
-          errorMsg = 'Please enter the contact email.';
+          errorMsgEmail = 'Please enter the contact email.';
         }
       } else if (!isValidEmailAddress(_this.val())) {
-        if($("header h6").html() == "English"){
-          errorMsg = '请输入正确的邮箱.';
+        if(userLanguage == 'zh-CN'){
+          errorMsgEmail = '请输入正确的邮箱.';
         }else{
-          errorMsg = 'Please enter correct mailbox.';
+          errorMsgEmail = 'Please enter correct mailbox.';
         }
       }
 
-      $('#contactEmail').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+      $('#contactEmail').parent().append('<span class="formtips onError">'+errorMsgEmail+'</span>');
     }
 
      // Validate contact address
@@ -122,30 +157,30 @@ $(function() {
       var _this = $('#contactAddress');
 
       if(!_this.val() || _this.val() === ''){
-        if($("header h6").html() == "English"){
-          errorMsg = '请输入联系地址.';
+        if(userLanguage == 'zh-CN'){
+          errorMsgAddress = '请输入联系地址.';
         }else{
-          errorMsg = 'Please enter the contact address.';
+          errorMsgAddress = 'Please enter the contact address.';
         }
-        $('#contactAddress').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+        $('#contactAddress').parent().append('<span class="formtips onError">'+errorMsgAddress+'</span>');
       }
     }
 
     // Validate contact message
     var message = $('#contactMessage');
     if(!message.val() || message.val() === ''){
-      if($("header h6").html() == "English"){
-        errorMsg = '请输入联系信息.';
+      if(userLanguage == 'zh-CN'){
+        errorMsgMessage = '请输入联系信息.';
       }else{
-        errorMsg = 'Please enter the contact message.';
+        errorMsgMessage = 'Please enter the contact message.';
       }
-      $('#contactMessage').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+      $('#contactMessage').parent().append('<span class="formtips onError">'+errorMsgMessage+'</span>');
     }
 
-    if (errorMsg) {
+    if (errorMsgName&&errorMsgPhone&&errorMsgEmail&&errorMsgAddress&&errorMsgMessage) {
       return false;
     }
-    if(!errorMsg){
+    if(!errorMsgName&&!errorMsgPhone&&!errorMsgEmail&&!errorMsgAddress&&!errorMsgMessage){
       $.post("https://server.populstay.com/emailsender",
       {
         from:$("#contactEmail").val(),
