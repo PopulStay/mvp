@@ -1,5 +1,8 @@
 window.onload = function () {
   $('.loading').addClass('hidden');
+  if(userLanguage == 'zh-CN'){
+    
+  }
 };
 
 function isValidEmailAddress(emailAddress) {
@@ -13,6 +16,7 @@ function isValidPhoneNumber(phoneNumber) {
 }
 
 $(function() {
+  var userLanguage = getCookie("userLanguage");
   // Hide the loading if time exceeds 20 seconds
   var loading = setTimeout(function(){
     if (!$('.loading').hasClass('hidden')) {
@@ -27,16 +31,15 @@ $(function() {
     $('.subscribe__email-validate-error').remove();
 
     if (!inputValue || inputValue === '') {
-      $('#subscribeEmail').focus();
-      if($("header h6").html() == "English"){
-        $('#subscribeEmail').after('<span class="subscribe__email-validate-error">邮箱为空，请输入！</span>');
+      if(userLanguage == 'zh-CN'){
+        $('#subscribeEmail').after('<span class="subscribe__email-validate-error">邮箱为空，请输入！ </span>');
       }else{
         $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox is empty, please enter! </span>');
       }
     } else if (!isValidEmailAddress(inputValue)) {
       $('#subscribeEmail').focus();
       $('#subscribeEmail').focus();
-      if($("header h6").html() == "English"){
+      if(userLanguage == 'zh-CN'){
         $('#subscribeEmail').after('<span class="subscribe__email-validate-error">邮箱格式错误，请重新输入！</span>');
       }else{
         $('#subscribeEmail').after('<span class="subscribe__email-validate-error">Mailbox format error, please re-enter! </span>');
@@ -66,7 +69,7 @@ $(function() {
       var _this = $('#contactName');
 
       if(!_this.val() || _this.val() === ''){
-        if($("header h6").html() == "English"){
+        if(userLanguage == 'zh-CN'){
           errorMsg = '请输入名称.';
         }else{
           errorMsg = 'Please enter the name.';
@@ -80,13 +83,13 @@ $(function() {
       var _this = $('#contactPhone');
 
       if(!_this.val() || _this.val() === ''){
-        if($("header h6").html() == "English"){
+        if(userLanguage == 'zh-CN'){
           errorMsg = '请输入联系电话.';
         }else{
           errorMsg = 'Please enter the contact phone.';
         }
       } else if (!isValidPhoneNumber(_this.val())) {
-        if($("header h6").html() == "English"){
+        if(userLanguage == 'zh-CN'){
           errorMsg = '联系电话应该是号码.';
         }else{
           errorMsg = 'The contact phone should be number.';
@@ -101,13 +104,13 @@ $(function() {
       var _this = $('#contactEmail');
 
       if(!_this.val() || _this.val() === ''){
-        if($("header h6").html() == "English"){
+        if(userLanguage == 'zh-CN'){
           errorMsg = '请输入联系电子邮件.';
         }else{
           errorMsg = 'Please enter the contact email.';
         }
       } else if (!isValidEmailAddress(_this.val())) {
-        if($("header h6").html() == "English"){
+        if(userLanguage == 'zh-CN'){
           errorMsg = '请输入正确的邮箱.';
         }else{
           errorMsg = 'Please enter correct mailbox.';
@@ -122,7 +125,7 @@ $(function() {
       var _this = $('#contactAddress');
 
       if(!_this.val() || _this.val() === ''){
-        if($("header h6").html() == "English"){
+        if(userLanguage == 'zh-CN'){
           errorMsg = '请输入联系地址.';
         }else{
           errorMsg = 'Please enter the contact address.';
@@ -134,7 +137,7 @@ $(function() {
     // Validate contact message
     var message = $('#contactMessage');
     if(!message.val() || message.val() === ''){
-      if($("header h6").html() == "English"){
+      if(userLanguage == 'zh-CN'){
         errorMsg = '请输入联系信息.';
       }else{
         errorMsg = 'Please enter the contact message.';
