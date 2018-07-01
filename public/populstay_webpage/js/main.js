@@ -1,6 +1,36 @@
 window.onload = function () {
+  var userLanguage = getCookie("userLanguage");
   $('.loading').addClass('hidden');
-
+  if(userLanguage == 'zh-CN'){
+    $(".contact-us__title").attr('src','./img/contact-us-title-zh.png');
+    $(".communication .col-5:first-child").addClass("communication__pic_zh");
+    $(".contact-us__submit img").attr('src','./img/contact-us-send-zh.png');
+    $(".footer__copyright-title").attr('src','./img/footer-title-zh.png');
+    $(".footer__copyright-logo").hide()
+    $(".product__title-img").attr('src','./img/product-title-zh.png');
+    $(".product__subtitle-img").attr('src','./img/product-subtitle-zh.png');
+    $(".platform__title").attr('src','./img/platform-title-zh.png');
+    $(".machine__title-img").attr('src','./img/machine-title-zh.png');
+    $(".intro__team-title").attr('src','./img/team-title-zh.png');
+    $(".intro__partner-title").attr('src','./img/parternship-title-zh.png');
+    $(".road-map__title").attr('src','./img/road-map-title-zh.png');
+    $(".news .container").addClass("new_container");
+    $(".h3_subtitle").hide()
+  }else{
+    $(".contact-us__title").attr('src','./img/contact-us-title.png');
+    $(".communication .col-5:first-child").removeClass("communication__pic_zh");
+    $(".contact-us__submit img").attr('src','./img/contact-us-send.png');
+    $(".footer__copyright-title").attr('src','./img/footer-title.png');
+    $(".footer__copyright-logo").show()
+    $(".product__title-img").attr('src','./img/product-title.png');
+    $(".product__subtitle-img").attr('src','./img/product-subtitle.png');
+    $(".platform__title").attr('src','./img/platform-title.png');
+    $(".machine__title-img").attr('src','./img/machine-title.png');
+    $(".intro__team-title").attr('src','./img/team-title-zh.png');
+    $(".intro__partner-title").attr('src','./img/parternship-title.png');
+    $(".road-map__title").attr('src','./img/road-map-title.png');
+    $(".h3_subtitle").show()
+  }
 };
 
 function isValidEmailAddress(emailAddress) {
@@ -57,7 +87,11 @@ $(function() {
     var $parent = $(this).parent();
     var _inputs = $('.contact-us :input');
 
-    var errorMsg = '';
+    var errorMsgName = '';
+    var errorMsgPhone = '';
+    var errorMsgEmail = '';
+    var errorMsgAddress = '';
+    var errorMsgMessage = '';
 
     $parent.find(".formtips").remove();
 
@@ -68,11 +102,11 @@ $(function() {
 
       if(!_this.val() || _this.val() === ''){
         if(userLanguage == 'zh-CN'){
-          errorMsg = '请输入名称.';
+          errorMsgName = '请输入名称.';
         }else{
-          errorMsg = 'Please enter the name.';
+          errorMsgName = 'Please enter the name.';
         }
-        $('#contactName').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+        $('#contactName').parent().append('<span class="formtips onError">'+errorMsgName+'</span>');
       }
     }
 
@@ -82,19 +116,19 @@ $(function() {
 
       if(!_this.val() || _this.val() === ''){
         if(userLanguage == 'zh-CN'){
-          errorMsg = '请输入联系电话.';
+          errorMsgPhone = '请输入联系电话.';
         }else{
-          errorMsg = 'Please enter the contact phone.';
+          errorMsgPhone = 'Please enter the contact phone.';
         }
       } else if (!isValidPhoneNumber(_this.val())) {
         if(userLanguage == 'zh-CN'){
-          errorMsg = '联系电话应该是号码.';
+          errorMsgPhone = '联系电话应该是号码.';
         }else{
-          errorMsg = 'The contact phone should be number.';
+          errorMsgPhone = 'The contact phone should be number.';
         }
       }
 
-      $('#contactPhone').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+      $('#contactPhone').parent().append('<span class="formtips onError">'+errorMsgPhone+'</span>');
     }
 
     // Validate contact email
@@ -103,19 +137,19 @@ $(function() {
 
       if(!_this.val() || _this.val() === ''){
         if(userLanguage == 'zh-CN'){
-          errorMsg = '请输入联系电子邮件.';
+          errorMsgEmail = '请输入联系电子邮件.';
         }else{
-          errorMsg = 'Please enter the contact email.';
+          errorMsgEmail = 'Please enter the contact email.';
         }
       } else if (!isValidEmailAddress(_this.val())) {
         if(userLanguage == 'zh-CN'){
-          errorMsg = '请输入正确的邮箱.';
+          errorMsgEmail = '请输入正确的邮箱.';
         }else{
-          errorMsg = 'Please enter correct mailbox.';
+          errorMsgEmail = 'Please enter correct mailbox.';
         }
       }
 
-      $('#contactEmail').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+      $('#contactEmail').parent().append('<span class="formtips onError">'+errorMsgEmail+'</span>');
     }
 
      // Validate contact address
@@ -124,11 +158,11 @@ $(function() {
 
       if(!_this.val() || _this.val() === ''){
         if(userLanguage == 'zh-CN'){
-          errorMsg = '请输入联系地址.';
+          errorMsgAddress = '请输入联系地址.';
         }else{
-          errorMsg = 'Please enter the contact address.';
+          errorMsgAddress = 'Please enter the contact address.';
         }
-        $('#contactAddress').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+        $('#contactAddress').parent().append('<span class="formtips onError">'+errorMsgAddress+'</span>');
       }
     }
 
@@ -136,17 +170,17 @@ $(function() {
     var message = $('#contactMessage');
     if(!message.val() || message.val() === ''){
       if(userLanguage == 'zh-CN'){
-        errorMsg = '请输入联系信息.';
+        errorMsgMessage = '请输入联系信息.';
       }else{
-        errorMsg = 'Please enter the contact message.';
+        errorMsgMessage = 'Please enter the contact message.';
       }
-      $('#contactMessage').parent().append('<span class="formtips onError">'+errorMsg+'</span>');
+      $('#contactMessage').parent().append('<span class="formtips onError">'+errorMsgMessage+'</span>');
     }
 
-    if (errorMsg) {
+    if (errorMsgName&&errorMsgPhone&&errorMsgEmail&&errorMsgAddress&&errorMsgMessage) {
       return false;
     }
-    if(!errorMsg){
+    if(!errorMsgName&&!errorMsgPhone&&!errorMsgEmail&&!errorMsgAddress&&!errorMsgMessage){
       $.post("https://server.populstay.com/emailsender",
       {
         from:$("#contactEmail").val(),

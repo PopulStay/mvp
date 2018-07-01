@@ -1,3 +1,4 @@
+		
 var getCookie = function(name, value, options) {
     if (typeof value != 'undefined') { // name and value given, set cookie
         options = options || {};
@@ -48,6 +49,7 @@ var getNavLanguage = function(){
     }
     return false;
 }
+
 
 var i18nLanguage = "en";
 
@@ -125,17 +127,26 @@ var execI18n = function(){
 /*页面执行加载执行*/
 $(function(){
 
+	console.log(getCookie("userLanguage"))
+	if(getCookie("userLanguage") == 'zh-CN'){
+        $("#language").html("English");
+	}else{
+        $("#language").html("中文");
+	}
     /*执行I18n翻译*/
     execI18n();
 
-    /*将语言选择默认选中缓存中的值*/
-    $("#language option[value="+i18nLanguage+"]").attr("selected",true);
-
     /* 选择语言 */
-    $("#language").on('change', function() {
-        var language = $(this).children('option:selected').val()
-        console.log(language);
-        getCookie("userLanguage",language,{
+    $("#language").on('click', function() {
+        var language = $(this).html();
+        if(language == "中文"){
+        	var languagetype = 'zh-CN';
+        	$(this).html("English");
+        }else{
+        	var languagetype = 'en';
+        	$(this).html("中文");
+        }
+        getCookie("userLanguage",languagetype,{
             expires: 30,
             path:'/'
         });
