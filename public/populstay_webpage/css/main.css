@@ -29,6 +29,12 @@ body,button,ul{margin:0}.col-2,.col-3,.col-4,.col-5,.col-6,.col-7{float:left}*{f
 .new_container{
 	background-image: url(../img/new-container-zh.png) !important;
 }
+.road-map__content_zh{
+	background-image: url(../img/road-map-zh.png) !important;
+}
+.road-map__content_zh_s{
+	background-image: url(../img/road-map-mobile-zh.png) !important;
+}
 header .language{
 	position: absolute;
 	top:5%;
