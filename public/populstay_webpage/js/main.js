@@ -1,8 +1,6 @@
 window.onload = function () {
   $('.loading').addClass('hidden');
-  if(userLanguage == 'zh-CN'){
-    
-  }
+
 };
 
 function isValidEmailAddress(emailAddress) {

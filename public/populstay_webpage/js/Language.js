@@ -49,7 +49,7 @@ var getNavLanguage = function(){
     return false;
 }
 
-var i18nLanguage = "zh-CN";
+var i18nLanguage = "en";
 
 var webLanguage = ['zh-CN', 'en'];
 
