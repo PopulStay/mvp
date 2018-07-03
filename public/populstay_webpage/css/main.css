@@ -68,6 +68,7 @@ body,button,ul{margin:0}.col-2,.col-3,.col-4,.col-5,.col-6,.col-7{float:left}*{f
 }
 .road-map__content_zh{
 	background-image: url(../img/road-map-zh.png) !important;
+	background-size:115%!important;
 }
 .road-map__content_zh_s{
 	background-image: url(../img/road-map-mobile-zh.png) !important;
