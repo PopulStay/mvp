@@ -823,6 +823,7 @@ export const Cancel = 'Cancel';
 export const Consummate_user_information = 'Consummate user information';
 export const Please_enter_the_mailbox = 'Please enter the mailbox';
 export const Incorrect_mailbox_format = 'Incorrect mailbox format';
+export const Email_is_already_registered = 'Email is already registered';
 export const Well_never_share_your_email_with_anyone_else = "We'll never share your email with anyone else";
 export const Code = 'Code';
 export const Get_verification_code = 'Get verification code';
@@ -938,6 +939,8 @@ export const Price = 'Price';
 export const Location_type = 'Location';
 export const Add_a_house = 'Add a house';
 export const No_order = 'No order';
+export const Check_In_from = 'Check-in time has not arrived';
+export const Check_In_to = 'Check in timeout';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = 'Host Managment Panel';

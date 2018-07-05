@@ -1,0 +1,25 @@
+7-05
+new 0）邮件subject的英文；  --yan
+new 1）地址复制，创建的地址；  --yan
+new 2）已经注册的邮箱的提示；    --yan										√
+new 3）预定的时候，服务费3%，改为service fee；  --yan						√
+new 4）instant booking 和 不instant booking；  --yan
+new 5） booking成功跳到订单页面，listdetail页面的预定；  --yan
+new 6）房源的checkin 要到入住时间才能checkin；   --yan						√
+new 7）如果只有一颗星或者两颗星 ，需要输入原因，为什么给差评； --yan
+0）继续按照WBS开发android程序；        --Jerry；
+1）存币增加对公司账户前后价格差别的核查，并记录到日志表；  --eric 优先级 1
+2）Web Token开发，登录注册模式的改变，私有Key的加密和安全协议。---Eric  1
+3）android的restful调用，首页检索和展示。 ---Jerry。eric整理API  1
+4）增加提币审核后台;          --eric
+5) 将大组件抽出，形成小组件；  --yan 优先级 4 
+6）Checkin的前后端状态的改变； --eric yan  优先级 1
+7）profile的头像上传；  yan ding。 优先级：2
+8）真实的地图功能；   yan  优先级：3
+9）help页面；  chrite  yan eric。优先级：3
+10) 地图功能； yan    优先级：3 
+11）URL长度问题； ding  优先级：3
+12）房源的主图片的突出；yan。优先级：3
+13）instant booking ／booking 问题； ？待定
+14）订单详细页面的增加；eric yan  优先级：2
+15）调查安卓的Web3j用法。Eric， Jerry。2
