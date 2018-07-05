@@ -54,6 +54,34 @@ class GuestService {
     })
 
   }
+  checkemail(emailAddress){
+    return new Promise((resolve, reject) => {
+    axios.get(process.env.Server_Address+'register?email='+emailAddress)
+    .then((response)=> {
+      resolve(response);
+    })
+    .catch(function (error) {
+      reject(error);
+    });
+    })
+  }
+    
+  reasonForBadComment(id,reason){
+    return new Promise((resolve, reject) => {
+    var params = {};
+    params.id     = id;
+    params.reason = reason;
+    axios.post(process.env.Server_Address+'comment/reasonforbadcomment', params)
+    .then(function (response) {
+      resolve(response);
+    }).catch(function (error) {
+      console.error(error)
+      reject(error)
+    });
+    });
+  }
+
+
   sendEmail(from,to,subject,text){
     return new Promise((resolve, reject) => {
     var params = {};

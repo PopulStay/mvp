@@ -113,9 +113,13 @@ class GuestRegister extends React.Component {
     this.setState({state:this.state.email=e});
     var rephone = /^[A-Za-z0-9\u4e00-\u9fa5-_]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
     if(e.length != "" && rephone.test(e)){
-      this.setState({state: this.state.emailactive=1});
-    }else{
-      this.setState({state: this.state.emailactive=0});
+      guestService.checkemail(e).then((data)=>{
+        if(data.data.length>=1){
+          this.setState({state: this.state.emailactive=1});
+        }else{
+          this.setState({state: this.state.emailactive=0});
+        }
+      });
     }
   }
   Prompt(){
@@ -126,7 +130,9 @@ class GuestRegister extends React.Component {
           return this.state.languagelist.Please_enter_the_mailbox
       }else if(!rephone.test(this.state.email)){
           return this.state.languagelist.Incorrect_mailbox_format
-      }else{
+      }else if(this.state.emailactive == 1){
+          return this.state.languagelist.Email_is_already_registered
+      }else if(this.state.emailactive == 0){
         return this.state.languagelist.Well_never_share_your_email_with_anyone_else
       }
   }
