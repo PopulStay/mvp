@@ -2,3 +2,12 @@
 2）Redis集群的部署；
 3）WebRTC的部署和使用；
 4）调查浏览器兼容问题；
+
+
+1）地址复制，创建的地址；
+2）已经注册的邮箱的提示；
+3）服务费3%，改为service fee；
+4）instant booking 和 不instant booking
+5） booking成功跳到订单页面
+6）房源的checkin 要到入住时间才能checkin
+7）一颗星或者两颗星 ，原因
