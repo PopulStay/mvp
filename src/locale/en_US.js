@@ -938,6 +938,8 @@ export const Price = 'Price';
 export const Location_type = 'Location';
 export const Add_a_house = 'Add a house';
 export const No_order = 'No order';
+export const Check_In_from = 'Check-in time has not arrived';
+export const Check_In_to = 'Check in timeout';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = 'Host Managment Panel';

@@ -938,6 +938,8 @@ export const Price = '价格';
 export const Location_type = '位置';
 export const Add_a_house = '添加房源';
 export const No_order = '没有订单';
+export const Check_In_from = '入住时间未到';
+export const Check_In_to = '入住超时';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = '房东管理面板';

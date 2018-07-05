@@ -85,6 +85,7 @@ class ListingsDetail extends Component {
     this.isStartDayBlocked = this.isStartDayBlocked.bind(this);
     this.isEndDayBlocked = this.isEndDayBlocked.bind(this);
 
+    web3Service.loadWallet();
     languageService.language();
   }
 
@@ -231,7 +232,8 @@ class ListingsDetail extends Component {
       this.loadListing();
      
     }
-  
+
+
     if(window.address)
     {
       web3Service.getETHBalance(window.address).then((data)=>{
@@ -240,7 +242,9 @@ class ListingsDetail extends Component {
       ppsService.getBalance(window.address).then((data)=>{
         this.setState({ ppsBalance:data});
       });
-      this.setState({login:true});
+      guestService.getGuesterInfo(window.address).then((data)=>{
+        this.setState({login:true});
+      });
     }
   }
 
@@ -303,10 +307,16 @@ class ListingsDetail extends Component {
 
   handleBooking() {
     let unitsToBuy = 0;
+    var Service_fees = this.state.Service_fees*0.01;
     if(this.state.price == 0){
-        var Total_price = this.state.ppsPrice * this.DateDays() 
-    }else{
-        var Total_price = this.state.price * this.DateDays() 
+      var price = this.state.ppsPrice * this.DateDays() * this.state.guest;
+      var calcTotalPrice = price*Service_fees
+      var Total_price = calcTotalPrice+price
+    }
+    else{
+      var price = this.state.price * this.DateDays() * this.state.guest;
+      var calcTotalPrice = price*Service_fees
+      var Total_price = calcTotalPrice+price
     }
 
 
@@ -464,7 +474,6 @@ class ListingsDetail extends Component {
 
   onReviews = (value) =>{
     this.setState({ Reviews:value });
-    console.log(value)
   }
 
   render() {
@@ -832,7 +841,7 @@ class ListingsDetail extends Component {
 
              <div className="detail-summary__action">
                  {
-                    this.props.listingId && this.state.login &&
+                    this.props.listingId && this.state.login == true &&
                     <button
                       className="bg-pink color-blue btn-lg btn-block text-bold text-center"
                       onClick={this.handleBooking}
