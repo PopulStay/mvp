@@ -1,4 +1,5 @@
 7-05
+new 0）邮件subject的英文；  --yan
 new 1）地址复制，创建的地址；  --yan
 new 2）已经注册的邮箱的提示；    --yan
 new 3）预定的时候，服务费3%，改为service fee；  --yan
