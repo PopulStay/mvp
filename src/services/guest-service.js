@@ -54,6 +54,17 @@ class GuestService {
     })
 
   }
+  checkemail(emailAddress){
+    return new Promise((resolve, reject) => {
+    axios.get(process.env.Server_Address+'register?email='+emailAddress)
+    .then((response)=> {
+      resolve(response);
+    })
+    .catch(function (error) {
+      reject(error);
+    });
+    })
+  }
   sendEmail(from,to,subject,text){
     return new Promise((resolve, reject) => {
     var params = {};
