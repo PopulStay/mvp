@@ -78,6 +78,16 @@ function isValidPhoneNumber(phoneNumber) {
 }
 
 $(function() {
+  var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      navigation: {
+        nextEl: '.blog__next-btn',
+        prevEl: '.blog__prev-btn',
+      },
+    });
+  
   var userLanguage = getCookie("userLanguage");
   // Hide the loading if time exceeds 20 seconds
   var loading = setTimeout(function(){

@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/break-points.css" type="text/css">
+    <link rel="stylesheet" href="css/swiper-4.3.3.min.css" type="text/css">
 </head>
 <body>
     <a id="top"></a>
@@ -112,7 +113,7 @@
         </section>
         <section class="organization">
             <div class="container">
-                <div class="col-5"> <img class="organization__title" src="./img/organization-title.png" alt="populstay-organization-title">
+                <div class="col-3"> <img class="organization__title" src="./img/organization-title.png" alt="populstay-organization-title">
                     <div class="organization__detail">
                         <h3 class="organization__subtitle i18n" name="organization__subtitle">Operate more efficiently</h3>
                         <p class="organization__description i18n" name="organization__description"> Publishing a listing on our platform takes less than ten minutes, but operating a listing takes efforts. In order to make it hassle-free, we integrate qualified third party providers for cleaning, key exchange, professional photo shooting, interior design and dynamic pricing to work for you in a decentralized and autonomous way. </p>
@@ -154,20 +155,50 @@
             <div class="sub-container text-center">
                 <div class="blog__detail"> <i class="blog__prev-btn"></i> <i class="blog__next-btn"></i>
                     <h3 class="blog__title i18n" name="blog__title" >Blog</h3> <label class="blog__subtitle i18n" name="blog__subtitle">Articles & Publication</label>
-                    <section class="blog__content">
-                        <div class="col-5"><a href="http://demo.populstay.com"> <img class="blog__img" src="img/blog.jpg" alt=""></a> </div>
-                        <div class="col-5"> <i class="blog__tag i18n" name="blog__tag">Story</i>
-                            <h4 class="blog__article-title i18n" name="blog__article-title">Early Bitcoin Investor Jeffrey Wernick meets PopulStay</h4>
-                            <p class="blog__article i18n" name="blog__article"> Jeffrey Wernick, Ph.D. in Economics and Finance at the University of Chicago, and Quantum Chain Consultant, is said to be the second person in the world to hold Bitcoin and... <a class="blog__view-more-btn" href="http://demo.populstay.com">view full story</a> </p>
-                            <ul class="blog__feedbacks">
-                                <li class="blog__feedback align-middle"> <span class="blog__feedback-title i18n" name="blog__feedback-title">PopulStay.</span> <span  class="blog__feedback-title2 i18n" name="blog__feedback-title2">2nd of June</span> </li>
-                                <li class="blog__feedback align-middle"> <img src="./img/blog-message.png" class="blog__message-icon align-middle" /> <span class="align-middle">2</span> </li>
-                                <li class="blog__feedback align-middle"> <img src="./img/blog-watch.png" class="blog__watch-icon align-middle" /> <span class="align-middle">36</span> </li>
-                                <li class="blog__feedback align-middle"> <img src="./img/blog-share.png" class="blog__share-icon align-middle" /> </li>
-                            </ul>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <section class="blog__content swiper-slide">
+                                <div class="col-5"><a target="_blank" href="https://medium.com/@populstay/early-bitcoin-investor-jeffrey-wernick-meets-populstay-d275c2344fec"> <img class="blog__img" src="img/blog1.jpg" alt=""></a> </div>
+                                <div class="col-5"> <i class="blog__tag i18n" name="blog__tag">Story</i>
+                                    <h4 class="blog__article-title i18n" name="blog1-title">Early Bitcoin Investor Jeffrey Wernick meets PopulStay</h4>
+                                    <p class="blog__article i18n" name="blog1__article"> Jeffrey Wernick, Ph.D. in Economics and Finance at the University of Chicago, and Quantum Chain Consultant, is said to be the second person in the world to hold Bitcoin and... <a class="blog__view-more-btn" target="_blank" href="https://medium.com/@populstay/early-bitcoin-investor-jeffrey-wernick-meets-populstay-d275c2344fec">view full story</a> </p>
+                                    <ul class="blog__feedbacks">
+                                        <li class="blog__feedback align-middle"> <span class="blog__feedback-title i18n" name="blog__feedback-title">PopulStay.</span> <span  class="blog__feedback-title2 i18n" name="blog__feedback-title2">2nd of June</span> </li>
+                                        <li class="blog__feedback align-middle"> <img src="./img/blog-message.png" class="blog__message-icon align-middle" /> <span class="align-middle">2</span> </li>
+                                           <li class="blog__feedback align-middle"> <img src="./img/blog-watch.png" class="blog__watch-icon align-middle" /> <span class="align-middle">36</span> </li>
+                                        <li class="blog__feedback align-middle"> <img src="./img/blog-share.png" class="blog__share-icon align-middle" /> </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section class="blog__content swiper-slide">
+                                <div class="col-5"><a  target="_blank" href="https://medium.com/@populstay/populstay-reaches-top-16-of-global-travel-innovation-companies-hitec2018-c86dd3f80372"> <img class="blog__img" src="img/blog2.jpg" alt=""></a> </div>
+                                <div class="col-5"> <i class="blog__tag i18n" name="blog__tag">Story</i>
+                                    <h4 class="blog__article-title i18n" name="blog2-title">PopulStay reaches Top 16 of Global Travel Innovation Companies @HITEC2018</h4>
+                                    <p class="blog__article i18n" name="blog2__article"> Remember the CHTA Future Travelers Conference on 22nd May in Shenzhen? PopulStay, as the only “Blockchain B&B” startup, won the favor of the organizing committee. After fierce competition, it finally entered... <a  target="_blank" class="blog__view-more-btn" href="https://medium.com/@populstay/populstay-reaches-top-16-of-global-travel-innovation-companies-hitec2018-c86dd3f80372">view full story</a> </p>
+                                    <ul class="blog__feedbacks">
+                                        <li class="blog__feedback align-middle"> <span class="blog__feedback-title i18n" name="blog__feedback-title">PopulStay.</span> <span  class="blog__feedback-title2 i18n" name="blog__feedback-title2">2nd of June</span> </li>
+                                        <li class="blog__feedback align-middle"> <img src="./img/blog-message.png" class="blog__message-icon align-middle" /> <span class="align-middle">2</span> </li>
+                                           <li class="blog__feedback align-middle"> <img src="./img/blog-watch.png" class="blog__watch-icon align-middle" /> <span class="align-middle">36</span> </li>
+                                        <li class="blog__feedback align-middle"> <img src="./img/blog-share.png" class="blog__share-icon align-middle" /> </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section class="blog__content swiper-slide">
+                                <div class="col-5"><a target="_blank" href="https://medium.com/@populstay/one-step-closer-more-than-100-new-luxury-listings-coming-soon-5b54bcfc8e3"> <img class="blog__img" src="img/blog3.jpg" alt=""></a> </div>
+                                <div class="col-5"> <i class="blog__tag i18n" name="blog__tag">Story</i>
+                                    <h4 class="blog__article-title i18n" name="blog3-title">One step closer: More than 100 new luxury listings coming soon</h4>
+                                    <p class="blog__article i18n" name="blog3__article"> Recently, PopulStay Singapore in hand with Easygo Travel Agents came with good news: A total of 103 properties of homeowners ... <a class="blog__view-more-btn" target="_blank" href="https://medium.com/@populstay/one-step-closer-more-than-100-new-luxury-listings-coming-soon-5b54bcfc8e3">view full story</a> </p>
+                                    <ul class="blog__feedbacks">
+                                        <li class="blog__feedback align-middle"> <span class="blog__feedback-title i18n" name="blog__feedback-title">PopulStay.</span> <span  class="blog__feedback-title2 i18n" name="blog__feedback-title2">2nd of June</span> </li>
+                                        <li class="blog__feedback align-middle"> <img src="./img/blog-message.png" class="blog__message-icon align-middle" /> <span class="align-middle">2</span> </li>
+                                           <li class="blog__feedback align-middle"> <img src="./img/blog-watch.png" class="blog__watch-icon align-middle" /> <span class="align-middle">36</span> </li>
+                                        <li class="blog__feedback align-middle"> <img src="./img/blog-share.png" class="blog__share-icon align-middle" /> </li>
+                                    </ul>
+                                </div>
+                            </section>
                         </div>
-                    </section>
-                    <div class="blog__social-container text-right"> <label class="i18n" name="blog__social-container">Visit Us: </label>
+                    </div>
+                    <div class="blog__social-container text-right"> <label class="i18n" name="blog__social-container">Follow Us: </label>
                         <ul class="blog__social-icons">
                             <li class="blog__social text-center"> <a target="_blank" href="https://fb.me/populstay"><i class="iconfont icon-facebook"></i></a> </li>
                             <li class="blog__social text-center"> <a target="_blank" href="https://www.instagram.com/populstay/"><i class="iconfont icon-instagram"></i></a> </li>
@@ -238,6 +269,23 @@
                         <a target="_blank" href="https://www.linkedin.com/in/eric-ding-457551154/">
                             <div class="intro__team-item-img dw-jun"></div>
                         </a> <a target="_blank" href="https://www.linkedin.com/in/eric-ding-457551154/"><i class="intro__team-item-name i18n" name="intro__team-item-name-jun">Eric Ding</i></a> <span class="intro__team-item-title i18n" name="item-position6">Technical Leader</span> </li>
+                    <li class="intro__team-item">
+                        <a target="_blank" href="https://www.linkedin.com/in/jerry-lau-135083b4/">
+                            <div class="intro__team-item-img Jerry"></div>
+                        </a> <a target="_blank" href="https://www.linkedin.com/in/jerry-lau-135083b4/"><i class="intro__team-item-name i18n" name="intro__team-item-name-Jerry">Jerry</i></a> <span class="intro__team-item-title i18n" name="item-position8"></span> </li>
+                    <li class="intro__team-item">
+                        <a target="_blank" href="https://www.linkedin.com/in/wang-yan-a3871b165/">
+                            <div class="intro__team-item-img Yan"></div>
+                        </a> <a target="_blank" href="https://www.linkedin.com/in/wang-yan-a3871b165/"><i class="intro__team-item-name i18n" name="intro__team-item-name-Yan">Wang Yan</i></a> <span class="intro__team-item-title i18n" name="item-position9"></span> </li>
+                    <!-- <li class="intro__team-item">
+                        <a target="_blank" href="https://www.linkedin.com/in/lisa-kappe-0b330bb2/">
+                            <div class="intro__team-item-img Lisa"></div>
+                        </a> <a target="_blank" href="https://www.linkedin.com/in/lisa-kappe-0b330bb2/123478"><i class="intro__team-item-name i18n" name="intro__team-item-name-Lisa">Lisa</i></a> <span class="intro__team-item-title i18n" name="item-position7"></span> </li>
+                    <li class="intro__team-item">
+                        <a target="_blank" href="">
+                            <div class="intro__team-item-img Suchee"></div>
+                        </a> <a target="_blank" href=""><i class="intro__team-item-name i18n" name="intro__team-item-name-Suchee">Suchee</i></a> <span class="intro__team-item-title i18n" name="item-position10"></span> </li>
+                         -->
                 </ul>
                 <div class="intro__divider"></div>
             </div>
@@ -250,6 +298,8 @@
                     <li class="intro__partner"> <a href="http://www.japanfoodie.jp/" target="_blank"> <img class="intro__partner-logo" src="./img/parternship-jp.png" alt="populstay-parternship-jp"/> </a> </li>
                     <li class="intro__partner"> <a href="https://tempo.eu.com/" target="_blank"> <img class="intro__partner-logo" src="./img/parternship-tempo.png" alt="populstay-parternship-tempo"/> </a> </li>
                     <li class="intro__partner"> <a href="http://www.grandouce.co.jp" target="_blank"> <img class="intro__partner-logo" src="./img/parternship-grandouce.png" alt="populstay-parternship-grandouce"/> </a> </li>
+                    <li class="intro__partner"> <a href="https://peterjvoogd.com/" target="_blank"> <img class="intro__partner-logo" src="./img/news-5.png" alt="populstay-parternship-grandouce"/> </a> </li>
+                    <li class="intro__partner"> <a href="https://bullsoncryptostreet.com/" target="_blank"> <img class="intro__partner-logo" src="./img/news-6.png" alt="populstay-parternship-grandouce"/> </a> </li>
                 </ul>
                 <div class="intro__bottom-line pink"></div>
                 <div class="intro__bottom-line blue"></div>
@@ -268,7 +318,7 @@
             </div>
         </div>
         <section class="news text-center">
-            <div class="container">
+           <!--  <div class="container">
                 <div class="news__detail"> <img class="news__content" src="./img/news-content.png" alt="populstay-news-content"> <img class="news__title" src="./img/news-text.png" alt="populstay-news-title">
                     <ul class="news__channels">
                         <li class="news__channel align-middle"> <a target="_blank" href="http://www.vcmarket.cn/index.php?m=content&c=index&a=show&catid=121&id=4382"><img class="news__channel-img" src="./img/news-1.png" alt="populstay-news-1" ></a> </li>
@@ -277,7 +327,7 @@
                         <li class="news__channel align-middle"> <a target="_blank" href="https://www.daguang-china.com/news/270880.html"><img class="news__channel-img" src="./img/news-4.png" alt="populstay-news-4" ></a> </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </section>
         <section class="contact-us">
             <div class="container">
@@ -327,11 +377,11 @@
         <div id="qrcodeModal" class="modal"> <img class="qrcode-modal-img" src="./img/qrcode.jpg" /> </div>
     </div>
     <div id="prompt"><h3 class="i18n" name="prompt_h3">Submitted successfully</h3><button class="i18n" name="prompt_button">CLOSE</button></div>
+    <script src="js/swiper-4.3.3.min.js"></script>
     <script src="js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="js/vendor/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
     <script>
         window.ga = function() {
             ga.q.push(arguments)
@@ -345,6 +395,7 @@
     <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script src="js/jquery.i18n.properties-1.0.9.js"></script>
     <script type="text/javascript" src="js/Language.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

@@ -42,7 +42,7 @@ class WalletHelp extends Component {
 
     return (
       <div className="Help">
-          <a data-toggle="modal" data-target="#HelpModal1">{language.Help}</a>
+          <a data-toggle="modal" data-target="#HelpModal">{language.Help}</a>
 
 
           <div className="modal fade qrcod-modal" id="HelpModal" tabindex="-1" role="dialog" aria-labelledby="wechatModalLabel">
@@ -61,8 +61,10 @@ class WalletHelp extends Component {
                         <h4>SUGGESTED TOPICS</h4>
 
                         <ul>
-                            <li>Reservation requests <span>▼</span></li>
-                            <HelpReservation />
+                            <li onClick={(e) => {if(this.state.HelpReservation)this.setState({HelpReservation:false});else this.setState({HelpReservation:true});}}>Reservation requests <span>▼</span></li>
+                            {this.state.HelpReservation &&
+                              <HelpReservation />
+                            }
                             <li>Contacting hosts<span>▼</span></li>
                             <li>Prices & fees<span>▼</span></li>
                             <li>Preparing for your trip<span>▼</span></li>
