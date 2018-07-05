@@ -51,6 +51,7 @@ class GuestInfo extends React.Component {
 
     guestService.getOrderState().then((data)=>{
       this.setState({ orderlist:data});
+      console.log(data)
     });
 
     //这是测试代码； guestService.getOrderState()可以获得addcomment里面的ID

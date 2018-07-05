@@ -331,10 +331,9 @@ class ListingsDetail extends Component {
       if(this.state.ppsBalance < Total_price){
         this.setState({step:this.STEP.Insufficient});
       }else{
-        console.log(Total_price)
         promise = ppsService.setPreOrder(          
          this.state.lister,
-         Total_price * unitsToBuy,
+         Total_price,
          this.props.listingId, 
          this.state.checkInDate.toDate().getTime(), 
          this.state.checkOutDate.toDate().getTime(),
@@ -348,7 +347,7 @@ class ListingsDetail extends Component {
 
         promise = ppsService.setOrderByUSD(          
            this.state.lister,
-           Total_price * unitsToBuy,
+           Total_price,
            this.props.listingId, 
            this.state.checkInDate.toDate().getTime(), 
            this.state.checkOutDate.toDate().getTime(),
@@ -360,10 +359,10 @@ class ListingsDetail extends Component {
     }else
     {
 
-      if( Total_price * unitsToBuy > this.state.ethBalance )
+      if( Total_price > this.state.ethBalance )
       {
         var to    = window.address;
-        var value = Total_price * unitsToBuy*this.CONST.weiToGwei;
+        var value = Total_price
         qr.toDataUrl({
             to    : window.address,
             value : value,
@@ -377,7 +376,7 @@ class ListingsDetail extends Component {
         this.closeModal();
         promise =    houselistingService.setPreOrderByETH(          
                                          this.state.lister,
-                                         Total_price * unitsToBuy* this.CONST.GweiToEther,
+                                         Total_price,
                                          this.props.listingId, 
                                          this.state.checkInDate.toDate().getTime(), 
                                          this.state.checkOutDate.toDate().getTime(),
@@ -429,22 +428,22 @@ class ListingsDetail extends Component {
     var Service_fees = this.state.Service_fees*0.01;
     if(this.state.price == 0){
       var price = this.state.ppsPrice * this.DateDays() * this.state.guest;
-      var calcTotalPrice = price*Service_fees
-      return calcTotalPrice+price
+      var calcTotalPrice = price*Service_fees+price;
+      return calcTotalPrice.toFixed(2)
     }
     else{
       var price = this.state.price * this.DateDays() * this.state.guest;
-      var calcTotalPrice = price*Service_fees
-      return calcTotalPrice+price
+      var calcTotalPrice = price*Service_fees+price
+      return calcTotalPrice.toFixed(2)
     }
   }
 
   TotalPrice() {
     if(this.state.price == 0){
-      return this.state.ppsPrice * this.DateDays() * this.state.guest;
+      return (this.state.ppsPrice * this.DateDays() * this.state.guest).toFixed(2);
     }
     else{
-      return this.state.price * this.DateDays() * this.state.guest;
+      return (this.state.price * this.DateDays() * this.state.guest).toFixed(2);
     }
   }
 

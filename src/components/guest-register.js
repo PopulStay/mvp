@@ -28,6 +28,7 @@ class GuestRegister extends React.Component {
       emailactive:0,
       Prompt:"",
       languagelist:{},
+      subject:"",
       // password:"",
       // repeatPassword:""
     };
@@ -48,7 +49,7 @@ class GuestRegister extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({ languagelist:window.languagelist });
+    this.setState({languagelist:window.languagelist});
     this.setState({Verification:window.languagelist.Get_verification_code});
     this.loadUserData();
   }
@@ -150,7 +151,7 @@ class GuestRegister extends React.Component {
       },
       1000
     );
-    guestService.getGuesterCode(this.state.email)
+    guestService.getGuesterCode(this.state.email,window.languagelist.subject)
   }
 
   emailCode(e){

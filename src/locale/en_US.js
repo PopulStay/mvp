@@ -101,6 +101,7 @@ export const POST = 'POST';
 export const Write_your_review = 'Write your review';
 export const Describe_your_experiece_here = 'Describe your experiece here';
 export const Your_reviews_will_be_posted_on_publicly_on_the_web = 'Your reviews will be posted on publicly on the web';
+export const This_user_has_no_comments = 'This user has no comments';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
@@ -828,6 +829,7 @@ export const Code = 'Code';
 export const Get_verification_code = 'Get verification code';
 export const Verification_code_error = 'Verification code error';
 export const Successful_verification = 'Successful verification';
+export const subject = 'Please confirm your verification code';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Create_Or_Import_Wallet = 'Create Or Import Wallet';

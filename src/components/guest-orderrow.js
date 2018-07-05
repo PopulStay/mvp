@@ -30,6 +30,7 @@ class GuestOrderRow extends Component {
       Check_in:0,
       Cleanliness:0,
       Value:0,
+      Bad_review:'',
     }
 
     this.checkIn   = this.checkIn.bind(this);
@@ -132,12 +133,20 @@ class GuestOrderRow extends Component {
   }
 
   Reviews(){
-    if(this.state.Accuracy != 0 && this.state.Location != 0 && this.state.Communication != 0 && this.state.Check_in != 0 && this.state.Cleanliness != 0 && this.state.Value != 0 && this.state.Comment != ''){
-      guestService.addComment(this.props.item.id,this.state.Comment,this.state.Accuracy,this.state.Location,this.state.Communication,this.state.Check_in,this.state.Cleanliness,this.state.Value).then((data)=>{
-          this.setState({state:'5',modalIsOpen: false});
-      });
-    }else{
-      console.log(456)
+    if(this.state.Accuracy != 0 && this.state.Location != 0 && this.state.Communication != 0 && this.state.Check_in != 0 && this.state.Cleanliness != 0 && this.state.Value != 0){
+      if(this.state.Accuracy <= 2 || this.state.Location <= 2 || this.state.Communication <= 2 || this.state.Check_in <= 2 || this.state.Cleanliness <= 2 || this.state.Value <= 2){
+        this.setState({Bad_review_type:true});
+        if(this.state.Bad_review != ""){
+          guestService.addComment(this.props.item.id,this.state.Comment,this.state.Accuracy,this.state.Location,this.state.Communication,this.state.Check_in,this.state.Cleanliness,this.state.Value).then((data)=>{
+              this.setState({state:'5',modalIsOpen: false});
+          });
+          guestService.addBadComment(this.props.item.id,this.state.Bad_review).then((data)=>{
+              this.setState({state:'5',modalIsOpen: false});
+          });
+        }
+      }else{
+        this.setState({Bad_review_type:false});
+      }
     }
   }
 
@@ -281,6 +290,8 @@ class GuestOrderRow extends Component {
             </ul>
 
             <textarea placeholder={language.Describe_your_experiece_here} onChange={(e)=>this.setState({Comment:e.target.value})}></textarea>
+
+            <textarea placeholder="差评理由" className={this.state.Bad_review_type ? "show" : "hide"} onChange={(e)=>this.setState({Bad_review:e.target.value})}></textarea>
 
             <div className="photos">
                 {this.state.selectedPictures.map((file,index) => (

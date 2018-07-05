@@ -101,6 +101,7 @@ export const POST = '提交';
 export const Write_your_review = '写下您的评论';
 export const Describe_your_experiece_here = '在这里描述你的经历';
 export const Your_reviews_will_be_posted_on_publicly_on_the_web = '您的评论将在网上公开发布';
+export const This_user_has_no_comments = '该用户没有评论';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
@@ -828,6 +829,7 @@ export const Code = '验证码';
 export const Get_verification_code = '获取验证码';
 export const Verification_code_error = '验证码错误';
 export const Successful_verification = '验证成功';
+export const subject = '请确认您的验证码';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Create_Or_Import_Wallet = '创建或导入钱包';

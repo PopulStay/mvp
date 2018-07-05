@@ -132,11 +132,11 @@ class GuestService {
     return houselistingService.getGuestPreorderList(account);
   }
 
-  getGuesterCode(email) {
+  getGuesterCode(email,subject) {
     return new Promise((resolve, reject) => {
     var emailArr = {};
     emailArr.to      = email;
-    emailArr.subject = '请确认您的验证码';
+    emailArr.subject = subject;
     emailArr.from    = "admin@populstay.com";
     axios.post(process.env.Server_Address+'emailverify/sendVerificationEmail', emailArr)
     .then(function (response) {
