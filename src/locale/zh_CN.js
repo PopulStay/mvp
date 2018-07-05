@@ -823,6 +823,7 @@ export const Cancel = '取消';
 export const Consummate_user_information = '完善用户信息';
 export const Please_enter_the_mailbox = '请输入邮箱';
 export const Incorrect_mailbox_format = '邮箱格式不正确';
+export const Email_is_already_registered = '该邮箱已被注册';
 export const Well_never_share_your_email_with_anyone_else = '我们永远不会与其他人分享你的电子邮件';
 export const Code = '验证码';
 export const Get_verification_code = '获取验证码';
@@ -938,6 +939,8 @@ export const Price = '价格';
 export const Location_type = '位置';
 export const Add_a_house = '添加房源';
 export const No_order = '没有订单';
+export const Check_In_from = '入住时间未到';
+export const Check_In_to = '入住超时';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = '房东管理面板';

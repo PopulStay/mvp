@@ -236,6 +236,13 @@
 .GuestManagment .divtr>div a{
   font-size: 1.6rem;
 }
+.btnActive:hover,
+.btnActive{
+  opacity: 0.5;
+  border:1px solid #999 !important;
+  color: #999 !important;
+  background: #fff !important;
+}
 .userbtn>div{
   padding-bottom: 9.5%;
 }
