@@ -822,6 +822,7 @@ export const Cancel = 'Cancel';
 export const Consummate_user_information = 'Consummate user information';
 export const Please_enter_the_mailbox = 'Please enter the mailbox';
 export const Incorrect_mailbox_format = 'Incorrect mailbox format';
+export const Email_is_already_registered = 'Email is already registered';
 export const Well_never_share_your_email_with_anyone_else = "We'll never share your email with anyone else";
 export const Code = 'Code';
 export const Get_verification_code = 'Get verification code';

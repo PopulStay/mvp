@@ -76,6 +76,7 @@ class ListingsDetail extends Component {
       clicklogout:false,
       detail:'',
       Reviews:0,
+      Service_fees:3,
     }
     this.handleBooking = this.handleBooking.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -415,11 +416,25 @@ class ListingsDetail extends Component {
   }
 
   calcTotalPrice() {
+    var Service_fees = this.state.Service_fees*0.01;
     if(this.state.price == 0){
-      return this.state.ppsPrice * this.DateDays() * this.state.guest
+      var price = this.state.ppsPrice * this.DateDays() * this.state.guest;
+      var calcTotalPrice = price*Service_fees
+      return calcTotalPrice+price
     }
     else{
-      return this.state.price * this.DateDays() * this.state.guest
+      var price = this.state.price * this.DateDays() * this.state.guest;
+      var calcTotalPrice = price*Service_fees
+      return calcTotalPrice+price
+    }
+  }
+
+  TotalPrice() {
+    if(this.state.price == 0){
+      return this.state.ppsPrice * this.DateDays() * this.state.guest;
+    }
+    else{
+      return this.state.price * this.DateDays() * this.state.guest;
     }
   }
 
@@ -779,7 +794,7 @@ class ListingsDetail extends Component {
                     <li className="blueColor">
                       <span className = "LeftSpan"><b className="pricesize">{this.state.priceCurrency} : </b>{this.state.price == 0 ? this.state.ppsPrice : this.state.price}×{this.DateDays()}{language.nights}
                       </span>
-                      <span className = "RightSpan">{this.calcTotalPrice()}</span>
+                      <span className = "RightSpan">{this.TotalPrice()}</span>
                       <p className="clearFloat"></p>
                     </li>
                     <li className="pinkColor">
@@ -801,7 +816,7 @@ class ListingsDetail extends Component {
                               <p></p>
                           </div>
                       </span>
-                      <span className = "RightSpan">0</span>
+                      <span className = "RightSpan">{this.state.Service_fees}%</span>
                       <p className="clearFloat"></p>
                     </li>
                     <li className="blueColor">
