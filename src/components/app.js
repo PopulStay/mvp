@@ -23,6 +23,7 @@ import Registerlist from './register-list.js'
 import Verifyid from './verify-id.js'
 import Helpbox from './helpbox.js'
 import ProfileReceipt from './profile_receipt.js'
+import ProfileConfrim from './profile_confrim.js'
 import DATE from './date.js'
 
 // CSS
@@ -154,6 +155,13 @@ const Receipt = (props) => (
   </Layout>
 )
 
+const Confrim = (props) => (
+  <Layout {...props}  >
+      <ProfileConfrim />
+  </Layout>
+)
+
+
 const Date = (props) => (
   <Layout {...props}  >
       <DATE />
@@ -182,6 +190,7 @@ const App = () => (
           <Route exact path="/VerifyID" component={VerifyID}/>
           <Route exact path="/help" component={HELPBOX}/>
           <Route exact path="/Receipt" component={Receipt}/>
+          <Route exact path="/Confrim" component={Confrim}/>
           <Route exact path="/Date" component={Date}/>
         </div>
     </ScrollToTop>

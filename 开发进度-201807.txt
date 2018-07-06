@@ -4,7 +4,7 @@ new 1）地址复制，创建的地址；  --yan										√
 new 2）已经注册的邮箱的提示；    --yan										√
 new 3）预定的时候，服务费3%，改为service fee；  --yan						√
 new 4）instant booking 和 不instant booking；  --yan
-new 5） booking成功跳到订单页面，listdetail页面的预定；  --yan
+new 5）booking成功跳到订单页面，listdetail页面的预定；  --yan
 new 6）房源的checkin 要到入住时间才能checkin；   --yan						√
 new 7）如果只有一颗星或者两颗星 ，需要输入原因，为什么给差评； --yan			√
 0）继续按照WBS开发android程序；        --Jerry；
