@@ -1,6 +1,6 @@
 7-05
 new 0）邮件subject的英文；  --yan											√
-new 1）地址复制，创建的地址；  --yan
+new 1）地址复制，创建的地址；  --yan										√
 new 2）已经注册的邮箱的提示；    --yan										√
 new 3）预定的时候，服务费3%，改为service fee；  --yan						√
 new 4）instant booking 和 不instant booking；  --yan
@@ -23,3 +23,4 @@ new 7）如果只有一颗星或者两颗星 ，需要输入原因，为什么�
 13）instant booking ／booking 问题； ？待定
 14）订单详细页面的增加；eric yan  优先级：2
 15）调查安卓的Web3j用法。Eric， Jerry。2
+16) 预定选择日期问题 yan  优先级：2

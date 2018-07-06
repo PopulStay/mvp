@@ -841,6 +841,8 @@ export const Please_clear_your_account = '请清除你的帐户';
 export const Please_clear_your_account_then_you_can_import_new_account = '请清除你的帐户,然后您可以导入新帐户';
 export const Close = '关闭';
 export const Address = '地址';
+export const Copy_address = '复制地址';
+export const Successful_copy = '复制成功';
 
 //create--------------------------------------------------------------------------------------------
 export const Create = '创建';
@@ -949,7 +951,7 @@ export const Category = '类别';
 export const Beds = '床';
 
 //wallet--------------------------------------------------------------------------------------------
-export const Export = '出口';
+export const Export = '导出';
 export const Please_logn_in = '请登录';
 export const Gas = '交易费';
 export const Gas_Price = '交易费价格';

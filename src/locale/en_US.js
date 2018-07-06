@@ -841,6 +841,8 @@ export const Please_clear_your_account = 'Please clear your account';
 export const Please_clear_your_account_then_you_can_import_new_account = 'Please clear your account,then you can import new account！';
 export const Close = 'Close';
 export const Address = 'Address';
+export const Copy_address = 'Copy address';
+export const Successful_copy = 'Successful copy';
 
 //create--------------------------------------------------------------------------------------------
 export const Create = 'Create';
