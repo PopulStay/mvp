@@ -83,17 +83,20 @@ header .language{
 	min-height: 150px;
 }
 .Jerry{
-	background-image: url(../img/jerry.jpg);
+	background-image: url(../img/team-jerry.jpg);
 }
 .Yan{
-	background-image: url(../img/wang_yan.jpg);
+	background-image: url(../img/team-wang_yan.jpg);
 }
 .Lisa{
-	background-image: url(../img/lisa.jpg);
+	background-image: url(../img/team-lisa.jpg);
 }
 .Suchee{
-	background-image: url(../img/suchee.jpg);
+	background-image: url(../img/team-suchee.jpg);
 }
 .Gin{
-	background-image: url(../img/gin.jpg);
+	background-image: url(../img/team-gin.jpg);
+}
+.Alan{
+	background-image: url(../img/team-Alan.jpg);
 }

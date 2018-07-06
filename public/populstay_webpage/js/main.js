@@ -155,25 +155,25 @@ $(function() {
     }
 
     // Validate contact phone
-    if(_inputs.is('#contactPhone')){
-      var _this = $('#contactPhone');
+    // if(_inputs.is('#contactPhone')){
+    //   var _this = $('#contactPhone');
 
-      if(!_this.val() || _this.val() === ''){
-        if(userLanguage == 'zh-CN'){
-          errorMsgPhone = '请输入联系电话.';
-        }else{
-          errorMsgPhone = 'Please enter the contact phone.';
-        }
-      } else if (!isValidPhoneNumber(_this.val())) {
-        if(userLanguage == 'zh-CN'){
-          errorMsgPhone = '联系电话应该是号码.';
-        }else{
-          errorMsgPhone = 'The contact phone should be number.';
-        }
-      }
+    //   if(!_this.val() || _this.val() === ''){
+    //     if(userLanguage == 'zh-CN'){
+    //       errorMsgPhone = '请输入联系电话.';
+    //     }else{
+    //       errorMsgPhone = 'Please enter the contact phone.';
+    //     }
+    //   } else if (!isValidPhoneNumber(_this.val())) {
+    //     if(userLanguage == 'zh-CN'){
+    //       errorMsgPhone = '联系电话应该是号码.';
+    //     }else{
+    //       errorMsgPhone = 'The contact phone should be number.';
+    //     }
+    //   }
 
-      $('#contactPhone').parent().append('<span class="formtips onError">'+errorMsgPhone+'</span>');
-    }
+    //   $('#contactPhone').parent().append('<span class="formtips onError">'+errorMsgPhone+'</span>');
+    // }
 
     // Validate contact email
     if(_inputs.is('#contactEmail')){
@@ -197,18 +197,18 @@ $(function() {
     }
 
      // Validate contact address
-     if( _inputs.is('#contactAddress')){
-      var _this = $('#contactAddress');
+    //  if( _inputs.is('#contactAddress')){
+    //   var _this = $('#contactAddress');
 
-      if(!_this.val() || _this.val() === ''){
-        if(userLanguage == 'zh-CN'){
-          errorMsgAddress = '请输入联系地址.';
-        }else{
-          errorMsgAddress = 'Please enter the contact address.';
-        }
-        $('#contactAddress').parent().append('<span class="formtips onError">'+errorMsgAddress+'</span>');
-      }
-    }
+    //   if(!_this.val() || _this.val() === ''){
+    //     if(userLanguage == 'zh-CN'){
+    //       errorMsgAddress = '请输入联系地址.';
+    //     }else{
+    //       errorMsgAddress = 'Please enter the contact address.';
+    //     }
+    //     $('#contactAddress').parent().append('<span class="formtips onError">'+errorMsgAddress+'</span>');
+    //   }
+    // }
 
     // Validate contact message
     var message = $('#contactMessage');
@@ -224,12 +224,21 @@ $(function() {
     if (errorMsgName&&errorMsgPhone&&errorMsgEmail&&errorMsgAddress&&errorMsgMessage) {
       return false;
     }
-    if(!errorMsgName&&!errorMsgPhone&&!errorMsgEmail&&!errorMsgAddress&&!errorMsgMessage){
+    if(!errorMsgName&&!errorMsgEmail&&!errorMsgMessage){
+      if($("#contactAddress").val() == ''){
+          if(userLanguage == 'zh-CN'){
+            var contactAddress = "PopulStay"
+          }else{
+            var contactAddress = "潮箱"
+          }
+      }else{
+        var contactAddress = $("#contactAddress").val()
+      }
       $.post("https://server.populstay.com/emailsender",
       {
         from:$("#contactEmail").val(),
         to:'walter@populstay.com',
-        subject:$("#contactAddress").val(),
+        subject:contactAddress,
         text:$("#contactMessage").val(),
         telephone:$("#contactPhone").val(),
         name:$("#contactName").val()
