@@ -237,7 +237,7 @@ class ListingsDetail extends Component {
     if(window.address)
     {
       web3Service.getETHBalance(window.address).then((data)=>{
-        this.setState({ ethBalance:data/this.CONST.weiToGwei});
+        this.setState({ ethBalance:data/this.CONST.weiToEther});
       });
       ppsService.getBalance(window.address).then((data)=>{
         this.setState({ ppsBalance:data});
@@ -274,11 +274,11 @@ class ListingsDetail extends Component {
         startdateArr.push(DateLists[i].start)
       }
       if(currentDate>=DateLists[i].end){
-        console.log(DateLists[i].end)
+        // console.log(DateLists[i].end)
         enddateArr.push(DateLists[i].end)
       }
     }
-    console.log(Math.min(...startdateArr)-43200000)
+    // console.log(Math.min(...startdateArr)-43200000)
     if(dayS>Math.min(...startdateArr)-43200000) {
         return true;
     } 
@@ -306,19 +306,24 @@ class ListingsDetail extends Component {
   }
 
   handleBooking() {
+
     let unitsToBuy = 0;
     var Service_fees = this.state.Service_fees*0.01;
     if(this.state.price == 0){
-      var price = this.state.ppsPrice * this.DateDays() * this.state.guest;
-      var calcTotalPrice = price*Service_fees
-      var Total_price = calcTotalPrice+price
+      var Dayprice = this.state.ppsPrice;
+      var price = Dayprice * this.DateDays() * this.state.guest;
+      var calcTotalPrice = price*Service_fees+price
+      var Total_price = price
     }
     else{
-      var price = this.state.price * this.DateDays() * this.state.guest;
-      var calcTotalPrice = price*Service_fees
-      var Total_price = calcTotalPrice+price
+      var Dayprice = this.state.price;
+      var price = Dayprice * this.DateDays() * this.state.guest;
+      var calcTotalPrice = price*Service_fees+price
+      var Total_price = price
     }
-
+    
+    // var url = "/confrim?checkInDate="+this.state.checkInDate+"&checkOutDate="+this.state.checkOutDate+"&Total_price="+Total_price+"&guest="+this.state.guest+"&DateDays="+this.DateDays()+"&price="+Dayprice+"&priceActive="+this.state.priceActive+"&lister="+this.state.lister+"&listingId="+this.props.listingId
+    // window.location.href=url;
 
     if (this.state.checkInDate && this.state.checkOutDate) {
       unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');

@@ -416,7 +416,8 @@
 .Confrim .box3_3,
 .Confrim .box3_4,
 .Confrim .overflow,
-.Confrim .box3_5{
+.Confrim .box3_5,
+.Confrim .box5>div{
   overflow: hidden;
 }
 .Receipt .box1>p,
@@ -531,7 +532,8 @@
   margin: 2% 0;
 }
 .Receipt .box4_4 div.userlist>div,
-.Confrim .box3_2 div.userlist>div{
+.Confrim .box3_2 div.userlist>div,
+.Confrim .box5 .hostimg{
   position: relative;
   width: 50px;
   height: 50px;
@@ -541,7 +543,8 @@
   float: left;
 }
 .Receipt .box4_4 div.userlist>div>img,
-.Confrim .box3_2 div.userlist>div>img{
+.Confrim .box3_2 div.userlist>div>img,
+.Confrim .box5 .hostimg img{
   position: absolute;
   top:50%;
   left: 50%;
@@ -651,7 +654,7 @@
 }
 .Confrim .box3_2 div.userlist{
   width: auto;
-  margin-left: 30%;
+  margin-left: 40%;
 }
 .Confrim .box3_2 div.userlist p.text2{
   position: absolute;
@@ -680,13 +683,50 @@
   background: #f6416c;
 }
 .Confrim .box3_4 p.fontWeight{
-  font-family: RobotoBold; 
+  font-family: RobotoBold;
+  margin-top: 3%; 
 }
 .Confrim span.color-pink{
   font-size: 1.4rem;
+  cursor: pointer;
 }
 .Confrim .box5{
   border:1px solid #f6416c;
+  text-align: center;
+}
+.Confrim .box5>div .hostimg{
+  width: 70px;
+  height: 70px;
+  float: none !important;
+  margin: 2% auto 5%;
+}
+.Confrim .box5 button{
+  background: #f6416c;
+  color: #fff;
+  border-radius: 0;
+  border:none;
+  margin:2% auto 5%;
+}
+.Confrim .box6{
+  position: relative;
+  height: 200px;
+  margin:5% 0 0 5%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.Confrim .box6 img{
+  position: absolute;
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+}
+.Confrim .box7{
+  margin:5% 0 0 5%;
+}
+.Confrim .box8{
+  height: 1px;
+  background:#c2c2c2;
+  margin:5% 0 0 5%;
 }
 /*Confrim end*/
 
