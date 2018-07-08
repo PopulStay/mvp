@@ -313,112 +313,112 @@ class ListingsDetail extends Component {
       var Dayprice = this.state.ppsPrice;
       var price = Dayprice * this.DateDays() * this.state.guest;
       var calcTotalPrice = price*Service_fees+price
-      var Total_price = price
+      var Total_price = calcTotalPrice
     }
     else{
       var Dayprice = this.state.price;
       var price = Dayprice * this.DateDays() * this.state.guest;
       var calcTotalPrice = price*Service_fees+price
-      var Total_price = price
+      var Total_price = calcTotalPrice
     }
     
-    // var url = "/confrim?checkInDate="+this.state.checkInDate+"&checkOutDate="+this.state.checkOutDate+"&Total_price="+Total_price+"&guest="+this.state.guest+"&DateDays="+this.DateDays()+"&price="+Dayprice+"&priceActive="+this.state.priceActive+"&lister="+this.state.lister+"&listingId="+this.props.listingId
-    // window.location.href=url;
+    var url = "/confrim?checkInDate="+this.state.checkInDate+"&checkOutDate="+this.state.checkOutDate+"&Total_price="+Total_price+"&guest="+this.state.guest+"&DateDays="+this.DateDays()+"&price="+Dayprice+"&priceActive="+this.state.priceActive+"&lister="+this.state.lister+"&listingId="+this.props.listingId
+    window.location.href=url;
 
-    if (this.state.checkInDate && this.state.checkOutDate) {
-      unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
-    }
-    this.setState({step: this.STEP.SUBMIT});
-    var promise;
+    // if (this.state.checkInDate && this.state.checkOutDate) {
+    //   unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
+    // }
+    // this.setState({step: this.STEP.SUBMIT});
+    // var promise;
 
-    if( this.state.priceActive == 1 )
-    {
-      if(this.state.ppsBalance < Total_price){
-        this.setState({step:this.STEP.Insufficient});
-      }else{
-        promise = ppsService.setPreOrder(          
-         this.state.lister,
-         Total_price,
-         this.props.listingId, 
-         this.state.checkInDate.toDate().getTime(), 
-         this.state.checkOutDate.toDate().getTime(),
-         unitsToBuy
-        );
-      }
+    // if( this.state.priceActive == 1 )
+    // {
+    //   if(this.state.ppsBalance < Total_price){
+    //     this.setState({step:this.STEP.Insufficient});
+    //   }else{
+    //     promise = ppsService.setPreOrder(          
+    //      this.state.lister,
+    //      Total_price,
+    //      this.props.listingId, 
+    //      this.state.checkInDate.toDate().getTime(), 
+    //      this.state.checkOutDate.toDate().getTime(),
+    //      unitsToBuy
+    //     );
+    //   }
 
-    } 
-    else if( this.state.priceActive == 2 )
-    {
+    // } 
+    // else if( this.state.priceActive == 2 )
+    // {
 
-        promise = ppsService.setOrderByUSD(          
-           this.state.lister,
-           Total_price,
-           this.props.listingId, 
-           this.state.checkInDate.toDate().getTime(), 
-           this.state.checkOutDate.toDate().getTime(),
-           unitsToBuy
-        );
-        this.setState({step:this.STEP.PURCHASED})
-         return ;
+    //     promise = ppsService.setOrderByUSD(          
+    //        this.state.lister,
+    //        Total_price,
+    //        this.props.listingId, 
+    //        this.state.checkInDate.toDate().getTime(), 
+    //        this.state.checkOutDate.toDate().getTime(),
+    //        unitsToBuy
+    //     );
+    //     this.setState({step:this.STEP.PURCHASED})
+    //      return ;
 
-    }else
-    {
+    // }else
+    // {
 
-      if( Total_price > this.state.ethBalance )
-      {
-        var to    = window.address;
-        var value = Total_price
-        qr.toDataUrl({
-            to    : window.address,
-            value : value,
-            gas   : window.gas
-        }).then((qrCodeDataUri)=>{
-        this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
-        })
+    //   if( Total_price > this.state.ethBalance )
+    //   {
+    //     var to    = window.address;
+    //     var value = Total_price
+    //     qr.toDataUrl({
+    //         to    : window.address,
+    //         value : value,
+    //         gas   : window.gas
+    //     }).then((qrCodeDataUri)=>{
+    //     this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
+    //     })
 
-        this.openModal();
-        web3Service.getBalanceForCharge(to,value).then((balance) =>{
-        this.closeModal();
-        promise =    houselistingService.setPreOrderByETH(          
-                                         this.state.lister,
-                                         Total_price,
-                                         this.props.listingId, 
-                                         this.state.checkInDate.toDate().getTime(), 
-                                         this.state.checkOutDate.toDate().getTime(),
-                                         unitsToBuy
-                                        );
-         });
-         return ;
-      }
-      else
-      {
-        promise =    houselistingService.setPreOrderByETH(          
-                                         this.state.lister,
-                                         Total_price * unitsToBuy,
-                                         Total_price * unitsToBuy * this.CONST.GweiToEther,
-                                         this.props.listingId, 
-                                         this.state.checkInDate.toDate().getTime(), 
-                                         this.state.checkOutDate.toDate().getTime(),
-                                         unitsToBuy
-                                        );
-      }
-    }
+    //     this.openModal();
+    //     web3Service.getBalanceForCharge(to,value).then((balance) =>{
+    //     this.closeModal();
+    //     promise =    houselistingService.setPreOrderByETH(          
+    //                                      this.state.lister,
+    //                                      Total_price,
+    //                                      this.props.listingId, 
+    //                                      this.state.checkInDate.toDate().getTime(), 
+    //                                      this.state.checkOutDate.toDate().getTime(),
+    //                                      unitsToBuy
+    //                                     );
+    //      });
+    //      return ;
+    //   }
+    //   else
+    //   {
+    //     promise =    houselistingService.setPreOrderByETH(          
+    //                                      this.state.lister,
+    //                                      Total_price * unitsToBuy,
+    //                                      Total_price * unitsToBuy * this.CONST.GweiToEther,
+    //                                      this.props.listingId, 
+    //                                      this.state.checkInDate.toDate().getTime(), 
+    //                                      this.state.checkOutDate.toDate().getTime(),
+    //                                      unitsToBuy
+    //                                     );
+    //   }
+    // }
  
-    promise.then((transactionReceipt) => {
-      console.log("Purchase request sent.")
-      this.setState({step: this.STEP.PROCESSING})
-      return ppsService.waitTransactionFinished(transactionReceipt)
-    })
-    .then((blockNumber) => {
-      this.setState({step: this.STEP.PURCHASED})
-    })
-    .catch((error) => {
-      console.log(error)
-      this.setState({step: this.STEP.VIEW})
-    })
+    // promise.then((transactionReceipt) => {
+    //   console.log("Purchase request sent.")
+    //   this.setState({step: this.STEP.PROCESSING})
+    //   return ppsService.waitTransactionFinished(transactionReceipt)
+    // })
+    // .then((blockNumber) => {
+    //   this.setState({step: this.STEP.PURCHASED})
+    // })
+    // .catch((error) => {
+    //   console.log(error)
+    //   this.setState({step: this.STEP.VIEW})
+    // })
 
-    this.setState({checkInDate:null});
-    this.setState({checkOutDate:null});
+    // this.setState({checkInDate:null});
+    // this.setState({checkOutDate:null});
   }
 
   DateDays() {
