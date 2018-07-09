@@ -83,10 +83,21 @@
 	border-bottom:none;
 }
 /*Reservation requests*/
+.Help .modal-body ul .box2{
+	height:auto;
+}
 .Help .modal-body ul .box2>p{
 	margin: 5% 0;
 	font-size: 1.6rem;
 }
+.Help .modal-body ul .box2>p:hover{
+	color: #f6416c;
+}
+.Help .modal-body ul .boxactive{
+	overflow: hidden;
+	height: 0px;
+}
+
 .Help .modal-footer{
 	display: block;
 	border:none;

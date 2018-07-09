@@ -225,7 +225,7 @@ class Confrim extends React.Component {
         {this.state.step===this.STEP.PURCHASED &&
           <Overlay imageUrl="/images/circular-check-button.svg">
             <p>Booking was successful.</p>
-            <button><a href="" onClick={()=>window.location.reload()}>Reload page</a></button>
+            <button><a href={`/listing/${this.state.listingId}`} onClick={()=>window.location.reload()}>Reload page</a></button>
           </Overlay>
         }
 

@@ -250,41 +250,41 @@ class ListingsDetail extends Component {
 
 
   isStartDayBlocked(day){
-    var DateLists = this.state.DateLists;
-    var currentDate = new Date(this.state.checkInDate).getTime(); 
-    var dayS = new Date(day).getTime();
-    for(var i=0;i<DateLists.length;i++){
-      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end){
-        return new Date(dayS);
+      var DateLists = this.state.DateLists;
+      var currentDate = new Date(this.state.checkInDate).getTime(); 
+      var dayS = new Date(day).getTime();
+      for(var i=0;i<DateLists.length;i++){
+        if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end){
+          return new Date(dayS);
+        }
       }
-    }
   } 
 
   isEndDayBlocked(day){
-    var DateLists = this.state.DateLists;      
-    var currentDate = new Date(this.state.checkInDate).getTime(); 
-    var dayS = new Date(day).getTime();
-    var startdateArr = [];
-    var enddateArr = [];
-    for(var i=0;i<DateLists.length;i++){
-      if(dayS>DateLists[i].start && dayS<DateLists[i].end-86400000){
-        return new Date(dayS);
+      var DateLists = this.state.DateLists;      
+      var currentDate = new Date(this.state.checkInDate).getTime(); 
+      var dayS = new Date(day).getTime();
+      var startdateArr = [];
+      var enddateArr = [];
+      for(var i=0;i<DateLists.length;i++){
+        if(dayS>DateLists[i].start && dayS<DateLists[i].end){
+          return new Date(dayS);
+        }
+        if(currentDate<=DateLists[i].start){
+          startdateArr.push(DateLists[i].start)
+        }
+        if(currentDate>=DateLists[i].end){
+          // console.log(DateLists[i].end)
+          enddateArr.push(DateLists[i].end)
+        }
       }
-      if(currentDate<=DateLists[i].start){
-        startdateArr.push(DateLists[i].start)
-      }
-      if(currentDate>=DateLists[i].end){
-        // console.log(DateLists[i].end)
-        enddateArr.push(DateLists[i].end)
-      }
-    }
-    // console.log(Math.min(...startdateArr)-43200000)
-    if(dayS>Math.min(...startdateArr)-43200000) {
-        return true;
-    } 
-    // if(dayS<Math.max(...enddateArr)-86400000) {
-    //     return true;
-    // }  
+      // console.log(Math.min(...startdateArr)-43200000)
+      if(dayS>Math.min(...startdateArr)) {
+          return true;
+      } 
+      if(dayS<Math.max(...enddateArr)) {
+          return true;
+      }  
   }
       
 
