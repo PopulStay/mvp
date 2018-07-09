@@ -223,6 +223,10 @@ button.copy,button.copy:hover{
   white-space: nowrap;
   font-size: 1.6rem;
 }
+.GuestManagment .divtr>div,
+.GuestManagment .overflowAuto .divtr>div{
+  width:14.2%;
+}
 .GuestManagment .divtr>div button{
   background: #fff;
   border:1px solid #f6416c;

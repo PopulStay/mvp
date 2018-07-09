@@ -128,8 +128,6 @@ class GuestOrderRow extends Component {
       price:this.props.item.price,
       ethprice:this.props.item.ethprice,
       usdprice:this.props.item.usdprice,
-      usdprice:this.props.item.usdprice,
-      usdprice:this.props.item.usdprice,
       state:this.props.item.state,
       DateType:DateType,
     });
@@ -209,12 +207,13 @@ class GuestOrderRow extends Component {
       <div>
         <div className="divtr">
           {this.state.usdprice != '0' && this.state.usdprice && <div><p>/</p></div>}
-          {this.state.ethprice != '0' && this.state.ethprice && <div><a href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.houseinfoid}</p></a></div>}
-          {this.state.price != '0' && this.state.price && <div><a href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.houseinfoid}</p></a></div>}
-          <div><span onClick={(e)=>this.onCheck()}>{language.Check}</span></div>
+          {this.state.ethprice != '0' && this.state.ethprice && <div><a target="_blank" href={`https://kovan.etherscan.io/address/${this.state.contractAddress}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.contractAddress}</p></a></div>}
+          {this.state.price != '0' && this.state.price && <div><a target="_blank" href={`https://kovan.etherscan.io/address/${this.state.contractAddress}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.contractAddress}</p></a></div>}
+          <div><span className="pinkColor" onClick={(e)=>this.onCheck()}>{language.Check}</span></div>
+          <div><a target="_blank" href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`} ><span>{language.Check}</span></a></div>
           <div><Timestamp time={this.state.from.substring(0,10)} format='date'/></div>
           <div><Timestamp time={this.state.to.substring(0,10)} format='date'/></div>
-          {this.state.usdprice != '0' && this.state.usdprice && <div>{this.state.usdprice+"/USD"}</div> }
+          {this.state.usdprice != '0' && this.state.usdprice && <div>{Number(this.state.usdprice).toFixed(5)+"/USD"}</div> }
           {this.state.ethprice != '0' && this.state.ethprice && <div>{this.state.ethprice+"/ETH"}</div> }
           {this.state.price != '0' && this.state.price && <div>{this.state.price+"/PPS"}</div> }
           { this.state.state === '1' &&<div>{language.state1}</div>}

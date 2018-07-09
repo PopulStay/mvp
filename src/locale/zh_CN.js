@@ -944,6 +944,9 @@ export const Add_a_house = '添加房源';
 export const No_order = '没有订单';
 export const Check_In_from = '入住时间未到';
 export const Check_In_to = '入住超时';
+export const check_order = '查看订单';
+export const Smart_contract = '订单智能合约';
+export const View_house = '查看房源';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = '房东管理面板';

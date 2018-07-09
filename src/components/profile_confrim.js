@@ -90,7 +90,7 @@ class Confrim extends React.Component {
         this.setState({
           checkInDate:String(url[0][1]),
           checkOutDate:String(url[1][1]),
-          Total_price:url[2][1],
+          Total_price:Number(url[2][1]),
           guest:url[3][1],
           DateDays:url[4][1],
           price:url[5][1],
@@ -225,7 +225,7 @@ class Confrim extends React.Component {
         {this.state.step===this.STEP.PURCHASED &&
           <Overlay imageUrl="/images/circular-check-button.svg">
             <p>Booking was successful.</p>
-            <button><a onClick={()=>window.location.reload()}>Reload page</a></button>
+            <button><a href="" onClick={()=>window.location.reload()}>Reload page</a></button>
           </Overlay>
         }
 
@@ -295,7 +295,7 @@ class Confrim extends React.Component {
               <div className="box3_4">
                 <div className="col-sm-4 col-md-4 col-lg-4"><b>{language.Billing}</b></div>
                 <div className="col-sm-8 col-md-8 col-lg-8">
-                  <div className="overflow"><p className="Left">{this.state.DateDays} {language.nights} {language.total}</p><p className="Right">{this.state.priceActive == 0 && "ETH"}{this.state.priceActive == 1 && "PPS"}{this.state.priceActive == 2 && "USD"} &nbsp;&nbsp; {this.state.Total_price}</p></div> 
+                  <div className="overflow"><p className="Left">{this.state.DateDays} {language.nights} {language.total}</p><p className="Right">{this.state.priceActive == 0 && "ETH"}{this.state.priceActive == 1 && "PPS"}{this.state.priceActive == 2 && "USD"} &nbsp;&nbsp; {this.state.priceActive == 0 || this.state.priceActive == 2 ? this.state.Total_price.toFixed(5) : this.state.Total_price}</p></div> 
                   <div className="overflow"><p className="Left">{language.Per_guest}</p><p className="Right">{this.state.priceActive == 0 && "ETH"}{this.state.priceActive == 1 && "PPS"}{this.state.priceActive == 2 && "USD"} &nbsp;&nbsp; {this.state.price}</p></div> 
                   <p><span className="color-pink">{language.Detailed_receipt}</span></p>
                 </div>
