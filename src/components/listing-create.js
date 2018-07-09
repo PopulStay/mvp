@@ -267,7 +267,6 @@ class ListingCreate extends Component {
         guestService.getGuesterInfo(window.address).then((data)=>{
           if(data)
             {
-                console.log(data.user)
                 this.setState({ user:data.user });
             }
         });
@@ -298,7 +297,6 @@ class ListingCreate extends Component {
             Howoften_Tos:this.state.languagelist.Howoften_Times,
             advance_books:this.state.languagelist.advance_books,
         });
-        console.log(this.state.languagelist.select_a_time)
 
 
         var listStorage =  JSON.parse(sessionStorage.getItem('test'));
@@ -501,7 +499,6 @@ class ListingCreate extends Component {
         let file = event.target.files[0];
 
         var imgsize = (file.size/1024).toFixed(2); 
-        console.log(imgsize)
         if(imgsize<600){
             reader.onloadend = () => {
               files.push({
@@ -535,19 +532,16 @@ class ListingCreate extends Component {
     }
 
     nextStep() {
-        console.log(this.state);
       this.setState({step:this.state.step+1});
       if(this.state.step == this.STEP.Step1_8)
       {
         if(this.state.roomstuff_smartpincode == 1){
             if(this.state.roomstuff_smartpincode_password != '' && this.state.roomstuff_smartpincode_confirmpassword != '' && this.state.roomstuff_smartpincode_password == this.state.roomstuff_smartpincode_confirmpassword){
               this.setState({state:this.state.PasswordActibve=1}); 
-              console.log(this.state.PasswordActibve);
               this.setState({step:this.STEP.Step1_9});
             }else{
               this.setState({step:this.STEP.Step1_8});
               this.setState({state:this.state.PasswordActibve=0}); 
-              console.log(this.state.PasswordActibve);
             }
         }else{
             this.setState({step:this.STEP.Step1_9});
@@ -575,13 +569,11 @@ class ListingCreate extends Component {
       if(this.state.step == this.STEP.Step3_10)
       {
         this.setState({step:this.STEP.Step3_8});
-        console.log(this.state);
       }
 
        if(this.state.step == this.STEP.SUCCESS)
       {
         this.setState({step:this.STEP.Step1_1});
-        console.log(this.state);
       }
 
 
@@ -644,7 +636,6 @@ class ListingCreate extends Component {
 
     modalPictures(index,e){
       var modalBody=document.getElementById("modalBody");
-      console.log(modalBody.width)
       this.setState({
             state:this.state.modalimg = this.state.selectedPictures[index].imagePreviewUrl,
             canvasW:modalBody.width,
@@ -659,7 +650,6 @@ class ListingCreate extends Component {
         const canvas = this.state.editor.getImage()
         const canvasScaled = this.state.editor.getImageScaledToCanvas();
         this.setState({state:this.state.selectedPictures[photosindex].imagePreviewUrl = canvasScaled.toDataURL("image/png")})
-        console.log(this.state.selectedPictures)
       }
     }
 

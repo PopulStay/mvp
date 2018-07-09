@@ -120,6 +120,7 @@ class GuestOrderRow extends Component {
     var DateType=300;
       console.log(3)
     }
+    console.log(this.props.item)
     this.setState({
       houseinfoid:this.props.item.houseinfoid,
       id:this.props.item.id,
