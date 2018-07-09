@@ -1,5 +1,6 @@
 import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
 import houselistingService from './houseinfolist-service';
+import orderService from '../services/order-service';
 import axios from 'axios';
 
 class GuestService {
@@ -128,15 +129,15 @@ class GuestService {
     })
   }
   
-  getPreorderList(account){
-    return houselistingService.getGuestPreorderList(account);
-  }
+  // getPreorderList(account){
+  //   return houselistingService.getGuestPreorderList(account);
+  // }
 
-  getGuesterCode(email) {
+  getGuesterCode(email,subject) {
     return new Promise((resolve, reject) => {
     var emailArr = {};
     emailArr.to      = email;
-    emailArr.subject = '请确认您的验证码';
+    emailArr.subject = subject;
     emailArr.from    = "admin@populstay.com";
     axios.post(process.env.Server_Address+'emailverify/sendVerificationEmail', emailArr)
     .then(function (response) {

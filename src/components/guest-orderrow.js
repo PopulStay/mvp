@@ -12,6 +12,7 @@ class GuestOrderRow extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      contractAddress:'',
       user:'',
       modalIsOpen: false,
       status: "Loading...",
@@ -30,6 +31,7 @@ class GuestOrderRow extends Component {
       Check_in:0,
       Cleanliness:0,
       Value:0,
+      Bad_review:'',
     }
 
     this.checkIn   = this.checkIn.bind(this);
@@ -58,7 +60,7 @@ class GuestOrderRow extends Component {
     }
 
     orderService.confirm( 
-                           this.props.item.guestaddress ,
+                           this.state.contractAddress ,
                            ethOrPPS ,
                            this.props.item.from,
                            this.props.item.to,
@@ -90,6 +92,12 @@ class GuestOrderRow extends Component {
   }
   componentDidMount() {
     console.log(this.props.item)
+
+    if(this.props.item.orderContractAddress)
+    {
+      this.setState({contractAddress:this.props.item.orderContractAddress});
+    }
+
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ user:data.user});
     });
@@ -114,8 +122,6 @@ class GuestOrderRow extends Component {
       price:this.props.item.price,
       ethprice:this.props.item.ethprice,
       usdprice:this.props.item.usdprice,
-      usdprice:this.props.item.usdprice,
-      usdprice:this.props.item.usdprice,
       state:this.props.item.state,
       DateType:DateType,
     });
@@ -132,12 +138,20 @@ class GuestOrderRow extends Component {
   }
 
   Reviews(){
-    if(this.state.Accuracy != 0 && this.state.Location != 0 && this.state.Communication != 0 && this.state.Check_in != 0 && this.state.Cleanliness != 0 && this.state.Value != 0 && this.state.Comment != ''){
-      guestService.addComment(this.props.item.id,this.state.Comment,this.state.Accuracy,this.state.Location,this.state.Communication,this.state.Check_in,this.state.Cleanliness,this.state.Value).then((data)=>{
-          this.setState({state:'5',modalIsOpen: false});
-      });
-    }else{
-      console.log(456)
+    if(this.state.Accuracy != 0 && this.state.Location != 0 && this.state.Communication != 0 && this.state.Check_in != 0 && this.state.Cleanliness != 0 && this.state.Value != 0){
+      if(this.state.Accuracy <= 2 || this.state.Location <= 2 || this.state.Communication <= 2 || this.state.Check_in <= 2 || this.state.Cleanliness <= 2 || this.state.Value <= 2){
+        this.setState({Bad_review_type:true});
+        if(this.state.Bad_review != ""){
+          guestService.addComment(this.props.item.id,this.state.Comment,this.state.Accuracy,this.state.Location,this.state.Communication,this.state.Check_in,this.state.Cleanliness,this.state.Value).then((data)=>{
+              this.setState({state:'5',modalIsOpen: false});
+          });
+          guestService.addBadComment(this.props.item.id,this.state.Bad_review).then((data)=>{
+              this.setState({state:'5',modalIsOpen: false});
+          });
+        }
+      }else{
+        this.setState({Bad_review_type:false});
+      }
     }
   }
 
@@ -187,12 +201,13 @@ class GuestOrderRow extends Component {
       <div>
         <div className="divtr">
           {this.state.usdprice != '0' && this.state.usdprice && <div><p>/</p></div>}
-          {this.state.ethprice != '0' && this.state.ethprice && <div><a href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.houseinfoid}</p></a></div>}
-          {this.state.price != '0' && this.state.price && <div><a href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.houseinfoid}</p></a></div>}
-          <div><span onClick={(e)=>this.onCheck()}>{language.Check}</span></div>
+          {this.state.ethprice != '0' && this.state.ethprice && <div><a target="_blank" href={`https://kovan.etherscan.io/address/${this.state.contractAddress}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.contractAddress}</p></a></div>}
+          {this.state.price != '0' && this.state.price && <div><a target="_blank" href={`https://kovan.etherscan.io/address/${this.state.contractAddress}`}><p><span className="glyphicon glyphicon-eye-open"></span>{this.state.contractAddress}</p></a></div>}
+          <div><span className="pinkColor" onClick={(e)=>this.onCheck()}>{language.Check}</span></div>
+          <div><a target="_blank" href={`/listing/${this.state.houseinfoid}${this.state.state == '4' ? '?'+this.state.id : ''}`} ><span>{language.Check}</span></a></div>
           <div><Timestamp time={this.state.from.substring(0,10)} format='date'/></div>
           <div><Timestamp time={this.state.to.substring(0,10)} format='date'/></div>
-          {this.state.usdprice != '0' && this.state.usdprice && <div>{this.state.usdprice+"/USD"}</div> }
+          {this.state.usdprice != '0' && this.state.usdprice && <div>{Number(this.state.usdprice).toFixed(5)+"/USD"}</div> }
           {this.state.ethprice != '0' && this.state.ethprice && <div>{this.state.ethprice+"/ETH"}</div> }
           {this.state.price != '0' && this.state.price && <div>{this.state.price+"/PPS"}</div> }
           { this.state.state === '1' &&<div>{language.state1}</div>}
@@ -281,6 +296,8 @@ class GuestOrderRow extends Component {
             </ul>
 
             <textarea placeholder={language.Describe_your_experiece_here} onChange={(e)=>this.setState({Comment:e.target.value})}></textarea>
+
+            <textarea placeholder="差评理由" className={this.state.Bad_review_type ? "show" : "hide"} onChange={(e)=>this.setState({Bad_review:e.target.value})}></textarea>
 
             <div className="photos">
                 {this.state.selectedPictures.map((file,index) => (

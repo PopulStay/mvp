@@ -22,12 +22,14 @@ class GuestRegister extends React.Component {
       account:"",
       phone:"",
       email:"",
-      Verification:'验证码',
+      Verification:60,
       VerificationCode:0,
       registered:false,
       emailactive:0,
+      emailCode:'',
       Prompt:"",
       languagelist:{},
+      subject:"",
       // password:"",
       // repeatPassword:""
     };
@@ -48,7 +50,7 @@ class GuestRegister extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({ languagelist:window.languagelist });
+    this.setState({languagelist:window.languagelist});
     this.setState({Verification:window.languagelist.Get_verification_code});
     this.loadUserData();
   }
@@ -143,17 +145,18 @@ class GuestRegister extends React.Component {
       () => {
         if(this.state.Verification == 1){
           clearTimeout(this.timerID);
-          this.setState({Verification:this.state.languagelist.Verification_code_error});
+          this.setState({Verification:this.state.languagelist.Get_verification_code});
         }else{
           this.setState({Verification:num--});
         }
       },
       1000
     );
-    guestService.getGuesterCode(this.state.email)
+    guestService.getGuesterCode(this.state.email,window.languagelist.subject)
   }
 
   emailCode(e){
+    this.setState({emailCode:e})
     if(e.length==4){
       guestService.VerificationCode(this.state.email,e).then((data)=>{
         clearTimeout(this.timerID);
@@ -228,23 +231,23 @@ class GuestRegister extends React.Component {
 
                 <div className="form-group">
                   <label>{language.User}</label>
-                  <input type="text" className="form-control" placeholder={language.User_name} onChange={(e) => this.setState({user: e.target.value})}/>
+                  <input type="text" className="form-control" placeholder={language.User_name} value={this.state.user} onChange={(e) => this.setState({user: e.target.value})}/>
                 </div>
 
                 <div className="form-group">
                   <label>{language.Phone}</label>
-                  <input type="number" className="form-control" placeholder={language.Phone} onChange={(e) => this.setState({phone:e.target.value})}/>
+                  <input type="number" className="form-control" placeholder={language.Phone} value={this.state.phone} onChange={(e) => this.setState({phone:e.target.value})}/>
                 </div>
 
                 <div className="form-group">
                   <label >{language.Email}</label>
-                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={language.Enter_email}  onChange={(e) => this.email(e.target.value)}/>
+                  <input type="email" className="form-control" id="exampleInputEmail1" value={this.state.email} aria-describedby="emailHelp" placeholder={language.Enter_email}  onChange={(e) => this.email(e.target.value)}/>
                   <small id="emailHelp" className="form-text text-muted">{this.Prompt()}</small>
                 </div>
 
                 <div className="VerificationCode">
-                  <button className={this.Prompt() == this.state.languagelist.Well_never_share_your_email_with_anyone_else ? "" : "active"} disabled={this.Prompt() == this.state.languagelist.Well_never_share_your_email_with_anyone_else ? "" : "true"} onClick={(e)=>this.VerificationCode(e)}>{this.state.Verification}</button>
-                  <input type="number" placeholder={language.Code} onChange={(e) => this.emailCode(e.target.value)} />
+                  <button className={this.Prompt() == this.state.languagelist.Well_never_share_your_email_with_anyone_else ? "" : "active"} disabled={this.Prompt() == this.state.languagelist.Well_never_share_your_email_with_anyone_else && this.state.Verification == this.state.languagelist.Get_verification_code ? "" : "true"} onClick={(e)=>this.VerificationCode(e)}>{this.state.Verification}</button>
+                  <input type="number" placeholder={language.Code}  value={this.state.emailCode} onChange={(e) => this.emailCode(e.target.value)} />
                 </div>
 
                 </div>

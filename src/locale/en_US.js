@@ -101,6 +101,7 @@ export const POST = 'POST';
 export const Write_your_review = 'Write your review';
 export const Describe_your_experiece_here = 'Describe your experiece here';
 export const Your_reviews_will_be_posted_on_publicly_on_the_web = 'Your reviews will be posted on publicly on the web';
+export const This_user_has_no_comments = 'This user has no comments';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
@@ -828,6 +829,7 @@ export const Code = 'Code';
 export const Get_verification_code = 'Get verification code';
 export const Verification_code_error = 'Verification code error';
 export const Successful_verification = 'Successful verification';
+export const subject = 'Please confirm your verification code';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Create_Or_Import_Wallet = 'Create Or Import Wallet';
@@ -839,6 +841,8 @@ export const Please_clear_your_account = 'Please clear your account';
 export const Please_clear_your_account_then_you_can_import_new_account = 'Please clear your account,then you can import new account！';
 export const Close = 'Close';
 export const Address = 'Address';
+export const Copy_address = 'Copy address';
+export const Successful_copy = 'Successful copy';
 
 //create--------------------------------------------------------------------------------------------
 export const Create = 'Create';
@@ -940,6 +944,9 @@ export const Add_a_house = 'Add a house';
 export const No_order = 'No order';
 export const Check_In_from = 'Check-in time has not arrived';
 export const Check_In_to = 'Check in timeout';
+export const check_order = 'Check order';
+export const Smart_contract = 'Smart contract';
+export const View_house = 'View house';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = 'Host Managment Panel';
@@ -1018,3 +1025,40 @@ export const South_Lotts_Road = 'South Lotts Road';
 export const Ringsend_Dublin4 = 'Ringsend,Dublin4';
 export const Ireland = 'Ireland';
 export const VAT_NumberIE9827384L = 'VAT Number: IE 9827384L';
+
+//confrim
+export const Youre_going_to = 'You’re going to';
+export const Reservation_code = 'Reservation code';
+export const View_receipt = 'View receipt';
+export const make_a_change_to_the_reservation = 'make a change to the reservation';
+export const Guests = 'Guests';
+export const of = 'of';
+export const accepted = 'accepted';
+export const Manage_Guests = 'Manage_Guests';
+export const Accepted = 'Accepted';
+export const After1PM = 'After 1 PM';
+export const Get_directions = 'Get directions';
+export const View_listing = 'View listing';
+export const Guidebook = 'Guidebook';
+export const recommended1place_to_visit_near_your_listing = 'recommended 1 place to visit near your listing';
+export const See = 'See';
+export const recommendations = 'recommendations';
+export const Not_suitable_for_pets = 'Not suitable for pets';
+export const No_parties_or_events="No parties or events" 
+export const Not_safe_or_suitable_for_infants="Not safe or suitable for infants (Under 2 years)"
+export const Checkin_is_anytime_after_1PM="Check-in is anytime after 1PM"
+export const House_Rules1 = '1. Please empty rubbish regularly by taking it out of the apartment.The door next to the lift on the same floor has garbage chute.';
+export const more = 'more';
+export const You_also_acknowledge = 'You also acknowledge';
+export const Billing = 'Billing';
+export const total = 'total';
+export const Per_guest = 'Per guest';
+export const Request_a_landlord = 'Need to pay extra money for your stay or ask for a refund from your host? Use our Resolution Centre.';
+export const Send_or_request_money = 'Send or request money';
+export const Directions = 'Directions';
+export const Directions_introduction1 = 'A 20 minutes bus ride on the SKYBUS from the Airport gets you to your apartment. If you are 2 or more guests a taxi/Uber is a cheaper option.';
+export const Directions_introduction2 = 'Trams rides are free. Tram will take you five minutes to get to 339 Swanston street. Remember the landmark building the State Library Victoria is located right across the apartment and also your home of free WiFi. Melbourne.';
+export const House_Manual = 'House Manual';
+export const House_Manual1 = '1. Smoking in the apartment or building is not permitted. Smoking allowed downstairs.';
+export const House_Manual2 = '2. Please empty your rubbish daily. by using the door next to the lift on the same floor. Please do not leave dirty dishes in the sink on departure.';
+export const House_Manual3 = '3. Key Card to be left INSIDE the apartment on checkout.';

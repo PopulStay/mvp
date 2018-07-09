@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import guestService from '../services/guest-service';
 import ppsService from '../services/pps-service';
+import orderService from '../services/order-service'
 import GuestOrderRow from './guest-orderrow';
 import GuestUsdOrderRow from './guest-usdorderrow';
 import web3Service from '../services/web3-service';
@@ -171,8 +172,9 @@ class GuestInfo extends React.Component {
       <div className={(this.state.orderlist.length == 0  && this.state.usdOrderList.length == 0 ) ? 'hide GuestManagment' : 'show GuestManagment'}>
         <div className="auto">
           <div className="divtr">
-              <div>{language.Address}</div>
-              <div>{language.Information}</div>
+              <div>{language.Smart_contract}</div>
+              <div>{language.check_order}</div>
+              <div>{language.View_house}</div>
               <div>{language.From}</div>
               <div>{language.To}</div>
               <div>{language.Price}</div>

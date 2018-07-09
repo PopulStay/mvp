@@ -382,6 +382,10 @@
 .All_experiences .listing-card .photo{
   min-height: 200px;
 }
+.loader{
+  width: 50px;
+  margin: 0 auto;
+}
 .experience .listspan{
   text-align: center;
   margin-bottom: 8%;
@@ -407,7 +411,17 @@
 .Receipt .box4_2,
 .Receipt .box5 div>ul li,
 .Receipt .box5 div,
-.Receipt .box7 ul li{
+.Receipt .box7 ul li,
+.Confrim .box1,
+.Confrim .box2,
+.Confrim .box3_1,
+.Confrim .box3_2,
+.Confrim .box3_2 div.userlist,
+.Confrim .box3_3,
+.Confrim .box3_4,
+.Confrim .overflow,
+.Confrim .box3_5,
+.Confrim .box5>div{
   overflow: hidden;
 }
 .Receipt .box1>p,
@@ -420,10 +434,13 @@
 .Receipt .box7 ul li>p,
 .Receipt .box7 ul li>h4,
 .Receipt .box7 ul li>p span,
-.Receipt .box8 p{
+.Receipt .box8 p,
+.Confrim .box1>p,
+.Confrim .box1>p span,
+.Confrim .box3_3>div{
   font-size: 1.6rem;
 }
-.Receipt{
+.Receipt,.Confrim{
   max-width: 1200px !important;
   width: 80%;
   margin: 0 auto;
@@ -437,13 +454,15 @@
   border-right: 8px solid #f6416c;
   margin-right: 10px;
 }
-.Receipt h3{
+.Receipt h3,
+.Confrim h3{
   font-size:3rem;
   font-family: RobotoBold; 
 }
 .Receipt .box2>p b,
 .Receipt .box6 p b,
-.Receipt .box7 ul li>p b{
+.Receipt .box7 ul li>p b,
+.Confrim b{
   font-family: RobotoBold; 
 }
 .Receipt .box2>p.Left{
@@ -457,21 +476,30 @@
   margin: 2% 0;
 }
 .Receipt .box4,
-.Receipt .box5>div{
+.Receipt .box5>div,
+.Confrim .box3,
+.Confrim .box5{
   border:1px solid #c2c2c2;
   border-radius:8px;
 }
-.Receipt .box4{
+.Receipt .box4,
+.Confrim .box3,
+.Confrim .box3_3>div{
   padding: 3%;
 }
 .Receipt .box4_2,
-.Receipt .box4_3{
+.Receipt .box4_3,
+.Confrim .box3_1,
+.Confrim .box3_2,
+.Confrim .box3_3,
+.Confrim .box3_4{
   border-bottom:1px solid #c2c2c2;
   margin: 0;
 }
 .Receipt .box4_1 p,
 .Receipt .box4_2 p,
-.Receipt .box4_4{
+.Receipt .box4_4,
+.Confrim .box4{
   padding: 0;
 }
 .Receipt .box4_2{
@@ -495,18 +523,21 @@
 .Receipt .box4_4 h4,
 .Receipt .box5 div.box5_bottom h4,
 .Receipt .box6 h4{
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: RobotoBold; 
 }
 .Receipt .box4_3 p{
   width: 100%;
 }
-.Receipt .box4_4 div.userlist{
+.Receipt .box4_4 div.userlist,
+.Confrim .box3_2 div.userlist{
   width: 100%;
   position: relative;
   margin: 2% 0;
 }
-.Receipt .box4_4 div.userlist>div{
+.Receipt .box4_4 div.userlist>div,
+.Confrim .box3_2 div.userlist>div,
+.Confrim .box5 .hostimg{
   position: relative;
   width: 50px;
   height: 50px;
@@ -515,13 +546,16 @@
   border:1px solid #f6416c;
   float: left;
 }
-.Receipt .box4_4 div.userlist>div>img{
+.Receipt .box4_4 div.userlist>div>img,
+.Confrim .box3_2 div.userlist>div>img,
+.Confrim .box5 .hostimg img{
   position: absolute;
   top:50%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
-.Receipt .box4_4 div.userlist p{
+.Receipt .box4_4 div.userlist p,
+.Confrim .box3_2 div.userlist p.text1{
   float: left;
   position: absolute;
   top:50%;
@@ -532,7 +566,8 @@
 .Receipt .box5{
   padding: 0;
 }
-.Receipt .box5>div{
+.Receipt .box5>div,
+.Confrim .box5{
   margin-left: 5%;
   padding: 4%;
 }
@@ -597,4 +632,107 @@
   bottom: 18%;
 }
 /*Receipt end*/
+
+/*Confrim start*/
+.Confrim b{
+  font-size: 1.6rem;
+}
+.Confrim .box1{
+  margin-bottom: 3%;
+}
+.Confrim .box1>p.Right{
+  border-bottom: 1px solid #f6416c;
+}
+.Confrim .box2{
+  margin-bottom: 10%;
+}
+.Confrim .box3_1 button{
+  background: #f6416c;
+  border:none;
+  color: #fff;
+  border-radius: 0px;
+  margin-top: 1.5%;
+}
+.Confrim .box3_2{
+  padding: 3% 0;
+}
+.Confrim .box3_2 div.userlist{
+  width: auto;
+  margin-left: 40%;
+}
+.Confrim .box3_2 div.userlist p.text2{
+  position: absolute;
+  top:50%;
+  right: 0%;
+  transform: translate(0,-50%);
+  font-size: 1.6rem;
+}
+.Confrim .box3_3>div.divleft{
+  padding:3% 2% 3% 0;
+}
+.Confrim .box3_3>div.divright{
+  padding:3% 0 3% 2%;
+}
+.Confrim .box3_3>div p span,
+.Confrim .box3_3>div p{
+  font-size: 1.4rem;
+  margin-bottom: 0%;
+}
+.Confrim .box3_4>div,
+.Confrim .box3_5>div{
+  padding: 3% 0;
+}
+.Confrim .box3_4 p.fdx{
+  width: 50px;
+  height: 1px;
+  background: #f6416c;
+}
+.Confrim .box3_4 p.fontWeight{
+  font-family: RobotoBold;
+  margin-top: 3%; 
+}
+.Confrim span.color-pink{
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.Confrim .box5{
+  border:1px solid #f6416c;
+  text-align: center;
+}
+.Confrim .box5>div .hostimg{
+  width: 70px;
+  height: 70px;
+  float: none !important;
+  margin: 2% auto 5%;
+}
+.Confrim .box5 button{
+  background: #f6416c;
+  color: #fff;
+  border-radius: 0;
+  border:none;
+  margin:2% auto 5%;
+}
+.Confrim .box6{
+  position: relative;
+  height: 200px;
+  margin:5% 0 0 5%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.Confrim .box6 img{
+  position: absolute;
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+}
+.Confrim .box7{
+  margin:5% 0 0 5%;
+}
+.Confrim .box8{
+  height: 1px;
+  background:#c2c2c2;
+  margin:5% 0 0 5%;
+}
+/*Confrim end*/
+
 /*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWVwYWdlLnNjc3MiLCJfdmFyLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFFSSxZQ0ZRO0NER1Q7O0FBSEg7RUFNSSxZQ05RO0NET1Q7O0FBR0g7RUFDRSxzQkFBcUI7Q0EwQ3RCOztBQTNDRDtFQUlJLGtCQUFpQjtDQUNsQjs7QUFMSDtFQVFJLGtCQUFpQjtDQUNsQjs7QUFUSDtFQVlJLGVDbkJVO0VEb0JWLHFCQUFvQjtDQUNyQjs7QUFkSDtFQWlCSSxtQkFBa0I7RUFDbEIsMEJDekJVO0VEMEJWLG1CQUFrQjtDQUtuQjs7QUF4Qkg7RUFzQk0sZ0JBQWU7Q0FDaEI7O0FBdkJMO0VBMkJJLFlBQVc7Q0FDWjs7QUFFRDs7RUFFRSxjQUFhO0NBQ2Q7O0FBRUQ7RUFDRSxlQUFjO0NBQ2Y7O0FBRUQ7RUFDRSxpQkFBZ0I7RUFDaEIsaUJBQWdCO0NBQ2pCIiwiZmlsZSI6ImhvbWVwYWdlLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4vX3Zhcic7XG5cbi5oZWFkZXIge1xuICBhOm5vdCguYnRuKSB7XG4gICAgY29sb3I6ICR3aGl0ZTtcbiAgfVxuXG4gIC5idXR0b25fX291dGxpbmUge1xuICAgIGNvbG9yOiAkd2hpdGU7XG4gIH1cbn1cblxuLmZvcm0ge1xuICBwYWRkaW5nOiA2MHB4IDAgMTEwcHg7XG5cbiAgaDEgc3BhbiB7XG4gICAgZm9udC1zaXplOiAzLjByZW07XG4gIH1cblxuICBmb3JtIHtcbiAgICBwYWRkaW5nLXRvcDogNjBweDtcbiAgfVxuXG4gIGxhYmVsIHtcbiAgICBjb2xvcjogJHBpbms7XG4gICAgZm9udC13ZWlnaHQ6IGxpZ2h0ZXI7XG4gIH1cblxuICAuY29udGFpbmVyIHtcbiAgICBwYWRkaW5nOiAzMHB4IDUwcHg7XG4gICAgYm9yZGVyOiAxcHggc29saWQgJHBpbms7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuXG4gICAgPiAucm93IHtcbiAgICAgIHBhZGRpbmc6IDMwcHggMDtcbiAgICB9XG4gIH1cblxuICAucm93IGltZyB7XG4gICAgd2lkdGg6IDEwMCU7XG4gIH1cblxuICAmX19sb2NhdGlvbiBsaSBpbWcgfiBpbWcsXG4gICZfX2xvY2F0aW9uIGxpLmFjdGl2ZSBpbWcge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cblxuICAmX19sb2NhdGlvbiBsaS5hY3RpdmUgaW1nIH4gaW1nIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgfVxuXG4gICZfX3NlYXJjaCB7XG4gICAgbWluLXdpZHRoOiAxNjBweDtcbiAgICBtYXgtd2lkdGg6IDE4MHB4O1xuICB9XG59IiwiJGJhc2UtZm9udC1zaXplOiAxMHB4O1xuXG4kd2hpdGU6ICNmZmY7XG4kZ3JheTogI2VlZTtcbiRkYXJrLWJsdWU6ICMxMzFjNGU7XG4kcGluazogI2Y2NDE2YztcbiRncmVlbjogIzY2Y2IwMDsiXX0= */

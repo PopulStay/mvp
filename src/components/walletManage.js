@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import languageService from '../services/language-service';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
 
@@ -46,7 +47,7 @@ class WalletManage extends React.Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
+    this.setState({modalIsOpen: false,copied: false});
   }
 
   substring0x = (str) => {
@@ -66,7 +67,11 @@ class WalletManage extends React.Component {
         <div className="PirvateKey">
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
             <div>
-              <h3>{language.Address}:</h3>
+              <h3>{language.Address}: &nbsp;&nbsp;</h3>
+              <CopyToClipboard text={window.address}
+                onCopy={() => this.setState({copied: true})}>
+                <button className="copy">{this.state.copied ? language.Successful_copy : language.Copy_address}</button>
+              </CopyToClipboard>
               <p className="text1">{window.address}</p>
               <h3>{language.Private_Key}:</h3>
               <p className="text1">{this.substring0x(window.privateKey)}</p>

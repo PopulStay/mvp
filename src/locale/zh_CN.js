@@ -101,6 +101,7 @@ export const POST = '提交';
 export const Write_your_review = '写下您的评论';
 export const Describe_your_experiece_here = '在这里描述你的经历';
 export const Your_reviews_will_be_posted_on_publicly_on_the_web = '您的评论将在网上公开发布';
+export const This_user_has_no_comments = '该用户没有评论';
 
 //listing-create--------------------------------------------------------------------------------------------
 //Step1
@@ -828,6 +829,7 @@ export const Code = '验证码';
 export const Get_verification_code = '获取验证码';
 export const Verification_code_error = '验证码错误';
 export const Successful_verification = '验证成功';
+export const subject = '请确认您的验证码';
 
 //wallet--------------------------------------------------------------------------------------------
 export const Create_Or_Import_Wallet = '创建或导入钱包';
@@ -839,6 +841,8 @@ export const Please_clear_your_account = '请清除你的帐户';
 export const Please_clear_your_account_then_you_can_import_new_account = '请清除你的帐户,然后您可以导入新帐户';
 export const Close = '关闭';
 export const Address = '地址';
+export const Copy_address = '复制地址';
+export const Successful_copy = '复制成功';
 
 //create--------------------------------------------------------------------------------------------
 export const Create = '创建';
@@ -940,6 +944,9 @@ export const Add_a_house = '添加房源';
 export const No_order = '没有订单';
 export const Check_In_from = '入住时间未到';
 export const Check_In_to = '入住超时';
+export const check_order = '查看订单';
+export const Smart_contract = '订单智能合约';
+export const View_house = '查看房源';
 
 //host-info--------------------------------------------------------------------------------------------
 export const Host_Managment_Panel = '房东管理面板';
@@ -947,7 +954,7 @@ export const Category = '类别';
 export const Beds = '床';
 
 //wallet--------------------------------------------------------------------------------------------
-export const Export = '出口';
+export const Export = '导出';
 export const Please_logn_in = '请登录';
 export const Gas = '交易费';
 export const Gas_Price = '交易费价格';
@@ -1018,4 +1025,41 @@ export const South_Lotts_Road = '南洛茨路';
 export const Ringsend_Dublin4 = 'Ringsend，都柏林4';
 export const Ireland = '爱尔兰';
 export const VAT_NumberIE9827384L = '增值税号码：IE 9827384L';
+
+//confrim
+export const Youre_going_to = '你要去';
+export const Reservation_code = '订单号:';
+export const View_receipt = '查看收据';
+export const make_a_change_to_the_reservation = '修改订单';
+export const Guests = '房客';
+export const of = '/';
+export const accepted = 'accepted';
+export const Manage_Guests = '管理客人';
+export const Accepted = 'Accepted';
+export const After1PM = '下午1点以后';
+export const Get_directions = '获取路线';
+export const View_listing = '查看列表';
+export const Guidebook = '指南';
+export const recommended1place_to_visit_near_your_listing = '为您推荐一个附近的地方';
+export const See = '查看';
+export const recommendations = '的建议';
+export const Not_suitable_for_pets = '不适合携带宠物入住';
+export const No_parties_or_events="不允许举办派对和活动" 
+export const Not_safe_or_suitable_for_infants="不适合婴儿（2岁以下）入住，或不能为儿童提供安全的住宿环境"
+export const Checkin_is_anytime_after_1PM="入住时间是下午1点后"
+export const House_Rules1 = '1.请将垃圾从公寓里取出来定期清空垃圾。同一楼层电梯旁边的门上有垃圾槽。';
+export const more = '更多';
+export const You_also_acknowledge = '请您确认';
+export const Billing = '发票';
+export const total = '总计';
+export const Per_guest = '每位客人';
+export const Request_a_landlord = '您需要为住宿支付额外费用或要求主人退款吗？ 使用我们的解决中心。';
+export const Send_or_request_money = '支付或退款申请';
+export const Directions = '路线';
+export const Directions_introduction1 = '从机场乘坐SKYBUS巴士20分钟即可到达您的公寓。 如果您是2位或更多客人，出租车/ Uber是一个更便宜的选择。';
+export const Directions_introduction2 = '有轨电车是免费的。 搭乘电车5分钟即可到达339 Swanston街。 请记住维多利亚州立图书馆位于公寓对面的标志性建筑和免费WiFi的房源。墨尔本。';
+export const House_Manual = '家庭手册';
+export const House_Manual1 = '1.不允许在公寓或建筑物内吸烟。 楼下允许吸烟。';
+export const House_Manual2 = '2. 请每天清空你的垃圾。 同一楼层电梯旁边的门上有垃圾槽。 出发时请不要将脏盘子留在水槽中。';
+export const House_Manual3 = '3. 结账时将钥匙卡留在公寓内。';
 

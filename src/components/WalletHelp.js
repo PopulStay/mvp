@@ -25,6 +25,8 @@ class WalletHelp extends Component {
     this.state={
       modalIsOpen:true,
       languagelist:{},
+      HelpReservation:false,
+      clickHelp:true,
     };
 
     web3service.loadWallet();
@@ -35,6 +37,7 @@ class WalletHelp extends Component {
     this.setState({ languagelist:window.languagelist });
         
   }
+
 
   render() {
 
@@ -61,8 +64,8 @@ class WalletHelp extends Component {
                         <h4>SUGGESTED TOPICS</h4>
 
                         <ul>
-                            <li>Reservation requests <span>▼</span></li>
-                            <HelpReservation />
+                            <li onClick={(e) => {if(this.state.HelpReservation)this.setState({HelpReservation:false});else this.setState({HelpReservation:true});}}>Reservation requests <span>▼</span></li>
+                            <HelpReservation HelpReservation={this.state.HelpReservation} />
                             <li>Contacting hosts<span>▼</span></li>
                             <li>Prices & fees<span>▼</span></li>
                             <li>Preparing for your trip<span>▼</span></li>

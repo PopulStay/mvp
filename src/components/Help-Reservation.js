@@ -22,7 +22,9 @@ class HelpReservation extends Component {
 
     this.state={
       modalIsOpen:true,
+      onHelp:true,
       languagelist:{},
+      HelpReservationone:false,
     };
 
     web3service.loadWallet();
@@ -31,7 +33,12 @@ class HelpReservation extends Component {
 
   componentWillMount(){
     this.setState({ languagelist:window.languagelist });
-        
+  }
+
+  HelpReservation(){
+    this.setState({HelpReservationone:true});
+    this.setState({onHelp:false});
+    this.props.onHelp(false);
   }
 
   render() {
@@ -39,9 +46,9 @@ class HelpReservation extends Component {
         const language = this.state.languagelist;
 
     return (
-      
-        <div className="box2">
-            <p>Can I book on behalf of a friend or family member?</p>
+      <div>
+        <div className={this.props.HelpReservation || !this.state.onHelp ? "box2 boxactive" : "box2"}>
+            <p onClick={(e)=>this.HelpReservation(e)}>Can I book on behalf of a friend or family member?</p>
             <p>Can I view a listing before I book?</p>
             <p>How much time does a host have to respond to my reservation request?</p>
             <p>How do I submit a reservation request?</p>
@@ -49,7 +56,10 @@ class HelpReservation extends Component {
             <p>When am I charged for a reservation?</p>
             <p>Should I book if I have not heard back from the host?</p>
         </div>
-                           
+        {this.state.HelpReservationone &&
+          <div className="modal-body">123</div>
+        }
+      </div>                     
     )
   }
 }
