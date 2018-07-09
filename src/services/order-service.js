@@ -95,7 +95,7 @@ class PreOrderService {
 
 
 
-    getPreOrderInfo(address) {
+  getPreOrderInfo(address) {
        var contract = new window.web3.eth.Contract(PreOrder.abi,address);
        return contract.methods.getPreorderInfo().call();
   }

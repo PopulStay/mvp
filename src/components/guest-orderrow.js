@@ -12,6 +12,7 @@ class GuestOrderRow extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      contractAddress:'',
       user:'',
       modalIsOpen: false,
       status: "Loading...",
@@ -59,7 +60,7 @@ class GuestOrderRow extends Component {
     }
 
     orderService.confirm( 
-                           this.props.item.guestaddress ,
+                           this.state.contractAddress ,
                            ethOrPPS ,
                            this.props.item.from,
                            this.props.item.to,
@@ -91,9 +92,21 @@ class GuestOrderRow extends Component {
   }
   componentDidMount() {
     console.log(this.props.item)
+
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ user:data.user});
     });
+
+    guestService
+    .processPreorderList(window.address,this.props.item)
+    .then((data)=>{
+      if(data)
+      {
+        this.setState({contractAddress:data.orderContractAddress});
+        console.log("###### this.state.contractAddress ####",this.state.contractAddress);
+      }
+
+    })
 
     var D = new Date().getTime();
     var DateType=0;

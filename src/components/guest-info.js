@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import guestService from '../services/guest-service';
 import ppsService from '../services/pps-service';
+import orderService from '../services/order-service'
 import GuestOrderRow from './guest-orderrow';
 import GuestUsdOrderRow from './guest-usdorderrow';
 import web3Service from '../services/web3-service';
@@ -51,7 +52,6 @@ class GuestInfo extends React.Component {
 
     guestService.getOrderState().then((data)=>{
       this.setState({ orderlist:data});
-      console.log(data)
     });
 
     //这是测试代码； guestService.getOrderState()可以获得addcomment里面的ID
