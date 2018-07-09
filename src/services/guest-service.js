@@ -129,32 +129,9 @@ class GuestService {
     })
   }
   
-  getPreorderList(account){
-    return houselistingService.getGuestPreorderList(account);
-  }
-
-
-  processPreorderList(account,orderitem){
-
-  return new Promise((resolve, reject) => {
-   houselistingService.getGuestPreorderList(account).then((list)=>{
-    for (var i = list.length - 1; i >= 0; i--) {
-      var address_tmp = list[i];
-      orderService.getPreOrderInfo(list[i]).then((info)=>{
-       
-        if(info._from == orderitem.from && info._to == orderitem.to && info._guestaddress　== orderitem.guestaddress){
-          
-            var updateObj = {id:orderitem.id,orderContractAddress:address_tmp};
-            resolve(updateObj);
-
-        }
-      })
-    }
-     
-    });
- });
-
-  }
+  // getPreorderList(account){
+  //   return houselistingService.getGuestPreorderList(account);
+  // }
 
   getGuesterCode(email,subject) {
     return new Promise((resolve, reject) => {
