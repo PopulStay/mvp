@@ -93,20 +93,14 @@ class GuestOrderRow extends Component {
   componentDidMount() {
     console.log(this.props.item)
 
+    if(this.props.item.orderContractAddress)
+    {
+      this.setState({contractAddress:this.props.item.orderContractAddress});
+    }
+
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ user:data.user});
     });
-
-    guestService
-    .processPreorderList(window.address,this.props.item)
-    .then((data)=>{
-      if(data)
-      {
-        this.setState({contractAddress:data.orderContractAddress});
-        console.log("###### this.state.contractAddress ####",this.state.contractAddress);
-      }
-
-    })
 
     var D = new Date().getTime();
     var DateType=0;
