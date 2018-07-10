@@ -77,7 +77,7 @@ contract HouseInfoListing{
             PreOrders[_houseinfo].push(preorder); 
             GuestOrders[_guestaddress].push(preorder);
             HouseOwnerOrders[_hostaddress].push(preorder);
-            emit orderid(address(preorder));
+            orderid(address(preorder));
             return address(preorder);
         }
         return ;
@@ -103,7 +103,7 @@ contract HouseInfoListing{
         PreOrders[_houseinfo].push(preorder); 
         GuestOrders[_guestaddress].push(preorder);
         HouseOwnerOrders[_hostaddress].push(preorder);
-        emit orderid(address(preorder));
+        orderid(address(preorder));
         return address(preorder);
     }
      return;

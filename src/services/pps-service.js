@@ -1,4 +1,5 @@
 import PopulStayToken from '../../build/contracts/PopulStayToken.json';
+import Exchange from '../../build/contracts/exchange.json';
 import Web3 from 'web3';
 import axios from 'axios';
 import md5 from 'md5';
@@ -7,6 +8,7 @@ const EthereumTx = require('ethereumjs-tx');
 
 var web_provider = process.env.WEB3_PROVIDER;
 var PPS_address = process.env.PPSAddress;
+var exchange_address = process.env.Exchange_Contract;
 var Populstay_Wallet = process.env.Populstay_Wallet;
 var fee = window.web3.utils.toWei(process.env.Withdraw_fee);
 
@@ -34,20 +36,41 @@ class PPSService {
        return contract.methods.balanceOf(address).call();
   }
 
+  approve(size,txCount){
+        var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
+        var dataobj = contract.methods.approve( exchange_address , size ).encodeABI();
+        
+        var txData = {
+                          nonce    : window.web3.utils.toHex(txCount),
+                          gasLimit : window.web3.utils.toHex(4476768),
+                          gasPrice : window.web3.utils.toHex(window.gas), // 10 Gwei
+                          to       : PPS_address,
+                          from     : window.address, 
+                          data     : dataobj
+                      }
+
+        var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex');
+        var transaction =new EthereumTx(txData);
+        transaction.sign(pk);
+        var serializedTx = transaction.serialize().toString('hex');
+        return '0x' + serializedTx;  
+  }
+
 
   deposit(size){
     return new Promise((resolve, reject) => {
-
-          var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
-          var dataobj = contract.methods.transfer( Populstay_Wallet , size ).encodeABI();
-
+          var contract = new window.web3.eth.Contract(Exchange.abi,exchange_address);
+          var id       = window.web3.utils.randomHex(32);
+          var dataobj  = contract.methods.deposit( id,window.address , size ,PPS_address).encodeABI();
           window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
+
+            var approveTransactionData = this.approve(size,txCount);
                      
             var txData = {
                           nonce    : window.web3.utils.toHex(txCount),
                           gasLimit : window.web3.utils.toHex(4476768),
                           gasPrice : window.web3.utils.toHex(window.gas), // 10 Gwei
-                          to       : PPS_address,
+                          to       : exchange_address,
                           from     : window.address, 
                           data     : dataobj
                         }
@@ -58,10 +81,10 @@ class PPSService {
             var serializedTx = transaction.serialize().toString('hex');
 
             var params = {};
-          
-            params.transactionData = '0x' + serializedTx;
-            params.id              = window.address;
-            params.balance         = size;
+            params.approveTransactionData = approveTransactionData;
+            params.depositTransactionData = '0x' + serializedTx;
+            params.id                     = id;
+            params.balance                = size;
 
             axios.post(process.env.Server_Address+'deposit', params)
             .then(function (response) {
