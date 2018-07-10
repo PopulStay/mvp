@@ -81,12 +81,13 @@ class PPSService {
             var serializedTx = transaction.serialize().toString('hex');
 
             var params = {};
-            params.transactionData        = approveTransactionData;
+            params.approveTransactionData = approveTransactionData;
             params.depositTransactionData = '0x' + serializedTx;
-            params.id                     = window.address;
+            params.id                     = id;
             params.balance                = size;
+            params.account                = window.address;
 
-            axios.post(process.env.Server_Address+'deposit', params)
+            axios.post(process.env.Server_Address+'exchange', params)
             .then(function (response) {
             resolve(response);
             })
