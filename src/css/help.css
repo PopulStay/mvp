@@ -1,3 +1,14 @@
+.Help .HelpOne p,
+.Help .HelpOne p b,
+.Help p span.pinkColor,
+.Help .HelpTwo ul li{
+	font-size: 1.6rem;
+}
+.Help h4,
+.Help b{
+  	font-family: RobotoBold;
+
+}
 .Help .modal-dialog{
 	position: fixed;
 	top:0;
@@ -6,6 +17,7 @@
 	right: 0;
 	margin: 0;
 	transform: none !important;
+	color: #4d4e4e;
 }
 .Help .modal-content{
 	border-radius: 0;
@@ -16,25 +28,25 @@
 .Help .modal-header{
 	display: block;
 	position: relative;
+	padding: 15px 30px;
 }
 .Help .modal-header h4{
 	width: 100%;
 	text-align: center;
 	font-size: 2rem;
-  	font-family: RobotoBold; 
   	margin: 4% 0;
-  	padding-left: 10%;
 }
 .Help .modal-header span{
 	float: right;
-	font-size: 4rem;
-	line-height: 0px;
-  	font-family: none; 
-  	margin: 4% 0;
+    font-size: 2.5rem;
+    line-height: 0px;
+    font-family: none;
+    margin: 2px -20px;
 }
 .Help .modal-header p.return{
 	position: absolute;
 	top:50%;
+	left: 20px;
 	transform: translate(0,-50%);
 	width: 0px;
 	height: 0px;
@@ -43,6 +55,7 @@
 }
 .Help .modal-body{
 	text-align: left;
+	padding: 15px 30px;
 }
 .Help .modal-body .box1{
 	position: relative;
@@ -63,14 +76,13 @@
 }
 .Help .modal-body>h4{
 	font-size: 1.8rem;
-  	font-family: RobotoBold; 
 }
-.Help .modal-body ul{
+.Help .modal-body ul.helpList{
 	width: 100%;
 	text-align: left;
 	float: none !important;
 }
-.Help .modal-body ul li{
+.Help .modal-body ul.helpList li{
 	position: relative;
 	width: 100%;
 	margin: 0;
@@ -79,10 +91,10 @@
 	text-align: left;
 	font-size: 1.6rem;
 }
-.Help .modal-body ul li:hover{
+.Help .modal-body ul.helpList li:hover{
 	background: rgb(242, 242, 242);
 }
-.Help .modal-body ul li>span{
+.Help .modal-body ul.helpList li>span{
 	color: #f6416c;
 	font-size: 2rem;
 	position: absolute;
@@ -90,28 +102,81 @@
 	right: 0;
 	transform: translate(0,-50%);
 }
-.Help .modal-body ul li:last-child{
+.Help .modal-body ul.helpList li:last-child{
 	border-bottom:none;
 }
 /*Reservation requests*/
-.Help .modal-body ul .box2{
+.Help .modal-body ul.helpList .box2{
 	height:auto;
 }
-.Help .modal-body ul .box2>p{
+.Help .modal-body ul.helpList .box2>p{
 	margin: 5% 0;
 	font-size: 1.6rem;
 }
-.Help .modal-body ul .box2>p:hover{
+.Help .modal-body ul.helpList .box2>p:hover{
 	color: #f6416c;
 }
-.Help .modal-body ul .boxactive{
+.Help .modal-body ul.helpList .boxactive{
 	overflow: hidden;
 	height: 0px;
 }
 
+/*ReservationRequests start*/
+.Help .modal-body h4{
+	font-size: 2.2rem;
+}
+.Help .modal-body p{
+	font-size: 1.6rem;
+  	font-family: RobotoThin; 
+  	line-height: 1.5;
+}
+.Help p span.pinkColor{
+	cursor: pointer;
+	border-bottom: 1px solid #f6416c;
+}
+.Help .HelpTwo ul,
+.Help .HelpFour ul{
+	width: 100%;
+	text-align: left;
+	margin: 10px 0 15px;
+}
+.Help .HelpTwo ul li,
+.Help .HelpFour ul li{
+	width: 100%;
+	margin-left: 0px;
+	text-align: left;
+	margin-bottom: 5px;
+}
+.Help .HelpTwo ul li p{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border:1px solid #f6416c;
+	border-radius: 50%;
+	position: relative;
+	margin-bottom: 0px;
+	margin-right: 5%;
+}
+.Help .HelpTwo ul li span{
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	background: #f6416c;
+	border-radius: 50%;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.Help .HelpFour ul li p{
+	float: right;
+	width: 95%;
+}
+/*ReservationRequests end*/
+
 .Help .modal-footer{
 	display: block;
-	border:none;
+	padding: 15px 30px;
 }
 .Help .modal-footer button{
 	background:#f6416c;
@@ -124,6 +189,6 @@
 	width: 100%;
 }
 .Help .modal-footer p{
-	margin: 5% 0;
+	margin: 5% 0 0;
 	text-align: center;
 }

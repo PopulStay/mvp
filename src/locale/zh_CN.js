@@ -23,6 +23,7 @@ export const Experiences_travellers_love = '体验旅客的爱';
 export const Book_activities_led_by_local_hosts_on_your_next_trip = '在下次旅行中当主人预订活动';
 export const Tokyo = '东京';
 export const Stay_tuned = '敬请期待';
+export const search_home = '../images/search_home_zh.png';
 
 //listing-detail--------------------------------------------------------------------------------------------
 export const bedroom = '卧室';

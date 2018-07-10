@@ -4,19 +4,7 @@ import Modal from 'react-modal';
 import web3service from '../services/web3-service'
 import languageService from '../services/language-service';
 
-
-const localeList = {
-  "en_US": require('../locale/en_US.js'),
-  "zh_CN": require('../locale/zh_CN.js'),
-};
-
-const customStyles = {
-  content : {
-    background            : 'none'
-  }
-};
-
-class HelpOne extends Component {
+class HelpTwo extends Component {
 
   constructor(props) {
     super(props)
@@ -41,9 +29,10 @@ class HelpOne extends Component {
 
     return (
       <div>
-        {this.props.HelpOne &&
-            <div className="modal-body">
+        {this.props.HelpDetailNUM == 2 &&
+            <div className="HelpTwo">
               <h4>Can I book on behalf of a friend or family member?</h4>
+              <p>Transparency and trust are vital to the PopulStay experience. People rely on information in Airbnb profiles, reviews, and other</p> 
             </div>
         }
       </div>
@@ -51,4 +40,4 @@ class HelpOne extends Component {
   }
 }
 
-export default HelpOne
+export default HelpTwo
