@@ -237,7 +237,7 @@ class ListingsDetail extends Component {
     if(window.address)
     {
       web3Service.getETHBalance(window.address).then((data)=>{
-        this.setState({ ethBalance:data/this.CONST.weiToGwei});
+        this.setState({ ethBalance:data/this.CONST.weiToEther});
       });
       ppsService.getBalance(window.address).then((data)=>{
         this.setState({ ppsBalance:data});
@@ -250,41 +250,41 @@ class ListingsDetail extends Component {
 
 
   isStartDayBlocked(day){
-    var DateLists = this.state.DateLists;
-    var currentDate = new Date(this.state.checkInDate).getTime(); 
-    var dayS = new Date(day).getTime();
-    for(var i=0;i<DateLists.length;i++){
-      if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end){
-        return new Date(dayS);
+      var DateLists = this.state.DateLists;
+      var currentDate = new Date(this.state.checkInDate).getTime(); 
+      var dayS = new Date(day).getTime();
+      for(var i=0;i<DateLists.length;i++){
+        if(dayS>DateLists[i].start-86400000 && dayS<DateLists[i].end){
+          return new Date(dayS);
+        }
       }
-    }
   } 
 
   isEndDayBlocked(day){
-    var DateLists = this.state.DateLists;      
-    var currentDate = new Date(this.state.checkInDate).getTime(); 
-    var dayS = new Date(day).getTime();
-    var startdateArr = [];
-    var enddateArr = [];
-    for(var i=0;i<DateLists.length;i++){
-      if(dayS>DateLists[i].start && dayS<DateLists[i].end-86400000){
-        return new Date(dayS);
+      var DateLists = this.state.DateLists;      
+      var currentDate = new Date(this.state.checkInDate).getTime(); 
+      var dayS = new Date(day).getTime();
+      var startdateArr = [];
+      var enddateArr = [];
+      for(var i=0;i<DateLists.length;i++){
+        if(dayS>DateLists[i].start && dayS<DateLists[i].end){
+          return new Date(dayS);
+        }
+        if(currentDate<=DateLists[i].start){
+          startdateArr.push(DateLists[i].start)
+        }
+        if(currentDate>=DateLists[i].end){
+          // console.log(DateLists[i].end)
+          enddateArr.push(DateLists[i].end)
+        }
       }
-      if(currentDate<=DateLists[i].start){
-        startdateArr.push(DateLists[i].start)
-      }
-      if(currentDate>=DateLists[i].end){
-        console.log(DateLists[i].end)
-        enddateArr.push(DateLists[i].end)
-      }
-    }
-    console.log(Math.min(...startdateArr)-43200000)
-    if(dayS>Math.min(...startdateArr)-43200000) {
-        return true;
-    } 
-    // if(dayS<Math.max(...enddateArr)-86400000) {
-    //     return true;
-    // }  
+      // console.log(Math.min(...startdateArr)-43200000)
+      if(dayS>Math.min(...startdateArr)) {
+          return true;
+      } 
+      if(dayS<Math.max(...enddateArr)) {
+          return true;
+      }  
   }
       
 
@@ -306,115 +306,119 @@ class ListingsDetail extends Component {
   }
 
   handleBooking() {
+
     let unitsToBuy = 0;
     var Service_fees = this.state.Service_fees*0.01;
     if(this.state.price == 0){
-      var price = this.state.ppsPrice * this.DateDays() * this.state.guest;
-      var calcTotalPrice = price*Service_fees
-      var Total_price = calcTotalPrice+price
+      var Dayprice = this.state.ppsPrice;
+      var price = Dayprice * this.DateDays() * this.state.guest;
+      var calcTotalPrice = price*Service_fees+price
+      var Total_price = calcTotalPrice
     }
     else{
-      var price = this.state.price * this.DateDays() * this.state.guest;
-      var calcTotalPrice = price*Service_fees
-      var Total_price = calcTotalPrice+price
+      var Dayprice = this.state.price;
+      var price = Dayprice * this.DateDays() * this.state.guest;
+      var calcTotalPrice = price*Service_fees+price
+      var Total_price = calcTotalPrice
     }
+    
+    var url = "/confrim?checkInDate="+this.state.checkInDate+"&checkOutDate="+this.state.checkOutDate+"&Total_price="+Total_price+"&guest="+this.state.guest+"&DateDays="+this.DateDays()+"&price="+Dayprice+"&priceActive="+this.state.priceActive+"&lister="+this.state.lister+"&listingId="+this.props.listingId
+    window.location.href=url;
 
+    // if (this.state.checkInDate && this.state.checkOutDate) {
+    //   unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
+    // }
+    // this.setState({step: this.STEP.SUBMIT});
+    // var promise;
 
-    if (this.state.checkInDate && this.state.checkOutDate) {
-      unitsToBuy = this.state.checkOutDate.diff(this.state.checkInDate, 'days');
-    }
-    this.setState({step: this.STEP.SUBMIT});
-    var promise;
+    // if( this.state.priceActive == 1 )
+    // {
+    //   if(this.state.ppsBalance < Total_price){
+    //     this.setState({step:this.STEP.Insufficient});
+    //   }else{
+    //     promise = ppsService.setPreOrder(          
+    //      this.state.lister,
+    //      Total_price,
+    //      this.props.listingId, 
+    //      this.state.checkInDate.toDate().getTime(), 
+    //      this.state.checkOutDate.toDate().getTime(),
+    //      unitsToBuy
+    //     );
+    //   }
 
-    if( this.state.priceActive == 1 )
-    {
-      if(this.state.ppsBalance < Total_price){
-        this.setState({step:this.STEP.Insufficient});
-      }else{
-        console.log(Total_price)
-        promise = ppsService.setPreOrder(          
-         this.state.lister,
-         Total_price * unitsToBuy,
-         this.props.listingId, 
-         this.state.checkInDate.toDate().getTime(), 
-         this.state.checkOutDate.toDate().getTime(),
-         unitsToBuy
-        );
-      }
+    // } 
+    // else if( this.state.priceActive == 2 )
+    // {
 
-    } 
-    else if( this.state.priceActive == 2 )
-    {
+    //     promise = ppsService.setOrderByUSD(          
+    //        this.state.lister,
+    //        Total_price,
+    //        this.props.listingId, 
+    //        this.state.checkInDate.toDate().getTime(), 
+    //        this.state.checkOutDate.toDate().getTime(),
+    //        unitsToBuy
+    //     );
+    //     this.setState({step:this.STEP.PURCHASED})
+    //      return ;
 
-        promise = ppsService.setOrderByUSD(          
-           this.state.lister,
-           Total_price * unitsToBuy,
-           this.props.listingId, 
-           this.state.checkInDate.toDate().getTime(), 
-           this.state.checkOutDate.toDate().getTime(),
-           unitsToBuy
-        );
-        this.setState({step:this.STEP.PURCHASED})
-         return ;
+    // }else
+    // {
 
-    }else
-    {
+    //   if( Total_price > this.state.ethBalance )
+    //   {
+    //     var to    = window.address;
+    //     var value = Total_price
+    //     qr.toDataUrl({
+    //         to    : window.address,
+    //         value : value,
+    //         gas   : window.gas
+    //     }).then((qrCodeDataUri)=>{
+    //     this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
+    //     })
 
-      if( Total_price * unitsToBuy > this.state.ethBalance )
-      {
-        var to    = window.address;
-        var value = Total_price * unitsToBuy*this.CONST.weiToGwei;
-        qr.toDataUrl({
-            to    : window.address,
-            value : value,
-            gas   : window.gas
-        }).then((qrCodeDataUri)=>{
-        this.setState({qrurl:qrCodeDataUri.dataURL}); //'data:image/png;base64,iVBORw0KGgoA....'
-        })
-
-        this.openModal();
-        web3Service.getBalanceForCharge(to,value).then((balance) =>{
-        this.closeModal();
-        promise =    houselistingService.setPreOrderByETH(          
-                                         this.state.lister,
-                                         Total_price * unitsToBuy* this.CONST.GweiToEther,
-                                         this.props.listingId, 
-                                         this.state.checkInDate.toDate().getTime(), 
-                                         this.state.checkOutDate.toDate().getTime(),
-                                         unitsToBuy
-                                        );
-         });
-         return ;
-      }
-      else
-      {
-        promise =    houselistingService.setPreOrderByETH(          
-                                         this.state.lister,
-                                         Total_price * unitsToBuy,
-                                         Total_price * unitsToBuy * this.CONST.GweiToEther,
-                                         this.props.listingId, 
-                                         this.state.checkInDate.toDate().getTime(), 
-                                         this.state.checkOutDate.toDate().getTime(),
-                                         unitsToBuy
-                                        );
-      }
-    }
+    //     this.openModal();
+    //     web3Service.getBalanceForCharge(to,value).then((balance) =>{
+    //     this.closeModal();
+    //     promise =    houselistingService.setPreOrderByETH(          
+    //                                      this.state.lister,
+    //                                      Total_price,
+    //                                      this.props.listingId, 
+    //                                      this.state.checkInDate.toDate().getTime(), 
+    //                                      this.state.checkOutDate.toDate().getTime(),
+    //                                      unitsToBuy
+    //                                     );
+    //      });
+    //      return ;
+    //   }
+    //   else
+    //   {
+    //     promise =    houselistingService.setPreOrderByETH(          
+    //                                      this.state.lister,
+    //                                      Total_price * unitsToBuy,
+    //                                      Total_price * unitsToBuy * this.CONST.GweiToEther,
+    //                                      this.props.listingId, 
+    //                                      this.state.checkInDate.toDate().getTime(), 
+    //                                      this.state.checkOutDate.toDate().getTime(),
+    //                                      unitsToBuy
+    //                                     );
+    //   }
+    // }
  
-    promise.then((transactionReceipt) => {
-      console.log("Purchase request sent.")
-      this.setState({step: this.STEP.PROCESSING})
-      return ppsService.waitTransactionFinished(transactionReceipt)
-    })
-    .then((blockNumber) => {
-      this.setState({step: this.STEP.PURCHASED})
-    })
-    .catch((error) => {
-      console.log(error)
-      this.setState({step: this.STEP.VIEW})
-    })
+    // promise.then((transactionReceipt) => {
+    //   console.log("Purchase request sent.")
+    //   this.setState({step: this.STEP.PROCESSING})
+    //   return ppsService.waitTransactionFinished(transactionReceipt)
+    // })
+    // .then((blockNumber) => {
+    //   this.setState({step: this.STEP.PURCHASED})
+    // })
+    // .catch((error) => {
+    //   console.log(error)
+    //   this.setState({step: this.STEP.VIEW})
+    // })
 
-    this.setState({checkInDate:null});
-    this.setState({checkOutDate:null});
+    // this.setState({checkInDate:null});
+    // this.setState({checkOutDate:null});
   }
 
   DateDays() {
@@ -429,22 +433,22 @@ class ListingsDetail extends Component {
     var Service_fees = this.state.Service_fees*0.01;
     if(this.state.price == 0){
       var price = this.state.ppsPrice * this.DateDays() * this.state.guest;
-      var calcTotalPrice = price*Service_fees
-      return calcTotalPrice+price
+      var calcTotalPrice = price*Service_fees+price;
+      return calcTotalPrice.toFixed(2)
     }
     else{
       var price = this.state.price * this.DateDays() * this.state.guest;
-      var calcTotalPrice = price*Service_fees
-      return calcTotalPrice+price
+      var calcTotalPrice = price*Service_fees+price
+      return calcTotalPrice.toFixed(2)
     }
   }
 
   TotalPrice() {
     if(this.state.price == 0){
-      return this.state.ppsPrice * this.DateDays() * this.state.guest;
+      return (this.state.ppsPrice * this.DateDays() * this.state.guest).toFixed(2);
     }
     else{
-      return this.state.price * this.DateDays() * this.state.guest;
+      return (this.state.price * this.DateDays() * this.state.guest).toFixed(2);
     }
   }
 

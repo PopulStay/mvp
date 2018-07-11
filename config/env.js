@@ -20,6 +20,7 @@ function getClientEnvironment(publicUrl) {
       'Socket_Server':JSON.stringify("http://localhost:1338/"),
       'Populstay_Wallet':JSON.stringify("0xB421ca5420dC2D6F0bf868c52ad1ff8614E68788"),
       'WEB3_PROVIDER':JSON.stringify("https://kovan.infura.io/FrDFhx3FbezOwQJjQv9T"),
+      'Exchange_Contract':JSON.stringify("0xa88dd1ce8c1ffb87bf4a0dd097a674bf2b2530ef"),
       'Withdraw_fee':JSON.stringify("0.01")
     });
     

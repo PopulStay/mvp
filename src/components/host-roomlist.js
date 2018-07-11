@@ -23,7 +23,6 @@ class HostRoomListRow extends Component {
 
 
   getHostRoomInfo(){
-    console.log(this.props)
     var roominfo = this.props.row.houseinfo;
     this.setState({
       state:this.props.row.state,

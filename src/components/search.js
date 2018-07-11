@@ -169,7 +169,7 @@ class Search extends Component {
 
                         <div className="search  col-sm-12  col-md-3  col-lg-3">
                             <a onClick={this.setURL} href="#" className="btn button__fill btn-lg form__search">
-                                <img src="../images/search_home.png" />
+                                <img src={language.search_home} />
                             </a>
                         </div>
                     </div>
