@@ -114,6 +114,7 @@ class GuestOrderRow extends Component {
     var DateType=300;
       console.log(3)
     }
+    console.log(this.props.item)
     this.setState({
       houseinfoid:this.props.item.houseinfoid,
       id:this.props.item.id,
@@ -150,7 +151,12 @@ class GuestOrderRow extends Component {
           });
         }
       }else{
-        this.setState({Bad_review_type:false});
+        if(this.state.Comment != ""){
+          guestService.addComment(this.props.item.id,this.state.Comment,this.state.Accuracy,this.state.Location,this.state.Communication,this.state.Check_in,this.state.Cleanliness,this.state.Value).then((data)=>{
+              this.setState({state:'5',modalIsOpen: false});
+          });
+          this.setState({Bad_review_type:false});
+        }
       }
     }
   }
@@ -211,8 +217,8 @@ class GuestOrderRow extends Component {
           {this.state.ethprice != '0' && this.state.ethprice && <div>{this.state.ethprice+"/ETH"}</div> }
           {this.state.price != '0' && this.state.price && <div>{this.state.price+"/PPS"}</div> }
           { this.state.state === '1' &&<div>{language.state1}</div>}
-          { this.state.state === '2' &&<div><button className={this.state.DateType == 100 && this.state.DateType == 200 ? "" : "btnActive"}  disabled={this.state.DateType == 100 && this.state.DateType == 200 ? "" : "true"} onClick={(e)=>this.setState({checkInOpen:true})}>{this.state.DateType == 100 ? language.Check_In_to : ""}{this.state.DateType == 200 ? language.Check_In_from : ""}{this.state.DateType == 300 ? language.Check_In : ""}</button></div>}
-          { this.state.state === '-2' &&<div><button className={this.state.DateType == 100 && this.state.DateType == 200 ? "" : "btnActive"} disabled={this.state.DateType == 100 && this.state.DateType == 200 ? "" : "true"} onClick={(e)=>this.setState({USDcheckInOpen:true})}>{this.state.DateType == 100 ? language.Check_In_to : ""}{this.state.DateType == 200 ? language.Check_In_from : ""}{this.state.DateType == 300 ? language.Check_In : ""}</button></div>}
+          { this.state.state === '2' &&<div><button className={this.state.DateType == 300 ? "" : "btnActive"}  disabled={this.state.DateType == 300 ? "" : "true"} onClick={(e)=>this.setState({checkInOpen:true})}>{this.state.DateType == 100 ? language.Check_In_to : ""}{this.state.DateType == 200 ? language.Check_In_from : ""}{this.state.DateType == 300 ? language.Check_In : ""}</button></div>}
+          { this.state.state === '-2' &&<div><button className={this.state.DateType == 300 ? "" : "btnActive"} disabled={this.state.DateType == 300 ? "" : "true"} onClick={(e)=>this.setState({USDcheckInOpen:true})}>{this.state.DateType == 100 ? language.Check_In_to : ""}{this.state.DateType == 200 ? language.Check_In_from : ""}{this.state.DateType == 300 ? language.Check_In : ""}</button></div>}
           { this.state.state === '3' &&<div>{language.state1}</div>}
           { this.state.state === '4' &&<div><button className="btn-sn btn-danger" onClick={this.openModal}>{language.Reviews}</button></div>}
           { this.state.state === '5' &&<div>{language.ok_Reviews}</div>}

@@ -23,6 +23,7 @@ export const Experiences_travellers_love = 'Experiences travellers love';
 export const Book_activities_led_by_local_hosts_on_your_next_trip = 'Book activities led by local hosts on your next trip';
 export const Tokyo = 'Tokyo';
 export const Stay_tuned = 'Stay tuned';
+export const search_home = '../images/search_home.png';
 
 //listing-detail--------------------------------------------------------------------------------------------
 export const bedroom = 'bedroom';
