@@ -22,8 +22,8 @@ window.onload = function () {
     $(".lock-design__process:even").addClass('lock-design__process_zh_s');
     $(".lock-design__process:odd").addClass('lock-design__process_zh');
     $(".lock-design__intro~.lock-design__intro .lock-design__locker:after").addClass('lock-design__intro_zh');
-    $(".lock-design li.lock-design__avatar:odd").append("<p>房客</p>");
-    $(".lock-design li.lock-design__avatar:even").append("<p>房东</p>");
+    $(".lock-design li.lock-design__avatar:odd").append("<p>房东</p>");
+    $(".lock-design li.lock-design__avatar:even").append("<p>房客</p>");
     $(".lock-design__locker1").append('<img class="img1" src="img/lock-design-smarter-zh.png" />');
     $(".lock-design__locker2").append('<img class="img1" src="img/lock-zh.png" />');
     $(".h3_subtitle").hide()
@@ -49,8 +49,8 @@ window.onload = function () {
     $(".road-map__title").attr('src','./img/road-map-title.png');
     $(".header-demo-button").attr('src','./img/header-demo-button.png');
     $(".communication__title-img").attr('src','./img/communication-title.png');
-    $(".lock-design li.lock-design__avatar:odd").append("<p>Guest</p>");
-    $(".lock-design li.lock-design__avatar:even").append("<p>Host</p>");
+    $(".lock-design li.lock-design__avatar:odd").append("<p>Host</p>");
+    $(".lock-design li.lock-design__avatar:even").append("<p>Guest</p>");
     $(".lock-design__process:even").removeClass('lock-design__process_zh_s');
     $(".lock-design__process:odd").removeClass('lock-design__process_zh');
     $(".lock-design__intro~.lock-design__intro .lock-design__locker:after").removeClass('lock-design__intro_zh');
