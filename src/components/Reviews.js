@@ -929,7 +929,7 @@ class Reviews extends React.Component {
                               <p><Timestamp time={item.from.substring(0,10)} format='date'/></p>
                           </div>
                       </div>
-                      <p className="GuestDiv">{item.comment}</p>
+                      <p className="GuestDiv">{item.comment ? item.comment : language.This_user_has_no_comments }</p>
                   </li>
                 ))}
               </ul>

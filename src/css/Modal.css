@@ -12,13 +12,20 @@
 .Sign,
 .submit,
 .Wallet_Reviews{
-  width: 410px;
+  width: 460px;
   background: #fff;
   border-radius: 7px;
   border-radius: 20px;
   border-radius: 25px !important;
   padding: 10%;
   overflow: hidden;
+}
+button.copy,button.copy:hover{
+  width: auto !important;
+  font-size: 1.4rem !important;
+  padding: 0 5% !important;
+  background:#fff !important;
+  color: #f6416c !important;
 }
 .overlay-box button a{
   color: #f5426c;
@@ -215,6 +222,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 1.6rem;
+}
+.GuestManagment .divtr>div,
+.GuestManagment .overflowAuto .divtr>div{
+  width:14.2%;
 }
 .GuestManagment .divtr>div button{
   background: #fff;

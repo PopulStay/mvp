@@ -3,11 +3,15 @@ pragma solidity ^0.4.18;
 
 
 
+
 contract HouseInfoListing{
-   address   public tokenAddress;//tokenAddress used to pay 
-   bytes32[] private districtcode;//district code
-   address   private contractowner;
-   uint   public preOrderaddressfortest;
+    
+    event orderid(address preOrder);
+     
+    address   public  tokenAddress;//tokenAddress used to pay 
+    bytes32[] private districtcode;//district code
+    address   private contractowner;
+    uint      public  preOrderaddressfortest;
 
    function HouseInfoListing(address _tokenAddress)
    payable
@@ -73,6 +77,7 @@ contract HouseInfoListing{
             PreOrders[_houseinfo].push(preorder); 
             GuestOrders[_guestaddress].push(preorder);
             HouseOwnerOrders[_hostaddress].push(preorder);
+            orderid(address(preorder));
             return address(preorder);
         }
         return ;
@@ -98,9 +103,10 @@ contract HouseInfoListing{
         PreOrders[_houseinfo].push(preorder); 
         GuestOrders[_guestaddress].push(preorder);
         HouseOwnerOrders[_hostaddress].push(preorder);
+        orderid(address(preorder));
         return address(preorder);
     }
-     return ;
+     return;
   }
   
   //"test1",999,1000000000,"roominfo","0x3333322d30303332000000000000000000000000000000000000000000000000"
@@ -181,6 +187,8 @@ contract HouseInfoListing{
   }
  
 }
+
+
 
 
 

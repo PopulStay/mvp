@@ -6,7 +6,7 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import guestService from '../services/guest-service';
 import web3Service from '../services/web3-service';
 import languageService from '../services/language-service';
-
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 class WalletClear extends React.Component {
   constructor(props) {
@@ -105,12 +105,17 @@ class WalletClear extends React.Component {
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
             <div>
               <h3>{language.Address}</h3>
+              <CopyToClipboard text={window.address}
+                onCopy={() => this.setState({copied: true})}>
+                <button className="copy">{this.state.copied ? language.Successful_copy : language.Copy_address}</button>
+              </CopyToClipboard>
               <p className="text1">{window.address}</p>
               <h3>{language.Private_Key}</h3>
               <p className="text1">{this.substring0x(window.privateKey)}</p>
+              
             </div>  
             <button className="btn btn-danger Left" onClick={this.clear}>{language.Clear}</button>
-            <button className="btn btn-primary Right"  onClick={(e) => this.setState({modaloutOpen:false})}>{language.Cancel}</button>
+            <button className="btn btn-primary Right"  onClick={(e) => this.setState({modaloutOpen:false,copied: false})}>{language.Cancel}</button>
           </div>
         </Modal>
 
