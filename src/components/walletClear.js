@@ -17,9 +17,10 @@ class WalletClear extends React.Component {
       pirvatekey:"",
       registered:false,
       modalinOpen: false,
+      email:'',
       Username:'',
       Password:'',
-      address:"",
+      address:'',
       clicklogout:'',
       languagelist:{},
     };
@@ -52,17 +53,24 @@ class WalletClear extends React.Component {
   }
 
   import(){
-      var obj=window.web3.eth.accounts.wallet.add( "0x" + this.state.pirvatekey );
+
+    guestService.login(this.state.email,this.state.Password).then((data)=>{
+      this.setState({ registered:true });
+      guestService.setWebToken(data.token);
+      var obj=window.web3.eth.accounts.wallet.add(data.user.encryptedPK);
       window.address          = obj.address;
       window.addressShow      = obj.address.substring(0,10)+"...";
-      window.privateKey       = "0x" + this.state.pirvatekey;
+      window.privateKey       = data.user.encryptedPK;
+
       this.setState({modalinOpen:false});
       this.props.onLogOut(false);
-       reactLocalStorage.setObject('wallet', 
-      {'address': window.address,
-      'privateKey': window.privateKey,
-      'addressshow': window.addressshow});
-    window.location.href='/';
+
+      reactLocalStorage.setObject( 'wallet', {'address': window.address,'privateKey': window.privateKey, 'addressshow': window.addressshow});
+      window.location.href='/';
+
+    });
+
+
   }
 
 
@@ -113,14 +121,17 @@ class WalletClear extends React.Component {
 
         <Modal isOpen={this.state.modalinOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal}  contentLabel="Wallet Message">
           <div className="Import">
-          <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}>{language.Log_in}</h2>
           <br/>
             <div className="form-group">
-            <label>{language.Private_Key}</label>
-            <input type="text"  className="form-control" placeholder={language.Wallet_Account} onChange={(e) => this.setState({pirvatekey: e.target.value})} />
+            <label>{language.Email}</label>
+            <input type="email"  className="form-control" placeholder={language.Enter_email} onChange={(e) => this.setState({email: e.target.value})} />
+            <br/>
+            <label>{language.User_Password}</label>
+            <input type="password"  className="form-control" placeholder={language.User_Password} onChange={(e) => this.setState({Password: e.target.value})} />
           </div>
           <br/>
-          <button className="btn btn-danger Left" onClick={this.import}>{language.Import}</button>
+          <button className="btn btn-danger Left" onClick={this.import}>{language.Log_in}</button>
           <button className="btn btn-primary Right " onClick={(e) => this.setState({modalinOpen:false})}>{language.Cancel}</button>
           </div>
         </Modal>

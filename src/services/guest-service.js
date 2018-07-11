@@ -2,6 +2,7 @@ import HouseInfoListing from '../../build/contracts/HouseInfoListing.json';
 import houselistingService from './houseinfolist-service';
 import orderService from '../services/order-service';
 import axios from 'axios';
+import {reactLocalStorage} from 'reactjs-localstorage';
 
 class GuestService {
   static instance
@@ -31,6 +32,29 @@ class GuestService {
          });           
   }
 
+  setWebToken(token){
+    window.webtoken = 'bear '+token;
+  }
+
+  login(email,password){
+    var params = {};
+    params.email    = email;
+    params.password = password;
+
+    return new Promise((resolve, reject) => {
+    axios.post(process.env.Server_Address+'auth/index', params)
+    .then(function (response) {
+      resolve(response.data);
+    })
+    .catch(function (error) {
+      console.error(error)
+      reject(error)
+    });
+    });
+
+
+  }
+
   addComment(id,comment,accuracyStar,locationStar,communicationStar,checkinStar,cleanlinessStar,valueStar){
     var params = {};
     
@@ -52,7 +76,7 @@ class GuestService {
       console.error(error)
       reject(error)
     });
-    })
+    });
 
   }
   checkemail(emailAddress){
