@@ -1,5 +1,5 @@
 import PopulStayToken from '../../build/contracts/PopulStayToken.json';
-import Exchange from '../../build/contracts/exchange.json';
+import Exchange from '../../build/contracts/Exchange.json';
 import Web3 from 'web3';
 import axios from 'axios';
 import md5 from 'md5';
@@ -35,7 +35,50 @@ class PPSService {
        var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
        return contract.methods.balanceOf(address).call();
   }
+  //old version of deposit  delete by eric 2018-07-10 start
+  // deposit(size){
+  //   return new Promise((resolve, reject) => {
 
+  //         var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
+  //         var dataobj = contract.methods.transfer( Populstay_Wallet , size ).encodeABI();
+
+  //         window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
+                     
+  //           var txData = {
+  //                         nonce    : window.web3.utils.toHex(txCount),
+  //                         gasLimit : window.web3.utils.toHex(4476768),
+  //                         gasPrice : window.web3.utils.toHex(window.gas), // 10 Gwei
+  //                         to       : PPS_address,
+  //                         from     : window.address, 
+  //                         data     : dataobj
+  //                       }
+
+  //           var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex');
+  //           var transaction =new EthereumTx(txData);
+  //           transaction.sign(pk);
+  //           var serializedTx = transaction.serialize().toString('hex');
+
+  //           var params = {};
+          
+  //           params.transactionData = '0x' + serializedTx;
+  //           params.id              = window.address;
+  //           params.balance         = size;
+
+  //           axios.post(process.env.Server_Address+'deposit', params)
+  //           .then(function (response) {
+  //           resolve(response);
+  //           })
+  //           .catch(function (error) {
+  //           console.error(error)
+  //           reject(error)
+  //           });
+                    
+  //         });
+  //     });
+  // }
+  //old version of deposit  delete by eric 2018-07-10 end
+
+  //new version of deposit by eric 2018-07-10 start
   approve(size,txCount){
         var contract = new window.web3.eth.Contract(PopulStayToken.abi,PPS_address);
         var dataobj = contract.methods.approve( exchange_address , size ).encodeABI();
@@ -67,7 +110,7 @@ class PPSService {
             var approveTransactionData = this.approve(size,txCount);
                      
             var txData = {
-                          nonce    : window.web3.utils.toHex(txCount),
+                          nonce    : window.web3.utils.toHex(txCount+1),
                           gasLimit : window.web3.utils.toHex(4476768),
                           gasPrice : window.web3.utils.toHex(window.gas), // 10 Gwei
                           to       : exchange_address,
@@ -84,10 +127,10 @@ class PPSService {
             params.approveTransactionData = approveTransactionData;
             params.depositTransactionData = '0x' + serializedTx;
             params.id                     = id;
-            params.balance                = size;
+            //params.balance                = size;
             params.account                = window.address;
 
-            axios.post(process.env.Server_Address+'exchange', params)
+            axios.post(process.env.Server_Address+'exchange/deposit', params)
             .then(function (response) {
             resolve(response);
             })
@@ -99,6 +142,7 @@ class PPSService {
           });
       });
   }
+  //new version of deposit by eric 2018-07-10 end
 
   getDepositBalance(id){
     
