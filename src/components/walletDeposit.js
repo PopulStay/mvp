@@ -46,8 +46,7 @@ class WalletDeposit extends React.Component {
 
       ppsService.deposit(this.state.PPS)
       .then((res)=>{
-
-       var hash;
+       var hash;  
        if(res.data[0])
        {
         hash = res.data[0].txhash;
@@ -55,11 +54,9 @@ class WalletDeposit extends React.Component {
        {
         hash= res.data.txhash;
        }
-        ppsService.waitTransactionFinished(hash)
-        .then((data)=>{
-            this.setState({PPS:0});
+       if(res.status == 200){
            this.closeWaitModal();
-        });
+       }
       });
 
   }

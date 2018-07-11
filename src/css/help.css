@@ -1,6 +1,6 @@
 .Help .HelpOne p,
 .Help .HelpOne p b,
-.Help p span.pinkColor,
+.Help span.pinkColor,
 .Help .HelpTwo ul li{
 	font-size: 1.6rem;
 }
@@ -130,24 +130,34 @@
   	font-family: RobotoThin; 
   	line-height: 1.5;
 }
-.Help p span.pinkColor{
+.Help span.pinkColor,
+.Help .HelpEight span.pinkColor{
+	font-size: 1.6rem;
 	cursor: pointer;
 	border-bottom: 1px solid #f6416c;
 }
 .Help .HelpTwo ul,
-.Help .HelpFour ul{
+.Help .HelpFour ul,
+.Help .HelpEight ul,
+.Help .HelpTen ul{
 	width: 100%;
 	text-align: left;
 	margin: 10px 0 15px;
 }
 .Help .HelpTwo ul li,
-.Help .HelpFour ul li{
+.Help .HelpFour ul li,
+.Help .HelpEight ul li,
+.Help .HelpTen ul li{
 	width: 100%;
 	margin-left: 0px;
 	text-align: left;
 	margin-bottom: 5px;
+	font-size: 1.6rem;
+	line-height: 1.5;
 }
-.Help .HelpTwo ul li p{
+.Help .HelpTwo ul li p,
+.Help .HelpEight ul li p,
+.Help .HelpTen ul.ultwo li p{
 	display: inline-block;
 	width: 14px;
 	height: 14px;
@@ -155,9 +165,10 @@
 	border-radius: 50%;
 	position: relative;
 	margin-bottom: 0px;
-	margin-right: 5%;
 }
-.Help .HelpTwo ul li span{
+.Help .HelpTwo ul li p span,
+.Help .HelpEight ul li p span,
+.Help .HelpTen ul.ultwo li p span{
 	display: inline-block;
 	width: 9px;
 	height: 9px;
@@ -168,9 +179,24 @@
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
-.Help .HelpFour ul li p{
+.Help .HelpFour ul li p,
+.Help .HelpTen ul.ulone li p,
+.Help .HelpTen ul.ultwo li div{
 	float: right;
 	width: 95%;
+}
+.Help .HelpTwo ul li div,
+.Help .HelpEight ul li div,
+.Help .HelpTen ul.ultwo li div{
+	float: right;
+	width: 93%;
+}
+.Help .HelpTen p img{
+	width: 10px;
+}
+.Help .HelpTwo ul li div h6{
+	font-size: 1.6rem;
+	margin: 0 0 6px;
 }
 /*ReservationRequests end*/
 
