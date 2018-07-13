@@ -156,7 +156,7 @@ class ListingsDetail extends Component {
          //with smart contract 
       houseInfoDetailPromise =  houselistingService.getHouseInfoDetail(this.props.listingId)
         .then((result) => {
-        console.log(result._ethPrice/this.CONST.weiToGwei)
+        
             var roominfo = JSON.parse(result._roominfo);
             this.setState({ppsPrice:result._price,category:roominfo.category,location:roominfo.location,beds:roominfo.beds,lister:result._owner,ethPrice:result._ethPrice/this.CONST.weiToGwei,usdPrice:result._ethPrice/this.CONST.weiToUSD});
             //slideArray.push();
@@ -181,7 +181,7 @@ class ListingsDetail extends Component {
 
 
         houseInfoDetailPromise.then((result)=>{
-          console.log(result)
+          
               var descriptioninfo = result;
              this.setState({descriptioninfo:descriptioninfo});
              if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
@@ -274,11 +274,11 @@ class ListingsDetail extends Component {
           startdateArr.push(DateLists[i].start)
         }
         if(currentDate>=DateLists[i].end){
-          // console.log(DateLists[i].end)
+          // //console.log(DateLists[i].end)
           enddateArr.push(DateLists[i].end)
         }
       }
-      // console.log(Math.min(...startdateArr)-43200000)
+      // //console.log(Math.min(...startdateArr)-43200000)
       if(dayS>Math.min(...startdateArr)) {
           return true;
       } 
@@ -405,7 +405,7 @@ class ListingsDetail extends Component {
     // }
  
     // promise.then((transactionReceipt) => {
-    //   console.log("Purchase request sent.")
+    //   //console.log("Purchase request sent.")
     //   this.setState({step: this.STEP.PROCESSING})
     //   return ppsService.waitTransactionFinished(transactionReceipt)
     // })
@@ -413,7 +413,7 @@ class ListingsDetail extends Component {
     //   this.setState({step: this.STEP.PURCHASED})
     // })
     // .catch((error) => {
-    //   console.log(error)
+    //   //console.log(error)
     //   this.setState({step: this.STEP.VIEW})
     // })
 

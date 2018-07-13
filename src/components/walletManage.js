@@ -30,13 +30,6 @@ class WalletManage extends React.Component {
   }
 
   import(){
-    // console.log("pirvatekey:",this.state.pirvatekey);
-    //   var obj=window.web3.eth.accounts.wallet.add(this.state.pirvatekey);
-    //   window.address          = obj.address;
-    //   window.addressShow      = window.address.substring(0,10)+"...";
-    //   window.privateKey       = this.state.pirvatekey;
-    // this.closeModal();
-
   }
   openModal() {
     this.setState({modalIsOpen: true});

@@ -39,7 +39,7 @@ class ListingCard extends Component {
         1000
       );
     }
-    console.log(roominfo)
+    
     this.setState(
     {
       price:this.props.row.price,

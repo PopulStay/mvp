@@ -20,10 +20,10 @@ class GuestOrderRow extends Component {
 
 
   getPreOrderInfo(){
-    console.log(this.props.address);
+  
     orderService.getPreOrderInfo(this.props.address)
     .then((result) => {
-        console.log(result);
+      
         this.setState({houseInformation : result[3]});
         this.setState({status           : result[7]});
         this.setState({from             : result[4]});

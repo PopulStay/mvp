@@ -101,9 +101,9 @@ class Video extends Component {
     this.client && this.client.unpublish(this.localStream)
     this.localStream && this.localStream.close()
     this.client && this.client.leave(() => {
-      console.log('Client succeed to leave.')
+      //console.log('Client succeed to leave.')
     }, () => {
-      console.log('Client failed to leave.')
+      //console.log('Client failed to leave.')
     })
   }
 
@@ -112,13 +112,13 @@ class Video extends Component {
 //sending message and online control
   handleEnterMessage =()=>{
 
-    console.log(window.address)
+    //console.log(window.address)
      if( window.address == this.state.host )
      {
         window.io.socket.get("/messages/tellguest?text="+this.state.text+"&host="+this.state.host+"&guest="+this.state.connectguest, 
         (data, jwRes)=> 
         {
-          console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
+          //console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
           this.setState({state: this.state.messagearr.push({index: 0,message: this.state.text})});
           this.setState({text:''});
         });
@@ -130,7 +130,7 @@ class Video extends Component {
         window.io.socket.get("/messages/tellhost?text="+this.state.text+"&host="+this.state.host+"&guest="+window.address, 
         (data, jwRes)=> 
         {
-          console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
+          //console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
           this.setState({state: this.state.messagearr.push({index: 0,message: this.state.text})});
           this.setState({text:''});
         });
@@ -142,14 +142,14 @@ class Video extends Component {
         window.io.sails.url = socketServer;
         window.io.socket=window.io.sails.connect();
         window.io.socket.get('/messages/join?account='+window.address+'&host='+this.state.host,(data, jwRes) =>{
-        console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
+        //console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
         
     });
 
     if( window.address == this.state.host )
     {
         window.io.socket.on('hostlisten'+window.address,  (data)=> {
-          console.log("host listen");
+          //console.log("host listen");
           var datamessage = data.message;
           
 
@@ -162,7 +162,7 @@ class Video extends Component {
         });
 
         window.io.socket.on('connection'+this.state.host,  (data)=> {
-          console.log("######################connection ",data);
+          //console.log("######################connection ",data);
           if(data.type == 'audio')
           {
             this.setState({connectionCode:data.connection,audioCalling:true,guestAddress:data.guestAddress}); 
@@ -177,7 +177,7 @@ class Video extends Component {
     if( window.address != this.state.host )
     {
       window.io.socket.on('guestlisten'+window.address,  (data)=> {
-        console.log("######################guestlisten"+window.address);
+        //console.log("######################guestlisten"+window.address);
         var datamessage = data.message;
         this.setState({state: this.state.messagearr.push({
                 index: 1,
@@ -187,7 +187,7 @@ class Video extends Component {
       }); 
 
        window.io.socket.on('answerconnection'+window.address,  (data)=> {
-          console.log("######################connection ",data);
+         //console.log("######################connection ",data);
           this.setState({socketid:data.socketid});
           if(data.type == 'audio')
           {
@@ -202,13 +202,13 @@ class Video extends Component {
 
 
      window.io.socket.on('online'+this.state.host,  (data)=> {
-        console.log("######################online ",data);
+        //console.log("######################online ",data);
         this.setState({online:true});
        
       });  
 
       window.io.socket.on('offline'+this.state.host,  (data)=> {
-        console.log("######################offline ",data);
+        //console.log("######################offline ",data);
          this.setState({online:false});
       });  
   }
@@ -216,7 +216,7 @@ class Video extends Component {
   handleKeyPress =(e)=> {
     if(this.state.ppsBalance>=1){
       if (e.key === 'Enter' && e.target.value != "") {
-        console.log('do validate');
+        //console.log('do validate');
         this.handleEnterMessage();
       }
     }
@@ -265,8 +265,8 @@ class Video extends Component {
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
         this.client.init( this.constant.appId ,()=>{
-        console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
-        console.log("this.state.host"+this.state.host);
+        //console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
+        //console.log("this.state.host"+this.state.host);
         this.subscribeStreamEvents();
         this.videoJoin();
       });
@@ -275,17 +275,17 @@ class Video extends Component {
 
   videoJoin = () =>{
             this.client.join(null, this.state.connectionCode, null, (uid) => {
-            console.log("User " + uid + " join channel successfully");
-            console.log('At ' + new Date().toLocaleTimeString());
-            console.log(uid);
+            //console.log("User " + uid + " join channel successfully");
+            //console.log('At ' + new Date().toLocaleTimeString());
+            //console.log(uid);
         this.localStream = window.AgoraRTC.createStream({streamID: uid,audio: true,video: true,screen: false});
         this.localStream.setVideoProfile("480p_4");
         this.localStream.on("accessAllowed", function() {
-          console.log("accessAllowed");
+          //console.log("accessAllowed");
         });
         // The user has denied access to the camera and mic.
         this.localStream.on("accessDenied", function() {
-          console.log("accessDenied");
+          //console.log("accessDenied");
         });
 
 
@@ -293,17 +293,17 @@ class Video extends Component {
             //this.localStream.play('agora_local');   
 
             this.client.publish(this.localStream, err => {
-              console.log("Publish local stream error: " + err);
+              //console.log("Publish local stream error: " + err);
             });
 
             this.client.on('stream-published', function (evt) {
-                console.log("Publish local stream successfully");
+                //console.log("Publish local stream successfully");
              });
 
             this.setState({ readyState: true , videoCalling: false,videobox:1 });
         },
           err => {
-            console.log("getUserMedia failed", err);
+            //console.log("getUserMedia failed", err);
             this.setState({ readyState: true , videoCalling: false  });
           });
      
@@ -331,8 +331,8 @@ class Video extends Component {
             this.setState({connectionCode:data.connection});
             this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
             this.client.init( this.constant.appId ,()=>{
-            console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
-            console.log("this.state.host"+this.state.host);
+            //console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
+            //console.log("this.state.host"+this.state.host);
             this.subscribeStreamEvents();
           });
           }
@@ -356,8 +356,8 @@ class Video extends Component {
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
         this.client.init( this.constant.appId ,()=>{
-        console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
-        console.log("this.state.host"+this.state.host);
+        //console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
+        //console.log("this.state.host"+this.state.host);
         this.subscribeStreamEvents();
         this.audioJoin();
 
@@ -366,7 +366,7 @@ class Video extends Component {
   }
 
   leave =()=> {
-   console.log( '/messages/leave?socketid='+this.state.socketid );
+   //console.log( '/messages/leave?socketid='+this.state.socketid );
       window.io.socket.get('/messages/leave?socketid='+this.state.socketid,
       (data, jwRes)=>{
         this.setState({socketid:data.socketid});
@@ -374,9 +374,9 @@ class Video extends Component {
 
 
       this.client.leave(function () {
-      console.log("Leavel channel successfully");
+      //console.log("Leavel channel successfully");
       }, function (err) {
-      console.log("Leave channel failed");
+      //console.log("Leave channel failed");
       });
       this.setState({videobox:0})
 }
@@ -384,34 +384,34 @@ class Video extends Component {
   audioJoin = () =>{
 
         this.client.join(null, this.state.connectionCode, null, (uid) => {
-        console.log("User " + uid + " join channel successfully");
-        console.log('At ' + new Date().toLocaleTimeString());
-        console.log(uid);
+        //console.log("User " + uid + " join channel successfully");
+        //console.log('At ' + new Date().toLocaleTimeString());
+        //console.log(uid);
       
         this.localStream = window.AgoraRTC.createStream({streamID: uid,audio: true,video: false,screen: false});
         
         this.localStream.on("accessAllowed", function() {
-          console.log("accessAllowed");
+          //console.log("accessAllowed");
         });
         // The user has denied access to the camera and mic.
         this.localStream.on("accessDenied", function() {
-          console.log("accessDenied");
+          //console.log("accessDenied");
         });
 
 
         this.localStream.init(() => {            
             this.client.publish(this.localStream, err => {
-              console.log("Publish local stream error: " + err);
+              //console.log("Publish local stream error: " + err);
             });
 
             this.client.on('stream-published', function (evt) {
-                console.log("Publish local stream successfully");
+                //console.log("Publish local stream successfully");
              });
 
             this.setState({ readyState: true , audioCalling: false });
         },
           err => {
-            console.log("getUserMedia failed", err);
+            //console.log("getUserMedia failed", err);
             this.setState({ readyState: true , audioCalling: false  });
           });
      
@@ -422,37 +422,37 @@ class Video extends Component {
     let rt = this;
     rt.client.on('stream-added', function (evt) {
       let stream = evt.stream
-      console.log("New stream added: " + stream.getId())
-      console.log('At ' + new Date().toLocaleTimeString())
-      console.log("Subscribe ", stream)
+      //console.log("New stream added: " + stream.getId())
+      //console.log('At ' + new Date().toLocaleTimeString())
+      //console.log("Subscribe ", stream)
       rt.client.subscribe(stream, function (err) {
-        console.log("Subscribe stream failed", err)
+        //console.log("Subscribe stream failed", err)
       })
     })
 
     rt.client.on('peer-leave', function (evt) {
       let stream = evt.stream;
-      console.log("Peer has left: " + evt.uid)
-      console.log(new Date().toLocaleTimeString())
-      console.log(evt)
+      //console.log("Peer has left: " + evt.uid)
+      //console.log(new Date().toLocaleTimeString())
+      //console.log(evt)
       stream.stop();
       
     })
 
     rt.client.on('stream-subscribed', function (evt) {
       let stream = evt.stream;
-      console.log("Got stream-subscribed event")
-      console.log(new Date().toLocaleTimeString())
-      console.log("Subscribe remote stream successfully: " + stream.getId())
-      console.log(evt)
+      //console.log("Got stream-subscribed event")
+      //console.log(new Date().toLocaleTimeString())
+      //console.log("Subscribe remote stream successfully: " + stream.getId())
+      //console.log(evt)
       stream.play('agora_remote');
     })
 
     rt.client.on("stream-removed", function (evt) {
       let stream = evt.stream
-      console.log("Stream removed: " + stream.getId())
-      console.log(new Date().toLocaleTimeString())
-      console.log(evt)
+      //console.log("Stream removed: " + stream.getId())
+      //console.log(new Date().toLocaleTimeString())
+      //console.log(evt)
       stream.stop();
     })
   }

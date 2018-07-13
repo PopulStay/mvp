@@ -24,7 +24,7 @@ getBalanceForCharge(address, expectbalance, pollIntervalMilliseconds=1000) {
       let txCheckTimer = setInterval(txCheckTimerCallback, pollIntervalMilliseconds);
       function txCheckTimerCallback() {
            window.web3.eth.getBalance(address).then((balance)=>{
-            console.log(balance);
+  
             if (balance >= expectbalance ) {
               clearInterval(txCheckTimer);
               setTimeout(()=>resolve(balance), 2000);

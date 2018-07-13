@@ -345,8 +345,8 @@ class HouseInfoListingService {
       function txCheckTimerCallback() {
         window.web3.eth.getTransaction(transactionReceipt, (error, transaction) => {
           if (transaction.blockNumber != null) {
-            console.log(`Transaction mined at block ${transaction.blockNumber}`)
-            console.log(transaction)
+            //console.log(`Transaction mined at block ${transaction.blockNumber}`)
+            //console.log(transaction)
             clearInterval(txCheckTimer)
             setTimeout(()=>resolve(transaction.blockNumber), 2000)
           }

@@ -54,12 +54,7 @@ class GuestInfo extends React.Component {
       this.setState({ orderlist:data});
     });
 
-    //这是测试代码； guestService.getOrderState()可以获得addcomment里面的ID
-    //
-    // guestService.addComment("5b2b201223347629a9ebd73f","test").then((data)=>{
-    //     console.log(data);
-    // });
-  
+   
     
 
     ppsService.getBalance(window.address).then((data)=>{
@@ -80,7 +75,7 @@ class GuestInfo extends React.Component {
       //state等于2的是没有生成智能合约的
       //Guest Managment Panel 里面加一个没有生成智能合约的预定list。。。
       this.setState({ usdOrderList:data.data});
-      console.log(this.state.usdOrderList)
+     
     });
 
     this.onGetDepositBalance();
@@ -99,7 +94,7 @@ class GuestInfo extends React.Component {
   onGetDepositBalance = () =>{
      ppsService.getDepositBalance(window.address)
      .then((data)=>{
-        console.log(data.data.balance)
+        
         this.setState({ ppsDeposited : data.data.balance});
      });
 
@@ -115,7 +110,7 @@ class GuestInfo extends React.Component {
     let file = event.target.files[0];
 
       reader.onloadend = () => {
-      console.log(reader.result)
+      
         this.setState({userPictures:reader.result});
       }
     reader.readAsDataURL(file)
