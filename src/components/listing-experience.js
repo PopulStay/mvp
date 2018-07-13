@@ -146,7 +146,7 @@ class Listingexperience extends Component {
     // houselistingService.getlocationtype(DataIndex).then((data)=>
     // {
     //   this.setState({listingRows:data});
-    //   console.log(this.state.listingRows);
+    //   //console.log(this.state.listingRows);
     // });
     houselistingService.getDistrictCodes().then((codes)=>
     {

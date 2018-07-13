@@ -35,7 +35,7 @@ class GoogleMap extends Component {
           greatPlaces.push(obj);
         }
 
-        console.log(greatPlaces)
+        
 
         this.setState({ 
           listingRows: data,

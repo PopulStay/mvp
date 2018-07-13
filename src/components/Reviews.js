@@ -37,7 +37,7 @@ class Reviews extends React.Component {
     });
 
     guestService.getOrderState().then((data)=>{
-      console.log(data)
+      //console.log(data)
     });
 
     var windowUrl = window.location.href;
@@ -141,7 +141,7 @@ class Reviews extends React.Component {
         window.location.href=url[0];
       });
     }else{
-      console.log(456)
+      //console.log(456)
     }
   }
 

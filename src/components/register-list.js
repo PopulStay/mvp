@@ -181,12 +181,12 @@ class registerlist extends Component {
     let file = event.target.files[0];
 
       reader.onloadend = () => {
-      console.log(reader.result)
+      //console.log(reader.result)
         this.setState({Experience_Pictures:reader.result});
         this.setState({select_Pictures:reader.result});
       }
     reader.readAsDataURL(file)
-    console.log(this.state.Experience_Pictures)
+    //console.log(this.state.Experience_Pictures)
   }
 
   photolist(event){
@@ -200,12 +200,12 @@ class registerlist extends Component {
         this.setState({photolist:plists});
       }
     reader.readAsDataURL(file)
-    console.log(this.state.photolist.length)
+    //console.log(this.state.photolist.length)
   }
 
   modalPictures(index,e){
     var modalBody=document.getElementById("modalBody");
-    console.log(modalBody.height)
+    //console.log(modalBody.height)
     this.setState({
           state:this.state.modalimg = this.state.Experience_Pictures,
           canvasW:modalBody.width,
@@ -219,7 +219,7 @@ class registerlist extends Component {
       const canvas = this.state.editor.getImage()
       const canvasScaled = this.state.editor.getImageScaledToCanvas();
       this.setState({state:this.state.Experience_Pictures = canvasScaled.toDataURL("image/png")})
-      console.log(this.state.Experience_Pictures)
+      //console.log(this.state.Experience_Pictures)
     }
   }
 

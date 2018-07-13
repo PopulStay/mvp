@@ -103,7 +103,7 @@ class WalletWithdraw extends React.Component {
   // }
 
   Withdraw(index){
-    console.log(this.state.withdrawlist[index].size)
+    //console.log(this.state.withdrawlist[index].size)
   }
 
   openModal() {
