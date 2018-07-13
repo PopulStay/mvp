@@ -1,0 +1,500 @@
+{
+	"id": "5af525a3-400b-142f-6c09-041b1eef905a",
+	"name": "潮箱调用",
+	"description": "",
+	"order": [
+		"196b8f20-70dc-a5b5-3e40-7a465fe1ebc9",
+		"0d4de2cc-1f6f-8554-2adb-5193e2b89b90",
+		"3d0e015e-ec0f-db04-7bbe-ac6311d696ef",
+		"23d67ffc-c298-c1ca-de37-890aabbd942c",
+		"79689bb2-62d2-f4b0-319d-5add4ea703ad",
+		"b43ab076-7857-6f5b-9afa-f2cde23595bc",
+		"2e0ec081-36fd-1bdb-1956-d8fa2116f64c",
+		"752133c8-684e-e521-e8e6-797afc125b1c",
+		"ddba2267-a5ad-469d-f00a-305adaeff932",
+		"bfda52b8-9a06-4532-19df-950eaefbd3ef",
+		"c2f5b569-4ebe-dec2-a835-241bb3b4a430"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1530782075352,
+	"owner": "3446454",
+	"public": false,
+	"requests": [
+		{
+			"id": "0d4de2cc-1f6f-8554-2adb-5193e2b89b90",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/generaldata",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": [
+				{
+					"key": "code",
+					"value": "001",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "generalData",
+					"value": "{'email':'eric_dwj@icloud.com'}",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "向泛用表增加数据GeneralData",
+			"description": "向泛用表增加数据",
+			"descriptionFormat": "html",
+			"time": 1530782219113,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "196b8f20-70dc-a5b5-3e40-7a465fe1ebc9",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/emailsender",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": [
+				{
+					"key": "from",
+					"value": "eric@populstay.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "to",
+					"value": "eric_dwj@icloud.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "subject",
+					"value": "test55555",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "text",
+					"value": "test555555",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "telephone",
+					"value": "1388888888",
+					"description": ""
+				},
+				{
+					"key": "name",
+					"value": "test",
+					"description": ""
+				}
+			],
+			"dataMode": "params",
+			"name": "发送邮件APIwww.populstay.com",
+			"description": "www.populstay.com发送邮件API",
+			"descriptionFormat": "html",
+			"time": 1530782160968,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "23d67ffc-c298-c1ca-de37-890aabbd942c",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/emailverify/sendVerificationEmail",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": [
+				{
+					"key": "to",
+					"value": "eric_dwj@icloud.com",
+					"description": ""
+				},
+				{
+					"key": "subject",
+					"value": "请确定您的验证码",
+					"description": ""
+				},
+				{
+					"key": "from",
+					"value": "admin@populstay.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "发送邮件验证码功能",
+			"description": "邮件验证码功能",
+			"descriptionFormat": "html",
+			"time": 1530782338840,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "2e0ec081-36fd-1bdb-1956-d8fa2116f64c",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/register?email=eeee@qq.com",
+			"queryParams": [
+				{
+					"key": "email",
+					"value": "eeee@qq.com",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": null,
+			"dataMode": "params",
+			"name": "注册邮件确认功能",
+			"description": "邮件重复确认",
+			"descriptionFormat": "html",
+			"time": 1530782408628,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "3d0e015e-ec0f-db04-7bbe-ac6311d696ef",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/emailsender?subject=test55555&text=test555555&from=eric@populstay.com",
+			"queryParams": [
+				{
+					"key": "subject",
+					"value": "test55555",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "text",
+					"value": "test555555",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "from",
+					"value": "eric@populstay.com",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": null,
+			"dataMode": "params",
+			"name": "官网注册邮件重复确认",
+			"description": "www.populstay.com邮件重复确认",
+			"descriptionFormat": "html",
+			"time": 1530782291000,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "752133c8-684e-e521-e8e6-797afc125b1c",
+			"headers": "",
+			"headerData": [],
+			"url": "http://server.populstay.com/comment/reasonforbadcomment",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": [
+				{
+					"key": "id",
+					"value": "5b2d35a7e13af37acb1e85a2",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "reason",
+					"value": "test22",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "差评内容上传功能",
+			"description": "差评原因API",
+			"descriptionFormat": "html",
+			"time": 1530782433053,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "79689bb2-62d2-f4b0-319d-5add4ea703ad",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/emailverify/verifyEmail",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": [
+				{
+					"key": "to",
+					"value": "eric_dwj@icloud.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "code",
+					"value": "3546",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "验证邮件功能",
+			"description": "邮件验证码验证功能",
+			"descriptionFormat": "html",
+			"time": 1530782356840,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b43ab076-7857-6f5b-9afa-f2cde23595bc",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/emailgerneralservice",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": [
+				{
+					"key": "to",
+					"value": "eric_dwj@icloud.com",
+					"description": ""
+				},
+				{
+					"key": "subject",
+					"value": "一般邮件服务",
+					"description": ""
+				},
+				{
+					"key": "from",
+					"value": "admin@populstay.com",
+					"description": ""
+				},
+				{
+					"key": "metadataCode",
+					"value": "003",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "value1",
+					"value": "hello world1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "value2",
+					"value": "hello world2",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "value3",
+					"value": "hello world3",
+					"description": ""
+				},
+				{
+					"key": "value4",
+					"value": "hello world4",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "通用的邮件服务功能",
+			"description": "通用邮件服务",
+			"descriptionFormat": "html",
+			"time": 1530782373213,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "bfda52b8-9a06-4532-19df-950eaefbd3ef",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/ipfs/QmRxkx6j9dGRm5LJfDTYgb4qmBMi45inUdo1m4t1zwSzeB",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": null,
+			"dataMode": "params",
+			"name": "获取房源详细描述数据！postman可能会停",
+			"description": "获取房源详细描述数据",
+			"descriptionFormat": "html",
+			"time": 1531283889762,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "c2f5b569-4ebe-dec2-a835-241bb3b4a430",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/HouseInformation/0x5cac52bc5bdf6392cb111f31f983b14c59ce67adf19e5df0bac2426c22cbd238",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": null,
+			"dataMode": "params",
+			"name": "search获取图片",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1531284711432,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "ddba2267-a5ad-469d-f00a-305adaeff932",
+			"headers": "",
+			"headerData": [],
+			"url": "https://server.populstay.com/HouseInformation/search?place=TOKYO&guests=1&to=1531364400000&from=1531364400000&districeCode=0x3333322d30303332000000000000000000000000000000000000000000000000",
+			"queryParams": [
+				{
+					"key": "place",
+					"value": "TOKYO",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "guests",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "to",
+					"value": "1531364400000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "from",
+					"value": "1531364400000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "districeCode",
+					"value": "0x3333322d30303332000000000000000000000000000000000000000000000000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5af525a3-400b-142f-6c09-041b1eef905a",
+			"data": null,
+			"dataMode": "params",
+			"name": "主页的检索功能",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1531276963292,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

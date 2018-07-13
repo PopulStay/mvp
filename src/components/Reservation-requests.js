@@ -47,10 +47,10 @@ class ReservationRequests extends Component {
               <p>We encourage all hosts and guests to complete their bookings through our website before meeting in person to best ensure their safety and privacy.</p> 
               <p>There are many ways to learn more about the listing and the host without seeing the property, including:</p>
               <ul>
-                <li><p><span></span></p>Private messaging</li>
-                <li><p><span></span></p>Profile verifications</li>
-                <li><p><span></span></p>Reviews</li>
-                <li><p><span></span></p>Verified photography</li>
+                <li><p><span></span></p><div>Private messaging</div></li>
+                <li><p><span></span></p><div>Profile verifications</div></li>
+                <li><p><span></span></p><div>Reviews</div></li>
+                <li><p><span></span></p><div>Verified photography</div></li>
               </ul>
               <p>Hosts also need to <span className="pinkColor">provide information about themselves</span> before accepting reservations on the site.</p>
               <p className="pinkColor">View this article in the Help Centre ›</p>
@@ -124,6 +124,21 @@ class ReservationRequests extends Component {
               <p>If a host hasn't responded, consider reaching out to other hosts in the area. You can message as many hosts as you'd like, so it's up to them to respond to you in a timely fashion or risk losing their chance at having you as a guest.</p>
               <p><b>Sending multiple requests</b></p>
               <p>Unless you're planning on renting multiple locations for the same dates, make sure you don’t submit more than one reservation request at a time, as you may end up booking multiple reservations during the same time period.</p>
+              <p className="pinkColor">View this article in the Help Centre ›</p>
+            </div>
+        }
+
+        {this.props.HelpDetailNUM == 8 &&
+            <div className="HelpEight">
+              <h4>I'm a guest. How do I check the status of my reservation?</h4>
+              <p>If you’ve submitted a reservation request with a host on PopulStay, a couple of things are required to confirm your reservation:</p> 
+              <ul>
+                <li><p><span></span></p><div>You must have added your payment information</div></li>
+                <li><p><span></span></p><div>The host must accept your request (unless you sent a reservation request for a place with <span className="pinkColor">Instant Book</span> turned on, which will automatically accept the request)</div></li>
+              </ul>
+              <p>When a host accepts your request, you'll receive an email and, depending on your account notification settings, a text (SMS) and push notification from Airbnb. Your reservation request status will also change to <b>Accepted</b>.</p>
+              <p>View your trips</p>
+              <p>See what each reservation status means or learn how to make a reservation request.</p>
               <p className="pinkColor">View this article in the Help Centre ›</p>
             </div>
         }
