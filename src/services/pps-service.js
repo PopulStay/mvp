@@ -174,55 +174,33 @@ class PPSService {
 
 
   applyWithdraw(account,size){
+     return new Promise((resolve, reject) => {
       var params = {};
       params.size         = size;
       params.applyAddress = account;
-      params.id           = window.address+"timestamp"+new Date().getTime();
       params.account      = window.address;
+
+      var id       = window.web3.utils.randomHex(32);
+      if(id.length % 2 !=0)
+      {
+        id = id +"0";
+      }
+
+      params.id           = id;
+
+      axios.post(process.env.Server_Address+'apply',params)
+      .then(function (response) {
+      resolve(response);
+      })
+      .catch(function (error) {
+      console.error(error);
+      reject(error);
+      }); 
+
+    });
       
-      return new Promise((resolve, reject) => {
-          
-      window.web3.eth.getTransactionCount(window.address).then((txCount) =>{
-                     
-            var txData = {
-                          nonce    : window.web3.utils.toHex(txCount),
-                          gasLimit : window.web3.utils.toHex(4476768),
-                          gasPrice : window.web3.utils.toHex(window.gas), // 10 Gwei
-                          to       : Populstay_Wallet,
-                          from     : window.address, 
-                          value    : parseInt(fee)
-                        }
-
-            var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex');
-            var transaction =new EthereumTx(txData);
-            transaction.sign(pk);
-            var serializedTx = transaction.serialize().toString('hex');
-            params.applyTransactionData = '0x' + serializedTx;
-
-            axios.post(process.env.Server_Address+'withdraw',params)
-            .then(function (response) {
-              resolve(response);
-            })
-            .catch(function (error) {
-              console.error(error);
-              reject(error);
-            });            
-        });
-    });      
+       
  
-  }
-
-  deleWithdraw(deleId){
-    return new Promise((resolve, reject) => {
-            axios.delete(process.env.Server_Address+'withdraw?id='+deleId)
-            .then(function (response) {
-            resolve(response);
-            })
-            .catch(function (error) {
-            console.error(error);
-            reject(error);
-            });
-          });
   }
 
   getUsdOrderList(guestaddress){
