@@ -182,7 +182,7 @@ class WalletWithdraw extends React.Component {
                     <input type="number"  className="form-control" placeholder={language.Wallet_Size} value={this.state.Size} onChange={(e) => this.Size(e)} />
                   </div>
               </div>
-              <button className="Left" disabled={this.state.Arrstate == this.state.withdrawlist.length ? '' : 'disabled'} onClick={(e)=>this.Submit(e)}>{language.Submit}</button>
+              <button className="Left" onClick={(e)=>this.Submit(e)}>{language.Submit}</button>
               <button className="Right" onClick={this.closeModal}>{language.Cancel}</button>
             </div>
           </Modal>
