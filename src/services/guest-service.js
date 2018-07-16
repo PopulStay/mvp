@@ -4,7 +4,8 @@ import orderService from '../services/order-service';
 import axios from 'axios';
 import {reactLocalStorage} from 'reactjs-localstorage';
 
-axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwt');
+
+
 class GuestService {
   static instance
 
@@ -34,8 +35,8 @@ class GuestService {
   }
 
   setWebToken(token){
-    window.webtoken = 'bear '+token;
-    localStorage.setItem('jwt',window.webtoken);
+    window.sessionStorage.setItem('webtoken', 'Bearer '+token); 
+    //localStorage.setItem('jwt',window.webtoken);
   }
 
   login(email,password){

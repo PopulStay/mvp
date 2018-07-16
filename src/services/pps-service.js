@@ -12,6 +12,8 @@ var exchange_address = process.env.Exchange_Contract;
 var Populstay_Wallet = process.env.Populstay_Wallet;
 var fee = window.web3.utils.toWei(process.env.Withdraw_fee);
 
+
+
 class PPSService {
   static instance
 
@@ -161,7 +163,7 @@ class PPSService {
  getWithdrawInfo(account){
     
       return new Promise((resolve, reject) => {
-            axios.get(process.env.Server_Address+'withdraw?account='+account)
+            axios.get(process.env.Server_Address+'apply?account='+account)
             .then(function (response) {
             resolve(response);
             })
@@ -171,6 +173,8 @@ class PPSService {
             });
           });
   }
+
+
 
 
   applyWithdraw(account,size){
@@ -281,6 +285,12 @@ class PPSService {
               var serializedTx = transaction.serialize().toString('hex');
 
               params.transactionData = '0x' + serializedTx;
+
+              if( window.sessionStorage.getItem('webtoken') )
+              {
+                axios.defaults.headers.common['Authorization'] = window.sessionStorage.getItem('webtoken');
+              }
+
 
               axios.post(process.env.Server_Address+'book', params)
               .then(function (response) {
