@@ -8,6 +8,7 @@ const  EthereumTx        = require('ethereumjs-tx');
 const  web_provider      = process.env.WEB3_PROVIDER;
 const  houselist_address = process.env.RentHouseListingAddress;
 
+axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwt');
 
 class HouseInfoListingService {
   static instance
