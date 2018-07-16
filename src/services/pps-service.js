@@ -161,7 +161,7 @@ class PPSService {
  getWithdrawInfo(account){
     
       return new Promise((resolve, reject) => {
-            axios.get(process.env.Server_Address+'withdraw?account='+account)
+            axios.get(process.env.Server_Address+'apply?account='+account)
             .then(function (response) {
             resolve(response);
             })

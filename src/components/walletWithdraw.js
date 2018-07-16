@@ -159,13 +159,12 @@ class WalletWithdraw extends React.Component {
                     <tr>
                       <td className="td1"><input type="text" value={item.applyAddress} readonly /></td>
                       <td className="td2">{item.size}</td>
-                      <td className="td3"><input type="text" value={item.txhash} readonly /></td>
+                      <td className="td3"><input type="text" value={item.transaction} readonly /></td>
                       <td className="td4">
-                          {item.state == 0 ? language.state0 : ""}
-                          {item.state == 1 ? language.state1 : ""}
-                          {item.state == 2 ? language.state2 : ""}
-                          {item.state == 3 ? language.state2 : ""}
-                          {item.state == 4 ? language.state3 : ""}
+                          {item.state == 0 && 
+                            <button>{language.state0}</button>
+                          }
+                          {item.state == 1 ? language.state3 : ""}
                           {item.state == -1 ? language.state-1 : ""}
                       </td>            
                     </tr>  
