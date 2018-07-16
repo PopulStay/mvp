@@ -985,6 +985,7 @@ export const state6 = 'Published successfully';
 export const state7 = 'Fail to publish';
 export const state_1 = 'Failure';
 export const Check = 'Check';
+export const negative_comment = 'negative (comment)';
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = 'Become a Host';

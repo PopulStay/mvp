@@ -985,6 +985,7 @@ export const state6 = '发布成功';
 export const state7 = '发布失败';
 export const state_1 = '提币失败';
 export const Check = '查看';
+export const negative_comment = '差评理由';
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = '成为房东';
