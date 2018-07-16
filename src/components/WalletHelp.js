@@ -3,8 +3,10 @@ import Web3 from 'web3';
 import Modal from 'react-modal';
 import web3service from '../services/web3-service'
 import languageService from '../services/language-service';
-import HelpReservation from './Help-Reservation'
+import HelpReservation from './Help-Reservation';
+import HelpContacting from './Help-Contacting';
 import ReservationRequests from './Reservation-requests';
+import ContactingHosts from './Contacting-hosts';
 
 
 
@@ -63,7 +65,8 @@ class WalletHelp extends Component {
                           <ul className="helpList">
                               <li onClick={(e) => {if(this.state.HelpReservation)this.setState({HelpReservation:false});else this.setState({HelpReservation:true});}}>Reservation requests <span>▼</span></li>
                                 <HelpReservation HelpReservation={this.state.HelpReservation} onHelp={this.onHelp} />
-                              <li>Contacting hosts<span>▼</span></li>
+                              <li onClick={(e) => {if(this.state.HelpContacting)this.setState({HelpContacting:false});else this.setState({HelpContacting:true});}}>Contacting hosts<span>▼</span></li>
+                                <HelpContacting HelpContacting={this.state.HelpContacting} onHelp={this.onHelp} />
                               <li>Prices & fees<span>▼</span></li>
                               <li>Preparing for your trip<span>▼</span></li>
                               <li>Changes & cancellations<span>▼</span></li>
@@ -75,6 +78,7 @@ class WalletHelp extends Component {
                       {this.state.HelpDetail &&
                         <div className="modal-body">
                           <ReservationRequests HelpDetailNUM={this.state.HelpDetailNUM} />
+                          <ContactingHosts HelpContacting={this.state.HelpDetailNUM} />
                         </div>
                       }
 

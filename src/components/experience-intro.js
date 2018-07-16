@@ -64,7 +64,7 @@ class experienceintro extends Component {
               this.setState({ style : this.style.style_1.width = widthbox+'px' });
           });
       }
-      console.log(this.state.listingRows.length)
+      
   }
 
   handlePageChange(pageNumber) {

@@ -45,7 +45,6 @@ class HostRegister extends React.Component {
   }
    
   register(){
-   console.log(this.state);
     var register={};
     register.id      = this.state.id;
     register.user    = this.state.user;

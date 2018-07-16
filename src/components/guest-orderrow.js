@@ -67,7 +67,7 @@ class GuestOrderRow extends Component {
                            this.props.item.houseinfoid
 
       ).then((tx)=>{
-      console.log(tx)
+      
       this.setState({state:'4'});
        return orderService.waitTransactionFinished(tx)
      }).then((blockNumber) => {
@@ -91,8 +91,7 @@ class GuestOrderRow extends Component {
     });
   }
   componentDidMount() {
-    console.log(this.props.item)
-
+    
     if(this.props.item.orderContractAddress)
     {
       this.setState({contractAddress:this.props.item.orderContractAddress});
@@ -106,15 +105,15 @@ class GuestOrderRow extends Component {
     var DateType=0;
     if(D>this.props.item.from&&D>this.props.item.to){
     var DateType=100;
-      console.log(1)
+      
     }else if(D<this.props.item.from&&D<this.props.item.to){
     var DateType=200;
-      console.log(2)
+     
     }else{
     var DateType=300;
-      console.log(3)
+      
     }
-    console.log(this.props.item)
+   
     this.setState({
       houseinfoid:this.props.item.houseinfoid,
       id:this.props.item.id,
@@ -182,7 +181,7 @@ class GuestOrderRow extends Component {
         }else{
           this.setState({PicturesSize:'The picture must not exceed 600KB'})
         }
-        console.log(this.state.selectedPictures)
+      
         
     }
 

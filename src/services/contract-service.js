@@ -46,7 +46,7 @@ class ContractService {
           let weiToGive = window.web3.toWei(ethPrice, 'ether')
           // Note we cannot get the listingId returned by our contract.
           // See: https://forum.ethereum.org/discussion/comment/31529/#Comment_31529
-          console.log("IPFS Hash", this.getBytes32FromIpfsHash(ipfsListing))
+          //console.log("IPFS Hash", this.getBytes32FromIpfsHash(ipfsListing))
           return instance.create(
             this.getBytes32FromIpfsHash(ipfsListing),
             weiToGive,
@@ -108,14 +108,14 @@ class ContractService {
         resolve(listingObject)
       })
       .catch((error) => {
-        console.log(`Error fetching listingId: ${listingId}`)
+        //console.log(`Error fetching listingId: ${listingId}`)
         reject(error)
       })
     })
   }
 
   buyListing(listingIndex, unitsToBuy, ethToGive) {
-    console.log("request to buy index #" + listingIndex + ", of this many untes " + unitsToBuy + " units. Total eth to send:" + ethToGive)
+    //console.log("request to buy index #" + listingIndex + ", of this many untes " + unitsToBuy + " units. Total eth to send:" + ethToGive)
     return new Promise((resolve, reject) => {
       this.listingContract.setProvider(window.web3.currentProvider)
       window.web3.eth.getAccounts((error, accounts) => {
@@ -147,15 +147,15 @@ class ContractService {
       function txCheckTimerCallback() {
         window.web3.eth.getTransaction(transactionReceipt, (error, transaction) => {
           if (transaction.blockNumber != null) {
-            console.log(`Transaction mined at block ${transaction.blockNumber}`)
-            console.log(transaction)
+            //console.log(`Transaction mined at block ${transaction.blockNumber}`)
+            //console.log(transaction)
             // TODO: Wait maximum number of blocks
             // TODO: Confirm transaction *sucessful* with getTransactionReceipt()
 
             // // TODO (Stan): Metamask web3 doesn't have this method. Probably could fix by
             // // by doing the "copy local web3 over metamask's" technique.
             // window.web3.eth.getTransactionReceipt(this.props.transactionReceipt, (error, transactionReceipt) => {
-            //   console.log(transactionReceipt)
+            //   //console.log(transactionReceipt)
             // })
 
             clearInterval(txCheckTimer)

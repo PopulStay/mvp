@@ -177,7 +177,7 @@ class Confrim extends React.Component {
       }
     }
     promise.then((transactionReceipt) => {
-      console.log("Purchase request sent.")
+      //console.log("Purchase request sent.")
       this.setState({step: this.STEP.PROCESSING})
       return ppsService.waitTransactionFinished(transactionReceipt)
     })
@@ -185,7 +185,7 @@ class Confrim extends React.Component {
       this.setState({step: this.STEP.PURCHASED})
     })
     .catch((error) => {
-      console.log(error)
+      //console.log(error)
       this.setState({step: this.STEP.VIEW})
     })
      

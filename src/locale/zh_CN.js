@@ -845,6 +845,7 @@ export const Close = '关闭';
 export const Address = '地址';
 export const Copy_address = '复制地址';
 export const Successful_copy = '复制成功';
+export const Copy_Private_Key = '复制私钥';
 
 //create--------------------------------------------------------------------------------------------
 export const Create = '创建';

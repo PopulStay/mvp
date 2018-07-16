@@ -25,7 +25,7 @@ class House_step1 extends Component {
     guestService.getGuesterInfo(window.address).then((data)=>{
       if(data)
         {
-            console.log(data.user)
+        
             this.setState({ user:data.user });
         }
     });

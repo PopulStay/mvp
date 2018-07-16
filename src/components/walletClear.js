@@ -104,13 +104,17 @@ class WalletClear extends React.Component {
           <div className="clear">
             <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
             <div>
-              <h3>{language.Address}</h3>
+              <h3>{language.Address}: &nbsp;&nbsp;</h3>
               <CopyToClipboard text={window.address}
                 onCopy={() => this.setState({copied: true})}>
-                <button className="copy">{this.state.copied ? language.Successful_copy : language.Copy_address}</button>
+                <button className="copy">{language.Copy_address}</button>
               </CopyToClipboard>
               <p className="text1">{window.address}</p>
-              <h3>{language.Private_Key}</h3>
+              <h3>{language.Private_Key}: &nbsp;&nbsp;</h3>
+              <CopyToClipboard text={window.privateKey}
+                onCopy={() => this.setState({copied1: true})}>
+                <button className="copy">{language.Copy_Private_Key}</button>
+              </CopyToClipboard>
               <p className="text1">{this.substring0x(window.privateKey)}</p>
               
             </div>  

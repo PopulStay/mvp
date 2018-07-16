@@ -22,15 +22,7 @@ class ListingCard extends Component {
   componentDidMount() {
 
     var descriptioninfo;
-    var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.row.id);
-    var houseInfoDetailPromise ;
-    houseInfoDetailPromise = ipfsService.getListing(ipfsHash);
-    houseInfoDetailPromise.then((result)=>{
-      descriptioninfo = result;
-      this.setState({title:descriptioninfo.roomdescription_title});
-    }).catch((error) => {
-      console.error(error);
-    });
+    
     // houselistingService.getHouseInfoDetail(this.props.row)
     // .then((result) => {
     //     var roominfo = JSON.parse(result[4]);
@@ -47,11 +39,14 @@ class ListingCard extends Component {
         1000
       );
     }
+    
     this.setState(
     {
       price:this.props.row.price,
       category:roominfo.category,
-      location:roominfo.location
+      location:roominfo.location,
+      beds:roominfo.beds,
+      category:roominfo.category,
     });
 
     if( this.props.row.id )
@@ -80,7 +75,7 @@ class ListingCard extends Component {
           <div className="photo" style={this.state.previewurl == '' ? {background:"#fafafa"}:{backgroundImage:"url("+this.state.previewurl+")"}}>
           <img className={this.state.previewurl == '' ? 'show' : 'hide'} src="/images/loader.gif" />
           </div>
-          <div className="category">{this.state.title == '' ? '....' : this.state.title}</div>
+          <div className="category">{this.state.category}({this.state.beds})</div>
           <div className="title">{this.state.location}</div>
           <div className="price">
               ￥{Number(this.state.price).toLocaleString(undefined, {minimumFractionDigits: 3})} pps per night

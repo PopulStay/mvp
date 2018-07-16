@@ -44,7 +44,7 @@ class TagNav extends Component {
           this.setState({ listingRows: data});
           var lists = [];
           var CityStorage = this.props
-          console.log(this.props)
+          //console.log(this.props)
           for(var i=0;i<data.length;i++){
             var City = data[i].place.toUpperCase();
             var guests = Number(data[i].guests);
@@ -52,7 +52,7 @@ class TagNav extends Component {
             var price = data[i].price;
 
             if(City >= CityStorage){
-              console.log(data[i])
+              //console.log(data[i])
               lists.push(data[i]);
               this.setState({ listingRows: lists});
             }

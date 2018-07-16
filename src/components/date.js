@@ -93,7 +93,6 @@ class Data extends Component {
 
   render() {
     const language = this.state.languagelist;
-    console.log(this.state.focusedInput)
     const isDayBlocked = this.state.focusedInput === "startDate" ? this.isStartDayBlocked : this.isEndDayBlocked;
     return (  
 

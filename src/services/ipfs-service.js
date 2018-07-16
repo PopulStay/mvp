@@ -103,7 +103,7 @@ class IpfsService {
         content.id      = ipfsHashStr;
         content.content = res;
         this.setIPFSInfo(content).then((res)=>{
-          console.log(res);
+          //console.log(res);
         });
         
         resolve(JSON.parse(res));
@@ -118,7 +118,7 @@ class IpfsService {
     
 
      this.getIPFSInfo(ipfsHashStr).then((res)=>{
-      console.log("###########ipfsHashStr###############:",res);
+      //console.log("###########ipfsHashStr###############:",res);
       if(res && res.data )
       {
         resolve(res.data);

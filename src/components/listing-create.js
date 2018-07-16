@@ -486,7 +486,7 @@ class ListingCreate extends Component {
             });
           })
           .catch((error) => {
-              console.log(error)
+              //console.log(error)
           })
     }
 

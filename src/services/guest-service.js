@@ -165,7 +165,7 @@ class GuestService {
     emailArr.from    = "admin@populstay.com";
     axios.post(process.env.Server_Address+'emailverify/sendVerificationEmail', emailArr)
     .then(function (response) {
-      console.log(response)
+      //console.log(response)
       resolve(response);
     })
     .catch(function (error) {
@@ -182,7 +182,7 @@ class GuestService {
     Verification.code = Code;
     axios.post(process.env.Server_Address+'emailverify/verifyEmail', Verification)
     .then(function (response) {
-      console.log(response)
+      //console.log(response)
       resolve(response);
     })
     .catch(function (error) {

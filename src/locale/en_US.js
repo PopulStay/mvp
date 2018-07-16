@@ -845,6 +845,7 @@ export const Close = 'Close';
 export const Address = 'Address';
 export const Copy_address = 'Copy address';
 export const Successful_copy = 'Successful copy';
+export const Copy_Private_Key = 'Copy Private Key';
 
 //create--------------------------------------------------------------------------------------------
 export const Create = 'Create';

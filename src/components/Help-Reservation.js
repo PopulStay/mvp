@@ -40,6 +40,7 @@ class HelpReservation extends Component {
             <p onClick={(e)=>this.HelpReservation(5)}>What happens if my reservation request is declined or expires?</p>
             <p onClick={(e)=>this.HelpReservation(6)}>When am I charged for a reservation?</p>
             <p onClick={(e)=>this.HelpReservation(7)}>Should I book if I have not heard back from the host?</p>
+            <p onClick={(e)=>this.HelpReservation(8)}>I'm a guest. How do I check the status of my reservation?</p>
         </div>
     )
   }
