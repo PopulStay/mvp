@@ -37,15 +37,17 @@ new 7）如果只有一颗星或者两颗星 ，需要输入原因，为什么�
 7-17
 主要部分）Web Token开发，登录注册模式的改变，私有Key的加密和安全协议。---Eric Yan 进行中
 
+
+0）JWT如果出现401错误的话要跳转的登录页面；   --Yan
 0）继续按照WBS开发android程序；        --Jerry；
 1）将MVP上所有需要授权的请求加上Beared +token    --Yan
-2）法币支付API                        --Eric
+2）法币支付API                        --Eric。1
 3）MVP加入配置文件模块                  --Yan
 4）后端配置文件整理                      --Eric
 5）后端程序MVPBackStage功能细化。        --Yan Eric
 6）Nounce的统一提示                       --Eric Yan
 7）privateKey加密                      --Eric 
-8）房东预定信息查看                       --Yan
+8）房东预定信息查看                       --Yan 
 9）android的restful调用，首页检索和展示。 ---Jerry。eric整理API  1
 10) 将大组件抽出，形成小组件；  --yan 优先级 4 
 11）profile的头像上传；  yan ding。 优先级：2
@@ -58,6 +60,7 @@ new 7）如果只有一颗星或者两颗星 ，需要输入原因，为什么�
 18）detail页面轮播图和信息分开；
 19）根据webRTC改写通信功能；
 20）自动化测试的开发E2E；
+
 Linux后端任务
 A） WebRTC的部署调查
 B） IPFS和Geth的部署调查
@@ -67,4 +70,9 @@ C） Redis的部署调查
 测试：
 1）自动化测试的开发
 2）测试用例
+
+
+文档任务
+1）构建文档描述表格；
+2）将postman接口的内容加入文档描述；
 
