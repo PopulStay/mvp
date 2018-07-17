@@ -24,7 +24,7 @@ import Verifyid from './verify-id.js'
 import Helpbox from './helpbox.js'
 import ProfileReceipt from './profile_receipt.js'
 import ProfileConfrim from './profile_confrim.js'
-import DATE from './date.js'
+import Password from './password.js'
 
 // CSS
 import '../css/becomehost.css'
@@ -162,9 +162,9 @@ const Confrim = (props) => (
 )
 
 
-const Date = (props) => (
-  <Layout {...props}  >
-      <DATE />
+const Pass = (props) => (
+  <Layout {...props}  hideTagHeader="NO" hideTagFooter="NO">
+      <Password />
   </Layout>
 )
 
@@ -191,7 +191,7 @@ const App = () => (
           <Route exact path="/help" component={HELPBOX}/>
           <Route exact path="/Receipt" component={Receipt}/>
           <Route exact path="/Confrim" component={Confrim}/>
-          <Route exact path="/Date" component={Date}/>
+          <Route exact path="/Password" component={Pass}/>
         </div>
     </ScrollToTop>
   </Router>
