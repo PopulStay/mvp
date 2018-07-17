@@ -13,6 +13,11 @@ class LanguageService {
           return LanguageService.instance
         }
 
+        if(!sessionStorage.getItem('webtoken') )
+        {
+          localStorage.removeItem('wallet')
+        }
+
         LanguageService.instance = this;  
     }
 

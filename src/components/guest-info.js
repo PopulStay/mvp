@@ -44,6 +44,12 @@ class GuestInfo extends React.Component {
     languageService.language();
   }
 
+  componentWillMount(){
+      if(!sessionStorage.getItem('webtoken') )
+      {
+        window.location.href='/';
+      }
+  }
 
   
   componentDidMount() {

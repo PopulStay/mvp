@@ -241,13 +241,13 @@ class GuestRegister extends React.Component {
 
                                 <div className="form-group">
                   <label>Password</label>
-                  <input type="text" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})}/>
+                  <input type="password" className="form-control" placeholder="Password" onChange={(e) => this.setState({password: e.target.value})}/>
                 </div>
 
 
                 <div className="form-group">
                   <label>repeatPassword</label>
-                  <input type="text" className="form-control" placeholder="repeatPassword" onChange={(e) => this.setState({repeatPassword: e.target.value})}/>
+                  <input type="password" className="form-control" placeholder="repeatPassword" onChange={(e) => this.setState({repeatPassword: e.target.value})}/>
                 </div>
                 
 
