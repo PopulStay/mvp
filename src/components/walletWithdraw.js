@@ -159,13 +159,12 @@ class WalletWithdraw extends React.Component {
                     <tr>
                       <td className="td1"><input type="text" value={item.applyAddress} readonly /></td>
                       <td className="td2">{item.size}</td>
-                      <td className="td3"><input type="text" value={item.txhash} readonly /></td>
+                      <td className="td3"><input type="text" value={item.transaction} readonly /></td>
                       <td className="td4">
-                          {item.state == 0 ? language.state0 : ""}
-                          {item.state == 1 ? language.state1 : ""}
-                          {item.state == 2 ? language.state2 : ""}
-                          {item.state == 3 ? language.state2 : ""}
-                          {item.state == 4 ? language.state3 : ""}
+                          {item.state == 0 ? language.state1 : ""}
+                          {item.state == 1 &&
+                            <button>{language.Withdraw}</button>
+                          }
                           {item.state == -1 ? language.state-1 : ""}
                       </td>            
                     </tr>  
@@ -183,7 +182,7 @@ class WalletWithdraw extends React.Component {
                     <input type="number"  className="form-control" placeholder={language.Wallet_Size} value={this.state.Size} onChange={(e) => this.Size(e)} />
                   </div>
               </div>
-              <button className="Left" disabled={this.state.Arrstate == this.state.withdrawlist.length ? '' : 'disabled'} onClick={(e)=>this.Submit(e)}>{this.state.Arrstate == this.state.withdrawlist.length ? language.Submit : language.Please_wait_for_success}</button>
+              <button className="Left" onClick={(e)=>this.Submit(e)}>{language.Submit}</button>
               <button className="Right" onClick={this.closeModal}>{language.Cancel}</button>
             </div>
           </Modal>

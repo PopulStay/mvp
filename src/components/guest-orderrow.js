@@ -302,7 +302,7 @@ class GuestOrderRow extends Component {
 
             <textarea placeholder={language.Describe_your_experiece_here} onChange={(e)=>this.setState({Comment:e.target.value})}></textarea>
 
-            <textarea placeholder="差评理由" className={this.state.Bad_review_type ? "show" : "hide"} onChange={(e)=>this.setState({Bad_review:e.target.value})}></textarea>
+            <textarea placeholder={language.negative_comment} className={this.state.Bad_review_type ? "show" : "hide"} onChange={(e)=>this.setState({Bad_review:e.target.value})}></textarea>
 
             <div className="photos">
                 {this.state.selectedPictures.map((file,index) => (

@@ -170,10 +170,13 @@ class PPSService {
 
  getWithdrawInfo(account){
       return new Promise((resolve, reject) => {
+
             if( window.sessionStorage.getItem('webtoken') )
             {
               axios.defaults.headers.common['Authorization'] = window.sessionStorage.getItem('webtoken');
             }
+
+
 
             axios.get(process.env.Server_Address+'apply?account='+account)
             .then(function (response) {

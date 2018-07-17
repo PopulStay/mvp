@@ -1,14 +1,5 @@
-var REACT_APP = /^REACT_APP_/i;
-
 function getClientEnvironment(publicUrl) {
-  debugger;
-  var processEnv = Object
-    .keys(process.env)
-    .filter(key => REACT_APP.test(key))
-    .reduce((env, key) => {
-      env[key] = JSON.stringify(process.env[key]);
-      return env;
-    }, 
+  var processEnv =
     {
       'NODE_ENV': JSON.stringify('production'),
       'PUBLIC_URL': JSON.stringify(publicUrl),
@@ -22,7 +13,7 @@ function getClientEnvironment(publicUrl) {
       'WEB3_PROVIDER':JSON.stringify("https://kovan.infura.io/FrDFhx3FbezOwQJjQv9T"),
       'Exchange_Contract':JSON.stringify("0xa88dd1ce8c1ffb87bf4a0dd097a674bf2b2530ef"),
       'Withdraw_fee':JSON.stringify("0.01")
-    });
+    }
 
   return {'process.env': processEnv};
 

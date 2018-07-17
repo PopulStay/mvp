@@ -625,6 +625,8 @@ button.copy,button.copy:hover{
   margin: 0;
   padding: 3% 0;
   font-family: RobotoThin; 
+  background: #fff;
+  color:#f6416c;
 }
 .withdraw button{
   width:35%;
