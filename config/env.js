@@ -1,76 +1,7 @@
-var REACT_APP     = /^REACT_APP_/i;
-var axios         = require('axios');
-var Socket_Server = "http://server.populstay.com";
+var REACT_APP = /^REACT_APP_/i;
 
-function getConfigData() {
-  return new Promise(resolve => {
-   axios.get(Socket_Server+'/configuration')
-   .then((res)=>{
-        resolve(res.data);
-   });
-  });
-}
-
-async function getClientEnvironment(publicUrl) {
-
-  var config = await getConfigData();
-  var configuration = {};
-      
-      for(var i =0;i < config.length;i++)
-      {
-
-        if(config[i].key ==='web3Provider')
-        {
-           configuration.web3Provider = config[i].value;
-           
-        }
-
-        //get exchange address
-        if(config[i].key ==='exchangeAddress')
-        {
-           configuration.exchangeAddress = config[i].value;
-        }
-
-        //get pps address
-        if(config[i].key ==='ppsAddress')
-        {
-           configuration.ppsAddress = config[i].value;
-        }
-
-        //get etherscan url
-        if(config[i].key ==='etherscan')
-        {
-           configuration.etherscan = config[i].value;
-        }
-
-              //get etherscan url
-        if(config[i].key ==='PopulstayServer')
-        {
-           configuration.PopulstayServer = config[i].value;
-        }
-
-        if(config[i].key ==='houselistAddress')
-        {
-           configuration.houselistAddress = config[i].value;
-        }
-
-        if(config[i].key ==='IPFSDomain')
-        {
-           configuration.IPFSDomain = config[i].value;
-        }
-
-        if(config[i].key ==='IPFSPort')
-        {
-           configuration.IPFSPort = config[i].value;
-        }
-
-        if(config[i].key ==='SocketServer')
-        {
-           configuration.SocketServer = config[i].value;
-        }
-      }
-
-  
+function getClientEnvironment(publicUrl) {
+  debugger;
   var processEnv = Object
     .keys(process.env)
     .filter(key => REACT_APP.test(key))
@@ -81,19 +12,20 @@ async function getClientEnvironment(publicUrl) {
     {
       'NODE_ENV': JSON.stringify('production'),
       'PUBLIC_URL': JSON.stringify(publicUrl),
-      'IPFS_API_PORT': JSON.stringify(configuration.IPFSPort+""),
-      'IPFS_DOMAIN': JSON.stringify(configuration.IPFSDomain+""),
-      'RentHouseListingAddress':JSON.stringify(configuration.houselistAddress+""),
-      'PPSAddress':JSON.stringify(configuration.ppsAddress+""),
-      'Server_Address':JSON.stringify(configuration.PopulstayServer+""),
-      'Socket_Server':JSON.stringify(configuration.SocketServer+""),
-      'WEB3_PROVIDER':JSON.stringify(configuration.web3Provider+""),
-      'Exchange_Contract':JSON.stringify(configuration.exchangeAddress+"")
+      'IPFS_API_PORT': JSON.stringify("5001"),
+      'IPFS_DOMAIN': JSON.stringify("ipfs.infura.io"),
+      'RentHouseListingAddress':JSON.stringify("0x0b920e9d29e81d829bcdd6cc3a782f4389bdda31"),
+      'PPSAddress':JSON.stringify("0x901c5be5768798217fd4ceefecc0c4e6c38ec684"),
+      'Server_Address':JSON.stringify("http://133.130.99.204:1339/"),
+      'Socket_Server':JSON.stringify("http://server.populstay.com/"),
+      'Populstay_Wallet':JSON.stringify("0xB421ca5420dC2D6F0bf868c52ad1ff8614E68788"),
+      'WEB3_PROVIDER':JSON.stringify("https://kovan.infura.io/FrDFhx3FbezOwQJjQv9T"),
+      'Exchange_Contract':JSON.stringify("0xa88dd1ce8c1ffb87bf4a0dd097a674bf2b2530ef"),
+      'Withdraw_fee':JSON.stringify("0.01")
     });
 
-    console.log(processEnv);
-    
   return {'process.env': processEnv};
+
 }
 
 module.exports = getClientEnvironment;
