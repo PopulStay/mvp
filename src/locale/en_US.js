@@ -818,6 +818,7 @@ export const Wallet_Account = 'Wallet Account';
 export const User = 'User';
 export const User_name = 'User name';
 export const User_Password = 'Password';
+export const User_Passwordtwo = 'RepeatPassword';
 export const Phone = 'Phone';
 export const Email = 'Email';
 export const Enter_email = 'Enter email';
@@ -986,7 +987,6 @@ export const state6 = 'Published successfully';
 export const state7 = 'Fail to publish';
 export const state_1 = 'Failure';
 export const Check = 'Check';
-export const negative_comment = 'negative (comment)';
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = 'Become a Host';

@@ -818,6 +818,7 @@ export const Wallet_Account = '钱包账户';
 export const User = '用户';
 export const User_name = '用户名';
 export const User_Password = '密码';
+export const User_Passwordtwo = '二次密码验证';
 export const Phone = '电话';
 export const Email = '邮箱';
 export const Enter_email = '输入邮箱';
@@ -986,7 +987,6 @@ export const state6 = '发布成功';
 export const state7 = '发布失败';
 export const state_1 = '提币失败';
 export const Check = '查看';
-export const negative_comment = '差评理由';
 
 // footer--------------------------------------------------------------------------------------------
 export const Become_a_Host = '成为房东';
