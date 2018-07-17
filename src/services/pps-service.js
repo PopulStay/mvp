@@ -10,9 +10,6 @@ var web_provider = process.env.WEB3_PROVIDER;
 var PPS_address = process.env.PPSAddress;
 var exchange_address = process.env.Exchange_Contract;
 var Populstay_Wallet = process.env.Populstay_Wallet;
-var fee = window.web3.utils.toWei(process.env.Withdraw_fee);
-
-
 
 class PPSService {
   static instance

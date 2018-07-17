@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom'
 
 // Components
-import ConfigurationService from '../services/Configuration-service'
 import NavBar from './navbar'
 import ScrollToTop from './scroll-to-top.js'
 import Listings from './listings-grid.js'
