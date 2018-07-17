@@ -811,6 +811,8 @@ export const Submission_of_success = '发布成功';
 export const Submission_of_PROCESSING = '提交处理中';
 
 //guest-register--------------------------------------------------------------------------------------------
+export const No_account = '没有账户？';
+export const Have_Account = '已有账户？';
 export const Sign_up = '注册';
 export const Welcome = '欢迎！';
 export const Guest_Register = '用户注册';

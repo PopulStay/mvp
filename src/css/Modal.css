@@ -20,6 +20,27 @@
   padding: 10%;
   overflow: hidden;
 }
+.Signup{
+  padding: 5% 8%;
+}
+.Signup .user_status{
+  text-align: center;
+  margin: 50px auto 0;
+}
+.Signup .user_status a,
+.Import .user_status a{
+  color: #f6416c;
+  cursor: pointer;
+  margin-left: 2%;
+}
+.Signup .user_status a:hover,
+.Import .user_status a:hover{
+  color: #f6416c;
+}
+.Import .user_status{
+  text-align: center;
+  margin: 20px auto 0;
+}
 button.copy,button.copy:hover{
   width: auto !important;
   font-size: 1.4rem !important;

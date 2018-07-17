@@ -12,8 +12,8 @@ import languageService from '../services/language-service';
 
 
 class GuestRegister extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       modalIsOpen: false,
@@ -59,6 +59,18 @@ class GuestRegister extends React.Component {
     this.setState({Verification:window.languagelist.Get_verification_code});
     this.loadUserData();
   }
+
+  componentWillUpdate(){
+    this.timerID = setTimeout(
+      () => {
+        if(this.props.userlogin == "Signup"){
+          this.openModal()
+        }
+      },
+      100
+    );
+    
+  }
    
   register(){
     var register={};
@@ -93,6 +105,7 @@ class GuestRegister extends React.Component {
   closeModal() {
     this.setState({modalIsOpen: false});
     this.props.onLogOut(false);
+    this.props.Onuserlogin("hide");
   }
 
   loadUserData = () =>{
@@ -174,6 +187,10 @@ class GuestRegister extends React.Component {
     }else{
       this.setState({Verification:this.state.languagelist.Get_verification_code});
     }
+  }
+  user_status(){
+    this.setState({modalIsOpen: false});
+    this.props.Onuserlogin("Login");
   }
 
   render() {
@@ -271,6 +288,7 @@ class GuestRegister extends React.Component {
                 <br/>
                 <button className={this.state.account == "" || this.state.Verification != this.state.languagelist.Successful_verification ? 'closeok closeactive' : 'closeok'} onClick={this.register}>{language.OK}</button>
                 <button className="btn btn-primary closecancel" onClick={this.closeModal}>{language.Cancel}</button>
+                <p className="user_status">{language.Have_Account}<a onClick={(e)=>this.user_status()}>{language.Log_in}</a></p>
               </div>
             </Modal>
         </div>

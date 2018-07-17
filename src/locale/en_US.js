@@ -812,6 +812,8 @@ export const Submission_of_PROCESSING = 'Submission of PROCESSING';
 
 //guest-register--------------------------------------------------------------------------------------------
 export const Sign_up = 'Sign up';
+export const No_account = 'No account ?';
+export const Have_Account = 'Have Account ?';
 export const Welcome = 'Welcome！';
 export const Guest_Register = 'Guest Register';
 export const Wallet_Account = 'Wallet Account';

@@ -23,6 +23,7 @@ class NavBar extends Component {
         locationName:"Tokyo",
         clicklogout:false,
         languagelist:{},
+        userlogin:"hide"
       };
       window.searchCondition = this.state;
       languageService.language();
@@ -42,6 +43,9 @@ class NavBar extends Component {
     this.setState({ clicklogout:value });
   }
 
+  Onuserlogin = (value) =>{
+    this.setState({ userlogin:value });
+  }
 
 
   render() {
@@ -78,10 +82,10 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="Li4">
-              <WalletClear clicklogout={this.state.clicklogout} onLogOut={this.onLogOut} />
+              <WalletClear clicklogout={this.state.clicklogout} userlogin={this.state.userlogin} Onuserlogin={this.Onuserlogin} onLogOut={this.onLogOut} />
             </li>
             <li className="Li5">
-              <GuestRegister clicklogout={this.state.clicklogout} type='0' onLogOut={this.onLogOut} />
+              <GuestRegister clicklogout={this.state.clicklogout} type='0' userlogin={this.state.userlogin} Onuserlogin={this.Onuserlogin} onLogOut={this.onLogOut} />
             </li>
           </ul>
         </div>

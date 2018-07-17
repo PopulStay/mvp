@@ -37,8 +37,18 @@ class WalletClear extends React.Component {
     guestService.getGuesterInfo(window.address).then((data)=>{
       this.setState({ registered:true });
     });
+  }
 
-    
+  componentWillReceiveProps(){
+    this.timerID = setTimeout(
+      () => {
+        console.log(this.props.userlogin)
+        if(this.props.userlogin == "Login"){
+          this.setState({modalinOpen:true})
+        }
+      },
+      100
+    );
   }
   clear(){
    
@@ -84,6 +94,15 @@ class WalletClear extends React.Component {
     return str.substring(2,str.length);
   }
 
+  userlogin(){
+    this.setState({modalinOpen:false})
+    this.props.Onuserlogin("Signup")
+  }
+
+  modalinOpen(){
+    this.setState({modalinOpen:false})
+    this.props.Onuserlogin("hide")
+  }
     
 
 
@@ -97,7 +116,7 @@ class WalletClear extends React.Component {
           <a onClick={(e) => this.setState({modaloutOpen:true})}>{language.Log_out}</a>
         }
 
-        {(this.state.registered === false || this.props.clicklogout ===true ) &&
+        {(this.state.registered === false || this.props.clicklogout ===true || this.props.userlogin === "hide" ) &&
           <a onClick={(e) => this.setState({modalinOpen:true})}>{language.Log_in}</a>
         }
 
@@ -136,8 +155,11 @@ class WalletClear extends React.Component {
             <input type="password"  className="form-control" placeholder={language.User_Password} onChange={(e) => this.setState({Password: e.target.value})} />
           </div>
           <br/>
-          <button className="btn btn-danger Left" onClick={this.import}>{language.Log_in}</button>
-          <button className="btn btn-primary Right " onClick={(e) => this.setState({modalinOpen:false})}>{language.Cancel}</button>
+          <div className="overflow">
+            <button className="btn btn-danger Left" onClick={this.import}>{language.Log_in}</button>
+            <button className="btn btn-primary Right " onClick={(e) => this.modalinOpen()}>{language.Cancel}</button>
+          </div>
+          <p className="user_status">{language.No_account}<a onClick={(e)=>this.userlogin()}>{language.Sign_up}</a></p>
           </div>
         </Modal>
       
