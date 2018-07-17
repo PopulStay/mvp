@@ -23,15 +23,20 @@ class GuestService {
 
   getOrderState(){
     return new Promise((resolve, reject) => {
-          axios.get(process.env.Server_Address+'book?guestaddress='+window.address )
-                    .then((response)=> {
-                      //state:0准备提交。2 已经提交 4 已经checkin
-                      resolve(response.data);
-                    })
-                    .catch(function (error) {
-                      reject(error);
-                    });
-         });           
+      if( window.sessionStorage.getItem('webtoken') )
+      {
+        axios.defaults.headers.common['Authorization'] = window.sessionStorage.getItem('webtoken');
+      }
+      
+      axios.get(process.env.Server_Address+'book?guestaddress='+window.address )
+      .then((response)=> {
+        //state:0准备提交。2 已经提交 4 已经checkin
+        resolve(response.data);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
+    });           
   }
 
   setWebToken(token){

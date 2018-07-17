@@ -43,6 +43,11 @@ class IpfsService {
 
  getIPFSInfo(id) {
       return new Promise((resolve, reject) => {
+        if( window.sessionStorage.getItem('webtoken') )
+        {
+          axios.defaults.headers.common['Authorization'] = window.sessionStorage.getItem('webtoken');
+        }
+        
         axios.get(process.env.Server_Address+'ipfs/'+id)
         .then((response)=> {
           resolve(response);

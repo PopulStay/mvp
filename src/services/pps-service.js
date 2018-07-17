@@ -132,6 +132,11 @@ class PPSService {
             //params.balance                = size;
             params.account                = window.address;
 
+            if( window.sessionStorage.getItem('webtoken') )
+            {
+              axios.defaults.headers.common['Authorization'] = window.sessionStorage.getItem('webtoken');
+            }
+
             axios.post(process.env.Server_Address+'exchange/deposit', params)
             .then(function (response) {
             resolve(response);
@@ -147,10 +152,16 @@ class PPSService {
   //new version of deposit by eric 2018-07-10 end
 
   getDepositBalance(id){
-    
+
       return new Promise((resolve, reject) => {
+          if( window.sessionStorage.getItem('webtoken') )
+          {
+            axios.defaults.headers.common['Authorization'] = window.sessionStorage.getItem('webtoken');
+          }
+          
           axios.get(process.env.Server_Address+'deposit/'+id)
           .then(function (response) {
+            console.log(response)
           resolve(response);
           })
           .catch(function (error) {
@@ -161,8 +172,12 @@ class PPSService {
   }
 
  getWithdrawInfo(account){
-    
       return new Promise((resolve, reject) => {
+            if( window.sessionStorage.getItem('webtoken') )
+            {
+              axios.defaults.headers.common['Authorization'] = window.sessionStorage.getItem('webtoken');
+            }
+
             axios.get(process.env.Server_Address+'apply?account='+account)
             .then(function (response) {
             resolve(response);
@@ -235,7 +250,11 @@ class PPSService {
      params.guestaddress = window.address;
      params.houseinfoid  = uuid;
      params.paymentcode  = md5(window.address);
-
+     if( window.sessionStorage.getItem('webtoken') )
+    {
+      axios.defaults.headers.common['Authorization'] = window.sessionStorage.getItem('webtoken');
+    }
+    
      axios.post(process.env.Server_Address+'payment', params)
       .then(function (response) {
       resolve(response.data);

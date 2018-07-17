@@ -38,6 +38,10 @@ class WalletClear extends React.Component {
       this.setState({ registered:true });
     });
 
+    if(!sessionStorage.getItem('webtoken') )
+    {
+      this.setState({modalinOpen:true});
+    }
   }
   clear(){
    
