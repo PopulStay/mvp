@@ -3,10 +3,10 @@ import ipfsService from '../services/ipfs-service';
 import bs58 from 'bs58';
 import axios from 'axios';
 import Web3 from 'web3';
-const Buf = require('buffer/').Buffer ;
-const EthereumTx = require('ethereumjs-tx');
-const web_provider = process.env.WEB3_PROVIDER;
-const houselist_address = process.env.RentHouseListingAddress;
+const  Buf               = require('buffer/').Buffer ;
+const  EthereumTx        = require('ethereumjs-tx');
+const  web_provider      = process.env.WEB3_PROVIDER;
+const  houselist_address = process.env.RentHouseListingAddress;
 
 
 class HouseInfoListingService {
@@ -24,9 +24,18 @@ class HouseInfoListingService {
       window.web3 = new Web3( new Web3.providers.HttpProvider(web_provider));
       window.web3loaded = true;
     }
-      
+  }
 
-   
+   getHouseComment(houseinfoid){
+    return new Promise((resolve, reject) => {
+          axios.get(process.env.Server_Address+'book?state=5&houseinfoid='+houseinfoid )
+                    .then((response)=> {
+                      resolve(response);
+                    })
+                    .catch(function (error) {
+                      reject(error);
+                    });
+         });           
   }
 
   getBytes32FromIpfsHash(ipfsListing) {
@@ -41,8 +50,9 @@ class HouseInfoListingService {
     return hashStr
   }
 
-  setPreOrderByETH( hostaddress, ethpriceGwei, uuid, from, to, days )
+  setPreOrderByETH( hostaddress,ether, ethpriceGwei, uuid, from, to, days )
   {
+
     return new Promise((resolve, reject) => {
       var contract = new window.web3.eth.Contract( HouseInfoListing.abi,houselist_address );
       var dataobj  = contract.methods.preOrderByEth(
@@ -59,7 +69,7 @@ class HouseInfoListingService {
        params.days = days;  
        params.hostaddress  = hostaddress;
        params.price        = 0;
-       params.ethprice     = ethpriceGwei;
+       params.ethprice     = ether;
        params.guestaddress = window.address;
        params.houseinfoid  = uuid;
 
@@ -142,15 +152,19 @@ class HouseInfoListingService {
               params.hostAddress     = window.address;
               params.guests          = formListing.roombasics_guestsnumber;
               params.place           = formListing.roomtype_location;
-              params.ethprice        = parseFloat(formListing.ETHprice_perday)*1000000000;
+              params.ethprice        = formListing.ETHprice_perday;
+              params.usdprice        = formListing.USDprice_perday;
+              params.profile         = { previewImage : formListing.selectedPictures[0].imagePreviewUrl };
+              params.generateSmartContract = formListing.generate_smart_contract;
+              params.roominfo        = roominfo;
 
               axios.post(process.env.Server_Address+'HouseInformation', params)
               .then(function (response) {
-              resolve(response.data.txhash);
+                resolve(response.data.txhash);
               })
               .catch(function (error) {
               console.error(error)
-              reject(error)
+                reject(error)
               });
           });
       });
@@ -184,10 +198,22 @@ class HouseInfoListingService {
           reject(error);
         });
     });
-
-
-
   }
+
+  
+  getlocationtype(account){
+    return new Promise((resolve, reject) => {
+        axios.get(process.env.Server_Address+'HouseInformation?place='+account)
+        .then((response)=> {
+          resolve(response.data);
+        })
+        .catch(function (error) {
+          reject(error);
+        });
+    });
+  }
+
+
 
 
   getGuestPreorderList(account) {
@@ -201,14 +227,85 @@ class HouseInfoListingService {
      return contract.methods.getHostOrders(account).call();
   }
 
-  getHouseId(districtCode,from,to,guests,place){
+   getHouseInfoById(id){
 
     return new Promise((resolve, reject) => {
-      axios.get(process.env.Server_Address+'HouseInformation?place='+place
-                                                          +'&guests='+guests
-                                                          +'&to='+to
-                                                          +'&from='+from
-                                                          +'&districeCode='+districtCode)
+      axios.get(process.env.Server_Address+'HouseInformation/'+id)
+      .then((response)=> {
+        resolve(response.data);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
+    })
+
+
+  }
+
+    getRecommand(districtCode){
+
+    return new Promise((resolve, reject) => {
+      axios.get(process.env.Server_Address+'HouseInformation?districeCode='+districtCode+ '&limit=6')
+      .then((response)=> {
+        resolve(response.data);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
+    })
+  }
+
+
+  getAllLists(districtCode){
+
+    return new Promise((resolve, reject) => {
+      axios.get(process.env.Server_Address+'HouseInformation?districeCode='+districtCode)
+      .then((response)=> {
+        resolve(response.data);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
+    })
+
+   //   var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address)
+   //   return contract.methods.getUUIDS(districtCode).call();
+  }
+
+
+
+  getHouseId(districtCode,from,to,guests,place){
+
+     var url  = process.env.Server_Address+'HouseInformation/search?';
+
+     if( place!=null || place !=undefined || place != null  || place !="undefined" )
+     {
+       url = url + 'place='+place;
+     }
+
+     if( guests!=null || guests !=undefined || guests != null  || guests !="undefined" )
+     {
+       url = url + '&guests='+guests;
+     }
+
+     if( to!=null || to !=undefined || to != null  || to !="undefined" )
+     {
+       url = url + '&to='+to;
+     }
+
+     if( from!=null || from !=undefined || from != null  || from !="undefined" )
+     {
+       url = url + '&from='+from;
+     }
+
+     if( districtCode!=null || districtCode !=undefined || districtCode != null  || districtCode !="undefined" )
+     {
+       url = url + '&districeCode='+districtCode;
+     }
+ 
+
+    return new Promise((resolve, reject) => {
+      axios.get(url)
       .then((response)=> {
         resolve(response.data);
       })
@@ -225,6 +322,19 @@ class HouseInfoListingService {
   getHouseInfoDetail(uuid){
      var contract = new window.web3.eth.Contract(HouseInfoListing.abi,houselist_address)
      return contract.methods.getHouseInfo(uuid).call();
+ }
+
+
+   getHouseInfoDetailFromDB(uuid){
+      return new Promise((resolve, reject) => {
+      axios.get(process.env.Server_Address+'HouseInformation/'+uuid)
+      .then((response)=> {
+        resolve(response.data);
+      })
+      .catch(function (error) {
+        reject(error);
+      });
+    })
  }
 
 

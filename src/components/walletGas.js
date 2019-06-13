@@ -3,15 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
-
-const customStyles = {
-  content : {
-    top                   : '30%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '30%'
-  }
-};
+import languageService from '../services/language-service';
 
 
 class WalletGas extends React.Component {
@@ -20,13 +12,19 @@ class WalletGas extends React.Component {
 
     this.state = {
       infoModalIsOpen:false,
-      gas:null
+      gas:null,
+      languagelist:{},
     };
 
     this.openInfoModal = this.openInfoModal.bind(this);
     this.afterOpenInfoModal = this.afterOpenInfoModal.bind(this);
     this.closeInfoModal = this.closeInfoModal.bind(this);
 
+    languageService.language();
+  }
+
+  componentDidMount() {
+    this.setState({ languagelist:window.languagelist });
   }
 
   openInfoModal() {
@@ -42,23 +40,22 @@ class WalletGas extends React.Component {
   }
 
   render() {
+      const language = this.state.languagelist;
     return (
 
     <div>
 
-        <button className="btn btn-primary" onClick={this.openInfoModal}>Gas</button>
-        <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} style={customStyles} 
+        <button className="btn btn-primary" onClick={this.openInfoModal}>{language.Gas}</button>
+        <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} 
         contentLabel="InfoModal">
         <div className="Gas">
-          <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
-          <br/>
+          <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
           <div className="form-group">
-            <label>Gas Price</label>
-            <input type="text"  className="form-control" placeholder="Wallet Account" onChange={(e) => this.setState({gas: e.target.value})} />
+            <label>{language.Gas_Price}</label>
+            <input type="text"  className="form-control" placeholder={language.Wallet_Account} onChange={(e) => this.setState({gas: e.target.value})} />
           </div>
-          <br/>
-          <button className="btn btn-danger" onClick={this.closeInfoModal}>OK</button>
-          <button className="btn btn-primary" onClick={this.closeInfoModal}>Cancel</button>
+          <button className="btn btn-danger Left" onClick={this.closeInfoModal}>{language.OK}</button>
+          <button className="btn btn-primary Right" onClick={this.closeInfoModal}>{language.Cancel}</button>
         </div> 
         </Modal>
       

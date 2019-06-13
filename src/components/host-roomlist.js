@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import houselistingService from '../services/houseinfolist-service'
 import { Link } from 'react-router-dom'
+import languageService from '../services/language-service';
 
 class HostRoomListRow extends Component {
 
@@ -11,27 +12,29 @@ class HostRoomListRow extends Component {
       beds: "Loading...",
       location:"Loading",     
       price:"Loading",
-      status:1
+      status:1,
+      languagelist:{},
     }
 
+    languageService.language();
   }
 
 
 
 
   getHostRoomInfo(){
-    console.log(this.props.row);
     var roominfo = this.props.row.houseinfo;
     this.setState({
       state:this.props.row.state,
+      url:this.props.row.id,
       price:this.props.row.price,
       category:roominfo.category,
       location:roominfo.location,
       beds:roominfo.beds});
-   
   }
 
   componentWillMount() {
+    this.setState({ languagelist:window.languagelist });
 
      if(this.props.row)
      {
@@ -43,15 +46,17 @@ class HostRoomListRow extends Component {
 
 
   render() {
+      const language = this.state.languagelist;
 
     return (
-       <tr>
-        <td>{this.state.category}</td>
-        <td>{this.state.beds}</td>
-        <td>{this.state.location}</td>
-        <td>{this.state.price}/PPS</td>
-        <td>{this.state.status}</td>
-      </tr>
+       <div className="divtr">
+        <div>{this.state.category}</div>
+        <div><Link to={`/listing/${this.state.url}`}>{language.Check}</Link></div>
+        <div>{this.state.beds}</div>
+        <div>{this.state.location}</div>
+        <div>{this.state.price}/PPS</div>
+        <div>{this.state.status == 1 ? language.state6 : language.state7}</div>
+      </div>
     
     )
   }

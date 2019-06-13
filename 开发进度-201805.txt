@@ -1,0 +1,152 @@
+1)网页进度条；1      wang
+2）网页加载速度，进一步加强；2   wang ding
+3）网页tag的过滤器；1  wang 
+4）发布房源的进度保存，采用localstorage，wallet.js有sample，保存state； 1 wang 
+5）profile的头像上传；2。  wang ding
+6）取币 ；1 ding
+7）电话扣除PPS； 1 ding   --------- ok
+8）电话挂断，红色按钮功能； 1 ding。 --------------- ok
+9）checkin,checkout的检索； bugfix 1 ding
+10）真实的地图功能；  2 wang
+11）help页面； 1 chrite
+12) 用户页面需要双击才能进入。 1: wang
+13)  地图功能。2 wang
+14) book订单上不去的bug。
+15）预定的日期的边界；
+16）URL长度问题；
+17）房源的主图片的突出；
+18）语言的问题；
+19）聊天做成悬浮框；
+20）instant booking ／booking 问题；
+21）用户管理页面对齐；
+22）订单详细页面的
+
+
+
+
+5-26
+1)存币
+2）网页加载速度，进一步加强；2   wang ding
+3）网页tag的过滤器；1  wang   --40%
+4）发布房源的进度保存，采用sessionstorage，wallet.js有sample，保存state； 1 wang 
+5）profile的头像上传；2。  wang ding
+6）取币 ；1 ding 
+9）checkin,checkout的检索； bugfix 1 ding
+10）真实的地图功能；  2 wang
+11）help页面； 1 chrite
+12)用户页面需要双击才能进入。 1: wang
+13) 地图功能。2 wang
+14) book订单上不去的bug。
+15）预定的日期的边界； wang
+16）URL长度问题； ding
+17）房源的主图片的突出；wang
+18）语言的问题； wang
+19）聊天做成悬浮框； wang
+20）instant booking ／booking 问题；
+21）用户管理页面对齐； wang
+22）订单详细页面的增加。ding。wang
+23）计费的速度修正 fix ding
+24) 计费的价格设定  ding
+25） 没有PPS不能计费 ding
+
+
+
+
+
+5-27
+1)存币返回结果
+2）网页加载速度，进一步加强；2   wang ding
+3）网页tag的过滤器；1  wang   --40%
+4）发布房源的进度保存，采用localstorage，wallet.js有sample，保存state； 1 wang 
+5）profile的头像上传；2。  wang ding
+6）取币 ；1 ding 
+9）checkin,checkout的检索 url的问题； bugfix 1 wang
+10）真实的地图功能；  2 wang
+11）help页面； 1 chrite
+12)用户页面需要双击才能进入。 1: wang
+13) 地图功能。2 wang
+15）预定的日期的边界； wang
+16）URL长度问题； ding
+17）房源的主图片的突出；wang
+18）语言的问题； wang
+19）聊天做成悬浮框； wang
+20）instant booking ／booking 问题；
+21）用户管理页面对齐； wang
+22）订单详细页面的增加。ding。wang
+
+
+
+5-28
+1)存币返回结果
+2）网页加载速度，进一步加强；2   wang ding
+3）网页tag的过滤器；1  wang   --40%
+4）发布房源的进度保存，采用localstorage，wallet.js有sample，保存state； 1 wang 
+5）profile的头像上传；2。  wang ding
+6）取币 ；1 ding wang --40%
+9）checkin,checkout的检索 url的问题； bugfix 1 wang
+10）真实的地图功能；  2 wang
+11）help页面； 1 chrite  wang ding
+12)用户页面需要双击才能进入。 1: wang
+13) 地图功能。2 wang
+16）URL长度问题； ding
+17）房源的主图片的突出；wang
+18）语言的问题； wang
+19）聊天做成悬浮框； wang
+20）instant booking ／booking 问题； ？待定
+22）订单详细页面的增加。ding。wang
+23) 缓存IPFS上内容 ding
+
+
+
+
+
+5-28
+1)存币返回结果
+2）网页加载速度，进一步加强；2   wang ding
+3）网页tag的过滤器；1  wang   --40%
+4）发布房源的进度保存，采用localstorage，wallet.js有sample，保存state； 1 wang 
+5）profile的头像上传；2。  wang ding
+6）取币 ；1 ding wang --40%
+7）checkin,checkout的检索 url的问题； bugfix 1 wang
+8）真实的地图功能；  2 wang
+9）help页面； 1 chrite  wang ding
+10)用户页面需要双击才能进入。 1: wang
+11) 地图功能。2 wang
+12）URL长度问题； ding
+13）房源的主图片的突出；wang
+14）语言的问题； wang
+15）聊天做成悬浮框； wang
+16）instant booking ／booking 问题； ？待定
+17）订单详细页面的增加。ding。wang
+18) 缓存IPFS上内容 ding
+19) 订单分页的功能 wang
+
+
+5-30
+1) 存币返回结果；  eric yan
+2）网页加载速度，进一步加强；  往window.sessionStorage缓存数据！  eric yan   优先级：3
+3）网页tag的过滤器；  yan   --60%。 优先级：2
+4）发布房源的进度保存，采用localstorage，wallet.js有sample，保存state； 1 yan 优先级：1
+5）profile的头像上传；  yan ding。 优先级：2
+6）取币 ； ding yan --40%  优先级：2
+8）真实的地图功能；   yan  优先级：3
+9）help页面；  chrite  yan eric。优先级：3
+11) 地图功能； yan    优先级：3 
+12）URL长度问题； ding  优先级：3
+13）房源的主图片的突出；yan。优先级：3
+14）语言的问题； yan  优先级：2
+16）instant booking ／booking 问题； ？待定
+17）订单详细页面的增加；eric yan  优先级：1
+19) 订单分页的功能；  yan   优先级：1
+20）做一个PDF的操作手册； yan  优先级：1
+21）上传android的基础版本；jerry  优先级：1
+22）做好android的安装，部署文档； jerry 优先级：1
+
+
+yan：  下周二将优先级为1，2的完成；
+jerry：  21）上传android的基础版本；jerry  优先级：1
+         22）做好android的安装，部署文档； jerry 优先级：1
+
+
+
+

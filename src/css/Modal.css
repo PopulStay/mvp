@@ -1,0 +1,807 @@
+.Signup,
+.modalcode,
+.PirvateKey,
+.Create,
+.Create1,
+.clear,
+.Gas,
+.Explainwhy,
+.Import,
+.deposit,
+.withdraw,
+.Sign,
+.submit,
+.Wallet_Reviews{
+  width: 460px;
+  background: #fff;
+  border-radius: 7px;
+  border-radius: 20px;
+  border-radius: 25px !important;
+  padding: 10%;
+  overflow: hidden;
+}
+button.copy,button.copy:hover{
+  width: auto !important;
+  font-size: 1.4rem !important;
+  padding: 0 5% !important;
+  background:#fff !important;
+  color: #f6416c !important;
+}
+.overlay-box button a{
+  color: #f5426c;
+}
+.Signup .dropdownBtn{
+  position: relative;
+}
+.info h1,
+.HostManagment h1{
+  border-left:2px solid #f6416c; 
+  padding-left: 2%;
+  margin-bottom: 2%;
+  margin-left: 5%;
+  font-size: 2.2rem;
+}
+.userBox{
+  background: #151b4e;
+  color: #fff;
+  padding:4% 5%;
+  margin:0 0 4%;
+  overflow: hidden;
+}
+.userBox h1{
+  margin-left: 0% !important;
+  font-size: 3.4rem !important;
+  margin-top: 0;
+}
+.userBox .userPhoto img{
+  height: 100%;
+  width: auto;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.userBox .userPhoto{
+  width: 80%;
+  height: 98%;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position:center;
+  margin: 0 auto;
+}
+.userBox .userPhoto:hover p{
+  display: block;
+}
+.userBox .userPhoto input{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0;
+}
+.userBox .userPhoto p{
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  position: absolute;
+  top:0;
+  left: 0;
+  cursor: pointer;
+  text-align: center;
+  display: none;
+}
+.userBox .userPhoto p span{
+  width: 70%;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 2rem;
+}
+.userBox .userlist{
+  font-family: RobotoThin; 
+  font-size: 1.4rem;
+  margin: 1% 0 0 1%;
+}
+.userBox .userlist>div{
+  padding: 2% 0;
+}
+.userBox .userbtn{
+  margin-top: 0.8%;
+}
+.userBox .userbtn>div{
+  margin-left: 15%;
+}
+.userBox .userqrurl{
+  margin-top: 0.8%;
+}
+.userBox .photo{
+  width: 76%;
+  margin: 0 10%;
+}
+.userBox .address{
+  word-break: break-all;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.4rem;
+  font-family: RobotoThin; 
+  margin-top: 2%;
+}
+.userBox span{
+  font-family: RobotoBold; 
+  font-size: 1.6rem;
+  margin-right: 2%;
+}
+.userBox p{
+  display: inline-block;
+}
+.No_order{
+  color:#f6416c ;
+  margin: 100px auto;
+  padding: 1% 5%;
+  font-size: 1.8rem;
+  text-align: center;
+}
+.Add_a_house{
+  border:1px solid #f6416c;
+  background:#fff;
+  color:#f6416c ;
+  margin: 100px auto;
+  padding: 1% 5%;
+  font-family: RobotoThin; 
+  font-size: 1.8rem;
+}
+.Add_a_house:hover{
+  color:#fff ; 
+  background:#f6416c;
+}
+.GuestManagment h1,
+.HostManagment h1{
+  margin-left: -2%;
+}
+.GuestManagment,
+.HostManagment{
+  width: 86%;
+  margin-left: 7%;
+  margin-bottom: 4%;
+  position: relative;
+  overflow: hidden;
+}
+.auto{
+  min-width: 800px;
+  overflow: auto;
+}
+.overflowAuto{
+  max-height: 500px;
+  overflow: auto;
+}
+.GuestManagment>.divtr,
+.HostManagment>.divtr{
+  border-top: 1px solid #151b4e !important;
+}
+.GuestManagment .divtr,
+.HostManagment .divtr{
+  overflow: hidden;
+  border-bottom: 1px solid #151b4e !important;
+}
+.GuestManagment .divtr>div p{
+  margin-bottom: 0;
+}
+.GuestManagment .divtr>div a p{
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+.GuestManagment .divtr>div a p span{
+  margin-right: 10px;
+}
+.GuestManagment .divtr>div,
+.HostManagment .divtr>div{
+  float: left;
+  width: 16.5%;
+  text-align: center;
+  font-family: RobotoBold; 
+  font-size: 1.8rem;
+  padding: 1% 0 !important;
+}
+.GuestManagment .overflowAuto .divtr>div,
+.HostManagment .overflowAuto .divtr>div{
+  width: 16.5%;
+  text-align:center;
+  color: #999;
+  font-family: RobotoThin; 
+  padding: 0.8% 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.6rem;
+}
+.GuestManagment .divtr>div,
+.GuestManagment .overflowAuto .divtr>div{
+  width:14.2%;
+}
+.GuestManagment .divtr>div button{
+  background: #fff;
+  border:1px solid #f6416c;
+  color:#f6416c;
+  line-height: 0;
+  height: 30px;
+}
+.GuestManagment .divtr>div button:hover{
+  border:1px solid #f6416c;
+  color:#fff;
+  background: #f6416c;
+}
+.GuestManagment .divtr>div .glyphicon{
+  color: #f6416c;
+  cursor: pointer;
+}
+.GuestManagment .divtr>div span,
+.GuestManagment .divtr>div a{
+  font-size: 1.6rem;
+}
+.btnActive:hover,
+.btnActive{
+  opacity: 0.5;
+  border:1px solid #999 !important;
+  color: #999 !important;
+  background: #fff !important;
+}
+.userbtn>div{
+  padding-bottom: 9.5%;
+}
+.userbtn>div:last-child{
+  padding-bottom: 0;
+}
+.userbtn>div>button{
+  background: none;
+  border:1px solid #f6416c;
+  width: 100px;
+  border-radius: 0;
+  font-family: RobotoThin; 
+}
+.userbtn>div>button:hover{
+  background: #f6416c;
+  color: #fff;
+}
+.modalcode h3,
+.Create h2,
+.Create1 h2,
+.PirvateKey h2,
+.clear h2,
+.Gas h2,
+.Import h2,
+.deposit h2,
+.withdraw h2,
+.Sign h2,
+.submit h2,
+.overlay-box .checkIn h3{
+  color: #f6416c !important;
+  text-align: center;
+  font-family: RobotoBold; 
+  font-size: 2.2rem;
+  margin: 0 0 3%;
+}
+.success h1 span.glyphicon-refresh,
+.deposit span.glyphicon-refresh,
+.submit span.glyphicon-refresh{
+  color: #f6416c;
+  font-size: 2rem;
+  margin-left: 2%;
+  animation:refresh 1s infinite;
+  -webkit-animation:refresh 1s infinite linear; /* Safari 和 Chrome */
+}
+@keyframes refresh{
+0% {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
+.clear>div h3,
+.PirvateKey>div h3,
+.Gas>.form-group>label,
+.deposit>.form-group>label,
+.Sign>.form-group>label,
+.Create h3,
+.Import>.form-group>label{
+  margin:2% 0;
+  display: inline-block;
+  font-size: 1.8rem;
+  line-height: 1.4;
+}
+.clear>div,
+.PirvateKey>div,
+.Create1>div,
+.Import>div{
+  padding:0 3%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.clear>div .text1,
+.PirvateKey>div .text1,
+.Create1>div .text1{
+  font-family: RobotoThin; 
+  display: inline-block;
+  word-break: break-all;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border:none;
+  background: none;
+  outline:none;
+  margin: 0;
+}
+.modalcode button,
+.clear button,
+.PirvateKey button,
+.Gas button,
+.deposit button,
+.Sign button,
+.Create button,
+.Create1 button,
+.Import button,
+.withdraw button,
+.overlay-box .balance,
+.clear .balance,
+.overlay-box .checkIn button{
+  width: 30%;
+  padding: 1% 0;
+  margin: 6% 5% 0;
+  font-size: 1.8rem;
+  font-family: RobotoBold; 
+  border:1px solid #f6416c;
+}
+.modalcode button.Left,
+.clear button.Left,
+.Gas button.Left,
+.deposit button.Left,
+.Sign button.Left,
+.Import button.Left,
+.withdraw button.Left,
+.overlay-box .balance,
+.deposit .balance,
+.clear .balance,
+.overlay-box .checkIn button.Left{
+  color:#f6416c;
+  background: #fff;
+}
+.clear button.Right,
+.Gas button.Right,
+.deposit button.Right,
+.PirvateKey button,
+.Create1 button,
+.Sign button.Right,
+.Create button,
+.Import button.Right,
+.withdraw button.Right,
+.overlay-box .checkIn button.Right{
+  background:#f6416c;
+  color: #fff;
+}
+.clear button:hover,
+.PirvateKey button:hover{
+  background:#f6416c;
+  color: #fff;
+  border:1px solid #f6416c;
+}
+.modalcode button,
+.Create button,
+.Create1 button,
+.PirvateKey button,
+.deposit button.center{
+  width: 100%;
+  margin:6% 0 0;
+}
+.Gas>.form-group>input,
+.deposit>.form-group>input,
+.Sign>.form-group>input,
+.Import>.form-group>input,
+.withdraw .submitbox input{
+  border:1px solid #f6416c;
+  height: 35px;
+  font-size: 1.6rem;
+  font-family: RobotoThin; 
+  margin-bottom:0%; 
+}
+.deposit .photoClick{
+  width: 30px;
+  position: absolute;
+  right: 0;
+  top:0;
+}
+.clear .Please_logn_in{
+  text-align: center;
+}
+.deposit .text2{
+  font-family: RobotoBold; 
+  font-size: 1.8rem;
+  text-align: center;
+  word-break:break-word;
+}
+.ReactModal__Overlay{
+ background: rgba(179, 54, 99, 0.9) !important;
+ z-index: 9999;
+}
+.Signup img.close{
+  width: 15px;
+  float: right;
+  cursor: pointer;
+}
+.Signup h2{
+  text-align: center;
+  color: #131c4e !important;
+  font-size: 2.2rem;
+  margin: 0;
+  font-family: RobotoBold; 
+}
+.Signup button{
+  width: 80%;
+  border:1px solid #ababab;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  text-align: left;
+  height: 35px;
+}
+.Signup button span{
+  float: right;
+  color: #f6416c;
+  font-size: 1.8rem;
+}
+.Signup .dropdown-menu{
+  width: 80%;
+  padding: 0;
+  margin:0;
+  transform: translate(0%,30%) !important;
+}
+.Signup .dropdown-menu>a{
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 5%;
+  margin: 0;
+  border-top: 1px solid #888;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.6rem;
+  color: #4d4e4e;
+  padding: 0 8% !important;
+}
+.Signup .dropdown-menu a{
+  font-size: 1.6rem;
+  padding: 0 6%;
+}
+.Signup .dropdown-menu a>div>a{
+  display: block;
+  height: 40px;
+  padding: 0;
+}
+.Signup input{
+  height:35px;
+  border:1px solid #ababab;
+  border-radius: 6px;
+  font-family: RobotoThin; 
+}
+.Signup .dropdown{
+  font-size: 1.6rem;
+  color: #f6416c;
+  position: relative;
+}
+.Signup .form-group{
+  margin-bottom: 10px;
+}
+.Signup .form-group label{
+  color: #f6416c;
+  font-family: RobotoThin; 
+}
+.Signup #emailHelp{
+  font-family: RobotoThin; 
+  color: #8b8b8a !important;
+}
+.Signup .VerificationCode{
+  overflow: hidden;
+}
+.Signup .VerificationCode button{
+  float: left;
+  width: 60%;
+  height: 35px;
+  text-align: center;
+  border-radius: 0px;
+  border: 1px solid #f6416c;
+  padding: 0;
+  background: #f6416c;
+  color: #fff;
+}
+.Signup .VerificationCode button.active{
+  opacity: 0.5;
+}
+.Signup .VerificationCode input{
+  float: right;
+  width: 40%;
+  border-radius: 0px;
+  padding: 0;
+  text-align: center;
+}
+.Signup .closeok{
+  width: 50%;
+  font-size: 1.8rem;
+  text-align: center;
+  float: left;
+  border-radius: 8px;
+  padding:0;
+}
+.Signup .closecancel{
+  width: 50%;
+  background: none !important;
+  border: none !important;
+  color: #131c4e;
+  font-size: 1.8rem;
+  text-align: center;
+  float: right;
+}
+.Signup .closecancel:hover{
+  color: #131c4e;
+}
+.ReactModal__Content{
+  padding: 10%;
+  background: none !important;
+  border: none !important;
+  top: 50% !important;
+  left: 50% !important;
+  bottom: auto !important;
+  right: auto !important;
+  transform: translate(-50%,-50%) !important;
+}
+.Import .Left,
+.Import .Right{
+  width: 30%;
+  border:1px solid #f6416c;
+  height:35px;
+  line-height: auto;
+  font-size: 1.6rem;
+  padding: 0 auto!important;
+}
+.closeactive{
+  opacity: 0.5;
+}
+.Wallet_Reviews,
+.withdraw{
+  padding: 5%;
+  width: 750px;
+}
+.withdraw .tablebox{
+  max-height: 300px;
+  overflow: auto;
+}
+.withdraw table tr{
+  width: 100%;
+}
+.withdraw table tr,
+.withdraw table th{
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: RobotoBold; 
+}
+.withdraw .submitbox{
+  width: 100%;
+  margin: 0;
+}
+.withdraw .submitbox label{
+  font-size: 1.8rem;
+  margin-top: 3%;
+  font-family: RobotoBold; 
+}
+.withdraw table tr td.td5{
+  width: 35%;
+}
+.withdraw table td.td1,
+.withdraw table td.td2,
+.withdraw table td.td3,
+.withdraw table td.td4{
+  width: 20%;
+  color: #999;
+  font-family: RobotoThin; 
+}
+.withdraw table td.td2 p,
+.withdraw table td.td3 p,
+.withdraw table td.td4 p{
+  width: 110px;
+  overflow: hidden;
+  font-size: 1.6rem;
+  margin: 0;
+}
+.withdraw table td input{
+  outline:none;
+  border:none;
+  width: 90%;
+  font-size: 1.6rem;
+}
+.withdraw table td button{
+  width:48%;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 3% 0;
+  font-family: RobotoThin; 
+}
+.withdraw button{
+  width:35%;
+  margin-top: 3%;
+}
+.overlay-box .balance,
+.deposit .balance,
+.clear .balance{
+  width: 50%;
+  margin: 5% 25% 0;
+}
+.Wallet_Reviews .box1{
+  border-bottom: 1px solid #c5c5c5;
+  overflow: hidden;
+  padding-bottom: 2%;
+}
+.Wallet_Reviews .box1 .userimg{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  border:1px solid #f6416c;
+  position: relative;
+  float: left;
+  margin: 2% 0;
+}
+.Wallet_Reviews .box1 .userimg img{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Wallet_Reviews .box1 .usertext{
+  float: right;
+  width: 80%;
+}
+.Wallet_Reviews .box1 .usertext h4{
+  font-family: RobotoBold; 
+  font-size: 2rem;
+}
+.Wallet_Reviews .box1 .usertext p{
+  font-size: 1.6rem;
+}
+.Wallet_Reviews .box1 .usertext h6{
+  font-size: 1.4rem;
+}
+.Wallet_Reviews .box2 li p{
+  font-size: 1.6rem;
+  float: left;
+  color: #4d4e4e;
+  margin: 2% 0;
+}
+.Wallet_Reviews .box2 li .divxx img{
+  width: 20px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.Wallet_Reviews textarea{
+  width: 100%;
+  height:100px;
+  border:none;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #f6416c;
+}
+.Wallet_Reviews .photos{
+  max-height: 200px;
+  overflow: auto;
+}
+.Wallet_Reviews .photos .photosipt{
+  position: relative;
+}
+.Wallet_Reviews .photos .photosipt img{
+  width: 100%;
+  height: 100%;
+}
+.Wallet_Reviews .photos input{
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  top:0;
+  opacity: 0;
+}
+.Wallet_Reviews .photos .photosimg img{
+  width:auto;
+  height: 100%;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Wallet_Reviews .photos .photosimg span{
+  display: inline-block;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #000;
+  text-align: center;
+  line-height: 40px;
+  font-size: 2rem;
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Wallet_Reviews .photos .photosimg:hover span{
+  opacity: 0.6
+}
+.Wallet_Reviews .photos .photosimg,
+.Wallet_Reviews .photos .photosipt{
+  width: 31.1%;
+  height:150px;
+  position: relative;
+  overflow: hidden;
+  margin: 1% ;
+  float: left;
+}
+.Wallet_Reviews button{
+  background: none;
+  border:none;
+  color: #f6416c;
+  font-size: 1.8rem;
+  margin-top:3%;
+}
+.Wallet_Reviews button.Right1{
+  color:#4d4e4e;
+}
+
+.footer .modal-dialog{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%) !important;
+}
+.footer .modal-dialog button{
+  padding:1% 3%;
+}
+.footer .modal-dialog button span{
+  font-size: 2rem;
+}
+
+
+/*Map*/
+#Map{
+  height: 100%;
+  overflow: hidden;
+}
+#Map .Mapicon{
+  color: white; 
+  background: #131c4e;
+  padding: 6px 10px;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  position: relative;
+}
+#Map .Mapicon span{
+  width: 0px;
+  height: 0px;
+  border: 5px solid transparent;
+  border-top: 10px solid #131c4e;
+  position: absolute;
+  bottom: -14px;
+}
+
+.overlay-box{
+  border:1px solid #f6416c;
+}
+.overlay-box .checkIn h3{
+  margin-bottom: 8%;
+}
+.overlay-box .checkIn button{
+  width: 40%;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import hostService from '../services/host-service';
 import HostOrderRow from './host-orderrow';
+import languageService from '../services/language-service';
 
 class HostOrderList extends React.Component {
   constructor() {
@@ -12,15 +13,11 @@ class HostOrderList extends React.Component {
       account:"",
       orderlist:[]
     };
+    languageService.language();
   }
   
   componentWillMount() {
- 
-          this.setState( { account: window.address, id: window.address });
-          
-          hostService.getHostOrderAddress(window.address).then((data)=>{
-            this.setState({ orderlist:data});
-           });
+    this.setState({ languagelist:window.languagelist });
   }
    
 

@@ -2,6 +2,25 @@ import React, { Component } from 'react';
 import { merge } from 'lodash';
 import {AGORA_APP_ID} from '../agora.config';
 import houselistingService from '../services/houseinfolist-service';
+import guestService from '../services/guest-service';
+import web3Service from '../services/web3-service';
+import Modal from 'react-modal';
+import languageService from '../services/language-service';
+import GuestRegister from './guest-register';
+import ppsService from '../services/pps-service';
+
+
+const socketServer = process.env.Socket_Server;
+
+const customStyles = {
+  content : {
+    top                   : '30%',
+    left                  : '20%',
+    right                 : '20%',
+    bottom                : '30%'
+  }
+};
+
 
 class Video extends Component {
 
@@ -17,8 +36,9 @@ class Video extends Component {
       }
 
     this.state = {
-      readyState   : false,
-      attendeeMode : {
+       user:"",
+       readyState   : false,
+       attendeeMode : {
                       audioOnly : 'audio-only',
                       audience   : 'audience'
                      },
@@ -30,19 +50,49 @@ class Video extends Component {
        online:false,
        audioCalling:false,
        videoCalling:false,
-       connectionCode:""
+       connectionCode:"",
+       agora_remotetype:0,
+       guestAddress:"",
+       Current_user:0,
+       Time:"",
+       modalIsOpen:false,
+       videobox:0,
+       socketid:"",
+       narrow:true,
+       enlarge:false,
+       languagelist:{},
+       ppsBalance:0,
     }
-      
+
+      web3Service.loadWallet();
+      languageService.language();
   }
 
   componentWillMount() {
-    console.log(this.props.listingId);
+    this.setState({ languagelist:window.languagelist });
+     guestService.getGuesterInfo(window.address).then((data)=>{
+        this.setState({ user:data.user});
+      });
+  }
+
+    componentDidMount() {
+     
      houselistingService.getHouseInfoDetail(this.props.listingId)
      .then((result) => {
         this.setState({host:result._owner});
         this.handleEvent();
+
+        if(window.address == this.state.host){
+          this.setState({Current_user:1});
+        }else{
+          this.setState({Current_user:0});
+        }
+       
      });
-    
+
+     ppsService.getBalance(window.address).then((data)=>{
+      this.setState({ ppsBalance:data});
+     });
   }
 
   componentWillUnmount () {
@@ -61,6 +111,8 @@ class Video extends Component {
 
 //sending message and online control
   handleEnterMessage =()=>{
+
+    console.log(window.address)
      if( window.address == this.state.host )
      {
         window.io.socket.get("/messages/tellguest?text="+this.state.text+"&host="+this.state.host+"&guest="+this.state.connectguest, 
@@ -87,6 +139,8 @@ class Video extends Component {
   }
 
   handleEvent =()=>{
+        window.io.sails.url = socketServer;
+        window.io.socket=window.io.sails.connect();
         window.io.socket.get('/messages/join?account='+window.address+'&host='+this.state.host,(data, jwRes) =>{
         console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
         
@@ -111,14 +165,12 @@ class Video extends Component {
           console.log("######################connection ",data);
           if(data.type == 'audio')
           {
-            this.setState({connectionCode:data.connection,audioCalling:true}); 
+            this.setState({connectionCode:data.connection,audioCalling:true,guestAddress:data.guestAddress}); 
           }
           else if(data.type == 'video')
           {
-            this.setState({connectionCode:data.connection,videoCalling:true}); 
+            this.setState({connectionCode:data.connection,videoCalling:true,guestAddress:data.guestAddress}); 
           }
-         
-
         });  
     }
 
@@ -133,6 +185,19 @@ class Video extends Component {
           })});
           this.setState({text:''});
       }); 
+
+       window.io.socket.on('answerconnection'+window.address,  (data)=> {
+          console.log("######################connection ",data);
+          this.setState({socketid:data.socketid});
+          if(data.type == 'audio')
+          {
+            this.audioJoin();
+          }
+          else if(data.type == 'video')
+          {
+            this.videoJoin();
+          }
+        });  
     }
 
 
@@ -149,33 +214,53 @@ class Video extends Component {
   }
 
   handleKeyPress =(e)=> {
-    if (e.key === 'Enter' && e.target.value != "") {
-      console.log('do validate');
-      this.handleEnterMessage();
+    if(this.state.ppsBalance>=1){
+      if (e.key === 'Enter' && e.target.value != "") {
+        console.log('do validate');
+        this.handleEnterMessage();
+      }
     }
   }
 
   //video message
   handleVideo =()=> {
+    if(this.state.ppsBalance>=1){
+        if(window.address == this.state.host)
+        {
+          return ;
+        }
 
- 
-    if(window.address == this.state.host)
-    {
-      return ;
+        window.io.socket.get('/messages/connection?type=video&account='+window.address+'&host='+this.state.host,
+          (data, jwRes)=>
+          {
+            if(data.error)
+            {
+              alert(data.error);
+            }
+            this.setState({connectionCode:data.connection});
+            this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
+            this.client.init( this.constant.appId ,()=>{
+              this.subscribeStreamEvents();
+            });
+          }
+        );
     }
 
-
-    window.io.socket.get('/messages/connection?type=video&account='+window.address+'&host='+this.state.host,
-      (data, jwRes)=>
-      {
-        this.setState({connectionCode:data.connection});
-        this.videoCall();
-      }
-    );
   }
 
-  videoCall = () =>{
 
+  answerVideo = () =>{
+      this.videoCall();
+      window.io.socket.get('/messages/answerconnection?type=video&account='+this.state.guestAddress+'&host='+window.address,
+      (data, jwRes)=>{
+        this.setState({socketid:data.socketid});
+
+      });
+  }
+
+
+
+  videoCall = () =>{
     if( window.AgoraRTC)
     { 
         this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
@@ -183,7 +268,13 @@ class Video extends Component {
         console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
         console.log("this.state.host"+this.state.host);
         this.subscribeStreamEvents();
-        this.client.join(null, this.state.connectionCode, null, (uid) => {
+        this.videoJoin();
+      });
+    }
+  }
+
+  videoJoin = () =>{
+            this.client.join(null, this.state.connectionCode, null, (uid) => {
             console.log("User " + uid + " join channel successfully");
             console.log('At ' + new Date().toLocaleTimeString());
             console.log(uid);
@@ -209,38 +300,55 @@ class Video extends Component {
                 console.log("Publish local stream successfully");
              });
 
-            this.setState({ readyState: true , videoCalling: false });
+            this.setState({ readyState: true , videoCalling: false,videobox:1 });
         },
           err => {
             console.log("getUserMedia failed", err);
             this.setState({ readyState: true , videoCalling: false  });
           });
      
-        })
-      });
-    }
-
-
+        });
   }
 
 //audio message  
 
   handleMic =()=> {
 
- 
-    if(window.address == this.state.host)
-    {
-      return ;
+    if(this.state.ppsBalance>=1){
+
+        this.setState({ agora_remotetype: 0});
+
+     
+        if(window.address == this.state.host)
+        {
+          return ;
+        }
+
+
+        window.io.socket.get('/messages/connection?type=audio&account='+window.address+'&host='+this.state.host,
+          (data, jwRes)=>
+          {
+            this.setState({connectionCode:data.connection});
+            this.client = window.AgoraRTC.createClient({ mode:this.constant.mode });
+            this.client.init( this.constant.appId ,()=>{
+            console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
+            console.log("this.state.host"+this.state.host);
+            this.subscribeStreamEvents();
+          });
+          }
+        );
     }
 
+  }
 
-    window.io.socket.get('/messages/connection?type=audio&account='+window.address+'&host='+this.state.host,
-      (data, jwRes)=>
-      {
-        this.setState({connectionCode:data.connection});
-        this.audioCall();
-      }
-    );
+  answerAudio = () =>{
+    if(this.state.ppsBalance>=1){
+      this.audioCall();
+      window.io.socket.get('/messages/answerconnection?type=audio&account='+this.state.guestAddress+'&host='+window.address,
+      (data, jwRes)=>{
+        this.setState({socketid:data.socketid});
+      });
+    }
   }
 
   audioCall = () =>{
@@ -251,10 +359,34 @@ class Video extends Component {
         console.log("AgoraRTC client initialized   this.constant.appId"+this.constant.appId);
         console.log("this.state.host"+this.state.host);
         this.subscribeStreamEvents();
+        this.audioJoin();
+
+      });
+    }
+  }
+
+  leave =()=> {
+   console.log( '/messages/leave?socketid='+this.state.socketid );
+      window.io.socket.get('/messages/leave?socketid='+this.state.socketid,
+      (data, jwRes)=>{
+        this.setState({socketid:data.socketid});
+      });
+
+
+      this.client.leave(function () {
+      console.log("Leavel channel successfully");
+      }, function (err) {
+      console.log("Leave channel failed");
+      });
+      this.setState({videobox:0})
+}
+
+  audioJoin = () =>{
+
         this.client.join(null, this.state.connectionCode, null, (uid) => {
-            console.log("User " + uid + " join channel successfully");
-            console.log('At ' + new Date().toLocaleTimeString());
-            console.log(uid);
+        console.log("User " + uid + " join channel successfully");
+        console.log('At ' + new Date().toLocaleTimeString());
+        console.log(uid);
       
         this.localStream = window.AgoraRTC.createStream({streamID: uid,audio: true,video: false,screen: false});
         
@@ -283,9 +415,7 @@ class Video extends Component {
             this.setState({ readyState: true , audioCalling: false  });
           });
      
-        })
-      });
-    }
+        });
   }
 
   subscribeStreamEvents = () =>{
@@ -315,7 +445,7 @@ class Video extends Component {
       console.log(new Date().toLocaleTimeString())
       console.log("Subscribe remote stream successfully: " + stream.getId())
       console.log(evt)
-      stream.play('agora_remote','/res');
+      stream.play('agora_remote');
     })
 
     rt.client.on("stream-removed", function (evt) {
@@ -327,52 +457,113 @@ class Video extends Component {
     })
   }
 
+   afterOpenModal=()=> {
+    this.subtitle.style.color = '#f00';
+  }
+
+  closeModal=()=> {
+    this.setState({modalIsOpen: false});
+  }
+
+
+  openInfoModal=()=>{
+    this.setState({infoModalIsOpen: true});
+  }
+
+  afterOpenInfoModal=()=> {
+    this.subtitle.style.color = '#f00';
+  }
+
 
   render() {
 
+    const language = this.state.languagelist;
     return (  
-              <div className="video">
-                   <ul>
-                      {this.state.messagearr.map((item,index) => (
-                          <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
-                            <img  className={item.index == 0 ? "show videorightimg" : "hide videorightimg"} src="../images/becomehost-triangle.png" />
-                            <img  className={item.index == 1 ? "show videoleftimg" : "hide videoleftimg"} src="../images/becomehost-triangle1.png" />
-                          </li>
-                        ))
-                      }
-                   </ul>
-                   <img className="becomehost_line" src="../images/becomehost-line.png" />
-                   <div>
-                      <img className="keyboard" src="../images/becomehost-keyboard.png" />
-                      <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder="Message Me"/>
-                      <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
-                      <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
-                   </div>
-                   {
-                    this.state.online &&
-                     <p>Host on line</p>
-                   }
-                   {
-                    !this.state.online &&
-                     <p>Host off line</p>
-                   }
-                  {
-                    this.state.readyState &&
-                    <p>in Talking</p>
-                  }
 
-                  {
-                    this.state.audioCalling &&
-                     <button className="btn btn-danger" onClick={this.audioCall}>Answer Audio</button>
-                  }
-                  {
-                    this.state.videoCalling &&
-                    <button className="btn btn-danger" onClick={this.videoCall}>Answer Video</button>
-                  }
-        
-                  <div id="agora_remote"></div>
+            <div>
+              {this.state.Current_user === 1 && window.address &&
+                <div className={this.state.modalIsOpen == true ? "video hide" : "video show"} style={{width:!this.state.narrow? "auto" : "",bottom:this.state.enlarge? "50%":"",right:this.state.enlarge? "50%":"",transform: this.state.enlarge? "translate(50%,50%)":""}}>
+                  <div className={this.state.narrow ? "" : "hide"}>
+                  <div className="videobox">  
+                    <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
+                    <span  onClick={this.leave} className={this.state.videobox == 1 ? "glyphicon glyphicon-earphone show" : "glyphicon glyphicon-earphone hide" }></span>
+                  </div>  
+
+                    <h4><span className={!this.state.online ? "spantype" : ""}></span>
+                      <p>{this.state.user}
+                          <span className={this.state.online ? "spanshow" : "hide"}>Host on line</span>
+                          <span className={!this.state.online ? "spanshow" : "hide"}>Host off line</span>
+                          <span className={this.state.readyState ? "spanshow" : "hide"}>&nbsp;&nbsp;in Talking</span>
+                      </p>
+                      <button className={this.state.online ? "btnType" : ""} onClick={(e)=>{if(this.state.online)this.setState({online:false});else this.setState({online:true});}}><span className={this.state.online ? "spanType" : ""}>{this.state.online ? "on" : "off"}</span></button>
+                      <h6 className="enlarge" onClick={(e)=>{if(this.state.enlarge)this.setState({enlarge:false});else this.setState({enlarge:true});}}></h6> 
+                      <h6 className="narrow" onClick={(e)=>this.setState({narrow:false,enlarge:false})}></h6>
+                    </h4>
+                    <h4>{this.state.ppsBalance >= 1 ? '' : language.Insufficient_balance}</h4>
+                     <ul  style={{height:this.state.enlarge? "300px":""}}>
+                        {this.state.messagearr.map((item,index) => (
+                            <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
+                              <img  className={item.index == 0 ? "show videorightimg" : "hide videorightimg"} src="../images/becomehost-triangle.png" />
+                              <img  className={item.index == 1 ? "show videoleftimg" : "hide videoleftimg"} src="../images/becomehost-triangle1.png" />
+                            </li>
+                          ))
+                        }
+                     </ul>
+                     <h6 className={this.state.videoCalling || this.state.agora_remotetype == 1 ? "show" : "hide"}><p>{language.Video_call}</p><a onClick={this.answerVideo}><span className="Answer">{language.Answer}</span></a> or <span className="Decline">{language.Decline}</span></h6>
+                     <h6 className={this.state.audioCalling ? "show" : "hide"}><p>Audio call</p><a onClick={this.answerAudio}><span className="Answer">{language.Answer}</span></a> or <span className="Decline">{language.Decline}</span></h6>
+                     <p className="text2"></p>
+                     <div className="videobtn">
+                        <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder={language.Message_Me}/>
+                        <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
+                        <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
+                     </div>
                   </div>
-            )
+                  <p className={!this.state.narrow ? "show" : "hide"}  onClick={(e)=>this.setState({narrow:true})}>{language.Contact_the_landlord}</p>
+                </div>
+              }
+              {this.state.Current_user === 0 && window.address &&
+                <div className={this.state.modalIsOpen == true ? "video hide" : "video show"} style={{width:!this.state.narrow? "auto" : "",bottom:this.state.enlarge? "50%":"",right:this.state.enlarge? "50%":"",transform: this.state.enlarge? "translate(50%,50%)":""}}>
+                <div className={this.state.narrow ? "" : "hide"}>
+                  <div className="videobox">
+                    <div id="agora_remote" className={this.state.agora_remotetype == 1 ? "agora_remote" : ""}></div>
+                    <span   onClick={this.leave}  className={this.state.videobox == 1 ? "glyphicon glyphicon-earphone show" : "glyphicon glyphicon-earphone hide" }></span>
+                  </div>
+                    <h4><span className={!this.state.online ? "spantype" : ""}></span>
+                      <p>{this.state.user}
+                          <span className={this.state.online ? "spanshow" : "hide"}>Host on line</span>
+                          <span className={!this.state.online ? "spanshow" : "hide"}>Host off line</span>
+                          <span className={this.state.readyState ? "spanshow" : "hide"}>&nbsp;&nbsp;in Talking</span>
+                      </p>
+                      <button className={this.state.online ? "btnType" : ""} onClick={(e)=>{if(this.state.online)this.setState({online:false});else this.setState({online:true});}}><span className={this.state.online ? "spanType" : ""}>{this.state.online ? "on" : "off"}</span></button>
+                      <h6 className="enlarge" onClick={(e)=>{if(this.state.enlarge)this.setState({enlarge:false});else this.setState({enlarge:true});}}></h6> 
+                      <h6 className="narrow" onClick={(e)=>this.setState({narrow:false,enlarge:false})}></h6>
+                    </h4>
+                    <h4>{this.state.ppsBalance >= 1 ? '' : language.Insufficient_balance}</h4>
+                     <ul  style={{height:this.state.enlarge? "300px":""}}>
+                        {this.state.messagearr.map((item,index) => (
+                            <li className={item.index == 0 ? "Right" : "Left"} data-index={item.index}>{item.message}
+                              <img  className={item.index == 0 ? "show videorightimg" : "hide videorightimg"} src="../images/becomehost-triangle.png" />
+                              <img  className={item.index == 1 ? "show videoleftimg" : "hide videoleftimg"} src="../images/becomehost-triangle1.png" />
+                            </li>
+                          ))
+                        }
+                     </ul>
+                     <p className="text2"></p>
+                     <div className="videobtn">
+                        <input type="text"  onKeyPress={(e) =>this.handleKeyPress(e)} onChange={(e) => this.setState({text: e.target.value})} value={this.state.text}  placeholder={language.Message_Me}/>
+                        <img className="becomehost_video" src="../images/becomehost-video.png" onClick={this.handleVideo}/>
+                        <img className="microphone" src="../images/becomehost-microphone.png" onClick={this.handleMic}/>
+                     </div>
+                  </div>
+                  <p className={!this.state.narrow ? "show" : "hide"}  onClick={(e)=>this.setState({narrow:true})}>{language.Contact_the_landlord}</p>
+                </div>
+              }
+              { !window.address &&
+                <GuestRegister clicklogout={this.state.clicklogout} type='3' onLogOut={this.onLogOut} />
+              }
+
+             </div> 
+      )
   }
 }
 

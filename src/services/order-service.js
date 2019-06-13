@@ -1,8 +1,9 @@
-import PreOrder   from '../../build/contracts/PreOrder.json';
-import Web3 from 'web3';
-const Buf = require('buffer/').Buffer ;
-const EthereumTx = require('ethereumjs-tx');
-const web_provider = process.env.WEB3_PROVIDER;
+import axios         from 'axios';
+import PreOrder      from '../../build/contracts/PreOrder.json';
+import Web3          from 'web3';
+const  Buf           = require('buffer/').Buffer ;
+const  EthereumTx    = require('ethereumjs-tx');
+const  web_provider  = process.env.WEB3_PROVIDER;
 
 class PreOrderService {
   constructor() 
@@ -11,7 +12,33 @@ class PreOrderService {
     this.PreOrderContract = this.contract(PreOrder);
   }
 
-    confirm(address,ethOrPPS){
+
+  //记住一定只能是-2的
+  //orderService.confirmByUSD("5b30a218e13af37acb1e872a");
+  confirmByUSD(id){
+     return new Promise((resolve, reject) => {
+        var params       = {};
+        params.id    = id;
+        params.state = 4;
+
+        axios
+        .post(process.env.Server_Address+'currencycheckin/',params)
+        .then((response)=> {
+                  //state:0准备提交。1 已经提交 2 已经写入以太链
+                  resolve(response);
+                })
+        .catch(function (error) {
+                  reject(error);
+                });
+      });
+  }
+
+
+
+
+
+  confirm(address,ethOrPPS,from,to,houseinfoid){
+  
        return new Promise((resolve, reject) => {
       var contract = new window.web3.eth.Contract(PreOrder.abi,address);
       
@@ -23,33 +50,52 @@ class PreOrderService {
       dataobj  = contract.methods.confirmOrderByEth().encodeABI();  
 
       window.web3.eth.getTransactionCount(window.address).then(function(txCount) {
+              var params = {};
+
               var txData = {
-                  nonce: window.web3.utils.toHex(txCount),
-                  gasLimit: window.web3.utils.toHex(4476768),
-                  gasPrice: window.web3.utils.toHex(4476768), // 10 Gwei
-                  to: address,
-                  from: window.address,
-                  data: dataobj
-              }
+                              nonce      : window.web3.utils.toHex(txCount),
+                              gasLimit   : window.web3.utils.toHex(4476768),
+                              gasPrice   : window.web3.utils.toHex(window.gas*1000000), // 10 Gwei
+                              to         : address,
+                              from       : window.address,
+                              data       : dataobj
+              };
 
               var pk = new Buf(window.privateKey.substr(2, window.privateKey.length), 'hex')
               var transaction =new EthereumTx(txData);
-              transaction.sign(pk)
-              var serializedTx = transaction.serialize().toString('hex')
-              window.web3.eth.sendSignedTransaction('0x' + serializedTx, function(err, res) {
-                if(err)
-                reject(err)
-                else
-                resolve(res);
-                  
+              transaction.sign(pk);
+              var serializedTx = transaction.serialize().toString('hex');
+              var fromLen;
+              var toLen;
+              if(from.length<13){
+                fromLen = from+"000";
+                toLen = to+"000";
+              }else{
+                fromLen = from;
+                toLen = to;
+              }
+              params.from            = fromLen;//+"000" in order to match data in DB
+              params.to              = toLen;
+              params.houseinfoid     = houseinfoid;
+              params.address         = address;
+              params.transactionData = '0x' + serializedTx;
+
+              axios.post(process.env.Server_Address+'checkin/',params)
+              .then((response)=> {
+                //state:0准备提交。1 已经提交 2 已经写入以太链
+                resolve(response);
               })
+              .catch(function (error) {
+                reject(error);
+              });
+
           });
     });
   }
 
 
 
-    getPreOrderInfo(address) {
+  getPreOrderInfo(address) {
        var contract = new window.web3.eth.Contract(PreOrder.abi,address);
        return contract.methods.getPreorderInfo().call();
   }

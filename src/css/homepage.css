@@ -1,13 +1,5 @@
-.header a:not(.btn) {
-  color: #fff;
-}
-
 .header .button__outline {
   color: #fff;
-}
-
-.form {
-  padding: 60px 10% 110px;
 }
 
 .form h1 span {
@@ -15,46 +7,170 @@
 }
 
 .form form {
-  padding-top: 60px;
+  padding-top: 3%;
 }
 
 .form label {
-  color: #f6416c;
-  font-weight: lighter;
+  font-weight: bold;
+  font-size: 1.8rem;
+  padding: 0;
 }
-
-.form .container {
-  padding: 30px 50px;
-  border: 1px solid #f6416c;
+.form .index_content,
+.form .index_home{
+  width: 75%;
+  max-width: 1200px !important;
+  margin:1% auto 3%;
+  padding: 4%;  
   border-radius: 4px;
+  background: url(../images/index.png) no-repeat;
+  background-size: 100%;
 }
-
+.form .index_home a{
+  color: #4d4e4e;
+  text-decoration: none;
+}
+.form .container h1{
+  font-size:5rem;
+  color: #43424a;
+  margin: 3% 0;
+}
+.form .container span.color-pink,
+.form .container h4{
+  font-size: 2rem;
+  margin: 3% 0;
+  font-family: RobotoBold; 
+}
 .form .container > .row {
-  padding: 30px 0;
+  width: 100%;
+  padding: 4% 0;
 }
-
+.index_content .DateRangePicker{
+  width: 100%;
+}
+.index_content .DateInput_input,
+.index_content .guestsnum input{
+  width: 200px;
+  color: #43424a;
+  border:1px solid #737474;
+  border-radius: 5px;
+  text-align: center !important;
+  height: 38px;
+  line-height: auto;
+  background:#fff;
+}
+.index_content .guestsnum .form-group{
+  width: 85%;
+}
+.index_content .guestsnum:last-child .form-group{
+  width: 75%;
+}
+.index_content .guestsnum:last-child{
+  padding:0;
+}
+.index_content .DateRangePickerInput_arrow{
+  width: 0%;
+}
+.index_content .DateInput{
+  width: 50%;
+}
+.index_content .DateInput:last-child{
+  float: right;
+}
+.index_box>div{
+  margin-bottom: 3%;
+}
 .form .row img {
   width: 100%;
 }
-
-.form__location li img ~ img,
-.form__location li.active img {
-  display: none;
-}
-
 .form__location li.active img ~ img {
   display: block;
 }
-
-.form__search {
-  min-width: 160px;
-  max-width: 180px;
+.index_content .DateRangePickerInput{
+  width: 100%;
+  padding: 0;
+}
+.index_content .form__search{
+  display: inline-block;
+  padding: 0;
+}
+.index_content .search{
+  width: 25%;
+  margin: 8% 0 0 0;
+  float: left;
+}
+.index_foot{
+  margin-bottom: 10%;
+}
+.index_foot ul li{
+  display: inline-block;
+  text-align: center;
+  font-size: 1.8rem;
+}
+.index_foot ul>a{
+  color: #4d4e4e;
+}
+.index_foot ul .liimg{
+  width: 5%;
+  margin-right:3%;
+  position: relative;
+  padding: 2% 0 4%;
+}
+.index_foot ul .liicon{
+  margin: 0 3%;
+}
+.index_foot ul .litext1{
+  font-size: 2rem;
+  border-bottom:1.5px solid #f6416c;
+}
+.index_foot ul .liimg img{
+  position: absolute;
+  width: 70%;
+}
+.form .index_home{
+  background: none;
+  padding: 0;
+}
+.form .index_home h2{
+  font-size: 3rem;
+  font-family: RobotoBold; 
+}
+.form .index_home .listing-card:nth-child(1n){
+  padding-left: 0;
+}
+.form .index_home .listing-card:nth-child(3n){
+  padding-right: 0;
+}
+.form .index_home .listing-card{
+  margin-bottom: 3%;
+}
+.form .divLoad{
+  text-align: center;
+}
+.form .divLoad img{
+  width: auto;
+}
+.form .overflow{
+  margin: 0;
+  overflow: hidden;
+}
+.form .overflow .photo{
+  min-height: 200px;
+}
+.form .index_home h4{
+  margin:0;
+  font-size: 1.6rem;
+}
+.form .index_home p{
+  font-size: 1.6rem;
+  margin-bottom: 3%;
+}
+.form .container > .row li {
+  cursor: pointer;
 }
 .listings-grid h1{
   margin-bottom: 2%;
 }
-.listing-card .photo {
-  width: 100%;
+.listing-card .photo1 {
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
@@ -64,11 +180,29 @@
   font-weight: bold;
   color: #131c4e;
 }
+.listing-card .photo{
+  overflow: hidden;
+  min-height: 150px;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.listing-card .photo img{
+  width: auto;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 .listing-card .category{
   color: #f6416c;
   margin: 3% 0 1%;
   font-size: 1.6rem;
   font-family: RobotoBold; 
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .listing-card .title{
   color: #131c4e;
@@ -76,6 +210,10 @@
   margin-bottom: 1%;
   font-weight: bold;
   font-family: RobotoBold; 
+}
+.listing-card .divxx{
+  overflow: hidden;
+  margin-top: 2%;
 }
 .listing-card .divxx img{
   width: 15px;
@@ -88,10 +226,6 @@
   float: left;
   color: #131c4e;
 }
-.listing-card .price,
-.listing-card .divxx span{
-  font-family: RobotoThin; 
-}
 .modalcode .listing-card{
   width: 60%;
   margin: 0 20%;
@@ -102,4 +236,503 @@
   color: #fff;
   background: #151b4e;
 }
+
+
+/*-------------experience-------------------------*/
+
+.experience{
+  max-width: 1500px !important;
+  padding: 0 5%;
+  margin: 0 auto;
+}
+.experience h1{
+  text-align: center;
+  color: #ef438d;
+}
+.experience h2{
+  font-size: 2.4rem;
+  color: #151b4e;
+  margin: 3% 0;
+  font-family: RobotoBold; 
+}
+.experience .lunbo,
+.experienceintro_content .contentbox6 .box1{
+  position: relative;
+}
+.experience .pre,
+.experience .next,
+.experienceintro_content .contentbox6 .box1 .pre,
+.experienceintro_content .contentbox6 .box1 .next{
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background:#f6416c;
+  font-size: 2rem;
+  color: #fff;
+  display: inline-block;
+  cursor: pointer;
+  top:50%;
+  transform: translate(0,-50%);
+}
+.experience .pre,
+.experienceintro_content .contentbox6 .box1 .pre{
+  left: 0;
+}
+.experience .next,
+.experienceintro_content .contentbox6 .box1 .next{
+  right: 0;
+}
+.experience .content,
+.experienceintro_content .contentbox6 .box1 .content{
+  position: relative;
+  width: 92% !important;
+  height: 150px;
+  display: inline-block;
+  margin: 0 4% !important;
+  overflow: hidden;
+}
+.experience .content .lists,
+.experienceintro_content .contentbox6 .box1 .content .lists{
+  width: 210px;
+  position: relative;
+  height: 150px;
+  float: left;
+  margin: 0 10px 0 0;
+}
+.experience .content .lists img,
+.experienceintro_content .contentbox6 .box1 .content .lists img{
+  width: 100%;
+  height: 100%;
+}
+.experience .content .lists .title,
+.experienceintro_content .contentbox6 .box1 .content .lists .title{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background: #000;
+  opacity: .7;
+  color: #fff;
+  padding: 3% 0 3% 5%;
+  margin: 0;
+  font-size: 1.8rem;
+}
+.experience .content .listdiv,
+.experienceintro_content .contentbox6 .box1 .content .listdiv{
+  position: absolute;
+  width: 2400px;
+  left: 0;
+  transition: left 0.5s;
+}
+.experience .content .lists .photo,
+.experienceintro_content .contentbox6 .box1 .content .photo{
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.experience .content .lists .photo img,
+.experienceintro_content .contentbox6 .box1 .content .photo img{
+  position: absolute;
+}
+.experience .content .lists .category,
+.experience .content .lists .price,
+.experience .content .lists .divxx{
+  display: none;
+}
+.locationActive{
+  background: #f6416c !important;
+  color: #fff !important;
+}
+.experiences_ul{
+  margin-bottom: 3%;
+}
+.experiences_ul li{ 
+  display: inline-block;
+  background: #b2b2b2;
+  color: #fff;
+  text-align: center;
+  padding: 0.3% 2%;
+  margin-right:1%;
+  font-size: 1.6rem;
+  font-family: RobotoBold; 
+  cursor: pointer;
+}
+.experiences_ul li:last-child{
+  width: auto;
+  background: none;
+  color: #131c4e;
+  border-bottom: 1px solid #131c4e;
+}
+.ALL .All_experiences{
+  padding-right: 0;
+}
+
+.All_experiences{
+  overflow: hidden;
+  margin-bottom: 4%;
+  padding-right: 30px;
+}
+.All_experiences .listing-card{
+  margin-bottom: 3%;
+}
+.All_experiences .listing-card .photo{
+  min-height: 200px;
+}
+.loader{
+  width: 50px;
+  margin: 0 auto;
+}
+.experience .listspan{
+  text-align: center;
+  margin-bottom: 8%;
+}
+.experience .listspan span.active{
+  background: #f6416c;
+}
+.experience .listspan span{
+  display: inline-block;
+  width: 15px;
+  height:15px;
+  background: #fcc6d3;
+  border-radius: 50%;
+  margin: 0 1%;
+  cursor: pointer;
+}
+
+/*Receipt start*/
+.Receipt .box1,
+.Receipt .box2,
+.Receipt .box3,
+.Receipt .box4_1,
+.Receipt .box4_2,
+.Receipt .box5 div>ul li,
+.Receipt .box5 div,
+.Receipt .box7 ul li,
+.Confrim .box1,
+.Confrim .box2,
+.Confrim .box3_1,
+.Confrim .box3_2,
+.Confrim .box3_2 div.userlist,
+.Confrim .box3_3,
+.Confrim .box3_4,
+.Confrim .overflow,
+.Confrim .box3_5,
+.Confrim .box5>div{
+  overflow: hidden;
+}
+.Receipt .box1>p,
+.Receipt .box2>p,
+.Receipt .box4_1 p,
+.Receipt .box4_2 p span,
+.Receipt .box4_3 p,
+.Receipt .box5 div>ul li>p,
+.Receipt .box6>p,
+.Receipt .box7 ul li>p,
+.Receipt .box7 ul li>h4,
+.Receipt .box7 ul li>p span,
+.Receipt .box8 p,
+.Confrim .box1>p,
+.Confrim .box1>p span,
+.Confrim .box3_3>div{
+  font-size: 1.6rem;
+}
+.Receipt,.Confrim{
+  max-width: 1200px !important;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.Receipt .box1 span{
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  border: 5px solid transparent;
+  border-right: 8px solid #f6416c;
+  margin-right: 10px;
+}
+.Receipt h3,
+.Confrim h3{
+  font-size:3rem;
+  font-family: RobotoBold; 
+}
+.Receipt .box2>p b,
+.Receipt .box6 p b,
+.Receipt .box7 ul li>p b,
+.Confrim b{
+  font-family: RobotoBold; 
+}
+.Receipt .box2>p.Left{
+  width: 200px;
+}
+.Receipt .box2>p.Right{
+  width: 100px;
+  text-align: right;
+}
+.Receipt .box2{
+  margin: 2% 0;
+}
+.Receipt .box4,
+.Receipt .box5>div,
+.Confrim .box3,
+.Confrim .box5{
+  border:1px solid #c2c2c2;
+  border-radius:8px;
+}
+.Receipt .box4,
+.Confrim .box3,
+.Confrim .box3_3>div{
+  padding: 3%;
+}
+.Receipt .box4_2,
+.Receipt .box4_3,
+.Confrim .box3_1,
+.Confrim .box3_2,
+.Confrim .box3_3,
+.Confrim .box3_4{
+  border-bottom:1px solid #c2c2c2;
+  margin: 0;
+}
+.Receipt .box4_1 p,
+.Receipt .box4_2 p,
+.Receipt .box4_4,
+.Confrim .box4{
+  padding: 0;
+}
+.Receipt .box4_2{
+  padding:1% 0;
+}
+.Receipt .box4_2 p.text-center span{
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  border: 8px solid transparent;
+  border-left: 10px solid #f6416c;
+  margin-right: 10px;
+}
+.Receipt .box4_3,
+.Receipt .box4_4{
+  padding:3% 0;
+  margin: 0;
+}
+.Receipt .box4_1 p,
+.Receipt .box4_3 h4,
+.Receipt .box4_4 h4,
+.Receipt .box5 div.box5_bottom h4,
+.Receipt .box6 h4{
+  font-size: 1.8rem;
+  font-family: RobotoBold; 
+}
+.Receipt .box4_3 p{
+  width: 100%;
+}
+.Receipt .box4_4 div.userlist,
+.Confrim .box3_2 div.userlist{
+  width: 100%;
+  position: relative;
+  margin: 2% 0;
+}
+.Receipt .box4_4 div.userlist>div,
+.Confrim .box3_2 div.userlist>div,
+.Confrim .box5 .hostimg{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  border:1px solid #f6416c;
+  float: left;
+}
+.Receipt .box4_4 div.userlist>div>img,
+.Confrim .box3_2 div.userlist>div>img,
+.Confrim .box5 .hostimg img{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Receipt .box4_4 div.userlist p,
+.Confrim .box3_2 div.userlist p.text1{
+  float: left;
+  position: absolute;
+  top:50%;
+  transform: translate(0,-50%);
+  left: 60px;
+  font-size: 1.8rem;
+}
+.Receipt .box5{
+  padding: 0;
+}
+.Receipt .box5>div,
+.Confrim .box5{
+  margin-left: 5%;
+  padding: 4%;
+}
+.Receipt .box5>div h3{
+  margin-top: 0%;
+}
+.Receipt .box5 div>ul{
+  margin:3% 0;
+}
+.Receipt .box5 div>ul li>p.left{
+  font-weight: 500;
+}
+.Receipt .box5 div.box5_top button{
+  width: 100%;
+  background: #f6416c;
+  border:none;
+  color: #fff;
+  border-radius: 0;
+}
+.Receipt .box5 div.box5_top button span{
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+.Receipt .box5 div.box5_bottom ul{
+  border-bottom:1px solid #c2c2c2;
+  padding-bottom: 2%;
+}
+.Receipt .box5 div.box5_top{
+  margin-bottom: 5%;
+}
+.Receipt .box5 div.box5_bottom .Adddetails{
+  float: right;
+  color: #f6416c;
+  border-bottom:1px solid #f6416c;
+  font-size: 1.6rem;
+}
+.Receipt .box6,
+.Receipt .box7{
+  border-bottom:1px solid #f6416c;
+  margin:1% 0;
+  padding: 1% 0;
+}
+.Receipt .box7 h4{
+  margin: 0;
+  font-family: RobotoBold; 
+}
+.Receipt .box8{
+  padding: 1% 0 5%;
+  position: relative;
+}
+.Receipt .box7 ul li p span,
+.Receipt .box8 p span a,
+.Receipt .box8 p span{
+  color: #f6416c;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.Receipt .box8 img{
+  width: 80px;
+  position: absolute;
+  right: 5%;
+  bottom: 18%;
+}
+/*Receipt end*/
+
+/*Confrim start*/
+.Confrim b{
+  font-size: 1.6rem;
+}
+.Confrim .box1{
+  margin-bottom: 3%;
+}
+.Confrim .box1>p.Right{
+  border-bottom: 1px solid #f6416c;
+}
+.Confrim .box2{
+  margin-bottom: 10%;
+}
+.Confrim .box3_1 button{
+  background: #f6416c;
+  border:none;
+  color: #fff;
+  border-radius: 0px;
+  margin-top: 1.5%;
+}
+.Confrim .box3_2{
+  padding: 3% 0;
+}
+.Confrim .box3_2 div.userlist{
+  width: auto;
+  margin-left: 40%;
+}
+.Confrim .box3_2 div.userlist p.text2{
+  position: absolute;
+  top:50%;
+  right: 0%;
+  transform: translate(0,-50%);
+  font-size: 1.6rem;
+}
+.Confrim .box3_3>div.divleft{
+  padding:3% 2% 3% 0;
+}
+.Confrim .box3_3>div.divright{
+  padding:3% 0 3% 2%;
+}
+.Confrim .box3_3>div p span,
+.Confrim .box3_3>div p{
+  font-size: 1.4rem;
+  margin-bottom: 0%;
+}
+.Confrim .box3_4>div,
+.Confrim .box3_5>div{
+  padding: 3% 0;
+}
+.Confrim .box3_4 p.fdx{
+  width: 50px;
+  height: 1px;
+  background: #f6416c;
+}
+.Confrim .box3_4 p.fontWeight{
+  font-family: RobotoBold;
+  margin-top: 3%; 
+}
+.Confrim span.color-pink{
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.Confrim .box5{
+  border:1px solid #f6416c;
+  text-align: center;
+}
+.Confrim .box5>div .hostimg{
+  width: 70px;
+  height: 70px;
+  float: none !important;
+  margin: 2% auto 5%;
+}
+.Confrim .box5 button{
+  background: #f6416c;
+  color: #fff;
+  border-radius: 0;
+  border:none;
+  margin:2% auto 5%;
+}
+.Confrim .box6{
+  position: relative;
+  height: 200px;
+  margin:5% 0 0 5%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.Confrim .box6 img{
+  position: absolute;
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+}
+.Confrim .box7{
+  margin:5% 0 0 5%;
+}
+.Confrim .box8{
+  height: 1px;
+  background:#c2c2c2;
+  margin:5% 0 0 5%;
+}
+/*Confrim end*/
+
 /*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWVwYWdlLnNjc3MiLCJfdmFyLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFFSSxZQ0ZRO0NER1Q7O0FBSEg7RUFNSSxZQ05RO0NET1Q7O0FBR0g7RUFDRSxzQkFBcUI7Q0EwQ3RCOztBQTNDRDtFQUlJLGtCQUFpQjtDQUNsQjs7QUFMSDtFQVFJLGtCQUFpQjtDQUNsQjs7QUFUSDtFQVlJLGVDbkJVO0VEb0JWLHFCQUFvQjtDQUNyQjs7QUFkSDtFQWlCSSxtQkFBa0I7RUFDbEIsMEJDekJVO0VEMEJWLG1CQUFrQjtDQUtuQjs7QUF4Qkg7RUFzQk0sZ0JBQWU7Q0FDaEI7O0FBdkJMO0VBMkJJLFlBQVc7Q0FDWjs7QUFFRDs7RUFFRSxjQUFhO0NBQ2Q7O0FBRUQ7RUFDRSxlQUFjO0NBQ2Y7O0FBRUQ7RUFDRSxpQkFBZ0I7RUFDaEIsaUJBQWdCO0NBQ2pCIiwiZmlsZSI6ImhvbWVwYWdlLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4vX3Zhcic7XG5cbi5oZWFkZXIge1xuICBhOm5vdCguYnRuKSB7XG4gICAgY29sb3I6ICR3aGl0ZTtcbiAgfVxuXG4gIC5idXR0b25fX291dGxpbmUge1xuICAgIGNvbG9yOiAkd2hpdGU7XG4gIH1cbn1cblxuLmZvcm0ge1xuICBwYWRkaW5nOiA2MHB4IDAgMTEwcHg7XG5cbiAgaDEgc3BhbiB7XG4gICAgZm9udC1zaXplOiAzLjByZW07XG4gIH1cblxuICBmb3JtIHtcbiAgICBwYWRkaW5nLXRvcDogNjBweDtcbiAgfVxuXG4gIGxhYmVsIHtcbiAgICBjb2xvcjogJHBpbms7XG4gICAgZm9udC13ZWlnaHQ6IGxpZ2h0ZXI7XG4gIH1cblxuICAuY29udGFpbmVyIHtcbiAgICBwYWRkaW5nOiAzMHB4IDUwcHg7XG4gICAgYm9yZGVyOiAxcHggc29saWQgJHBpbms7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuXG4gICAgPiAucm93IHtcbiAgICAgIHBhZGRpbmc6IDMwcHggMDtcbiAgICB9XG4gIH1cblxuICAucm93IGltZyB7XG4gICAgd2lkdGg6IDEwMCU7XG4gIH1cblxuICAmX19sb2NhdGlvbiBsaSBpbWcgfiBpbWcsXG4gICZfX2xvY2F0aW9uIGxpLmFjdGl2ZSBpbWcge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cblxuICAmX19sb2NhdGlvbiBsaS5hY3RpdmUgaW1nIH4gaW1nIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgfVxuXG4gICZfX3NlYXJjaCB7XG4gICAgbWluLXdpZHRoOiAxNjBweDtcbiAgICBtYXgtd2lkdGg6IDE4MHB4O1xuICB9XG59IiwiJGJhc2UtZm9udC1zaXplOiAxMHB4O1xuXG4kd2hpdGU6ICNmZmY7XG4kZ3JheTogI2VlZTtcbiRkYXJrLWJsdWU6ICMxMzFjNGU7XG4kcGluazogI2Y2NDE2YztcbiRncmVlbjogIzY2Y2IwMDsiXX0= */

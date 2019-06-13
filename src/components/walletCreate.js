@@ -3,15 +3,8 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import {reactLocalStorage} from 'reactjs-localstorage';
+import languageService from '../services/language-service';
 
-const customStyles = {
-  content : {
-    top                   : '30%',
-    left                  : '20%',
-    right                 : '20%',
-    bottom                : '30%'
-  }
-};
 
 
 class WalletCreate extends React.Component {
@@ -20,7 +13,8 @@ class WalletCreate extends React.Component {
 
     this.state = {
       modalIsOpen: false,
-      infoModalIsOpen:false
+      infoModalIsOpen:false,
+      languagelist:{},
     };
 
     this.openModal = this.openModal.bind(this);
@@ -33,6 +27,11 @@ class WalletCreate extends React.Component {
 
     this.create = this.create.bind(this);
     
+    languageService.language();
+  }
+
+  componentWillMount(){
+    this.setState({ languagelist:window.languagelist });
   }
 
   create(){
@@ -44,10 +43,12 @@ class WalletCreate extends React.Component {
     }
     else
     {
+
         var obj=window.web3.eth.accounts.wallet.create(1);
         window.address = obj[obj.length-1].address;
         window.privateKey = obj[obj.length-1].privateKey;
         window.addressshow = window.address.substring(0,10)+"...";
+        this.props.onAccountChange(window.address);
         reactLocalStorage.setObject('wallet', 
           {
             'address': window.address,
@@ -60,8 +61,6 @@ class WalletCreate extends React.Component {
 
   }
    
-
-
   openModal() {
     this.setState({modalIsOpen: true});
   }
@@ -86,33 +85,44 @@ class WalletCreate extends React.Component {
     this.setState({infoModalIsOpen: false});
   }
 
+  substring0x = (str) => {
+    str = str +"";
+    return str.substring(2,str.length);
+  }
+
+  componentDidMount() {
+  }
+
   render() {
+        const language = this.state.languagelist;
     return (
 
     <div>
 
-        <a onClick={this.create}>Create</a>
-        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles} 
+        <a onClick={this.create}>{language.Create}</a>
+        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal}
         contentLabel="CreateModal">
         <div className="Create1">
-          <h2 ref={subtitle => this.subtitle = subtitle}>Please Remember Your Pirvate Key</h2>
-          <br/>
-          <h3>Address:{window.address}</h3>
-          <h3>Pirvate Key:{window.privateKey}</h3>
-          <br/>
-          <button className="btn btn-danger" onClick={this.closeModal}>Close</button>
+          <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_Remember_Your_Pirvate_Key}</h2>
+          <div>
+            <h3>{language.Address}</h3>
+            <p className="text1">{window.address}</p>
+            <h3>{language.Private_Key}</h3>
+            <p className="text1">{this.substring0x(window.privateKey)}</p>
+          </div>
+          <button className="btn btn-danger Right" onClick={this.closeModal}>{language.Close}</button>
         </div>  
         </Modal>
 
 
-        <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal} style={customStyles} 
+        <Modal isOpen={this.state.infoModalIsOpen} onAfterOpen={this.afterOpenInfoModal} onRequestClose={this.closeInfoModal}
         contentLabel="InfoModal">
         <div className="Create">
-          <h2 ref={subtitle => this.subtitle = subtitle}>Please clear your account!</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}>{language.Please_clear_your_account}</h2>
           <br/>
-          <h3>Please clear your account , then you can create new account!</h3>
+          <h3>{language.Please_clear_your_account_then_you_can_import_new_account}</h3>
           <br/>
-          <button className="btn btn-danger" onClick={this.closeInfoModal}>Close</button>
+          <button className="btn btn-danger Right" onClick={this.closeInfoModal}>{language.Close}</button>
         </div>  
         </Modal>
       

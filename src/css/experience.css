@@ -1,0 +1,1709 @@
+.listing-card{
+	margin-bottom: 3%;
+}
+.experienceintro_header{
+	position: relative;
+}
+.experienceintro_header header{
+	width: 100%;
+	position: absolute;
+	top:0%;
+}
+.experienceintro_header header li a,
+.experienceintro_header header li.Li5 button{
+	background: none !important;
+	border: none !important;
+	color: #fff !important;
+ 	font-family: RobotoThin; 
+}
+.experienceintro_header header li a{
+	padding: 0;
+}
+.experienceintro_header header li{
+	width: auto;
+	margin-left: 10%;
+}
+.experienceintro_header header li.Li5{
+	border:none;
+}
+.experienceintro_header .navbar-collapse ul{
+	text-align: right;
+}
+.experienceintro_header .headbox{
+	position: absolute;
+	bottom: 10%;
+	color: #fff;
+	margin: 0 8%;
+}
+.experienceintro_header .headbox h2{
+	font-size: 4rem;
+}
+.experienceintro_header .headbox p{
+	font-size: 2rem;
+	margin: 4% 0;
+}
+.experienceintro_header .headbox button{
+	font-size: 2rem;
+	border-radius: 0;
+	margin:5% 5% 0 0;
+    font-family: RobotoBold; 
+    height:40px;
+    line-height: 100%;
+	border:1px solid #fff;
+}
+.experienceintro_header .headbox button.btn1,
+.experienceintro_header .headbox button.btn1 a{
+	font-size: 2rem;
+	color:#151b4e;
+	background:  #fff;
+}
+a,a:link,a:visited,a:hover,a:active{
+text-decoration:none;
+}
+.experienceintro_header .headbox button.btn2,
+.experienceintro_header .headbox button.btn2 a{
+	font-size: 2rem;
+	color:#fff;
+	background: none;
+}
+.experienceintro_header .navBtn{
+	color:#fff;
+	border:1px solid #fff;
+}
+.experienceintro_content .contentbox,
+.experienceintro_content .contentbox1,
+.experienceintro_content .contentbox2,
+.experienceintro_content .contentbox3,
+.experienceintro_content .contentbox4{
+	margin: 3% 0 ;
+	overflow: hidden;
+	position: relative;
+}
+.experienceintro_content .contentbox img{
+	padding: 0;
+}
+.experienceintro_content .contentbox>h3,
+.experienceintro_content .contentbox1>h3{
+	position: absolute;
+	z-index: 9;
+	line-height: 1.5;
+	bottom: 30%;
+	right: 35%;
+	font-size: 4.4rem;
+	color: #fff;
+	width: 30%;
+    font-family: RobotoBold; 
+}
+.experienceintro_content .contentbox>p{
+	padding: 0;
+	font-size: 1.8rem;
+	padding: 0 5%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.experienceintro_content .contentbox1>h3{
+	top: 10%;
+	left:40%;
+}
+.experienceintro_content .contentbox1>div{
+	padding:5% 3% 5.1%;
+	height: 100%;
+	background: #e3f4ef;
+}
+.experienceintro_content .contentbox1>img{
+	padding: 0;
+    position: absolute;
+    height: 100%;
+    width: auto;
+}
+.experienceintro_content .contentbox1>div .text1,
+.experienceintro_content .contentbox3>.box1 .text1{
+	font-size: 2.2rem;
+	position: relative;
+	padding:22% 10% 10%;
+	margin: 3% 0 5%;
+	line-height: 1.9;
+}
+.experienceintro_content .contentbox1>div .text1 span,
+.experienceintro_content .contentbox3>.box1 span{
+	height: 40px;
+	font-size: 8rem;
+    font-family: RobotoBold; 
+	color: #f5426c;
+	position: absolute;
+}
+.experienceintro_content .contentbox1>div .text1 span:first-child,
+.experienceintro_content .contentbox3>.box1 span:first-child{
+	left: 0;
+	top:-20px;
+}
+.experienceintro_content .contentbox1>div .text1 span:last-child,
+.experienceintro_content .contentbox3>.box1 span:last-child{
+	right: 0;
+	bottom:20px;
+}
+.experienceintro_content .contentbox1>div .text2,
+.experienceintro_content .contentbox1>div .text3,
+.experienceintro_content .contentbox3>.box1 .text2,
+.experienceintro_content .contentbox3>.box1 .text3{
+	width: 80%;
+	text-align: center;
+	font-size: 1.8rem;
+    margin:10% auto;
+    line-height: 1.5;
+}
+.experienceintro_content .contentbox1>div .text2,
+.experienceintro_content .contentbox3>.box1 .text2{
+    font-family: RobotoBold; 
+	font-size: 1.8rem;
+}
+.experienceintro_content .contentbox1>div ul,
+.experienceintro_content .contentbox3>.box1 ul{
+	text-align: center;
+	margin-bottom: 20%;
+}
+.experienceintro_content .contentbox1>div ul li,
+.experienceintro_content .contentbox3>.box1 ul li{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #e9bec7;
+	display: inline-block;
+	margin: 0 1.5%;
+	cursor: pointer;
+}
+
+.experienceintro_content .contentbox1>div .text4{
+	width: 80%;
+    margin:10% auto;
+	line-height: 1.9;
+	font-size: 1.8rem;
+}
+
+.experienceintro_content .contentbox2>h3{
+	text-align: center;
+	font-size: 4rem;
+    font-family: RobotoBold; 
+}
+.experienceintro_content .contentbox2>p,
+.experienceintro_content .contentbox5 ul li p{
+	text-align: center;
+	width:50%;
+	margin: 0 auto 2%;
+	font-size:1.8rem;
+	line-height: 1.9;
+}
+
+.experienceintro_content .contentbox3{
+	position: relative;
+	padding: 0 5%;
+}
+.experienceintro_content .contentbox3>.box1{
+	position: absolute;
+	width: 70%;
+	z-index: 9;
+	top:35%;
+	margin: 0 8%;
+	padding:2% 4%;
+	left: 50%;
+	margin-left:-35%; 
+	text-align: center;
+}
+.experienceintro_content .contentbox3>.box1 img{
+	width: 40%;
+	display: block;
+	margin:0 auto 2%;
+}
+.experienceintro_content .contentbox3>.box1 .text2,
+.experienceintro_content .contentbox3>.box1 .text3{
+	margin:2% auto; 
+}
+
+.experienceintro_content .contentbox3>.box1 .text1{
+	padding: 6% 10% 6%;
+}
+.experienceintro_content .contentbox3>.box1 span:last-child{
+	bottom: 50px;
+}
+.experienceintro_content .contentbox3>.box2{
+	margin: -13% 10% 0;
+	overflow: hidden;
+}
+.experienceintro_content .contentbox3>.box2 .lists>p{
+	font-size: 1.8rem;
+	margin: 6% 0 5%;
+    overflow: hidden;
+    position:relative;
+    max-height: 100px;
+}
+.experienceintro_content .contentbox3>.box2 .lists>p.introduction:after {
+    content:"...";
+    position:absolute;
+    bottom:0;
+    right:0;
+    background:#FFF;
+    padding-left:0.2em;
+}
+.experienceintro_content .contentbox3>.box2 .lists>div{
+	height: 400px;
+	background-size: cover !important;
+	background-position: 50% 50% !important;
+	background-repeat: no-repeat !important;
+} 
+.experienceintro_content .contentbox3>.box2 div.img1{
+	background: url(../images/Walter_Wang.jpg);
+}
+.experienceintro_content .contentbox3>.box2 div.img2{
+	background: url(../images/Xinpeng_Cai.jpg);
+}
+.experienceintro_content .contentbox3>.box2 div.img3{
+	background: url(../images/Ling_Jun.jpg);
+}
+.experienceintro_content .contentbox3>.box2 div.img4{
+	background: url(../images/Brain_Lin.jpg);
+}
+.experienceintro_content .contentbox3>.box2 div.img5{
+	background: url(../images/Tamir_Wu.jpg);
+}
+
+.experienceintro_content .contentbox4>.box1{
+	width: 100%;
+	position: absolute;
+	top:0;
+	text-align: center;
+	margin: 0 auto;
+}
+.experienceintro_content .contentbox4>.box1 h3{
+	font-size: 4rem;
+	color: #fff;
+   font-family: RobotoBold; 
+   margin: 3% 0;
+}
+.experienceintro_content .contentbox4>.box1 p{
+	color: #fff;
+	font-size: 2rem;
+}
+.experienceintro_content .contentbox4>.box2{
+	position: absolute;
+	bottom: 10%;
+	padding: 0 5%;
+	overflow: hidden;
+}
+.experienceintro_content .contentbox4>.box2 span{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	border-radius:50%;
+	background: #fff;
+	color: #151b4e; 
+	font-size: 3rem;
+   	font-family: RobotoBold; 
+   	float: left;
+   	margin: 7% 0;
+}
+.experienceintro_content .contentbox4>.box2 .lists{
+	overflow: hidden;
+}
+.experienceintro_content .contentbox4>.box2 .lists>div{
+	width: 80%;
+	display: inline-block;
+	float: right;
+	color: #fff;
+	font-size: 2rem;
+}
+.experienceintro_content .contentbox4>.box2 .lists>div h3{
+   	font-family: RobotoBold; 
+}
+.experienceintro_content .contentbox4>.box2 .lists>div p{
+  	font-family: RobotoThin; 
+}
+.experienceintro_content .contentbox5{
+	margin: 3% 8%;
+}
+.experienceintro_content .contentbox5>h3{
+	font-size: 4rem;
+   	font-family: RobotoBold; 
+}
+.experienceintro_content .contentbox5 ul li{
+	border-bottom: 1px solid #4d4e4e;
+	padding: 1% 0;
+	text-align: left;
+}
+.experienceintro_content .contentbox5 ul li:last-child{
+	border:none;
+}
+.experienceintro_content .contentbox5 ul li>p{
+	width: 50%;
+	margin-left: 0;
+	text-align: left;
+	margin-bottom: 0;
+}
+.experienceintro_content .contentbox5 ul li>p span{
+	font-size: 1.8rem;
+}
+.experienceintro_content .contentbox5 ul li>span{
+	color: #f6416c;
+	font-size: 2rem;
+}
+.experienceintro_content .contentbox5 ul li>span>b{
+	margin-left: 2%;
+}
+.experienceintro_content .contentbox6{
+	margin: 0 5%;
+}
+.experienceintro_content .contentbox6 .box1{
+	margin-bottom: 3%;
+}
+.btnactive{
+	opacity: 0.5;
+}
+/*------------introlist--------------------*/
+.introlist{
+	padding: 1.5%;
+}
+.introlist>div{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top:0;
+	padding: 2%;
+}
+.introlist .boxleft{
+	width: 40%;
+	height: 100%;
+	float:left;
+	position: relative;
+}
+.introlist .boxleft .logo{
+	width: 40px;
+}
+.introlist .STEPhead{
+	position: absolute;
+	width: 100%;
+	top:10%;
+	left: 10%;
+}
+.introlist .boxleft .box p,
+.introlist_5 .boxleft .box ul li{
+	font-size: 1.8rem;
+}
+.introlist .boxleft h3{
+	font-size: 3rem;
+    margin:0 0 5%;
+  font-family: RobotoBold; 
+}
+.introlist .boxleft .box{
+	padding: 10% 20% 0 10%;
+	width: 100%;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	height:85%;
+}
+.introlist .boxleft button.next{
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
+	padding: 1% 8%;
+	border-radius: 0;
+	font-size: 2rem;
+	border:none;
+	background-color: #f6416c;
+	color: #fff;
+	border:1px solid #f6416c;
+	cursor: pointer;
+	margin: 5% 0 ;
+   	font-family: RobotoBold; 
+}
+.introlist .boxright{
+	width:60%;
+	float: right;
+	overflow: hidden;
+	position: relative;
+}
+.introlist .boxright img{
+	width: 100%;
+	position: absolute;
+	top:50%;
+	right: 0;
+	transform: translate(0,-40%);
+}
+.introlist .boxleft .box button.next{
+	position: absolute;
+	bottom: 8%;
+	left: 10%;
+}
+.introlist .boxleft p.pre{
+	width: 100%;
+	position: absolute;
+	padding: 0;
+    font-family: RobotoThin; 
+    cursor: pointer;
+    font-size: 1.8rem;
+	bottom:2%;
+	left: 10%;
+}
+.introlist .boxleft p.pre span{
+	color: #f6416c;
+	margin-right: 3%;
+	font-size: 1.8rem;
+}
+.introlist .textPink{
+	color: #f6416c;
+	position: absolute;
+	bottom: 9%;
+	left: 10%;
+	cursor: pointer;
+}
+.introlist_1 .boxleft .box{
+	padding: 0 10%;
+	width: 100%;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.introlist_1 .boxleft .box{
+	height: 55%;
+}
+.introlist_1 .boxleft button.next{
+	bottom: 20%;
+}
+.introlist_1 .boxleft .box p{
+	font-size: 1.8rem;
+	line-height: 1.9;
+}
+
+.introlist_2 .boxleft .box{
+	padding-right: 5%;
+}
+.introlist_2 p{
+	font-size:1.8rem;
+	position: relative;
+	padding-left: 5%;
+	margin-bottom: 0px;
+}
+.introlist_2 ul li{
+	margin-bottom: 3%;
+}
+.introlist_2 ul li span{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	line-height: 15px;
+	text-align: center;
+	border:1px solid #4d4e4e;
+	border-radius: 50%;
+	color: #4d4e4e;
+	font-weight: bold;
+	position: absolute;
+	top:4px;
+	left: 0;
+}
+.introlist_2 .box ul li:first-child span{
+	color: #fff;
+	background:  #4d4e4e;
+}
+.introlist_2 .box ul li .text2{
+	font-family: RobotoThin; 
+}
+.introlist_2 .boxleft p.pre{
+	bottom: 3.5%;
+}
+.introlist_3 .boxleft h3{
+	margin: 35% 0 15%;
+}
+.introlist_3 .boxleft .box{
+	padding: 0 25% 0 10%;
+}
+.introlist_3 .boxleft .btn-group{
+	padding: 0;
+}
+.introlist_3 .dropdown-menu{
+	max-height: 113px !important;
+}
+.introlist_3 .boxleft .btn-group button,
+.registerlist_2 .btn-group button,
+.registerlist_3 .btn-group button,
+.registerlist_12 .box label .btn-group button,
+.registerlist_14 .btn-group button,
+.registerlist_18 .btn-group button,
+.VerifyID_3 .btn-group button{
+	background: none;
+	border: 1px solid #606060;
+	border-radius: 0;
+	width: 100%;
+	height: 45px;
+	line-height: 100%;
+	text-align: left;
+	font-size: 1.6rem;
+  	font-family: RobotoThin; 
+}
+.introlist_3 .boxleft .btn-group button span,
+.registerlist_2 .btn-group button span,
+.registerlist_3 .btn-group button span,
+.registerlist_12 .box label .btn-group button span,
+.registerlist_14 .btn-group button span,
+.registerlist_18 .btn-group button span,
+.VerifyID_3 .btn-group button span{
+  float: right;
+  color: #f6416c;
+  font-size: 2.2rem;
+}
+.introlist_3 .dropdown-menu,
+.registerlist_2 .dropdown-menu,
+.registerlist_3 .dropdown-menu,
+.registerlist_12 .dropdown-menu,
+.registerlist_14 .dropdown-menu,
+.registerlist_18 .dropdown-menu,
+.VerifyID_3 .dropdown-menu{
+  width: 100%;
+  max-height: 300px;
+  overflow: auto;
+  font-family: RobotoThin; 
+}
+.introlist_3 .dropdown-menu a,
+.registerlist_2 .dropdown-menu a,
+.registerlist_3 .dropdown-menu a,
+.registerlist_12 .dropdown-menu a,
+.registerlist_14 .dropdown-menu a,
+.registerlist_18 .dropdown-menu a,
+.VerifyID_3 .dropdown-menu a{
+  width: 100%;
+  text-align: center;
+  padding: 2% 3%;
+  margin: 0;
+  border-top: 1px solid #888;
+  cursor: pointer;
+  text-align: left;
+  color: #4d4e4e;
+  font-size: 1.6rem;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+.introlist_3 .dropdown-menu,
+.registerlist_2 .dropdown-menu,
+.registerlist_3 .dropdown-menu,
+.registerlist_12 .dropdown-menu,
+.registerlist_14 .dropdown-menu,
+.registerlist_18 .dropdown-menu,
+.VerifyID_3 .dropdown-menu{
+	padding: 0;
+	margin: 0;
+}
+.introlist_3 .dropdown-menu li:first-child>a,
+.registerlist_2 .dropdown-menu li:first-child>a,
+.registerlist_3 .dropdown-menu li:first-child>a,
+.registerlist_12 .dropdown-menu li:first-child>a,
+.registerlist_14 .dropdown-menu li:first-child>a,
+.registerlist_18 .dropdown-menu li:first-child>a,
+.VerifyID_3 .dropdown-menu li:first-child>a{
+  border-top: none;
+}
+.introlist_3 .dropdown-menu a:hover,
+.registerlist_2 .dropdown-menu a:hover,
+.registerlist_3 .dropdown-menu a:hover,
+.registerlist_12 .dropdown-menu a:hover,
+.registerlist_14 .dropdown-menu a:hover,
+.registerlist_18 .dropdown-menu a:hover,
+.VerifyID_3 .dropdown-menu a:hover{
+  background: #f6416c;
+  color: #fff;
+}
+.introlist_3 .boxright img,
+.introlist_4 .boxright img{
+	transform: translate(0,-60%);
+}
+.introlist_4 .box .radio label{
+	font-size: 1.8rem !important;
+}
+.introlist_4 .box h3{
+	margin-bottom: 10%;
+}
+.introlist_4 .box .radio h4{
+	padding: 0 0 0 7.5%;
+	line-height: 1.5;
+	font-size: 1.4rem;
+	color: #6c757d;
+	font-family: RobotoThin; 
+}
+.introlist_5 .box{
+	padding-right:5% !important;
+}
+.introlist_5 .box>p{
+	font-size: 2rem;
+	margin-bottom: 3%;
+}
+.introlist_5 .box ul{
+	margin-left: 5%;
+}
+.introlist_5 .box ul li{
+	list-style: disc;
+	font-size: 1.6rem;
+	margin-bottom: 3%;
+}
+
+.introlist_5 .boxright img{
+	transform: translate(0,-50%);
+}
+
+.introlist_6 .boxright img{
+	transform: translate(0,-70%);
+}
+
+.introlist_7 textarea{
+	width: 100%;
+	height: 100px;
+	border:1px solid #606060;
+	margin-top: 3%;
+	padding: 3% ;
+}
+.introlist_9 a{
+	color: #fff;
+	text-decoration: none;
+}
+
+/*------------register--------------------*/
+.register{
+	width: 100%;
+	height: 100%;
+	padding: 2%;
+}
+.register .textPink{
+	color: #f6416c !important;
+	cursor: pointer;
+}
+.register_content{
+	padding: 0 8%;
+	position: relative;
+	height: 80%;
+}
+.register_content>div{
+	padding: 0;
+	margin: 0;
+}
+.register .STEPhead{
+	width: 100%;
+	height: 50px;
+}
+.register .STEPhead span{
+	margin-right: 1%; 
+}
+.register .STEPhead ul li{
+	display: inline-block;
+	margin:1% 1% 0 0; 
+	font-size: 1.8rem;
+	cursor: pointer;
+}
+.register .STEPhead ul li.glyphicon-play{
+	font-size: 1.4rem;
+}
+.register_header{
+	width: 100%;
+}
+.register_header header{
+	padding: 0 5% 1% 6%;
+}
+.register_header ul{
+	width: 80%;
+	text-align: right;
+}
+.register_header ul li a>span{
+	margin-right: 5%;
+	font-size: 1.6rem;
+}
+.register_header ul li:nth-child(1),
+.register_header ul li:nth-child(2){
+	float: left;
+}
+.register_header ul li{
+	width: auto;
+	color: #131c4e;
+}
+.register_header ul li button{
+	color: #131c4e;
+	text-align: center;
+	position:relative;
+}
+.register_content button.next,
+.registerlist_12 .stepbox button,
+.VerifyID button.next{
+	height: 40px;
+	border-radius: 0;
+	font-size: 2rem;
+	border:none;
+	background-color: #f6416c;
+	color: #fff;
+	border:1px solid #f6416c;
+	cursor: pointer;
+	margin: 15% 50% 0 0;
+	padding: 0 5%;
+}
+.register .box{
+	padding-right:9%; 
+	padding-bottom:11%; 
+}
+.register .box h3,
+.VerifyID h3{
+	font-size: 2.4rem;
+	color: #4d4e4e;
+    font-family: RobotoBold; 
+}
+.register .box h5,
+.VerifyID h5{
+	font-size: 1.7rem;
+	color: #4d4e4e;
+  	font-family: RobotoThin; 
+}
+.register .box p,
+.VerifyID p{
+	font-size: 1.4rem;
+	color: #4d4e4e;
+  	font-family: RobotoThin; 
+}
+.register .box1>div{
+	width: 70%;
+	background:#151b4e ;
+	padding: 6%;
+	color: #fff;
+}
+.register .box1 .becomehost__info{
+	width: 20px;
+	margin-bottom:8%;
+}
+.register .box1 h6,
+.register .box1 p{
+	font-size: 1.6rem;
+	margin: 0 0 1%;
+}
+.registerlist_1 .box input,
+.registerlist_4 .box input{
+	width: 70%;
+	height: 40px;
+	padding: 0 3%;
+	font-size: 1.6rem;
+  	margin: 5% 0 2%;
+  	border:1px solid #aaa;
+  	font-family: RobotoThin; 
+}
+
+.registerlist_2{
+	height: 100%;
+}
+.registerlist_2 .box h5{
+	line-height: 1.4;
+	font-size: 1.6rem;
+}
+.registerlist_2 .box p{
+	font-size: 1.8rem;
+	margin: 4% 0;
+}
+.registerlist_2 .btn-group{
+	width: 55%;
+	padding: 0;
+}
+.registerlist_2 .btn-group button,
+.registerlist_14 .btn-group button,
+.registerlist_18 .btn-group button{
+	height: 40px;
+}
+.registerlist_2 .box1 ul li{
+	margin: 5% 0;
+  	font-family: RobotoThin; 
+}
+.registerlist_2 .box1 .text1{
+	overflow: hidden;
+}
+.registerlist_2 .box1 .text2{
+	height: 15px;
+	border:1px solid #f6416c;
+}
+.registerlist_2 .box1 .text2 span{
+	display: block;
+	height:100%;
+	background: #f6416c;
+}
+.registerlist_2 .box1 .English .text2 span{
+	width: 72%;
+}
+.registerlist_2 .box1 .zhongwen .text2 span{
+	width: 13%;
+}
+.registerlist_2 .box1 .hanwen .text2 span{
+	width: 4%;
+}
+.registerlist_2 .box1 .Deutsch .text2 span{
+	width: 3%;
+}
+.registerlist_2 .box1 .Français .text2 span{
+	width: 2%;
+}
+.registerlist_3 .btn-group,
+.registerlist_18 .btn-group{
+	width: 70%;
+	padding: 0;
+}
+.registerlist_3 h3.h31{
+	margin: 3% 0;
+}
+.registerlist_3 h3 img{
+	width: 20px;
+	margin-right: 2%;
+}
+.registerlist_3 h5{
+	line-height: 1.4;
+	margin-bottom: 3%;
+}
+.registerlist_3 p span{
+	font-size: 1.4rem;
+}
+.registerlist_3 .check,
+.registerlist_14 .check,
+.registerlist_15 .check,
+.registerlist_18 .check,
+.registerlist_24 .check{
+    margin: 3% 0 0;
+    overflow: hidden;
+}
+.registerlist_3 .textPink,
+.registerlist_3 .textp{
+	margin-top: 3%;
+	cursor: pointer;
+}
+.registerlist_3 .check .Pinput,
+.registerlist_14 .check .Pinput,
+.registerlist_15 .check .Pinput,
+.registerlist_18 .check .Pinput,
+.registerlist_24 .check .Pinput{
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	background: #151b4e;
+	display: inline-block;
+	float: left;
+	color: #f6416c;
+	text-align: center;
+	line-height: 20px;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+}
+.registerlist_3 .Pinput img,
+.registerlist_14 .Pinput img,
+.registerlist_15 .Pinput img,
+.registerlist_18 .Pinput img,
+.registerlist_24 .Pinput img{
+	position: absolute;
+	width: 130%;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.registerlist_3 .check .divinput,
+.registerlist_14 .check .divinput,
+.registerlist_15 .check .divinput,
+.registerlist_18 .check .divinput,
+.registerlist_24 .check .divinput{
+  float: right;
+  width: 94%;
+  font-size:1.6rem;
+  cursor: pointer;
+}
+.registerlist_3 .box3 .userimg{
+	width: 60px;
+	height: 60px;
+	border-radius:50%;
+	overflow: hidden;
+	position: relative;
+	border:1px solid #f6416c;
+	float: left;
+	margin-top: 2%;
+}
+.registerlist_3 .box3 .userimg img{
+	position: absolute;
+	width: 110%;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.registerlist_3 .box3 span{
+	display: inline-block;
+	font-size: 1.8rem;
+	margin:6% 0 0 4%;
+    font-family: RobotoBold; 
+}
+.registerlist_3 .box3 .check{
+	width: 100%;
+	padding: 5% 0 0;
+}
+.registerlist_3 button.Undo{
+	padding: 0 5%;
+	height: 40px;
+	border-radius: 0;
+	font-size: 2rem;
+	border:none;
+	background-color: #fff;
+	color: #f6416c;
+	border:1px solid #f6416c;
+	cursor: pointer;
+	float: left;
+}
+.registerlist_3 button.Save{
+	float: left;
+	margin: 0;
+}
+
+.registerlist_4 .box input{
+	margin: 3% 0;
+}
+
+.registerlist_4 .box2>div{
+	width: 70%;
+	margin: 0 auto;
+}
+.registerlist_4 .box2>div ul li{
+	border-bottom:1px solid #aaa;
+	padding: 5% 0;
+	color: #c2c2c2;
+}
+.registerlist_4 .box2>div ul li h5{
+  	font-family: RobotoBold; 
+  	margin: 0;
+  	font-size: 2rem;
+}
+.registerlist_4 .box2>div ul li>p{
+    font-family: RobotoThin; 
+    word-break: break-all;
+    margin-bottom: 0;
+}
+.registerlist_4 .box2>div ul li.li1{
+	border-bottom:1px solid #f74d75;
+	overflow: hidden;
+	padding-bottom:1%; 
+}
+.registerlist_4 .box2>div ul li.li1>p{
+	font-size: 2rem;
+  	font-family: RobotoBold; 
+  	color: #131c4e;
+  	width: 100%;
+  	margin: 0;
+  	word-break:break-all;
+}
+.registerlist_4 .box2>div ul li.li2{
+  	color: #131c4e;
+    font-family: RobotoThin; 
+
+}
+.registerlist_4 .box2>div ul li.li2 p img{
+	width: 18px;
+	margin-right: 2%;
+}
+.registerlist_4 .box2>div ul li.li3{
+	border-bottom: none;
+	padding:5% 0 0;
+}
+.textactive{
+	color: #131c4e;
+}
+.registerlist_4 .box2>div ul li>h5{
+	overflow: hidden;
+}
+.registerlist_4 .box2>div ul li>h5>span{
+	padding: 3% 0 0;
+	display: inline-block;
+	font-family: RobotoBold;
+    font-size: 2rem;
+}
+.registerlist_4 .box2>div ul li>h5>p{
+	width: 40px;
+	height:40px;
+	border-radius: 50%;
+	overflow: hidden;
+	float: right;
+}
+.registerlist_4 .box2>div ul li>h5>p>img{
+	margin-top: -5%;
+}
+.registerlist_4 .box2>div ul li .apidiv{
+	position: relative;
+}
+.registerlist_4 .box2>div ul li .apidiv>p{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	position: absolute;
+	background: #e6afbc;
+	opacity: 0.8;
+	top:30%;
+	left: 42%;
+}
+.registerlist_4 .box2>div ul li .apidiv>div{
+	position: absolute;
+	background: #e6afbc;
+	top: -10%;
+    left: 22%;
+	background: #151b4e;
+	text-align: center;
+	padding: 0 5%;
+}
+.registerlist_4 .box2>div ul li .apidiv>div>h6{
+	font-size: 1.6rem;
+	color: #fff;
+    font-family: RobotoBold; 
+}
+.registerlist_4 .box2>div ul li .apidiv>div>p{
+	color: #fff;
+	font-size: 1.2rem;
+    font-family: RobotoThin; 
+}
+.registerlist_4 .box2>div ul li .apidiv>div>span{
+	color: #151b4e;
+	font-size: 3rem;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0%);
+	bottom: -25px;
+}
+.registerlist_6 ul.ulleft,
+.registerlist_6 ul.ulright{
+	padding-left: 0;
+}
+.registerlist_6 .box ul.ulleft li img,
+.registerlist_6 .box ul.ulright li img{
+	width: 5%;
+}
+.registerlist_6 .box ul.ulleft li,
+.registerlist_6 .box ul.ulright li,
+.registerlist_6 .examples{
+	overflow: hidden;
+}
+.registerlist_6 .box ul.ulleft li p,
+.registerlist_6 .box ul.ulright li p{
+	width: 90%;
+	float: right;
+}
+.registerlist_6 .box .imgs{
+	width: 100%;
+	margin-top: 3%;
+}
+.registerlist_6 .box .imgs>div{
+	width: 16%;
+	display: inline-block;
+	margin-right: 2%;
+	overflow: hidden;
+	cursor: pointer;
+}
+.registerlist_6 .box .imgs>div:nth-child(2) img{
+	width: 150%;
+	margin-left: -20%;
+}
+.registerlist_6 .Upload img{
+	width: 30px;
+	margin-right:2%;
+	margin-top:-4px;
+}
+.registerlist_6 .textpink{
+	cursor: pointer;
+}
+.registerlist_6 .Upload{
+	width: 200px;
+	height: 40px;
+	border-radius: 0;
+	font-size: 1.6rem;
+	border:none;
+	background-color: #f6416c;
+	color: #fff;
+	border:1px solid #f6416c;
+	cursor: pointer;
+	position: relative;
+	margin-top: 3%;
+}
+.registerlist_6 .Uploaddiv{
+	padding: 0;
+}
+.registerlist_6 .Upload input{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+.registerlist_6 .photoleft,
+.registerlist_6 .photoright{
+	padding-left: 0;
+}
+.registerlist_6 .photoleft p{
+	opacity: 0;
+}
+.registerlist_6 .photochage{
+	width: 70%;
+	position: relative;
+	cursor: pointer;
+}
+.registerlist_6 .photochage p,
+.registerlist_7 .box .Gallery div.imgdiv>p{
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0;
+}
+.registerlist_6 .photochage p>span,
+.registerlist_7 .box .Gallery div.imgdiv>p>span{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+	font-size: 2.2rem;
+  	font-family: RobotoBold; 
+}
+.registerlist_6 .photochage>span,
+.registerlist_7 .box .Gallery div.imgdiv>span{
+	color: #fff;
+	position: absolute;
+	top:5%;
+	right: 5%;
+	font-size: 1.6rem;
+	opacity: 0;
+}
+.registerlist_6 .photochage:hover span,
+.registerlist_7 .box .Gallery div.imgdiv:hover>span{
+	opacity: 1;
+}
+.registerlist_6 .photochage:hover p,
+.registerlist_7 .box .Gallery div.imgdiv:hover>p{
+	opacity: 0.5;
+	left: 0;
+}
+.registerlist_6 .modal-content h3{
+	color: #fff;
+	margin: 0 2%;
+}
+.registerlist_7 .box .imgs>div:nth-child(2) img{
+	width: 225%;
+	margin-left: -70%;
+}
+.registerlist_7 .box .Gallery{
+	overflow: hidden;
+}
+.registerlist_7 .box .Gallery>div{
+	width: 32%;
+	min-height:160px;
+	float: left;
+	cursor: pointer;
+	text-align: center;
+	overflow: hidden;
+	background: #e2e2e2;
+	margin:0 0 2% 2%; 
+}
+.registerlist_7 .box .Gallery>div>.imgdiv img{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+}
+.registerlist_7 .box .Gallery>div:nth-child(1),
+.registerlist_7 .box .Gallery>div:nth-child(4){
+	margin-left:0;
+}
+.registerlist_7 .box .Gallery>div>.photodiv{
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	top:55%;
+	transform: translate(-50%,-50%);
+}
+.registerlist_7 .box .Gallery>div>.photodiv img{
+	width: 20%;
+}
+.registerlist_7 .box .Gallery>div>.photodiv h4{
+	font-size: 1.4rem;	
+  	font-family: RobotoBold; 
+	margin: 2% 0;
+}
+.registerlist_7 .box .Gallery>div>.photodiv p{
+	width: 70%;
+    margin: 0 auto;
+	font-size: 1.2rem;
+}
+.registerlist_7 .box .Gallery>div>.photodiv input{
+	position: absolute;
+	top:-45%;
+	left: 0;
+	width: 100%;
+	height: 160%;
+	opacity: 0;
+	cursor: pointer;
+}
+.registerlist_8 .box p.textpink img{
+	width: 15px;
+	margin-right: 2%;
+}
+.registerlist_8 .box textarea,
+.registerlist_12 .box label textarea{
+	width: 85%;
+	height: 150px;
+	border: 1px solid #f6416c;
+	padding: 2% ;
+	font-size: 1.6rem;
+    margin-top: 5%;
+    font-weight: 300;
+    font-family: RobotoThin; 
+}
+.registerlist_12 .box h6,
+.registerlist_14 h6,
+.registerlist_15 h6,
+.registerlist_18 h6{
+	font-size: 1.8rem;
+	margin-top: 5%;
+	font-weight: 500;
+	font-family: none;
+}
+.registerlist_12 .box label{
+	width: 100%;
+   font-family: RobotoThin !important; 
+   margin-bottom: 3%;
+}
+.registerlist_12 .box label input,
+.registerlist_12 .box label .btn-group{
+	font-size: 1.5rem;
+	width: 90%;
+	margin: 0;
+	font-weight: 300;
+}
+.registerlist_12 .box label .btn-group button,
+.registerlist_14 .btn-group button{
+	border: 1px solid #aaa;
+}
+.registerlist_12 .box label p,
+.registerlist_12 .stepbox h5{
+	font-size: 1.6rem;
+	font-weight: 400;
+	font-family:none;
+}
+.registerlist_12 .box label .p1{
+	font-size: 1.4rem;
+	font-weight: 300;
+}
+.registerlist_12 .box .Left{
+	width: 45%;
+}
+.registerlist_12 .box .Right{
+	width: 45%;
+	margin-right: 5.5%;
+}
+.registerlist_12 .box .Left input,
+.registerlist_12 .box .Right input{
+	padding: 0 7%;
+}
+.registerlist_12 .box label textarea {
+	width: 90%;
+	height:80px;
+}
+.registerlist_12 .box label:last-child{
+	margin-bottom: 0;
+}
+.registerlist_12 .stepbox button{
+	margin: 2% 0;
+}
+.registerlist_12 .stepbox img{
+	width: 85%;
+	margin: 2% 0;
+}
+.registerlist_14 .btn-group,
+.registerlist_14 h6.Item_ne{
+	width: 70%;
+}
+.registerlist_14 h6 span{
+	margin-top: 1%;
+	font-size: 1.6rem;
+	cursor: pointer;
+}
+.registerlist_14 input{
+	border-top: none !important;
+	margin: 0 0 2% 0!important;
+}
+.registerlist_14 p.textpink{
+	cursor: pointer;
+}
+.Prompt{
+	position: fixed;
+	width: 100%;
+	height: 100%;	
+	top:0;
+	left: 0;
+	z-index: 99;
+}
+.Prompt .bj{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+}
+.Prompt .Prompt_content{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 100;
+	width: 65%;
+	background: url(../images/jbbj.png) no-repeat;
+	background-size: 100% 100%;
+}
+.Prompt .Prompt_content>div.boxleft{
+	width: 50%;
+	float: left;
+	padding: 4% 6%;
+}
+.Prompt .Prompt_content>div.boxright{
+	width: 50%;
+	float: right;
+	padding: 4% 6%;
+}
+.Prompt .boxleft h3{
+	font-size: 2rem;
+	margin-top: 0;
+}
+.Prompt .boxleft h6{
+	font-size: 1.6rem;
+	font-weight: 500;
+}
+.Prompt .boxleft p{
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+.Prompt .boxright .listtop{
+	overflow: hidden;
+}
+.Prompt .boxright .listtop img{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.Prompt .boxright .listtop .Left{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+}
+.Prompt .boxright .listtop .Right{
+	color: #fff;
+	float: left;
+	margin-left: 5%;
+}
+.Prompt .boxright .listtop .Right h5{
+	color: #fff;
+	margin-bottom: 0px;
+  	font-family: RobotoBold; 
+}
+.Prompt .boxright>span.close{
+	position: absolute;
+	top:3%;
+	right: 3%;
+	color: #fff;
+	z-index: 100;
+	font-size: 4rem;
+}
+.Prompt .boxright .lists{
+	min-height: 130px;
+}
+.Prompt .boxright .lists>h6{
+	color: #fff;
+	font-size: 1.4rem;
+	margin-top: 0;
+}
+.Prompt .boxright .lists>p,
+.Prompt .boxright .listbottom p{
+	color: #fff;
+	font-size: 1.4rem;
+}
+.Prompt .boxright .lists>p{
+	min-height: 100px;
+}
+.Prompt .boxright .listtop .Right span{
+	font-size: 1.4rem;
+}
+.Prompt .boxright .listbottom{
+	margin-top: 10%;
+}
+.Prompt .boxright .listbottom .Right{
+	width: 20%;
+	text-align: right;
+	padding-right: 5%;
+}
+.Prompt .boxright .listbottom .Right span{
+	font-size: 2rem;
+	cursor: pointer;
+}
+.Prompt .boxright .listbottom span:first-child{
+	margin-right:100%;
+}
+
+.registerlist_15 .inputlist{
+	position: relative;
+	width: 70%;
+}
+.registerlist_15 .inputlist input{
+	width: 100%;
+	padding:0 10% 0 4%;
+}
+.registerlist_15 .inputlist input:focus{
+	border:1px solid #f6416c;
+}
+.registerlist_15 .inputlist span{
+	position: absolute;
+	font-size: 3rem;
+	right: 4%;
+	top:50%;
+	transform: translate(0,-50%);
+	cursor: pointer;
+	color:#f6416c;
+}
+
+.registerlist_17 h3,
+.registerlist_25 h3{
+	margin-top: 10%;
+}
+.registerlist_17 button.next{
+	margin-top:30%;
+}
+.registerlist_18 h6,
+.registerlist_18 .check .divinput>span{
+	font-size: 1.6rem;
+}
+.registerlist_18 .box textarea{
+	height: 100px;
+}
+
+.registerlist_20 .price_guest{
+	width: 70%;
+	position: relative;
+}
+.registerlist_20 .price_guest span{
+	position: absolute;
+	top:50%;
+	left:3%;
+	transform: translate(0,-50%);
+	font-size: 1.6rem;
+	color: #4d4e4e;
+}
+.registerlist_20 .price_guest input{
+	padding: 0 5% 0 15%;
+	color: #4d4e4e;
+	height: 35px;
+}
+.registerlist_20 .box1 ul{
+	overflow: hidden;
+    font-family: RobotoThin; 
+    margin-top: 5%;
+}
+.registerlist_20 .box1 ul li{
+	overflow: hidden;
+	border-top: 1px solid #f6416c;
+	padding: 8% 0;
+}
+.registerlist_20 .box1 ul li:first-child{
+	border-top:none;
+}
+.registerlist_20 .box1 ul li>p{
+    font-size: 1.4rem;
+}
+.registerlist_20 .box1 ul li.li2>p.Right{
+	width: 30%;
+	text-align: center;
+}
+.registerlist_20 .box1 ul li span{
+	font-size: 1.6rem;
+	color:#f6416c;
+	cursor: pointer;
+}
+.registerlist_20 .box1 ul li span.add{
+	float: left;
+}
+.registerlist_20 .box1 ul li span.del{
+	float: right;
+}
+.registerlist_22 .timediv>div{
+	width: 45%;
+}
+.registerlist_22 .timediv>p{
+	width: 10%;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	display: inline-block;
+	font-size: 1.8rem;
+}
+.registerlist_22 .dropdown-menu a{
+	padding: 2% 6%;
+}
+.registerlist_23 .daydiv{
+	height: 40px;
+	margin-top: 5%;
+}
+.registerlist_23 .box>p{
+	margin:2% 0 8%;
+}
+.registerlist_24 h6{
+	font-size: 1.6rem;
+	margin-top: 5%;
+}
+.registerlist_24 p,
+.registerlist_24 span.textpink,
+.registerlist_25 h5>span{
+	font-size: 1.6rem !important;
+}
+.registerlist_24 button.next,
+.registerlist_25 button.next{
+	margin:15% 0 0;
+}
+.registerlist_25 h5{
+	margin-top: 5%;
+}
+.registerlist_25 button.Right{
+	background: #fff;
+	border:1px solid #f6416c;
+	color: #f6416c;
+}
+.registerlist_25 button.Exit{
+	margin-right: 2%;
+}
+
+.registerlist_26 .register26_head{
+	overflow: hidden;
+}
+.registerlist_26 .register26_head button{
+	height: 40px;
+	border-radius: 0;
+	font-size: 2rem;
+	border:none;
+	cursor: pointer;
+	padding: 0 3%;
+	margin: 3%;
+	background: #fff;
+	border:1px solid #f6416c;
+	color: #f6416c;
+}
+.registerlist_26 .boxleft{
+	padding: 0;
+	position: relative;
+}
+.registerlist_26 .boxleft p{
+	font-size: 1.6rem;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color: #fff;
+	border-bottom: 12px solid #f6416c;
+	margin-bottom: 0;
+	padding:0 0 1% 5%; 
+}
+.registerlist_26 .boxright{
+	padding: 1% 5%;
+}
+.registerlist_26 .boxright button{
+	margin: 5% 5% 0 0;
+}
+.registerlist_26 .boxright button a{
+	color: #f6416c;
+	font-size: 2rem;
+}
+.registerlist_26 .boxright button:last-child{
+	background: #fff;
+	border:1px solid #f6416c;
+	color: #f6416c;
+}
+
+
+/*------------VerifyID-------------------------------------------------*/
+.VerifyID{
+	padding:3% 8%;
+}
+.VerifyID_content{
+	margin-top: 5%; 
+}
+.VerifyID_content button.next{
+	margin: 10% 0;
+}
+.VerifyID_content  h3{
+
+}
+
+.VerifyID_1 img{
+	width: 40px;
+}
+
+.VerifyID_2 h6{
+	margin-top: 5%;
+    font-family: RobotoBold; 
+	font-size: 1.4rem;
+}
+.VerifyID_2 h6 span{
+	margin-right:2%;
+}
+.VerifyID_2 button.next{
+	margin-top: 8%;
+}
+.VerifyID_2 .Recommend{
+	background: #f6416c;
+	color: #fff;
+	padding: 0.2% 2%;
+	margin-left: 2%;
+}
+.VerifyID_2 .btn-group{
+	width: 60%;
+}
+.VerifyID_3>p.text1{
+	margin: 3% 0;
+	font-size: 1.6rem;
+}
+.VerifyID_3>p.text2{
+	margin: 3% 0 0;
+	font-size: 1.6rem;
+}
+.VerifyID_3 .radio{
+	margin-top: 0;
+}
+.VerifyID_4 .divbox{
+	overflow: hidden;
+}
+.VerifyID_4 .divbox>div{
+	padding-left: 0;
+}
+.VerifyID_4 .divbox>div .photodiv{
+	width: 90%;
+	border:1px dashed #f6416c;
+	border-radius: 10px;
+	min-height: 230px;
+	margin-bottom: 5%;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+}
+.VerifyID_4 .divbox>div .photodiv input,
+.VerifyID_4 .divbox>div p input{
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+	position: absolute;
+	top:0;
+}
+.VerifyID_4 .divbox>div p{
+	font-size: 1.6rem;
+	position: relative;
+	cursor: pointer;
+}

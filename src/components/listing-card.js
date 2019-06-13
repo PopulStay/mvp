@@ -11,49 +11,76 @@ class ListingCard extends Component {
       category: "Loading...",
       name: "Loading...",
       price: "Loading...",
-      ipfsHash: null,
       lister: null,
       descriptioninfo:{},
-      previewurl:""
+      previewurl:"",
+      Progress:0,
+      Progresshide:0,
     }
   }
 
   componentDidMount() {
 
+    var descriptioninfo;
     var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.row.id);
+    var houseInfoDetailPromise ;
+    houseInfoDetailPromise = ipfsService.getListing(ipfsHash);
+    houseInfoDetailPromise.then((result)=>{
+      descriptioninfo = result;
+      this.setState({title:descriptioninfo.roomdescription_title});
+    }).catch((error) => {
+      console.error(error);
+    });
     // houselistingService.getHouseInfoDetail(this.props.row)
     // .then((result) => {
     //     var roominfo = JSON.parse(result[4]);
     //     this.setState({price:result[0],category:roominfo.category,location:roominfo.location,beds:roominfo.beds});
     //     return 
+
+    //var ipfsHash = houselistingService.getIpfsHashFromBytes32(this.props.row.id);
+
     var roominfo = this.props.row.houseinfo;
+    if(roominfo){
+      this.setState({Progress:this.state.Progress+100})
+      this.timerID = setTimeout(
+        () => this.setState({Progresshide:1}),
+        1000
+      );
+    }
     this.setState(
     {
       price:this.props.row.price,
       category:roominfo.category,
-      location:roominfo.location,
-      beds:roominfo.beds
+      location:roominfo.location
     });
-    ipfsService.getListing(ipfsHash)
-        .then((result)=>{
-          var descriptioninfo = JSON.parse(result);
-         this.setState({descriptioninfo:descriptioninfo});
-         if(descriptioninfo.selectedPictures && descriptioninfo.selectedPictures.length>0 && descriptioninfo.selectedPictures[0].imagePreviewUrl)
-         {
-          this.setState({previewurl:descriptioninfo.selectedPictures[0].imagePreviewUrl});
-          console.log(this.state.previewurl);
-         }
 
-    }).catch((error) => {
-      console.error(error);
-    });
+    if( this.props.row.id )
+    {
+      houselistingService
+      .getHouseInfoById(this.props.row.id)
+      .then((res)=>{
+            this.setState({previewurl: res.profile.previewImage });
+
+
+      });
+
+
+    }
+      
+    // if( this.props.row.profile )
+    // {
+    //   this.setState({previewurl: this.props.row.profile.previewImage });
+    // }
+  
   }
   render() {
     return (
-      <div className="col-12 col-md-6 col-lg-4 listing-card">
         <Link to={`/listing/${this.props.row.id}`}>
-          <img className="photo" src={this.state.previewurl} role="presentation" />
-          <div className="category">{this.state.category} ({this.state.beds} beds)</div>
+          <div className={this.state.Progresshide == 1 ? "Progress hide" : "Progress"}><p style={{width:this.state.Progress+"%"}}></p></div>
+          <div className="photo" style={this.state.previewurl == '' ? {background:"#fafafa"}:{backgroundImage:"url("+this.state.previewurl+")"}}>
+          <img className={this.state.previewurl == '' ? 'show' : 'hide'} src="/images/loader.gif" />
+          </div>
+          <div className="category">{this.state.title == '' ? '....' : this.state.title}</div>
           <div className="title">{this.state.location}</div>
           <div className="price">
               ￥{Number(this.state.price).toLocaleString(undefined, {minimumFractionDigits: 3})} pps per night
@@ -66,8 +93,6 @@ class ListingCard extends Component {
             <span>200</span> 
           </div>
         </Link>
-        <br/><br/>
-      </div>
     )
   }
 }
